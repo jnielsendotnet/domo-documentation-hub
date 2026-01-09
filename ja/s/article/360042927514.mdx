@@ -1,0 +1,170 @@
+---
+title: "X Adsコネクター"
+---
+
+## はじめに
+
+X Adsとは、まだ自社をフォローしていない潜在的な顧客に
+
+メッセージをツイートし、リーチを広げる広告サービスです。DomoのX Adsコネクターを使用すると、アカウント、キャンペーン、資金調達、行項目、ツイートの統計情報データを取得することができます。X APIの詳細については、Xのドキュメント（ [https://developer.x.com/en/docs](https://developer.twitter.com/en/docs "https://developer.x.com/en/docs") ）を参照してください。
+
+X Adsコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+このトピックでは、X Adsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用すると、X Adsを使用しているインプレッションや、自身のリーチの状況を確認できます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> エンゲージメントの合計数 </p></li><li><p> インプレッションの合計数 </p></li><li><p> リツイートの合計数 </p></li><li><p> 返信の合計数 </p></li><li><p> 「いいね」の合計数 </p></li><li><p> フォローの合計数 </p></li><li><p> お気に入りやその他のエンゲージメントなどのクリックの合計回数 </p></li><li><p> 正当なインプレッションの合計数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"> すべてのマーケティング権限 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分以下 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* **［Append］**
+  の代わりに **［Replace］** を使用するDataSetを作成し、1回当たり過去3〜7日間のデータのみを取得します。
+* 再帰的DataFlowを使用してデータの重複排除と追加を行います。詳細については、「
+  [再帰的/スナップショットのMagic ETL DataFlowを作成する](/ja/s/article/360043428113 "再帰的/スナップショットのMagic ETL DataFlowを作成する") 」を参照してください。
+* 過去のプロモツイートの統計情報を収集し、最新のツイートデータで更新するには、以下のステップに従います。
+
+  1. 新しいX Ads DataSetを作成します。
+       
+  <Tip>
+     **ヒント：** 必要に応じてここに記載されていない多数の設定を追加できます。2つの異なるレポート（Promoted Tweet Statistics v.1とRecent Promoted Tweets Statistics v.1）を選択することに注意してください。これらの両方の設定が一致していることを確認してください。
+
+  </Tip>
+
+  2. 最初に実行するコネクターを設定します。次のように設定してください。
+     1. **［Report］**
+        で［Promoted Tweets Statistics v.1］を選択します。
+     2. レポートは過去90日間のデータを取得するようにします。コネクターによってデータの期間は90日間に制限されます。それ以上の期間のデータが必要な場合は、過去の日付を選択した後、この日付から90日間を選択し、［Append］を使用してレポートを実行します。次の90日間を選択し、再度［Append］を使用してDataSetを実行します。この操作を必要な過去データがすべて収集されるまで繰り返し行います。
+
+  3. 設定を保存します。
+  4. コネクターは［Replace］ではなく［Append］を使用してスケジュールします。
+  5. コネクターを実行します。
+  6. 実行が完了したら、2回目の実行時に次のようにコネクターを再設定します。
+
+     1. **［Report］**
+        で［Recent Promoted Tweets Statistics v.2］を選択します。
+     2. **［Tweets Selection Window］**
+        で **［Past 3 Months］** を選択します。
+     3. レポートの期間は、昨日のデータを取得するようにします。
+
+     <Note>
+        **注記：** その他の設定は、最初に実行したときの設定と一致させる必要があります。唯一の違いは、選択するプロモツイートがないことです。このレポートでは、昨日アクティビティがあったすべてのプロモツイートに関するツイートアクティビティが取り込まれるためです。
+
+     </Note>
+
+  7. 設定を保存します。
+  8. スケジュールが［Append］に設定されていることを確認します。
+  9. コネクターで次のスケジュールを実行します。明日実行することで、前日の最新のツイートアクティビティを収集できます。
+       
+     プロモツイートの履歴を選択し、昨日のプロモツイートのアクティビティを収集するようにDataSetを設定しました。これらのアクティビティは収集した履歴に追加されます。
+
+## 必要条件
+
+X Adsアカウントに接続してX Ads DataSetを作成するには、以下が必要です。
+
+* X Adsアカウントにログインするために使用するXアカウント。
+* Xアカウントへのログインに使用するパスワード
+
+## X Adsアカウントに接続する
+
+このセクションでは、X Adsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページ内のほかのペインに含まれるコンポーネントである **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+Domo X AdsコネクターはX Adsへの接続にOAuthを使用しています。 **［接続］** をクリック（またはDomoにX Adsアカウントがある場合は **［アカウントを追加］** を選択）して、X AdsのOAuth画面を開き、Xアカウントに関連付けられている認証情報を入力します。有効なX認証情報を入力しておくと、Domoで随時同じアカウントを使用してX Ads DataSetを作成できます。
+
+コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [ユーザーグループの作成と管理](/ja/s/article/360042934294 "ユーザーグループの作成と管理") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインにはメインメニューの **［Report］** のほか、選択したレポートに応じて表示されるその他のメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> X Adsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Account Media </td><td colspan="1" rowspan="1"> 指定アカウントに関連付けられているすべてのアカウントメディアの詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Account Statistics </td><td colspan="1" rowspan="1"> 指定したアカウントで実行されたキャンペーンに関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Campaigns </td><td colspan="1" rowspan="1"> 指定したアカウントで実行されたすべてのキャンペーンを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Funding Instruments </td><td colspan="1" rowspan="1"> 指定したアカウントのすべての資金調達を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Line Items </td><td colspan="1" rowspan="1"> 指定したアカウントのすべての行項目を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Promoted Tweets </td><td colspan="1" rowspan="1"> 指定したアカウントのすべてのプロモツイートを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Reach </td><td colspan="1" rowspan="1"> 指定したキャンペーンのリーチと平均頻度の分析を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Statistics </td><td colspan="1" rowspan="1"> 指定したアカウントで実行されたキャンペーンに関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Funding Instruments Reach </td><td colspan="1" rowspan="1"> 指定した資金調達のリーチと平均頻度の分析を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Funding Instruments Statistics </td><td colspan="1" rowspan="1"> 指定したアカウントの特定の資金調達に関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Line Item Statistics </td><td colspan="1" rowspan="1"> 現在のユーザーがアクセスできる行項目に関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Media Creatives </td><td colspan="1" rowspan="1"> 指定したアカウントに関連付けられているメディアクリエイティブの詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Media Creatives Statistics </td><td colspan="1" rowspan="1"> 指定したアカウントの特定のメディアクリエイティブに関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Media Library </td><td colspan="1" rowspan="1"> アカウントに関連付けられているメディアライブラリオブジェクトの詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Organic Tweet Statistics </td><td colspan="1" rowspan="1"> 現在のユーザーがアクセスできるプロモツイートに関する分析のオーガニックサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Promoted Tweet Statistics </td><td colspan="1" rowspan="1"> 現在のユーザーがアクセスできるプロモツイートに関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Reach Estimate（廃止） </td><td colspan="1" rowspan="1"> 指定したアカウントのキャンペーンの推定リーチを判別します。 <br/> このレポートは、2020年9月1日以降は利用できなくなりました。 </td></tr><tr><td colspan="1" rowspan="1"> Recent Organic Tweet Statistics </td><td colspan="1" rowspan="1"> 現在のユーザーがアクセスできる最近のプロモツイートに関する分析のオーガニックサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Recent Promoted Tweet Statistics </td><td colspan="1" rowspan="1"> 現在のユーザーがアクセスできる最近のアクティブプロモツイートに関する分析のサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Tweets </td><td colspan="1" rowspan="1"> アカウントのツイートの詳細を取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"><p> データをクエリするX Adsアカウントを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 1日のデータを取得するか、日付範囲を指定してデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"> 特定の日付のデータを取得するか、日数を遡ってデータを取得するかを指定します（オフセット）。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> データを取得する日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back </td><td colspan="1" rowspan="1"> 何日間遡った日をデータの取得日とするかを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付に特定の日付を設定するか、遡る日数を設定するかを指定します（オフセット）。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Start Date </td><td colspan="1" rowspan="1"> 日付範囲の開始日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"> 日付範囲の最後の日付に特定の日付を設定するか、遡る日数を設定するかを指定します（オフセット）。 </td></tr><tr><td colspan="1" rowspan="1"> Specific End Date </td><td colspan="1" rowspan="1"> 日付範囲の終了日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back to Start From </td><td colspan="1" rowspan="1"> 日付範囲の開始日まで遡る日数（オフセット）を入力します。例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」と入力した場合、レポートを実行すると、10日前から5日前までのデータが取得されます。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back to End At </td><td colspan="1" rowspan="1"> 日付範囲の終了日までの日数（オフセット）を入力します。例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」と入力した場合、レポートを実行すると、10日前から5日前までのデータが取得されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Granularity </p></td><td colspan="1" rowspan="1"><p> 必要な粒度を選択します。例えば、粒度が <b> ［Hour］ </b> の場合、 <b> ［Start Date］ </b> から <b> ［End Date］ </b> の範囲内のデータが時間ごとに表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segmentation Type </p></td><td colspan="1" rowspan="1"><p> 必要なセグメントのタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Placement </p></td><td colspan="1" rowspan="1"><p><span> 利用可能なオプションから必要なプレースメントを選択します。 </span></p><p><span> 例えば、プレースメントが </span><b> ［ALL ON X］ </b><span> の場合、データはXで利用可能なすべてのプレースメントタイプで表示されます。プレースメントが </span><b> ［Publisher Network］ </b><span> の場合、データはXオーディエンスプラットフォームで表示されます。 </span><b> ［Total］ </b><span> は、［Publisher Network］と［All On X］の両方の結果を合計します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Country </p></td><td colspan="1" rowspan="1"><p><span> データを返す国を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Platform </p></td><td colspan="1" rowspan="1"><p><span> データを返すプラットフォームを選択します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="オーガニック（非プロモート）ツイートのエンゲージメントメトリクスを取得するにはどうすればよいですか？">
+
+
+まだプロモートされていないツイートのエンゲージメントメトリクスを取得するには、X Engagement APIを使用するX Engagementコネクターを使用する必要があります。
+  
+X Engagement APIは、XのエンタープライズレベルのAPIの1つです。このAPIを使用する場合、企業はXとの契約に署名する必要があります。Xとの契約を締結してこのAPIにアクセスする方法および詳細については、 [X Enterpriseデータ](https://developer.twitter.com/en/products/twitter-api/enterprise "X Enterpriseデータ") を参照してください。
+  
+お客様がX Engagement APIにアクセスできるようになったら、アカウントエグゼクティブまたはカスタマーサクセスマネージャーにご連絡ください。Domoインスタンスのコネクターにアクセスできるようにします。
+
+
+</Accordion>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+X AdsコネクターのベースURLは、
+https://ads-api.X.com/で
+す。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイント（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Account Media </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/account_media </td></tr><tr><td colspan="1" rowspan="1"> Account Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=ACCOUNT </td></tr><tr><td colspan="1" rowspan="1"> All Campaigns </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/campaigns </td></tr><tr><td colspan="1" rowspan="1"> All Funding Instruments </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/funding_instruments </td></tr><tr><td colspan="1" rowspan="1"> All Line Items </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/line_items </td></tr><tr><td colspan="1" rowspan="1"> All Promoted Tweets </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/promoted_tweets?with_deleted=true </td></tr><tr><td colspan="1" rowspan="1"> Campaign Reach </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;/reach/campaigns </td></tr><tr><td colspan="1" rowspan="1"> Campaign Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=CAMPAIGN </td></tr><tr><td colspan="1" rowspan="1"> Funding Instruments Reach </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;/reach/funding_instruments </td></tr><tr><td colspan="1" rowspan="1"> Funding Instruments Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=funding_instruments </td></tr><tr><td colspan="1" rowspan="1"> Line Item Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=LINE_ITEM </td></tr><tr><td colspan="1" rowspan="1"> Media Creatives </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/media_creatives </td></tr><tr><td colspan="1" rowspan="1"> Media Creatives Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=MEDIA_CREATIVES </td></tr><tr><td colspan="1" rowspan="1"> Media Library </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/media_library </td></tr><tr><td colspan="1" rowspan="1"> Organic Tweet Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=ORGANIC_TWEET </td></tr><tr><td colspan="1" rowspan="1"> Promoted Tweet Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=PROMOTED_TWEET </td></tr><tr><td colspan="1" rowspan="1"> Reach Estimate（廃止） </td><td colspan="1" rowspan="1"> /6/accounts/&#123;account_id&#125;/reach_estimate </td></tr><tr><td colspan="1" rowspan="1"> Recent Organic Tweet Statistics </td><td colspan="1" rowspan="1"> /10/stats/accounts/&#123;account_id&#125;?entity=ORGANIC_TWEET </td></tr><tr><td colspan="1" rowspan="1"> Recent Promoted Tweet Statistics </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;?entity=PROMOTED_TWEET </td></tr><tr><td colspan="1" rowspan="1"> Tweets </td><td colspan="1" rowspan="1"> /10/accounts/&#123;account_id&#125;/tweets </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+あなたのXアカウントに関連するメールアドレスまたはXハンドルとパスワードが必要です。
+
+
+</Accordion>
+<Accordion title="X認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、Domoによって認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="このコネクターをセットアップするために、特定の種類のアカウントは必要ですか？">
+
+
+広告アカウントが必要です。広告アカウントは「 [ads.X.com](http://ads.X.com) 」で登録できます。1つの広告アカウントに複数のXユーザーアカウントを関連付けることができます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+ほとんどの情報はすぐに利用できます。DataSet設定は、24時間ごとに実行することを推奨します。
+
+
+</Accordion>
+<Accordion title="同一のXアカウントを複数のDataSetに使用できますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="DataSetが実行時に新しい行を返さないのはなぜですか？">
+
+
+このような状況は通常、コネクターが返すデータがない場合に発生します。開始日以降にアカウントでアクティビティ（新しいツイート、リツイートなど）がない場合に、最も頻繁に発生します。
+
+
+</Accordion>
+<Accordion title="レポートの実行に時間がかかるのはなぜですか？これは正常な動作ですか？">
+
+
+一部のレポートは、実行に非常に時間がかかることがあります。一部のレポートでは、複数のレベルのデータを読み取り、各ステップでXに対して複数の呼び出しを行う必要があります。全期間のすべてのツイートを選択して実行すると、さらに時間がかかります。
+
+## トラブルシューティング
+
+トラブルシューティングは通常、認証情報に問題がないことを確認することから始まります。問題がない場合は、リクエストがタイムアウトしていないことを確認してください。全期間のすべてのツイートを選択して実行している場合、実行時間が長くなります。これらの問題が発生している場合は、取得するツイートの数や期間を調整してください。
+
+
+
+</Accordion>
+</AccordionGroup>

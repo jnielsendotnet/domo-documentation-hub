@@ -1,0 +1,115 @@
+---
+title: "Facebook Adsコネクター"
+---
+
+## はじめに
+
+マーケティングのエキスパートは、様々なオーディエンスにリーチできるようにターゲットを絞った広告を作成し、業務目標を達成するためにFacebook Adsを活用しています。DomoのFacebook Adsコネクターを使用すると、アカウント、キャンペーン、経費など、広告の各種要素に関するレポートを編集することができます。Facebook APIについて詳しくは、ウェブページ（ [https://developers.facebook.com/docs/marketing-apis](https://developers.facebook.com/docs/marketing-apis "https://developers.facebook.com/docs/marketing-apis") ）を参照してください。
+
+拡張バージョンのFacebook Adsコネクターでは、この簡易バージョンのFacebook Adsコネクターよりも多くのレポートを処理できますが、その分設定項目も多くなります。拡張バージョンの詳細については、「 Facebook Ads Advancedコネクター 」を参照してください。
+
+Facebookアカウントには、Data Centerから接続します。このトピックでは、Facebook Adsコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 個々の広告を表示するユーザーの数をトラッキングする </p></li><li><p> 各キャンペーンでリーチするユーザーの数をトラッキングする </p></li><li><p> キャンペーンでどれだけの費用がかかったかをトラッキングする </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> リーチ </p></li><li><p> 支出 </p></li><li><p> リード1人当たりのコスト </p></li><li><p> 獲得リード数 </p></li><li><p> インプレッション数 </p></li><li><p> クリック数 </p></li><li><p> 1クリック当たりのコスト </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> デジタルマーケター </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1～2時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* このコネクターを使用して、費用、リーチ、1クリック当たりのコスト、インプレッション数など、基本的な情報を取得することができます。カスタマイズ用のオプションはそれほど多くありません。より詳細で複雑なレポートを作成する場合は、
+  Facebook Ads Advancedコネクター を使用する必要があります。
+* 非常に長い日付範囲を指定した場合や、非常に多くのキャンペーンや広告が含まれているアカウントを選択した場合、このコネクターの実行時間がかなり長くなる可能性があります。選択されたメトリクスをFacebookで計算する際に時間がかかる場合は、このコネクターの実行時間も長くなります。DataSetの処理に時間がかかる場合や処理が完了しない場合は、日付の範囲を短くする必要があります。
+
+## 必要条件
+
+Facebookに接続してFacebook Ads DataSetを作成するには、以下のものが必要になります。
+
+* Facebookアカウントに関連付けられているメールアドレス、または電話番号
+* Facebookのパスワード
+* 自社のFacebook Adsアカウントへのアクセス権限
+
+## Facebookアカウントにアクセスする
+
+このセクションでは、Facebook Adsコネクターページの ［認証情報］ ペインと ［詳細］ ペインに表示されるオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo Facebook AdsコネクターはOAuthを使用して接続を行うため、Domoで認証情報を入力する必要はありません。 **［接続］** をクリックすると（または、Domo内でFacebook Adsアカウントが既に作成されている状態で **［アカウントを追加］** を選択すると）、Facebookの認証情報を入力するためのFacebook OAuth画面が表示されます。有効なFacebook認証情報を入力すると、それ以降は新しいFacebook Ads DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続の際に既にFacebookにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしたのと違うアカウントにアクセスしたい場合は、まずFacebookからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するFacebook Adsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> FBAds PreBuilt Report </p></td><td colspan="1" rowspan="1"><p> DomoのFacebook広告向けの無料作成済みレポートは、アカウント、キャンペーン、広告グループ、広告レベルのレポートなど、広告のパフォーマンスを包括的に分析したものです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Metrics </p></td><td colspan="1" rowspan="1"><p> キャンペーンレベルで一般的に使用されるインサイトのメトリクスが返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Actions (Ad Sets) </p></td><td colspan="1" rowspan="1"><p> ページ上での操作と投稿操作に関するインサイトが広告セットレベルで返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Actions (Ads) </p></td><td colspan="1" rowspan="1"><p> 広告レベルでのページと投稿のインタラクションに関連するインサイトを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Placement Metrics </p></td><td colspan="1" rowspan="1"><p> 一般的なメトリクスが、キャンペーンレベルで画面の配置別に返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Responder Demographics </p></td><td colspan="1" rowspan="1"><p> 一般的なメトリクスが、広告レベルで年齢別と性別別に返されます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Ad Set </td><td colspan="1" rowspan="1"> データの取得元となる広告セットを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Account ID </p></td><td colspan="1" rowspan="1"><p> 情報の取得元となる広告アカウントのIDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Campaign </p></td><td colspan="1" rowspan="1"><p> 情報の取得元となる広告キャンペーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad </p></td><td colspan="1" rowspan="1"><p> データの取得元となる広告を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Increment </td><td colspan="1" rowspan="1"><p> データを分割する時間範囲を選択します。 </p><p> 以下に、Facebook Adsユーザーインターフェースに表示される項目にもとづいて <b> ［Time Increment］ </b> に入力する必要がある値を示します。 </p><table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"> Facebook Ads UI </th><th colspan="1" rowspan="1"> ［Time Increment］の値 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> No time breakdown </td><td colspan="1" rowspan="1"> 空白または <span class="mt-font-courier-new"> ［all_days］ </span></td></tr><tr><td colspan="1" rowspan="1"> Monthly breakdown </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> monthly </span></td></tr><tr><td colspan="1" rowspan="1"> Weekly breakdown </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> 7 </span></td></tr><tr><td colspan="1" rowspan="1"> Daily breakdown </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> 1 </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 1日分のデータを取得するのか、日付の期間を指定してデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付でレポートデータを取得するのか、相対的な日付でレポートデータを取得するのかを指定します。現在の日付から特定の日数を遡ってレポートデータを取得する場合は、 <b> ［Days Back］ </b> で日数を指定して <b> ［Relative］ </b> を選択します。例えば、 <b> ［Days Back］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力し、DataSetを毎日更新するように設定した場合、日が更新されるたびにその日から5日前の日付の情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> 日付セレクターを使ってレポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。現在の日付から特定の日数を遡ってレポートデータを取得する場合は、 <b> ［Days Back to Start From］ </b> で日数を指定して <b> ［Relative］ </b> を選択します。ここで <b> ［Relative］ </b> を選択した場合、 <b> ［End Date］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Days Back to End At］ </b> を指定する必要があります。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」を入力し、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力し、そのDataSetを毎日更新するように設定した場合、日が更新されるたびにその日の5日前から10日前までの情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最終日を、特定日付とするか相対日付とするかを指定します。現在の日付から特定の日数を遡ってレポートデータを取得する場合は、 <b> ［Days Back to End At］ </b> で日数を指定して <b> ［Relative］ </b> を選択します。ここで <b> ［Relative］ </b> を選択した場合、 <b> ［Start Date］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Days Back to Start From］ </b> を指定する必要があります。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」を入力し、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力し、そのDataSetを毎日更新するように設定した場合、日が更新されるたびにその日の5日前から10日前までの情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付セレクターを使用して、日付範囲の開始日を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付セレクターを使用して、日付範囲の終了日を選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ヒントとコツ
+
+### 統計情報を集計する
+
+より詳細なレベルの情報を確認する場合に、Custom Insightsレポートを使用したくなることがよくあります。例えば、DataSetには複数のキャンペーンに関する日次メトリクスが記録されます。そのため、すべてのキャンペーンの日次データを合計して、キャンペーンのアカウントの合計値を確認することができます。また、クリック数、費用、インプレッション数などの各種メトリクスを確認することができます。しかしこの方法では、個々のユーザーに関するメトリクス（「リーチ」など）で正しくない値が生成されます。例えば「リーチ」というメトリクスの場合、広告を表示したユーザー数が毎日カウントされるため、不正確な値になります。さらに、毎月のリーチ数を合計すると、同じユーザーが複数回カウントされることになります。この集計結果をFacebook Adsユーザーインターフェースの月次結果と比較すると、集計結果の方がはるかに大きな値になります。Facebook Adsユーザーインターフェースでは、閲覧ユーザーは指定の期間内に1回だけカウントされ、重複する閲覧ユーザーはカウントされません。
+
+この問題を回避するには、値の集計期間をDataSet内で定義し、それ以降はカウントしないようにする必要があります。特定の月のリーチ数をカウントする場合は、その月の開始日と終了日をDataSetで定義し、 **［Time Increment］** の値を ［all\_days］ に設定するか空白のままにする必要があります。長期間にわたって値を集計する場合は（2016年1月1日～2016年12月31日など）、 **［Time Increment］** の値を ［monthly］ に設定します。これにより、Facebookでの集計値と同じ値が表示されるようになります。同様に、アカウントレベルでリーチデータを収集する場合は、DataSetの **［Level］** の値を **［Campaigns］** ではなく **［Accounts］** に設定します。これにより、Domoで正しい値が集計されるようになります。
+
+コネクターによる集計結果をFacebook Adsユーザーインターフェースでの集計結果と比較すると便利な場合がよくあります。しかし正確に比較するためには、Facebook Ads UIの設定とコネクターの設定を一致させる必要があります。集計期間（開始日と終了日）だけでなく、レポートレベルと時間増加量の値も一致させる必要があります。
+
+## トラブルシューティング
+
+* ユーザーは会社のFacebook Adsアカウントにアクセスできるか
+* アカウント、キャンペーン、広告セット、広告に対して正しい期間が選択されているか
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのFacebook APIを使用しますか？">
+
+
+このコネクターはバージョン16のFacebook Marketing API（https://graph.facebook.com/v16 ）を使用します。
+
+
+</Accordion>
+<Accordion title="このコネクターをセットアップするために、特定の種類のアカウントは必要ですか？">
+
+
+関心のあるFacebook AdsアカウントにアクセスするためのFacebookアカウントが必要になります。アクセスレベルには、アナリスト、広告主、管理者という3つのレベルがあります。コネクター内でレポートを使用する場合は、アナリストレベルのアクセス権で十分です。
+
+
+</Accordion>
+<Accordion title="Facebook AdsコネクターとFacebook Ads Advancedコネクターの違いは何ですか？">
+
+
+Facebook Ads Advancedコネクターの場合、Facebook Adsコネクターと比べて、非常に多くのレポートとオプションが用意されています。最も大きな違いは、AdvancedコネクターにはCustom Insightsレポートが付属しているという点です。
+
+Facebook Adsコネクターは、簡単に使用できる一連の定義済みレポートから構成されています。様々なオプションを使用して柔軟にレポートを設定できるAdvancedコネクターを使用することを推奨します。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+このコネクターでは、ほぼリアルタイムでデータが更新されます。ただし、正確な値（閲覧回数など）はFacebookによって決定されるため、多くの統計情報について、更新内容が反映されるまで最大で3日かかります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+FacebookでAPIの呼び出しが制限されることがありますが、ユーザーがこれを気にする必要はありません。
+
+
+</Accordion>
+<Accordion title="Facebook Ads DataSetを実行すると時間がかかります。どうすれば実行速度が上がりますか？">
+
+
+Facebook Adsでは、クエリの結果を計算してからデータの取得が開始されるため、時間がかかります。サーバーの負荷によっては、さらに時間がかかる場合もあります。作業負荷が高くなる時間帯を避けてクエリを実行すると、DataSetの実行速度が上がる可能性があります。例えば、インドでFacebook AdsのDataSetを実行したところ、15分で完了しましたが、6～8時間後に別のユーザーが同じDataSetを実行したところ、完了までに約2時間かかりました。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,69 @@
+---
+title: "AWS Data Exchange for Burbioコネクター"
+---
+
+## はじめに
+
+AWS Data Exchangeを使用すると、クラウド内のサードパーティのデータの検索、サブスクライブ、使用が簡単になります。カテゴリーを代表するブランドを含む、経験豊かなデータプロバイダーからのDataSetにアクセスできます。年間220万本以上の個別のニュース記事を複数の言語でキュレーションしているロイター、年間140億件以上のヘルスケア業務と1兆ドル以上の請求を処理し匿名化しているChange Healthcare、3億3,000万件以上の世界中のビジネスレコードのデータベースを管理しているDun & Bradstreet、2億2,000万人の個別の消費者と世界中の6,000万ヶ所以上の商業施設から位置データを取得しているFoursquareなどです。DomoのData Exchangeコネクターを使用すると、Amazon S3バケットからデータをDomoにインポートできます。Domoのビジネスソリューションを可視化し作成する機能と、AWSのパワフルなDataSetを組み合わせ、自分のデータと外部DataSetを組み合わせることで、価値の高いソリューションを作成できます。このコネクターは、サブスクライブして承認したAWS Data Exchange DataSetのみを一覧表示します。Amazon S3 APIについて詳しくは、製品ページ（ [http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+AWS Data Exchangeアカウントには、Data Centerから接続します。このトピックでは、AWS Data Exchangeコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AWS Data Exchangeアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** から確認できます。
+* アクセスキーの作成時に提供されたAWSシークレットキー。新しいシークレットキーは、AWS Consoleで生成することができます。
+
+AWSアクセスキーとシークレットキーにはAWS Data Exchangeへのフルアクセスも必要です。
+
+### 適切な権限が付与されたユーザーを作成する
+
+DomoでS3データに接続する前に、IAM Amazon Consoleで適切な権限を持つユーザーを作成する必要があります。
+
+**ユーザーを設定するには、以下の手順を実行します。**
+
+1. IAM Amazon Console（Identity and Access Management Amazon Console）で、
+**［Users］** をクリックします。
+
+2. **［Add User］** ボタンをクリックします。
+
+3. 新規ユーザーを追加し、次のオプションを設定します。
+
+a. **［Details］** ペインの **［Select AWS access type］** で **［Programmatic Access］** のボックスをチェックします。
+
+b. **［Permissions］** ペインで、 **［Attach existing policies directly］** を選択し、 **［AmazonS3FullAccess］** または **［AmazonS3ReadOnlyAccess］** のボックスをチェックします。
+  
+カスタマー管理ポリシーは *使用できません* 。
+
+c. **［Next: Tags］** ボタンをクリックしてタグを追加します。タグの追加はオプションです。
+
+d. **［Review］** ペインで、 **［Create User］** をクリックします。
+
+4. ユーザーを作成したら、Domoの
+**［認証情報］** ペインの中で使用するアクセスキーとシークレットキーをコピーします。
+
+## AWS Data Exchange アカウントに接続する
+
+このセクションでは、 AWS Data Exchange for Burbio コネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 AWS Data Exchange アカウントに接続する認証情報の入力フィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効な AWS Data Exchange 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい AWS Data Exchange for Burbio DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、AWS Data Exchange DataSetと、選択できるパラメーターが一覧表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> AWS Data Exchangeが利用可能なAWSリージョンを選択します。最新の詳細なリージョンのリストを入手するには、 <a href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/" target="_blank" title="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"> AWSリージョン別サービスリスト </a> にアクセスしてください。 </p></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> BurbioまたはCovid-19レポートのデータを取得するかどうかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> List Data Sets </td><td colspan="1" rowspan="1"> DataSetを選択します。このコネクターは、サブスクライブして承認したAWS Data Exchange DataSetのみを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> List DataSet Revisions </td><td colspan="1" rowspan="1"> 目的のDataSetの更新を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> List Revision Assets </td><td colspan="1" rowspan="1"> 目的の更新アセットを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> What asset type would you like to import? </td><td colspan="1" rowspan="1"> インポートして解析したいアセットのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するのに使用する引用文字を選択します（CSVの標準のデフォルトの引用文字は二重引用符です）。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> 希望するCSV引用文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するCSVエスケープ文字を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

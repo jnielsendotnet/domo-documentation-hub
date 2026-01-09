@@ -1,0 +1,42 @@
+---
+title: "Azure Synapse Partitionコネクター"
+---
+
+## はじめに
+
+Azure Synapse Analyticsを使用すると、ハイパフォーマンスでグローバルに利用可能な、安全なクラウドData Warehouseをすばやく実装できます。DomoのAzure Synapse Partition SQLコネクターを使用すると、AzureデータをDomoに取り込むことができます。Azureデータと、会社全体のその他のデータソースのデータを結合することで、会社を全体的に把握することができます。主要なメトリクスが変更された場合にリアルタイムに通知を行うカスタムアラートを設定し、ビジネスの意思決定をより迅速かつ的確に行えるようにできます。
+
+Azure Synapse Partitionアカウントには、Data Centerから接続できます。このトピックでは、Azure Synapse Partitionコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Azure Synapse Partitionアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* JDBCドライバーバージョンを選択する
+* サーバー名
+* データベース名
+* ポート番号
+* ユーザー名とパスワード
+* 証明書のホスト名
+
+## Azure Synapse Partitionアカウントに接続する
+
+このセクションでは、Azure Synapse Partitionコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Azure Synapse Partitionアカウントに接続する認証情報の入力フィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p><b><span class="s1"> フィールド </span></b></p></th><th colspan="1" rowspan="1"><p><b><span class="s1"> 説明 </span></b></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBC Driver Version </td><td colspan="1" rowspan="1"> JDBCドライバーバージョンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Server Name </td><td colspan="1" rowspan="1"><p> Azureポータルに移動します。［Azure Synapse Analytics］をクリックします。接続するSynapse SQL Poolをクリックします。フルサーバー名を探します。例： <b><a href="http://yourserver.database.windows.net" rel="noopener" target="_blank"> yourserver.database.windows.net </a></b></p></td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> ポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> ユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> パスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> HostNameInCertificate </td><td colspan="1" rowspan="1"> ［show database connection strings］から取得したhostNameInCertificateを入力します。 </td></tr></tbody></table>
+
+有効なAzure Synapse Partition認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAzure Synapse Partition DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"> パーティション条件を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Schema Name </td><td colspan="1" rowspan="1"> スキーマ名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> データベーステーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Date Key Column Name </td><td colspan="1" rowspan="1"> 日付のキーのパーティション列名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> 日付以外のキーのパーティション列名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Meta Query to determine partition tags </td><td colspan="1" rowspan="1"> パーティションタグ（キー）を指定するためのパーティションメタクエリを入力します。 <b> 例： </b> SELECT DISTINCT(DATE_COLUMN_NAME) FROM TABLENAME この例では、 <b> DATE_COLUMN_NAME </b> はパーティション列で、テーブルからの個別の値はキーです。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"> パーティションのフォーマットを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Past Years </td><td colspan="1" rowspan="1"> データを取得する過去の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Future Years </td><td colspan="1" rowspan="1"> データを取得する未来の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Past Months </td><td colspan="1" rowspan="1"> データを取得する過去の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Future Months </td><td colspan="1" rowspan="1"> データを取得する未来の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> カスタマイズされた日付形式を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> 実行するクエリを入力します。 <br/><b> 注記： </b> サブクエリはパーティション分割に使用されます。ルールを読み、それに応じてクエリを作成します。 <br/> ルール： <a href="https://learn.microsoft.com/ja-jp/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules" target="_blank" title="https://learn.microsoft.com/ja-jp/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules"> https://learn.microsoft.com/ja-jp/sql/relational-databases/performance/subqueries?view=sql-server-ver16#rules </a></td></tr><tr><td colspan="1" rowspan="1"> Cast To Date </td><td colspan="1" rowspan="1"> パーティション列を <b> 日付 </b> タイプにキャストする場合は、このチェックボックスをオンにします。 </td></tr><tr><td colspan="1" rowspan="1"> Limit Buffer Size </td><td colspan="1" rowspan="1"> ResultBufferが使用する最大ヒープメモリを制限する場合は、このチェックボックスをオンにします。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

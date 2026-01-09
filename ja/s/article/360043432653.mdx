@@ -1,0 +1,45 @@
+---
+title: "Jobvite Connector"
+---
+
+## はじめに
+
+Jobvite の分析主導型リクルーティングソフトウェアは、応募者の追跡システム、ソーシャルリクルーティング、そしてモバイルソリューションにより、採用を迅速化します。 Domo の Jobvite Connector を使うと、候補者と募集に関するデータを取得できます。  Jobvite API に関する詳細は、Jobvite サポート担当者にお問い合わせください。
+
+<Note>
+**注記：** この Connector を作成するためのユーザーインターフェイスは、データセンターの Connector リストにまだ掲載されていません。つまり、自分で Connector を設定することはできません。 ただし、自分のデータを Domo に引き込むことができるよう、Domo では皆様の Connector を喜んで設定いたします。 CSM または Domo までいつでもお問い合わせください。 連絡先に関する情報は、 [ヘルプとサポート](/ja/s/article/360042922874 "ヘルプとサポート") を参照してください。
+</Note>
+
+Jobvite アカウントには、データセンターから接続します。 このトピックでは、Jobvite Connector ユーザーインターフェイスに固有のフィールドとメニューについて説明します。 DataSet の追加や更新スケジュールの設定、そして DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Jobvite アカウントに接続して DataSet を作成するには、以下が必要です：
+
+* Jobvite シークレットキー
+* Jobvite 会社 ID
+* Jobvite API キー
+
+これらの認証情報の入手については、Jobvite サポート担当者にお問い合わせください。
+
+## Jobvite アカウントに接続する
+
+このセクションでは、Jobvite Connector ページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する")
+
+でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、Jobvite アカウントに接続するための認証情報の入力フィールドがあります。 下表では、各フィールドに必要な内容を説明しています：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> シークレットキー </td><td colspan="1" rowspan="1"> Jobvite サポート担当者によって発行されたシークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 会社ID </td><td colspan="1" rowspan="1"> Jobvite サポート担当者によって発行された会社 ID を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> API キー </td><td colspan="1" rowspan="1"> Jobvite サポート担当者によって発行された API キーを入力します。 </td></tr></tbody></table>
+
+一度有効な Jobvite の認証情報を入力しておくと、いつでも同じアカウントを使用して新しい Jobvite DataSet を作成することができます。 Connector アカウントは、データセンターの **アカウント** タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニューの他、選択したレポートタイプに応じて表示／非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行したい Jobvite レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 候補者 </td><td colspan="1" rowspan="1"> 求職者が応募したジョブに関する求職者情報と募集レベルのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ジョブフィード </td><td colspan="1" rowspan="1"> 特定の会社の全ての募集に関する情報を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ワークフローの状態（オプション） </td><td colspan="1" rowspan="1"> フィルターするワークフローの状態を入力します。 例として、 <span class="mt-font-courier-new"> New </span> 、 <span class="mt-font-courier-new"> Offer Accepted </span> などがあります。 </td></tr><tr><td colspan="1" rowspan="1"><p> 期間 </p></td><td colspan="1" rowspan="1"><p> 特定の日付か、または日付範囲でデータを取得するか指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートの日付 </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 特定の日付 </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 遡る日数 </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始日 </p></td><td colspan="1" rowspan="1"><p> 日付範囲の第 1 日目が特定日付か相対日付かを指定します。 範囲の最後の日付を、 <b> 終了日 </b> として選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日 </p></td><td colspan="1" rowspan="1"><p> 日付範囲の 2 つ目の日付が特定の日か、相対日付かを指定します。 日付範囲の最初の日付を <b> 開始日 </b> として選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 特定の開始日 </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 特定の終了日 </p></td><td colspan="1" rowspan="1"><p> 日付範囲の 2 つ目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始日まで遡る日数 </p></td><td colspan="1" rowspan="1"><p> レポートで使用する日を、今日から最も古い日までを数えた日数で入力します。 <b> 終了日までの日数 </b> と組み合わせることで、範囲を作成することができます。 </p><p> 例えば、 <span class="mt-font-courier-new"> 開始日まで遡る日数 </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> 終了日まで遡る日数 </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて 10 日前から 5 日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日までの日数 </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> 開始日までの日数 </b> と組み合わせることで、範囲を作成することができます。 </p><p> 例えば、 <span class="mt-font-courier-new"> 開始日まで遡る日数 </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> 終了日まで遡る日数 </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて 10 日前から 5 日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> ジョブのステータス </td><td colspan="1" rowspan="1"> フィルターするジョブのステータスを選択します。 </td></tr></tbody></table>
+
+

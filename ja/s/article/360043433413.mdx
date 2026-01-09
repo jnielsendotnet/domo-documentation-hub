@@ -1,0 +1,54 @@
+---
+title: "IBM Informix SSHコネクター"
+---
+
+## はじめに
+
+IBM Informixは、高速でスケーラブルなデータベースサーバーであり、従来のリレーショナルデータベース、オブジェクトリレーショナルデータベース、ディメンションデータベースを管理できます。DomoのInformix SSHコネクターを使用すると、SQLクエリにもとづいてInformixデータを取得できます。Informixについての詳細は、ウェブサイト（ [https://www.ibm.com/analytics/us/en/...logy/informix/](https://www.ibm.com/jp-ja/analytics/us/en/technology/informix/ "https://www.ibm.com/jp-ja/analytics/us/en/technology/informix/") ）を参照してください。
+
+Informixファイルには、Data Centerから接続します。このトピックでは、Informixコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Informixアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SSHホスト名、ユーザー名、パスワード
+* SSHポート
+* データベースホスト名
+* データベース名
+* データベースポート番号
+* データベースのユーザー名とパスワード
+* Informixサーバー名
+
+Informixデータベースに接続する前に、以下のIPアドレスをデータベースサーバーの接続ポートでホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 コネクターのIPアドレスをホワイトリストに登録する 」を参照してください。
+
+<Note>
+**注記：**
+
+Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESキーまたはRSAキー（PEM形式）である必要があります。
+
+</Note>
+
+## Informixアカウントに接続する
+
+このセクションでは、Informixコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Informixアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Hostname </p></td><td colspan="1" rowspan="1"><p> UNIXサーバーのホスト名またはURL（SSHトンネル経由）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH User </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密キーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> Informixデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Informixデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port Number </p></td><td colspan="1" rowspan="1"><p> Informixのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> Informixユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> Informixパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Informix Server Name </p></td><td colspan="1" rowspan="1"><p> Informixサーバーの名前を入力します。 </p></td></tr></tbody></table>
+
+有効なInformix認証情報を一度入力しておくと、随時同じアカウントを使用して新しいInformix DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、SQLクエリを入力するためのメニューが1つあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Domoに入力するInformixデータのSQLクエリを入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

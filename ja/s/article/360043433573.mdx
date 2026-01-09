@@ -1,0 +1,40 @@
+---
+title: "Zabbixコネクター"
+---
+
+## はじめに
+
+Zabbixはネットワークおよびアプリケーションを監視するためのエンタープライズ向けオープンソースソフトウェアです。このソフトウェアを使用すると、様々なネットワークサービス、サーバー、その他ネットワークハードウェアを監視・追跡することができます。Zabbix APIの詳細については、ウェブページ（ [https://www.zabbix.com/documentation/3.0/manual/api](https://www.zabbix.com/documentation/3.0/manual/api "https://www.zabbix.com/documentation/3.0/manual/api") ）を参照してください。
+
+Zabbixアカウントには、Data Centerから接続します。このトピックでは、Zabbixコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください
+
+## 必要条件
+
+Zabbixアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Zabbixユーザー名とパスワード
+* ZabbixフロントエンドのホストURL
+
+## Zabbixアカウントに接続する
+
+このセクションでは、Zabbixコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Zabbixアカウントに接続する認証情報の入力フィールドが含まれています。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Zabbixユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Zabbixパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> ZabbixフロントエンドのホストURLを入力します。 </p></td></tr></tbody></table>
+
+有効なZabbix認証情報を一度入力しておくと、随時同じアカウントを使用して新しいZabbix DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するZabbixレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Actions </p></td><td colspan="1" rowspan="1"><p> 操作のリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Alerts </p></td><td colspan="1" rowspan="1"><p> アラートのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Applications </p></td><td colspan="1" rowspan="1"><p> アプリケーションのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Discovered Hosts </p></td><td colspan="1" rowspan="1"><p> 検出されたホストのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Discovered Services </p></td><td colspan="1" rowspan="1"><p> 検出されたサービスのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events </p></td><td colspan="1" rowspan="1"><p> イベントのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Graphs </p></td><td colspan="1" rowspan="1"><p> グラフのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> History </p></td><td colspan="1" rowspan="1"><p> 履歴データを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Hosts </p></td><td colspan="1" rowspan="1"><p> ホストのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host Groups </p></td><td colspan="1" rowspan="1"><p> ホストグループのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Items </p></td><td colspan="1" rowspan="1"><p> アイテムのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> IT Services </p></td><td colspan="1" rowspan="1"><p> ITサービスのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> IT Services SLA </p></td><td colspan="1" rowspan="1"><p> 可用性の情報を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maintenance </p></td><td colspan="1" rowspan="1"><p> メンテナンスのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Scripts </p></td><td colspan="1" rowspan="1"><p> スクリプトのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Triggers </p></td><td colspan="1" rowspan="1"><p> トリガーのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Templates </p></td><td colspan="1" rowspan="1"><p> テンプレートのリストを取得します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter By </p></td><td colspan="1" rowspan="1"><p> データのフィルターを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host Groups </p></td><td colspan="1" rowspan="1"><p> レポートに表示させたいホストグループを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host Names </p></td><td colspan="1" rowspan="1"><p> レポートに表示させたいホスト名を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> History Object Type </p></td><td colspan="1" rowspan="1"><p> 取得するデータの履歴オブジェクトタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Which Items </p></td><td colspan="1" rowspan="1"><p> レポート内の全アイテムのデータを表示するか、 <b> ［Items］ </b> メニューで選択したアイテムのみを表示するかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Items </p></td><td colspan="1" rowspan="1"><p> データを取得するアイテムを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付の範囲について取得するか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

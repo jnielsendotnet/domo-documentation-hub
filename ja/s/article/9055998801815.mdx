@@ -1,0 +1,39 @@
+---
+title: "Webex RESTコネクター"
+---
+
+## はじめに
+
+Cisco Webex RESTは、ビデオ会議、オンラインミーティング、スクリーン共有、ウェビナーのための主要エンタープライズソリューションです。Webex RESTは、Cisco Webexクラウドから安全性の高い統合オーディオ、ビデオ、コンテンツ共有を提供するオンラインコラボレーションプラットフォームです。DomoのWebex RESTコネクターを使用してWebexデータをDomoに接続することで、会議やコラボレーションの理解を深めることができます。Webex APIの詳細については、https://developer.webex.com/docs/api/getting-started を参照してください。
+
+## 必要条件
+
+Webexアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Webex ID
+* Webexパスワード
+* Webexサイト名
+
+## Webex RESTアカウントに接続する
+
+このセクションでは、Webexコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Webexアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Webex ID </td><td colspan="1" rowspan="1"> Webex IDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Webexパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Site Name </td><td colspan="1" rowspan="1"> Webexサイト名を入力します。 </td></tr></tbody></table>
+
+有効なWebex認証情報を一度入力しておくと、随時同じアカウントを使用して新しいWebex DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span class="s1"> Webex </span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Meetings </td><td colspan="1" rowspan="1"> 会議のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Attendees Summary </td><td colspan="1" rowspan="1"> 会議出席者のサマリーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Participants </td><td colspan="1" rowspan="1"> 選択した会議の参加者リストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Polls </td><td colspan="1" rowspan="1"> アンケートと質問のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Polls Results - Summary </td><td colspan="1" rowspan="1"> アンケートと回答のサマリーのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Polls Results with Respondents </td><td colspan="1" rowspan="1"> 回答者ごとの詳細な回答を含むアンケートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Usage </td><td colspan="1" rowspan="1"> 特定のサイトに関する全ユーザーの会議使用状況レポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Recording Audit Report </td><td colspan="1" rowspan="1"> すべての録画の録画監査レポートの詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Recording Audit Report (Admin) </td><td colspan="1" rowspan="1"> 管理者としてのすべての録画の録画監査レポートの詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Recordings </td><td colspan="1" rowspan="1"> 会議録画のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Recordings Admin </td><td colspan="1" rowspan="1"> 管理者としての会議録画のリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Bring Data For Specific Date Range? </td><td colspan="1" rowspan="1"><span> 特定の日付範囲のデータを取得するには［Yes］を選択します。すべてのデータを取得するには［No］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Meeting Key </td><td colspan="1" rowspan="1"><span> 1つ以上のミーティングキーを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Record ID </td><td colspan="1" rowspan="1"><span> 1つ以上のレコードIDを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使って特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date - Relative </td><td colspan="1" rowspan="1"> データの受信を開始する日を今日の日付から数えて相対的な数字を入力して選択します。例：開始日が昨日の場合は「1」、開始日が1週間前の場合は「7」、開始日が1ヶ月前の場合は「30」を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b> ［End Date］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Start Date］ </b> に「10」、 <b> ［End Date］ </b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b> ［Start Date］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Start Date］ </b> に「10」、 <b> ［End Date］ </b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

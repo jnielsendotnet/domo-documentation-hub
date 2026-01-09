@@ -1,0 +1,490 @@
+openapi: 3.0.0
+info:
+  title: Files API (Product)
+  version: v1
+  description: |
+    API for managing files in Domo's Data File Service, including uploads, revisions, metadata, downloads, and permissions.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+tags:
+  - name: Files
+    description: Operations for managing files and their revisions.
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication (Assumed based on similar APIs).
+  schemas:
+    #========= SHARED SCHEMAS =========
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+    EmptySuccessResponse:
+      type: object
+      description: An empty object indicating success.
+      example: {}
+      
+    #========= ID SCHEMAS =========
+    DataFileIdResponse:
+      type: object
+      properties:
+        dataFileId:
+          type: integer
+    RevisionIdResponse:
+      type: object
+      properties:
+        revisionId:
+          type: integer
+          
+    #========= METADATA/REVISION SCHEMAS =========
+    FileRevisionSchema:
+      type: object
+      description: Metadata for a specific file revision.
+      properties:
+        dataFileRevisionId:
+          type: integer
+        dataFileId:
+          type: integer
+        contentType:
+          type: string
+        uploadUserId:
+          type: integer
+        sizeBytes:
+          type: integer
+        uploadTimeMillis:
+          type: integer
+        md5Hash:
+          type: string
+        datetimeUploaded:
+          type: integer # Assuming epoch milliseconds based on example
+          format: int64
+        scanState:
+          type: string
+        sha256HashValue:
+          type: string
+          
+    FileMetadataSchema:
+      type: object
+      description: Metadata for a file, potentially including revision details.
+      properties:
+        dataFileId:
+          type: integer
+        name:
+          type: string
+        responsibleUserId:
+          type: integer
+        currentRevision:
+          $ref: '#/components/schemas/FileRevisionSchema'
+          description: Included if requested via 'expand'.
+        datetimeCreated:
+          type: integer # Assuming epoch milliseconds based on example
+          format: int64
+        revisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileRevisionSchema'
+          description: Included if requested via 'expand'.
+        existing:
+          type: boolean
+          
+    #========= PERMISSION SCHEMAS =========
+    FilePermissionEntrySchema:
+      type: object
+      properties:
+        entityType:
+          type: string
+          enum: [USER, GROUP] # Assuming GROUP is also possible
+        entityId:
+          type: string # IDs can be strings or numbers
+        grant:
+          type: string
+        pass:
+          type: string
+          
+    FilePermissionsSchema:
+      type: object
+      properties:
+        publicAccess:
+          type: boolean
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilePermissionEntrySchema'
+            
+security:
+  - developerToken: []
+
+paths:
+  /api/data/v1/data-files:
+    post:
+      summary: Upload a File
+      description: Uploads a new file and returns its unique identifier.
+      tags: [Files API (Product)]
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema: { type: string }
+          description: The name to be given to the file in Domo.
+        - name: description
+          in: query
+          schema: { type: string }
+          description: A description of the file.
+        - name: public
+          in: query
+          schema: { type: boolean }
+          description: Whether the permissions of the file are set to public (default true). Set to false to restrict.
+      requestBody:
+        required: true
+        description: The raw file content.
+        content:
+          application/octet-stream: # Representing direct file upload
+            schema:
+              type: string
+              format: binary
+          # Alternative: multipart/form-data if needed
+          # multipart/form-data:
+          #   schema:
+          #     type: object
+          #     properties:
+          #       file:
+          #         type: string
+          #         format: binary
+      responses:
+        '200':
+          description: Returns the ID of the created file.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/DataFileIdResponse' }
+        '401': { description: Unauthorized }
+
+  /api/data/v1/data-files/{dataFileId}:
+    put:
+      summary: Upload a File Revision
+      description: Adds another version of a file by its ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file to revise.
+      requestBody:
+        required: true
+        description: The raw file content for the revision.
+        content:
+          application/octet-stream:
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: Returns the revision id of the uploaded file revision.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RevisionIdResponse' }
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+        
+    get: # Added based on download logic
+      summary: Download a File (Current Revision)
+      description: Fetches the file contents of the current revision.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to download.
+        - name: filename # Changed from 'fileName' based on common practice
+          in: query
+          schema: { type: string }
+          description: The desired name for the downloaded file.
+      responses:
+        '200':
+          description: The file content.
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+        
+    delete:
+      summary: Delete a File
+      description: Permanently deletes a File from your instance by ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to delete.
+      responses:
+        '200':
+          description: OK. File deleted successfully.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessResponse' } # Assuming empty OK
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+
+  /api/data/v1/data-files/details:
+    get:
+      summary: Get All Files Metadata
+      description: Lists metadata for files the user has access to, with optional filters.
+      tags: [Files API (Product)]
+      parameters:
+        - name: userId
+          in: query
+          schema: { type: integer }
+          description: Limit files returned by owner's user ID.
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "Comma-separated properties to expand (e.g., 'revisions,metadata')."
+        - name: dataFileIds
+          in: query
+          schema: { type: string }
+          description: "Comma-separated list of File IDs to return."
+      responses:
+        '200':
+          description: An array of file metadata objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileMetadataSchema'
+        '401': { description: Unauthorized }
+
+  /api/data/v1/data-files/{dataFileId}/details:
+    get:
+      summary: Get File Metadata by ID
+      description: Lists the metadata for a specific file ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file.
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "Comma-separated properties to expand (e.g., 'revisions,metadata')."
+      responses:
+        '200':
+          description: The file metadata object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileMetadataSchema'
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+
+  /api/data/v1/data-files/{dataFileId}/revisions/{revisionId}/details:
+    get:
+      summary: Get Revision Metadata by ID
+      description: Lists the metadata for a specific file revision ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: revisionId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "Comma-separated properties to expand."
+      responses:
+        '200':
+          description: The file revision details object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileRevisionSchema'
+        '401': { description: Unauthorized }
+        '404': { description: File or Revision Not Found }
+
+  /api/data/v1/data-files/{dataFileId}/revisions/details:
+    get:
+      summary: Get All File Revisions by ID
+      description: Fetches the metadata for all existing revisions of a file.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "Comma-separated properties to expand."
+      responses:
+        '200':
+          description: A list of all revisions of the file.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileRevisionSchema'
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+        
+  # Note: Corrected Download Revision endpoint based on code example structure
+  /api/data/v1/data-files/{fileId}/revision/{revisionId}:
+    get:
+      summary: Download a File Revision
+      description: Fetches the file contents of a specific revision.
+      tags: [Files API (Product)]
+      parameters:
+        - name: fileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file.
+        - name: revisionId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the revision you wish to download.
+        - name: filename # Changed from 'fileName' based on common practice
+          in: query
+          schema: { type: string }
+          description: The desired name for the downloaded file.
+      responses:
+        '200':
+          description: The file content.
+          content:
+            application/octet-stream: # Generic binary type
+              schema:
+                type: string
+                format: binary
+        '401': { description: Unauthorized }
+        '404': { description: File or Revision Not Found }
+
+  /api/data/v1/data-files/copy/{sourceDataFileId}/revisions/current/{targetDataFileId}:
+    post:
+      summary: Copy/Move a File
+      description: Copies the current revision of a source file to replace a target file.
+      tags: [Files API (Product)]
+      parameters:
+        - name: sourceDataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: targetDataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Returns the new revision id for the target file.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/RevisionIdResponse' }
+        '401': { description: Unauthorized }
+        '404': { description: Source or Target File Not Found }
+
+  /api/data/v1/data-files/{dataFileId}/duplicate:
+    post:
+      summary: Duplicate a File
+      description: Creates a new file object as a duplicate of an existing one.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Returns the file metadata for the newly created duplicate.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/FileMetadataSchema' }
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+
+  /api/data/v1/data-files/{dataFileId}/revisions/{revisionId}:
+    delete:
+      summary: Delete a File Revision
+      description: Deletes a specific revision of a file by ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+        - name: revisionId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: OK. Revision deleted successfully.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessResponse' } # Assuming empty OK
+        '401': { description: Unauthorized }
+        '404': { description: File or Revision Not Found }
+
+  # Corrected path for permissions based on other /api/data endpoints
+  /api/data/v1/data-files/{dataFileId}/permissions:
+    get:
+      summary: Get File Permissions
+      description: Retrieve existing file permissions for a specific file by ID.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: The file's permission object.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/FilePermissionsSchema' }
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }
+        
+    put:
+      summary: Update file permissions
+      description: Updates permissions for a specified file.
+      tags: [Files API (Product)]
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+      requestBody:
+        required: true
+        description: A permissions object.
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/FilePermissionsSchema' }
+      responses:
+        '200':
+          description: OK. Permissions updated successfully.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/EmptySuccessResponse' } # Assuming empty OK
+        '401': { description: Unauthorized }
+        '404': { description: File Not Found }

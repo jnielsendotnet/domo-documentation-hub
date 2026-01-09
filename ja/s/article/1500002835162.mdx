@@ -1,0 +1,356 @@
+---
+title: "ElasticSearchコネクター"
+---
+
+## はじめに
+
+Elasticsearchとは、Elastic Stackの中心にある分散型検索アナリティクスエンジンです。このコネクターを使用すると、ElasticsearchのデータをDomoで可視化してインサイトを追加できます。DomoのElasticSearchコネクターを使用して、リクエストに定義されたクエリにマッチする検索ヒットを返します。データのリアルタイムのダッシュボードを、あらゆるデバイスから取得できます。Elasticsearch APIについて詳しくは、Webページ（ [https://www.elastic.co/guide/en/elas...est-apis.htmlL](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.htmlL "https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.htmlL") ）を参照してください。
+
+Elasticsearchアカウントには、Data Centerから接続します。このトピックでは、Elasticsearchコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」に記載があります。
+
+## 必要条件
+
+Elasticsearchアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Elasticsearchホスト名
+* Elasticsearchアカウントに関連付けられたユーザー名とパスワード
+
+## Elasticsearch アカウントに接続する
+
+このセクションでは、Elasticsearch コネクターページ の **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、
+
+Elasticsearch
+
+アカウントに接続する認証情報の入力フィールドが含まれています。以下の表は、各フィールドに必要な内容を説明しています 。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ フィールド 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Host 
+</td>
+
+<td colspan="1" rowspan="1">
+ Elasticsearch 
+<span class="s1">
+
+<span>
+
+</span>
+
+</span>
+ ホスト名を入力します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Username 
+</td>
+
+<td colspan="1" rowspan="1">
+ Elasticsearch 
+<span class="s1">
+
+<span>
+
+</span>
+
+</span>
+ アカウントに関連付けられたユーザー名を入力します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Password 
+</td>
+
+<td colspan="1" rowspan="1">
+ Elasticsearch 
+<span class="s1">
+
+<span>
+
+</span>
+
+</span>
+ アカウントに関連付けられたパスワードを入力します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+有効な Elasticsearch 認証情報を入力すると、それ以降は新しい Elasticsearch DataSetを作成する際に常に同じアカウントを使用できるようになります。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ メニュー 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポート 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 実行する 
+<span>
+ Elasticsearch 
+</span>
+ レポートを選択します。以下のレポートが利用できます。 
+</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ 集計 
+</td>
+
+<td colspan="1" rowspan="1">
+ リクエストで定義されたクエリにマッチする集計を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ 検索 
+</td>
+
+<td colspan="1" rowspan="1">
+ リクエストで定義されたクエリにマッチする検索結果を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ ページネーションで検索 
+</td>
+
+<td colspan="1" rowspan="1">
+ リクエストで定義されたクエリにマッチする検索結果を返します。このレポートを使用して10000以上の結果を取得します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ フィールド 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ データをソートするフィールド名を入力します。指定されていない場合はデフォルトで「_id」が使用されます。カスタムフィールド名の場合は、［クエリ］テキストボックスにカスタムフィールドを入力します。 
+</p>
+ 
+
+<Note>
+
+ 
+<div class="info-box-wrapper">
+
+<div class="info-box-icon-container">
+
+<span class="info-box-icon">
+
+</span>
+
+</div>
+
+<div class="info-box-content-container">
+
+<div class="info-box-content">
+
+<p>
+
+<b>
+ 注記： 
+</b>
+ ［クエリ］にソート配列のサポートが含まれていない場合、ソート配列にフィールド値が追加されます。 
+</p>
+
+</div>
+
+</div>
+
+</div>
+ 
+
+</Note>
+
+
+ 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ クエリ 
+</td>
+
+<td colspan="1" rowspan="1">
+ Luceneクエリ文字列構文内でクエリを実行します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ 索引 
+</td>
+
+<td colspan="1" rowspan="1">
+ リクエストを制限するために使用されるカンマで区切られたリスト、またはインデックス名のワイルドカード表現。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ サブリストを平面化する高度なオプションを使用する 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブリストを平面化する高度なオプションを使用するには、「はい」を選択します。「はい」を選択すると、プリミティブ配列が1つのセルに展開されます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ 平面化するサブリスト 
+</td>
+
+<td colspan="1" rowspan="1">
+ 平面化するデータのカンマ区切りのリストを入力します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ プリミティブ配列の区切り文字 
+</td>
+
+<td colspan="1" rowspan="1">
+ セルのプリミティブ配列の値を区切る区切り文字を選択します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについて詳しくは、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+

@@ -1,0 +1,110 @@
+---
+title: "Google BigQuery Enterprise Dataコネクター"
+---
+
+## はじめに
+
+Google BigQuery Enterpriseは、非常に大きな読み取り専用データを処理するためのクラウドベースのビッグデータ解析ウェブサービスです。DomoのGoogle BigQuery Enterprise Dataコネクターを使用して、特定のプロジェクトからデータを取得し、巨大なDataSetをインタラクティブに分析できます。Google BigQueryのクエリは、標準のSQL SELECTステートメントのバリエーションを使って記述されています。Google APIについて詳しくは、ウェブサイト（ [https://developer.google.com](https://developer.google.com/ "https://developer.google.com") ）を参照してください。
+
+Google BigQuery Enterprise DataアカウントにはData Centerから接続します。このトピックでは、Google BigQuery Enterprise Dataコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Google BigQuery Enterpriseアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* APIとサービスを有効にしてGoogle Developers Consoleで作成したプロジェクト
+* Google Developersアカウントに関連付けられたクライアントIDとクライアントシークレット
+
+次のステップでは、プロジェクトを作成して必要な認証情報を取得する方法について詳しく説明します。
+
+#### Google Developers Consoleでプロジェクトを作成する
+
+1. [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com") に移動します。
+2. **［My Project］** の横のドロップダウン矢印をクリックします。
+     
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. **［New Project］** をクリックします。
+     
+   <Frame><img alt="googlesheets_writeback_2.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5Z.png"/></Frame>
+
+4. プロジェクトに名前を付けて、親フォルダを選択します。
+5. **［Create］** をクリックします。
+
+   <Note>
+   **注記：** 必要に応じて既存のプロジェクトを使用することもできます。
+
+   </Note>
+
+#### OAuthクライアントIDとクライアントシークレットを作成する
+
+1. https://console.developers.google.com/ にログインします。
+
+2. プロジェクトを選択します。
+
+3. **［APIs & Services］>［Credentials］** の順に移動します。
+
+<Frame><img alt="clipboard_e2f41627fa6f73db016bc16ff40f8b82c.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5h.png"/></Frame>
+
+4. **［+Create credentials］>［OAuth client ID］** の順にクリックします。
+
+<Frame><img alt="clipboard_e7def711e8943bc1c4efbad251022993d.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5k.png"/></Frame>
+
+5. **OAuth client ID** を選択します。
+
+6. ドロップダウンから
+**［Application Type］** として **［Web application］** を選択します。
+
+<Frame><img alt="select_web_app.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5a.png"/></Frame>
+
+7. アプリケーションの名前を入力します。
+
+8. ****［Authorized redirect URIs］**** の下の ****［+Add URI］**** をクリックします。
+
+9. **https://oauth.domo.com/api/data/v1/oauth/providers/google-bigquery-enterprise/exchange** をリダイレクトURIとして追加します。
+
+<Frame><img alt="redirect_URI.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5b.png"/></Frame>
+
+10. ****［Create］**** をクリックします。
+
+#### APIとサービスを有効にする
+
+1. https://console.developers.google.com/ にログインします。
+
+2. ****［APIs & Services］>［Dashboard］**** に移動します。
+
+3. ****［+ENABLE APIS AND SERVICES］**** をクリックします。
+
+<Frame><img alt="APIs_n_Services.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5j.png"/></Frame>
+
+4. **［Google BigQuery API］** を検索します。
+
+<Frame><img alt="BigQuery_api.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5g.png"/></Frame>
+
+5. BigQuery APIを有効にするには、**［ENABLE］** ボタンをクリックします。
+
+<Frame><img alt="BigQuery_aAPI_enabled.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5f.png"/></Frame>
+
+## Google BigQuery Enterpriseアカウントに接続する
+
+このセクションでは、 Google BigQuery Enterprise Data コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Google BigQuery Enterprise アカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Google Developersアカウントに関連付けられているクライアントIDを入力します。詳細は「 <a href="https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Analytics/Google_BigQuery_Enterprise_Data_Connector#Prerequisites" target="_blank" title="Google BigQuery Enterprise Dataコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Google Developersアカウントに関連付けられているクライアントシークレットを入力します。詳細は「 <a href="https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Analytics/Google_BigQuery_Enterprise_Data_Connector#Prerequisites" target="_blank" title="Google BigQuery Enterprise Dataコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効な認証情報を入力した後は、新しいGoogle BigQuery Enterprise DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle BigQuery Enterpriseレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> レガシーSQLまたは標準SQLを実行してデータをBigQueryから返します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Information </td><td colspan="1" rowspan="1"> テーブルの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Data </td><td colspan="1" rowspan="1"> テーブルデータに関する情報を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> What Query Type would you like to use? </td><td colspan="1" rowspan="1"> レガシーSQLクエリと標準SQLクエリのどちらを使用するかを選択します。デフォルトでは［LegacySQL］が選択されています。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Google BigQueryの完全修飾クエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Parameter </td><td colspan="1" rowspan="1"> クエリパラメーターの値を入力します。この値は、クエリパラメーターの初期値となります。最終実行日はデフォルトではオプションです。最終実行日が指定されていない場合、最終実行日は「02/01/1700」になります。例： <tt>!\{lastvalue:_id}!=1,!\{lastrundate:start_date}!=02/01/1944 </tt></td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> データを取得したいプロジェクトのIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Expect Large Results </td><td colspan="1" rowspan="1"> 大きい結果を得たいかどうかを指定します。大きい結果を返すクエリの場合、一時的なテーブルが作成され、ジョブが終了すると削除されます。一時的なテーブルを作成するには、DataSet IDが必要です。 </td></tr><tr><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"> データを取得したいDataSetのIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> 利用可能なプロジェクトのリストからプロジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSets </td><td colspan="1" rowspan="1"> 利用可能なデータリストからDataSetを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"> 利用可能なテーブルのリストからテーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Location </td><td colspan="1" rowspan="1"> 場所を入力します。場所に関する詳細は「 <a href="https://cloud.google.com/bigquery/docs/locations" target="_blank" title="https://cloud.google.com/bigquery/docs/locations"> DataSetのロケーション </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Selected Fields </td><td colspan="1" rowspan="1"> フィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Max Results </td><td colspan="1" rowspan="1"> 最大結果は、データの1ページ当たりの結果の数です。デフォルトでは、ページごとに10,000個の結果を返します。DataSetにメモリー不足エラーが発生した場合は、最大結果を減らします。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

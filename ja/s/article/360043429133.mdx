@@ -1,0 +1,35 @@
+---
+title: "ガントチャート"
+---
+
+## はじめに
+
+ガントチャートはプロジェクトのスケジュールを説明するために使用されます。プロジェクト中の各タスクは、開始日と終了日を使用する横バーで表されます。タスクは縦軸に沿って表示され、日付は横軸に沿って表示されます。タスクはプロジェクト毎に分類することができ、この場合、各プロジェクトは別々の色で示され、凡例アイテムとして表示されます。ただし、プロジェクトはガントチャートではオプションです。
+
+Domoには、標準のガントチャート、進捗率ガントチャート、依存ガントチャートという3種類のガントチャートがあります。進捗率ガントチャートの場合、各タスクバーで進捗率（%）が表示されます。どの系列でも、この割合は、バー中の塗りつぶされた部分の量で示されます。バーの長さ全体と比較した塗りつぶされた部分の量により、どのくらいのタスクが完成されたかの割合がわかります。例えば、系列の塗りつぶされた部分がほぼバー全体になっていたら、ユーザーはそのタスクがもうすぐ完成すると推測することができます。 [依存ガントチャート](/s/article/1500003419382) では、日付の変更が自動的に処理されます。また、プロジェクトのスケジュールを通知するための各種の新しいオプションが用意されています。
+
+## ガントチャートを作成する
+
+標準的なガントチャートは、DataSetから3つのデータの列または行が必要となります。1つはタスク、1つは各タスクの開始日、もう1つは各タスクの終了日です。進捗率ガントチャートは、それらすべてに加え、各タスクの完了した割合を含む4番目の列を必要とします。また、ガントチャートには、プロジェクトのカテゴリーデータを含む追加の列を加えることができます。ガントチャートにプロジェクトのカテゴリーデータを追加すると、各カテゴリーのバーが異なる色で表示されるようになります。これは、複数のプロジェクトを意味します。さらに、プロジェクトのカテゴリーがどれにあたるかを示す凡例がチャートに追加されます。
+
+値、カテゴリーー、系列データの詳細については「 [チャートデータを理解する](/s/article/360043428693 "チャートデータを理解する") 」を参照してください。
+
+Analyzerで、ガントチャートで使用するデータを含む列を選択します。データ列の選択の詳細については「 [DataSetの列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については「 [可視化カード作成パート2：Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：Analyzer") 」を参照してください。
+
+次の図は、典型的な列ベースのスプレッドシートのデータがどのようにガントチャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nu-00N5w00000Ri7BU-0EM5w000005vP9l.png" style={{width: 731, height: 691}}/></Frame>
+次の図は、典型的な列ベースのスプレッドシートのデータがどのように進捗率ガントチャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nu-00N5w00000Ri7BU-0EM5w000005vP9k.png" style={{width: 821, height: 666}}/></Frame>
+## ガントチャートのカスタマイズ
+
+**［チャートの設定］** を編集することにより、ガントチャートの外観をカスタマイズできます。すべてのチャートの設定については「 [チャートの設定](/s/topic/0TO5w000000ZaodGAC "チャートの設定") 」を参照してください。
+
+ガントチャート固有のプロパティには以下が含まれます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> プロパティ </font></p></th><th colspan="1" rowspan="1"><p><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> 説明 </font></p></th><th colspan="1" rowspan="1"><p><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> 例 </font></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> 時間の目盛り（X）&gt; ラベルを表示 </font></td><td colspan="1" rowspan="1"><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> 時間目盛りラベルを非表示または表示にします。デフォルトではラベルは表示されます。 </font></td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/564/gantt_no_time_scale.png"><font color="#2f3941" face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"><img alt="" src="/images/kb/ka05w00000123nu-00N5w00000Ri7BU-0EM5w000005vP9c.png"/></font></a></td></tr><tr><td colspan="1" rowspan="1"><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> ホバーテキストの設定 &gt; テキスト </font></td><td colspan="1" rowspan="1"><p><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> デフォルトのホバーテキストを、カスタマイズされたテキストに変更できます。様々なマクロを挿入して開始日、完成の割合、カテゴリーなどを参照できます。詳細については、「 <a href="/s/article/360043429693" target="_blank" title="チャートのデータラベルとホバーテキストをフォーマットする"> チャートのデータラベルとホバーテキストをフォーマットする </a> 」を参照してください。 </font></p><p><font face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"> 右側の例では、 <code> %_PERCENT_COMPLETE% complete </code> というマクロを使用して、デフォルトのホバーテキストを置き換えています。 </font></p></td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/560/gantt_custom_macro.png"><font color="#2f3941" face="-apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif"><img alt="" src="/images/kb/ka05w00000123nu-00N5w00000Ri7BU-0EM5w000005vP9e.png"/></font></a></td></tr></tbody></table>
+
+日本語

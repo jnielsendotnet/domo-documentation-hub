@@ -1,0 +1,320 @@
+---
+title: "BambooHR Connector"
+---
+
+## はじめに
+
+BambooHR は、出勤確認、休暇要求、社員の福利厚生などの業務を簡素化する HRソフトウェアです。Domoの BambooHR Connectorを使用すると、社員、ユーザー、顧客および会社に関するレポートを作成できます。BambooHR API に関する詳細は、ウェブサイトを参照してください。(http://www.bamboohr.com/api/documentation/ ) BambooHR のアカウントには、Data Center から接続します。このトピックでは、BambooHR Connectorユーザーインターフェース固有のフィールドとメニューについて説明します。DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+BambooHR アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* 会社のドメイン名、または会社の BambooHR インスタンスの URL。BambooHR ウェブの例にログインするのに使用するのと同じURLです。例：`https://companydomainname.bamboohr.com`
+* BambooHR API キー。所定ユーザーの API キーを生成するには、BambooHR にログインし、いずれかのページの右上端にある名前をクリックします。続いて **API キー** をクリックして、API キーを生成するページを開きます。API キーに関する詳細は、http://www.bamboohr.com/api/documentation/login.php を参照してください。
+
+## BambooHR アカウントに接続する
+
+このセクションでは、BambooHR Connectorページの **認証情報** および **詳細** ペインのオプションについて説明します。このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+**認証情報ペイン** このペインには、BambooHRアカウントにアクセスするための認証情報を入力するフィールドです。下表では、各フィールドに必要な内容を説明しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+
+<b>
+ フィールド 
+</b>
+
+</span>
+
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+
+<b>
+ 説明 
+</b>
+
+</span>
+
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ 会社ドメイン 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ 会社のドメイン名、または会社の BambooHR インスタンスの URLを入力します (例えば、 
+</span>
+
+<span class="s3">
+
+<a href="http://companydomainname.bamboohr.com" rel="noopener" target="_blank">
+ companydomainname.bamboohr.com 
+</a>
+
+</span>
+
+<span class="s1">
+ )。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ APIキー 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ BambooHR API キーを入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+有効な BambooHR 認証情報を一度入力しておくと、同じアカウントを使用して随時、新しい BambooHR DataSet を作成することができます。Connector アカウントは Data Center の **アカウント** タブで 管理することができます。このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、レポートのタイプを選択するメインの **レポート** メニューが含まれています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+
+<b>
+ メニュー 
+</b>
+
+</span>
+
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+
+<b>
+ 説明 
+</b>
+
+</span>
+
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ レポート 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ BambooHR レポートを選択します。以下のレポートが利用できます： 
+</span>
+
+</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ 社員データ 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ 社員の名前、住所、メールアドレス、誕生日、性別、人種、部署、監督者などのデータを返します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ ユーザーデータ 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ 姓名、メールアドレス、ステータスなど、このアカウントのユーザーのデータを返します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+<p>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ カスタムフィールド 
+</span>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p class="p1">
+
+<span class="s1">
+ レポートに表示させたいフィールドを全て選択します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+

@@ -1,0 +1,30 @@
+---
+title: "棒グラフ（累計）"
+---
+
+## はじめに
+
+棒グラフ（累計） は、標準的な縦型棒グラフに似ています。ただし、系列のそれぞれの連続したバーは、その時点までの全ての系列バーの累計合計（または「累計」）を示しています。 どのような種類のカテゴリのデータも累計グラフで扱えますが、通常は日付または日付時間データを使います。 同じ「累計」のコンセプトを使用する Domo の他のグラフタイプには、複数の系列と最低一つのカテゴリを含む [集合縦棒グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Grouped+Bar+graph "集合縦棒グラフ（累計）") と [積上げ縦棒グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Stacked+Bar+graph "積上げ縦棒グラフ（累計）") 、そしてバーではなく線を使用する [折れ線グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Line+graph "折れ線グラフ（累計）") があります。
+
+## 棒グラフ（累計） を作成する
+
+棒グラフ（累計） は、DataSet から2つのデータ列または行のみを必要とします。1つはカテゴリ、そしてもう1つは値です。 値、カテゴリー、系列データについては、 [チャートデータについて](/s/article/360043428693 "チャートデータについて") を参照してください。
+
+カードビルダーで、集合縦棒グラフ（累計） のデータが含まれる列を選択します。 データ列を選択する方法に関しては、 [DataSet 列をチャートに適用する](/s/article/360043428713 "DataSet 列をチャートに適用する") を参照してください。
+
+カードビルダーでチャートをフォーマットする方法に関しては、 KPI カード作成パート 2： カードビルダー を参照してください。
+
+次の図は、典型的な列ベースのスプレッドシートのデータがどのように棒グラフ（累計） に変換されるかを示しています。
+
+<Frame><img alt="running_total_single_bar_spreadsheet_example_new.png" src="/images/kb/ka05w00000123mM-00N5w00000Ri7BU-0EM5w000005vP4J.png"/></Frame>
+## 棒グラフ（累計）をカスタマイズする
+
+棒グラフ（累計）の外観は、いくつかの方法でカスタマイズできます。 **チャートの設定** で設定することにより、様々なカスタマイズをすることができます。 チャートの設定の全オプションについては、 [チャートの設定リファレンスガイド](/s/article/ "チャートの設定") を参照してください。 集合縦棒グラフ（累計） 固有のプロパティには以下が含まれます。 サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"> 例 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリの目盛り&gt; 時間の目盛りを使用しない </p></td><td colspan="1" rowspan="1"><p> 対応するチャートで時間データを使用する場合、どのタイプのタイムラインを使用するかを決定します。 </p><p> デフォルトでは、サポートされているチャート（線および棒グラフなど）に時間データを使用する際、Domo は自動的に適切な <a class="confluence-link" href="http://wiki.domo.com/confluence/pages/viewpage.action?pageId=37466650" target="_blank" title="チャートにフィルターを追加する"> 日付単位 </a> を使用してデータに表示します。 右の最初の例では、数ヶ月にわたる日付データを月ごとに表示しています。 </p><p> しかし、このボックスをチェックすると、DataSet で表示されるのと同じように日付データを表示します。 右側の2番目の例では、DataSet と同じように、時間の目盛りで個々の日付が使用されています。 </p><p> このオプションは縦棒グラフのみ利用可能です。 </p></td><td colspan="1" rowspan="1"><p></p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> グリッド線 &gt; 最小/最大/平均線を削除する </p></td><td colspan="1" rowspan="1"><p> 標準的な棒グラフと折れ線グラフで、マウスオーバー時に通常表示される最小、最大、および平均の線を取り除きます。 </p></td><td colspan="1" rowspan="1"> — </td></tr><tr><td colspan="1" rowspan="1"><p> グリッド線 &gt; 計算線 </p></td><td colspan="1" rowspan="1"><p> チャートで、中央値または平均線を表示するかを決定します。 <b> なし </b> を選択すると、線は表示されません。 </p></td><td colspan="1" rowspan="1"> — <br/></td></tr><tr><td colspan="1" rowspan="1"><p> 数値の目盛り &gt; タイトルの位置 </p></td><td colspan="1" rowspan="1"><p> 縦棒グラフの値の目盛ラベルを、チャートの左または上部に表示するかを決定します。 </p></td><td colspan="1" rowspan="1"> — <br/></td></tr></tbody></table>
+
+### 棒グラフ（累計）のバーサイズの変更
+
+どんな棒グラフでも、グラフ中でバーが占有する割合、またはバーの幅を設定することができます。 詳細は、 [棒グラフのバーの大きさを指定する](/s/article/360042925294 "棒グラフのバーの大きさを指定する") を参照してください。
+
+日本語

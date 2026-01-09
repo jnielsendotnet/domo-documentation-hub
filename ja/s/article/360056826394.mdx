@@ -1,0 +1,86 @@
+---
+title: "Microsoft Azure Storage Data Lake Gen2コネクター"
+---
+
+## はじめに
+
+Azure Data Lake Storeは、ビッグデータ解析ワークロード用の全社規模のハイパースケールリポジトリです。このコネクターを使うと、Data Lake Storeからデータファイルを取得し、Domoで利用できます。データファイルは、CSV、XLS、XLSX、JSONのいずれかのファイルタイプで取得できます。AzureのAPIの詳細については、 [https://learn.microsoft.com/ja-jp/pre...e-store-overview](https://learn.microsoft.com/ja-jp/previous-versions/azure/data-lake-store/data-lake-store-overview "https://learn.microsoft.com/ja-jp/previous-versions/azure/data-lake-store/data-lake-store-overview") を参照してください。
+
+Microsoft Azure Storage Data Lake Gen2アカウントには、Data Centerから接続します。このトピックでは、Microsoft Azure Storage Data Lake Gen2コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft Azure Data Lake Store Gen2アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* アカウントキー
+* アカウント名
+
+認証情報を取得する場合は、Microsoftのアカウント担当者にお問い合わせください。
+
+## Microsoft Azure Storage Data Lake Gen2アカウントに接続する
+
+このセクションでは、 Microsoft Azure Storage Data Lake Gen2 コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Microsoft Azure Storage Data Lake Gen2 アカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Key </td><td colspan="1" rowspan="1"> Microsoft Azure Storage Data Lake Gen2アカウントキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Microsoft Azure Storage Data Lake Gen2アカウント名を入力します。 </td></tr></tbody></table>
+
+一度有効な Microsoft Azure Storage Data Lake Gen2 認証情報を入力したら、新しい Microsoft Azure Storage Data Lake Gen2 DataSetを作成する際はいつでも同じアカウントを使用できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMicrosoft Azure Storage Data Lake Gen2レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Directory ACL Status </td><td colspan="1" rowspan="1"> Data Lake Storeアカウントにあるディレクトリのアクセス制御状態を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Directory Information </td><td colspan="1" rowspan="1"> Data Lake Storeアカウントにあるディレクトリのメタデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Download File </td><td colspan="1" rowspan="1"> 選択したファイルのコンテンツをDomo DataSetにインポートします。 </td></tr><tr><td colspan="1" rowspan="1"> File ACL Status </td><td colspan="1" rowspan="1"> Data Lake Storeアカウントにあるファイルのアクセス制御状態を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> File Information </td><td colspan="1" rowspan="1"> Data Lake Storeアカウントにあるファイルのメタデータを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> File System </td><td colspan="1" rowspan="1"> ファイルシステムを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> How Would You Like to Choose Your File Name? </td><td colspan="1" rowspan="1"> Domoにインポートするファイルの選択方法を選択します。ファイルのリストからファイルを選択する場合は、 <b><b> ［Files Discovery］ </b></b> を選択します。ファイル名を自分で入力するには、 <b><b> ［Enter File Name］ </b></b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> Domoにインポートするファイルの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Select File </td><td colspan="1" rowspan="1"> Domoにインポートするファイルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> File Format </td><td colspan="1" rowspan="1"> インポートするファイルのフォーマットを選択します。オプションは、CSV、XLS、XLSX、およびJSONです。 </td></tr><tr><td colspan="1" rowspan="1"> Delimeter </td><td colspan="1" rowspan="1"> CSVファイルを解析するときに使う区切り文字を選択します。カスタム区切り文字を選択するには、 <b><b> ［Other］ </b></b> を選択し、 <b><b> ［Custom Delimiter］ </b></b> フィールドに区切り文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Delimiter </td><td colspan="1" rowspan="1"> CSVファイルを解析するときに使うカスタム区切り文字を入力します。タブまたはUnicode文字は\uxxxxの形式で入力します（例：\u005e）。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用する引用文字を選択します（CSVの標準は二重引用符です）。カスタム引用文字を選択するには、 <b><b> ［Other］ </b></b> を選択し、 <b><b> ［Custom Quote Character］ </b></b> フィールドに引用文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するときに使うカスタム引用文字を入力します。タブまたはUnicode文字は\uxxxxの形式で入力します（例：\u005e）。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するときに使うエスケープ文字を選択します。カスタムエスケープ文字を選択するには、 <b><b> ［Other］ </b></b> を選択し、 <b><b> ［Custom Escape Character］ </b></b> フィールドに区切り文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するCSVエスケープ文字を入力します。Unicode文字は\\uxxxxの形式で入力します（例：\u005E）。 </td></tr><tr><td colspan="1" rowspan="1"> Header Start Row（オプション） </td><td colspan="1" rowspan="1"> Excelファイルのヘッダー開始行を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Data Start Row（オプション） </td><td colspan="1" rowspan="1"> Excelファイルのデータ開始行を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Footer Rows to Skip（オプション） </td><td colspan="1" rowspan="1"> Excelファイルの最後でスキップする行がある場合は、その数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sheet Name（オプション） </td><td colspan="1" rowspan="1"> Excelファイルに複数のシートがある場合は、インポートするシートの名前を入力します。シート名に偶然のスペースがないか確認してください。フィールドが空白の場合は、ワークブックの最初のシートが使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Data Field Key（オプション） </td><td colspan="1" rowspan="1"> インポートするJSONファイルのデータフィールドキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sublist to Flatten（オプション） </td><td colspan="1" rowspan="1"> データで平面化したいリストを入力します。複数のリストはカンマで区切ります。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="アカウント名とアカウントキーはどこで確認できますか？">
+
+
+アカウント名とアカウントキーを取得するには、ストレージアカウントを作成する必要があります。
+
+アカウント名を取得するには、以下の手順に従います。
+  
+1. [Microsoft Azure Portal](https://portal.azure.com/ "Microsoft Azure Portal") にアクセスし、Microsoft認証情報を使用してサインインします。
+  
+2. **［Storage accounts］** を選択します。
+  
+3. ［Storage accounts］を見つけてクリックします。
+  
+4. タイトルの右側にあるメニューアイコンをクリックし、［Copy title to clipboard］を選択します。
+
+アカウントキーを取得するには、以下の手順に従います。
+  
+1. [Microsoft Azure Portal](https://portal.azure.com/ "Microsoft Azure Portal") にアクセスし、Microsoft認証情報を使用してサインインします。
+  
+2. **［Storage accounts］** を選択します。
+  
+3. ［Storage accounts］を見つけてクリックします。
+  
+4. **［Security - networking］>［Access Keys］** を開きます。
+  
+5. key1またはkey2の［Show］ボタンをクリックし、値をコピーします。
+
+
+</Accordion>
+<Accordion title="アカウントを作成できたにもかかわらず、ファイルやディレクトリの情報を取得できないのはなぜですか？">
+
+  
+Azure Data Lake Storage Gen2では、ストレージアカウントの階層型名前空間を有効にする必要があります。これが無効の場合、コネクターはディレクトリ情報を取得できず、ファイルを取得できません。
+  
+<Frame><img alt="image-2025-01-24-18-09-45-061 (1).png" src="/images/kb/ka0Vq0000006x0b-00N5w00000Ri7BU-0EMVq0000051Bub.jpg" style={{width: 794, height: 137}}/></Frame>
+
+有効にするには、［Hierarchical namespace］セクションの［Disabled］をクリックし、ガイダンスに従ってストレージアカウントをAzure Data Lake Storage Gen2にアップグレードします。
+
+
+
+</Accordion>
+</AccordionGroup>

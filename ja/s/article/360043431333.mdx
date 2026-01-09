@@ -1,0 +1,148 @@
+---
+title: "HubSpotコネクター"
+---
+
+## はじめに
+
+HubSpotは、ソーシャルメディアマーケティングとメールマーケティング、コンテンツ管理、ウェブ分析、検索エンジン最適化を目的としたソフトウェアを開発しています。DomoのHubSpotコネクターを使用すると、キャンペーン、コンタクト、ブログ、リードソースなどに関するレポートを作成できます。HubSpot APIについては、HubSpotのウェブサイト（ [http://developers.hubspot.com/docs/overview](http://developers.hubspot.com/docs/overview "http://developers.hubspot.com/docs/overview") ）を参照してください
+
+HubSpotコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部にあるツールバーで **［クラウドApp］** をクリックすると、HubSpotコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+HubSpotアカウントには、 Data Center から接続します。このトピックでは、HubSpotコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> キャンペーン、コンタクト、ブログ、リードソース、パイプライン管理など、ソーシャルメディアマーケティングやメールマーケティングに関するレポートを作成します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> キャンペーンパフォーマンス </p></li><li><p> 開封率 </p></li><li><p> メールのバウンス数 </p></li><li><p> リード </p></li><li><p> MQL </p></li><li><p> SAO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> マーケティング/セールス権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## Domo HubSpotコネクターを使用する
+
+Domo HubSpotコネクターを設定する手順は、以下の通りです。
+
+1. Domo Appstoreの検索バーに「hubspot」と入力します。
+     
+   <Frame><img alt="hubspot1.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2n.png"/></Frame>
+
+   検索結果には、以下のように関連するコネクターが取得されます。
+     
+   <Frame><img alt="hubspot2.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2k.png"/></Frame>
+
+2. ［HubSpot］タイルをクリックします。
+     
+   HubSpotコネクターのダッシュボードが開き、コネクターの詳細ビューが表示されます。
+3. 右上隅の
+   **［Get the Cards］** をクリックします。
+     
+   <Frame><img alt="hubspot3.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2o.png"/></Frame>
+
+   **［Connect Data for your Sample App］** ウィンドウが表示されます。データを表示するには、HubSpotアカウントをDomoに接続する必要があります。
+4. **［Connect］**
+   をクリックします。
+     
+   <Frame><img alt="hubspot4.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2r.png"/></Frame>
+
+   HubSpot OAuthログインウィンドウが表示されます。
+     
+   <Frame><img alt="hubspot5.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2p.png"/></Frame>
+
+5. HubSpotアカウントに関連付けられているメールアドレスとパスワードを入力します。Googleアカウントまたはシングルサインオンを使ってログインすることもできます。
+     
+   自分のアカウントを含む既存のアカウントの一覧が表示されます。
+6. 接続するアカウントを選択します。ログインに使用したアカウントを選択します。
+     
+   <Frame><img alt="hubspot6.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2e.png"/></Frame>
+
+   **［Connect data for your Sample App］** ウィンドウが表示されます。選択されたアカウントは、Hub IDやApp IDとともに **［Connect data］** フィールドに表示されます。
+     
+   <Frame><img alt="hubspot7.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2d.png"/></Frame>
+
+7. **［Finish］**
+   をクリックします。
+     
+   データ接続プロセスが開始されます。接続には1分ほどかかることがあります。
+     
+   <Frame><img alt="hubspot8.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2t.png"/></Frame>
+
+   サンプルAppのデータが接続されると、アカウントに関連するデータが視覚的かつグラフィカルにダッシュボードに表示されます。
+     
+   ［Traffic Analytics］セクションには、トラフィックに関する集合データが表示されます。
+     
+   <Frame><img alt="hubspot9.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2l.png"/></Frame>
+
+   ［Deals］セクションには、様々な取引に関連するデータが表示されます。
+     
+   <Frame><img alt="hubspot10.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2q.png"/></Frame>
+
+   ［Engagements & Contacts］セクションには、様々なエンゲージメントやコンタクトに関するデータがひとまとめに表示されます。
+     
+   <Frame><img alt="hubspot12.png" src="/images/kb/ka0Vq000000DTKL-00N5w00000Ri7BU-0EM5w000005vO2m.png"/></Frame>
+
+## ベストプラクティス
+
+* Hub IDは、1つのDomoアカウントに有効です。Domoで追加のアカウントを作成すると、元のアカウントの接続が切断されます。
+* 一部のレポートはベータ版と表示されます。これらのレポートは現在Hubspotのサイトにドキュメントがなく、いつでも削除される可能性があるため、ご自身の責任で使用してください。
+
+## 必要条件
+
+HubSpotアカウントに接続してDataSetを作成するには、以下の情報が必要です。
+
+* Hub ID。これは、HubSpotダッシュボードの下部にあります。詳細については、
+  [http://help.hubspot.com/articles/How\_To\_Doc/How-to-find-your-hub-id](http://help.hubspot.com/articles/How_To_Doc/How-to-find-your-hub-id "http://help.hubspot.com/articles/How_To_Doc/How-to-find-your-hub-id") を参照してください。
+* HubSpotのログインに使用するユーザー名とパスワード
+
+## HubSpotアカウントに接続する
+
+このセクションでは、HubSpotコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、HubSpotのHub IDを入力する単一のフィールドがあります（詳細は前述の「必要条件」を参照してください）。HubSpot OAuthページに進み、そこでHubSpotアカウント用のメールアドレスとパスワードを入力する必要があります。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいHubSpot DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、HubSpotレポートを選択するためのメインメニューがあります。選択するレポートのタイプにより、もう1つのメニューである **［Contact Fields］** が表示される場合があります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> HubSpotレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> All Engagements </td><td colspan="1" rowspan="1"> ポータルにあるすべてのエンゲージメントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Landing Pages </td><td colspan="1" rowspan="1"> 自分のすべてのランディングページのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> All Pipelines </td><td colspan="1" rowspan="1"> すべてのパイプラインデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Analytics Breakdown </td><td colspan="1" rowspan="1"> 指定したカテゴリーごとに分類された分析データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Associated Engagements </td><td colspan="1" rowspan="1"> HubSpotのオブジェクトに関連するエンゲージメント（タスクまたはアクティビティ）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Blog Posts </td><td colspan="1" rowspan="1"> 自分のブログのすべての投稿に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Blog Topics </td><td colspan="1" rowspan="1"> すべてのブログのトピックに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Blogs </td><td colspan="1" rowspan="1"> 自分のすべてのブログに対する高レベルデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Broadcast Messages </td><td colspan="1" rowspan="1"> すべてのブロードキャストメッセージを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Call Engagement Dispositions </td><td colspan="1" rowspan="1"> セールスコールの傾向を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Events </td><td colspan="1" rowspan="1"> 特定のマーケティングキャンペーンイベントに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Companies - All </td><td colspan="1" rowspan="1"> すべての企業に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Companies - Recent </td><td colspan="1" rowspan="1"> 過去30日間に作成された企業に関するデータを返します（最大10000レコード）。 </td></tr><tr><td colspan="1" rowspan="1"> All Contacts </td><td colspan="1" rowspan="1"> すべてのコンタクトに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists </td><td colspan="1" rowspan="1"> すべてのコンタクトリストに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists - Contacts Recently Added </td><td colspan="1" rowspan="1"> リストおよびそのリストに最近追加されたコンタクトに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contact Lists with Lifecycle Stage </td><td colspan="1" rowspan="1"> ［Lifecycle Stage］フィールドのあるコンタクトリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contacts in a List </td><td colspan="1" rowspan="1"> 指定したリストからコンタクトのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Deals - All </td><td colspan="1" rowspan="1"> すべての取引に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Deals - Recent </td><td colspan="1" rowspan="1"> 過去30日間に作成されたすべての取引に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Deals With Stages </td><td colspan="1" rowspan="1"> すべての取引および取引パイプラインに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Email Campaigns </td><td colspan="1" rowspan="1"> すべてのメールキャンペーンに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Email Events </td><td colspan="1" rowspan="1"> すべてのメールイベントに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forms </td><td colspan="1" rowspan="1"> 作成したすべてのフォームに関する高レベルデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Recent Engagements </td><td colspan="1" rowspan="1"> ポータルで最近作成または更新されたエンゲージメントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Subscriptions Timeline </td><td colspan="1" rowspan="1"> 特定の日付範囲におけるサブスクリプションタイムラインのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ticket Report </td><td colspan="1" rowspan="1"> プロパティクエリのパラメーターでチケットに関する詳細を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Fields </p></td><td colspan="1" rowspan="1"><p> レポートに表示させたいフィールドをすべて選択します。最低でも1つのフィールドを選択する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Expand Field </p></td><td colspan="1" rowspan="1"><p><span> メンバーシップデータを取得するには、このチェックボックスを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Form Submission Mode </span></td><td colspan="1" rowspan="1"><p><span> どのフォーム送信を取得するかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Show List Memberships </span></td><td colspan="1" rowspan="1"><p><span> このチェックボックスで、現在のリストメンバーシップを取得するかどうかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Flatten List Memberships </span></td><td colspan="1" rowspan="1"><p><span> このチェックボックスで、各コンタクトのリストメンバーシップごとに1行を表示するかどうかを指定します。 </span></p><p><span><b> 注記： </b> これを選択すると、DataSetが非常に大きくなる可能性があります。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Property Mode </span></td><td colspan="1" rowspan="1"><p><span> ［Lifecycle Stage］プロパティの履歴データを取得するには、このチェックボックスを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> List ID </span></td><td colspan="1" rowspan="1"><p><span> コンタクトデータを取得するリストを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Object Type </span></td><td colspan="1" rowspan="1"><p><span> 関連オブジェクトタイプを選択します（エンゲージメントを取得したいオブジェクトによって決まります）。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Breakdown By </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> 分析データを分類するカテゴリーを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Select properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> すべてのプロパティを取得するか、特定のプロパティを取得するかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Deal Properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> 取得するプロパティを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Retrieve deal stage property history </span></td><td colspan="1" rowspan="1"><span> このチェックボックスを選択すると、現在の値だけではなく、取引ステージの履歴を取得できます。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Object ID </span></td><td colspan="1" rowspan="1"><span> 関連するIDを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Time Period </span></td><td colspan="1" rowspan="1"><span> 分析データをグループ化する期間を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Filter </span></td><td colspan="1" rowspan="1"><p><span> 指定された分類のみを含めるように、返されたデータをフィルターします。フィルターには単一または複数の値を指定します。 </span></p><p><span> 例：「hubspot」または「hubspot,social,direct」 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Data To </span> Retrieve </td><td colspan="1" rowspan="1"><p><span> 全データを取得するか、前回の正常な実行以降のデータのみを取得するかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Object Type </span></td><td colspan="1" rowspan="1"><p><span> オブジェクトタイプを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Include Inactive </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> 選択すると、非アクティブなオプションが含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Inactive Owners Selection </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> 非アクティブな所有者を含めるかどうかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Ticket Properties </span><span><br/></span></td><td colspan="1" rowspan="1"><p><span> 取得するチケットプロパティを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+1. 設定を見直し、すべての必須項目が選択されていることを確認してください。
+2. コネクター履歴でエラーメッセージを確認します。
+3. 日付の選択を許可するレポート（「Email Events」、「Events」、「Blog Topics」、「Subscription Timeline」）に対するAPIコールを減らすには、すべてのデータではなく
+   **［Append］** を使用して、最後に正常に実行されたデータを引き出すように選択します。
+4. まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。これに該当する場合、コネクターの実行履歴を確認して、エラーメッセージと持続期間を見ることができます。この場合、取得するアカウント数を削減したり、取得するレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="HubSpotコネクターを作成するには、どのような認証情報が必要ですか？">
+
+
+HubSpotダッシュボードの下部にあるHub IDが必要です。「スーパー管理者」権限が必要です。
+
+
+</Accordion>
+<Accordion title="APIにアクセスするには、どのようなHubSpotアカウントが必要ですか？">
+
+
+APIにアクセスするには、マーケティングプロフェッショナル向けまたはエンタープライズ向けのHubSpotアカウントが必要です。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="同じHubSpotアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+できます。
+
+
+
+</Accordion>
+</AccordionGroup>

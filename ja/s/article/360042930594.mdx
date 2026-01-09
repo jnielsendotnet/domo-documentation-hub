@@ -1,0 +1,68 @@
+---
+title: "Google Gmailコネクター"
+---
+
+<Warning>
+**重要：** DomoコネクターでOAuth認証を使用する機能にGoogleによって変更が加えられたことにより、新しいデータ接続を作成する際に、全てのユーザーがサービスアカウントキー認証を使用しなければならなくなりました。既存のDataSetは全てこれまでどおり正常に実行されます。Google OAuth認証に依存している現在のコネクターは、新しいDataSetを作成できなくなります。該当するコネクターは次のとおりです。
+
+* Google BigQuery
+* Google BigQuery経由のGoogle AdWords
+* Google Cloud Storage（DTV2）経由のDoubleClick Campaign Manager
+* [Google Cloud Storage](/ja/s/article/360043433313 "Google Cloud Storageコネクター")
+* [Google Contacts](/ja/s/article/360043435173 "Google Contactsコネクター")
+* Google Drive
+* [Google Gmail](/ja/s/article/360042930594 "Google Gmailコネクター")
+* [Google Admin SDK Reports](/ja/s/article/360042928714 "Google Admin SDK Reportsコネクター")
+
+既存のGoogle OAuth DataSetを変更する必要がある場合は、対応するサービスアカウントコネクターを使用してください。現在、次のサービスアカウントコネクターが利用可能です。
+
+* [Google BigQuery Service](/ja/s/article/360043436593 "Google BigQuery Serviceコネクター")
+* Google BigQuery Service経由のGoogle Ads（以前のAdWords）
+* [Google Drive Service](/ja/s/article/360042932014 "Google Drive Serviceコネクター")
+* [Google Cloud Storage Service](/ja/s/article/360042928774 "Google Cloud Storage Serviceコネクター")
+* [Google Contacts Service](/ja/s/article/360042930574 "Google Contacts Serviceコネクター")
+* [Google Gmail Service](/ja/s/article/360043435193 "Google Gmail Serviceコネクター")
+* [Google Admin SDK Reports Service](/ja/s/article/360043433273 "Google Admin SDK Reports Serviceコネクター")
+
+全ての他のGoogleサービスアカウント対応コネクターは現在開発中です。これらのコネクターが利用可能になれば、Domoと通信できるようになります。Data CenterやApp Storeでサービスアカウント対応コネクターを探し、そのコネクターを使用してデータを取得する必要があります。
+  
+  
+コネクターが使用可能になったときに新しいサービスアカウントキーコネクターを利用して新しいDataSetを作成し、前もって既存のGoogle接続を再度有効にしておくことをお勧めします。移行に関する他の変更が発生した場合は、Domoから通知します。
+
+</Warning>
+
+## はじめに
+
+Google Gmailは、世界中で使用されている高性能のメールサーバーです。Google Gmailコネクターを使用すると、Gmailの受信トレイからDomoにデータをプルし、メールデータのパワーを組み合わせて受信トレイを効率的に管理できます。Gmail APIについての詳細は、ウェブサイト（ [https://developers.google.com/gmail/api/](https://developers.google.com/gmail/api/ "https://developers.google.com/gmail/api/") ）を参照してください。
+
+You connect to your Gmail account in the Data Center. このトピックでは、Gmailコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「データコネクターを使用してDataSetを追加する」で説明しています。
+
+## 必要条件
+
+Gmailアカウントに接続してDataSetを作成するには、Googleアカウントの認証情報が必要です。
+
+## Gmailアカウントに接続する
+
+このセクションでは、Gmailコネクターページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。このページの他のペインの項目である **[スケジュール設定]** や **[DataSetの名前と説明]** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「データコネクターを使用してDataSetを追加する」 を参照してください。
+
+### 認証情報ペイン
+
+DomoのGmailコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **[接続]** をクリック（または、Domoに既存のGoogleアカウントがある場合は **[アカウントを追加]** を選択）すると、Google OAuth画面が開き、Googleの認証情報を入力できます。有効なGoogleの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいGmail DataSetを作成できます。コネクターのアカウントは Data Center の **[アカウント]** タブで管理できます。このタブの詳細については、「コネクターのユーザーアカウントを管理する」を参照してください。
+
+Domoに接続するときに既にGoogleにログインしている場合は、同じアカウントを使用して認証するか、別のアカウントに切り替えるかを選択できます。
+
+### 詳細ペイン
+
+このペインには、メインの **[レポート]** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他さまざまなメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGmailレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> 詳細 </p></td><td colspan="1" rowspan="1"><p> 指定したメッセージの添付ファイルを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 下書きメッセージの詳細 </p></td><td colspan="1" rowspan="1"><p> 指定した下書きメッセージを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 履歴の詳細 </p></td><td colspan="1" rowspan="1"><p> 指定したメールボックスへの全ての変更の履歴を一覧表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ラベルの詳細 </p></td><td colspan="1" rowspan="1"><p> 指定したラベルを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 下書きメッセージIDをリスト </p></td><td colspan="1" rowspan="1"><p> ユーザーのメールボックス内の下書きをリストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザーラベルをリスト </p></td><td colspan="1" rowspan="1"><p> ユーザーのメールボックス内の全てのラベルをリストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザーメッセージIDをリスト </p></td><td colspan="1" rowspan="1"><p> ユーザーのメールボックス内のメッセージをリストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザースレッドをリスト </p></td><td colspan="1" rowspan="1"><p> ユーザーのメールボックス内のスレッドをリストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> メッセージの詳細 </p></td><td colspan="1" rowspan="1"><p> 指定したメッセージを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スレッドの詳細 </p></td><td colspan="1" rowspan="1"><p> 指定したスレッドを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> メッセージID </p></td><td colspan="1" rowspan="1"><p> データを取得するメッセージのIDを入力します。メッセージIDは、「ユーザーメッセージIDをリスト」レポートを実行して見つけることができます。「メッセージの詳細」レポートの場合、空白のままにすると、全てのメッセージの情報が返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 下書きID </p></td><td colspan="1" rowspan="1"><p> データを取得する下書きのIDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 履歴ID </p></td><td colspan="1" rowspan="1"><p> データを取得する開始履歴IDを入力します。これは、メッセージ、スレッド、または以前のリスト応答のhistoryIdから取得できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ラベル名 </p></td><td colspan="1" rowspan="1"><p> データを取得するラベルのIDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリ（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリを入力して、そのクエリに固有のデータを取得します。Gmail検索ボックスと同じクエリ形式をサポートしています。例： </p><p><span class="nowiki"><code> from: <a href="mailto:someuser@example.comrfc822msgid"> someuser@example.comrfc822msgid </a>: is: unread </code></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> スレッドID </p></td><td colspan="1" rowspan="1"><p> データを取得したいスレッドのIDを入力します。これを空白のままにすると、全てのスレッドの情報が返されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「データコネクターを使用してDataSetを追加する」を参照してください。
+
+---
+
+Google Gmailコネクターを使用すると、Gmailの受信トレイからDomoにデータをプルし、メールデータのパワーを組み合わせて受信トレイを効率的に管理できます。
+
+

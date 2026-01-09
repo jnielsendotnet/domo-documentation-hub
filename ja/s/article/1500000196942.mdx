@@ -1,0 +1,59 @@
+---
+title: "Facebook Ad Libraryコネクター"
+---
+
+## はじめに
+
+このアーカイブはFacebookやInstagramで「政治広告」と呼ばれ、政治的な問題や擁護者によるコンテンツが含まれている広告を保存する検索可能なデータベースです。アーカイブされた広告のデータを取得するには、DomoのFacebook Ad Libraryコネクターを使用します。Facebook Ad Library APIの詳細については、Webサイト（ [https://www.facebook.com/ads/library/api](https://www.facebook.com/ads/library/api "https://www.facebook.com/ads/library/api") ）を参照してください。
+
+Data CenterのFacebook開発者アカウントに接続します。このトピックでは、Facebook Ad Libraryコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* [Facebook for Developers](https://developers.facebook.com "https://developers.facebook.com")
+  ポータルで作成したAppに関するIDとシークレット
+
+### クライアントIDとクライアントシークレットを取得する
+
+クライアントIDとクライアントシークレットを取得するには
+
+1. [Facebook for Developers](https://developers.facebook.com "https://developers.facebook.com")
+   ポータル（ [https://developers.facebook.com](https://developers.facebook.com "https://developers.facebook.com") ）にアクセスして新しいAppを作成します。
+2. Appが作成されると、下に示されるような画面が表示され、Appの詳細が表示されます。
+
+<Frame><img alt="clipboard_e6b3c94b600763adcd50440720c0288ff.png" src="/images/kb/ka05w000001236o-00N5w00000Ri7BU-0EM5w000005vNzG.png"/></Frame>
+
+3. App IDとAppシークレットは、コネクターUI認証情報セクションで入力する必要のあるクライアントIDとクライアントシーレットです。
+
+4. 次に、下に示すように
+**［Facebookログイン］** の **［設定］** に進みます。
+
+<Frame><img alt="clipboard_ea9d6fb7aecd667f20883f5e50465f93d.png" src="/images/kb/ka05w000001236o-00N5w00000Ri7BU-0EM5w000005vNzh.png"/></Frame>
+
+5. **［有効なOAuthリダイレクトURI］** フィールドにリダイレクトURIを https://oauth.dev.domo.com/api/data/v2/oauth/providers/facebook-ad-library/exchange として入力し、変更を保存します。
+
+<Frame><img alt="clipboard_ea30f0485d2db684033eaefffa191e528.png" src="/images/kb/ka05w000001236o-00N5w00000Ri7BU-0EM5w000005vNzL.png"/></Frame>
+
+## Facebook Ad Libraryアカウントに接続する
+
+このセクションでは Facebook Ad Library コネクターページの **［認証情報］** および **［詳細］** ペイン のオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、 Facebook Ad Library アカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クライアントID </td><td colspan="1" rowspan="1"><a href="https://developers.facebook.com" target="_blank" title="https://developers.facebook.com"> https://developers.facebook.com </a> で作成したAppのIDを入力します。詳細は、「 <a href="#h_01ES1R85KR59MVFDV0EEXQC24G" target="_self" title="Facebook Ad Libraryコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> クライアントシークレット </td><td colspan="1" rowspan="1"><a href="https://developers.facebook.com" target="_blank" title="https://developers.facebook.com"> https://developers.facebook.com </a> で作成したAppに関連づけられているシークレットを入力してください。詳細は、「 <a href="#h_01ES1R85KR59MVFDV0EEXQC24G" target="_self" title="Facebook Ad Libraryコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、同じアカウントを使用して随時、新しい Facebook Ad Library DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて細しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するFacebook Ad Libraryレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Archived Ads </td><td colspan="1" rowspan="1"> 政策や国家的に重要な問題に関する広告をアーカイブします。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Status of Ad </td><td colspan="1" rowspan="1"> すべての広告、アクティブな広告、非アクティブな広告のなかから、どのデータを引き込むかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter the Page IDs </td><td colspan="1" rowspan="1"> 特定のFacebookページIDに基づいてアーカイブされた広告を検索できます。コンマで区切って最大10個のIDを指定できます。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Search Terms </td><td colspan="1" rowspan="1"> クエリで検索語を入力します。クエリの上限は100文字以下です。 </td></tr><tr><td colspan="1" rowspan="1"> Reach of Ad </td><td colspan="1" rowspan="1"> ISO（国際標準化機構）がデータを取得する国を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Type of Ad </td><td colspan="1" rowspan="1"> 広告のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Number of Unique Ads </td><td colspan="1" rowspan="1"> Facebookから返す個別の広告の数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> By Lines </td><td colspan="1" rowspan="1"> ACLU（米国自由人権協会）によって支払われた「移民」を参照する政治広告など、免責事項バイラインにより支払われる広告の結果をフィルター処理します。 <p> コンマ付き、またはコンマなしでバイラインを検索する文字列を指定します。 </p><p> 例えば「バイライン（コンマ付き）」 、「バイライン（コンマなし）」 は、いずれかのテキストバリエーション付きの結果を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Publisher Platforms </td><td colspan="1" rowspan="1"> 広告データを取り出したいパブリッシャーのプラットフォームを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Impression Condition </td><td colspan="1" rowspan="1"> 広告の最近の外観に基づいて広告を検索するには、リストに表示されているオプションからインプレッション条件を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。

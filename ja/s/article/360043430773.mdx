@@ -1,0 +1,68 @@
+---
+title: "AD EBiSコネクター"
+---
+
+## はじめに
+
+AD EBiSは日本最大級の広告アナリティクスプラットフォームです。
+
+AD EBiSアカウントには、Data Centerから接続します。このトピックでは、AD EBiSコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AD EBiSアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AD EBiSログインID
+* AD EBiSログイン引数
+* AD EBiS APIキー
+
+上記の認証情報はすべて、アカウントの作成時に提供されます。
+
+## AD EBiSアカウントに接続する
+
+このセクションでは、AD EBiSコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、AD EBiSアカウントに接続する認証情報の入力フィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Login ID </p></td><td colspan="1" rowspan="1"><p> AD EBiSログインIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Login Argument </p></td><td colspan="1" rowspan="1"><p> AD EBiSログイン引数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> AD EBiS APIキーを入力します。 </p></td></tr></tbody></table>
+
+有効なAD EBiS認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいAD EBiS DataSet作成することができます。コネクターのアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAD EBiSレポートを選択します。 次のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> AD EBiS - Ad Conversion Attributes </p></td><td colspan="1" rowspan="1"><p> 広告コンバージョンの属性に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AD EBiS - Ad Effect Conversions </p></td><td colspan="1" rowspan="1"><p> 広告効果コンバージョンに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AD EBiS - Ad Effects </p></td><td colspan="1" rowspan="1"><p> 広告効果に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AD EBiS - Indirect Ad Effects </p></td><td colspan="1" rowspan="1"><p> 間接的な広告効果に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AD EBiS Link - Ad Media Creatives </p></td><td colspan="1" rowspan="1"><p> 広告メディアのクリエイティブの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AD EBiS Link - Ad Media Keywords </p></td><td colspan="1" rowspan="1"><p> 広告メディアのキーワードのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Group Management - Ad Group 1s </p></td><td colspan="1" rowspan="1"><p> グループ1の広告を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Group Management - Ad Group 2s </p></td><td colspan="1" rowspan="1"><p> 広告グループ2の広告を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Management - Ads </p></td><td colspan="1" rowspan="1"><p> 広告のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Impression Management - Impression Cost </p></td><td colspan="1" rowspan="1"><p> インプレッションコストのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - AB Test Effect Conversions </p></td><td colspan="1" rowspan="1"><p> ABテストのコンバージョンデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - AB Test Effects </p></td><td colspan="1" rowspan="1"><p> ABテストの効果データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - AB Tests </p></td><td colspan="1" rowspan="1"><p> ABテスト広告に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - Area Targeting Effect Conversions </p></td><td colspan="1" rowspan="1"><p> 地域ターゲティングに関するコンバージョンデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - Area Targeting Effects </p></td><td colspan="1" rowspan="1"><p> 地域ターゲティングに関する効果データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> LPO EBiS - Area Targetings </p></td><td colspan="1" rowspan="1"><p> 地域ターゲティング広告のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Media Management - Media </p></td><td colspan="1" rowspan="1"><p> メディアタイプのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SEO EBiS - Ad Conversion Attributes </p></td><td colspan="1" rowspan="1"><p> 広告コンバージョンの属性のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SEO EBiS - Conversion Attributes </p></td><td colspan="1" rowspan="1"><p> コンバージョンの属性のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SEO EBiS - Effect Conversions </p></td><td colspan="1" rowspan="1"><p> 効果コンバージョンに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SEO EBiS - Effects </p></td><td colspan="1" rowspan="1"><p> 効果に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> System Management - System Config </p></td><td colspan="1" rowspan="1"><p> システム設定データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> System Management - Tags </p></td><td colspan="1" rowspan="1"><p> タグのリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Ad IDs </p></td><td colspan="1" rowspan="1"><p> データを取得する広告のIDを入力します。複数ある場合はカンマで区切ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversion IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するコンバージョンのIDを入力します。複数ある場合はカンマで区切ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Group 1 IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するグループ1の広告のIDを入力します。複数ある場合はカンマで区切ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Group 2 IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するグループ2の広告のIDを入力します。複数ある場合はカンマで区切ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Media IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するメディアのIDを入力します。複数ある場合はカンマで区切ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Keyword </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用するキーワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Natural Conversion </p></td><td colspan="1" rowspan="1"><p> データに自然なコンバージョンを含める場合は、このボックスをオンにします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するのか、日付範囲のデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Note </p></td><td colspan="1" rowspan="1"><p> フィルターに使用するメモコンテンツを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Status </p></td><td colspan="1" rowspan="1"><p> フィルターに使用する広告ステータスを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Text Data </p></td><td colspan="1" rowspan="1"><p> フィルターに使用するテキストデータを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Created </p></td><td colspan="1" rowspan="1"><p> 取得する広告の「開始作成」日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Modified </p></td><td colspan="1" rowspan="1"><p> 取得する広告の「開始変更」日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Created </p></td><td colspan="1" rowspan="1"><p> 取得する広告の「終了作成」日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Modified </p></td><td colspan="1" rowspan="1"><p> 取得する広告の「終了変更」日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Engine Names </p></td><td colspan="1" rowspan="1"><p> データを取得する検索エンジン名をカンマで区切ったリストを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Word </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用する検索語を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reject Word </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用する禁止語を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Other 1-5 </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用する「その他」の値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Amount Min </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用する最低金額を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Amount Max </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用する最大金額を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Member Name </p></td><td colspan="1" rowspan="1"><p> 結果に適用するフィルターに使用するメンバー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するページIDのリストをコンマで区切って入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Title </p></td><td colspan="1" rowspan="1"><p> データを取得するページのタイトルを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conversion Page Only </p></td><td colspan="1" rowspan="1"><p> コンバージョンページのデータのみを返す場合は、このチェックボックスをオンにします。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 同一のAD EbiSアカウントを複数のDataSetに使用できますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="# データはどのくらいの頻度で更新できますか？">
+
+
+必要に応じて更新されます。
+
+
+
+</Accordion>
+</AccordionGroup>

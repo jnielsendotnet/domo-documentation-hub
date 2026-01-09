@@ -1,0 +1,64 @@
+---
+title: "LINE MUSIC Analytics Connector"
+---
+
+## はじめに
+
+LINE MUSIC Analyticsは、音楽ストリーミングサービスLINE MUSICでのユーザーの視聴トレンドを分析するサービスです。LINE MUSICで視聴された音楽の再生回数、再生時間、視聴カテゴリーなどに関するユーザートレンドを分析でき、アーティストのさらなる音楽制作やプロモーションに活用することが可能です。
+
+LINE MUSIC Analyticsアカウントには、Data Centerから接続します。このトピックでは、Domo Connector for LINE MUSIC Analyticsのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「
+
+[コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+LINE MUSIC Analyticsアカウントに接続し、DataSetを作成するには以下が必要です。
+
+* LINE MUSIC AnalyticsアカウントのクレデンシャルID。
+* LINE MUSIC Analyticsアカウントのクレデンシャルシークレット。
+
+クレデンシャルIDとシークレットの取得方法は、「[クレデンシャル作成方法](https://docs-music-analytics.line.me/ja/latest/api/credential.html) 」を参照してください。
+
+## LINE MUSIC Analyticsアカウントに接続する
+
+このセクションでは、Domo Connector for LINE MUSIC Analyticsページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である［スケジュール設定］や［DataSetに名前を付け、説明を入力］に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「
+
+[コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、LINE MUSIC Analyticsアカウントに接続するための認証情報の入力フィールドが含まれています。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> フィールド </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> CREDENTIAL ID </td><td colspan="1" rowspan="1"> LINE MUSIC AnalyticsのクレデンシャルIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SECRET </td><td colspan="1" rowspan="1"> LINE MUSIC Analyticsのクレデンシャルシークレットを入力します。 </td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「
+
+**必要条件**
+
+」を参照してください。
+
+有効なLINE MUSIC Analytics認証情報を一度入力しておくと、随時同じアカウントを使用して新しいLINE MUSIC AnalyticsのDataSetを作成できます。コネクターアカウントは、Data Centerの
+
+**［アカウント］**
+
+タブで管理することができます。このタブの詳細については、「
+
+[コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる
+
+**［Reports］**
+
+メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。以下のレポートが利用できます。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> 再生場所別再生回数 </b></td><td colspan="1" rowspan="1"> 楽曲再生メディアカテゴリーと再生場所ごとの再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 課金ステータス別再生回数 </b></td><td colspan="1" rowspan="1"> 無料ユーザーや課金ユーザーなど、ユーザーの課金ステータスごとの楽曲再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 地域（都道府県）別再生回数 </b></td><td colspan="1" rowspan="1"> ユーザーの都道府県ごとの楽曲再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 性別/年齢別再生回数 </b></td><td colspan="1" rowspan="1"> ユーザーの性別と年齢ごとの楽曲再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 性別/年齢別/時間別再生回数 </b></td><td colspan="1" rowspan="1"> ユーザーの性別、年齢、時間帯ごとの楽曲再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 性別/年齢別/地域別再生回数 </b></td><td colspan="1" rowspan="1"> ユーザーの性別、年齢、地域ごとの楽曲再生回数を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><b> 性別/年齢別/課金ステータス別再生回数 </b></td><td colspan="1" rowspan="1"> ユーザーの性別、年齢、課金ステータスごとの楽曲再生回数を取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"><p><span></span><b> ［Date selection］ </b><span></span> で、１日または複数日のどちらを対象にしてレポートを取得するかを選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Single date </b></td><td colspan="1" rowspan="1"> 特定の単一の日付または相対的な単一の日付を指定します。 </td></tr><tr><td colspan="1" rowspan="1"><b> Date range </b></td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><b> Time period </b></td><td colspan="1" rowspan="1"> レポートの <span></span><b> ［Time period］ </b><span></span> ドロップダウンから期間を選択します。 </td></tr></tbody></table><dl><dt></dt><dd></dd><dt></dt><dd></dd><dt></dt><dd></dd></dl></td></tr><tr><td colspan="1" rowspan="1"> Date - Date </td><td colspan="1" rowspan="1"><p><span></span><b> ［Date Type］ </b><span></span> を以下から選択し、レポートのデータが特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します: </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Relative </b></td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <span></span><b> ［Days Back］ </b><span></span> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"><b> Specific </b></td><td colspan="1" rowspan="1"><span></span><b> ［Date］ </b><span></span> フィールドの日付セレクターを使用して、特定の日付を選択します。 </td></tr></tbody></table><dl><dt></dt><dd></dd><dt></dt><dd></dd></dl></td></tr><tr><td colspan="1" rowspan="1"> Date - Start Date </td><td colspan="1" rowspan="1"><p> 以下から <span></span><b> ［Date Type］ </b><span></span> を選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Relative </b></td><td colspan="1" rowspan="1"> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <span></span><b> ［End Date］ </b><span></span> と組み合わせて、表示する日付の範囲を作成します。 <br/> 例えば、 <span></span><b> ［Start Date］ </b><span></span> に <span></span><code> 「10」 </code><span></span> 、 <span></span><b> ［End Date］ </b> に <span></span><code> 「5」 </code><span></span> を入力した場合、レポートには10日前から5日前のデータが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"><b> Specific </b></td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の開始日を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date - End Date </td><td colspan="1" rowspan="1"><p> 以下から <span></span><b> ［Date Type］ </b><span></span> を選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Relative </b></td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <span></span><b> ［Start Date］ </b><span></span> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <span></span><b> ［Start Date］ </b><span></span> に <span></span><code> 「10」 </code><span></span> 、 <span></span><b> ［End Date］ </b> に <span></span><code> 「5」 </code><span></span> を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><b> Specific </b></td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の終了日を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date - Time period </td><td colspan="1" rowspan="1"> データを受信する期間を選択します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「
+
+[コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

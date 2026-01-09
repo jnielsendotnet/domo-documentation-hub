@@ -1,0 +1,40 @@
+---
+title: "Google Tag Managerコネクター"
+---
+
+## はじめに
+
+Google Tag Managerは、WebサイトやモバイルApp上のタグや関連するコードフラグメントを簡単に追跡できるタグ管理システムです。 DomoのGoogle Tag Managerコネクターを使用すると、Domoでタグデータを閲覧できます。Google Tag Manager APIの詳細については、Webサイト（
+https://developers.google.com/tag-manager/api/v2
+）を参照してください。
+
+Googleアカウントには、Data Centerから接続します。このトピックでは、Google Tag Managerコネクターのユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Googleアカウントに接続してGoogle Tag Manager DataSetを作成するには、Googleの認証情報が必要です。
+
+## Googleアカウントに接続する
+
+このセクションでは、Google Tag Managerコネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目にある ****［スケジュール設定］**** や ****［DataSetの名前を付け、説明を入力］**** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する」](/ja/s/article/360042926274) を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoogle Tag Managerコネクターは接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。 ****［接続］**** をクリック（または、Domoに既存のGoogleアカウントがある場合は ****［アカウントを追加］**** を選択）すると、Google OAuth画面が開き、Googleの認証情報を入力できます。有効なGoogle認証情報を入力した後は、新しいGoogle Tag Manager DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる ****［レポート］**** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Tag Managerのレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> アクセス権のあるGoogle Tag Managerのアカウントを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> ビルトイン変数 </td><td colspan="1" rowspan="1"> Google Tag Managerコンテナのビルトイン変数を一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> コンテナ </td><td colspan="1" rowspan="1"> Google Tag Managerアカウントに属するすべてのコンテナを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> 環境 </td><td colspan="1" rowspan="1"> Google Tag ManagerコンテナのすべてのGoogleタグマネージャー環境を一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> フォルダー </td><td colspan="1" rowspan="1"> 所定のコンテナのGoogle Tag Managerのすべてのフォルダーを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> タグ </td><td colspan="1" rowspan="1"> 所定のコンテナのGoogle Tag Managerのすべてのタグを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> トリガー </td><td colspan="1" rowspan="1"> 所定のコンテナのGoogle Tag Managerのすべてのトリガーを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー権限 </td><td colspan="1" rowspan="1"> アカウントにアクセス権のあるすべてのユーザーを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> 変数 </td><td colspan="1" rowspan="1"> 所定のコンテナのGoogle Tag Managerのすべての変数を一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> バージョンヘッダー </td><td colspan="1" rowspan="1"> Google Tag Managerコンテナのすべてのコンテナバージョンを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> ワークスペース </td><td colspan="1" rowspan="1"> Google Tag Managerのコンテナに属するすべてのワークスペースを一覧表示します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> アカウントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> コンテナ </td><td colspan="1" rowspan="1"> コンテナを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ワークスペース </td><td colspan="1" rowspan="1"> ワークスペースを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 詳細 </td><td colspan="1" rowspan="1"> データに含める詳細を選択します（一度に3つ以上を選択することは推奨されません）。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのそのほかのペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

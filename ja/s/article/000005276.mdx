@@ -1,0 +1,126 @@
+---
+title: "Xero Customコネクター"
+---
+
+## はじめに
+
+Xeroは、キャッシュフロー、請求書、経費などを監視するツールを使用して、中小企業が財務状態をしっかり把握できるようにします。XeroをDomoに接続すると、リアルタイムデータをコラボレーションできるプラットフォームが得られ、データをシンプルに把握することができます。Domo Xeroコネクターを使用すると、経費をDomoに取り込むことができ、財務状況を簡単に追跡して、正確に資金の流れを確認できます。Xero APIの詳細については、Xeroのページ（ [http://developer.xero.com/documentat.../overview](https://developer.xero.com/documentation/api/accounting/overview "https://developer.xero.com/documentation/api/accounting/overview") ）を参照してください。
+
+データをDomoに追加したら、Xeroの財務データを、好きなように組み合わせ、整理、可視化することができます。財務メトリクスが定義したしきい値に達したときに、即時通知が行われます。
+
+Xero Customアカウントには、Data Centerから接続します。このトピックでは、Xeroコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Xero CustomアカウントにアクセスしてDataSetを作成するには、Xeroアカウントへのログイン時に使用するメールアドレスとパスワードが必要です。
+
+* クライアントID
+* クライアントのシークレット
+* スコープ
+
+## Xero Customアカウントに接続する
+
+このセクションでは、Xero Customコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのXero Customコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のXeroアカウントがある場合は **［アカウントを追加］** を選択）すると、Xero OAuth画面が開き、Xero Customの認証情報を入力できます。
+
+このペインには、Xero CustomアカウントとDomoデベロッパーアカウントに接続するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"> Xero Custom接続クライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Xero Custom接続クライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Scope </td><td colspan="1" rowspan="1"> Xero Custom接続のセットアップ時に指定されたスコープのスペース区切りリストを入力します。利用できる <a href="https://developer.xero.com/documentation/guides/oauth2/scopes/" target="_blank"> スコープ </a> の完全なリストが表示されます。 </td></tr></tbody></table>
+
+有効なXero Custom認証情報を一度入力しておくと、随時同じアカウントを使用して新しいXero DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+<Warning>
+**注記：** 指定した認証情報で一度に認証できるXero Customアカウントは1つだけです。別の場所でXeroでOAuthを使用しようとすると、DomoのXero Customアカウントが無効になります。
+
+</Warning>
+
+---
+
+<Note>
+**注記：** Domoで接続する際、既にXeroにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずXeroからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するXeroレポートを選択します。次のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> Xero組織内のアカウントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Aged Payables by Contact </td><td colspan="1" rowspan="1"> 指定された期間内のすべての請求書の長期未払金を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Aged Receivables by Contact </td><td colspan="1" rowspan="1"> 指定された期間内のすべての請求書の長期未収入金を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Balance Sheet </td><td colspan="1" rowspan="1"> 現在の月の現在までの貸借対照表を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bank Statement </td><td colspan="1" rowspan="1"> Xero組織内の各銀行口座の銀行取引明細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bank Summary </td><td colspan="1" rowspan="1"> 各銀行口座の残高と資金移動情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bank Transactions </td><td colspan="1" rowspan="1"> 支払/受取取引情報のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bank Transfers </td><td colspan="1" rowspan="1"> 銀行振込のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Branding Themes </td><td colspan="1" rowspan="1"> Xero組織に定義済みのブランディングテーマのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Budget Summary </td><td colspan="1" rowspan="1"> 毎月の予算のサマリーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> 連絡先のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Credit Notes </td><td colspan="1" rowspan="1"> クレジットノートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Currencies </td><td colspan="1" rowspan="1"> 組織の通貨のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Employees </td><td colspan="1" rowspan="1"> Xero給与計算機能で使用されている従業員のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Executive Summary </td><td colspan="1" rowspan="1"> 月次の合計と一般的な業績指標を含むサマリーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Expense Claims </td><td colspan="1" rowspan="1"> 経費請求とそのステータスのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> 請求書または購入伝票のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Items </td><td colspan="1" rowspan="1"> 項目のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Journals（廃止） </td><td colspan="1" rowspan="1"> 仕訳のリストを返します。Xeroはこのレポートの機能をサポートしなくなるため、その精度を保証することはできません。代わりに、Journals (Append) レポートを使用してください。 </td></tr><tr><td colspan="1" rowspan="1"> Journals (Append) </td><td colspan="1" rowspan="1"> 指定した日付以降に作成または変更された仕訳のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Manual Journals </td><td colspan="1" rowspan="1"> 手動仕訳のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Organizations </td><td colspan="1" rowspan="1"> Xero組織に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Payments </td><td colspan="1" rowspan="1"> 請求書とクレジットノートの支払いのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss </td><td colspan="1" rowspan="1"> 損益報告を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss Aggregated </td><td colspan="1" rowspan="1"> 指定した精度での選択した日付範囲の損益報告を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Orders </td><td colspan="1" rowspan="1"> 注文書のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Receipts </td><td colspan="1" rowspan="1"> 任意のユーザーの経費請求受領書のドラフトのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Repeating Invoices </td><td colspan="1" rowspan="1"> 繰り返し請求書のテンプレートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tax Rates </td><td colspan="1" rowspan="1"> Xero組織の税率を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tracking Categories </td><td colspan="1" rowspan="1"> Xero組織の追跡のカテゴリーとオプションを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Trial Balance </td><td colspan="1" rowspan="1"> 現在の月の現在までの試算表を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Xero組織のユーザーのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> レポートの開始日を表す過去の日数を入力します。「 <span class="mt-font-courier-new"> x </span> 」、「 <span class="mt-font-courier-new"> x day </span> 」、または「 <span class="mt-font-courier-new"> x days </span> 」のいずれかのフォーマットを使用できます。 <span class="mt-font-courier-new"> x </span> は1から365までの数値です。 </td></tr><tr><td colspan="1" rowspan="1"> Contact </td><td colspan="1" rowspan="1"> データを取得する連絡先を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Bank Account </td><td colspan="1" rowspan="1"> データを取得する銀行口座を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> To Days </td><td colspan="1" rowspan="1"> レポートの終了日を表す過去の日数を入力します。「 <span class="mt-font-courier-new"> x </span> 」、「 <span class="mt-font-courier-new"> x day </span> 」、または「 <span class="mt-font-courier-new"> x days </span> 」のいずれかのフォーマットを使用できます。 <span class="mt-font-courier-new"> x </span> は1から365までの数値です。 </td></tr><tr><td colspan="1" rowspan="1"> Offset </td><td colspan="1" rowspan="1"> 仕訳番号を入力します。このレポートは、この番号より大きい番号の仕訳のみを取得します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## コンサルティング/サポートのトラブルシューティング
+
+### 列名の日付
+
+Xeroレポートの中には、実行日が列名として使われているデータを返すものがあります。例えば、2017年2月17日に「損益」レポートを実行すると、「Row\_\_17\_Feb\_17」という金額列が表示されます。これにより、スケジュールされたDataSetの更新が行われるたびに列の名前が変更されるため、これらの列はDataFlowやカードで使用されなくなります。
+
+この問題を解決するには、列名の日付を一般的な列名に置き換えることを推奨します。Domo SQLクエリを使用すると、不具合のある列を一般的な名前の列名に置き換えることができます。その後、この列はMagic DataFlowで参照できるようになります。
+
+次の例では、列名「Row\_\_16\_Feb\_17」を「ProfitLossAmount」という名前に置き換えます。
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1n.png" style={{width: 941, height: 81}}/></Frame>
+
+```sql
+select NULL AS Row_Id, NULL AS Row_ProviderName, NULL AS Row_DateTimeUTC, NULL AS Row_ReportName, NULL AS Row_ReportDate, NULL ​AS Row_UpdatedDateUTC, NULL AS Row_ReportTitle, NULL AS Row_column_0, NULL AS ProfitLossAmount, NULL AS _BATCH_ID_, NULL AS _BATCH_LAST_RUN_ from xero_profit_and_loss_report
+
+where 1 = 0 --this row returns nothing but allows setting the column names for the query`
+
+union all
+
+select * from xero_profit_and_loss_report
+```
+
+### 不要なピボット表
+
+多くの場合、上記の列の命名の問題があるデータはピボット表として表されます。スケジュールされた実行が行われるたびに列名が変更されるため、ETLで［列を折りたたむ］アクションを使用してこのデータをアンピボットすることはできません。例えば、「Budget」レポートがこれに該当します。
+
+この問題を解決するには、日付で名前が付けられた列をアンピボットしますが、出力DataSetが1つの列につき1つの日付行を持つように、日付値は行として保持します。
+
+次の例では、まずDomo SQLクエリを使用して列の名前を一般的な名前に変更します。次にMagic ETL DataFlowを使用して **［列を折りたたむ］** アクションを実行します。次に、一般的な列名（現在は行データ）を日付に変換します。
+
+1. 次のようにDomo SQLクエリを作成します。
+
+   Input: Xero DataSet created using the report "Budget"
+
+   <Frame><img alt="xero_unpivot_1.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1l.png"/></Frame>
+
+   Transform: Replace the column names "Row\_\_Feb-17," "Row\_\_Mar-17," etc. with "Month1," "Month2," etc. using the method described above.
+
+   出力フォーマット：名前を変更した列
+
+   <Frame><img alt="xero_unpivot_2.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1q.png"/></Frame>
+
+2. Domo Magic DataFlowで、上記のように定義した出力データをアンピボットし、Month1、Month2などの値を
+   ［\_BATCH\_LAST\_RUN\_］ 日付にもとづいた日付に置き換えます。
+
+   <Frame><img alt="xero_unpivot_3.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1o.png"/></Frame>
+
+   1. **［列を折りたたむ］**
+      アクションで12の日付列をアンピボットします。
+
+      <Frame><img alt="xero_unpivot_4.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1m.png"/></Frame>
+
+   2. **［値マッパー］**
+      アクションで ［\_BATCH\_LAST\_RUN\_］ 日付に追加する月番号を含む新しいフィールドを作成して、行の正しい日付フィールドを取得します。
+
+      <Frame><img alt="xero_unpivot_5.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1r.png"/></Frame>
+
+   3. **［列のタイプを設定］**
+      アクションで月番号列のデータタイプを数値タイプに変更します。
+
+      <Frame><img alt="xero_unpivot_6.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1k.png"/></Frame>
+
+   4. **［日付の演算］**
+      アクションで **［日付に月を追加］** 演算を使用し、月番号を ［\_BATCH\_LAST\_RUN\_］ 日付に追加して、行の日付を決定します。
+
+      <Frame><img alt="xero_unpivot_7.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1p.png"/></Frame>
+
+出力フォーマットは、月ごとに1列ではなく、月ごとに1行である必要があります。
+
+<Frame><img alt="xero_unpivot_8.png" src="/images/kb/ka0Vq000000068f-00N5w00000Ri7BU-0EM5w000005vO1s.png"/></Frame>

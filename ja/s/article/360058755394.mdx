@@ -1,0 +1,77 @@
+---
+title: "Zoom Phone Enterpriseコネクター"
+---
+
+## はじめに
+
+Zoomは、ビデオやオーディオ会議、チャット、ウェビナーのための簡単で信頼できるクラウドプラットフォームを備えた、現代の企業向け主要ビデオ通信の1つです。Zoom Phoneの通話機能は、柔軟性とモバイル性、そして強力なクラウド電話システムを提供するために設計されています。Zoom Enterprise Cloud Phoneシステムは、音声通信を合理化するための最新のユーザー経験を備えた企業クラスの機能を提供します。インテリジェントコールルーティングやオートアテンダント機能、アウトオブボックスの統合、HDボイスのセキュアな音声、標準ベースのエンドポイントとの相互接続機能などを提供します。DomoのZoom Phone Enterpriseコネクターを使用すると、Zoom Phone Enterpriseデータを取得できます。Zoom APIの詳細については、[APIドキュメント](https://marketplace.zoom.us/docs/api-reference/zoom-api "https://marketplace.zoom.us/docs/api-reference/zoom-api") を参照してください。
+
+ZoomアカウントにはData Centerから接続します。このトピックでは、Zoom Phone Enterpriseコネクターユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Zoomアカウントに接続してDataSetを作成するには、[https://marketplace.zoom.us](https://marketplace.zoom.us "https://marketplace.zoom.us") で作成されたOAuth Appに関連付けられたクライアントIDとクライアントシークレットが必要です。これらの認証情報は、［App Credentials］ページにあります。
+
+### OAuth Appを作成するには：
+
+1. 最初に、Appを登録する必要があります。[Zoom App Marketplace](https://marketplace.zoom.us/) にアクセスし、右隅にあるドロップダウンで ****［Develop］**** オプションをクリックして［Build App］を選択します。様々なAppタイプが記載されたページが表示されます。
+2. Appタイプとして ****［OAuth］**** を選択し、 ****［Create］**** をクリックします。
+
+<Frame><img alt="clipboard_ec411697e6e0fff34f61aa5a54e381aa6.png" src="/images/kb/ka05w000001236M-00N5w00000Ri7BU-0EM5w000005vNz6.png"/></Frame>
+
+3. App名とAppタイプを入力し、**［Create］** をクリックします。
+
+<Frame><img alt="clipboard_ecd9e0f623814095ffb26e56a89b3d004.png" src="/images/kb/ka05w000001236M-00N5w00000Ri7BU-0EM5w000005vNyv.png"/></Frame>
+
+4. クライアントIDとクライアントシークレットが［App Credentials］セクションに表示されます。
+
+5. ここでは、［Redirect URL for OAuth］および［Whitelist URL］フィールドに次のリダイレクトURLを追加する必要があります。
+
+https://oauth.domo.com/api/data/v1/oauth/providers/zoom-phone-enterprise/exchange
+
+<Frame><img alt="clipboard_eb9fad16a4a3a02535df3b28362617d9e.png" src="/images/kb/ka05w000001236M-00N5w00000Ri7BU-0EM5w000005vNyx.png"/></Frame>
+
+6. **［Continue］** をクリックします。
+
+7. Appの基本情報を入力して機能を追加します。**［Continue］** をクリックします。
+
+8. ［Scopes］設定セクションで、**［Add Scope］** をクリックします。
+
+9. **［phone:read:admin］** スコープを選択し、 **［Done］** をクリックします。
+
+<Frame><img alt="clipboard_e10d8e78443a3772dfc5c7550d1386c00.png" src="/images/kb/ka05w000001236M-00N5w00000Ri7BU-0EM5w000005vNyy.png"/></Frame>
+
+10. **［Continue］** をクリックします。
+
+11. ［Activation］セクションで **［Install］** をクリックしてアカウントにAppをインストールします。
+
+## Zoomアカウントに接続する
+
+このセクションでは、Zoom Phoneコネクターページの ********［認証情報］******** および ********［詳細］******** ペインのオプションについて説明します。このページのほかのペインの項目である ********［スケジュール設定］******** や ********［DataSetに名前を付け、説明を入力］******** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインでは、 [https://marketplace.zoom.us](https://marketplace.zoom.us "https://marketplace.zoom.us") で作成されたOAuth Appに関連付けられたクライアントIDとクライアントシークレットを入力し、Zoomアカウントタイプを選択する必要があります。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><th class="mt-column-width-25" colspan="1" rowspan="1"><p> フィールド </p></th><th class="mt-column-width-70" colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td class="mt-column-width-25" colspan="1" rowspan="1"> Client ID </td><td class="mt-column-width-70" colspan="1" rowspan="1"><a href="https://marketplace.zoom.us" target="_blank" title="https://marketplace.zoom.us"> https://marketplace.zoom.us </a> で作成されたOAuth Appに関連付けられたクライアントIDを入力してください。詳細については、「 <a href="#h_01ES6Q7RQ75R7DT59TND1MNCJC" target="_self" title="Zoom Phone Enterpriseコネクター"> OAuth Appを作成する </a> 」を参照してください。 </td></tr><tr><td class="mt-column-width-25" colspan="1" rowspan="1"> Client Secret </td><td class="mt-column-width-70" colspan="1" rowspan="1"><a href="https://marketplace.zoom.us" target="_blank" title="https://marketplace.zoom.us"> https://marketplace.zoom.us </a> で作成されたOAuth Appに関連付けられたクライアントシークレットを入力してください。詳細については、「 <a href="#h_01ES6Q7RQ75R7DT59TND1MNCJC" target="_self" title="Zoom Phone Enterpriseコネクター"> OAuth Appを作成する </a> 」を参照してください。 </td></tr><tr><td class="mt-column-width-25" colspan="1" rowspan="1"> Account Type </td><td class="mt-column-width-70" colspan="1" rowspan="1"> プランがビジネス、教育、VIP、APIパートナー、またはエンタープライズの場合は、［Account Type］に［Business］またはそれ以上を選択します。それ以外の場合は［Pro］を選択します。 </td></tr></tbody></table>
+
+Domo Zoom Phone Enterpriseコネクターは接続にOAuthを使用します。そのため、Domo内でのZoom認証情報の入力は必要ありません。 ********［接続］******** をクリックすると（またはDomoに既存のZoomアカウントがある場合は ********［アカウントを追加］******** を選択すると）、Zoom OAuth画面が開き、Zoomのメールアドレスとパスワードが入力できます。
+
+<Note>
+**注記：** Domoに接続する際に、既にZoomにログインしている場合は、（クライアントIDとクライアントシークレットを入力した後に） **［接続］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、最初にZoomアカウントからログアウトする必要があります。
+
+</Note>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいZoom Phone Enterprise DataSetを作成できます。コネクターのアカウントはData Centerの ********［アカウント］******** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる ********［Reports］******** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するZoom Phone Enterpriseレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Account Call Logs </td><td colspan="1" rowspan="1"> 指定した期間中のアクティブまたは非アクティブなホストレポートのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Calling Plans </td><td colspan="1" rowspan="1"> Zoomアカウントで有効になっているすべてのZoom Phone通話プランを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Phone Number Details </td><td colspan="1" rowspan="1"> Zoomアカウント内の特定の電話番号の詳細を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Phone Numbers </td><td colspan="1" rowspan="1"> Zoomアカウント内のすべてのZoom電話番号を一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Phone Users </td><td colspan="1" rowspan="1"> Zoom Phoneライセンスを割り当てられたアカウントの全ユーザーを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> User Call Logs </td><td colspan="1" rowspan="1"> Zoom Phoneユーザーの通話の履歴を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> User Profile </td><td colspan="1" rowspan="1"> ユーザーのZoom Phoneプロフィールを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> User Recordings </td><td colspan="1" rowspan="1"> ユーザーのZoom Phoneレコーディングを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> User Voicemails </td><td colspan="1" rowspan="1"> ユーザーのZoom Phoneボイスメールを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Call Log Type </td><td colspan="1" rowspan="1"> 通話の履歴のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Phone Number </td><td colspan="1" rowspan="1"> 電話番号を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Phone Number Type </td><td colspan="1" rowspan="1"> 電話番号のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Extension Type </td><td colspan="1" rowspan="1"> 内線のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Number Type </td><td colspan="1" rowspan="1"> 番号のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Pending Numbers </td><td colspan="1" rowspan="1"> 保留中の番号を含めるか除外するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Site </td><td colspan="1" rowspan="1"> 場所を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> ユーザーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Status </td><td colspan="1" rowspan="1"> ステータスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b><b><b> ［Days Back］ </b></b></b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,75 @@
+---
+title: "Fitbitコネクター"
+---
+
+## はじめに
+
+Fitbitは、歩数、睡眠時間、摂取カロリーなどの個人メトリクスを測定するワイヤレス対応ウェアラブルデバイスを製造しています。DomoのFitbitコネクターは、DomoとFitbitを統合し、Fitbit APIからデータの抽出を行います。コネクターを使うと、様々な健康関連メトリクスに関するレポートを集めることができます。Fitbit APIの詳細については、ウェブサイト（ [https://dev.fitbit.com/docs/](https://dev.fitbit.com/docs/ "https://dev.fitbit.com/docs/") ）を参照してください。
+
+Fitbitコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Fitbitアカウントには、 Data Center から接続します。このトピックでは、Fitbitコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」で説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:200;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 健康トラッキング、運動トラッキング、減量、など。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> アクティビティに関するメトリクス </p></li><li><p> 食品の消費 </p></li><li><p> 受け取ったアワード </p></li><li><p> 睡眠時間 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 人事権限 </p></li><li><p> Fitbitを所有していて、健康メトリクスを追跡する人 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+FitbitアカウントにアクセスしてDataSetを作成するには、Fitbitのアカウントへのログイン時に使用するメールアドレスとパスワードが必要です。
+
+## Fitbitアカウントに接続する
+
+このセクションでは、Fitbitコネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのFitbitコネクターは、接続にOAuthを使用しているので、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（または、Domoで既にFitbitアカウントを持っている場合は **［アカウントを追加］** を選択）
+
+すると、Fitbitアカウントログイン用のメールアドレスとパスワードを入力するFitbit OAuth画面が開きます。有効なFitbit認証情報を一度入力しておくと、同じアカウントを使用して随時、新しいFitbit DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054?language=en_US "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて様々なメニューが表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Fitbitレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> レポート名 </b></p></td><td colspan="1" rowspan="1"><p><b> 説明 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Goals </p></td><td colspan="1" rowspan="1"><p> ユーザーの毎日または毎週のアクティビティ目標に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Logs </p></td><td colspan="1" rowspan="1"><p> 特定の日の前または後にユーザーのアクティビティログの入力内容のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Stats </p></td><td colspan="1" rowspan="1"><p> ユーザーの最高および生涯のアクティビティ統計を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Subscriptions </p></td><td colspan="1" rowspan="1"><p> ユーザーのサブスクリプションのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Badges </p></td><td colspan="1" rowspan="1"><p> ユーザーのバッジすべてのリストを返します。Fitbitウェブサイトのバッジロッカー（アクティビティと体重関連の両方）に表示されているのと同じように、ユーザーのバッジすべてが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Body Weight Goal </p></td><td colspan="1" rowspan="1"><p> ユーザーの現在の体重目標を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Body Fat Goal </p></td><td colspan="1" rowspan="1"><p> ユーザーの現在の体脂肪目標を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Browse Activities </p></td><td colspan="1" rowspan="1"><p> 公開Fitbitアクティビティとユーザーが作成したプライベートなアクティビティのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Devices </p></td><td colspan="1" rowspan="1"><p> ユーザーのすべてのFitbitデバイスのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fat </p></td><td colspan="1" rowspan="1"><p> 特定の日付におけるユーザーの体脂肪を記録した項目すべてのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Favorite Activities </p></td><td colspan="1" rowspan="1"><p> ユーザーのお気に入りの活動のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Frequent Activities </p></td><td colspan="1" rowspan="1"><p> ユーザーが頻繁に行うアクティビティのリストを返します。頻繁に行うアクティビティの記録には、前回アクティビティが記録された際の距離と時間が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Foods </p></td><td colspan="1" rowspan="1"><p> 特定の食品の栄養に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Food Goals </p></td><td colspan="1" rowspan="1"><p> ユーザーの食事の目標のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Food Units </p></td><td colspan="1" rowspan="1"><p> 食品単位のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Frequent Foods </p></td><td colspan="1" rowspan="1"><p> ユーザーが最もよく食べる食品のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Favorite Foods </p></td><td colspan="1" rowspan="1"><p> ユーザーが好きな食品のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Friends </p></td><td colspan="1" rowspan="1"><p> ユーザーの友だちリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Meals </p></td><td colspan="1" rowspan="1"><p> ユーザーが食事記録で作成した食事のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Activities </p></td><td colspan="1" rowspan="1"><p> ユーザーの最近のアクティビティのリストを返します。最近のアクティビティの記録には、前回アクティビティが記録された際に記録した距離と時間が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Foods </p></td><td colspan="1" rowspan="1"><p> ユーザーの最近食べた食品のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Foods </p></td><td colspan="1" rowspan="1"><p> 指定した食品の情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sleep </p></td><td colspan="1" rowspan="1"><p> ユーザーの睡眠ログに入力された内容と、昼寝を含む特定の日の分単位の睡眠開始データのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Calories by Day </p></td><td colspan="1" rowspan="1"><p> ユーザーの日別の総摂取カロリーを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Distance by Day </p></td><td colspan="1" rowspan="1"><p> ユーザーの総移動距離を日別で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Total Floors by Day </p></td><td colspan="1" rowspan="1"><p> ユーザーが登った総階数を日別で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Activities </p></td><td colspan="1" rowspan="1"><p> ユーザーのアクティビティのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Activities Steps </p></td><td colspan="1" rowspan="1"><p> ユーザーの歩数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> ユーザーのプロフィール情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Weight </p></td><td colspan="1" rowspan="1"><p> ユーザーの体重を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Water </p></td><td colspan="1" rowspan="1"><p> 特定の日にユーザーがとった水分ログの入力内容のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Water Goal </p></td><td colspan="1" rowspan="1"><p> ユーザーの現在の水分目標を返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> データを取得するユーザーのIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p> データを取得する日付を <span class="mt-font-courier-new"> yyyy-MM-dd </span> の形式で入力します。日付を入力しない場合、現在の日付が使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Goals Frequency </p></td><td colspan="1" rowspan="1"><p> 毎日または毎週のアクティビティの目標頻度を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Days </p></td><td colspan="1" rowspan="1"><p> 取得するデータの日数を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search </p></td><td colspan="1" rowspan="1"><p> データを取得する食品を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> 特定の日付か、または今日から何日前までのデータを取得するかを指定します。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターを使用するために、特定の種類のアカウントは必要ですか？">
+
+
+有効なFitbitアカウントであれば、このコネクターを起動できます。
+
+
+</Accordion>
+<Accordion title="# Fitbitの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+このコネクターでは、OAuthログインプロセスを使用するため、認証情報はどこにも保存されず、安全です。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="データ更新の頻度はどのくらいですか？">
+
+
+データは毎日取得できます。今日の日付で取得できるデータもありますが、最も正確なデータは前日以前からのデータになります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+Fitbitでは、各ユーザーが1時間当たり最大150件のAPIリクエストをすることができます。1回のDataSet実行に複数のAPI呼び出しが必要になる場合がありますのでご注意ください。
+
+## トラブルシューティング
+
+Fitbitのユーザー名とパスワードが正しいことを確認してください。
+
+
+
+</Accordion>
+</AccordionGroup>

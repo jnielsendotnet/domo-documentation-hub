@@ -1,0 +1,30 @@
+---
+title: "積上げ縦棒グラフ（累計）"
+---
+
+## はじめに
+
+積上げ縦棒グラフ（累計）は、 [積上げ縦棒グラフ](/s/article/360042923334 "積上げ棒グラフ") に類似しています。ただし、一連の系列の各バーは、その時点までの同じ系列内の全ての値の累積合計値（「累計」）を示しています。 どのような種類のカテゴリのデータも累計グラフで扱えますが、通常は日付または日付時間データを使います。 同様の「累計」のコンセプトが使われる Domo の他のグラフタイプには、1 カテゴリにつき 1 系列のバーのみを含む [棒グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Bar+graph "棒グラフ（累計）") 、カテゴリの系列のバーを積み上げるのではなく並べて示す [集合縦棒グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Grouped+Bar+graph "集合縦棒グラフ（累計）") 、バーの代わりに線を使った [折れ線グラフ（累計）](http://wiki.domo.com/confluence/display/DHCS/Building+a+Running+Total+Line+graph "折れ線グラフ（累計）") があります。
+
+## 積上げ縦棒グラフ（累計）を作成する
+
+積上げ縦棒グラフ（累計）は、DataSet から3つのデータ列または行を必要とします。1つはカテゴリ、1つは各カテゴリの系列、そして1つは数値です。 値、カテゴリー、系列データについては、 [チャートデータについて](/s/article/360043428693 "チャートデータについて") を参照してください。
+
+集合縦棒グラフ（累計） のデータが含まれる列は、カードビルダーで選択します。 データ列を選択する方法に関しては、 [DataSet 列をチャートに適用する](/s/article/360043428713 "DataSet 列をチャートに適用する") を参照してください。
+
+カードビルダーでチャートをフォーマットする方法に関しては、 KPI カード作成パート 2： カードビルダー を参照してください。
+
+以下の図は、典型的な列ベースのスプレッドシートのデータがどのように積上げ縦棒グラフ（累計）に変換されるかを示しています。
+
+<Frame><img alt="running_total_stacked_bar_spreadsheet_example_new.png" src="/images/kb/ka05w00000123nO-00N5w00000Ri7BU-0EM5w000005vP8o.png"/></Frame>
+## 積上げ棒グラフ（累計）をカスタマイズする
+
+積上げ縦棒グラフ（累計）の外観は、複数の方法でカスタマイズすることができます。 **チャートの設定** で設定することにより、様々なカスタマイズをすることができます。 チャートの設定の全オプションについては、 [チャートの設定リファレンスガイド](/s/article/ "チャートの設定") を参照してください。 集合縦棒グラフ（累計） 固有のプロパティには以下があります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:198;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 累計系列の数 </p></td><td colspan="1" rowspan="1"><p> ほとんどの累計チャートで、集計された系列の数を選択することができます。 集計された系列は凡例に表示されるグラフの系列の順番をもとに決められます。 例えば、集合棒グラフ（累計）がある場合、そして二つの合計系列を望んでいるとした場合、凡例の最初の二つの系列のバーはそのまま集計され、その他の全てのバーはそのリテラル数値を表示します。 </p><p> 例では、累計の系列として一つの系列のみが選択されています。 これは各積み上げの下部にある青の系列です。 その他の全ての系列はリテラル値で表示されています。 </p></td><td colspan="1" rowspan="1"><p><img alt="running_total_one_series.png" src="/images/kb/ka05w00000123mL-00N5w00000Ri7BU-0EM5w000005vP4P.png"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリの目盛り&gt; 時間の目盛りを使用しない </p></td><td colspan="1" rowspan="1"><p> 対応するチャートで時間データを使用する場合、どのタイプのタイムラインを使用するかを決定します。 </p><p> デフォルトでは、サポートされているチャート（線および棒グラフなど）に時間データを使用する際、Domoは自動的に適切な <a class="confluence-link" href="http://wiki.domo.com/confluence/pages/viewpage.action?pageId=37466650" target="_blank" title="チャートにフィルターを追加する"> 日付単位 </a> を使用してデータに表示します。 右の最初の例では、数ヶ月にわたる日付データを月ごとに表示しています。 </p><p> しかし、このボックスをチェックすると、DataSet で表示されるのと同じように日付データを表示します。 右側の2番目の例では、DataSet と同じように、時間の目盛りで個々の日付が使用されています。 </p><p> このオプションは縦棒グラフのみ利用可能です。 </p></td><td colspan="1" rowspan="1"><p><a href="https://domohelp.domo.com/@api/deki/files/1343" target="_blank" title="/@api/deki/files/1343/timescales_on.png"><img alt="timescales_on.png" src="/images/kb/ka05w00000123ms-00N5w00000Ri7BU-0EM5w000005vP6n.png"/></a></p><p><img alt="timescales_off.png" src="/images/kb/ka05w00000123ms-00N5w00000Ri7BU-0EM5w000005vP6c.png"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> 数値の目盛り &gt; タイトルの位置 </p></td><td colspan="1" rowspan="1"><p> 縦棒グラフの値の目盛りラベルを、チャートの左または上部に表示するかを決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr></tbody></table>
+
+### 積上げ縦棒グラフ（累計）のバーサイズを変更する
+
+どんな棒グラフでも、グラフ中でバーが占有する割合、またはバーの幅を設定することができます。 詳細は、 [棒グラフのバーの大きさを指定する](/s/article/360042925294 "棒グラフのバーの大きさを指定する") を参照してください。
+
+日本語

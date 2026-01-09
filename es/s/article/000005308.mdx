@@ -1,0 +1,281 @@
+---
+title: "Notas de la versión de julio de 2023"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+---
+
+###### Mejoras de la plataforma
+
+* [Nuevas asignaciones](#new_grants)
+* [Complementos de MS Office](#office_add-ins)
+* [Contenido certificado](#certified_content)
+* [Mejoras de AppStore](#appstore_improvements)
+* [Actualizaciones de diagramas](#chart_updates)
+* [Nuevos informes de DomoStats](#domostats)
+
+###### Nuevas características
+
+* [Activación avanzada de DataFlow](#advanced_dataflow_triggering)
+* [Procesamiento de subconjuntos y particiones en Magic – Extracción, transformación y carga](#partition_subset_processing)
+* [Administración de clientes de API](#api_client_management)
+
+###### Actualizaciones prémium
+
+* [Flex Map v2](#flex_maps_v2)
+* [InLine Editing](#inline_editing)
+* [Dominios de correo electrónico del conjunto de marcas](#brand_kit_email_domains)
+* [Duración del proceso de publicación de Domo Everywhere](#domo_everywhere_duration)
+* [Uso compartido de archivos de áreas de trabajo de Jupyter](#jupyter_file_sharing)
+* [Reglas de cambio de nombre de Sandbox y gráfico de dependencia](#sandbox)
+* [Actualizaciones del conjunto de herramientas de gestión](#governance_toolkit)
+* [Amplificador de nubes](#cloud_amplifier)
+
+###### Anuncio beta
+
+* [Domo Bricks + ChatGPT](#domo_bricks_and_chatgpt)
+
+---
+
+## Nuevas asignaciones
+
+Las siguientes asignaciones son parte de esta versión:
+
+* Crear directorios para compartir archivos
+* Administrar directorios para compartir archivos
+
+Para obtener más información, consulte a continuación la actualización de [Uso compartido de archivos de áreas de trabajo de Jupyter](#jupyter_file_sharing).
+
+## Complementos de MS Office
+
+<Frame><img alt="domo add-ins.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM3r.jpg"/></Frame>
+Se ha añadido la siguiente funcionalidad a los complementos de MS Office de Domo. Obtenga más información en la [Guía del usuario de complementos](/s/article/000005143).
+
+#### Representación de imágenes dinámicas
+
+Para evitar distorsiones al cambiar el tamaño de una imagen en un documento, puede actualizar la tarjeta después de cambiar el tamaño para restaurar la calidad de la imagen original con la relación de aspecto correcta.
+
+#### Configuración de importación mejorada
+
+Los siguientes cambios en la configuración de importación de contenido le brindan más control al añadir contenido de Domo a sus documentos:
+
+* La configuración de imagen avanzada le permite ajustar el ancho, la altura y la escala de las imágenes importadas
+* Importe el número de resumen y oculte la imagen de la tarjeta (solo se muestra el número de resumen en el documento)
+* Mejora general del diseño para la configuración de importación
+* Usar fondo transparente
+
+<Frame><img alt="new settings.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMB7.jpg" style={{width: 698, height: 471}}/></Frame>
+#### Soporte para Outlook
+
+El complemento de Outlook tiene soporte mejorado para Android e iOS.
+
+## Contenido certificado
+
+<Frame><img alt="Screenshot 2023-07-18 at 5.05.40 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuj.jpg"/></Frame>
+Si tiene la concesión para Administrar contenido certificado en su instancia, ahora puede optar por certificar su propio contenido en lugar de enviarlo a través de una cadena de aprobación.
+
+Los administradores también pueden solicitar que se incluya información específica en las solicitudes de certificación con los campos de Detalles de la certificación disponibles en la Configuración del administrador de contenido certificado.
+
+Obtenga más información en [Certificar tarjetas y DataSets](/s/article/360043430613).
+
+## Mejoras de AppStore
+
+<Frame><img alt="Screenshot 2023-07-20 at 10.14.07 AM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM7Z.jpg" style={{width: 688, height: 356}}/></Frame>
+Las mejoras al ecosistema de AppStore incluyen lo siguiente:
+
+#### Detectar automáticamente los componentes de envío
+
+Cuando se envía una lista, el sistema ahora detecta automáticamente y sugiere los componentes que mejor describen la lista y aparecen en los resultados de búsqueda.
+
+#### Consolidación del tipo de aplicación y los componentes
+
+Al buscar en AppStore, las opciones de tipo de aplicación se han consolidado con componentes para mejorar los resultados de búsqueda.
+
+#### Consolidación de listas promocionales y de servicios
+
+Para mayor claridad, hemos eliminado la opción de categorizar una lista como Promocional y recomendamos que utilice el tipo Servicio para estas listas.
+
+<Frame><img alt="service type.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKaj.jpg" style={{width: 414, height: 320}}/></Frame>
+#### Obtener prueba instantánea
+
+En vez de "Solicitar demostración" u "Obtener prueba", las aplicaciones de pago ahora ofrecen una opción para "Obtener prueba instantánea".
+
+#### La lista incluye
+
+Las listas de la AppStore ahora tienen una sección **La lista incluye** que muestra los activos que incluye la lista y la cantidad de cada uno. En este ejemplo, la lista incluye una tarjeta, un DataSet y una aplicación empresarial.
+
+<Frame><img alt="listing includes.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vGBj.jpg" style={{width: 263, height: 162}}/></Frame>
+#### Formato enriquecido y descripciones
+
+Al enviar las listas, hay más opciones de formato enriquecido; los editores también pueden diseñar tablas y alinear el texto.
+
+Obtenga más información en nuestra [Documentacíon de AppStore](https://domo-support.domo.com/s/topic/0TO5w000000ZampGAC/appstore).
+
+## Actualizaciones de diagramas
+
+Las tablas dinámicas y las megatablas ahora tienen la opción de formatear los números como abreviaturas. Esto le permite mostrar números grandes de forma compacta, dejando espacio para más datos.
+
+Obtenga más información en [Formatear valores en su diagrama](/s/article/360042924134).
+
+<Frame><img alt="Screenshot 2023-07-21 at 3.02.05 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vNMQ.jpg" style={{width: 256, height: 350}}/></Frame>
+## Nuevos informes de DomoStats
+
+<Frame><img alt="Screenshot 2023-07-18 at 5.09.58 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuy.jpg"/></Frame>
+Están disponibles los siguientes informes nuevos. Los usuarios con un rol de seguridad predeterminado de administrador pueden acceder a los conectores de DomoStats y conectarse a las aplicaciones de DomoStats.
+
+### Ver entradas
+
+El informe Ver entradas de DomoStats proporciona información sobre cada vista de DataSet preexistente en una instancia de Domo. Esto permite a los administradores comprender y administrar mejor cómo se utilizan sus entradas de vista de DataSet.
+
+### Recurso de inicio del usuario
+
+El informe de recursos de inicio del usuario DomoStats recupera los datos del usuario de Domo y permite a los administradores ver la página de inicio/el tablero o la tarjeta de inicio para todos los usuarios de Domo en su instancia.
+
+---
+
+## Activación avanzada de DataFlow
+
+<Frame><img alt="select a trigger.jpeg" src="/images/kb/ka05w00000128xX-00N5w00000Ri7BU-0EM5w000006utno.jpg"/></Frame>
+La activación avanzada de DataFlow le permite programar DataFlows en respuesta a activadores y condiciones altamente personalizables que deben cumplirse. Con esta característica, sus usuarios pueden tener acceso inmediato a los datos más recientes.
+
+Para obtener más información, consulte [Activación avanzada de DataFlow](/s/article/000005216).
+
+## Procesamiento de subconjuntos y particiones en Magic – Extracción, transformación y carga
+
+<Frame><img alt="subset processing image.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM6H.jpg" style={{width: 684, height: 412}}/></Frame>
+El procesamiento de subconjuntos y particiones en Magic – Extracción, transformación y carga proporciona un procesamiento de datos más eficiente. Elija cargar solo los lotes actualizados desde la última ejecución con éxito del DataFlow o cargar lotes según la fecha de creación o el nombre de partición. Este enfoque altamente personalizable mejora la optimización de la canalización de datos.
+
+Para obtener más información, consulte [Procesamiento de subconjuntos y particiones en Magic – Extracción, transformación y carga](/s/article/000005150).
+
+## Administración de clientes de la API
+
+<Frame><img alt="api clients.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM6W.jpg" style={{width: 385, height: 330}}/></Frame>
+Ahora, los administradores pueden administrar los clientes de la API del usuario sin salir de Domo. En la Configuración del administrador de autenticación, puede ver una lista de clientes y ámbitos y revocar clientes que ya no se necesitan. Esta característica mejora la visibilidad y ofrece una experiencia de administración más cohesiva.​
+
+Para obtener más información, consulte [Administrar clientes de la API](/s/article/000005240).
+
+---
+
+## Flex Map v2
+
+Flex Map v2 se basa en v1 al proporcionar más opciones para personalizar sus mapas; eliminar la mayoría de los DataSets de configuración necesarios; mejorar el rendimiento de grandes DataSets; y añadir opciones de estilo como nuevos colores de pines, nuevas capas base y una biblioteca de formas más extensa. Flex Map v2 admite también los filtros de Domo y le permite deshacer y rehacer cambios a medida que construye su mapa.
+
+Si ya tiene Flex Map v1, tiene acceso a Flex Map v2, pero debe descargarlo desde la [AppStore](https://www.domo.com/appstore/).
+
+Para obtener más información, consulte la [Guía de implementación de Flex Map v2](/s/article/000005073) y la [Guía del usuario de Flex Map v2](/s/article/000005048).
+
+<Frame><img alt="flex map 2.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vGxi.jpg" style={{width: 689, height: 452}}/></Frame>
+## InLine Editing
+
+La aplicación InLine Editing tiene un tiempo de carga de aplicaciones un 30 % más rápido\* y velocidades de reescritura de datos un 50 % más rápidas\*, lo que permite realizar cambios masivos de manera más eficiente. El indicador de carga también se ha mejorado para brindar mejores comentarios, y el informe de errores incluye más información para ayudarle a abordar los problemas de manera más efectiva.
+
+Para obtener más información, consulte la [Guía del usuario de Inline Editing](/s/article/360042933754) y la [Guía de implementación de Inline Editing](/s/article/1500000406641).
+
+<Frame><img alt="Screenshot 2023-07-20 at 10.19.35 AM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM7t.jpg" style={{width: 685, height: 309}}/></Frame>
+**cuando se prueba con 100,000 filas**
+
+## Dominios de correo electrónico del conjunto de marcas
+
+Ahora, el conjunto de marcas le permite enviar correos electrónicos generados por Domo a través de su propio servidor, mostrando el encabezado, el pie de página y el remitente que mejor representa a su organización.
+
+Obtenga más información sobre el [Conjunto de marcas](/s/article/5428851518999).
+
+## Duración del proceso de publicación de Domo Everywhere
+
+Las actualizaciones más recientes de las publicaciones de Domo Everywhere muestran la hora de inicio, la duración y el estado actual de cada trabajo de publicación en su instancia. La combinación de la hora de inicio y la duración le brinda más información al planificar actualizaciones y futuras publicaciones. Esto está sujeto a cambios según la cantidad de DataSets, tableros, tarjetas y suscriptores.
+
+Obtenga más información sobre las publicaciones en [Publicación de contenido en una organización de suscriptores](/s/article/360045120554).
+
+<Frame><img alt="Duration.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMeO.jpg"/></Frame>
+## Uso compartido de archivos de áreas de trabajo de Jupyter
+
+El uso compartido de archivos permite a los usuarios de las áreas de trabajo de Jupyter crear, editar y eliminar archivos compartidos en las áreas de trabajo de Jupyter de Domo. En lugar de copiar y pegar recursos de secuencias de comandos y modelos de datos entre proyectos, se pueden cargar en una ubicación y acceder a ellos desde varias áreas de trabajo.
+
+Las concesiones Crear directorios para compartir archivos y Administrar directorios para compartir archivos permiten el acceso a esta característica.
+
+Obtenga más información sobre el uso compartido de archivos en nuestra [Guía del usuario de áreas de trabajo de Jupyter](https://domo-support.domo.com/s/article/36004740075?language=en_US#file_sharing).
+
+<Frame><img alt="file shares.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMcX.jpg"/></Frame>
+## Reglas de cambio de nombre de Sandbox y gráfico de dependencia
+
+#### Reglas de cambio de nombre
+
+Las reglas de cambio de nombre le permiten editar sin problemas los nombres y las descripciones del contenido de Domo al ascender a otra instancia. En lugar de editar los detalles de todos los datos manualmente, las reglas de cambio de nombre ahorran tiempo al eliminar, reemplazar o añadir nombres y descripciones para tableros, tarjetas, cálculos de Beast Mode, vistas de DataSet y DataFlows.
+
+#### Gráfico de dependencia
+
+El gráfico de dependencia dentro de un repositorio de Sandbox es una herramienta poderosa para la exploración y visualización de contenido en Domo. Representa el contenido de Domo en un formato de gráfico jerárquico, lo que le permite explorar y comprender la relación entre los diferentes elementos del repositorio. Si aparece un error mientras confirma o asciende un repositorio, el gráfico proporciona un contexto adicional para los errores y sus relaciones para una resolución más eficiente.
+
+Obtenga más información sobre [Domo Sandbox](/s/article/4403367344023).
+
+<Frame><img alt="dependency graph.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMdB.jpg" style={{width: 688, height: 356}}/></Frame>
+## Actualizaciones del conjunto de herramientas de gestión
+
+Ahora, el conjunto de herramientas de gestión incluye las siguientes características.
+
+#### Copia de datos empresariales
+
+Esta herramienta le permite copiar datos de forma masiva en varias instancias. Con ella, puede hacer una lista manual de DataSets que desea copiar en un DataSet separado, o puede usar filtros dinámicos para incluir un número siempre cambiante de DataSets para copiar que cumplan con sus criterios específicos. Los administradores pueden usar esta herramienta para enviar o extraer datos hacia y desde una instancia determinada.
+
+Obtenga más información sobre la [Copia de datos empresariales](/s/article/000005197).
+
+#### Notificación de webhook
+
+La herramienta Control del DataSet ahora incluye una opción de notificación de webhook. Las notificaciones de webhook le permiten enviar automáticamente notificaciones sobre los cambios en sus DataSets y DataFlows más importantes a través de su servicio de mensajería favorito.
+
+Obtenga más información sobre el [Control del DataSet](/s/article/000005105).
+
+## Amplificador de nubes
+
+El Amplificador de nubes ahora se integra con los siguientes almacenes de datos de terceros en los niveles enumerados:
+
+* Amazon Redshift: solo lectura
+* Databricks: solo lectura
+* [Google BigQuery](/s/article/000005237): solo lectura
+
+<Columns cols={3}>
+  <Frame><img src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XQ.jpg" /></Frame>
+  <Frame><img src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XV.jpg" /></Frame>
+  <Frame><img alt="google bigquery.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XL.jpg" /></Frame>
+</Columns>
+Obtenga más información sobre el [Amplificador de nubes](/s/article/4412849158167).
+
+---
+
+## Domo Bricks + <InlineImage src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vME1.jpg" />
+
+Experimente el poder de ChatGPT en dos Domo Bricks disponibles en la [AppStore](https://www.domo.com/appstore/): Brick de ChatGPT de IA y Brick de descripción del DataSet de ChatGPT. Debe proporcionar su propia identificación de IA. Después de descargar un brick, póngase en contacto con [ai@domo.com](mailto:ai@domo.com) para unirse a la versión beta.
+
+#### Brick ChatGPT de IA
+
+Este brick brinda acceso a ChatGPT dentro de Domo y lo combina con toda la funcionalidad de Domo Bricks.
+
+#### Brick de descripción del DataSet de ChatGPT
+
+ChatGPT lee el esquema de su DataSet y genera automáticamente una descripción del mismo.
+
+<Frame><img alt="domo_final_RGB_512x512.jpg" src="/images/kb/ka05w0000012AZy-00N5w00000Ri7BU-0EM5w000006vprH.jpg" style={{width: 93, height: 94}}/></Frame>
+## ¿Necesita asistencia?
+
+Puede acceder a los siguientes recursos:
+
+* Buscar un tema en el
+  [Centro de ayuda](https://www.domo.com/help-center).
+* Capacitarse en
+  [Domo University](https://www.domo.com/university).
+* Buscar aplicaciones de capacitación en la
+  [AppStore](https://www.domo.com/appstore/).
+* Obtener respuestas del
+  [Foro de la comunidad](https://dojo.domo.com).
+* Póngase en contacto con la asistencia técnica mediante la introducción de un vale de ayuda en el
+  [Portal de asistencia técnica de Domo.](https://domo-support.domo.com/)
+* Contacte con su administrador de éxito del cliente (CSM) o consultor técnico de Domo.
+
+Si tiene comentarios, envíelos desde Domo.
+
+En el encabezado de navegación, seleccione **Más** > **Comentario**. En el modo que se muestra, elija **Comentario sobre el producto**.
+
+<Frame><img alt="REL10.png" src="/images/kb/ka05w00000129tX-00N5w00000Ri7BU-0EM5w000005vXis.png" style={{width: 381, height: 340}}/></Frame>
+Para obtener más información sobre cómo obtener ayuda, consulte [Obtener ayuda](https://domo-support.domo.com/s/article/360042922874).
+

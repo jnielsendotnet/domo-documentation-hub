@@ -1,0 +1,144 @@
+---
+title: "Google Maps Pinboard | 実装ガイド"
+---
+
+## はじめに
+
+Google Maps PinboardのAppをインストールしていただきありがとうございます。このガイドは、このAppをご自身のデータと接続するためのサポートを目的として書かれたものです。最初のステップでは、AppのDataFlowがAppstoreから正しくダウンロードされていること、そしてデータがAppで適切に使用される正しいフォーマットであることを確認します。
+
+<Frame><img alt="googlemapspinbaord.png" src="/images/kb/ka05w0000012Aea-00N5w00000Ri7BU-0EM5w000005vOOA.png"/></Frame>
+## 必要条件
+
+このAppは、Grid Builderという名前のツールを使用して、Appが必要とするスキーマにデータをマップします。Grid Builderにまだ慣れていない場合は、 [こちら](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) でGrid Builderのウォークスルーを参照してください。必須ではありませんが、MySQLクエリがどのように機能するかについて実践的な知識もあると便利です。
+
+下の図は、データがDataFlowを通って供給され、その後Google Maps Pinboar Appに出力される順序を示しています。
+
+<Frame><img alt="gridbuilder.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONX.png"/></Frame>
+Grid Builderの動作に慣れたら、次のステップに従い、AppとDataFlowがDomoインスタンスに適切に展開されていることを確認します。
+
+* DomoのAppstoreからGoogle Maps Pinboard Appを購入した場合は、まずAppのページにある **［Try It］** ボタンを選択して、AppとそのDataFlowをお使いのインスタンスに展開してください。DomoでAppを使用するページに名前を付けるように求められます。
+* DataFlowがインスタンスに適切に展開されていることを再度確認します。確認するには、Domoの左上隅の［データ］ボタンをクリックしてData Centerに移動します（下の画像を参照してください）。
+    
+  <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+* Data Center画面左側で **［DataFlow］** を選択し、Data Centerの検索バーを使用して「Google Maps Pinboard」を検索します。検索した名前に一致するDataFlowが表示されます。
+* 以上のステップに従っても、作成したページ内にAppが見つからない場合や、Data Center内にDataFlowが見つからない場合、テクニカルサポートまでお問い合わせください。サポートへのお問い合わせ方法については、「
+  [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+## ステップ1：データを準備する
+
+Google Maps Pinboardは、マップ上の表示ピンを介して位置データを表示します。つまり、データの各行が位置を表し、対応する列が位置の定量的または定性的なデータを表すフォーマットでデータを取得する必要があります。位置は複数の行に一覧表示することができ、データが実行されると、Appは特定の位置に対するデータを集計します。Appが必要とする位置データの一部は、位置の緯度と経度です。
+
+経度と緯度データがない場合、次の3つの方法のいずれかで取得できます。
+
+1. ジオコーディングアプリケーションを使用して位置データの経度と緯度を取得します
+2. データを政府のデータベースにJoinして、おおよその経度と緯度を取得します。これは通常、郵便番号やお住いの国の同等のコードで行われます。
+3. 位置データの経度と緯度を得るためにサポートが必要な場合、Domoコンサルタントまたはテクニカルサポートにお問い合わせください。サポートへのお問い合わせ方法については、「
+   [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+データがどのように表示されるかの例を次に示します。
+
+<Frame><img alt="Screen_Shot_2019-10-29_at_8.20.53_AM.png" src="/images/kb/ka05w0000012Aea-00N5w00000Ri7BU-0EM5w000005vOO6.png"/></Frame>
+Appには「ID」、「Date」、「Node」、「Latitude」、「Longitude」という5つの必須フィールドがあります。
+
+「ID」は位置のIDであり、「Node」は位置の名前です。位置のID番号がない場合は、「ID」と「Node」の両方の列に位置名を使用することができます。また、データに「Date」フィールドがない場合は、代わりに必須となる列に現在の日付を使用することもできます。
+
+Appに表示したり、フィルターとして使用したりするために追加可能な定量的データ列と定性的データ列の例として、ここでは「Sales」と「Region」というラベルの付いた列を示しています。列は必要な数だけ追加できます。
+
+<Note>
+  日付列とプライマリーグループの列を使用してデータをJoinできるのであれば、複数のDataSetをAppのソースデータとして使用できます。Grid BuilderにどのようにJoinするかについての情報は、このガイドの後のセクションで説明します。Appでは、簡単な計算を行ってメトリクスを計算できます。例えば、上の例のDataSetのように「Sales」列がある場合、各位置に勤務する社員の数を表す列は次のようになります。 `SUM（Sales）/AVG（Employees）` 、この計算により、社員ごとの売り上げが分かります。
+
+</Note>
+
+<Tip>
+  通常、実際のDataFlowで事前に計算するのではなく、後でAppで比率を計算することを推奨します。メトリクス計算の作成について、このガイドの後のセクションでさらに詳しく説明します。
+
+</Tip>
+
+<Warning>
+  Google Maps Pinboard Appで一度に表示できるピンの数は限られており、3000ピンから5000ピンとなっています。表示する場所がさらにある場合は、場所の数を絞り込むか集約する方法を検討するか、位置の一部分のみを一度に表示するようフィルターを設定します。
+
+</Warning>
+
+## ステップ2：DataFlowにソースデータを追加する
+
+データの準備が完了したら、DomoのDataFlowに移動し、AppのDataFlowにデータを入力として追加する必要があります。次のステップに従い、データを追加します。
+
+* 確認するには、Domoの左上隅の［データ］ボタンをクリックしてData Centerに移動します（下の画像を参照してください）。
+    
+  <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+* Data Centerを開いたら、左側の **DataFlow** アイコンを選択します。Data Centerの検索バーで「Google Maps Pinboard」を検索します。「Google Maps Pinboard」と書かれたDataFlowが表示されているはずです。
+* Google Maps Pinboard DataFlowを選択して詳細ビューに進み、ページ右側の鉛筆のアイコンをクリックして、DataFlowを編集します。
+* DataSetの右上隅の **［x］** をクリックして、サンプルDataSet「Google Maps Store Sample」を削除します。「Google Maps Pinboard - Grid Builder」と「Google Maps Pinboard - Settings」をDataFlowの入力として保持します。
+* **［DataSetを選択］** ボタンをクリックして、DataFlowにDataSetを追加します。
+* DataSetを追加したら、ページの下部までスクロールし、 **［保存］** ボタンを選択します。
+* DomoのData Centerに戻ります。
+
+<Frame><img alt="editmysql.png" src="/images/kb/ka05w0000012Aea-00N5w00000Ri7BU-0EM5w000005vONy.png"/></Frame>
+## ステップ3：Grid Builderを編集する
+
+3番目のステップでは、入力データと一致するようにGrid Builderの適切なフィールドを編集する必要があります。
+
+<Warning>
+  **重要：** このガイドでは基本的なステップを説明しますが、Grid Builderの機能に関するより包括的なチュートリアルについては、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください。正しい列の順序を確認するには、「3. The MYSQL columns (SELECT, FROM, WHERE, GROUP BY, AS)」までスクロールします。
+
+</Warning>
+
+変更を加えたときに、ウェブブラウザーにプロセス全体でエラーが発生した場合に備えて、作業内容をExcelスプレッドシートにコピーしてすべての変更を追跡することを推奨します。
+
+Grid Builderを編集するには、以下のステップに従ってください。
+
+* Appに付属するGrid Builderウェブフォームに進みます。「Google Maps Pinboard - Grid Builder」という名前になります。Data Centerの左側から **［DataSet］** を選択し、「Google Maps Pinboard - Grid Builder」を検索します。DataSetを選択し、詳細ビューで右側にあるスパナアイコンをクリックして、次に **［ウェブフォームを編集］** を選択します。
+* このAppは通常、日付フィルターを使用しませんが、フィルターを含めたい場合、「
+  [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください。
+* FROM列で、最初のDataSetの名前に一致するようにC100行の値を変更します（下の画像例の#1を参照してください）。
+* SELECT列で、行の値をDataSetの列名と置き換えます。これで、FROM列に表示されます。最初の5行（C100～C500）が必須フィールドです。最初の行で、位置IDとして使用するデータから列の名前を入力します。位置IDがない場合は、位置名列をここで使用することができます。2行目に、日付がある場合は日付列の名前を入力します。現在の日付を使用する場合は、値を「CURRENT\_DATE()」のままにします。3行目には位置名列を使用します。4行目には緯度の列、5行目には経度の列を使用します。以上5つの行は、この順序でなければなりません（下の画像例の#2を参照してください）。
+
+<Frame><img alt="gridbuilder213.png" src="/images/kb/ka05w0000012Aea-00N5w00000Ri7BU-0EM5w000005vONz.png"/></Frame>
+* SELECT列に、メトリクスの追加の定量列およびフィルターの定性列として使用するDataSetの列の名前を入力します。
+* AS列では、最初の5行の値は決して変更しないでください。これらは、データがマップされている名前であり、AppのDataFlowが想定している名前です。追加の定量的および定性的メトリクスの情報がある行については、必要に応じて、これらの列をこの列に再入力するか、新しい名前を選択することができます（上の画像例の#3を参照してください）。
+* Include列は空白のままにするか、情報を入力した各行に「1」を含める必要があります（上の画像例の#4を参照してください）。
+* 追加の表をJoinする場合は、Joinする追加のテーブルに対してこのプロセスを繰り返します。新しいDataSetはそれぞれ、「C」列の100個単位の値の、次の一組に割り当てる必要があります。追加のJoinは通常、「JoinType」にLEFTを使用し、最初のDataSetの日付と位置でJoinします。例えば、Join条件は以下のようになります。C100.Node = `C200.Location AND C100.Date = C200.Date` 。「JoinType」と「JoinCondition」列の編集とGrid BuilderのJoinの詳細については、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください（上の画像例の#5を参照してください）。
+* DataSetの情報を入力すると、すぐにフィルターの設定が必要になります。フィルターとして使用するGrid Builderの行で、「FilterId」、「FilterName」、「FilterInputType」の3つのフィルター列を更新する必要があります。
+* 上から順に、フィルターとして使用される各行に、「FilterId」列の後続の行ごとに1から始まり番号が増えるよう割り当てます。「FilterName」の列でフィルターに名前を付け、「FilterInputType」の列の値に「Multi Select」または「Single Select」のいずれかを選択します（「Multi Select」と「Single Select」フィルタータイプが何をするかの詳細については、「
+  [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください）。
+* 最後に、ページの上部にある **［保存して次へ］** を選択してDataSetを保存します。
+
+Grid Builderに必要な変更を加えたら、Data Centerに移動し、Google Maps Pinboard DataFlowを実行します。DataFlowが正常に実行された場合、Grid Builderに正しく入力されているはずです。エラーが発生した場合は、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照するか、テクニカルサポートにお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+## ステップ4：メトリクスフォームを編集する
+
+Appを設定する最後のステップは、メトリクスフォームを編集することです。
+
+<Warning>
+  **重要：** Appで使用できるようにするには、列をフィルターまたはメトリクスとして使用する必要があります。
+
+</Warning>
+
+以下のステップに従ってメトリクスフォームを編集します。
+
+* Data Centerで、メトリクスフォームに移動します。「Google Maps Pinboard - Metrics」という名前になります。
+* DataSetを選択し、スパナメニューを選択してウェブフォームを編集します。
+
+<Frame><img alt="metricsgb.png" src="/images/kb/ka05w0000012Aea-00N5w00000Ri7BU-0EM5w000005vOO1.png"/></Frame>
+* Appで表示させたいメトリクスごとに、フォームの行に記入します。最初の列は「Id」列なので、各メトリクスに1から始まり、前の行に1つずつ増加する1つの番号を割り当てます。
+* 「Name」列に、Appで表示するメトリクスの名前を入力します。
+* 「Calculation」列に、各メトリクスの計算を入力します。単純な計算しかサポートされていません。単純な合計、平均、最大、最小を使用できます。計算には以下のようなものがあります。「SUM(column)」または「AVG(column)」、単純な単一演算「SUM(columnA)」+「SUM(columnB)」、「SUM(columnA)」\* MIN(columnB)」、比率計算「SUM(columnA)/ "SUM(columnB)\* 100"」などです。より複雑な計算は、あらかじめGrid Builderで計算しておく必要があります。
+* 「DataType」列に「Currency」、「Number」、「Percent」のいずれかを入力します。これにより、Appにメトリクスの表示方法を指示します。
+* 「SortHighToLow」列で、メトリクスの棒グラフを最高から最低の順に表示する場合、「true」と入力します。メトリクスの棒グラフを最低から最高の順に表示する場合、「false」と入力します。
+* 「UnitOfMeasurement」列に、メトリクスの単位を書き入れるか、行を空白にします（例：「ドル」、「人」、「リファラル」など）。
+* 「Description」列で、メトリクスに関する簡単な説明を入力するか、行を空白にします。
+
+## ステップ5：検証
+
+Grid Builderとメトリクスフォームを設定したら、Appをチェックしてメトリクスを検証する準備が整います。検証には以下のプロセスを推奨します。
+
+1. KPIカードを作成してメトリクスをテストします。Appの出力データではなく、ソースデータにもとづいてこれらのカードを作成します。例えば、Appで位置別の売り上げを表示する場合は、位置別の売り上げを表示する棒グラフタイプのカードを作成します。この場合には、KPIカードの日付範囲が、Appで表示されている日付範囲と一致させます。
+2. KPIカードのデータをAppのデータと比較します。フィルターのオプションと日付範囲がAppとKPIカードで一致していることを確認してください。
+3. 不一致があれば、Grid BuilderでJoin条件やグループ化を変更する必要があるか確認してください。計算も必ず再チェックしてください。
+4. 検証する必要があるメトリクスがあれば、この処理を繰り返します。
+
+#### おめでとうございます。
+
+Google Maps Pinboard Appが利用できるようになりました。データを最大限に活用しましょう。Appに問題があるかサポートが必要な場合は、テクニカルサポートにお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+日本語

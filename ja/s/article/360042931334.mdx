@@ -1,0 +1,41 @@
+---
+title: "Strava Connector"
+---
+
+## はじめに
+
+Strava は、スポーツ活動をGPSで追跡するためのウェブサイトとモバイルAppです。 Domo の Strava Connector を使用して、自分と友人の運動に関するレポートを編集することができます。 Strava API に関する詳細は、ウェブサイト(https://www.strava.com/developers
+)を参照してください。
+
+Strava アカウントには、 データセンター から接続します。 このトピックでは、Strava Connector ユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Strava アカウントに接続して DataSet を作成するには、以下が必要です。
+
+* Strava へのログインに使用するユーザー名またはメールアドレス
+* Strava へのログインに使用するパスワード
+
+また、Facebook にサインインし、そこから Strava への接続を指示することもできます。
+
+## Strava アカウントに接続
+
+このセクションでは、Strava Connector ページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo の Strava Connectorは、接続に OAuth を使用します。 そのため、Domo 内での認証情報の入力は必要ありません。 **接続** をクリック（Domo に既存の Strava アカウントがある場合は **アカウントを追加** を選択）すると、OAuth 画面が開き、Strava の認証情報を入力するか、または Facebook にサインインして Strava に接続することができます。 有効な Strava の認証情報を一度入力しておくと、随時同じアカウントを使用して、新しい Strava DataSet を作成することができます。 Connector アカウントは **データセンター** の アカウント タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+<Note>
+
+**注記：** Domo で接続する際、既に Strava にログインしている場合は、 **アカウントを追加** をクリックすれば自動的に認証されます。 ログインしているアカウントとは異なるアカウントに接続したい場合は、まず Strava からログアウトする必要があります。
+
+</Note>
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニュー、および選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Strava レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> 友だち </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーがフォローしているユーザーの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> マイ・アクティビティ </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーのアクティビティのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> マイ･セグメント </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのセグメント（道路の一定セクション）のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 友だちのアクティビティ </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーがフォローするユーザーのアクティビティをリストにして返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> セグメントのリーダーボード </p></td><td colspan="1" rowspan="1"><p> 指定されたセグメント（道路のセクション）におけるユーザーのランキングを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> 期間 </p></td><td colspan="1" rowspan="1"><p> レポートの期間を選択します。 例えば、 <b> 月 </b> を選択した場合、先月分のデータがインポートされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リーダーボードのセグメント </p></td><td colspan="1" rowspan="1"><p> 情報を取得したいセグメント（ロードマップのセクション）を、カンマで区切ったリストとして入力します。 </p></td></tr></tbody></table>
+
+

@@ -1,0 +1,107 @@
+---
+title: "Amazon S3 Partitionコネクター"
+---
+
+## はじめに
+
+Amazon S3はどこからでも、どんな量のデータも保存、取得することができます。DomoもAmazon S3のように、どんな規模のビジネスにも適合するスケーラブルな設計となっています。顧客は自身のDomo環境に毎週一斉に、何百万回も新規データをアップロードしています。500億行を超えるDataSetをお持ちですか？問題ありません。Domoは膨大な量のデータを迅速に処理できる設計を備えています。DomoのS3コネクターを使用すると、既存のすべての3Sデータをいつでも、どこでも活用することができます。
+  
+DomoはS3に直接接続して必要な情報をリアルタイムで可視化できるため、分析を簡単に実行することができます。Amazon S3 Partitionコネクターは、その他のあらゆるシステムのメトリクスを単独のプラットフォームに取り込めるため、設定したしきい値にメトリクスが到達したら即時に通知を受け取ることができます。
+  
+Amazon S3 partitionコネクターでは、ファイルを取得するフォルダーおよび子フォルダーのパスを指定できます。これにより、検索結果は指定されたフォルダーのみに制限されます。フィールドを空にしておくと、PartitionコネクターはS3バケット全体で指定されたファイルを検索します。親フォルダーのみを指定すると、その親フォルダーのすべての子フォルダーの下にあるすべてのファイルが検索されます。Amazon S3 APIについて詳しくは、製品ドキュメント（ [http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+Amazon S3 Partitionコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。データセンターでこのコネクターや他のファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+Amazon S3のアカウントには、Data Centerから接続します。このトピックでは、Amazon S3 Partitionコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon S3アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** から確認できます。
+* AWSシークレットキー。これはアクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWS Consoleで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+* AWS S3バケットがあるリージョンを選択します。
+
+### 適切な権限が付与されたユーザーを作成する
+
+DomoでS3データに接続する前に、IAM Amazon Consoleで適切な権限を有するユーザーを作成する必要があります。
+
+**IAM Amazon Consoleでユーザーを設定するには、以下の手順を実行します。**
+
+1. 新規ユーザーを追加し、次のオプションを設定します。
+
+   1. **［Details］**
+      ペインの **［Select AWS access type］** で **［Programmatic Access］** のボックスをチェックします。
+   2. **［Permissions］**
+      ペインで、 **［Attach existing policies directly］** を選択し、 **［Amazon S3FullAccess］** または **［Amazon S3ReadOnlyAccess］** のボックスをチェックします。
+        
+      カスタマー管理ポリシーは *使用できません* 。
+   3. **［Review］**
+      ペインで、 **［Create User］** をクリックします。
+2. ユーザーを作成したら、使用するアクセスキーとシークレットキーをコピーし、Domoの
+   **［認証情報］** ペインに入力します。
+
+## Amazon S3 アカウントに接続する
+
+このセクションでは、 Amazon S3 Partition コネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Amazon S3 Partition アカウントにアクセスするための認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アクセスキー </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の <span></span> 「必要条件」 <span></span> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シークレットキー </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の <span></span> 「必要条件」 <span></span> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> バケット </p></td><td colspan="1" rowspan="1"><p> ファイルを引き込みたいAmazon S3バケットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 領域 </p></td><td colspan="1" rowspan="1"><p> 使用したいAmazon S3バケット領域を選択します。 </p></td></tr></tbody></table>
+
+有効な Amazon S3 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Amazon S3 Partition DataSetを作成することができます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoに引き込みたいファイルを検索、設定するための様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> どんなファイルタイプをインポートしたいですか？ </td><td colspan="1" rowspan="1"> Domoにインポートして解析したいファイルのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> プレフィックス </p></td><td colspan="1" rowspan="1"><p> ファイルを取得するフォルダーまたは子フォルダーのパスを入力してください。これにより、検索結果は指定されたフォルダーのみに制限されます。フィールドを空にしておくと、コネクターはS3バケット全体で指定されたファイルを検索します。親フォルダーのみを指定すると、その親フォルダーのすべての子フォルダーの下にあるすべてのファイルが検索されます。 </p><p> 例：フォルダー/子フォルダー1 - コネクターは、フォルダー/子フォルダー1階層のすべてのファイルを検索して返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> ファイル名 </td><td colspan="1" rowspan="1"> インポートしたい Amazon S3オブジェクト（ファイル）の名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ファイル名のマッチタイプ </td><td colspan="1" rowspan="1"> 取得するファイルのファイル名が <span></span><b> ［ファイル名］ </b> で入力した名前から始まるのか、それともファイル名にその名前が含まれるのかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去の日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <span></span><b> yyyy-MM-dd </b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> カスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+AWSアクセスキーとシークレットキー、AWS S3バケットの名前、S3バケットがある地域が必要です。
+
+
+</Accordion>
+<Accordion title="データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+アカウントあたりのAmazon S3バケットが100個に制限される場合があります。
+
+
+</Accordion>
+<Accordion title="Amazon S3コネクターとAmazon S3 Partitionコネクターの違いは何ですか?">
+
+
+Amazon S3コネクターでは、Amazon S3バケットにコネクターの［詳細］セクションで指定したプレフィックスで始まる複数のファイルがある場合、最後に変更されたファイルのみがインポートされます。Amazon S3 partitionコネクターでは、ファイルを取得するフォルダーおよび子フォルダーのパスを指定できます。これにより、検索結果は指定されたフォルダーのみに制限されます。そのフィールドを空にしておくと、パーティションコネクターはS3バケット全体で指定されたファイルを検索します。親フォルダーのみを指定すると、その親フォルダーのすべての子フォルダーの下にあるすべてのファイルが検索されます。
+
+
+
+</Accordion>
+</AccordionGroup>

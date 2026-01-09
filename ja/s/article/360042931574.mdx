@@ -1,0 +1,62 @@
+---
+title: "You've Got Leadsコネクター"
+---
+
+## はじめに
+
+You’ve Got Leadsは、高齢者介護コミュニティ向けのウェブベースの顧客関係管理ソリューションを提供します。DomoのYou've Got Leadsコネクターを使うと、高齢者介護コミュニティの紹介データを取得できます。You've Got Leads APIの詳細については、You've Got Leadsのページ（ [https://www.youvegotleads.com/webser.../documentation](https://www.youvegotleads.com/webservices/documentation "https://www.youvegotleads.com/webservices/documentation") ）を参照してください。
+
+You've Got Leadsアカウントには、Data Centerから接続します。このトピックでは、You've Got Leadsコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+You've Got Leadsアカウントに接続してDataSetを作成するには、You've Got Leadsのユーザー名とパスワードが必要です。
+
+## You've Got Leadsアカウントに接続する
+
+このセクションでは、You've Got Leadsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、You've Got Leadsアカウントに接続するための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> You've Got Leadsユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> You've Got Leadsパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なYou've Got Leads認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいYou've Got Leads DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するYou've Got Leadsレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Community List </td><td colspan="1" rowspan="1"> アカウントの高齢者介護コミュニティのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Details for a Community </td><td colspan="1" rowspan="1"> 指定したコミュニティの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Details for All Communities </td><td colspan="1" rowspan="1"> アカウントのすべてのコミュニティの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Lead Details for a Community </td><td colspan="1" rowspan="1"> 指定したコミュニティの紹介情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Details for a Lead </td><td colspan="1" rowspan="1"> 指定した紹介の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Leads for a Community </td><td colspan="1" rowspan="1"> 指定したコミュニティの紹介のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Task Details for a Lead </td><td colspan="1" rowspan="1"> 指定した紹介のタスク詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tasks for a Community </td><td colspan="1" rowspan="1"> 指定したコミュニティのタスクのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tasks for a Lead </td><td colspan="1" rowspan="1"> 指定した紹介のタスクのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Community </td><td colspan="1" rowspan="1"> 情報を取得するコミュニティを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Lead </td><td colspan="1" rowspan="1"> 情報を取得する紹介を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Task </td><td colspan="1" rowspan="1"> 情報を取得するタスクを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter（オプション） </td><td colspan="1" rowspan="1"><p> レポートに表示されるデータを絞り込むには、フィルター条件を追加します。例： <span class="mt-font-courier-new"> CreatedOn+gt+'2014-05-20' </span></p><p> 詳しくは、You've Got LeadsのAPIドキュメント（ <a href="https://www.youvegotleads.com/webservices/documentation" target="_blank" title="https://www.youvegotleads.com/webservices/documentation"> https://www.youvegotleads.com/webser.../documentation </a> ）を参照してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+YGLには呼び出しレート制限が適用される場合がありますが、この制限を気にする必要はありません。
+
+
+
+</Accordion>
+</AccordionGroup>

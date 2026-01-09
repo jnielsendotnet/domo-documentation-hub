@@ -1,0 +1,45 @@
+---
+title: "OLAPコネクター"
+---
+
+## はじめに
+
+オンライン分析処理（OLAP）は、コンピューティングにおいて多次元分析クエリに迅速に回答するためのアプローチです。このコネクターを使用すると、OLAPデータをDomoに取り込むことができます。
+
+OLAP（オンライン分析処理）は、ユーザーが [データ](http://searchdatamanagement.techtarget.com/definition/data "データ") を様々な視点から簡単かつ選択的に抽出および表示できるようにするコンピューター処理技術です。
+
+例えば、7月にフロリダ州で販売されたある企業のビーチボール製品すべてを示すスプレッドシートを表示するようにデータを分析し、収益額を9月の同じ製品の収益額と比較して、同じ期間のフロリダ州のほかの製品の売り上げの比較を表示するようにユーザーがリクエストできます。
+
+OLAPデータは多次元データベースに保存されるため、この分析が容易になります。 [リレーショナルデータベース](http://searchsqlserver.techtarget.com/definition/relational-database "リレーショナルデータベース") は二次元データベースと見なすことができる一方、多次元データベースでは、各データ属性（製品、販売地域、期間など）を個別の「ディメンション」と見なすことができます。
+
+OLAPコネクターは、このような多次元データベース/キューブに接続し、MDXクエリを使用して結果を取得できます。
+
+OLAPアカウントには、Data Centerから接続できます。このトピックでは、OLAPコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+OLAPアカウントに接続してDataSetを作成するには、以下が必要です。
+
+接続タイプがXmlaの場合は、XMLAのパス、ユーザー名、およびパスワードが必要です。接続タイプがMondrianの場合は、カタログ名とJDBCドライバーが必要です。
+
+## OLAPアカウントに接続する
+
+このセクションでは、OLAPコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、OLAPアカウントにアクセスするための認証情報を入力するフィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"> 接続タイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> XMLA Path </td><td colspan="1" rowspan="1"> XMLAパスを入力します。これは、接続タイプがXmlaの場合に必要です。 </td></tr><tr><td colspan="1" rowspan="1"> Catalog Name </td><td colspan="1" rowspan="1"> カタログ名を入力します。これは、接続タイプがMondrianの場合に必要です。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> ユーザー名を入力します。これは、接続タイプがXmlaの場合に必要です。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> パスワードを入力します。これは、接続タイプがXmlaの場合に必要です。 </td></tr><tr><td colspan="1" rowspan="1"> JDBC Driver </td><td colspan="1" rowspan="1"> JDBCドライバーを入力します。これは、接続タイプがMondrianの場合に必要です。 </td></tr></tbody></table>
+
+有効なOLAP認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOLAP DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> MDX Query </td><td colspan="1" rowspan="1"> MDXクエリを入力します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

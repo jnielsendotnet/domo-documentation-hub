@@ -1,0 +1,68 @@
+---
+title: "シングルサインオン対応のSalesforce Pardotコネクター"
+---
+
+## はじめに
+
+Salesforce PardotはマーケティングオートメーションSaaS企業で、B2Bマーケター向けの自動化マーケティングやデマンドジェネレーションソフトウェアとサービスを開発しています。データをDomoに保存したら、ほかのデータソースのビューと組み合わせることで、購入者をより深く理解することができます。コンピューター、タブレット、または電話からアクセスできるリアルタイムのインタラクティブなダッシュボードで、最新の統計情報を確認できます。重要なメトリクスが変更されたときにアラートを受け取ることもできます。Salesforce Pardot APIの詳細については、Salesforce Pardotのウェブサイト（ http://developer.pardot.com/ ）を参照してください。
+
+シングルサインオン対応のSalesforce Pardotコネクターは「クラウドApp」コネクターです。つまり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、このコネクターやその他のクラウドAppコネクターのページにアクセスできます。
+
+Salesforce Pardotのアカウントには、Data Centerからアクセスします。このトピックでは、シングルサインオン対応のSalesforce Pardotコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> メールマーケティングアクティビティの結果 </p></li><li><p> リード生成の成功 </p></li><li><p> 特定のキャンペーンに対する反応 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> メールマーケティングに対する反応 </p></li><li><p> 生成されたリードの数 </p></li><li><p> 反応率 </p></li><li><p> コンバージョン率 </p></li><li><p> 開封率 </p></li><li><p> クリック率 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> メールマーケティングアナリスト </p></li><li><p> CMO </p></li><li><p> クリエイティブディレクター </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 追加を使用すると、前回の実行以降に変更または作成されたデータのみが取得されるため、呼び出しの数を制限できます。
+* 削除されたプロスペクトを取得するときは、**［Updated date］** フィルターを使用します。この日付は、Pardotでプロスペクトが削除されたときに変更される日付です。
+
+## 必要条件
+
+Salesforce Pardotアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* PardotビジネスユニットID
+* 同時接続数の上限
+* Salesforceのユーザー名とパスワード
+
+#### PardotビジネスユニットIDを確認するには：
+
+1. Salesforceの **［Setup］** にアクセスします。
+2. **［Quick Find］ボックス** に「Pardot Account Setup」と入力します。
+3. PardotビジネスユニットIDが表示されます。IDは「0Uv」で始まり、18文字です。
+
+#### Pardot環境を確認するには：
+
+1. Salesforceで歯車アイコンをクリックして［Setup］にアクセスします。
+2. ［Setup］から **［Quick Find］ボックス** に「Installed Packages」と入力し、**［Installed Packages］** を選択します。
+3. 「 **b2bmaIntegration** 」というパッケージを見つけます。
+4. プレフィックスが「b2bma」の場合は、［Production］を選択します。それ以外の場合は、［Sandbox］を選択します。
+
+## Salesforce Pardotアカウントに接続する
+
+このセクションでは、シングルサインオン対応のSalesforce Pardotコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Salesforce Pardotアカウントにアクセスするための認証情報入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Pardot Business Unit </td><td colspan="1" rowspan="1"> PardotビジネスユニットIDを入力します。詳細については、「 <span></span> 必要条件 <span></span> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Salesforce Environment </td><td colspan="1" rowspan="1"> 認証したいSalesforce環境を選択します（すなわち、 <a href="http://login.salesforce.com" rel="noopener" target="_blank"> login.salesforce.com </a> または <a href="http://test.salesforce.com" rel="noopener" target="_blank"> test.salesforce.com </a> ）。 </td></tr><tr><td colspan="1" rowspan="1"> Pardot Environment </td><td colspan="1" rowspan="1"> Pardot環境を選択します。詳細については、「 <span></span> 必要条件 <span></span> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Concurrency Limit </td><td colspan="1" rowspan="1"> Salesforce Pardotへの同時接続の最大数を入力します。Pardotへの同時接続許可数が分からない場合は、Salesforce管理者に連絡してください。 </td></tr></tbody></table>
+
+有効なSalesforce Pardot認証情報を一度入力しておくと、随時同じアカウントを利用して新しいシングルサインオン対応のSalesforce Pardot DataSetを作成することができます。コネクターアカウントはData Centerの［アカウント］タブで管理することができます。このタブの詳細については「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューと、データの日付範囲を設定するための2つのフィールドが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したいSalesforce Pardotレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Campaign </td><td colspan="1" rowspan="1"> キャンペーンに関する情報（ID、リストID、名前、コストなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields </td><td colspan="1" rowspan="1"> Salesforce Pardotで定義されたカスタムフィールドに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Redirect </td><td colspan="1" rowspan="1"> Salesforce Pardotで定義されたカスタムリダイレクトに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Email Clicks </td><td colspan="1" rowspan="1"> メールクリックに関する情報（プロスペクトIDやクリックされたURLなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Email Statistics </td><td colspan="1" rowspan="1"> 選択された期間内に送信されたすべてのメールリストについての情報を返します。このレポートは、総クリック数、バウンス数、開封数、クリックスルー率などの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forms </td><td colspan="1" rowspan="1"> フォームに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Lifecycle History </td><td colspan="1" rowspan="1"> ライフサイクルステージに関する情報（Pardot ID、プロスペクトID、前段階IDなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Lifecycle Stage </td><td colspan="1" rowspan="1"> ライフサイクルステージに関する情報（ライフサイクルステージID、名前、位置など）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> List </td><td colspan="1" rowspan="1"> リスト名、タイトル、説明など、指定された基準を満たすすべてのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Membership List </td><td colspan="1" rowspan="1"> メンバーシップに関する情報（ID、リストID、プロスペクトID、オプトアウトなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Opportunity </td><td colspan="1" rowspan="1"> 名前、オポチュニティー段階、ステータス、キャンペーン名など、指定された基準を満たすすべての機会を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect </td><td colspan="1" rowspan="1"> 特定の基準を満たすプロスペクトについての情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect Bulk </td><td colspan="1" rowspan="1"> 特定の基準を満たすプロスペクトについての情報を返します。カスタムフィールドなしで、通常のプロスペクトレポートよりも効率的にデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect Accounts </td><td colspan="1" rowspan="1"> プロスペクトアカウントに関する情報（ID、名前、作成日など）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect Email Activities </td><td colspan="1" rowspan="1"> プロスペクトによるメールアクティビティに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect Email Activities（履歴データ） </td><td colspan="1" rowspan="1"> プロスペクトによるメールアクティビティに関する情報を返します（大量の履歴データを取得するにはこのレポートを使用してください）。［Append］モードでのみ実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> Prospect Email Activities via bulk export </td><td colspan="1" rowspan="1"> プロスペクトによるメールアクティビティに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tag </td><td colspan="1" rowspan="1"> タグに関する情報（ID、名前、作成日など）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tag Object </td><td colspan="1" rowspan="1"> タグオブジェクトに関する情報（ID、タグID、タイプ、オブジェクトID、作成日など）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> 氏名、メール、権限、アカウント番号など、認証済みユーザーの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Visit </td><td colspan="1" rowspan="1"> 指定された基準を満たす、すべてのページアクセスについての情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Visitor </td><td colspan="1" rowspan="1"> ページにアクセスした人の情報を返します。ページの閲覧数、IPアドレス、ホスト名などが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Visitor With Details </td><td colspan="1" rowspan="1"> ページにアクセスした人に関する情報（リファラー、会社名、アクティビティなど）を返します。このレポートは、1訪問者当たりAPIコールを1回使用します。 </td></tr><tr><td colspan="1" rowspan="1"> Visitor Activity </td><td colspan="1" rowspan="1"> ページ閲覧回数、キャンペーン名、アクセスタイプなどを含む、訪問者のアクティビティに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Visitor Page Views </td><td colspan="1" rowspan="1"> 訪問者ページビューに関する情報（ページタイトル、URL、ページビューが発生した時刻など）を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Filter </td><td colspan="1" rowspan="1"> 作成日でフィルターするか、更新日でフィルターするか、最終アクティビティ日でフィルターするかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Include Custom Fields </td><td colspan="1" rowspan="1"> このDataSetにカスタムフィールドを含めるかどうかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Skip Data for Failed Prospects </td><td colspan="1" rowspan="1"> 失敗したプロスペクト呼び出しをスキップするには、このチェックボックスを選択します。プロスペクト呼び出しに失敗した場合、メールアクティビティはプロスペクトの詳細なしで返されます。 </td></tr><tr><td colspan="1" rowspan="1"> Prospects Fields </td><td colspan="1" rowspan="1"> データに含めるプロスペクトフィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Activity Fields </td><td colspan="1" rowspan="1"> データに含めるアクティビティフィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields </td><td colspan="1" rowspan="1"> データに含めるカスタムフィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Identified Visitors </td><td colspan="1" rowspan="1"> すべての訪問者を含めるか、［identified］というフラグが設定されている訪問者のみを含めるかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Deleted Prospects </td><td colspan="1" rowspan="1"> 削除したプロスペクトを含めるか、現在のプロスペクトのみを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Standard Fields to Exclude From Prospects Report </td><td colspan="1" rowspan="1"> レポートから除外する標準フィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Fields to Exclude From Prospects Report </td><td colspan="1" rowspan="1"> プロスペクトレポートから除外するカスタムフィールドを、カンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> レポートの期間（［Single Date］または［Date Range］）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Append Data Type </td><td colspan="1" rowspan="1"> ［Append］を使用してデータを取得する方法を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+* 一部のPardotアカウントでは、IPセキュリティが有効になっている場合があります。その場合、Pardotは「Client IP address/location must be activated before accessing API」を返します。その場合は、Domo IPアドレスをホワイトリストに登録する必要があります。詳細については、http://help.pardot.com/customer/port...ion-activation を参照してください。
+* Pardotは、結果を解読するために非常に具体的な「辞書」を必要とします。コネクターは、それぞれの実装に固有のコードを返します。コードと定義とのマッピングには、十分なメンテナンスが必要です。
+
+

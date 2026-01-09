@@ -1,0 +1,535 @@
+---
+title: "Workbench 4 ユーザーインターフェースについて"
+---
+
+import { InlineImage } from '/snippets/InlineImage.mdx'
+
+## イントロ
+
+Workbench アプリケーションでは、Domoサーバーに接続したり、DataSet ジョブ作成のための設定をしたり、またジョブファイルをインポートやエクスポートしたりできる他、ジョブをプレビュー、スケジュール、検証そして実行することができます。
+
+このトピックでは、Workbench のコンポーネントについて説明します。
+
+## Workbench のインターフェース
+
+以下のスクリーンショットでは、Workbench ユーザーインターフェースの主なセクションを取り上げています。 これらのセクションは、このトピックの残りの部分で詳細に説明します。
+
+<Frame><img alt="wb4_application.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLH.png"/></Frame>
+
+以下の表は、前のスクリーンショットで示されたセクションについて説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> セクション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アカウントペイン </p></td><td colspan="1" rowspan="1"><p> 接続アカウントを全てリストにして記載します。 それぞれのアカウントについて、 <b> ログ </b> や <b> 設定 </b> オプション、また関連している DataSet ジョブにアクセスすることができます。 各 DataSet ジョブは、その <b> 設定 </b> や <b> スケジュール </b> 、 <b> 変換 </b> などのオプションにアクセスできます。 <b> アカウント </b> ペインのアイテムをクリックすると、そのアイテムの情報とオプションが、アプリケーション中央のダイナミックオプションペインで開きます。 例えば、特定のアカウントの <b> 設定 &gt; アカウント </b> を選択すると、そのアカウントの設定をするためのオプションがオプションペインで開きます。 </p><p><b> アカウント </b> ペインは、ペインの上隅にある押しピンアイコンをクリックしてペインをドラッグすると、画面上の好きな場所に移動させることができます。 </p><p> アカウントの追加に関しては、 <a href="/s/article/360047416513" target="_blank" title="Workbench 4 でアカウントを追加する"> Workbench 4 でアカウントを追加する </a> を参照して下さい。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ボタンツールバー </p></td><td colspan="1" rowspan="1"><p> 様々な Workbench オプションへのアクセスを提供します。 ボタンは、 <b> ホーム </b> と <b> もっと </b> の2つのタブに分けられています。 <b> ホーム </b> タブには、アカウントや DataSet ジョブ及び変換のオプションがあります。 <b> もっと </b> タブには、オンラインヘルプへのアクセス、ヘルプビデオ、ログファイルの閲覧など、Workbench のヘルプに関するオプションの他、プラグインマネージャへのアクセスもあります。 </p></td></tr><tr><td colspan="1" rowspan="1"> ジョブステータス ペイン </td><td colspan="1" rowspan="1"> ジョブが実行されている時にインサイトを提供し、ジョブを変更または中断、キャンセル、実行することができるようになりました。 </td></tr><tr><td colspan="1" rowspan="1"><p> ダイナミックオプションペイン </p></td><td colspan="1" rowspan="1"><p> 現在 <b> アカウント </b> ペインで選択されているアイテムに応じて、情報やオプションなどが提供されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プレビュー/出力ペイン </p></td><td colspan="1" rowspan="1"><p> DataSet ジョブのプレビューや出力情報を表示します。 これらのペインは、画面上部のボタンツールバーで DataSet ジョブの <b> プレビュー </b> をクリックするまで、内容は表示されません。 その時点で、 <b> プレビュー </b> と <b> 出力 </b> ペインの両方に DataSet ジョブのタブが追加されます。 他の DataSet ジョブの <b> プレビュー </b> をクリックすると、そのジョブのタブが別途 <b> プレビュー </b> ペインと <b> 出力 </b> ペインに追加されます。 </p></td></tr></tbody></table>
+
+## ボタンツールバー
+
+ボタンツールバーのオプションは、Workbench で使える様々な機能を提供します。 これらは、 **ホーム** と **もっと** の2つのタブに分けられています。 ウィンドウ上部の **ホーム** と **もっと** をクリックすると、切り替えることができます。
+
+### ホームボタン
+
+**ホーム** タブのボタンは、アカウントや DataSet ジョブ、変換などのオプションを提供します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> ボタン </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 新規に追加 （アカウント） </p></td><td colspan="1" rowspan="1"><p> Workbench に新規サーバーアカウントを追加するためのアカウント作成ウィザードが開きます。 詳細は、 <a href="/s/article/360047416513" target="_blank" title="Workbench 4 でアカウントを追加する"> Workbench 4 でアカウントを追加する </a> を参照して下さい。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 削除（アカウント） </p></td><td colspan="1" rowspan="1"><p> Workbench からサーバーアカウントを削除します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 保存（アカウント） </p></td><td colspan="1" rowspan="1"><p><b> 設定 </b> オプションでアカウントに加えられた変更を保存します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 新規に追加 （DataSet ジョブ） </p></td><td colspan="1" rowspan="1"><p> Workbench に新規 DataSet ジョブを追加するための DataSet ジョブ作成ウィザードが開きます。 詳細は、 <a href="/s/article/360046856414" target="_blank" title="Workbench 4 でデータアップロードのジョブを作成する"> Workbench 4 でデータアップロードのジョブを作成する </a> を参照して下さい。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 削除（DataSet ジョブ） </p></td><td colspan="1" rowspan="1"><p> Workbench から DataSet ジョブをを削除します。 なお、DataSet ジョブの削除は、 <b> アカウント </b> ペインでジョブ名を右クリックし、 <b> DataSet ジョブを削除 </b> を選択することでも行うことができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 保存（DataSet ジョブ） </p></td><td colspan="1" rowspan="1"><p><b> アカウント </b> ペインで選択された DataSet ジョブへの変更を保存します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 前の状態に戻す </p></td><td colspan="1" rowspan="1"><p> 現在選択している DataSet ジョブへの変更をキャンセルし、最後に保存した状態に戻します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プレビュー </p></td><td colspan="1" rowspan="1"><p> 現在開いているジョブのプレビューを <b> プレビュー </b> フィールドで、そして出力ログを <b> 出力 </b> フィールドでそれぞれ開きます。 DataSet ジョブのプレビューと出力ログは、 <b> アカウント </b> ペインでジョブ名を右クリックし、 <b> DataSet ジョブをプレビューする </b> を選択しても開くことができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 実行 </p></td><td colspan="1" rowspan="1"><p> 現在選択している DataSet ジョブを実行します。つまり、指定した DataSet を Domo で作成、更新します。 またジョブは、 <b> アカウント </b> ペインでジョブ名を右クリックして、 <b> DataSet ジョブを実行する </b> を選択しても実行することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> キャンセル </p></td><td colspan="1" rowspan="1"><p> 現在実行中の DataSet ジョブをキャンセルします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツール </p></td><td colspan="1" rowspan="1"><p> 以下を含む、いくつかのオプションを提供します： </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> インポート </td><td class="mt-noheading" colspan="1" rowspan="1"> DataSet のジョブファイルを JSON フォーマットで Workbench にインポートします。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> エクスポート </td><td class="mt-noheading" colspan="1" rowspan="1"><p> DataSet のジョブファイルを Workbench から JSONフォーマットでエクスポートします。 </p><p> Workbench 4.5.1 より、ジョブを一括エクスポートできるようになりました。 階層内で <b> DataSet ジョブ </b> またはそれ以上のものが選択されている時にこのオプションを選ぶと、Workbench はアカウントの全てのジョブを返します。 その後、チェックボックスをクリックしてエクスポート先のディレクトリーを選択することで、任意の数のジョブをエクスポートできます。 </p><p> 階層内でジョブが選択されている時に <b> エクスポート </b> オプションを選ぶと、ファイルエクスプローラーが開き、単一のジョブを選択してエクスポートすることができます。 </p><p> また、DataSet ジョブのエクスポートは、 <b> アカウント </b> ペインでジョブ名を右クリックし、 <b> DataSet ジョブをエクスポートする </b> を選択することでも行うことができます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> スケジュール </td><td class="mt-noheading" colspan="1" rowspan="1"> 同じ更新スケジュールをもつ DataSet ジョブのグループを設定、管理することができます。 詳細は、 <a href="/s/article/360046857074" target="_blank" title="Workbench 4 でスケジュールグループを作成する"> Workbench 4 でスケジュールグループを作成する </a> を参照して下さい。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ジョブを取得 </td><td class="mt-noheading" colspan="1" rowspan="1"> 実行が必要な DataSet のジョブがあるかを確認します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 移行 </td><td class="mt-noheading" colspan="1" rowspan="1"> Workbench 2 DataSet ジョブを検索し、Workbench 4 に移行します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 新規追加（変換） </p></td><td colspan="1" rowspan="1"><p> 現在選択している DataSet ジョブに変換を追加します。 変換は、DataSet のデータを様々な方法で変換します。例えば、日付の形式を変更したり、極秘データを暗号化したり、計算フィールドを作成する、などです。 </p><p> 詳細については、以下のトピックを全て参照してください： </p><ul><li><p><a href="/s/article/360046861474" target="_blank" title="計算を使用して Workbench 4 で列を作成する"> Workbench 4 で計算を使って列を作成する </a></p></li><li><p><a href="/s/article/360047504673" target="_blank" title="Workbench 4 ジョブのタイムゾーンを設定する"> Workbench 4 ジョブのタイムゾーンを設定する </a></p></li><li><p><a href="/s/article/360047501293" target="_blank" title="Workbench 4 でデータの暗号化と復号化を行う"> Workbench 4 でデータの暗号化と復号化を行う </a></p></li><li><p><a href="/s/article/360047504553" target="_blank" title="Workbench 4 で列にカスタマイズされた日付の形式を設定する"> Workbench 4 で列にカスタマイズされた日付の形式を設定する </a></p></li><li><p><a href="/s/article/360046864074" target="_blank" title="Workbench 4 で列をフィルターする"> Workbench 4 で列をフィルターする </a></p></li><li><p><a href="/s/article/360046864274" target="_blank" title="Workbench 4 で列の値を置き換える"> Workbench 4 で列の値を置き換える </a></p></li><li><p><a href="/s/article/360046861014" target="_blank" title="Workbench 4 で DataSet を結合する"> Workbench 4 で DataSet を結合する </a></p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> 削除（変換） </p></td><td colspan="1" rowspan="1"><p> 現在選択中の変換を削除します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 会社ファイルを認証する（QuickBooksのみ） </p></td><td colspan="1" rowspan="1"><p> Workbench を認証して、現在選択している QuickBooks ファイルに接続します。 詳細は、 <a href="/s/article/360046860414" target="_blank" title="Workbench 4 で QuickBooks データに接続する"> QuickBooksデータに接続する </a> を参照して下さい。 </p></td></tr></tbody></table>
+
+### もっとボタン
+
+**もっと** タブにあるボタンは Workbench のヘルプに関するオプションの他、プラグインマネージャへのアクセスも提供します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> ボタン </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 送信ログ </p></td><td colspan="1" rowspan="1"><p> ログファイルを Windows クリップボードにコピーして、Domo に <span class="mt-font-courier-new"> zip </span> ファイルとしてメールできるようにします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ログを見る </p></td><td colspan="1" rowspan="1"><p> Windows Explorer でログファイルフォルダを開きます。 通常、ログファイルは <span class="mt-font-courier-new"> C:\ProgramData\DomoWorkbench </span> にあります。 ログ（ <span class="mt-font-courier-new">.txt </span> ）ファイルは、テキストエディターで開くことができます。 </p><p> 手動またはスケジュールされたジョブのログファイルは、ジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイル名および日付に基づいて名前が付けられます： <span class="mt-font-courier-new"> myjob_yyyy-mm-dd </span></p><p> コマンドラインで実行されるジョブのログエントリーは、アプリケーション名と日付に基づいて名前が付けられます： <span class="mt-font-courier-new"> DomoWorkbench_yyyy-mm-dd </span> 。 コマンドラインから Workbench を実行する方法の詳細については、 <a href="/s/article/360046772834" target="_blank" title="Workbench 4 を実行する"> Workbench 4 をコマンドラインから実行する </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Wiki </p></td><td colspan="1" rowspan="1"><p> Domo の Workbench ヘルプ資料を開きます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> コミュニティ </p></td><td colspan="1" rowspan="1"><p> Workbench ヘルプフォーラムを開きます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ビデオ </p></td><td colspan="1" rowspan="1"><p> Workbench のトレーニングビデオを開きます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プラグイン </p></td><td colspan="1" rowspan="1"><p> プラグインマネージャーを開きます。 ここでは、プラグインをカテゴリー別に閲覧し、Workbenchで使用する新しいプラグインを追加することができます。 詳細は、 <a href="/s/article/360047496013" target="_blank" title="Managing Plugins in Workbench 4"> Workbench 4 でプラグインを管理する </a> を参照して下さい。 </p></td></tr></tbody></table>
+
+## アカウントペイン
+
+**アカウント** ペインでは、ログを見たり、設定を編集したり、また個々のアカウントのDataSetジョブのオプションにアクセスしたりすることができます。 このリストのどのアイテムも（トップレベルアカウント以外は）クリックすることで、情報そして／またはオプションが Workbench 中央のダイナミックオプションパネルで開きます。
+
+このペインのアイテムは、5層のナビゲーションからなるツリー構造で配置されており、トップレベルにアカウントがあります。 各アカウントには、以下の部門があり、ナビゲーションの第2層を構成しています： **ログ** 、 **設定** および **DataSetジョブ** 。 **設定** には3つのサブ部門があります： **アカウント** 、 **プロキシ** そして **アップデート** です。 **DataSet ジョブ** には、このアカウントに関連付けられているそれぞれの DataSet ジョブに対しサブ部門があります。これらが、この3番目のナビゲーション層を構成しています。 各サブ部門に対し、以下のオプションが利用可能です： **設定** 、 **スケジュール** 、 **ソース** 、 **スキーマ** 、 **変換** 、 **通知** および **ログ** （第4層）。 加えて、 **変換** にはそれ自体に一つ以上のサブ部門がある場合があります（第5層目）。
+
+以下のスクリーンショットは、ツリー構造の例を示しています：
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLb.png" style={{width: 463, height: 487}}/></Frame>
+
+リストアイテムの左の は、その下にアイテムが隠されていることを示しています。アイコンをクリックすると、アイテムが展開します。 アイテムの左にある をクリックすると、そのアイテムの下を折りたたみます。
+
+**アカウント** ペインは、Workbench インタフェースのどこにでもドラッグすることができます。 ペインをドラッグすると、インタフェースの上部、下部、左側、そして右側を示す矢印ボタンが現れます。 ペインをそのボタンにドラッグすると、インタフェースの該当する場所がハイライトされます。 ペインをボタンにドロップすると、その場所に「ドッキング」されます。 例えば、ペインを上矢印にドロップすると、Workbench ウィンドウの上部にドッキングされます。
+
+<Note>
+**注記：** ペインは、ドックモードになっていないとドラッグできません。 ペインをドックモードにするには、横向きの押しピンアイコン <InlineImage src="pushpin_dock.png" alt="pushpin_dock"/> をクリックします。 これにより、ドラッグしてドックすることができます。
+
+</Note>
+
+### ジョブリスト
+
+ステータスパネルの上の **ジョブリストを表示** をクリックすると、ジョブリストビューを開くことができます。 このリストビューでは、DataSet ジョブを検索やソートしたり、次回スケジュールを確認したり、またジョブをステータス別に整理したりすることができます。これにより、ジョブの視認性が向上し、インスタンス内のジョブ管理がしやすくなります。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123rc-00N5w00000Ri7BU-0EM5w000005vPLM.png" style={{width: 1017, height: 487}}/></Frame>
+
+### ログ
+
+特定アカウントで **ログ** をクリックすると、そのアカウントのログがダイナミックオプションパネルで表示されます。
+
+<Frame><img alt="wb4_accounts_logs.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL2.png" style={{width: 443, height: 491}}/></Frame>
+
+ログ情報は、新しいものから順に表示されます。 **ログの日付** メニューで目的の日付をクリックすると、そのログが表示されます。 ログは、時系列に従って表示させることも、逆の順に表示させることもできます。 また、ログをエラーレベルでフィルターすることもできます（ ERROR 、 INFO または WARN
+
+### 設定
+
+**設定** では、接続サマリを閲覧することができる他、アカウント情報を変更したり、プロキシ設定そして更新用URLや頻度を設定することもできます。 設定オプションは、 **設定** や、Workbench 左側にあるサブタブをどれでもクリックすることでアクセスすることができます。 （ **アカウント** ペインには、 **設定** アイテムが2つあるので注意してください。） ここでの **設定** は、 **ログ** の下の2層目にあるものの事を指します。 この設定は、Workbench におけるアカウントや接続の詳細を設定するためのものです。それに対して、後述の設定は、DataSet ジョブ専用のものになっています。）
+
+#### 接続サマリー
+
+**設定** をクリックすると、エージェント IDや Domoサーバー、ジョブチェック頻度、プロキシそしてソフトウェアアップデート設定など、接続情報のサマリを閲覧することができます。
+
+<Frame><img alt="wb4_connection_summary.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL1.png"/></Frame>
+
+#### アカウントタブ
+
+Domo の接続情報を編集します。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPKz.png" style={{width: 549, height: 442}}/></Frame>
+
+以下の表で、このタブのコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo サーバー </p></td><td colspan="1" rowspan="1"><p> 接続されているサーバーのURLで、Workbench アカウントを設定した時に指定したものです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API キー </p></td><td colspan="1" rowspan="1"><p> Domo に接続するのに使用するアカウントのAPI キーです。 新規にAPI キーを生成するには、フィールドの右側の矢印をクリックし、メールアドレスとパスワードを入力し、そして <b> トークンを作成 </b> をクリックします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書エラーを無視する </p></td><td colspan="1" rowspan="1"><p> オンにすると、このサーバーへの接続時に証明書エラーが発生しても無視します。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続をテスト </p></td><td colspan="1" rowspan="1"><p> 接続の認証情報をテストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 新しい DataSet ジョブをチェック： </p></td><td colspan="1" rowspan="1"><p> 処理待ちの DataSet ジョブがないかを Workbench が調べる頻度を指定します。 単位は <b> 秒 </b> から <b> 年 </b> まであります。 Workbench が未処理のジョブを確認しないようにするには、 <b> しない </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> 同時実行ジョブを制限する </td><td colspan="1" rowspan="1"> 同時に実行できる DataSet ジョブ数を制限できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> ローカルに管理されているジョブだけ実行する </p></td><td colspan="1" rowspan="1"><p> これを有効にすると、Workbench はネットワークでは <em> なく </em> 、ローカルに管理されている DataSet ジョブのみ実行します。 </p></td></tr><tr><td colspan="1" rowspan="1"> 全てのジョブに偽装の認証情報を必須とする(Workbench 4.5 のみ） </td><td colspan="1" rowspan="1"> これをチェックすると、Workbench は全ての DataSet ジョブに対してデフォルト以外の認証情報を必須にします（つまり、全てのジョブの <b> 偽装が必要 </b> のトグルが無効になり、オンにすることができなくなります）。 このオプションは、管理者の権限を持っている場合にのみ有効です。 </td></tr></tbody></table>
+
+#### プロキシタブ
+
+プロキシサーバーを使用して、より安全に Domo に接続する設定を指定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLd.png"/></Frame>
+
+<Note>
+**注記：** 初めて Workbench 経由で Domo に接続するとき、Workbench は Windows システムのプロキシ設定を利用します。この時点では、プロキシ設定を手動で入力することはできません。 ただし、最初に Domo に接続した後であれば、 **プロキシ** タブでプロキシを手動で設定することができます。
+
+</Note>
+
+以下の表で、このタブのコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> プロキシサーバーを使用しない </p></td><td colspan="1" rowspan="1"><p> 接続にプロキシサーバーを使用 <em> しません </em> 。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロキシ設定を自動検出する </p></td><td colspan="1" rowspan="1"><p> プロキシ設定を自動で決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロキシを手動で設定する </p></td><td colspan="1" rowspan="1"><p> 接続に使用するプロキシサーバー情報を手動で指定することができます。 これは、初めて Workbench 経由で Domo に接続した後でのみ行うことができます。 （最初に接続する際は、システムのプロキシ設定が使用されます。） </p><p> サーバーアドレスとポートを入力します。 </p><p> プロキシサーバーに認証情報が必要な場合は、 <b> 認証が必要 </b> を <b> オン </b> にし、ユーザー名とパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"> システムプロキシ設定を使用 （Workbench 4.5 のみ） </td><td colspan="1" rowspan="1"> システムのプロキシ設定に基づいてプロキシ設定を決定します。 </td></tr></tbody></table>
+
+プロキシの認証情報を入力したら、 **プロキシをテストする** で接続をテストすることができます。 ボタンの隣のアイコンの色は、プロキシ設定が認証されたかを示しています。
+
+#### アップデートタブ
+
+Workbench ソフトウェアの更新をどう扱うかを指定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLk.png" style={{width: 515, height: 197}}/></Frame>
+
+以下の表で、このタブのコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Workbench アップデートURL </p></td><td colspan="1" rowspan="1"><p> Workbench ソフトウェアのアップデートに使用するURLを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ソフトウェアのアップデートをチェックするタイミング </p></td><td colspan="1" rowspan="1"><p> Workbench がソフトウェアのアップデートを確認する頻度を指定します。 単位の範囲は、分から年まで指定できます。 </p><p> Workbench がソフトウェアのアップデートを確認しないようにするには、 <b> しない </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アップデートを自動的にインストールする </p></td><td colspan="1" rowspan="1"><p> 有効になっていると、Workbench のソフトウェアは自動的にアップデートされます。 </p></td></tr></tbody></table>
+
+### DataSet ジョブ
+
+アカウントペインの **DataSet ジョブ** セクションでは、Workbench のインスタンスで作成された全ての DataSet ジョブの情報とオプションにアクセスすることができます。
+
+**DataSet ジョブ** をクリックすると、自分が作成した全ジョブのサマリがダイナミックオプションペインに表示されます。 それぞれのサマリでジョブIDと DataSet 名、作成日、最後に実行された日と次回実行予定日、そしてメッセージが表示されます。 良好状態のジョブは緑の円で、そして良好でない状態のジョブはオレンジ色の円で示されます。
+
+<Frame><img alt="wb4_dataset_jobs_summary.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLh-1.png"/></Frame>
+
+ジョブ（つまり階層の下のオプションとかではなくジョブ名）をクリックすると、そのジョブと実行履歴が **ダイナミックオプション** ペインで開きます。 以下のスクリーンショットは、「ヨーロッパ売上」という DataSet ジョブのジョブ詳細を示しています：
+
+<Frame><img alt="wb4_dataset_job_rightclick_options.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL5.png" style={{width: 740, height: 429}}/></Frame>
+
+DataSet ジョブ名を右クリックすると、Workbench ウィンドウ上部、ボタンツールバーにあるオプションに簡単にアクセスすることができます。例えば、 **DataSet ジョブをプレビューする** （これは、 **プレビュー** ボタン同様、 **出力** ペインに出力ログを送信します）や **DataSet ジョブを実行する** 、 **DataSet ジョブを削除する** そして **DataSet ジョブをエクスポートする** などです。
+
+<Frame><img alt="wb4_dataset_job_rightclick_options.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLf.png" style={{width: 296, height: 233}}/></Frame>
+
+DataSet ジョブの名前が斜体で星印付で現れると、それはジョブ設定に未保存の変更が加えられたことを意味します。
+
+各DataSet ジョブにはいくつかパラメーターがあり、それは **アカウント** ペインの階層でのジョブ名の下に表示されます。 パラメータをクリックすると、そのパラメーターに関する情報そして／またはオプションがダイナミックオプションペインで開きます。 例えば、「ヨーロッパ売上」 DataSet ジョブの **スケジュール** パラメーターをクリックすると、そのジョブの実行スケジュールを設定するためのオプションが開きます。
+
+以下の表に、各ジョブの **アカウント** ペインで利用可能なパラメーターのリストと詳細を記します。 これらは全て、次で詳細に説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> パラメーター </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 設定 </p></td><td colspan="1" rowspan="1"><p> DataSet ジョブ名と DataSet タイプ、宛先 DataSet、更新方法、エラー処理そしてその他設定を行うことができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スケジュール </p></td><td colspan="1" rowspan="1"><p> この DataSet の更新頻度を設定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ソース </p></td><td colspan="1" rowspan="1"><p> ソース DataSet を設定します：トランスポート方法、認証情報、データソースプロパティなど。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スキーマ </p></td><td colspan="1" rowspan="1"><p> DataSet のスキーマを示します（ただし、ジョブの <b> プレビュー </b> をクリックするまでは現れません）。 ここでは、宛先列の名前を変更したり、データタイプを変更したり、列を含めたり除外したりできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 変換 </p></td><td colspan="1" rowspan="1"><p> DataSet ジョブに追加された全ての変換を編集することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 通知 </p></td><td colspan="1" rowspan="1"><p> Domo の個別ユーザーへの通知を設定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ログ </p></td><td colspan="1" rowspan="1"><p> この DataSet ジョブのログを全て表示します。 </p></td></tr></tbody></table>
+
+#### 設定
+
+**アカウント** ペインで DataSet ジョブの **設定** を選択すると、ジョブを設定するためのオプションがダイナミックオプションペインに現れます。 （ **アカウント** ペインには、 **設定** アイテムが2つあるので注意してください。） ここでの **設定** は、DataSet ジョブのタイトルの下にあって、選択した DataSet ジョブに特有のものの事を指します。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLB-1.png"/></Frame>
+
+以下の表では、DataSet ジョブの **設定** で利用可能なオプションについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> このジョブの名前です。 ジョブは、最初に <b> Workbench DataSet ジョブ作成ウィザード </b> で作成した時に名前をつけていますが、ここで変更することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo DataSet </p></td><td colspan="1" rowspan="1"><p> Domo の Workbench で生成された DataSet です。つまり、宛先データソースです。 DataSet 名の隣の青の「i」は、その DataSet がまだ Domo 内で作成されていないことを示しています。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 更新方法 </p></td><td colspan="1" rowspan="1"><p> 更新時に、新しいデータが DataSet を置き換えるか、または追加されるかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet タイプ </p></td><td colspan="1" rowspan="1"><p> Domo で表示される DataSet のタイプです。 タイプは、メニューから選択するか、あるいはカスタマイズされた名前を入力します。 </p><p> ここで選択する、または入力する DataSet タイプは、Domo 内での情報提供のためだけです。 例えば、ツイッターのデータを含むODBCデータベースに接続するとします。 この場合は、 <b> ODBC </b> ではなく「ツイッター」を選択するのがベストです。Domoで表すのは、ツイッターから来ているデータだからです。 </p></td></tr><tr><td colspan="1" rowspan="1"> DataSet の説明 </td><td colspan="1" rowspan="1"><b> Workbench DataSet ジョブ作成ウィザード </b> の際に入力したこの DataSet に対する説明です。 説明を編集するには、ここで行います。 </td></tr><tr><td colspan="1" rowspan="1"> ジョブを無効にする </td><td colspan="1" rowspan="1"> このジョブを実行できないようにします。 </td></tr><tr><td colspan="1" rowspan="1"><p> エラー処理 </p></td><td colspan="1" rowspan="1"><p> DataSet ジョブでエラーに遭遇した場合にどう処理するかを決定します。 オプションには以下があります： </p><ul><li><p> 無効なセルを NULL 値に置換 <br/> 無効なセルがある場合、その値を「Null」値に置き換えます。 </p></li><li><p> 無効なセルは行全体をスキップ <br/> 無効なセルがある場合、そのセルのある行全体をスキップします。 </p></li><li><p> 無効なデータエラーでジョブを中止 <br/> 無効なセルがある場合、全てのDataSet ジョブを中止します。 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> 偽装が必要 </p></td><td colspan="1" rowspan="1"><p> 非デフォルトの認証情報を使用して認証する必要がある場合に使用します。 4.5 の新しい機能です。管理者ユーザーが <b> 設定 &gt; アカウント </b> で <b> 全てのジョブに偽装の認証情報を必須とする </b> のボックスをチェックすると、このオプションはデフォルトでオンになり、オフにすることはできません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ドメイン </p></td><td colspan="1" rowspan="1"><p> 非デフォルトの認証情報を使用して認証（偽装）している時のドメインを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> 非デフォルトの認証情報を使用して認証（偽装）している時のユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> 非デフォルトの認証情報を使用して認証（偽装）している時のパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ジョブを停止するまでの実行時間 </p></td><td colspan="1" rowspan="1"><p> どの程度長期にわたってジョブが実行されていたらそれを終了させるかを（単位：時間）で指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データに変更がなくてもアップロード </p></td><td colspan="1" rowspan="1"><p> データが変更されていなくても Domo にデータをアップロードすることができます。 Domo の DataSet を最新に保ちたい場合に便利です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet ジョブがゼロ行を返したら Domo DataSet をクリア </p></td><td colspan="1" rowspan="1"><p> ジョブの実行時に返された行がゼロだった場合、Domo の DataSet をクリアします。 無効に設定すると、Workbench は DataSet のデータを消去するコマンドを Domo に送信 <em> しません </em> 。 別の表をアップデートしてから表のデータをアップロードするプロセスがある場合、このオプションを無効にして、「ステータス」表を参照するクエリにスクリプトを追加し、データの準備ができたらクエリを実行することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スキーマの変更を許可 </p></td><td colspan="1" rowspan="1"><p> ジョブが無人モードで動作中は、スキーマの変更を Domo にプッシュすることを許可します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Adrenaline のインデックスを待機 （Workbench 4.5 のみ） </td><td colspan="1" rowspan="1"> DataSet ジョブがアップロードされた後、Adrenaline のインデックス（Domo がクラウドのデータをインデックスすること）が終了するまで待機するよう、Workbench に指示します。 このオプションがオフになっていると、Workbench はアップロードが完了するとすぐジョブは成功したものとみなします。 </td></tr></tbody></table>
+
+#### スケジュール
+
+アカウントペインで DataSet ジョブの **スケジュール** を選択すると、ジョブを設定するためのオプションがダイナミックオプションペインに表示されます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLS.png"/></Frame>
+
+**スケジュールタイプ** メニューで、作成したいスケジュールのタイプを選択します。
+
+**更新** メニューで、この DataSet ジョブの更新頻度を選択します。 オプションには、 **30分おき** から **毎月** まであります。 **手動** を選択すると、DataSet はスケジュールに基づいた更新は *行いません* 。自分で Workbench から DataSet ジョブを実行する必要があります。 **Watch File** を選択すると、ファイルが更新されるたびにこの DataSet のジョブを実行します。
+
+DataSet の更新に関する詳細は、 [カードの DataSet をアップデートまたは更新する](/ja/s/article/360043429893 "KPI カードの DataSet をアップデートまたは更新") を参照して下さい。
+
+メニューで頻度を選択すると、オプションペインの下部に、今後4回分の更新時刻が表示されます。
+
+スケジュール設定に関する詳細は、 [Workbench 4 でジョブをスケジュールする](/ja/s/article/360046856934 "Workbench 4 でジョブをスケジューリングする") を参照して下さい。
+
+また、同じ更新スケジュールを共有する DataSet ジョブのグループを作成することもできます。 詳細は、 [Workbench 4 でスケジュールグループを作成する](/ja/s/article/360046857074 "Workbench 4 でスケジュールグループを作成する") を参照して下さい。
+
+#### ソース
+
+**アカウント** ペインで DataSet ジョブの **ソース** を選択すると、トランスポート方法とジョブのデータソースを設定するためのオプションがダイナミックオプションペインに表示されます。
+
+##### トランスポート方法
+
+トランスポート方法とは、データソースが Workbench に読み込まれる方法を決定するものです。 トランスポート方法は、 **Workbench DataSet ジョブ作成ウィザード** で選択し、そのオプションは DataSet ジョブの **ソース** ペインで設定します。 トランスポート方法によって、それぞれオプションは異なります。
+
+###### ローカルファイルプロバイダー
+
+**ローカルファイルプロバイダー** トランスポート方法では、自分のマシンやネットワークからマシンを選択することができます。 この方法は、 [Excel](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343838 "Workbench 4 で Excel データに接続する") や [CSV](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343841 "Workbench 4 で CSV データに接続する") 、 [QuickBooks](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343921 "Workbench 4 で QuickBooks データに接続する") 、 [JSON](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343924 "Workbench 4 で JSON データに接続する") そして [XML](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343928 "Workbench 4 で XML データに接続する") データソースの Domo へのトランスポートに使用します。
+
+以下のスクリーンショットは、この方法を選択した場合のオプションを示したものです：
+
+
+
+###### SFTP ファイルプロバイダー
+
+ファイルを FTP、SFTP (SSH-FTP) または FTPS (FTP-SSL) 経由で取得したい時は、SFTP ファイルプロバイダートランスポート方法を使用します。 この方法は、 [Excel](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343838 "Workbench 4 で Excel データに接続する") や [CSV](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343841 "Workbench 4 で CSV データに接続する") 、 [QuickBooks](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343921 "Workbench 4 で QuickBooks データに接続する") 、 [JSON](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343924 "Workbench 4 で JSON データに接続する") そして [XML](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343928 "Workbench 4 で XML データに接続する") データソースの Domo へのトランスポートに使用します。
+
+以下のスクリーンショットは、この方法を選択した場合のオプションを示したものです：
+
+<Frame><img alt="wb4_transport_sftp.png" src="/images/kb/ja/ka05w000001250P-00N5w00000Ri7BU-0EM5w000005wLdg.png"/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> サーバー </p></td><td colspan="1" rowspan="1"><p> FTPサーバーのサーバーURLを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> サーバーへの接続時に使用するユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> サーバーに接続するのに使用するパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロトコル </p></td><td colspan="1" rowspan="1"><p> データをFTP、SFTPまたはFTPSのどれを使って取得するか決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホスト鍵の指紋（SSL 証明書設定） </p></td><td colspan="1" rowspan="1"><p> SSL 証明書のホスト鍵の指紋が必要な場合に指定します。 ホストの指紋は、SFTP サーバーが目的のものと同一であるか確認するために使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 信頼できないサーバー証明書を許可する </p></td><td colspan="1" rowspan="1"><p> 信頼の条件を満たさない SSL 証明書をアップロードできるようにします。 自己署名の証明書を使用している場合は、このボックスにチェックを入れる必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> PKCS#8 ファイル（SSL 証明書設定） </p></td><td colspan="1" rowspan="1"><p> SSL 証明書の PKCS#8 ファイルを指定します。 これは、より安全な認証のために、ユーザー名とパスワードの認証情報と共に使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード（SSL 証明書設定） </p></td><td colspan="1" rowspan="1"><p> SSL 証明書のパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リモートファイル </p></td><td colspan="1" rowspan="1"><p> 接続したいファイルのファイルパスを指定します。 </p></td></tr></tbody></table>
+
+###### 外部プロセスファイルプロバイダー
+
+外部プロセスファイルプロバイダーは、サードパーティアプリケーションのスクリプトを使って Domo にデータを読み込ませる時に使います。 この方法を使う時は、アプリケーションの実行ファイルを選択し、引数を指定し、そして出力のファイルパスを入力します。 実行ファイルの殆ど全種類が、 [Excel](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343838 "Workbench 4 で Excel データに接続する") や [CSV](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343841 "Workbench 4 で CSV データに接続する") 、 [QuickBooks](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343921 "Workbench 4 で QuickBooks データに接続する") 、 [JSON](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343924 "Workbench 4 で JSON データに接続する") そして [XML](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=86343928 "Workbench 4 で XML データに接続する") データソースに Workbench で変換することができます。 例えば、この方法を使ってMySQLデータベースファイルをExcel ファイルに変換することができます。 その上で、Excel ファイルのオプションを設定して、Domo に送信することができます。
+
+以下のスクリーンショットは、この方法を選択した場合のオプションを示したものです：
+
+<Frame><img alt="wb4_transport_external.png" src="/images/kb/ja/ka05w000001250P-00N5w00000Ri7BU-0EM5w000005wLds.png"/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> プログラムの実行ファイル </p></td><td colspan="1" rowspan="1"><p> Domo にデータを引き込むのに使うアプリケーション実行ファイルを選択することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 引数 </p></td><td colspan="1" rowspan="1"><p> スクリプトの引数を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 出力ファイルパス </p></td><td colspan="1" rowspan="1"><p> 出力のファイルパスを指定します。 ファイルタイプは、 <b> Workbench DataSetウィザード </b> で選択したデータソースタイプと同じである必要があります。 </p></td></tr></tbody></table>
+
+###### OLAP接続プロバイダー
+
+OLAP接続プロバイダーは、OLAP接続を使って Domo にデータを送信したい時に使います。 以下のスクリーンショットは、この方法を選択した場合のオプションを示したものです：
+
+<Frame><img alt="wb4_transport_olap.png" src="/images/kb/ja/ka05w000001250P-00N5w00000Ri7BU-0EM5w000005wLdd.png"/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> OLAP接続 </p></td><td colspan="1" rowspan="1"><p><b> 接続ビルダー </b> が開くので、OLAP接続の詳細を指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 32ビット実行が必要 </p></td><td colspan="1" rowspan="1"><p> このファイルトランスポートが32ビット実行が必要か決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データソース </p></td><td colspan="1" rowspan="1"><p> データベースが格納されているサーバーを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロバイダー </p></td><td colspan="1" rowspan="1"><p> MSOLAP または Essbase のどちらかのプロバイダーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カタログ </p></td><td colspan="1" rowspan="1"><p> OLAP接続の初期カタログを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> このOLAP接続のユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> OLAP接続のパスワードを指定します。 </p></td></tr></tbody></table>
+
+OLAPデータに接続する方法の詳細は、 [OLAPキューブに接続する](/ja/s/article/360047496273 "Workbench 4 で OLAP キューブに接続する") を参照して下さい。
+
+###### ODBC接続プロバイダー
+
+ODBC接続プロバイダーは、ODBC接続を使って Domo にデータを送信したい時に使います。 以下のスクリーンショットは、この方法を選択した場合に利用可能な様々なオプションを示したものです。 （この例では、接続タイプに **システムDSN** を選択しています。 別の **接続タイプ** を選択すると、他のオプションが現れます。）
+
+<Frame><img alt="wb4_transport_odbc.png" src="/images/kb/ja/ka05w000001250P-00N5w00000Ri7BU-0EM5w000005wLeQ.png"/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> 接続タイプ </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> ODBCデータに接続する方法を選択することができます。 </p>
+<table border="1" cellpadding="1" cellspacing="1">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> 接続タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> システムのDSN </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> システムで利用可能な DSN から、目的の DataSet に使用する DSN を指定します。 認証を必要とするかを指定することができます。 </p>
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><b> 注記： </b> ODBC DataSet からデータをアップロードするには、既存のデータソース名（DSN）を指定する必要があります。 DSNは、Windows ODBC データソースアドミニストレーターを使用して作成することができます。 （Windows ODBC データソースアドミニストレーターにアクセスするには、スタートメニューの検索で「ODBC」と入力し、「データソース (ODBC)」を選択します。）DSN 作成に関する詳細は、Windows ODBCヘルプ（Windowsヘルプとサポートで「ODBC」を検索）を参照するか、 <a href="/s/article/" target="_blank" title="Connecting to Data Using Workbench 4"> Workbench 4 </a> にある以下のトレーニングビデオを参照してください。 MySQL ドライバ設定の詳細は、 <a target="_blank" title="Workbench 4 に関するよくある質問"> Workbench 4 よくある質問 </a> を参照してください。 </p><p></p><p> DataSet名（DSN）の定義方法、およびOpen Database Connectivity（ODBC）を使用したデータへのアクセスに関する情報は、ODBCの資料を参照してください。 </p></div></div></div>
+</Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1">
+ <p> ユーザーDSN </p>
+ </td>
+ <td colspan="1" rowspan="1">
+ <p> アクセスのある DSNS から、目的の DataSet に使用する DSN を指定します。 データベースの認証を必要とするかを指定することができます。 DataSet ジョブの設定タブで <b> 偽装 </b> 設定を行うまで、選択メニューにDSNの選択肢は現れません。 </p>
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><b> 注記： </b> ODBC DataSet からデータをアップロードするには、既存のデータソース名（DSN）を指定する必要があります。 DSNは、Windows ODBC データソースアドミニストレーターを使用して作成することができます。 （Windows ODBC データソースアドミニストレーターにアクセスするには、スタートメニューの検索で「ODBC」と入力し、「データソース (ODBC)」を選択します。）DSN 作成に関する詳細は、Windows ODBCヘルプ（Windowsヘルプとサポートで「ODBC」を検索）を参照するか、 <a href="/s/article/" target="_blank" title="Connecting to Data Using Workbench 4"> Workbench 4 </a> にある以下のトレーニングビデオを参照してください。 MySQL ドライバ設定の詳細は、 <a target="_blank" title="Workbench 4 に関するよくある質問"> Workbench 4 よくある質問 </a> を参照してください。 </p><p></p><p> DataSet名（DSN）の定義方法、およびOpen Database Connectivity（ODBC）を使用したデータへのアクセスに関する情報は、ODBCの資料を参照してください。 </p></div></div></div>
+ </Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p> 接続ビルダー </p></td><td colspan="1" rowspan="1"><p> ログイン認証やドライバー、サーバーURL、データベース名、ポート、タイムアウト値、そして接続パラメーターなど、ODBC接続の詳細を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続文字列 </p></td><td colspan="1" rowspan="1"><p> 接続のための文字列をひとつ入力します。 </p></td></tr>
+ </tbody>
+ </table>
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p> システムDSN（システムDSNのみ） </p></td><td colspan="1" rowspan="1"><p> システムで利用可能な DSNから、目的の DataSet に使用する DSN を指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 認証が必要（システムDSNとユーザーDSN） </p></td><td colspan="1" rowspan="1"><p> 指定した DSN に認証が必要かを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名（システム DSN と接続ビルダー） </p></td><td colspan="1" rowspan="1"><p> データベースに接続するのに使用するユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザーDSN（ユーザーDSNのみ） </p></td><td colspan="1" rowspan="1"><p> 利用可能な DSNから、目的の DataSe tに使用する DSN を選択します。 DataSet ジョブの設定タブで偽装設定が必要をオンにしてパラメーターを入力するまで、このメニューに選択肢は <em> 現れません </em> 。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続ユーザー名（ユーザーDSNのみ） </p></td><td colspan="1" rowspan="1"><p> データベースに接続するのに使用するユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続パスワード（ユーザーDSNのみ） </p></td><td colspan="1" rowspan="1"><p> データベースへの接続に使用するパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード(システム DSN と接続ビルダー） </p></td><td colspan="1" rowspan="1"><p> データベースの接続に使用するパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ドライバー（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> データベースへのアクセスに使用されるドライバの名前を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サーバー（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> データベースのサーバー名またはURLを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> データベースのあるポート番号を指定します。 デフォルトのポートは、MySQLのポートです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> アクセスするデータベースの名前を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> タイムアウト（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> DataSet から更新を行うまで接続を継続するタイムアウト値を、秒数（60=1分）で指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続パラメータ（接続ビルダーのみ） </p></td><td colspan="1" rowspan="1"><p> DataSet 接続のための追加パラメータを指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続文字列（接続文字列のみ） </p></td><td colspan="1" rowspan="1"><p> DataSet に接続するための接続文字列を入力します。 </p></td></tr>
+ </tbody></table>
+
+詳細は、 [ODBC データに接続する](/ja/s/article/360047499793 "Workbench 4 で ODBC データに接続する") を参照して下さい。
+
+###### JIRA接続
+
+JIRAデータを Domo に送信したい時は、JIRA接続トランスポート方法を使います。 以下のスクリーンショットは、この方法を選択した場合のオプションを示したものです：
+
+<Frame><img alt="wb4_transport_jira.png" src="/images/kb/ja/ka05w000001250P-00N5w00000Ri7BU-0EM5w000005wLde.png"/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> JIRAインスタンスに接続するのに使用するユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> JIRA インスタンスに接続するのに使用するパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サーバーの URL </p></td><td colspan="1" rowspan="1"><p> 会社のJIRAサーバーのURLを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> JIRAクエリ </p></td><td colspan="1" rowspan="1"><p> Domo に送信したいJIRAデータのクエリを指定します。 </p></td></tr></tbody></table>
+
+詳細は、 [JIRA データに接続する](/ja/s/article/360046860074 "Workbench 4 で JIRA データに接続する") を参照して下さい。
+
+##### データソースのプロパティ
+
+**データソースのプロパティ** のオプションを使って、データソースが Domo に送信される前にそのプロパティを設定することができます。 **データソースのプロパティ** は、Workbench DataSet ジョブ作成ウィザードで選択したデータソースに依存しています。 例えば、データソースに **CSV** を選択した場合は、区切り文字の設定オプションが表示されます。一方、 **OLAP** を選択した場合は、クエリの作成を中心としたオプションが表示されます。
+
+###### CSV
+
+データソースタイプにCSVが選択されている場合は、区切り文字やエスケープシーケンス文字の指定し、そして高度な設定を行うことができます。
+
+<Note>
+**注記：**
+
+* Domo 内の DataSet の名前や説明は、他のユーザーが Domo で編集した場合は、Workbenchでの名前や説明と別にすることができます。 （DataSetは名前や説明が一致しなくても、データのアップロードは正常に実行されます。）
+* CSVファイルは、以下である *必要があります* ：
+  + テキストファイルである
+  + データが単一の文字で区切られている
+
+</Note>
+
+以下のスクリーンショットは、CSVデータソースの **データソースのプロパティ** の全てのコンポーネントを示しています。
+
+<Frame><img alt="wb4_source_csv.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLi.png"/></Frame>
+
+以下の表で、このコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> フィールド区切り文字 </p></td><td colspan="1" rowspan="1"><p> 指定したCSVファイルで使用するファイル区切り文字を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フィールドをカプセル化する： </p></td><td colspan="1" rowspan="1"><p> フィールドをカプセル化するのに使う文字を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エスケープシーケンス文字 </p></td><td colspan="1" rowspan="1"><p> エスケープに使用する文字を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> コメント文字 </p></td><td colspan="1" rowspan="1"><p> コメントに使用する文字を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 欠落しているフィールドの処理 </p></td><td colspan="1" rowspan="1"><p> 欠落しているフィールド値にエラーを生成するか、フィールドを空の値と置き換えるかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初の行に列のヘッダーが含まれる </p></td><td colspan="1" rowspan="1"><p> ファイルの最初の行で列のヘッダーを定義するかを示します。 </p><p> ファイルに列のヘッダーがある場合は、最初の行でそれを定義する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始行を無視 </p></td><td colspan="1" rowspan="1"><p> データの冒頭でスキップする行数を指定し、特定の行からインポートできるようにします。 </p><p><b> 開始行をスキップする </b> フィールドには、列の名前を含んだヘッダー行は <em> 含まれません </em> 。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了行を無視 </p></td><td colspan="1" rowspan="1"><p> データの最後にスキップする行数を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> テキストエンコード </p></td><td colspan="1" rowspan="1"><p> CSVファイルで使用される文字エンコーディングを指定します。 </p></td></tr></tbody></table>
+
+CSVファイルの接続の詳細は、 [Workbench 4 で CSVデータに接続する](/ja/s/article/360047496473 "Workbench 4 で CSV データに接続する") を参照して下さい。
+
+###### Excel
+
+データソースタイプに Excel が選択されている場合、Domo に送信したいデータの範囲を指定することができます。 これは、特定セル範囲でも、名前のついた範囲でも、または動的な範囲でも可能です。
+
+<Note>
+**注記：** Microsoft Excel スプレッドシートのファイルは、サポートされているフォーマットである *必要があります* ：.xlsx 、.xls 、.xlsm
+
+</Note>
+
+以下のスクリーンショットは、Excelデータソースの **データソースのプロパティ** の全てのコンポーネントを示しています。 （この例では、 **選択範囲** に **セル範囲** を選択しています。 別の **選択範囲** を選ぶと、他のオプションが表示されます。）
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLj.png" style={{width: 518, height: 325}}/></Frame>
+
+以下の表で、このコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 選択範囲 </p></td><td colspan="1" rowspan="1"><p> 指定したExcelファイルからデータの範囲を引き出す方法を選択することができます。 方法には以下のものがあります。 </p><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 方法 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> セル範囲 </p></td><td colspan="1" rowspan="1"><p> 開始セルや終了行、終了列など、データを引き出したいExcelシートを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 名前のついた範囲 </p></td><td colspan="1" rowspan="1"><p> リストからは名前のついた範囲を選択することができます。 この Excelファイルで名前のついた範囲を作成したいなかった場合は、このメニューにオプションは現れません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ダイナミック範囲 </p></td><td colspan="1" rowspan="1"><p> Excelシートの最後に、指定した行数だけスキップすることができます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> シート名（セル範囲と動的範囲） </p></td><td colspan="1" rowspan="1"><p> データを引きだしたい Excelシートを選択することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始セル（セル範囲と動的範囲） </p></td><td colspan="1" rowspan="1"><p> データを引き出す Excelシートの最初のセルを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了行（セル範囲のみ） </p></td><td colspan="1" rowspan="1"><p> データを引き出すセル範囲の終了行を指定します。 このオプションは、 <b> 空白行まで続行する </b> にチェックマークが入っていない場合のみ利用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了列（セル範囲のみ） </p></td><td colspan="1" rowspan="1"><p> データを引き出すセル範囲の終了列を指定します。 このオプションは、 <b> 空白列まで続行する </b> にチェックマークが入っていない場合のみ利用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初の行に列のヘッダーが含まれる </p></td><td colspan="1" rowspan="1"><p> 最初の行に列のヘッダーが含まれているか決定します。 列ヘッダーは、その列のデータを参照するのに使用されるため、Domo でカードを作成する際、これは重要になります。 詳細については、 <a href="/s/article/360043428713" target="_blank" title="DataSet 列をチャートに適用する"> DataSet 列をチャートに適用する </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 名前のある範囲（名前のある範囲のみ） </p></td><td colspan="1" rowspan="1"><p> リストからは名前のついた範囲を選択することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了行を無視（動的範囲のみ） </p></td><td colspan="1" rowspan="1"><p> シートの末尾の何行を無視するかを指定します。 </p></td></tr></tbody></table>
+
+Excelデータへの接続の詳細は、 [Excel データに接続する](/ja/s/article/360047499333 "Workbench 4 で Excel データに接続する") を参照して下さい。
+
+###### JSON
+
+データソースタイプに JSONが選択されている場合、データノードやデリミター、そして平坦化オプションを指定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLJ-1.png" style={{width: 426, height: 213}}/></Frame>
+
+JSON データに接続する方法の詳細は、 [JSONデータに接続する](/ja/s/article/360046860134 "Workbench 4 で JSON データに接続する") を参照して下さい。
+
+###### XML
+
+データソースタイプに XMLが選択されている場合、データノードを指定する他、無視するノードも指定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLI-1.png" style={{width: 589, height: 332}}/></Frame>
+
+XML データに接続する方法の詳細については、 [XMLデータに接続する](/ja/s/article/360046860474 "Workbench 4 で XML データに接続する") を参照して下さい。
+
+###### OLAPとODBC
+
+データソースタイプに OLAP または ODBC が選択されている場合は、クエリと置換変数を設定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLT.png" style={{width: 439, height: 383}}/></Frame>
+
+以下の表で、このオプションに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> データ取得に必要なクエリを入力することができます。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> 置換変数 </p></td><td colspan="1" rowspan="1"><p> クエリで使用する置換変数を定義することができます。 </p><p></p></td></tr></tbody></table>
+
+データベースに接続する方法に関しては、 [ODBC データに接続する](/ja/s/article/360047499793 "Workbench 4 で OLAP キューブに接続する") を参照して下さい。
+
+###### QuickBooks
+
+QuickBooks がデータソースタイプとして選択されている時は、様々な種類のレポートを選択することができます。 また、接続エラーが発生したら QuickBooks を停止するよう Workbench に指示することもできます。
+
+<Note>
+**注記：** QuickBooks ジョブを実行させるには、Workbenchの上部のボタンツールバーで **会社ファイルを認証** をクリックし、QuickBooksに接続する権限をWorkbench に与えておく必要があります。
+
+</Note>
+
+<Warning>
+**重要：** QuickBooks の DataSet タイプを使用するには、32ビットバージョンの Workbench を実行している *必要があります* 。 Workbench を実行する方法に関しては、 Workbench 4 を実行する を参照してください。
+
+</Warning>
+
+以下のスクリーンショットは、QuickBooks データソースの **データソースのプロパティ** の全てのコンポーネントを示しています。 （この例では、レポートタイプに **一般サマリレポート** を選択しています。 別のレポートタイプを選択すると、他のオプションが現れます。）
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL0.png" style={{width: 546, height: 546}}/></Frame>
+
+以下の表で、このコンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 接続エラー発生時に QuickBooks を停止させることを Workbench に許可 </p></td><td colspan="1" rowspan="1"><p> オンにすると、DataSet ジョブ実行中にエラーになった場合、Workbench は Quickbooks を終了します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートタイプ </p></td><td colspan="1" rowspan="1"><p> プライマリレポートタイプを選択することができます。 レポートタイプは全て、いくつかサブレポートが選べるようになっています。 </p><p> プライマリレポートタイプは以下のとおりです： </p><table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> レポート </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般詳細レポート </p></td><td colspan="1" rowspan="1"><p> 「顧客別収入の詳細」、「小切手詳細」、「商談中」など、様々なレポートタイプの詳細情報を表示します。 レポートの日付範囲を選択するには、 <b> 開始日 </b> と <b> 終了日 </b> でそれぞれの日付を選択します。 希望する場合は、 <b> 列 </b> メニューで選択することで、レポートに表示させる列を手動で設定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般のサマリレポート </p></td><td colspan="1" rowspan="1"><p> 「CustomerBalanceSummary」「IncomeTaxSummary」「PhysicalInventoryWorksheet」など様々なレポートタイプのサマリ情報を見ることができます。 レポートの日付範囲を選択するには、 <b> 開始日 </b> と <b> 終了日 </b> でそれぞれの日付を選択します。 また、レポートデータの日付の単位を選択することができます（例えば、データを日単位や月単位などで要約することができます）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 予算サマリレポート </p></td><td colspan="1" rowspan="1"><p> 貸借対照表や損益計算書のレポートを表示します。 レポートで使用する会計年度を選択することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リスト </p></td><td colspan="1" rowspan="1"><p> レポートをリストとして表示します。例えば、「社員」（会社の社員のリスト）、「ベンダー」（ベンダーのリスト）、などです。 この情報は日付で配置されているものではないため、日付範囲を設定したり会計年度を選択するオプションはありません。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> レポート日付範囲（一般詳細レポートと一般サマリレポート） </p></td><td colspan="1" rowspan="1"><p> レポートの開始日と終了日を選択することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 1回の結果で返す最大日数（一般詳細レポートのみ） </p></td><td colspan="1" rowspan="1"><p> QuickBooks レポートで返す最大日数を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 列（一般詳細レポートのみ） </p></td><td colspan="1" rowspan="1"><p> QuickBooks レポートで表示する列を指定することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポート列をまとめる（一般サマリレポートのみ） </p></td><td colspan="1" rowspan="1"><p> QuickBooks レポートの日付の単位を選択することができます。 例えば、 <b> 月 </b> を選んだ場合、レポートのデータは月別に分類されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 会計年度（予算サマリレポートのみ） </p></td><td colspan="1" rowspan="1"><p> レポートの会計年度を選択することができます。 </p></td></tr></tbody></table>
+
+QuickBooks データに接続する方法の詳細については、 [Workbench 4 で QuickBooks データに接続する](/ja/s/article/360046860414 "Workbench 4 で QuickBooks データに接続する") を参照して下さい。
+
+###### JIRA
+
+データソースタイプに JIRA が選択されている場合、DataSet に含めたくないデータソースの属性を、選択から解除することができます。 また、新規に属性を追加することもできます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPL4.png" style={{width: 428, height: 457}}/></Frame>
+
+JIRA に接続する方法の詳細に関しては、 [JIRAデータに接続する](/ja/s/article/360046860074 "Workbench 4 で JIRA データに接続する") を参照して下さい。
+
+#### スキーマ
+
+**アカウント** ペインで DataSet ジョブの **スキーマ** を選択すると、データソースの列のプロパティを設定するためのオプションがダイナミックオプションペインに現れます。 （ここでスキーマ情報が現れるようにするには、ボタンツールバーで **プレビュー** をクリックする必要があります。）ここでは、列名やデータタイプを変更したり、特定列を含めたり除外したりすることができます。
+
+以下のスクリーンショットは、DataSet ジョブの **スキーマ** タブの例を示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLg.png" style={{width: 493, height: 181}}/></Frame>
+
+以下の表で、 **スキーマ** のインタフェースの各コンポーネントに関する詳細を見ることができます：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ソース列 </p></td><td colspan="1" rowspan="1"><p> この列の元のデータソースでの名前です。 ソース列とは、相互作用することはできません。全ての変更は、 <em> 宛先 </em> 列に適用されます（つまり、この DataSet ジョブを実行した後の Domo の DataSet の列です）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 宛先列 </p></td><td colspan="1" rowspan="1"><p> Domo の DataSet におけるこの列の名前です。 列に対して行われる変更は、元のデータソースの列ではなく、これに適用されます。 宛先列の名前を変更するには、名前のフィールドをクリックして新しく名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データタイプ </p></td><td colspan="1" rowspan="1"><p> 特定列のデータタイプを示します。 データタイプを変更するには、フィールドをクリックし、新しいデータタイプをメニューから選択します。 以下のデータタイプが利用可できます： </p><ul><li><p><span class="mt-font-courier-new"> LONG </span> は、数字を数値として保管します。分数と整数両方が含まれます。 </p></li><li><p><span class="mt-font-courier-new"> DOUBLE </span> は、倍精度浮動小数点数値を保存します。 </p></li><li><p><span class="mt-font-courier-new"> DECIMAL </span> は、数字を少数値として保存します。 </p></li><li><p><span class="mt-font-courier-new"> STRING </span> は、英数字をテキストとして保存します。 </p></li><li><p><span class="mt-font-courier-new"> DATETIME </span> は、年、月、日、時、分、秒の数値を保存します。 </p></li><li><p><span class="mt-font-courier-new"> DATE </span> は、年、月、日の値を保存します。 </p></li><li><p><span class="mt-font-courier-new"> TIME </span> は、時、分、秒の値を保存します。 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> 含める </p></td><td colspan="1" rowspan="1"><p> Domo の DataSet に、この列のデータを表示するかを決定します。 各列のヘッダーで <b> 含める </b> を選択または選択解除して、データのどの列をアップロードするかを選択することができます。 </p></td></tr></tbody></table>
+
+#### 変換
+
+**アカウント** ペインで DataSet ジョブの **変換** を選択すると、この DataSet に追加した変換のリストがダイナミックオプションペインに表示されます。 **新規に** **変換を追加する** をボタンツールバーでクリックして（または **変換** をナビゲーションツリーで右クリックし、変換タイプを選択して）変換を追加していない場合は、ここには何も現れません。
+
+個々の変換を操作するには、 **アカウント** ペインでその変換を選択します。 DataSet に追加した変換は全て、 **変換** ヘッダーの下に段落番号と共に配置されます。
+
+<Frame><img alt="wb4_transforms.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLX.png"/></Frame>
+
+変換を選択すると、その変換を設定するためのオプションがダイナミックオプションペインに表示されます。 全ての変換に、異なったオプションが存在します。 DataSet には、いくつ変換があっても問題ありません。
+
+変換は、ナビゲーションツリーで表示される順番に従って適用されます。 変換をリストの中で動かすには、動かしたい変換を右クリックし、そして **上に移動する** または **下に移動する** を選択します。
+
+利用可能な全ての変換に関しては、以下のトピックを参照してください：
+
+* [Workbench 4 で計算を使って列を作成する](/ja/s/article/360046861474 "計算を使用して Workbench 4 で列を作成する")
+* [Workbench 4 ジョブのタイムゾーンを設定する](/ja/s/article/360047504673 "Workbench 4 ジョブのタイムゾーンを設定する")
+* [Workbench 4 でデータの暗号化と復号化を行う](/ja/s/article/360047501293 "Workbench 4 でデータの暗号化と復号化を行う")
+* [Workbench 4 で列にカスタマイズされた日付の形式を設定する](/ja/s/article/360047504553 "Workbench 4 で列にカスタマイズされた日付の形式を設定する")
+* [Workbench 4 で列をフィルターする](/ja/s/article/360046864074 "Workbench 4 で列をフィルターする")
+* [Workbench 4 で列の値を置き換える](/ja/s/article/360046864274 "Workbench 4 で列の値を置き換える")
+* [Workbench 4 で DataSet を結合する](/ja/s/article/360046861014 "Workbench 4 で DataSet を結合する")
+
+##### 計算
+
+**計算** 変換では、ある列の値を基に新しい列の値を導き出すのに使う計算を指定することができます。 **アカウント** ペインで **計算** をクリックすると、ダイナミックオプションペインで計算ビルダーが開きます。 ここで計算の名前を指定して計算を作成するには、必要に応じてデータソースの列に関数を適用させます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qb-00N5w00000Ri7BU-0EM5w000005vPKL.png" style={{width: 700, height: 392}}/></Frame>
+
+計算の作成に関する詳細は、 [Workbench 4 で計算を使って列を作成する](/ja/s/article/360046861474 "計算を使用して Workbench 4 で列を作成する") を参照してください。
+
+##### カスタマイズされた日付の形式
+
+**カスタマイズされた日付の形式** 変換を使用すると、特定列の日付の形式を変更することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qM-00N5w00000Ri7BU-0EM5w000005vPJt.png" style={{width: 537, height: 181}}/></Frame>
+
+詳細については、 [Workbench 4 で列にカスタマイズされた日付の形式を設定する](/ja/s/article/360047504553 "Workbench 4 で列にカスタマイズされた日付の形式を設定する") を参照してください。
+
+##### フィルター
+
+選択した列には、 **フィルター** 変換を使ってフィルターを適用させることができます。 指定したフィルタークエリに対して、Workbench が一致を返すようにすることも、不一致を返すようにすることもできます。 また、フィルターされたデータの空白セルを含めることも、除外することもできます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qZ-00N5w00000Ri7BU-0EM5w000005vPKK.png" style={{width: 700, height: 156}}/></Frame>
+
+詳細については、 [Workbench 4 で列をフィルターする](/ja/s/article/360046864074 "Workbench 4 で列をフィルターする") を参照してください。
+
+##### ルックアップ表
+
+ルックアップ表を使って、Workbench のデータソースを結合することができます。 「ルックアップ表」とは、プライマリ DataSet と結合させる DataSet です。 ルックアップ表 DataSet とプライマリ DataSet は、それぞれ固有の一致した値を持つ列（「キー列」）がひとつある必要があります。 キー列を一致させたら、両方の DataSet の全ての列が結合され、新しい DataSet が作成されます。 このようにして DataSet を結合することは、SQL における LEFT JOIN と同じです。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qc-00N5w00000Ri7BU-0EM5w000005vPKH.png" style={{width: 558, height: 211}}/></Frame>
+
+詳細については、 [Workbench 4 で DataSet を結合する](/ja/s/article/360046861014 "Workbench 4 で DataSet を結合する") を参照してください。
+
+##### 日付のタイムゾーンをシフトする
+
+**日付タイムゾーンをシフトする** の変換では、タイムゾーンをメニューから選択することでデータソースにあるデータのタイムゾーンを設定することができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qL-00N5w00000Ri7BU-0EM5w000005vPJu.png" style={{width: 617, height: 188}}/></Frame>
+
+詳細については、 [Workbench 4 ジョブのタイムゾーンを設定する](/ja/s/article/360047504673 "Workbench 4 ジョブのタイムゾーンを設定する") を参照してください。
+
+##### 暗号化
+
+**暗号化** 変換を使って、データソースにある一列以上のデータを暗号化することができます。 DataSet が Domo に引き込まれた後は、Workbench で DataSet ジョブの **ユーザーアクセス** リストで特別にアクセス権を与えられたユーザーによって、Sumo表でのみ複合化することができます。 Sumo カードに関する詳細は、 Sumo カードについて を参照してください。
+
+<Frame><img alt="wb4_transform_encrypt.png" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLR.png"/></Frame>
+
+暗号化と復号化の詳細については、 [Workbench 4 でデータの暗号化と復号化を行う](/ja/s/article/360047501293 "Workbench 4 でデータの暗号化と復号化を行う") を参照してください。
+
+##### 検索と置換
+
+列の指定された値は、 **検索と置換** 変換を使って他の値と置き換えることができます。 また、検索値が表示されないセルに対して表示させるデフォルト値を指定することもできます。 検索&置き換え値の場合は、様々な正規表現コンストラクトのカテゴリーを含んだ正規表現ビルダーを開くことができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123qN-00N5w00000Ri7BU-0EM5w000005vPK0.png" style={{width: 460, height: 231}}/></Frame>
+
+詳細については、 [Workbench 4 で列の値を置き換える](/ja/s/article/360046864274 "Workbench 4 で列の値を置き換える") を参照してください。
+
+#### 通知
+
+**アカウント** ペインで DataSet ジョブの **通知** を選択すると、ジョブを設定するためのオプションがダイナミックオプションペインに現れます。 ここで、成功・失敗にかかわらず、ジョブが完了したら Domo インスタンスの誰に通知するかを指定することができます。 インスタンスのどのユーザーも、ジョブの完了が成功だったら通知するか、失敗だったら通知するか、あるいは両方か指定することができます。 また、行にフィルターをかけることも、カスタマイズされたフィルターを設定することもできます。 通知に関する詳細は、 [Workbench 4 で通知を設定する](/ja/s/article/360047494393 "Workbench 4 で通知を設定する") を参照して下さい。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLA-1.png" style={{width: 550, height: 247}}/></Frame>
+
+#### ログ
+
+**アカウント** ペインで DataSet ジョブの **ログ** を選択すると（アカウント自体のログを開く、 **アカウント** ペインの上部の **ログ** を選択するのとは異なります）、その DataSet ジョブのログをダイナミックオプションペインで閲覧することができます。 各ログアイテムについて、プロセスIDとスレID、エラーレベル（「情報」や「エラー」）、タイムスタンプそしてログメッセージを見ることができます。 日付をクリックすることで、どんな日のログも見ることができます。 また、エラーレベル（ ERROR 、 INFO または WARN ）毎に、タイムスタンプの昇順または降順でソートすることもできます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLm.png" style={{width: 681, height: 420}}/></Frame>
+
+## ダイナミックオプションペイン
+
+ダイナミックオプションペインでは、DataSet ジョブのオプションを設定することができます。 このペインに現れるオプションは、 **アカウント** ペインで選択するものに応じて変動します。 Workbench の他のペイントは異なり、このペインは移動させることはできません。
+
+## プレビューと出力ペイン
+
+**プレビュー** と **出力** ペインは、DataSet ジョブに関する情報を表示します。 **プレビュー** ペインは、選択した設定を全て適用した時にDataSetがどのように見えるかをプレビューします。 **出力** ペインは、プレビューが読み込まれるに従い、その操作のログを提供するものです。 Workbench ウィンドウ上部、ボタンツールバーの **プレビュー** をクリックするまで、ペインには何も表示されません。 複数のDataSet ジョブの **プレビュー** をクリックすると、それぞれのジョブのタブが **プレビュー** と **出力** ペインに現れます。 以下のスクリーンショットはこれを示したものです。ユーザーが「Monthly Sales Data（月間売上データ）」と 「Revenue2012（2012年収入）」の DataSet ジョブのプレビューを有効にしたところです。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123re-00N5w00000Ri7BU-0EM5w000005vPLY.png" style={{width: 532, height: 234}}/></Frame>
+
+Workbench を閉じると、プレビューと出力データは消滅します。
+
+デフォルトでは、 **プレビュー** と **出力** ペインは Workbench ウィンドウの左下に並んで表示されます。 ペインにマウスポインタを合わせると、ポップアップして閲覧できるようになります。ペインからカーソルを移動させると閉じられますが、どこかをクリックすることで開けたままにしておくことができます。
+
+**プレビュー** と **出力** ペインは、Workbench インタフェース内のどこへでも移動させることができます。 ペインをドラッグすると、インタフェースの上部、下部、左側と右側を示す矢印ボタンが現れます。 ペインをそのボタンにドラッグすると、インタフェースの該当する場所がハイライトされます。 ペインをボタンにドロップすると、その場所に「ドッキング」されます。 例えば、ペインを上矢印にドロップすると、Workbench ウィンドウの上部にドッキングされます。
+
+<Note>
+**注記：** ペインは、ドックモードになっていないとドラッグできません。 ペインをドックモードにするには、横向きの押しピンアイコン  をクリックします。 これにより、ドラッグしてドックすることができます。
+
+</Note>
+
+## DataSet ジョブグループウィザード
+
+**DataSet ジョブグループウィザード** では、同じスケジュールで実行させる DataSet ジョブを複数選択することができます。 スケジュールグループの DataSet ジョブを選択したら、Windows のタスクスケジューラが開くのでグループのジョブスケジュールを設定することができます。 また、 **DataSet ジョブグループウィザード** で既存のグループを編集することもできます。 グループの管理に関する詳細は、 [Workbench 4 でスケジュールグループを作成する](/ja/s/article/360046857074 "Workbench 4 でスケジュールグループを作成する") を参照して下さい。
+
+## プラグインマネージャ
+
+**プラグインマネージャー** では、Workbench 4 の全てのプラグインを、そのプラグイン名、パブリッシャー、バージョン名、説明、そしてアセンブリー名などと共に見ることができます。 検索パスを入力することで、登録されているプラグインのリストにプラグインを追加できます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123r2-00N5w00000Ri7BU-0EM5w000005vPKZ.png"/></Frame>
+
+**プラグインマネージャ** にアクセスするには、Workbench ウィンドウの上部の **もっと** タブで **プラグインマネージャー** をクリックします。
+
+プラグインの管理に関する詳細は、 [Workbench 4 でプラグインを管理する](/ja/s/article/360047496013 "Managing Plugins in Workbench 4") を参照して下さい。

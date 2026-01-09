@@ -1,0 +1,70 @@
+---
+title: "DomoのBring Your Own Key（BYOK）でデータを暗号化する"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### はじめに
+
+DomoのBYOKは、Domoインスタンスの暗号化キーを完全に制御できるセキュリティツールです。データが常にプライベートに保たれているかを確認できます。また、BYOKには、データ暗号化キーのローリング生成や、無効化スイッチなどが備わっています。暗号化キーをいつでも取り消して、Domoの自分のデータをすべて無効にし、機密データに誰もアクセスできないようにすることができます。
+
+### 動作の仕組み
+
+Domo BYOKは以下の3つの部分から構成されています。
+
+<table className="mt-responsive-table">
+  <tbody>
+    <tr>
+      <td className="mt-noheading mt-column-width-15 wysiwyg-text-align-center" colSpan="1" rowSpan="1">
+        <img src="/images/kb/ka0Vq000000EWo1-00N5w00000Ri7BU-0EM5w000005vNml.png" width={250} />
+      </td>
+      <td className="mt-noheading mt-column-width-60" colSpan="1" rowSpan="1">
+        <p><b> 暗号化キーの管理 </b></p>
+        <p> BYOKでは、暗号化キーを1時間ごとに回転できます。これは、年間で8,760回のキーの回転に相当します。Domoの暗号化された鍵へのアクセスをいつでも取り消すことができ、データにアクセスできないようにすることができます。 </p>
+      </td>
+    </tr>
+    <tr>
+      <td className="mt-noheading mt-column-width-15 wysiwyg-text-align-center" colSpan="1" rowSpan="1">
+        <img alt="BYOK%2B-%2Bkill%2Bswitch.png" src="/images/kb/ka0Vq000000Dwm9-00N5w00000Ri7BU-0EM5w000005vNmf.png" style={{width: 250, height: 51}}/>
+      </td>
+      <td className="mt-noheading mt-column-width-60" colSpan="1" rowSpan="1">
+        <p><b> 無効化スイッチ </b></p>
+        <p> 無効化スイッチを使うと、データは直ちにキャッシュされインデックス化され、数秒で使用できなくなります。これにはノートパソコンやモバイルデバイスを介してアクセスされるデータが含まれます。この機能を使用するには、まずDomoのAmazonへのアクセスを取り消す必要があります。次に、2人の異なるDomo管理者が、Domo管理者設定で無効化スイッチを有効にする必要があります。 </p>
+      </td>
+    </tr>
+    <tr>
+      <td className="mt-noheading mt-column-width-15 wysiwyg-text-align-left" colSpan="1" rowSpan="1">
+        <img src="/images/kb/ka0Vq000000EWo1-00N5w00000Ri7BU-0EM5w000005vNmh.png" width={250}/>
+      </td>
+      <td className="mt-noheading mt-column-width-60" colSpan="1" rowSpan="1">
+        <p><b> アクティビティログ </b></p>
+        <p> ユーザーが暗号化キーを取り消して無効化スイッチを実行することを選択した場合、これらのイベントはDomoアクティビティログに記録されます。これにより、データにアクセスできなくなったことを直ちに確認できます。 </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Frame><img alt="BYOK%2BInfographic.png" src="/images/kb/ka0Vq000000Dwm9-00N5w00000Ri7BU-0EM5w000005vNmb.png" style={{width: 831, height: 934}}/></Frame>
+### 開始するには
+
+BYOKを使い始めるには、Domoアカウントチームにお問い合わせください。
+
+<Note>
+  **注記：** BYOKの設定のプロセスに、ITチームを含める用意を整えてください。
+
+</Note>
+
+### 必要条件
+
+* コンサンプション契約を結んでいない場合は、Domoエンタープライズアカウントが必要です。
+    
+  消費契約のユーザーは、残りの必要条件を満たしている限りBYOKにアクセスできます。
+* Amazon Key Management System（KMS）アカウント。
+
+  + Domoアカウントチームに相談して、必要なKMSアカウントのタイプを決定してください。
+* AWSでのみサポートされます。
+* フェデレーテッドデータの顧客になることはできません。
+
+[このページのトップへ](#intro)
+
+日本語

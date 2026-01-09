@@ -1,0 +1,85 @@
+---
+title: "Kafka SASLコネクター"
+---
+
+## はじめに
+
+Apache Kafkaは、大量のデータを高速に処理するために構築されたストリームメッセージングプラットフォームです。 Kafkaコネクターを使用すると、メッセージングトピック、トピックデータ、パーティションに関する情報を取得して、不要なデータを排除し、最も重要なデータだけにフォーカスすることが可能になります。
+
+Domoを使用して社内の誰もが即座にデータを利用できるようにすることで、Kafkaの確かな柔軟性を最大限に高められます。 Kafka APIの詳細については、ウェブページ（ [https://kafka.apache.org/documentation/](https://kafka.apache.org/documentation/ "https://kafka.apache.org/documentation/") ）を参照してください。
+
+Kafkaアカウントには、Data Centerから接続します。このトピックでは、Kafkaコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Kafkaアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* ブートストラップサーバーのリスト
+* Kafka SASLアカウントのユーザー名とパスワード
+* SASLログインモジュール、セキュリティプロトコル、SASLメカニズム
+  を選択する必要もあります。
+
+また、接続先となるデータベースサーバーのポートでIPアドレスをホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Kafka SASLアカウントに接続する
+
+このセクションでは、Kafka SASLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Kafka SASLアカウントに接続する認証情報の入力フィールドが含まれています。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Kafka BootStrap Servers </td><td colspan="1" rowspan="1"><p><span> ブートストラップサーバーのリストを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><p><span> Kafka SASLアカウントに関連付けられたユーザー名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><p><span> Kafka SASLアカウントに関連付けられたパスワードを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> SASL Login Module </td><td colspan="1" rowspan="1"><p><span> SASLログインモジュール選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Security Protocol </td><td colspan="1" rowspan="1"><p><span> セキュリティプロトコルを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> SASL Mechanism </td><td colspan="1" rowspan="1"><p><span> SASLメカニズムを選択します。 </span></p></td></tr></tbody></table>
+
+有効なKafka SASL認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいKafka SASL DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するKafka SASLレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Partitions </p></td><td colspan="1" rowspan="1"><p> 選択したトピックに対してパーティションのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics </p></td><td colspan="1" rowspan="1"><p> 利用可能なトピックのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics Data </p></td><td colspan="1" rowspan="1"><p> 選択したトピックに対してすべてのデータを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Topic Name </p></td><td colspan="1" rowspan="1"><p> データを取得するトピックを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースの残りのセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Partitions </td><td colspan="1" rowspan="1"> /topics/{topicName}/partitions </td></tr><tr><td colspan="1" rowspan="1"> Topics </td><td colspan="1" rowspan="1"> /topics </td></tr><tr><td colspan="1" rowspan="1"> Topics Data </td><td colspan="1" rowspan="1"> /consumers/{groupName}/instances/{instance}/records </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+ユーザー名とパスワード（Kafka SASLアカウントに関連付けられているもの）とブートストラップサーバーのリストが必要です。SASLログインモジュール、セキュリティプロトコル、SASLメカニズムも選択する必要があります。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+DataSetの更新は、15分に1回以下になるように設定してください。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+制限は使用するサーバー構成によって異なります。
+
+
+</Accordion>
+<Accordion title="Kafka SASLコネクターとKafkaコネクターの違いは何ですか？">
+
+
+Kafka SASLコネクターは、作者や消費者を認証するためにシンプルな認証とセキュリティ階層（SASL）をサポートしています。Kafkaでは、SASLを使用してDomoを認証できます。
+
+
+
+</Accordion>
+</AccordionGroup>

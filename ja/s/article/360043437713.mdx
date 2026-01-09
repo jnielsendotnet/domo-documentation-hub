@@ -1,0 +1,85 @@
+---
+title: "SalesforceのDomoコネクターパッケージをインストールする"
+---
+
+Salesforce AppExchangeにある「Domoコネクターパッケージ」を使って、SalesforceユーザーはSalesforceのデータをDomoにインポートできます。この記事の手順に従ってAppExchangeからコネクターパッケージをダウンロードし、インストールしてください。
+
+<Note>
+**注記：** 管理パッケージが正常にインストールされると、新旧のSalesforce DataSetは変更を加えることなく動作します。
+
+</Note>
+
+
+**DomoのSalesforce管理パッケージをインストールするには**
+
+1. Salesforceにログインします。
+2. Salesforce AppExchange（
+   [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") ）に移動し、「Domoコネクターパッケージ」を検索してクリックします。
+
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+   または [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB") から直接アクセスできます。
+3. **[今すぐ取得]**
+   をクリックします。
+
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+4. インストール先として本番環境かサンドボックスを選択します。
+
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+5. 「利用規約を読み終え、利用規約に合意します」というチェックボックスをオンにします。
+6. **[確認してインストール]**
+   をクリックします。
+
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+7. **[全てのユーザーに対してインストール]**
+   タイルをクリックします。
+
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+詳細については、Salesforceのドキュメント（ [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5") ）を参照してください。
+
+### インストールを確認する
+
+DomoのSalesforce管理パッケージ検証ツールを使い、Salesforce管理パッケージが正しくインストールされていることを確認します。
+
+**インストールを確認するには**
+
+1. DomoのData CenterまたはAppStoreの [コネクター] ページで「Salesforce管理パッケージ」を検索し、アイコンをダブルクリックします。
+
+   <Frame><img alt="sfmp_v1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyJ.png"/></Frame>
+
+2. **[データを取得]**
+   をクリックします。
+
+   <Frame><img alt="sfmp_v2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyQ.png"/></Frame>
+
+3. **[認証情報]**
+   でSalesforceのアカウント名を選択し、 **[次へ]** をクリックします。
+
+   <Frame><img alt="sfmp_v3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyT.png"/></Frame>
+
+4. **[詳細]**
+   で **[次へ]** をクリックします。
+
+   <Frame><img alt="sfmp_v4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyL.png"/></Frame>
+
+5. **[更新]**
+   メニューで **[手動]** を選択し、 **[次へ]** をクリックします。
+
+   <Frame><img alt="sfmp_v5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyN.png"/></Frame>
+
+6. DataSetに名前をつけて、
+   **[保存]** をクリックします。
+
+   <Frame><img alt="sfmp_v6.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyb.png"/></Frame>
+
+これでDataSetが実行します。全て正しく設定できていれば、このまま正常に実行でき、「検証完了：Salesforce管理パッケージが適切に設定されました」というメッセージが表示されます。
+
+<Frame><img alt="sfmp_v7.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyM.png"/></Frame>
+
+セットアップに *不備* があった場合はDataSetが失敗し、本記事へのヘルプリンクとともに、「SalesforceのDomoコネクターパッケージのインストールは完了していません」というメッセージが表示されます。
+
+<Frame><img alt="sfmp_v8.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyO.png"/></Frame>

@@ -1,0 +1,114 @@
+---
+title: "Amazon Redshift"
+---
+
+## はじめに
+
+Amazon Redshiftは、ホスト型Data Warehouseプロジェクトで、大型クラウドコンピューティングプラットフォームであるAmazon Web Servicesの一部です。Redshiftは、列型DBMS原理で保存された大規模なDataSet上の分析ワークロードを取り扱います。DomoのAmazon Redshiftコネクターを使用すると、Redshiftのデータベースからデータを取得し、カスタマイズされたレポートを作成できます。SQLクエリを入力することにより、必要なデータを指定することができます。Redshift APIの詳細については、 [https://docs.aws.amazon.com/ja\_jp/redshift/latest/dg/c\_redshift-sql.html](https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_redshift-sql.html "https://docs.aws.amazon.com/ja_jp/redshift/latest/dg/c_redshift-sql.html") を参照してください。
+
+Amazon Redshiftコネクターは「データベース」コネクターです。つまり、クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、これを含むほかのデータベースコネクターのページにアクセスできます。
+
+Redshiftデータベースには、 Data Center から接続します。このトピックでは、Redshiftコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** ネットワークの構造によっては、データコネクターがデータを取得する際に使用するIPアドレスをホワイトリストに登録する必要があります。詳細は、IT管理者にお問い合わせください。
+
+</Note>
+
+| | |
+|:---|:---|
+| **主な使用事例** | Redshift Dara Warehouseまたはデータマートからデータを取得する。 |
+| **主なメトリクス** | これは、Redshiftインスタンスに保存されたデータ次第です。 |
+| **社内における主な権限** | <ul><li>BIリード</li><li>IT権限</li></ul> |
+| **平均導入時間** | 設定と、取得するデータ量により、5時間から40時間です。 |
+| **使いやす-（1～10の段階。1が「最も使いやすい」）** | 6 |
+
+## ベストプラクティス
+
+結果セットのサイズをできる限り制限します。データの取得速度を高めるには、「フェッチサイズ」を増加できます。ただし、あまり大きなサイズにすると、コネクター実行の失敗が発生し、Redshiftインスタンスのパフォーマンスに問題が生じる可能性があります。まずは10000から始めるのが適切でしょう。
+
+## 必要条件
+
+Redshiftデータベースに接続し、DataSetを作成するには、以下が必要です。
+
+* Redshiftデータベースのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：
+  [db.company.com](http://db.company.com) ）
+* データベースのポート番号
+* データベース名
+
+CA証明書テキストまたはURLパスは、 **［Certificate Format］** メニューでそれぞれ **［Certificate String］** または **［URL Path］** を選択する場合 *のみ* 必要になります。
+
+### Redshiftアカウントを作成する
+
+Redshiftユーザーアカウントを作成するには、Redshiftデータベース管理者（DBA）に連絡し、以下を行ってもらいます。
+  
+デフォルトでは、クラスターを起動したときに作成したマスターユーザーのみがクラスターの初期データベースにアクセスできます。ほかのユーザーにアクセス権を付与するには、1つ以上のユーザーアカウントを作成する必要があります。データベースのユーザーアカウントは、個々のデータベースに属するものではなく、クラスターのすべてのデータベースでグローバルに使用できます。
+  
+CREATE USER コマンドを使って、データベースの新規ユーザーを作成します。新規ユーザーを作成する際に、新規ユーザーの名前とパスワードを指定します。パスワードは必須です。8文字から64文字で、大文字と小文字、数字がそれぞれ1つ以上含まれている必要があります。
+  
+例えば、ユーザー名をGUESTにし、パスワードをABCd4321にする場合、次のコマンドを使います。
+  
+`create user guest password 'ABCd4321';`
+
+### IPアドレスをホワイトリストに登録する
+
+また、Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [ネットワーク接続にDomoのIPアドレスを許可する](/ja/s/article/360043630093 "ネットワーク接続にDomoのIPアドレスを許可する") 」を参照してください。
+
+## Redshiftデータベースに接続する
+
+このセクションでは、Redshiftコネクターページの **［認証情報］** ペインおよび **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> JDBC Driver </p></td><td colspan="1" rowspan="1"><p> 接続に使用するJDBCドライバーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SQLデータベースに接続するためのホスト文字列を入力します。例： <span class="mt-font-courier-new"> // <a href="http://examplecluster.cpdbcwb2mzr4.us-east-2.redshift.amazonaws.com" rel="noopener" target="_blank"> examplecluster.cpdbcwb2mzr4.us-east-2.redshift.amazonaws.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Redshiftのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Redshiftのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> 証明書書式を選択します。証明書を含めない場合は、 <b> ［No Certificate］ </b> を選択します。 <b> ［Certificate String］ </b> を選択する場合は、証明書テキストを <b> ［Certificate］ </b> フィールドに貼り付ける必要があります。 <b> ［URL Path］ </b> を選択する場合は、証明書がある場所のURLを <b> ［Certificate］ </b> フィールドに入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、［Certificate Format］メニューで［No Certificate］を選択します。 </p></td></tr></tbody></table>
+
+有効なRedshift認証情報を一度入力しておくと、いつでも同じアカウントを使用して、新しいRedshift DataSetを作成することができます。コネクターのアカウントは Data Center の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。指定のデータベーステーブルと列を選択し、どの列をレポートに表示するかを指定することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema Name </p></td><td colspan="1" rowspan="1"><p> 「DATABASE SCHEMA NAMES」ディスカバリーを入力するために「 <b> With Schema Name </b> 」オプションを選択します。スキーマ名を選択すると、表ディスカバリーに入力されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables </p></td><td colspan="1" rowspan="1"><p> レポートに表示するデータベーステーブルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> レポートに表示するテーブルの列をすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> 必要な場合は、このクエリを修正します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p> メモリのパフォーマンスのフェッチサイズを入力します。このフィールドが空白の場合、デフォルト値は1000です。値に対してメモリー不足の例外が発生した場合、フェッチサイズを縮小します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boolean Format </p></td><td colspan="1" rowspan="1"><p> ブール型データ列で表示するためのブール型フォーマットを選択します。 </p><table><tbody><tr><th colspan="1" rowspan="1"> Boolean Format </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> 1/0 </td><td colspan="1" rowspan="1"> trueの値は「1」を返し、falseの値は「0」を返します </td></tr><tr><td colspan="1" rowspan="1"> t/f </td><td colspan="1" rowspan="1"> trueの値は「t」を返し、falseの値は「f」を返します </td></tr><tr><td colspan="1" rowspan="1"> T/F </td><td colspan="1" rowspan="1"> trueの値は「T」を返し、falseの値は「F」を返します </td></tr><tr><td colspan="1" rowspan="1"> true/false </td><td colspan="1" rowspan="1"> trueの値は「true」を返し、falseの値は「false」を返します </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+接続の問題が発生した場合は、
+
+* pgAdminを使用して接続を確認します。
+* 必要なすべてのDomo IPがホワイトリストに登録されていることを確認します（上述の「
+  [IPアドレスをホワイトリストに登録する](#h_7aed10c8-825b-494f-98f1-9b84b7652ebc "IPアドレスをホワイトリストに登録する") 」を参照）。
+* SQLクエリでプロファイルを実行します。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データはどのような頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+制限は使用するサーバー構成によって異なります。
+
+
+</Accordion>
+<Accordion title="# クエリの記述の際に注意すべき点はありますか？">
+
+
+すべての単語、テーブル名、フィールド名が正しく記述されていることを確認してください。クエリのヘルプについては、［Query Helper］フィールドを参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,124 @@
+---
+title: "チャートの日付形式を変更する"
+---
+
+### はじめに
+
+Analyzerで日付や時間の情報のある列を使用してチャートを作成すると、自動時間目盛り書式設定がほとんどのグラフタイプに適用されます。これは、そのデータに最適な日付単位と出力形式をDomoが決定することを意味します。データのない期間がある場合でも、その空白はタイムラインに表示されます。以下のすべてのグラフタイプで、自動時間目盛り書式設定が使用されています。
+
+* 棒グラフ
+* 積上げ縦棒グラフ
+* 折れ線グラフ
+* マーカー付き折れ線グラフ
+* 曲線グラフ
+* マーカー付き曲線グラフ
+* 複数折れ線グラフ
+* 棒グラフ（累計）
+* 折れ線グラフ（累計）
+* 箱ひげ図（縦）
+* 集合縦棒グラフ
+* 集合棒+線グラフ
+* 積上げ棒+折れ線グラフ
+* 集合縦棒+記号グラフ
+* 積上げ縦棒+記号グラフ
+* 集合棒グラフ（累計）
+
+このリストに掲載されていないグラフタイプでは、日付データはDataSetで表示されるのと同じように表示されます。例えば、日付列の日付が `月、日、年` の形式の場合、チャートの日付もその形式になります。データのない期間が存在する場合、タイムラインには空白としては表示されません。
+
+以下の例では、自動時間目盛り書式設定のあるチャートを示しています。
+
+<Frame><img alt="timescales_on_large.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EM5w000005vZ7n.png"/></Frame>
+次の例は、同じチャートで時間目盛り書式を無効にしたものです。
+
+<Frame><img alt="timescales_off_large.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EM5w000005vZ7q.png"/></Frame>
+---
+
+* [チャートの日付形式を変更する](#change_chart_date_format)
+  + [マクロ](#macros)
+* [週の表示形式を変更する](#change_week_display_formatting)
+* [動画 - 国際的な日付形式](#video)
+
+---
+
+### チャートの日付形式を変更する
+
+チャートの日付出力形式は、 **［チャートの設定］** で変更することができます。チャートの日付形式の変更は、自動時間目盛り書式設定が使用されていない場合 *のみ* 行うことができます。従って、上記リストのチャートでは、日付形式を変更する場合は、まず自動時間目盛り書式設定をオフにする必要があります。これは、 **［チャートの設定］** > **［カテゴリーの目盛り］** で、 **［時間の目盛りを使用しない］** をクリックして行います。
+
+日付出力形式を変更するには、以下の手順に従います。
+
+1. Analyzerで、 **［チャートの設定］** を選択します。
+2. **［カテゴリーの目盛り］** を選択します。
+3. （条件付き）チャートが上記リストに掲載されているものである場合、 **［時間の目盛りを使用しない］** をチェックして自動時間目盛り書式設定をオフにします。
+4. **［日付出力形式］** フィールドで、日付出力形式を指定します。
+     
+   例： `MM.dd.yy` または `MM-yyyy`
+5. **［適用］** を選択します。
+
+# マクロ
+
+異なる形式を指定する場合は、以下のどのマクロでも使用できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ（旧） </p></th><th colspan="1" rowspan="1"><p> マクロ（新） </p></th><th colspan="1" rowspan="1"><p> 時間の単位 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><code> %Y </code></p></td><td colspan="1" rowspan="1"><p><code> yyyy </code></p></td><td colspan="1" rowspan="1"><p> 4桁の年 </p></td><td colspan="1" rowspan="1"><p><code> 2012 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %y </code></p></td><td colspan="1" rowspan="1"><p><code> yy </code></p></td><td colspan="1" rowspan="1"><p> 2桁の年 </p></td><td colspan="1" rowspan="1"><p><code> 12 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %m </code></p></td><td colspan="1" rowspan="1"><p><code> M </code></p></td><td colspan="1" rowspan="1"><p> 1桁の月（1～12） </p></td><td colspan="1" rowspan="1"><p><code> 9 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %b </code></p></td><td colspan="1" rowspan="1"><p><code> MMM、MMMM、MMMMMM </code></p></td><td colspan="1" rowspan="1"><p> 月の名前。MMMを使用すると、3文字の月の省略形が出力されます。MMMMまたはMMMMMは、月の完全な名前を出力します。 </p></td><td colspan="1" rowspan="1"><p><code> Sep、September </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %d </code></p></td><td colspan="1" rowspan="1"><p><code> d、D、dd、DD </code></p></td><td colspan="1" rowspan="1"><p> 日付。dとDは互換性があります。1つのdまたはDにした場合、1桁の日の前に0が入りません。ddおよびDDは常に2桁を出力します。 </p></td><td colspan="1" rowspan="1"><p><code> 05 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %H </code></p></td><td colspan="1" rowspan="1"><p><code> H、HH </code></p></td><td colspan="1" rowspan="1"><p> 時間（24時間）。時間が10、11、または12の場合を除き、1つのHは1桁で表示されます。HHでは、05や04などの時間が表示されます。 </p></td><td colspan="1" rowspan="1"><p><code> 22 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %M </code></p></td><td colspan="1" rowspan="1"><p><code> mm </code></p></td><td colspan="1" rowspan="1"><p> 分 </p></td><td colspan="1" rowspan="1"><p><code> 17 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %S </code></p></td><td colspan="1" rowspan="1"><p><code> ss </code></p></td><td colspan="1" rowspan="1"><p> 秒 </p></td><td colspan="1" rowspan="1"><p><code> 55 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %Q </code></p></td><td colspan="1" rowspan="1"><p> 該当なし（廃止） </p></td><td colspan="1" rowspan="1"><p> 四半期の数字（1～4） </p></td><td colspan="1" rowspan="1"><p><code> 3 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %n </code></p></td><td colspan="1" rowspan="1"><p><code> MM </code></p></td><td colspan="1" rowspan="1"><p> 2桁の月（01～12） </p></td><td colspan="1" rowspan="1"><p><code> 09 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %e </code></p></td><td colspan="1" rowspan="1"><p><code> dd </code></p></td><td colspan="1" rowspan="1"><p> 日付（01～31） </p></td><td colspan="1" rowspan="1"><p><code> 04 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %a </code></p></td><td colspan="1" rowspan="1"><p><code> E、EE、EEE、EEEE </code></p></td><td colspan="1" rowspan="1"><p> 曜日。3桁の曜日では、E、EE、またはEEEを使用する必要があります。完全な曜日名を出力するには、EEEEを使用する必要があります。 </p></td><td colspan="1" rowspan="1"><p><code> Thu、Thursday </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %I </code></p></td><td colspan="1" rowspan="1"><p><code> h、hh </code></p></td><td colspan="1" rowspan="1"><p> 12時間形式での時間（1～12）。時間が10、11、または12の場合を除き、1つのhは1桁で表示されます。hhでは、05や04などの時間が表示されます。 </p></td><td colspan="1" rowspan="1"><p><code> 12 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %p </code></p></td><td colspan="1" rowspan="1"><p><code> a </code></p></td><td colspan="1" rowspan="1"><p> 午前/午後の指定子 </p></td><td colspan="1" rowspan="1"><p><code> AM </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %T </code></p></td><td colspan="1" rowspan="1"><p> 該当なし（廃止） </p></td><td colspan="1" rowspan="1"><p> %H:%M:%S（00:00:00の場合は空白） </p></td><td colspan="1" rowspan="1"><p><code> 22:17:55 </code></p></td></tr><tr><td colspan="1" rowspan="1"><p><code> %L </code></p></td><td colspan="1" rowspan="1"><p> 該当なし（廃止） </p></td><td colspan="1" rowspan="1"><p> ミリ秒 </p></td><td colspan="1" rowspan="1"><p><code> 000 </code></p></td></tr></tbody></table>
+
+<Note>
+  **注記：**
+
+  * Domoは、日付データを伴わない限り、そのデータを時間データとして認識しません。例えばDataSetに
+  `H:M` 形式で時刻が含まれた「時間」列がある場合でも、Domoはそのデータを時間データとして認識しません。そこで、日付を含んだ形式（例えば、 `MM.dd.yy H:M` ）に変更すると、時間データとして認識されるようになります。
+  * **［日付出力形式］**
+  フィールドでマクロを使用する場合、日付形式の指定子文字はすべてマクロを使用する必要があります。
+  * マクロの前もしくは後に句読点またはスペースを追加することで、時間の単位を区切ることができます。
+
+  例えば、日付形式を `Sep 26 2012, 22:14:55` にしたい場合は、以下を **［日付出力形式］** フィールドに入力します： `MMM DD yyyy, HH:mm:ss` 。
+  * Microsoft Excelスプレッドシートの日付出力形式は、Javaに似ています。
+  * 国際的な日付には、L、LL、LLL、LT、LTSのショートカットがあります。日、月、年などの順序は、ロケールによって異なります。
+
+  + 米国英語のショートカットの例：
+  - **LT —**
+  h:mm a
+  - **LTS —**
+  h:mm:ss a
+  - **L —**
+  MM/dd/yyyy
+  - **LL —**
+  MMMMM d, yyyy
+  - **LLL —**
+  MMMMM d, yyyy h:mm a
+  - **LLLL —**
+  EEEE, MMMMM d, yyyy h:mm a
+
+</Note>
+
+[このページのトップへ](#intro)
+
+### 週の表示形式を変更する
+
+チャートの日付単位が **週** に設定されている場合、週の表示はデフォルトでは「週X」という形式になります（Xは、年における週番号を指す）。例えば、1月8日から14日の週は「週2」と表示されます。ただし、管理者設定の **［カンパニー設定］>［会社概要］** からこの形式を変更し、週番号の代わりに日付を表示することができます。例えば、1月8日から14日の週は「週2」の代わりに「1-8」と表示されます。「管理者」のデフォルトのセキュリティ権限を持つか、「全てのカンパニー設定を管理」の許可があるカスタマイズされた権限が有効なユーザーのみがこれを実行できます。なお、これはグローバル設定のため、Domoインスタンスにおけるすべてのチャートに適用されます。個別ユーザー単位で有効にすることはできません。
+
+<Note>
+  **注記：** 上記のように週番号で週が表示されているとき、週の日付形式を変えることはできません。週の日付形式を設定したい場合は、 **［管理者］>［カンパニー設定］>［会社概要］** から **［週の表示］** オプションを選択する必要があります。
+
+</Note>
+
+カンパニー設定が週番号で週を表示する設定である場合、週ごとのデータを異なる形式にすることはできません。日付形式を設定したい場合は、カンパニー設定で週を表す `m/d/yyyy` 形式を使用する必要があります。
+
+デフォルトのセキュリティ権限の詳細については、「 [カスタマイズされた権限を管理する](/s/article/360043438973 "セキュリティ権限リファレンス") 」を参照してください。
+
+週の表示形式を設定して日付を表示するようにするには、以下の手順に従います。
+
+1. Domoのナビゲーションで、 **［その他］** > **［管理者］** を選択して管理者設定を開きます。
+2. **［カンパニー設定］** で **［会社概要］** を選択します。
+3. **［会社概要］** ページの **［カード］** の **［週の表示］** メニューで **［週の日付］** を選択します。
+     
+   <Frame><img alt="Screenshot 2024-08-23 at 4.08.46 PM.png" src="/images/kb/ka0Vq0000004xsj-00N5w00000Ri7BU-0EMVq000002NPCf.jpg" style={{width: 601, height: 240}}/></Frame>
+4. **［保存］** を選択します。
+
+[このページのトップへ](#intro)
+
+### 動画 - 国際的な日付形式
+
+<iframe allowfullscreen="allowfullscreen" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/B0bYXTjCjj8" width="560"></iframe>
+
+[このページのトップへ](#intro)
+
+日本語

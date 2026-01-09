@@ -1,0 +1,44 @@
+---
+title: "Amazon CloudWatchコネクター"
+---
+
+## はじめに
+
+Amazon CloudWatchは、AWSのクラウドリソースとアプリケーション向けのモニタリングサービスです。DomoのAmazon CloudWatchコネクターを使用すると、リソースの使用率、アプリケーションのパフォーマンス、運用状態をシステム全体で可視化できます。Amazon CloudWatch APIについて詳しくは、製品ページ（ [http://docs.aws.amazon.com/AmazonClo...e/Welcome.html](http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html "http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/Welcome.html") ）を参照してください。
+
+Amazon CloudWatchアカウントには、Data Centerから接続します。このトピックでは、Amazon CloudWatchコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Amazon CloudWatchアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアカウントのアクセスキー
+* AWSアカウントのシークレットキー
+
+これらの認証情報について詳しくは、製品ドキュメント（ [http://docs.aws.amazon.com/general/l...et-access-keys](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys") ）を参照してください。
+
+## Amazon CloudWatchアカウントに接続する
+
+このセクションでは、Amazon CloudWatchコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### 認証情報ペイン
+
+このペインには、Amazon CloudWatchアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> アクセスキー </td><td colspan="1" rowspan="1"> AWSアカウントのアクセスキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> シークレットキー </td><td colspan="1" rowspan="1"> AWSアカウントのシークレットキーを入力します。 </td></tr></tbody></table>
+
+これらの認証情報について詳しくは、製品ドキュメント（ [http://docs.aws.amazon.com/general/l...et-access-keys](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys") ）を参照してください。
+
+有効なAmazon CloudWatch認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon CloudWatch DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するAmazon CloudWatchレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Alarms for Metrics </p></td><td colspan="1" rowspan="1"><p> 1つのメトリクスについてすべてのアラームを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Describe Alarm History </p></td><td colspan="1" rowspan="1"><p> すべての認証済みユーザーのアラーム履歴を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Describe Alarms </p></td><td colspan="1" rowspan="1"><p> すべての認証済みユーザーのアラームを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"> GetLogEvents </td><td colspan="1" rowspan="1"><p> 指定されたログストリームのログイベントを一覧表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Metrics </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーに保存されている有効なメトリクスのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Statistics </p></td><td colspan="1" rowspan="1"><p> 指定したメトリクスの統計を返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Name </p></td><td colspan="1" rowspan="1"><p> データを取得するメトリクス名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Namespace </p></td><td colspan="1" rowspan="1"><p> データを取得するメトリクスのネームスペースを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> データを返す期間の値を入力します。60の倍数で指定します（例：60、120、180）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Statistics </p></td><td colspan="1" rowspan="1"><p> データを取得する統計のカンマ区切り文字列を入力します。次の統計のいずれかを選択できます。 </p><ul><li><p> Average </p></li><li><p> Sum </p></li><li><p> SampleCount </p></li><li><p> Maximum </p></li><li><p> Minimum </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Dimensions </p></td><td colspan="1" rowspan="1"><p> 取得するディメンションのカンマ区切り文字列を入力します（形式： <span class="mt-font-courier-new"> dimension:value </span> ）。例： </p><p><code> StreamName:my-stream-name,ShardID:my-shard-id </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するか、相対開始日のデータを取得するかを選択します。 <b> ［Specific］ </b> を選択した場合は、日付ピッカーから特定の開始日を選択するよう求められます。 <b> ［Relative］ </b> を選択した場合は、オフセット値（データの取得を開始する過去の日数）を入力するよう求められます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> データの取得を開始する日付を選択します。 <b> ［Select Specific End Date］ </b> と組み合わせて日付の範囲を作成します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するか、相対終了日のデータを取得するかを選択します。 <b> ［Specific］ </b> を選択した場合は、日付ピッカーから特定の終了日を選択するよう求められます。 <b> ［Relative］ </b> を選択した場合は、オフセット値（データの取得を停止する過去の日数）を入力するよう求められます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> データの取得を停止する日付を選択します。 <b> ［Select Specific Start Date］ </b> と組み合わせて日付の範囲を作成します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

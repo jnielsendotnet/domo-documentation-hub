@@ -1,0 +1,42 @@
+---
+title: "Databricks using Personal Access Token Authentication V2"
+---
+
+## はじめに
+
+Databricksはクラウドベースのデータサイエンス、データエンジニアリング、データアナリティクスのためのコラボレーティブプラットフォームで、最高のデータウェアハウスとデータレイクを1つのレイクハウスアーキテクチャーに統合します。
+  
+Databricksを使用すると、1つのレイクハウスプラットフォームであらゆるデータ、分析、AIにアクセスできます。シンプルでオープン、かつコラボレーティブな環境により、インフラストラクチャーの煩雑さを軽減し、データを管理下に置きながら、データおよびワークフロー全体でチームが簡単に連携できるようになります。
+
+Databricks using Personal Access Token Authentication V2アカウントには、Data Centerで接続できます。このトピックでは、Databricks using Personal Access Token Authentication V2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Databricks using Personal Access Token Authentication V2アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* ホスト
+* ポート
+* 個人用アクセストークン
+* HTTPパス
+
+## Databricks using Personal Access Token Authentication V2アカウントに接続する
+
+このセクションでは、Databricks using Personal Access Token Authentication V2コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Databricks using Personal Access Token Authentication V2アカウントに接続するための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な内容を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"> サーバーのホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"> サーバーホストのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Personal Access Token </p></td><td colspan="1" rowspan="1"> 個人用アクセストークンを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> HTTP Path </p></td><td colspan="1" rowspan="1"> HTTPパスを入力します。 </td></tr></tbody></table>
+
+有効なDatabricks using Personal Access Token Authentication V2の認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいDatabricks using Personal Access Token Authentication V2 DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> How would you like to import data into Domo? </td><td colspan="1" rowspan="1"> ドロップダウンから、データのインポート方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Catalogs </td><td colspan="1" rowspan="1"> カタログを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> データベース名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> クエリタイプ </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> 実行するクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> クエリを自動生成するテーブルとフィールドを選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> クエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> ドロップダウンリストから、テーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> 列を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> 生成されたクエリが表示されます。必要に応じてクエリを編集します。 </td></tr><tr><td colspan="1" rowspan="1"> Upsert Key Column(s) </td><td colspan="1" rowspan="1"><p> upsertキー列名、またはupsertキー列名のカンマ区切りのリストを入力します。 </p><p><b> 注記： </b> これは、［Import Data method］が［UPSERT］の場合にのみ必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"><p> 日付キーまたはメタクエリを使用してデータをパーティションするかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Query to determine partition tags </td><td colspan="1" rowspan="1"><p> パーティションタグ（キー）を指定するためのパーティションメタクエリを入力します。 <b> 日付 </b> データを含む列が、パーティション列です。例：SELECT DISTINCT(COLUMN_NAME) FROM TABLENAME. </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"><p> パーティション列の名前を選択します。日付フィールドのみが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"><p> パーティションの形式を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"><p> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </p></td></tr><tr><td colspan="1" rowspan="1"> Past Years </td><td colspan="1" rowspan="1"><p> データを取得する過去の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </p></td></tr><tr><td colspan="1" rowspan="1"> Past Months </td><td colspan="1" rowspan="1"><p> データを取得する過去の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </p></td></tr><tr><td colspan="1" rowspan="1"> Future Years </td><td colspan="1" rowspan="1"><p> データを取得する将来の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </p></td></tr><tr><td colspan="1" rowspan="1"> Future Months </td><td colspan="1" rowspan="1"><p> データを取得する将来の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30 </p></td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"><p> パーティション列の日付形式に応じて、正しい日付形式を選択または入力します。デフォルトでは、 <b> yyyy-MM-dd </b> が使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"><p> カスタマイズされた日付形式を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"><p> パーティション列の名前を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Fetch Size </td><td colspan="1" rowspan="1"><p> メモリのパフォーマンスのフェッチサイズを入力します。フェッチサイズが指定されていない場合、デフォルト値が使用されます。 <b> 「メモリ不足」 </b> エラーが発生した場合、フェッチサイズを小さくしてください。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

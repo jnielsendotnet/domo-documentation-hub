@@ -1,0 +1,46 @@
+---
+title: "MariaDBパーティションコネクター"
+---
+
+## はじめに
+
+MariaDBはコミュニティによって開発された、MySQLリレーショナルデータベース管理システムのフォークです。パーティショニングをすると、複数のストレージデバイスにまたがるファイルのクエリ実行と配布が高速化できます。数分でデータに簡単かつ安全にアクセスでき、可視性を向上できます。DomoのMariaDBパーティションコネクターを使用して、過去の日数に基づいてデータをDomoに取り込むことができます。MariaDBの詳細については、https://mariadb.com/docs/ を参照してください。。
+
+Data CenterでMariaDBデータアカウントに接続します。このトピックでは、MariaDBパーティションコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+MariaDBデータベースに接続してDataSetを作成するには、以下が必要です。
+
+* MariaDBアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名またはスキーマ名
+
+オプションで、SSL CA証明書のあるURLを含めることもできます。
+
+また、Informixデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MariaDBデータベースに接続する
+
+このセクションでは、［MariaDBパーティションコネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、MariaDBデータベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> データベースサーバーのホスト名またはIPアドレスを入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース名 </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> MariaDBのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> MariaDBのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> CA証明書 </td><td colspan="1" rowspan="1"> CA証明書用テキストを貼り付けるか、または証明書がある場所のURLを入力します。これはオプションです。 </td></tr></tbody></table>
+
+一度有効なMariaDB認証情報を入力しておくと、いつでも同じアカウントを使用して、新しいMariaDBパーティションDataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。特定のデータベース表とパーティション列の名前を選択できます。データを取得する過去の日数も指定できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。例： <span class="mt-font-courier-new"> select DATE from employee </span></td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、 この場合Xはプラスの整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Tinyint値をbit（）値として扱う </td><td colspan="1" rowspan="1"> 小さい整数値をBoolean値として扱う場合は［はい］を、そうでない場合は［いいえ］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Boolean値を他の型にキャスト… </td><td colspan="1" rowspan="1"> 文字列または整数のBoolean値をDataSet内でキャストするかどうかを選択します。 <br/> String: False/True <br/> Integer: 0/1 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,473 @@
+openapi: 3.0.3
+info:
+  title: Domo Search Product API
+  description: |
+    API for searching entities within Domo.
+    
+    **Known Limits:**
+    - Maximum number of records that can be returned: 10,000
+    - Rate limited: Recommended not to exceed 120 requests per minute (may vary by instance)
+  version: 1.0.0
+  contact:
+    name: Domo Support
+    url: https://www.domo.com
+
+servers:
+  - url: https://{instance}.domo.com/api/search/v1
+    description: Domo Search API
+    variables:
+      instance:
+        default: your-instance
+        description: Your Domo instance name
+
+security:
+  - DeveloperToken: []
+
+paths:
+  /query:
+    post:
+      tags:
+        - Search Product API
+      summary: Query
+      description: Search for entities in Domo with filters, sorting, and faceting capabilities
+      operationId: searchQuery
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            example:
+              count: 20
+              offset: 0
+              query: "sales data"
+              filters: []
+              sort: {}
+              facetValuesToInclude: []
+              facetValueLimit: 0
+              facetValueOffset: 0
+              includePhonetic: true
+              entityList: [["dataflow"]]
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: Bad request - Invalid parameters
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '429':
+          description: Too many requests - Rate limit exceeded
+
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+
+  schemas:
+    SearchRequest:
+      type: object
+      required:
+        - query
+        - entityList
+      properties:
+        count:
+          type: integer
+          description: How many results to return
+          default: 10
+
+        offset:
+          type: number
+          description: The results offset. Count and offset can only return a total of 10,000 records
+          default: 0
+
+        query:
+          type: string
+          description: The query term. Use * for wildcard
+
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          description: Search results must match ALL filters
+          default: []
+        orFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          description: Search results must match ANY filter
+          default: []
+        notFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          description: Search results must NOT match any filter
+          default: []
+        sort:
+          $ref: '#/components/schemas/Sort'
+          description: How to sort the results. Defaults to relevance sorting
+        facetValuesToInclude:
+          type: array
+          items:
+            type: string
+          description: Facets (or groupings) to include in the search results
+          default: []
+        facetValueLimit:
+          type: number
+          description: How many of the facet values to return
+          default: 0
+
+        facetValueOffset:
+          type: number
+          description: The facet value offset
+          default: 0
+
+        includePhonetic:
+          type: boolean
+          description: Whether to use phonetic matching
+
+        entityList:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+          description: |
+            Which entities to perform the query on. Entities can be grouped together.
+            Valid entities include: `[[account], [alert], [app], [beast_mode], [card], [connector], [data_app], [dataset], [dataflow], [group], [page], [user]]`
+
+        fieldsToReturn:
+          type: array
+          items:
+            type: string
+          description: Define which fields to return. Defaults to all fields
+
+    SearchResponse:
+      type: object
+      properties:
+        facetMap:
+          type: object
+          additionalProperties:
+            type: object
+          description: The facet groupings requested
+        totalResultCount:
+          type: integer
+          description: The total count of results that match the query
+          example: 1865
+        sort:
+          $ref: '#/components/schemas/SortResponse'
+          description: The sort used in the query
+        queryUuid:
+          type: string
+          description: A unique generated ID
+          example: "d775bcda-f3f6-4c62-b0b1-d3c57a609637"
+        hideSearchObjects:
+          type: boolean
+          example: false
+        searchObjects:
+          type: array
+          items:
+            type: object
+          description: A list of all search results
+        searchResultsMap:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: object
+          description: Search results grouped as defined by the entityList
+
+    Filter:
+      oneOf:
+        - $ref: '#/components/schemas/TermFilter'
+        - $ref: '#/components/schemas/WildcardFilter'
+        - $ref: '#/components/schemas/QueryStringFilter'
+        - $ref: '#/components/schemas/DateBucketFilter'
+        - $ref: '#/components/schemas/DateRangeFilter'
+        - $ref: '#/components/schemas/NumericFilter'
+        - $ref: '#/components/schemas/RangeFilter'
+        - $ref: '#/components/schemas/BooleanFilter'
+        - $ref: '#/components/schemas/MissingFilter'
+      discriminator:
+        propertyName: filterType
+        mapping:
+          term: '#/components/schemas/TermFilter'
+          wildcard: '#/components/schemas/WildcardFilter'
+          queryString: '#/components/schemas/QueryStringFilter'
+          dateBucket: '#/components/schemas/DateBucketFilter'
+          dateRange: '#/components/schemas/DateRangeFilter'
+          numeric: '#/components/schemas/NumericFilter'
+          range: '#/components/schemas/RangeFilter'
+          boolean: '#/components/schemas/BooleanFilter'
+          missing: '#/components/schemas/MissingFilter'
+
+    TermFilter:
+      type: object
+      required:
+        - filterType
+        - field
+      properties:
+        filterType:
+          type: string
+          enum: [term]
+          example: "term"
+        field:
+          type: string
+          description: The field to query
+          example: "databaseId"
+        value:
+          type: string
+          description: The term to match (use this OR values)
+          example: "abcd-xyz"
+        values:
+          type: array
+          items:
+            type: string
+          description: The terms to match (use this OR value)
+        not:
+          type: boolean
+          description: Whether to invert the match
+          default: false
+
+    WildcardFilter:
+      type: object
+      required:
+        - filterType
+        - field
+        - query
+      properties:
+        filterType:
+          type: string
+          enum: [wildcard]
+          example: "wildcard"
+        field:
+          type: string
+          description: The field to query
+          example: "name"
+        query:
+          type: string
+          description: The query to match. Use * for wildcard
+          example: "sales*"
+
+    QueryStringFilter:
+      type: object
+      required:
+        - filterType
+        - field
+        - queryString
+      properties:
+        filterType:
+          type: string
+          enum: [queryString]
+          example: "queryString"
+        field:
+          type: string
+          description: The field to query
+          example: "description"
+        queryString:
+          type: string
+          description: The query string to match
+          example: "revenue AND sales"
+
+    DateBucketFilter:
+      type: object
+      required:
+        - filterType
+        - field
+        - value
+      properties:
+        filterType:
+          type: string
+          enum: [dateBucket]
+          example: "dateBucket"
+        field:
+          type: string
+          description: The field to query
+          example: "createDate"
+        value:
+          type: string
+          enum: [LAST_DAY, LAST_WEEK, LAST_MONTH, LAST_QUARTER]
+          description: The date bucket to use
+          example: "LAST_WEEK"
+
+    DateRangeFilter:
+      type: object
+      required:
+        - filterType
+        - field
+      properties:
+        filterType:
+          type: string
+          enum: [dateRange]
+          example: "dateRange"
+        field:
+          type: string
+          description: The field to query
+          example: "createDate"
+        from:
+          type: string
+          format: date-time
+          description: The lower bound date
+          example: "2023-01-01T00:00:00Z"
+        to:
+          type: string
+          format: date-time
+          description: The upper bound date
+          example: "2023-12-31T23:59:59Z"
+        not:
+          type: boolean
+          description: Whether to invert the match
+          default: false
+
+    NumericFilter:
+      type: object
+      required:
+        - filterType
+        - field
+        - operator
+      properties:
+        filterType:
+          type: string
+          enum: [numeric]
+          example: "numeric"
+        field:
+          type: string
+          description: The field to query
+          example: "rowCount"
+        longNumber:
+          type: integer
+          format: int64
+          description: The long value to match (use this OR floatNumber)
+          example: 1000
+        floatNumber:
+          type: number
+          format: float
+          description: The float value to match (use this OR longNumber)
+          example: 1000.5
+        operator:
+          type: string
+          enum: [LT, LTE, EQ, GT, GTE]
+          description: The operator
+          example: "GT"
+        not:
+          type: boolean
+          description: Whether to invert the match
+          default: false
+
+    RangeFilter:
+      type: object
+      required:
+        - filterType
+        - field
+      properties:
+        filterType:
+          type: string
+          enum: [range]
+          example: "range"
+        field:
+          type: string
+          description: The field to query
+          example: "rowCount"
+        from:
+          type: number
+          description: The lower bound to match
+          example: 100
+        to:
+          type: number
+          description: The upper bound to match
+          example: 1000
+
+    BooleanFilter:
+      type: object
+      required:
+        - filterType
+        - field
+        - value
+      properties:
+        filterType:
+          type: string
+          enum: [boolean]
+          example: "boolean"
+        field:
+          type: string
+          description: The field to query
+          example: "isActive"
+        value:
+          type: boolean
+          description: The value to match
+          example: true
+
+    MissingFilter:
+      type: object
+      required:
+        - filterType
+        - field
+      properties:
+        filterType:
+          type: string
+          enum: [missing]
+          example: "missing"
+        field:
+          type: string
+          description: The field to match if it exists
+          example: "description"
+        not:
+          type: boolean
+          description: Whether to invert the match
+          default: false
+
+    Sort:
+      type: object
+      properties:
+        fieldSorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSort'
+          description: The fields to order by
+        isRelevance:
+          type: boolean
+          description: Whether to order by relevance to user
+          example: false
+
+    FieldSort:
+      type: object
+      required:
+        - field
+        - sortOrder
+      properties:
+        field:
+          type: string
+          description: The field to sort by
+          example: "createDate"
+        sortOrder:
+          type: string
+          enum: [ASC, DESC]
+          description: The sort order
+          example: "DESC"
+
+    SortResponse:
+      type: object
+      properties:
+        fieldSorts:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSort'
+          nullable: true
+        activity:
+          nullable: true
+        activitySortType:
+          nullable: true
+        metricAction:
+          nullable: true
+        isHotness:
+          type: boolean
+          example: false
+        isRelevance:
+          type: boolean
+          example: true

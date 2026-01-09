@@ -1,0 +1,36 @@
+---
+title: "Webtrends Connector"
+---
+
+## ﻿はじめに
+
+Webtrends は、ウェブ、ソーシャルネットワークとモバイルのアナリティクスをはじめ、デジタルマーケティング関連のその他のソフトウェアソリューションを提供しています。 Domo の Webtrends Connector を使用すると、プロフィールとスペース、プロフィールレポート、主要メトリックのリストを取得することができます。 Webtrends API に関する詳細は、ウェブサイト(http://help.webtrends.com/en/dxapi/ )を参照してください。
+
+Webtrends アカウントには、 データセンター から接続します。 このトピックでは、Webtrends Connector ユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Webtrends アカウントに接続して DataSet を作成するには、以下が必要です。
+
+* Webtrends アカウントのログインに使用するユーザー名とパスワード
+* Webtrends のアカウント名
+
+## Webtrends アカウントに接続する
+
+このセクションでは、Webtrends コネクターページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、Webtrends アカウントに接続する認証情報の入力フィールドが含まれています。 下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アカウント名 </p></td><td colspan="1" rowspan="1"><p> Webtrends のアカウント名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Webtrends アカウントのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Webtrends アカウントへのログインに使用するパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な Webtrends の認証情報を一度入力しておくと、随時同じアカウントを使用して、新しい Webtrends DataSet を作成できます。 Connector アカウントは、 データセンター の アカウント タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニュー、および選択したレポートタイプに応じて表示／非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p> 実行したい Webtrends レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> プロフィールレポート </p></td><td colspan="1" rowspan="1"><p> 指定されたプロフィールのレポートのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロフィール </p></td><td colspan="1" rowspan="1"><p> Webtrends ウェブユーザーインターフェースで定義されたプロフィールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロフィールの主要メトリック </p></td><td colspan="1" rowspan="1"><p> 全てのプロフィールの主要メトリックのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートデータ </p></td><td colspan="1" rowspan="1"><p> 指定された日付範囲内の特定のプロフィールレポートのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポート定義 </p></td><td colspan="1" rowspan="1"><p> 指定されたプロフィールレポートの詳細データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポート期間 </p></td><td colspan="1" rowspan="1"><p> 指定されたプロフィールレポートの有効な日付範囲のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スペースプロフィール </p></td><td colspan="1" rowspan="1"><p> 指定されたスペースにあるプロフィールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スペース </p></td><td colspan="1" rowspan="1"><p> アカウント内のスペースのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スペースの主要メトリック </p></td><td colspan="1" rowspan="1"><p> アカウント内の全スペースの主要メトリックデータのリストを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> プロフィール </p></td><td colspan="1" rowspan="1"><p> データを取得したい Webtrends プロフィールを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロフィールレポート </p></td><td colspan="1" rowspan="1"><p> データを取得したい Webtrends プロフィールレポートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の粒度 </p></td><td colspan="1" rowspan="1"><p> 日付範囲全てのデータを1行で表すか、1日当たりのデータを1行で表すかのデータ取得の方法を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始日までの日数 </p></td><td colspan="1" rowspan="1"><p> レポートで使用する日を、今日から最も古い日までを数えた日数で入力します。 <b> 終了日 </b> までの日数と組み合わせて、表示する日付の範囲を作成します。 例えば、 <b> 開始日 </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> 終了日 </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには 10 日前から 5 日前までのデータが含まれます。 開始日が今日の場合は <span class="mt-font-courier-new"> 0 </span> を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日までの日数 </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> 開始日 </b> までの日数と組み合わせて、表示する日付の範囲を作成します。 例えば、 <span class="mt-font-courier-new"> 開始日 </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> 終了日 </span> に <b> 5 </b> を入力した場合、レポートには 10 日前から 5 日前のデータが含まれます。 開始日が今日の場合は、 <span class="mt-font-courier-new"> 0 </span> を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> スペース </p></td><td colspan="1" rowspan="1"><p> データを取得したい Webtrends スペースを選択します。 </p></td></tr></tbody></table>
+
+

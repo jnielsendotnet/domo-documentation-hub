@@ -1,0 +1,64 @@
+---
+title: "Domo Snowflakeパートナー接続"
+---
+
+## はじめに
+
+DomoはSnowflakeパートナーとの接続プログラムの一環として利用できるようになりました。
+
+既存のSnowflakeのお客様であれば、直接Snowflakeから無料のDomoトライアルアカウントに登録し、Domoから安全にSnowflakeテーブルでライブクエリを実行することができます。Snowflakeデータを利用したDomoの豊富なストーリーテリングダッシュボードとモバイルに対応する視覚化を体験し、アラートを利用して実行してください。
+
+Snowflakeパートナーとの接続プログラムについて詳しくは、 [こちら](https://docs.snowflake.com/ja/user-guide/ecosystem-partner-connect "https://docs.snowflake.com/ja/user-guide/ecosystem-partner-connect") を参照してください。
+
+## Snowflakeパートナーとの接続からDomoトライアルアカウントを作成する
+
+1. アカウント管理者権限でSnowflakeにログインしていることを確認してください。
+
+<Note>
+   **注記：** Snowflakeのウェブサイトにログインする際に使用されるデフォルトの権限は、システム管理者権限です。
+
+</Note>
+
+2. ヘッダーの
+   **［Partner Connect］** をクリックします。
+3. Domoタイルを検索して選択します。
+4. Snowflakeアカウントで作成されるオブジェクトを確認し、接続を正しく設定します。
+   **［Connect］** をクリックします。
+5. ウィザードのステップを実行してフルネームとメールアドレスを入力し、Domoトライアルアカウントを設定します。
+6. Domoのトライアルアカウントのパスワードを作成します。
+7. パスワードの作成と有効化に成功すると、新規に作成されたDomoアカウントにログインされます。Snowflakeアカウントのサンプルデータが接続されます。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="## Snowflakeパートナーとの接続で作成されるDomo無料トライアルアカウントの制限はありますか？">
+
+
+Snowflakeパートナーとの接続で作成された無料トライアルアカウントは、通常のDomoの30日間無料トライアルインスタンスと性質が似ていますが、1つ機能が追加されています。Snowflakeパートナーとの接続から作成されたDomoトライアルアカウントは、必要に応じてユーザーがSnowflake Data Warehouseにデータを書き戻すことができる、Snowflake書き戻しコネクターが有効になっています。
+
+
+</Accordion>
+<Accordion title="## Snowflakeパートナーとの接続からDomoトライアルアカウントを作成できません。">
+
+
+* Domoは個人メールアドレス（「
+  [@gmail.com](mailto:'@gmail.com "mailto:'@gmail.com") 」 または「 [@yahoo.com](mailto:'@yahoo.com' "mailto:'@yahoo.com'") 」など）からの新しいアカウント登録をサポートしていません。Snowflakeアカウントが個人メールアドレスで作成されている場合、登録処理を完了することができません。ビジネスメールに関連したトライアルアカウントを作成するには、Domoサポートにお問い合わせください。
+    
+  サポートへの連絡方法の詳細については、「 [ヘルプとサポート](/ja/s/article/360042922874 "ヘルプとサポート") 」を参照してください。
+* Domoは、Domoの利用規約に従って無料トライアルDomoアカウントが特定のドメインのメールアカウントで作成されることをブロックします。
+* 前回指定のSnowflakeアカウントから無料トライアルアカウントを設定した場合は、新しいDomoトライアルアカウントを作成することができません。
+* SnowflakeアカウントがユーザーとしてDomoにも存在する場合、ユーザーは既存のDomoアカウントでSnowflakeに接続するよう画面に表示されます。
+
+
+</Accordion>
+<Accordion title="## 新規に作成したDomoアカウントでは、Snowflakeサンプルデータにのみ制限がありますか？">
+
+
+いいえ。Snowflakeデータへの接続は、説明のためだけに行われます。Domoのフェデレーテッド接続を使用すると、サンプルデータ以外のデータに対する新しいライブクエリを設定できます。
+
+詳細については、 [Domoフェデレーテッドクエリに関する記事](/ja/s/article/360042932974 "フェデレ―テッドデータソリューションを使用する") を参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

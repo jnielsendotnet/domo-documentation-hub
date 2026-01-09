@@ -1,0 +1,42 @@
+---
+title: "Lithium LiQLコネクター"
+---
+
+## はじめに
+
+Lithium Technologiesは、エンタープライズ企業向けに、ソーシャルカスタマーエクスペリエンスの管理ソフトウェアを提供しています。Lithium Community API v2は、SQLに似たクエリ言語であるLiQL（Lithium Query Language）を使用して、Lithiumデータにアクセスします。DomoのLithiumコネクターを利用すると、賞賛を受けた投稿者のランキングや訪問ユーザーのリストなどフォーラムに関連したデータを取得することができます。Lithium APIの詳細については、Lithiumのページ（ [https://community.lithium.com/t5/Dev...ct-p/Developer](https://devdocportal.lithium.com/t5/Community-API-v2-Reference/bd-p/restv2docs) ）を参照してください。
+
+Lithiumアカウントには、Data Centerから接続します。このトピックでは、Lithium LiQLコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Lithiumアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* LithiumクライアントIDとクライアントシークレット
+* LithiumインスタンスのベースURL（例：
+  [community.domo.com](http://community.domo.com) ）
+* LithiumテナントID
+
+## Lithiumアカウントに接続する
+
+このセクションでは、Lithium LiQLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Lithiumアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Lithium API URL </p></td><td colspan="1" rowspan="1"><p> データの取り込み元のLithium API URLを入力します。 </p><p> 実稼働の場合は、以下のいずれかを入力します。 </p><ul><li><p><a href="http://api.lithium.com" rel="noopener" target="_blank"> api.lithium.com </a></p></li><li><p><a href="http://eu.api.lithium.com" rel="noopener" target="_blank"> eu.api.lithium.com </a></p></li></ul><p> ステージングの場合は、以下のいずれかを入力します。 </p><ul><li><p><a href="http://api.stage.lithium.com" rel="noopener" target="_blank"> api.stage.lithium.com </a></p></li><li><p><a href="http://eu-api.stage.lithium.com" rel="noopener" target="_blank"> eu-api.stage.lithium.com </a></p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> LithiumクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Lithiumクライアントシークレットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Base URL </p></td><td colspan="1" rowspan="1"><p> LithiumインスタンスのサーバーURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tenant ID </p></td><td colspan="1" rowspan="1"><p> LithiumテナントIDを入力します。 </p></td></tr></tbody></table>
+
+有効なLithium認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいLithium DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するLithiumレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> LiQL </td><td colspan="1" rowspan="1"> フィールド、コレクション、制約を入力すると、コネクターはこれらを使用してクエリを作成します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> LiQLクエリを入力します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Collection </td><td colspan="1" rowspan="1"> クエリで使用するコレクションを選択します。これはクエリ内の <span class="mt-font-courier-new"> FROM </span> 句に対応しています。 </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> クエリで使用するフィールドを選択します。これはクエリ内の <span class="mt-font-courier-new"> SELECT </span> 句に対応しています。 </td></tr><tr><td colspan="1" rowspan="1"> Constraints </td><td colspan="1" rowspan="1"><p> クエリで使用する制約を入力します。これはクエリ内の <span class="mt-font-courier-new"> WHERE </span> 句に対応しています。 </p><p> 例： <span class="mt-font-courier-new"> ratings.avg(value)&gt;=4 AND conversation.style='forum' </span></p></td></tr><tr><td colspan="1" rowspan="1"> LiQL Query </td><td colspan="1" rowspan="1"><p> LithiumデータのDomoへの取り込みに使用するクエリを入力します。構文は以下の通りです。 </p><p><code> SELECT &lt;fields&gt; FROM &lt;collection&gt; </code></p><p><code> WHERE &lt;constraints&gt; </code></p><p><code> ORDER BY &lt;fields&gt; &lt;DIRECTION&gt; </code></p><p><span class="mt-font-courier-new"> SELECT </span> 行は必須で、 <span class="mt-font-courier-new"> WHERE </span> 行および <span class="mt-font-courier-new"> ORDER BY </span> 行はオプションです。LiQL変数では、大文字と小文字が区別されます。 </p><p> 例えば、平均評価が4以上のフォーラム投稿を返すには、以下のように入力します。 </p><p><code> SELECT * FROM messages WHERE ratings.avg(value)&gt;=4 AND conversation.style='forum' </code></p><p> また、ソリューションが認められたフォーラムトピックの件名、ID、会話データを返すには、以下のように入力します。 </p><p><code> SELECT subject, id, conversation FROM messages WHERE conversation.style='forum' AND depth=0 AND conversation.solved='true' </code></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

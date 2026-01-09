@@ -1,0 +1,229 @@
+openapi: 3.1.0
+info:
+  title: Roles Governance API
+  version: "1.0.0"
+  description: |-
+    This API reference is useful if you are trying to manage Domo Roles from anywhere 'outside' of your Domo instance such as:
+
+    1. Jupyter scripts
+    2. Code Engine Functions
+    3. Custom Java/Node/Python scripts
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    CreateRoleRequest:
+      type: object
+      required: [name, description, fromRoleId]
+      properties:
+        name:
+          type: string
+          description: The name that will be displayed for the role
+        description:
+          type: string
+          description: Description that will be displayed for the role
+        fromRoleId:
+          type: integer
+          description: The ID of the role to fetch
+    RoleResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+    RoleDetailedResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+        authorityCount:
+          type: integer
+        userCount:
+          type: integer
+        created:
+          type: integer
+          description: epoch milliseconds
+        modified:
+          type: integer
+          description: epoch milliseconds
+    AuthoritiesUpdateRequest:
+      type: array
+      description: The body for this query is a string array containing the complete list of authorities the role should have after the update
+      items:
+        type: string
+    AuthoritiesUpdateResponse:
+      type: object
+      properties:
+        status:
+          type: string
+        message:
+          type: string
+security:
+  - DomoDeveloperToken: []
+tags:
+  - name: Roles
+paths:
+  /api/authorization/v1/roles:  # <- Primeira (e única) definição deste caminho
+    post: # <- Operação POST que já estava aqui
+      tags: [Roles Governance API]
+      summary: Create Role
+      description: |-
+        Overview
+
+        Create a Role based on an existing role's authorities
+
+        Endpoint
+
+        POST /api/authorization/v1/roles
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateRoleRequest"
+            examples:
+              example:
+                value:
+                  name: string
+                  description: string
+                  fromRoleId: 123
+      responses:
+        "200":
+          description: |-
+            HTTP/1.1 200 OK
+            Content-Type: application/json;charset=UTF-8
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoleResponse"
+                
+    get: # <- Operação GET que foi MOVIDA para cá
+      tags: [Roles Governance API]
+      summary: Get All Roles
+      description: |-
+        Overview
+
+        Fetch a all Roles in an instance
+
+        Endpoint
+
+        GET /api/authorization/v1/roles
+      responses:
+        "200":
+          description: |-
+            HTTP/1.1 200 OK
+            Content-Type: application/json;charset=UTF-8
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/RoleDetailedResponse"
+
+  /api/authorization/v1/roles/{roleId}: # <- Caminho para operações com ID específico
+    get:
+      tags: [Roles Governance API]
+      summary: Get Role By Id
+      description: |-
+        Overview
+
+        Fetch a single Role by role id
+
+        Endpoint
+
+        GET /api/authorization/v1/roles/{roleId}
+      parameters:
+        - in: path
+          name: roleId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the role to fetch
+      responses:
+        "200":
+          description: |-
+            HTTP/1.1 200 OK
+            Content-Type: application/json;charset=UTF-8
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoleDetailedResponse"
+    delete:
+      tags: [Roles Governance API]
+      summary: Delete Role
+      description: |-
+        Overview
+
+        Delete a Role
+
+        Endpoint
+
+        DELETE /api/authorization/v1/roles/{roleId}
+      parameters:
+        - in: path
+          name: roleId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the role to updated # <--- Pequeno typo aqui, deveria ser 'delete'?
+      responses:
+        "204":
+          description: HTTP/1.1 204 No Content
+
+  # A linha 164 original (com o caminho duplicado) foi REMOVIDA
+
+  /api/authorization/v1/roles/{roleId}/authorities: # <- Caminho para PATCH
+    patch:
+      tags: [Roles Governance API]
+      summary: Update Role Authorities
+      description: |-
+        Overview
+
+        Updates the authorities or grants which a role is capable of utilizing
+
+        Endpoint
+
+        PATCH /api/authorization/v1/roles/{roleId}/authorities
+      parameters:
+        - in: path
+          name: roleId
+          required: true
+          schema:
+            type: integer
+          description: The ID of the role to updated
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthoritiesUpdateRequest"
+            examples:
+              example:
+                value:
+                  - dataset.manage
+                  - dataset.export
+      responses:
+        "200":
+          description: |-
+            HTTP/1.1 200 OK
+            Content-Type: application/json;charset=UTF-8
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthoritiesUpdateResponse"

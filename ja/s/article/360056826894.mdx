@@ -1,0 +1,46 @@
+---
+title: "Oracle Databaseパーティションコネクター"
+---
+
+## はじめに
+
+Oracle Databaseは、Oracle Corporationにより生産・販売されたオブジェクトリレーショナルデータベース管理システムです。Oracleは、完成度の高いオープンなビジネスソフトウェアとビジネスハードウェアを統合したシステムを提供します。DomoのOracle Databaseの統合により、Oracleデータに簡単に接続してより迅速な決定を行うことができます。パーティショニングをすると、表データを、ユーザー定義のルールに基づいて1つ以上の表の列の値に従って複数のストレージオブジェクト（データパーティション）にまたがって分割できます。DomoのOracle Databaseパーティションコネクターを使用すると、Oracle Databaseからデータを取得し、カスタムレポートをコンパイルできます。取得するデータの指定は、SQLクエリの入力で行います。データがDomoに取得されると、リアルタイムのデータにアクセスできるので簡単に動かしたりピボットに使用することができます。
+
+DomoのOracle Databaseパーティションコネクターは、ビジネスの包括的なビューの取得やデータベースエンジンがデータを保存する方法の最適化に役立ちます。取得するデータの指定は、SQLクエリの入力で行います。
+
+Oracle Databaseには、Data Centerから接続します。このトピックでは、Oracle Databaseパーティションコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Oracle Databaseに接続してDataSetを作成するには、以下が必要です。
+
+* Oracle Databaseのユーザー名とパスワード。
+* Oracleサーバーのホスト名またはIPアドレス。
+* Oracleのポート番号。
+* Oracle SID。
+
+また、Oracle Databaseに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Oracle Databaseに接続する
+
+このセクションでは、 ［Oracle Databaseパーティション コネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Oracle Database に接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> Oracle Databaseのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Oracle Databaseのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> Oracleサーバーのホスト名またはIPアドレスを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> Oracleのポート番号を入力 </td></tr><tr><td colspan="1" rowspan="1"> SID </td><td colspan="1" rowspan="1"> Oracle SIDを入力します。 </td></tr></tbody></table>
+
+有効なOracle Databaseの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Oracle Databaseパーティション DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"><p> 必要なデータの選択に使用するSQLクエリを入力します。 </p><p> 例： <span class="mt-font-courier-new"> select Date from Employee </span></p></td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> Domoに取得するデータを含む表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b> yyyy-MM-dd </b></b></b></b> が使用されます。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

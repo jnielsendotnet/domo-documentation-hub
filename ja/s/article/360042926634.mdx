@@ -1,0 +1,78 @@
+---
+title: "Criteoコネクター"
+---
+
+## はじめに
+
+Criteoは、インターネット小売業者と協力して、広告主のウェブサイトにアクセスしたことのある消費者にカスタムのオンライン表示広告を提供するリターゲッティング会社です。Criteo APIの詳細については、「 [APIドキュメント](https://developers.criteo.com/retail-media/docs) 」を参照してください。
+
+Criteoアカウントには、Data Centerから接続します。このトピックでは、Criteoコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Criteoアカウントに接続してDataSetを作成するには、Criteoアカウントに関連付けられたクライアントIDとクライアントシークレットが必要です。
+
+## Criteoアカウントに接続する
+
+このセクションでは、Criteoコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Criteoアカウントにアクセスするための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> CriteoアカウントのクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Criteoアカウントのクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+有効なCriteo認証情報を一度入力しておくと、いつでも同じアカウントを使用して、新しいCriteo DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、レポートを設定するための様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。現在利用できるレポートは1つだけです。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> 広告セットのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Audiences </td><td colspan="1" rowspan="1"> オーディエンスのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaigns And Categories Bids </td><td colspan="1" rowspan="1"> キャンペーンとカテゴリーの入札情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> キャンペーンのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaigns V2 </td><td colspan="1" rowspan="1"> 最新のキャンペーンのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics </td><td colspan="1" rowspan="1"> 統計レポートを作成します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Advertisers Selection </td><td colspan="1" rowspan="1"> すべての広告主を選択するか、特定の広告主を選択するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Advertiser ID </td><td colspan="1" rowspan="1"> 広告主を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Status </td><td colspan="1" rowspan="1"> すべてのキャンペーンのデータを取得するか、アクティブなキャンペーンのデータのみを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Bid Type </td><td colspan="1" rowspan="1"> データを取得する入札タイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> ディメンションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> 取得するメトリクスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Currency </td><td colspan="1" rowspan="1"> レポートに使用する通貨を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Date Selection </p></td><td colspan="1" rowspan="1"><p> 特定の日付または日付範囲のどちらのデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+CriteoコネクターのベースURLは
+https://api.criteo.com/2021-01で
+す。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Sets </td><td colspan="1" rowspan="1"> /marketing-solutions/ad-sets/search </td></tr><tr><td colspan="1" rowspan="1"> Audiences </td><td colspan="1" rowspan="1"> /audiences </td></tr><tr><td colspan="1" rowspan="1"> Campaigns And Categories Bids </td><td colspan="1" rowspan="1"> /campaigns/bids </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> /campaigns </td></tr><tr><td colspan="1" rowspan="1"> Campaigns V2 </td><td colspan="1" rowspan="1"> /marketing-solutions/campaigns/search </td></tr><tr><td colspan="1" rowspan="1"> Statistics </td><td colspan="1" rowspan="1"> /statistics/report </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+Criteoアカウントに関連付けられているクライアントIDとクライアントシークレットが必要です。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

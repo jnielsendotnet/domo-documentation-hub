@@ -1,0 +1,50 @@
+---
+title: "ローテーション平均前期比DataFlowの作成"
+---
+
+例えば、昨年と同じ期間と比較した今年の3ヶ月の変動平均を示すカードを作成し、前年と比較してそれらが上昇傾向にあるか下降傾向にあるかを確認するとします。
+
+この計算用のDataFlowを作成するには、次のような変換を行います。
+
+```sql
+SELECT
+
+`DateField`
+
+,`ValueField`
+
+,(SELECT
+
+SUM(`ValueField`) / COUNT(*)
+
+FROM
+
+TABLE t2
+
+WHERE
+
+t2.`DateField` > LAST_DAY(DATE_SUB(t1.`DateField`, INTERVAL 3 MONTH))
+
+AND t2.`DateField` < LAST_DAY(t1.`DateField`) ) AS `Rolling_Average`
+
+FROM
+
+TABLE t1
+```
+
+この変換では「DateField」列に月を表す日付が含まれていることを想定しています（1月の場合は `「2015-01-01」` など）。
+
+サブクエリは過去3ヶ月分の値の合計を取得し、範囲内で見つかった記録数で割り、「Rolling\_Average」フィールドを作成します。
+
+「DateField」と「ValueField」に対するフィールド名を置き換え、その結果生じるDataSetに希望するその他のものを追加する必要があります。さらに `TABLE` を、入力として使用しているDataSet表で置き換えます。
+
+値のスナップショットを作成しておくと役に立ちます。これにより、選択された任意の日時点でのその日の値を他の期間（前日、1週間前、1ヶ月前など）と比較して見ることができます。これをDataFlowで行うには、カードがデータを正しく読み込めるようにデータを並べて配置する必要があります。以下のクエリの例で行うことができます。各セクションは独自の変換にする必要があります。さらに、MySQL DataFlowsに対するクエリにインデックスを追加する必要があります
+
+`Select today.date, today.value, yesterday.value, lastweek.value, lastmonth.value from rawdata today left join (select date_add(datevalue, INTERVAL 1 DAY) as date, value from rawdata) yesterday on today.date = yesterday.date left join (select date_add(datevalue, INTERVAL 7 DAY) as date, value from rawdata) lastweek on today.date = lastweek.date left join (select date_add(datevalue, INTERVAL 1 MONTH) as date, value from rawdata) lastmonth on today.date = lastmonth.date`
+
+以下の表は、このクエリの背後にあるロジックを示しています。
+
+<Frame><img alt="compare_rolling_average_logic.png" src="/images/kb/ka05w00000123jq-00N5w00000Ri7BU-0EM5w000005vOxn.png"/></Frame>
+正しい列と値をプルするために、いくつかの追加作業が必要になる場合があります（Group Byアクションを使用するなど）。
+
+日本語

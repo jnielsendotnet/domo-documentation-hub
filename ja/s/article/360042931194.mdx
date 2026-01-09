@@ -1,0 +1,38 @@
+---
+title: "Twitchコネクター"
+---
+
+## はじめに
+
+Twitchは、ビデオゲームを中心としたライブ配信ビデオプラットフォームです。ここでは、ビデオゲームのスループレー、eスポーツ競技のブロードキャスト、クリエイティブコンテンツ、音楽のブロードキャストなどが楽しめます。Twitch APIに関する詳細は、Webサイト（ [https://dev.Twitch/](https://dev.Twitch/ "https://dev.Twitch/") ）を参照してください。
+
+Twitchアカウントには、Data Centerから接続します。このトピックでは、Twitchコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Twitchアカウントに接続してDataSetを作成するには、Twitchアカウントのユーザー名とパスワードが必要です。
+
+## Twitchアカウントに接続する
+
+このセクションでは、Twitchコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインのオプションである **［スケジュール設定］** と **［DataSetに名前を付けて説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo Twitchコネクターは、接続にOAuthを使用しており、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリックして（Domoに既存のTwitchアカウントがある場合は **［アカウントを追加］** を選択）Twitch OAuth画面を開き、Twitchのユーザー名とパスワードを入力します。有効なTwitch認証情報を一度入力しておくと、随時同じアカウントを使用して新しいTwitch DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にTwitchにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずTwitchからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行したいTwitchレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Active Teams </p></td><td colspan="1" rowspan="1"><p> アクティブなチームのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> All Streams </p></td><td colspan="1" rowspan="1"><p> すべてのライブ配信のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blocks </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーのブロックリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Follows </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルをフォローしているユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Streams </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルの配信を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Subscribers </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルのサブスクライバーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channels Followed by User </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーにフォローされているチャンネルのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chat Emoticons </p></td><td colspan="1" rowspan="1"><p> チャットの絵文字のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Check Subscription for User </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーおよびチャンネルの、サブスクリプションの詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Current Streams Summary </p></td><td colspan="1" rowspan="1"><p> ライブ配信の概要を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Editors </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルの編集者のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Featured Streams </p></td><td colspan="1" rowspan="1"><p> フィーチャーされたライブ配信のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Followed Streams </p></td><td colspan="1" rowspan="1"><p> フォローしているライブ配信のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Games </p></td><td colspan="1" rowspan="1"><p> 最も人気のあるゲームのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Get Specific Channel </p></td><td colspan="1" rowspan="1"><p> 特定のチャンネルの詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ingest </p></td><td colspan="1" rowspan="1"><p> Twitchのインジェストサーバーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Relationship Between User and Channel </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーとチャンネルとの関係について詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Games </p></td><td colspan="1" rowspan="1"><p> 指定された検索クエリにもとづいてゲームを検索します。名前がクエリと一致（または部分的に一致）するゲームのリストが返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Streams </p></td><td colspan="1" rowspan="1"><p> 指定された検索クエリにもとづいて配信を検索します。名前または説明がクエリと一致（または部分的に一致）する配信のリストが返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 上位の動画 </p></td><td colspan="1" rowspan="1"><p> 指定した期間中の閲覧数にもとづいて、上位の動画のリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> 情報を取得したいユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> チャンネル名 </p></td><td colspan="1" rowspan="1"><p> 情報を取得したい動画チャンネルの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索クエリ </p></td><td colspan="1" rowspan="1"><p> 結果を返させたいクエリを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 期間 </p></td><td colspan="1" rowspan="1"><p> レポートのタイムフレームを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User's Channel </p></td><td colspan="1" rowspan="1"><p> チャンネルのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ビデオ </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルのVOD（ビデオオンデマンド）のリストを返します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

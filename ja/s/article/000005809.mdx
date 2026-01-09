@@ -1,0 +1,115 @@
+---
+title: "Magic ETLのSQL式 | リファレンス"
+---
+
+### はじめに 
+
+このリファレンスでは、Magic ETLで使用できるSQL式を一覧で示します。特定の式に関する説明や詳細については、Magic ETL UIを参照してください。
+
+Magic ETL DataFlowの作成中にSQLタイルでこれらの式を使用する方法については、 [こちら](/ja/s/article/360044876874#sql_tile) を参照してください。
+
+---
+
+<Note>
+Devido ao tamanho extenso da tabela de referência SQL (mais de 200 expressões), este documento funciona melhor como referência rápida. Para detalhes completos sobre cada expressão, consulte a interface do Magic ETL.
+</Note>
+
+| 式の名前 | 構文 | カテゴリー | Magic on Cloud Computeで利用できるか？ |
+|---|---|---|---|
+|! |! cond | LOGIC | 可能 |
+|!= | X!= Y | LOGIC | 可能 |
+|!~ | X!~ Y | STRING | - |
+|!~* | X!~* Y | STRING | - |
+| () | (expr) | NUMERIC | 可能 |
+| * | X * Y | NUMERIC | 可能 |
+| + | X + Y | NUMERIC | 可能 |
+| - | X - Y | NUMERIC | 可能 |
+| / | X / Y | NUMERIC | 可能 |
+|:: | expr::TYPE | LOGIC | 可能 |
+| \< | X < Y | LOGIC | 可能 |
+| \<= | X \<= Y | LOGIC | 可能 |
+| \<=> | X \<=> Y | LOGIC | - |
+| \<> | X \<> Y | LOGIC | 可能 |
+| = | X = Y | LOGIC | 可能 |
+| > | X > Y | LOGIC | 可能 |
+| >= | X >= Y | LOGIC | 可能 |
+| ABS | ABS(X) | NUMERIC | 可能 |
+| ACOS | ACOS(X) | NUMERIC | - |
+| ADDDATE | ADDDATE(date,INTERVAL expr unit) | TIME | 可能 |
+| ADDTIME | ADDTIME(expr1,expr2) | TIME | 可能 |
+| AND | cond1 AND cond2 | LOGIC | 可能 |
+| AVG | AVG(expr) | NUMERIC | 可能 |
+| CASE | CASE WHEN cond1 THEN expr1 WHEN condN THEN exprN ELSE elseExpr END | LOGIC | 可能 |
+| CAST | CAST(expr AS type) | LOGIC | 可能 |
+| CEIL | CEIL(X) | NUMERIC | 可能 |
+| COALESCE | COALESCE(value,...) | LOGIC | 可能 |
+| CONCAT | CONCAT(str1,str2,...) | STRING | 可能 |
+| COUNT | COUNT(expr) | NUMERIC | 可能 |
+| CURDATE | CURDATE() | TIME | 可能 |
+| CURRENT_DATE | CURRENT_DATE() | TIME | 可能 |
+| CURRENT_TIME | CURRENT_TIME() | TIME | 可能 |
+| CURRENT_TIMESTAMP | CURRENT_TIMESTAMP() | TIME | 可能 |
+| DATE | DATE(expr) | TIME | 可能 |
+| DATE_ADD | DATE_ADD(date,INTERVAL expr unit) | TIME | 可能 |
+| DATE_FORMAT | DATE_FORMAT(date, format) | TIME | 可能 |
+| DATE_SUB | DATE_SUB(date,INTERVAL expr unit) | TIME | 可能 |
+| DAY | DAY(date) | TIME | 可能 |
+| FLOOR | FLOOR(X) | NUMERIC | 可能 |
+| GROUP_CONCAT | GROUP_CONCAT([DISTINCT] str1,str2,...[SEPARATOR sep]) | STRING | 可能 |
+| HOUR | HOUR(time) | TIME | 可能 |
+| IFNULL | IFNULL(expr1,expr2) | LOGIC | 可能 |
+| IN | expr1 IN (expr2,expr3,...) | LOGIC | 可能 |
+| INITCAP | INITCAP(str) | STRING | 可能 |
+| INSTR | INSTR(str,substr) | STRING | 可能 |
+| IS NULL | expr IS NULL | LOGIC | 可能 |
+| LAST_DAY | LAST_DAY(date) | TIME | 可能 |
+| LCASE | LCASE(str) | STRING | 可能 |
+| LEFT | LEFT(str,len) | STRING | 可能 |
+| LENGTH | LENGTH(str) | STRING | 可能 |
+| LOWER | LOWER(str) | STRING | 可能 |
+| MAX | MAX(expr) | NUMERIC | 可能 |
+| MEDIAN | MEDIAN(expr) | STATISTICAL | 可能 |
+| MIN | MIN(expr) | NUMERIC | 可能 |
+| MINUTE | MINUTE(time) | TIME | 可能 |
+| MOD | MOD(N,M) | NUMERIC | 可能 |
+| MONTH | MONTH(date) | TIME | 可能 |
+| NOT | NOT cond | LOGIC | 可能 |
+| NOW | NOW() | TIME | 可能 |
+| NULL | NULL | LOGIC | 可能 |
+| NULLIF | NULLIF(expr1,expr2) | LOGIC | 可能 |
+| OR | cond1 OR cond2 | LOGIC | 可能 |
+| PERCENTILE | PERCENTILE(expr, ntile) | STATISTICAL | 可能 |
+| POW | POW(X,Y) | NUMERIC | 可能 |
+| POWER | POWER(X,Y) | NUMERIC | 可能 |
+| QUARTER | QUARTER(date) | TIME | 可能 |
+| RAND | RAND([N]) | NUMERIC | 可能 |
+| REGEXP_REPLACE | REGEXP_REPLACE(str,pat,repl[,flags]) | STRING | 可能 |
+| REPLACE | REPLACE(str,from_str,to_str) | STRING | 可能 |
+| RIGHT | RIGHT(str,len) | STRING | 可能 |
+| ROUND | ROUND(X[,D]) | NUMERIC | 可能 |
+| ROW_NUMBER | ROW_NUMBER() | LOGIC | 可能 |
+| SECOND | SECOND(time) | TIME | 可能 |
+| SPLIT_PART | SPLIT_PART(str,sep,N) | STRING | 可能 |
+| SQRT | SQRT(X) | NUMERIC | 可能 |
+| STD | STD(expr) | STATISTICAL | 可能 |
+| STDDEV | STDDEV(expr) | STATISTICAL | 可能 |
+| STRING | STRING(expr) | STRING | 可能 |
+| SUBSTRING | SUBSTRING(str,pos[,len]) | STRING | 可能 |
+| SUM | SUM(expr) | NUMERIC | 可能 |
+| SYSDATE | SYSDATE() | TIME | 可能 |
+| TIME | TIME(expr) | TIME | 可能 |
+| TIMESTAMP | TIMESTAMP(expr) | TIME | 可能 |
+| TRIM | TRIM([\{BOTH \| LEADING \| TRAILING} [remstr] FROM] str) | TIME | 可能 |
+| TRUNCATE | TRUNCATE(X,D) | NUMERIC | 可能 |
+| UCASE | UCASE(str) | STRING | 可能 |
+| UNIX_TIMESTAMP | UNIX_TIMESTAMP([date]) | TIME | 可能 |
+| UPPER | UPPER(str) | STRING | 可能 |
+| VARIANCE | VARIANCE(expr) | STATISTICAL | 可能 |
+| WEEK | WEEK(date[,mode]) | TIME | 可能 |
+| YEAR | YEAR(date) | TIME | 可能 |
+
+<Note>
+**注記:** この表は最も一般的に使用される式を示しています。完全なリストと各式の詳細な説明については、Magic ETL UIを参照してください。
+</Note>
+
+[このページのトップへ](#intro)

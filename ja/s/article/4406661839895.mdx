@@ -1,0 +1,45 @@
+---
+title: "AirNowコネクター"
+---
+
+## はじめに
+
+AirNowは、2,000を超える監視ステーションからリアルタイムの大気質の観測を取得し、北米の300を超える都市の予測を収集しています。DomoのAirNowコネクターを使用すると、Domoからこの大気質の観測と予測にアクセスできます。
+
+AirNow DataSetの作成は、Data Centerで行います。
+
+AirNow コネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+AirNow アカウントには、Data Centerから接続します。このトピックでは、 AirNow コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 主な使用事例 </b></td><td class="mt-noheading" colspan="1" rowspan="1"> このコネクターを使用すると、 <span> 大気質の観測 </span> に関するリアルタイムデータを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"><b> 主なメトリクス </b></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> 経度/緯度別の観測と予測 </li><li> 郵便番号別の観測と予測 </li><li> 過去の観測 </li><li><span> 地理的境界ボックス別の監視場所 </span></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 社内における主な権限 </b></td><td colspan="1" rowspan="1"><ul><li> 災害管理部門 </li><li> 気象制御部門 </li><li><span class="mt-color-333333"><span class="mt-font-Open Sans,sans-serif"><span class="mt-font-size-10.5pt"> 気象データをビジネスパフォーマンスと関連付けて有益なビジネスインテリジェンスを取得したいと考えている組織内のビジネス部門 </span></span></span></li><li><span class="mt-color-333333"><span class="mt-font-Open Sans,sans-serif"><span class="mt-font-size-10.5pt"> 特定の場所、地域、地理的領域に関連付けられた気象データを必要とする個人または企業 </span></span></span></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 平均導入時間 </b></td><td class="mt-noheading" colspan="1" rowspan="1"> 10分未満 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></td><td colspan="1" rowspan="1"> 2 </td></tr></tbody></table>
+
+## 必要条件
+
+AirNowアカウントに接続してDataSetを作成するには、AirNow APIキーが必要です。
+
+APIキーは、https://docs.airnowapi.org/account/request/ でリクエストできます。
+
+## AirNowアカウントに接続する
+
+このセクションでは、AirNowコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、AirNowアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"><span> AirNow APIキーを入力します。APIキーは、 <a href="https://docs.airnowapi.org/account/request/" target="_blank"> https://docs.airnowapi.org/account/request/ </a> でリクエストできます。 </span></td></tr></tbody></table>
+
+有効なAirNow認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAirNow DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAirNow <font color="#ff0000"></font> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Current Observations by Reporting Area by Latitude/Longitude </td><td colspan="1" rowspan="1"> 緯度、経度、距離（オプション）を取得し、現在の大気質の観測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Current Observations by Reporting Area by Zip code </td><td colspan="1" rowspan="1"> 郵便番号と距離（オプション）を取得し、現在の大気質の観測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecasts by Latitude/Longitude </td><td colspan="1" rowspan="1"> 緯度、経度、日付（オプション）、距離（オプション）を取得し、大気質の予測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecasts by Zip code </td><td colspan="1" rowspan="1"> 郵便番号、日付（オプション）、距離（オプション）を取得し、大気質の予測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Historical Observations by Reporting Area by Latitude/Longitude </td><td colspan="1" rowspan="1"> 緯度、経度、日付、距離（オプション）を取得し、その日付のピークの大気質の観測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Historical Observations by Reporting Area by Zip code </td><td colspan="1" rowspan="1"> 郵便番号、日付、距離（オプション）を取得し、その日付のピークの大気質の観測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Observations by Monitoring Site by Geographical bounding box </td><td colspan="1" rowspan="1"> 地理的境界ボックス、開始日時と終了日時（オプション）、パラメーターのリスト、データタイプ（AQIまたは濃度）を取得し、監視場所別の観測データを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><span> Zip Code </span></td><td colspan="1" rowspan="1"> 郵便番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Distance </td><td colspan="1" rowspan="1"> 距離を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Latitude </span></td><td colspan="1" rowspan="1"> 緯度の値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Longitude </span><span><br/></span></td><td colspan="1" rowspan="1"> 経度の値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> UTC for Start Date </span><span><br/></span></td><td colspan="1" rowspan="1"> 開始日のUTC時間を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> UTC for End Date </span><span><br/></span></td><td colspan="1" rowspan="1"> 終了日のUTC時間を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Northern Border </span><span><br/></span></td><td colspan="1" rowspan="1"> 北部境界線の値を入力します。最大値は180、最小値は-180です。 </td></tr><tr><td colspan="1" rowspan="1"><span> Western Border </span><span><br/></span></td><td colspan="1" rowspan="1"> 西部境界線の値を入力します。最大値は90、最小値は-90です。 </td></tr><tr><td colspan="1" rowspan="1"><span> Eastern Border </span><span><br/></span></td><td colspan="1" rowspan="1"> 東部境界線の値を入力します。最大値は90、最小値は-90です。 </td></tr><tr><td colspan="1" rowspan="1"><span> Southern Border </span><span><br/></span></td><td colspan="1" rowspan="1"> 南部境界線の値を入力します。最大値は180、最小値は-180です。 </td></tr><tr><td colspan="1" rowspan="1"><span> Parameters </span><span><br/></span></td><td colspan="1" rowspan="1"> パラメーターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Monitor Type </span><span><br/></span></td><td colspan="1" rowspan="1"> 永続モニター、モバイルモニター、またはすべてのモニタータイプのいずれを使用するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Data Type </span><span><br/></span></td><td colspan="1" rowspan="1"> データタイプ（AQI、濃度、またはその両方）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Verbose </span><span><br/></span></td><td colspan="1" rowspan="1"> 詳細出力を使用するかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Include Raw Concentration </span><span><br/></span></td><td colspan="1" rowspan="1"> 未加工の濃度を含めるかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から指定した日数を遡った相対的な日付かを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <span></span><b> ［Days Back］ </b><span></span> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b> ［End Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b> ［Start Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

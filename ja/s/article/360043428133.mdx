@@ -1,0 +1,44 @@
+---
+title: "再帰的/スナップショットSQL DataFlowを作成する"
+---
+
+「再帰的」または「スナップショット」DataFlowとは、自らを入力として使用するDataFlowのことです。
+
+DataFlow（SQL型もETL型も）は、コネクターのようにネイティブにデータを追加できません。ただし、データを追加するDataFlowを作成する必要がある場合は、それを一度実行し、その出力を次の実行のための入力の一部として使用することで可能になります。このようにして、DataFlowが実行されるたびに、その前のデータが追加され、新しいデータもそれ自身に追加されます。
+
+<Warning>
+  **重要：** 再帰的DataFlowの編集に誤りがあると、これまでのデータがすべて失われることがあります。編集中にこれを回避するには、履歴DataSetのコピーである追加のDataSetを作成してください。このDataSetは静的な状態のままになります。これまでのDataSetに何らかの問題が発生した場合に、編集前にコピーしたDataSetをバックアップとして使用できます。
+
+</Warning>
+
+**動画 - 再帰的なDataFlowとは？**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/VkM5VznEzi8" width="560"></iframe>
+
+**再帰的なSQL DataFlowを作成するには：**
+
+1. SQL DataFlowを作成して実行します。
+     
+   出力DataSetのクエリは次のようになります。 `SELECT * FROM your-input-DataSet`
+     
+   <Frame><img alt="recursive_sql1.png" src="/images/kb/ka05w00000123jI-00N5w00000Ri7BU-0EM5w000005vOvj.png" style={{width: 801, height: 726}}/></Frame>
+2. DataFlowを実行したら、出力DataSetを入力DataSetとして読み込みます。
+     
+   出力タイルには出力DataSetの名前の後に「1」が表示されます。
+     
+   <Frame><img alt="recursive_sql2.png" src="/images/kb/ka05w00000123jI-00N5w00000Ri7BU-0EM5w000005vOvo.png" style={{width: 800, height: 698}}/></Frame>
+   DataFlowに2つのDataSet（更新元の DataSetと履歴のDataSet）がなければなりません。
+3. 制約として使用する列を見つけます。これは、いつ履歴DataSetの中のデータを新しいデータに置換するかを決定する際に役に立ちます。制約列は通常、ID列、日付列、ほかの一意の識別子のいずれかです。この例では、「日付」列を制約として使用します。
+     
+   クエリは以下のようになります。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123jI-00N5w00000Ri7BU-0EM5w000005vOvi.png" style={{width: 799, height: 395}}/></Frame>
+4. データをフィルターし、元のDataSetに存在しない履歴データを取得します。
+5. 新しいDataSetと履歴DataSetを組み合わせます。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123jI-00N5w00000Ri7BU-0EM5w000005vOvl.png" style={{width: 799, height: 401}}/></Frame>
+6. 新しいデータを履歴DataSetとともに追加します。
+7. ステップ1で作成した出力と同じものを使用してデータを出力します。新しい出力を作成する必要はありません。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123jI-00N5w00000Ri7BU-0EM5w000005vOvk.png" style={{width: 801, height: 411}}/></Frame>
+日本語

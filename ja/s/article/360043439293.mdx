@@ -1,0 +1,69 @@
+---
+title: "DomoStats - DataSetとDataFlow"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+DomoStatsでは、チームによるDomoの使用状況を詳細に確認できます。DomoStatsは設定なしのライブのDomo DataSetを使用しているため、表示するメトリックのカード、アラート、ワークフローを簡単に作成したり、作成済みのダッシュボードを使用したりできます。
+
+DomoStats Appは、貴社のDataSetとDataFlowに対する重要なインサイトをもたらします。データを常に最新にして、最も関連性の高い最新情報が含まれるようにしてください。このDomoStat Appを使用して、DataSetとDataFlowの成功率を監視し、DataSetを実行できなかったりしたときに通知を受け取り、さらに、孤立、重複、または損傷したDataSetを特定し、Domoインスタンスから不要なデータや不適切なデータを排除することができます。
+
+##### 動画 - DomoStats DataSetとDataFlowの概要
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/Rjpam-JPv-M" width="560"></iframe>
+
+## 要件
+
+AppStoreからのダウンロードには、管理者レベルのアクセス権が必要です。
+
+## DomoStatsアプリを使用する
+
+作成済みのダッシュボードを使用することも、Data CenterのDomoStats DataSetを使用して、独自のコンテンツを作成することもできます。アプリを初めてダウンロードするときには、「DomoStats - DataSetとDataFlow」というタイトルの新しいページが作成されます。次の手順に従って、ダッシュボードにデータを入力します。
+
+1. ****[DomoStats
+     - DataSetとDataFlow]****
+   ページに移動します。
+2. ****[データを接続]**** を選択します。
+     
+   <Frame><img alt="DomoStats_-_DF_DS_-_Connect_Data.png" src="/images/kb/ka05w000001230R-00N5w00000Ri7BU-0EM5w000005vNq4.png"/></Frame>
+3. ドロップダウンで ****[接続]**** を選択してページをDomoStats DataSetに接続するか、別のDomoユーザーにデータの設定を割り当てる場合は ****[割り当て]**** を選択します。
+     
+   ![]()
+
+   <Frame><img alt="DomoStats_-_DataSet_Connect.png" src="/images/kb/ka05w000001230R-00N5w00000Ri7BU-0EM5w000005vNq5.png"/></Frame>
+4. 最後のウィンドウで、 **[接続]** を選択します。
+     
+   <Columns>
+     <Frame><img src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq7.png" /></Frame>
+     <Frame><img alt="" src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq7.png"/></Frame>
+   </Columns>
+## ダッシュボード
+
+### データ
+
+次のデータが「DomoStats - DataSetとDataFlow」Appに含まれ、「DomoStats」タイプDataSetとしてData Centerに存在します。
+
+DataFlowには、次のものが含まれます。
+
+* DomoStats - DataSetとDataFlow（所有者付き）v3
+* DomoStats - DataSetとDataFlow履歴（DataSet名と所有者付き）v3
+* DomoStats- DataSet（所有者付き）v3
+
+<Note>
+  **注記：** アプリを作成する全てのDataSetが1日に1回実行されます。実行時間は、アプリが最初に導入された時間から24時間ごとになります。実行頻度は変更できませんが、DataSet設定で実行時間を編集できます。DataSetをスケジュールする方法についての詳細は、「 [DataSetスケジュール](/s/article/360042926274) 」を参照してください。
+
+</Note>
+
+### カード
+
+作成済みダッシュボードには、次のカードが含まれています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><tbody><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"><b> コレクション </b></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><b> カード </b></td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="6"> データ品質 </td><td class="mt-noheading" colspan="1" rowspan="1"> 平均的なオブジェクト状態 </td><td class="mt-noheading" colspan="1" rowspan="1"> Domoインスタンス全体の平均的なオブジェクト状態のスコアを表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 良好でないオブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> 状態が100%を下回るDataSetを表示します。各DataSetの最初のスコアは100%です。状態の各カテゴリのポイントごとに、DataSetの状態のスコアが10%減点されます。<div class="mdx-embed"><Note><p><b> 注記 </b> ：このカードのポイントシステムについての詳細は、ダウンロードしたカードの説明を参照してください。 </p></Note></div></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 破損オブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> 最終実行時に破損または破損していないと分類されたDataSetとDataFlowの数を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> スケジュール遅延オブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> スケジュールされた期間内に更新されなかったDataSetとDataFlowの数。これらのオブジェクトは正常に実行されたように表示されることがありますが、実際にはスケジュールが遅延しているため、注意が必要です。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 孤立オブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> 所有者が割り当てられているDataSetとDataFlowの数と所有者が割り当てられていないDataSetとDataFlowの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 重複名 </td><td class="mt-noheading" colspan="1" rowspan="1"> インスタンス内で重複名を共有しているDataSetとDataFlowの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="5"> データの可用性 </td><td class="mt-noheading" colspan="1" rowspan="1"> 優先度が高い破損DataSet </td><td class="mt-noheading" colspan="1" rowspan="1"><p> 最終実行時に「ERROR」または「INVALID」ステータスが表示されたDataSetを、DataSetが提供しているカードの数でソートして表示します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 所有者別破損割合% </td><td class="mt-noheading" colspan="1" rowspan="1"> DataSetとDataFlowの所有者を、現在「ERROR」、「INVALID」、「NOT_RUNNABLE」、「CANCELLED」、「FAILED」、または「REJECTED」のステータスを持つDataSet合計の割合と共に一覧で表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> スケジュールタイプ別の破損オブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> 指定されたスケジュールタイプのDataSetとDataFlowの数と、最終実行時に「ERROR」、「INVALID」、「NOT_RUNNABLE」、「CANCELLED」、「FAILED」、または「REJECTED」ステータスが生成されたオブジェクトの割合を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> コネクタータイプ別の破損オブジェクト </td><td class="mt-noheading" colspan="1" rowspan="1"> DataSetコネクタータイプ別のグループ化を最後に試したときに「ERROR」、「INVALID」、「NOT_RUNNABLE」、「CANCELLED」、「FAILED」、または「REJECTED」ステータスが生成されたDataSetを表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 破損オブジェクトの動向 </td><td class="mt-noheading" colspan="1" rowspan="1"> 「ERROR」、「INVALID」、「NOT_RUNNABLE」、「CANCELLED」、「FAILED」、または「REJECTED」ステータスが報告されているDataSetまたはDataFlowを、スケジュールされた実行タイプ別にグループ化し、最終実行日で区分して表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="5"> データを更新 </td><td class="mt-noheading" colspan="1" rowspan="1"> スケジュールされた更新 </td><td class="mt-noheading" colspan="1" rowspan="1"> 過去7日間にDataSetとDataFlowの更新が開始された日数を表示します。現在のデータを全て含めるために、この日付範囲をAnalyzerで調整することが必要になる場合があります。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 更新の動向 </td><td class="mt-noheading" colspan="1" rowspan="1"> 成功したDataSetとDataFlowの更新の時系列での割合。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 更新の詳細 </td><td class="mt-noheading" colspan="1" rowspan="1"> 選択したデータ範囲の全てのDataSetとDataFlowの更新詳細の履歴を開始時間でソートして表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> コネクター実行時間 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各データインポートタイプのDataSetの実行時間の範囲（分）を表示します。各インポートタイプの全てのDataSetの、最速、最遅、および中央実行時間の内訳が含まれます。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> オブジェクト実行時間 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各DataSetとDataFlowの実行に使用された分数を表示します。各DataSetとDataFlowの、最速、最遅、および中央実行時間の内訳が含まれます。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="8"> データの所有権と専門知識 </td><td class="mt-noheading" colspan="1" rowspan="1"> 非アクティブなユーザー所有権 </td><td class="mt-noheading" colspan="1" rowspan="1"> 30日以上ログインしていないDomoユーザーが所有するオブジェクトの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 上位20人のオブジェクト所有者 </td><td class="mt-noheading" colspan="1" rowspan="1"> 上位20人の各DataSet所有者が所有するDataSetとDataFlowの数を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> コネクタータイプ別の所有者 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各ユーザーが作成したDataSetのDataSetコネクタータイプ別の数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 部署別の所有権 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各部署が所有するオブジェクトの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> コネクタータイプ別の部署 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各部署が作成したDataSetのDataSetコネクタータイプ別の数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ロール別の所有権 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各ロールのユーザーが所有するオブジェクトの数を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> コネクタータイプ別のロール </td><td class="mt-noheading" colspan="1" rowspan="1"> 各ロールが作成した、コネクタータイプ別のDataSetの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> オブジェクトと所有者 </td><td class="mt-noheading" colspan="1" rowspan="1"> インスタンスに保存されている全てのDataSetとDataFlowの詳細を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="6"> データの作成 </td><td class="mt-noheading" colspan="1" rowspan="1"> DataSetの作成動向 </td><td class="mt-noheading" colspan="1" rowspan="1"> 各部署で作成されたDataSetの日別の数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 上位コネクター </td><td class="mt-noheading" colspan="1" rowspan="1"> コネクターインポートタイプ別の既存オブジェクトの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> DataSet累計 </td><td class="mt-noheading" colspan="1" rowspan="1"> インスタンスに作成された全てのDataSetの累計を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 更新されたDataSet行 </td><td class="mt-noheading" colspan="1" rowspan="1"> DataSet上で更新された行の数を時系列で表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 今週の作成者 </td><td class="mt-noheading" colspan="1" rowspan="1"> 今週作成された、DataSet所有者あたりの各種DataSetの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 新しい部署のDataSet </td><td class="mt-noheading" colspan="1" rowspan="1"> 今週作成された、部署別の各種DataSetの数。 </td></tr></tbody></table>
+
+---
+
+DomoStatsアプリは、Domoの使用状況に関する情報を提供するカードからなるダッシュボードです。DataSetとDataFlowを使用して、Data Centerを管理します。データを常に最新にして、最も関連性の高い最新情報が含まれるようにしてください。
+
+日本語

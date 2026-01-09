@@ -1,0 +1,64 @@
+---
+title: "Marketo Dashboard App"
+---
+
+## はじめに
+
+Marketoでは、オートメーション、エンゲージメント、パーソナライゼーション、予算管理などのツールを現代のマーケターに提供しています。Marketo Dashboardを使用すると、リードのトレンド、全体でのクリックスルー率、コンバージョン数、メール開封数、送信数、バウンス数、エンゲージメントなどの主要なマーケティング活動とメトリクスを簡単に確認することができます。
+
+## 要件と注意点
+
+Marketo REST APIが必要です。
+  
+アカウントの認証情報の要件：
+
+* クライアントID
+* クライアントシークレット
+* エンドポイントURL
+* アイデンティティーURL
+
+毎日のAPIの割り当て：10,000 APIコール。
+  
+速度制限：20秒間に100 APIコール。
+  
+過去30日間の利用可能なデータを取得します。
+
+## 使用事例
+
+* エグゼクティブパルス：数メトリクスが常に通知される
+
+  + リード優先度
+  + CTR
+  + メール
+  + リードのトレンド
+  + コンバージョン
+* 配信とバウンス：配信可能性を損なうことなくメールリストを拡大します。
+
+  + 配信
+  + バウンス率
+  + 上位20位のバウンスメール
+  + 上位10位のエンゲージメール
+  + CTOR
+  + 開封
+  + 最もクリックされたリンク
+  + フォーム入力
+  + サブスクリプション解除
+* リードの内訳：リードがどこから発生しているか
+
+  + 業界別リード
+  + 役職別リード
+  + ソース別リード
+  + 状態別リード
+  + リードの詳細
+
+## 認証
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> 認証情報 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Marketoでカスタムサービスを始める際に作成された、クライアントIDです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> カスタムサービスを始める際に作成された、クライアントシークレットです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Endpoint URL </p></td><td colspan="1" rowspan="1"><p> カスタムサービス作成時に提供された、「rest」エンドポイントURLです。例： <a href="https://100-AEK-913.mktorest/com/rest" target="_blank" title="https://100-AEK-913.mktorest/com/rest"> https://100-AEK-913.mktorest/com/rest </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Identity URL </p></td><td colspan="1" rowspan="1"><p> カスタムサービス作成時に提供された、「アイデンティティー」URLです。例： <a href="https://100-AEK-913.mktorest.com/identity" target="_blank" title="https://100-AEK-913.mktorest.com/identity"> https://100-AEK-913.mktorest.com/identity </a></p></td></tr></tbody></table>
+
+## Dashboard Reports
+
+レポートに関する説明は、「 Marketoコネクター 」を参照してください。
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:203;a" width="1558"><thead><tr><th colspan="1" rowspan="1"><p> レポート </p></th><th colspan="1" rowspan="1"><p> スケジュール更新の設定 </p></th><th colspan="1" rowspan="1"><p> パラメーター </p></th><th colspan="1" rowspan="1"><p> 選択 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="2"><p> Leads by Date (Standard Fields) </p></td><td colspan="1" rowspan="2"><p> Replace </p></td><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Leads by Date Modified (with standard Marketo fields) </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> 30 </p></td></tr><tr><td colspan="1" rowspan="3"><p> Clicks, Bounces, Opens, Form Fills, Sends </p></td><td colspan="1" rowspan="3"><p> Replace </p></td><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Leads’ Activities </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Type </p></td><td colspan="1" rowspan="1"><p> Click Email、Click Link、Click Sales Email、Click Shared Link、Email Bounced、Email Bounced Soft、Email Delivered、Fill Out Form、Open Email、Send Email </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> 30 </p></td></tr><tr><td colspan="1" rowspan="3"><p> Unsubscribes </p></td><td colspan="1" rowspan="3"><p> Replace </p></td><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Leads’ Activities </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Type </p></td><td colspan="1" rowspan="1"><p> Click Email、Convert Lead、Email Delivered、Open Email、Unsubscribe Email </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> 30 </p></td></tr></tbody></table>
+
+日本語

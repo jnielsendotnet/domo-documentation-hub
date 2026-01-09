@@ -1,0 +1,78 @@
+---
+title: "Amazon Redshift Partitionコネクター"
+---
+
+## はじめに
+
+Amazon Redshiftは高速で拡張可能なData Warehouseであり、Data Warehouseとデータレイク全体のすべてのデータを簡単かつ費用効果の高い方法で分析できます。DomoではRedshiftのデータを活用することができます。1つのRedshiftデータソースであっても、1000の様々なデータソースであっても、すべてのデータソースをDomoに取り込み、一元化したエクスペリエンスですべてを同時に表示および分析します。データをパーティショニングすることで、各クエリでスキャンされるデータ量を制限することができ、パフォーマンスを向上させ、コストを低減できます。DomoのAmazon Redshift Partitionコネクターを使用すると、Redshiftに直接接続し、提供された過去の日数に基づいてリアルタイムの視覚化で必要な情報を提供できます。このため、分析が簡単になります。Amazon Redshift APIについて詳しくは、製品ドキュメント（ [http://docs.aws.amazon.com/redshift/...\_commands.html](http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html "http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html") ）を参照してください。
+
+Amazon Redshift Partitionコネクターは「データベース」コネクターです。つまり、クエリに基づいてデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで ****［データベース］**** をクリックすることで、これを含む他のデータベースコネクターのページにアクセスできます。
+
+Amazon Redshiftのアカウントには、Data Centerから接続します。このトピックでは、Amazon Redshift Partitionコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table data-aura-rendered-by="33:207;a"><tbody><tr><td colspan="1" rowspan="1"><b><b> 主な使用事例 </b></b></td><td colspan="1" rowspan="1"> Redshift Dara Warehouseまたはデータマートからデータを取得する。 </td></tr><tr><td colspan="1" rowspan="1"><b><b> 主なメトリクス </b></b></td><td colspan="1" rowspan="1"> これは、Redshiftインスタンスに保存されたデータ次第です。 </td></tr><tr><td colspan="1" rowspan="1"><b><b> 社内における主な権限 </b></b></td><td colspan="1" rowspan="1"><ul><li><p> BIリード </p></li><li><p> IT権限 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><b><b> 平均導入時間 </b></b></td><td colspan="1" rowspan="1"> 設定と、取得するデータ量により、5時間から40時間です。 </td></tr><tr><td colspan="1" rowspan="1"><b><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></b></td><td colspan="1" rowspan="1"> 6 </td></tr></tbody></table>
+
+## ベストプラクティス
+
+結果セットのサイズをできる限り制限します。データの取得速度を高めるには、「フェッチサイズ」を増加できます。しかし、あまり大きなサイズにすると、コネクター実行の失敗が発生し、Redshiftインスタンスのパフォーマンスに問題が生じる可能性があります。まずは400から始めるのが適切でしょう。
+
+## 必要条件
+
+Redshiftデータベースに接続し、DataSetを作成するには、以下が必要です。
+
+* Redshiftデータベースのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：
+  [db.company.com](http://db.company.com) ）。
+* データベースのポート番号
+* データベース名
+
+CA証明書テキストまたはURLパスは、 ****［証明書書式］**** メニューでそれぞれ ****［証明書文字列］**** または ****［URLパス］**** を選択する場合 **のみ** 必要になります。
+
+### Redshiftアカウントを作成する
+
+Redshiftユーザーアカウントを作成するには、Redshiftデータベース管理者（DBA）に連絡し、以下を行ってもらいます。
+  
+デフォルトでは、クラスターを起動したときに作成したマスターユーザーのみがクラスターの初期データベースにアクセスできます。ほかのユーザーにアクセス権を付与するには、1つ以上のユーザーアカウントを作成する必要があります。データベースのユーザーアカウントは、個々のデータベースに属するものではなく、クラスター内のデータベースすべてにわたって使用できます。
+  
+CREATE USERコマンドを使用して、データベースの新規ユーザーを作成します。新規ユーザーを作成する際に、新規ユーザーの名前とパスワードを指定します。パスワードは必須です。8から64文字で、また大文字と小文字、数字がそれぞれ1つ以上含まれている必要があります。
+  
+例えば、ユーザー名をGUESTにし、パスワードをABCd4321にする場合、次のコマンドを使います。
+  
+`create user guest password 'ABCd4321';`
+
+### IPアドレスをホワイトリストに登録する
+
+また、Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Redshiftアカウントに接続する
+
+このセクションでは、Amazon Redshift Partitionコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Redshiftデータベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBCドライバー </td><td colspan="1" rowspan="1"> 接続に使用するJDBCドライバーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> SQLデータベースに接続するためのホスト文字列を入力します。例： <span class="mt-font-courier-new"> // <a href="http://examplecluster.cpdbcwb2mzr4.us-east-2.redshift.amazonaws.com" rel="noopener" target="_blank"> examplecluster.cpdbcwb2mzr4.us-east-2.redshift.amazonaws.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> データベース </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> Redshiftユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Redshiftパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベースポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書書式 </td><td colspan="1" rowspan="1"> 証明書書式を選択します。証明書を含めない場合は、 <b><b> ［証明書なし］ </b></b> を選択します。 <b><b> ［証明書文字列］ </b></b> を選択する場合は、証明書用テキストを <b><b> ［証明書］ </b></b> フィールドに貼り付ける必要があります。 <b><b> ［URLパス］ </b></b> を選択する場合は、証明書がある場所のURLを <b><b> ［証明書］ </b></b> フィールドに入力する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書 </td><td colspan="1" rowspan="1"> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b> ［証明書書式］ </b> メニューで <b> ［証明書なし］ </b> を選択します。 </td></tr></tbody></table>
+
+有効な Redshift 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Amazon Redshift Partition DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。特定のデータベース表とパーティション列の名前を選択できます。データを取得する過去の日数も指定できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。例： <span class="mt-font-courier-new"> select * from Employee </span></td></tr><tr><td colspan="1" rowspan="1"> データベース表 </td><td colspan="1" rowspan="1"> レポートに表示するデータベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b> yyyy-MM-dd </b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付 </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> フェッチサイズ </td><td colspan="1" rowspan="1"> メモリのパフォーマンスのフェッチサイズを入力します。空白の場合、デフォルト値は400です。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+接続問題が発生した場合は、
+
+* pgAdminを使用して接続を確認します。
+* 必要なすべてのDomo IPがホワイトリストに登録されていることを確認します（上述の「
+  [IPアドレスをホワイトリストに登録する](#h_01EFFRW6HRBRRN2PQKB90H9HTH "Amazon Redshift Partitionコネクター") 」を参照してください）。
+* SQLクエリでプロファイルを実行します。
+
+

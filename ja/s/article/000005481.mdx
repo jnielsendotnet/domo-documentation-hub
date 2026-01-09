@@ -1,0 +1,37 @@
+---
+title: "JSON Easyコネクター"
+---
+
+## はじめに
+
+JavaScript Object Notation（JSON）は、使いやすい軽量のデータ交換フォーマットです。Domo JSON Easyコネクターを使用すると、JSONファイルからテキストボックスにカット＆ペーストして、JSONデータを新しいDomoデータソースとしてインポートできます。Domo JSON Advancedコネクターを使うと、より高度なJSONファイルのアップロードが行えるようになります。
+
+JSONコネクターは、有効なJSONフォーマットのテキストを解析することができます。JSONコネクターは、入力としてJSONテキストのみを受け入れます。より高度な機能が必要な場合（JSONリソースを取得するためのFTP/SFTPサーバーへの接続やHTTP/HTTPS JSONリソースへの接続など）は、 [JSON Advanced](https://wikidev.domo.com/confluence/display/CON/JSON+Advanced+Feasibility "JSON Advanced")
+
+コネクターを参照してください。
+
+JSON Easyアカウントには、Data Centerから接続できます。このトピックでは、JSON Easyコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+JSON Easyアカウントに接続したり、DataSetを作成したりするための必要条件はありません。
+
+## JSON Easyアカウントに接続する
+
+JSONコネクターには認証は必要ありません。
+
+このセクションでは、JSON Easyコネクターページの **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このコネクターを作成するために認証情報は必要ありません。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054?language=en_US "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Paste Your JSON Text Here </p></td><td colspan="1" rowspan="1"><p> ファイルからJavaScript Object Notation（JSON）テキストをコピーし、表示されたテキストボックスに貼り付けます。 <br/><br/> 200万文字を超えるファイルの場合は、FTP/SFTPファイルアップロードを使用することを推奨します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require A Line Reader? </p></td><td colspan="1" rowspan="1"><p> JSONテキストから連続した行を読み込む場合は、［Yes］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should The Backlash Be Escaped? </p></td><td colspan="1" rowspan="1"><p> エスケープする必要のあるバックスラッシュがJSONテキストにある場合は、［Yes］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Additional Options? </p></td><td colspan="1" rowspan="1"><p> ヘッダータグまたはデータタグを指定したり、特定のフィールドを除外したりする場合は、［Yes］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Header Tag </p></td><td colspan="1" rowspan="1"><p> JSONテキストのヘッダーのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Data Tag </p></td><td colspan="1" rowspan="1"><p> JSONのデータのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields To Exclude </p></td><td colspan="1" rowspan="1"><p> JSONインポートで除外したいフィールドを、カンマ区切りのリストとして指定します。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

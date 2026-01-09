@@ -1,0 +1,40 @@
+---
+title: "Kapostコネクター"
+---
+
+## はじめに
+
+Kapostは、ウェブサイトコンテンツを簡単に作成および管理できるウェブコンテンツマーケティングプラットフォームです。Kapost APIの詳細については、Kapostのウェブサイト（ [https://developer.kapost.com/](https://developer.kapost.com/ "https://developer.kapost.com/") ）を参照してください。
+
+Kapostアカウントには、Data Centerから接続します。このトピックでは、Kapostコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Kapostアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Kapostのユーザー名とパスワード
+* 会社のKapostインスタンスのURL
+
+## Kapostアカウントに接続する
+
+このセクションでは、Kapostコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Kapostアカウントにアクセスする認証情報の入力フィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b></b> Kapost URL </p></td><td colspan="1" rowspan="1"><p> Kapost URL（ <a href="https://xyzinc.kapost.com" target="_blank" title="https://xyzinc.kapost.com"> https://xyzinc.kapost.com </a> ）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Kapostのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Kapostのパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なKapost認証情報を一度入力しておくと、随時同じアカウントを使用して新しいKapost DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するKapostレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Campaigns </p></td><td colspan="1" rowspan="1"><p> キャンペーンリソースのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Comments </p></td><td colspan="1" rowspan="1"><p> 指定したキャンペーンのアクティビティフィードを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Reminders </p></td><td colspan="1" rowspan="1"><p> 指定したキャンペーンのリマインダーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Tasks </p></td><td colspan="1" rowspan="1"><p> 指定したキャンペーンのタスクのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content </p></td><td colspan="1" rowspan="1"><p> コンテンツリソースのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Analytics </p></td><td colspan="1" rowspan="1"><p> コンテンツ分析を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Comments </p></td><td colspan="1" rowspan="1"><p> 指定したコンテンツのアクティビティフィードを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Reminders </p></td><td colspan="1" rowspan="1"><p> 指定したコンテンツのリマインダーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Tasks </p></td><td colspan="1" rowspan="1"><p> 指定したコンテンツのタスクのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content Visibility </p></td><td colspan="1" rowspan="1"><p> 指定したコンテンツのすべてのインスタンスメンバー（および対象となるグループ）および可視性と通知設定をリストにして取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Fields </p></td><td colspan="1" rowspan="1"><p> 現在のインスタンスのカスタムフィールドのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ideas </p></td><td colspan="1" rowspan="1"><p> アイディアリソースのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ideas Comments </p></td><td colspan="1" rowspan="1"><p> 指定したアイディアのアクティビティフィードを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Content ID </p></td><td colspan="1" rowspan="1"><p> データを取得したいコンテンツのコンテンツIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Idea ID </p></td><td colspan="1" rowspan="1"><p> データを取得したいアイディアのアイディアIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Slug </p></td><td colspan="1" rowspan="1"><p> データを取得したいキャンペーンを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

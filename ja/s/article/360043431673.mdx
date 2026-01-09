@@ -1,0 +1,43 @@
+---
+title: "OpenXコネクター"
+---
+
+## はじめに
+
+OpenXはオープンソースの広告プラットフォームです。統合されたバナー管理インターフェースと追跡システムを備えており統計を収集します。OpenX APIの詳細については、OpenXのWebサイト（ [https://docs.openx.com/Content/developers/about\_topics\_dev.html](http://www.openx.com/community/developers) ）を参照してください。
+
+OpenXアカウントには、Data Centerから接続します。このトピックでは、OpenXコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+OpenXアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* OpenXアドサーバーのホスト名またはIPアドレス。ホスト名にはAPIパッケージのディレクトリ名を含める必要があります。例：
+
+  http:///openx/www/api/v1/xmlrpc/
+* OpenXアカウントのログインに使用するユーザー名。このユーザー名のユーザーは管理者ユーザーでなければなりません。
+* OpenXアカウントのパスワード
+
+## OpenXアカウントに接続する
+
+このセクションでは、OpenXコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、OpenXアカウントに接続する認証情報の入力フィールドが含まれています。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> OpenXアドサーバーのホスト名またはIPアドレスを入力します。ホスト名にはAPIパッケージのディレクトリ名を含める必要があります。例： <span class="nowiki"><span class="mt-font-courier-new"><a href="http:///openx/www/api/v1/xmlrpc/" rel="noopener" target="_blank"> http:///openx/www/api/v1/xmlrpc/ </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> OpenXユーザー名を入力します。このユーザー名のユーザーは管理者ユーザーでなければなりません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> OpenXパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なOpenX認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOpenX DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するOpenXレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Advertisers List </p></td><td colspan="1" rowspan="1"><p> 広告主のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advertiser Stats </p></td><td colspan="1" rowspan="1"><p> 選択した広告主の統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Agencies List </p></td><td colspan="1" rowspan="1"><p> エージェンシーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Agency Stats </p></td><td colspan="1" rowspan="1"><p> 選択したエージェンシーの統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Banners List </p></td><td colspan="1" rowspan="1"><p> バナーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Banner Stats </p></td><td colspan="1" rowspan="1"><p> 選択したバナーの統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaigns List </p></td><td colspan="1" rowspan="1"><p> キャンペーンのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Stats </p></td><td colspan="1" rowspan="1"><p> 選択したキャンペーンの統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publishers List </p></td><td colspan="1" rowspan="1"><p> パブリッシャーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher Stats </p></td><td colspan="1" rowspan="1"><p> 選択したパブリッシャーの統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zones List </p></td><td colspan="1" rowspan="1"><p> ゾーンのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Zone Stats </p></td><td colspan="1" rowspan="1"><p> 選択したゾーンの統計データを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Agency Name </p></td><td colspan="1" rowspan="1"><p> データを取得するエージェンシーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advertiser </p></td><td colspan="1" rowspan="1"><p> データを取得する広告主を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> キャンペーン </p></td><td colspan="1" rowspan="1"><p> データを取得するキャンペーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Publisher </p></td><td colspan="1" rowspan="1"><p> データを取得するパブリッシャーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group By </p></td><td colspan="1" rowspan="1"><p> レポートデータの集計方法を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Past Days </p></td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

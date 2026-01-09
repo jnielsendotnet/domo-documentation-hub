@@ -1,0 +1,45 @@
+---
+title: "IBM Informix Partitionコネクター"
+---
+
+## はじめに
+
+IBM Informixは、高速でスケーラブルなデータベースサーバーであり、従来のリレーショナルデータベース、オブジェクトリレーショナルデータベース、ディメンションデータベースを管理できます。パーティショニングをすると、ビジネスインテリジェントなクエリのパフォーマンスを向上できます。DomoのIBM Informix Partitionコネクターを使用すると、指定した過去日数にもとづいてIBM InformixデータをDomoに取り込むことができます。Informixについての詳細は、 [https://www.ibm.com/analytics/us/en/...logy/informix/](https://www.ibm.com/analytics/us/en/technology/informix/ "https://www.ibm.com/analytics/us/en/technology/informix/") を参照してください。
+
+Informixデータには、Data Centerから接続します。このトピックでは、IBM Informix Partitionコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Informixアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Informixデータベースのログインに使用するユーザー名とパスワード
+* Informixデータベースホスト名またはIPアドレス
+* Informixデータベースのポート番号
+* Informixデータベース名
+* Informixサーバー名
+
+また、Informixデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [ネットワーク接続にDomoのIPアドレスを許可する](/ja/s/article/360043630093 "ネットワーク接続にDomoのIPアドレスを許可する") 」を参照してください。
+
+## Informixアカウントに接続する
+
+このセクションでは、 IBM Informix Partitionコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Informixアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Informixユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Informixパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Informixデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Informixサーバーのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Informixデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Server </td><td colspan="1" rowspan="1"> Informixサーバーの名前を入力します。 </td></tr></tbody></table>
+
+有効なInformix認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいIBM Informix Partition DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、InformixSQLクエリを作成して、データベースからデータを取得します。特定のデータベース表とパーティション列の名前を選択できます。データを取得する過去の日数も指定できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。例： <span class="mt-font-courier-new"> select * from Employee </span></td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> レポートに表示するデータベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xはプラスの整数です。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b> yyyy-MM-dd </b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

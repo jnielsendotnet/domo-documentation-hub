@@ -1,0 +1,68 @@
+---
+title: "カスタムAppのトラブルシューティング"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+この記事では、カスタムAppに関する一般的な問題のトラブルシューティング手順について説明します。
+
+以下のリストからトピックを選択してください。
+
+* [データの問題を確認する](#check_data_issues)
+* [デベロッパーツールを確認する](#check_developer_tools)
+* [エンジニアリングサービスに問い合わせる](#contact_engineering_services)
+
+## データの問題を確認する
+
+DataSetマッピングを確認して、Appが必要とするすべての列が、Appにデータを供給しているDomo DataSetにマッピングされていることを確認します。以下の手順に従ってください。
+
+1. Appのカードの上にマウスポインターを合わせて
+   <InlineImage src="/images/kb/ja/ka0Vq000000CLqK-00N5w00000Ri7BU-0EM5w000006uSGY.jpg" /> **［カードのオプション］** を表示します。
+2. <InlineImage src="/images/kb/ja/ka0Vq000000CLqK-00N5w00000Ri7BU-0EM5w000006uSGY-1.jpg" /> **［カードのオプション］**
+ > **［カードを編集］** の順に選択します。Appエディターが表示されます。
+3. 下にスクロールして、Appにデータを供給しているDataSetのリストを表示します。
+
+   <Frame><img alt="app datasets.jpg" src="/images/kb/ka05w0000012BmO-00N5w00000Ri7BU-0EM5w000006uSGi.jpg" style={{width: 800.981, height: 183.993}}/></Frame>
+4. 各アイテムにDomo DataSetが選択されていて、フィールドがDataSetの列にマッピングされていることを確認します。
+
+* 列タイプを確認する
+
+  + Appの列は、テキスト、日付、数値などの特定のデータタイプである必要があります。Appにデータを供給しているDataSetの各列が、サンプルのDataSetスキーマと一致していることを確認します。
+* 有効な列名を使用する
+
+  + 列名に特殊文字（特にピリオド）は使用しません。
+* データを確認して値が適切な範囲内にあることを確認します。
+* データを確認して不必要なNULL値がないことを確認します。
+* DataFlow出力を使ってAppを起動する場合、DataFlowデータタイプのミスマッチがないか確認してください。
+* ExcelやODBCなどのDataSetソースからDomo DataSetに渡すことができたはずの長さ0の文字をチェックします。長さ0の文字はMySQL DataFlowで削除できます。
+
+## デベロッパーツールを確認する
+
+以下の手順を実行するには、Google Chromeブラウザーを使用している必要があります。
+
+1. Appのカードの上にマウスポインターを合わせて
+   <InlineImage src="/images/kb/ja/ka0Vq000000CLqK-00N5w00000Ri7BU-0EM5w000006uSGY-2.jpg" /> **［カードのオプション］** を表示します。
+2. <InlineImage src="/images/kb/ja/ka0Vq000000CLqK-00N5w00000Ri7BU-0EM5w000006uSGY-3.jpg" /> **［カードのオプション］**
+ > **［詳細］** を選択します。Appの詳細ビューが表示されます。
+3. ページを右クリックして **［検証］** を選択します。検証ツールが表示されます。
+
+   <Frame><img alt="Screenshot 2023-04-12 at 6.04.27 PM.png" src="/images/kb/ka05w0000012BmO-00N5w00000Ri7BU-0EM5w000006uSGn.jpg" style={{width: 753.993, height: 451.979}}/></Frame>
+4. ツールの **［Network］** タブに移動します。
+
+   <Frame><img alt="select network.jpg" src="/images/kb/ka05w0000012BmO-00N5w00000Ri7BU-0EM5w000006uSGx.jpg" style={{width: 405.998, height: 666.988}}/></Frame>
+5. **［Network］** タブを開いた状態で、Chromeページを更新します。
+6. **［Network］** タブで、失敗したリクエストを見つけます。これらは赤で表示されます。失敗したリクエストは、正しくマップされていない列を特定したり、Appのほかの問題を明らかにしたりするのに役立ちます。
+
+## エンジニアリングサービスに問い合わせる
+
+Domoが作成したAppに関する問題については、 [es.maintenance@domo.com](mailto:es.maintenance@domo.com "mailto:es.maintenance@domo.com") に電子メールを送信してエンジニアリングサービスチームにお問い合わせください。次の情報を電子メールで入力してください。
+
+* App名
+* 展開されたインスタンス
+* 発生しているエラー
+* エラーを再現するステップ
+* デバイスとブラウザーの情報
+
+日本語

@@ -1,0 +1,218 @@
+---
+title: "Notas de la versión de julio de 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nuevas características y mejoras
+
+Las características y mejoras de esta versión incluyen lo siguiente:
+
+## Vistas de DataSet
+
+Se han agregado mejoras y nuevas incorporaciones a la característica Vistas de DataSet.
+
+#### Uniones en las vistas
+
+La característica Vistas de DataSet ya ofrece la opción de realizar una unión con sus datos, no solo una combinación. Esto facilita la exploración, la transformación y la combinación de los datos en una interfaz sencilla. Para obtener más información, consulte [Vistas de DataSet](/s/article/360046074774).
+
+<Frame><img alt="Union.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7S.png"/></Frame>
+#### Vistas en Analyzer
+
+Las vistas de DataSet se han integrado en Analyzer, a fin de permitir realizar cambios rápidos en los datos de ETL (Extracción, transformación y carga) mientras se visualizan los datos. Ahora puede hacer todas las tareas siguientes sin tener que salir de Analyzer:
+
+* Unir otro DataSet.
+* Limpiar los datos cambiando el nombre a las columnas, eliminando columnas y cambiando el tipo de datos.
+* Crear Beast Modes anidados.
+
+Para obtener más información, consulte [Integración de Analyzer y Vistas de DataSet](/s/article/4402058407191).
+
+<Frame><img alt="Visualize_Tab.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt8.png"/></Frame>
+### Centro de lanzamiento de herramientas avanzadas
+
+Con el Centro de lanzamiento de herramientas avanzadas, ya puede explorar todas las herramientas de datos que ofrece Domo en un lugar adecuado. Cada herramienta tiene un vínculo a información adicional y al lugar donde poder empezar a usar el producto. Para obtener más información, consulte [Centro de lanzamiento de herramientas avanzadas](/s/article/4403501587607).
+
+<Frame><img alt="Advanced_Tools.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7w.png"/></Frame>
+## Workbench 5.1 Mejoras
+
+Se han añadido características nuevas e interesantes a Workbench 5.1.
+
+#### Compatibilidad con particiones en Workbench
+
+Workbench 5.1 ya ofrece compatibilidad con las particiones. Las particiones identifican secciones de datos de forma exclusiva, y cada sección se puede reemplazar por una nueva versión. Permiten actualizar los datos de forma más rápida y limpia. Para obtener más información, consulte [Compatibilidad con particiones en Workbench 5.1](/s/article/360062446514).
+
+<Frame><img alt="Partition_Support.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6j.png"/></Frame>
+#### Protección de esquemas mejorada en Workbench
+
+En Workbench 5.1 hemos incorporado protecciones de esquemas mejoradas que incluyen opciones más flexibles que le permiten elegir cuándo admitir cambios en los esquemas y en qué columnas, o bien bloquear por completo todos los cambios en los esquemas. Estas nuevas actualizaciones le aportarán la confianza y tranquilidad de que los cambios en los esquemas solo se realizarán cuando lo desee. Para obtener más información, consulte [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schema_Protection.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6v.png"/></Frame>
+#### Acciones masivas en Workbench
+
+Con Workbench 5.1, ahora puede realizar acciones masivas que permiten llevar a cabo tareas en varios trabajos al mismo tiempo. Estos son algunos ejemplos:
+
+* Ejecutar varios trabajos.
+* Exportar trabajos de forma masiva.
+* Actualizar las credenciales en varios trabajos que se conectan a la misma base de datos.
+* Guardar las modificaciones cuando ha modificado varios trabajos al mismo tiempo.
+
+Para obtener más información, consulte [Workbench 5.1](/s/article/360056669354).
+
+#### Encargarse de los DataSets del conector con Workbench
+
+Workbench 5.1 permite a Workbench encargarse de los DataSets creados originalmente por un conector y empezar a actualizarlos. Para obtener más información, consulte [Workbench 5.1](/s/article/360056669354).
+
+#### Programación local de Workbench
+
+En Workbench 5.1, ya puede programar el trabajo de Workbench para que se inicie según la hora local del servidor y del equipo de Workbench. Cuando la hora local del equipo cambia al horario de verano, la programación del trabajo de Workbench se sincroniza automáticamente con la hora del equipo. Para obtener más información, consulte [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schedule_Workbench.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6w.png"/></Frame>
+#### Complementos específicos de la base de datos en Workbench
+
+En Workbench 5.1, Workbench leerá los tipos de datos directamente del sistema de origen para bases de datos específicas. De esta forma, se eliminan todas las incoherencias entre ambos y cualquier posibilidad de que el tipo de datos cambie en Workbench después de que se haya definido el esquema, a menos que el tipo cambie en el sistema de origen. Para obtener más información, consulte [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Database_Plugins.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7l.png"/></Frame>
+### Mejoras de los SDK de Python y R
+
+Los SDK de R y Python se han actualizado para usar la misma nomenclatura de las funciones para ambos lenguajes y para que ambos tengan las mismas funciones disponibles. Para obtener más información, visite [https://developer.domo.com/docs/domo-sdks/sdks](https://developer.domo.com/docs/domo-sdks/sdks "https://developer.domo.com/docs/domo-sdks/sdks").
+
+### Vistas de filtro
+
+Las vistas de filtro permiten personalizar un solo tablero para satisfacer las necesidades de todas las audiencias.
+
+Con las vistas de filtro, puede hacer lo siguiente:
+
+* Guardar vistas personalizadas que solo usted puede ver.
+* Seleccionar y compartir vistas importantes para crear coherencia con una perspectiva nueva.
+* Proporcionar cualquier número de historias de datos personalizadas para todas las personas con cualquier rol.
+* Designar qué vista de filtro guardada es la "predeterminada" para un tablero.
+
+Para obtener más información, consulte [Aplicación de vistas de filtro y filtros a nivel de página](/s/article/360042923914 "Aplicación de filtros a nivel de página (con vistas de filtro) (BETA)").
+
+<Frame><img alt="Filter_Views.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7P.png"/></Frame>
+## Mejoras de los filtros del tablero
+
+Se han incorporado nuevas características para ayudarlo a controlar la forma en que los usuarios visualizan los datos.
+
+#### Exclusiones de filtros en las historias
+
+Con las exclusiones de filtros, ahora tiene la opción de excluir determinados filtros para que no afecten a una tarjeta concreta. Para obtener más información, consulte [Aplicación de filtros a nivel de página con vistas de filtro](/s/article/360042923914).
+  
+<Frame><img alt="Filter_Exclusions.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL73.png"/></Frame>
+#### Totalizaciones en los filtros
+
+Con la incorporación de los filtros totalizados, ya puede filtrar un valor de columna totalizado. Los filtros totalizados están disponibles para usarlos en cualquier parte en que se aplican los filtros: dentro de Analyzer, como un Quick Filter, en la página de detalles de la tarjeta y en un tablero. Para obtener más información, consulte [Filtros totalizados](/s/article/4403489663127).
+
+<Frame><img alt="Aggregations_in_Filters.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgv.png"/></Frame>
+#### Filtros de tablero de fechas dinámicas
+
+Los filtros de tablero de fechas dinámicas le permiten ajustar la ventana del intervalo de fechas en todas las tarjetas de una página. Los filtros de tablero de fechas dinámicas pueden ahorrar muchísimo tiempo, ya que los usuarios no tienen que aplicar manualmente los filtros para ver los datos de un intervalo de horas o fechas determinado. Además, con los filtros de tablero de fechas dinámicas, los datos de los intervalos de fechas de las tarjetas se "renuevan" cuando el período actual finaliza. Para obtener más información, consulte [Aplicación de filtros a nivel de página con vistas de filtro](/s/article/360042923914).
+
+<Frame><img alt="dynamic_date_range_filters.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7V.png"/></Frame>
+#### Configuración de los filtros de página
+
+Con la configuración de los filtros de página, ahora puede personalizar cómo sus usuarios interactúan con las tarjetas en su tablero. Puede desactivar **Permitir la adición de filtros nuevos** para que los usuarios solo puedan usar las interacciones con las tarjetas para filtrar. También puede desactivar los filtros de fecha si el tablero está creado para buscar en un período de tiempo específico.Para obtener más información, consulte [Aplicación de vistas de filtro y filtros a nivel de página](/s/article/360042923914 "Aplicación de filtros a nivel de página (con vistas de filtro) (BETA)").
+  
+<Frame><img alt="Filter_Options.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL77.png"/></Frame>
+### Segmentos
+
+La característica Segmentos le permite crear comparaciones mejoradas de un segmento respecto a otro grupo. Le permite filtrar un elemento de forma dinámica sin que el filtro afecte al segmento, a fin de que pueda comparar los dos resultados. Puede añadir un segmento a cualquier diagrama de varias series, a cualquier diagrama de período contra período o a cualquier diagrama de valores múltiples. También puede añadir segmentos a la vista de detalles de una tarjeta y a los tableros. Para obtener más información, consulte [Creación de segmentos en Analyzer](/s/article/4403089503383).
+
+<Frame><img alt="Segments_Window.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6x.png"/></Frame>
+### Compatibilidad con los idiomas portugués y neerlandés
+
+Domo ha incorporado la compatibilidad con los idiomas portugués y neerlandés para su instancia. Se puede establecer en Configuración de la empresa y en la Configuración de usuario individual. Para obtener más información sobre la configuración de esta característica a nivel corporativo, consulte [Configuración del formato de región y de la zona horaria](/s/article/360042934394).
+
+<Frame><img alt="Available_Languages.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6u.png"/></Frame>
+### Compatibilidad con los pfilters en la aplicación Domo móvil
+
+Los pfilters ya son compatibles en la aplicación Domo móvil. A continuación, se detallan ejemplos de pfilter:
+
+* Aplicaciones personalizadas que tienen pfilters.
+* Beast Modes CONCAT con vínculos.
+* Interacciones de las tarjetas personalizadas con los vínculos.
+* Los vínculos originados desde fuera de la aplicación de Domo ahora abrirán la aplicación de Domo con los filtros aplicados.
+
+Para obtener más información, consulte [Cálculos de ejemplo de Beast Mode: Varias transformaciones](/s/article/360043430113).
+
+## Nuevas propiedades del diagrama
+
+Hemos incorporado nuevas propiedades del diagrama para que las visualizaciones sean todavía más dinámicas.
+
+#### Mapas de árbol multidimensionales
+
+Los mapas de árbol ahora tienen más dimensiones para analizar su negocio. En lugar de tener solamente un elemento y un valor, puede tener mapas de árbol anidados en un mapa de árbol. Por ejemplo, ahora puede ver no solo los productos y sus ventas asociadas en un mapa de árbol, sino también visualizar las ventas de productos por categoría y división en un mapa de árbol anidado de tres niveles. Para obtener más información, consulte [Mapa de árbol](/s/article/360042925054).
+  
+<Frame><img alt="Tree_Map.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL79.png"/></Frame>
+#### Reglas de color en los diagramas de líneas
+
+Ahora puede crear diagramas de líneas que apliquen reglas de color a cada punto de la línea individualmente. Puede configurarla para que cambie de color cuando se encuentra por encima o por debajo de determinados umbrales, o entre ellos. Esto hace que sea muy fácil ver los datos y saber su rendimiento de un vistazo. Para obtener más información, consulte [Diagrama de líneas](/s/article/360043429233).
+
+<Note>
+  **Nota:** Debe tener símbolos habilitados en el diagrama para que se apliquen las reglas de color.
+
+</Note>
+
+<Frame><img alt="Line_Chart_Color_Rules.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6z.png"/></Frame>
+#### Diagramas de barras de derecha a izquierda
+
+En los diagramas de barras horizontales, ahora puede colocar las barras en el lado derecho del diagrama. Al seleccionar la orientación a la derecha, las etiquetas, las barras y las anotaciones se ajustan para alinearse en el lado derecho del diagrama. Esto le ofrece una combinación útil cuando desea presentar su historia personalizada con algunos diagramas alineados en el lado derecho y se puede combinar fácilmente con diagramas orientados a la izquierda para la nueva información detallada visual. Para obtener más información, consulte [Diagrama de barras](/s/article/360043428493).
+
+<Frame><img alt="Right_Side_Bar_Chart.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7n.png"/></Frame>
+### Nuevo diseño de la biblioteca de componentes
+
+Se ha mejorado la página de la biblioteca de componentes con nuevas características de navegación que permiten a los usuarios buscar aplicaciones y ver información con mayor eficacia. Para obtener más información, consulte [Biblioteca de componentes](/s/article/4403442101143).
+  
+<Frame><img alt="Asset_Library.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7X.png"/></Frame>
+### Propiedad grupal de tarjetas y páginas
+
+Con la propiedad grupal de tarjetas y páginas, ahora puede crear un grupo de usuarios a los que les gustaría tener la capacidad de editar una tarjeta o una página y añadir a dicho grupo como propietario de la tarjeta o la página. Después, cuando bloquee la tarjeta o la página, solo podrán editarlas los usuarios del grupo. Para obtener más información sobre la propiedad grupal de las tarjetas, consulte [Administrar páginas](/s/article/360043428253).
+
+<Frame><img alt="Ownership_Pendo.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7R.png"/></Frame>
+### Administración de empleados de la empresa
+
+Con la administración de empleados de la empresa, ahora puede ver todos los usuarios y la información del perfil en una sola página. También puede actualizar en masa los atributos para todos los usuarios. Para obtener más información, consulte [Diseño de Configuración del administrador](/s/article/360042934234).
+  
+<Frame><img alt="People_Management.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL71.png"/></Frame>
+## Características premium
+
+Estas características están disponibles a petición y como opción de pago. Para solicitar que se habiliten estas características, póngase en contacto con su administrador de éxito del cliente, consultor técnico o ejecutivo de cuentas. Si no tiene los datos de contacto de su administrador de éxito del cliente, consultor técnico o ejecutivo de cuentas, póngase en contacto con el servicio de asistencia técnica. Para obtener información sobre cómo ponerse en contacto con el servicio de asistencia técnica, consulte [Obtener ayuda](/s/article/360042922874 "Obtener ayuda"). Según la característica de la que se trate, puede que sea necesario que realice un curso para poder utilizarla.
+
+### Navegación izquierda en los grupos de publicaciones
+
+Los grupos de publicaciones ahora mostrarán la misma navegación que se muestra actualmente en la instancia normal de Domo. Ahora tendrán el menú desplegable que da prioridad al contenido del tablero y una interfaz de usuario mejorada para navegar rápidamente entre los tableros. Esto permite navegar de forma coherente por la interfaz de usuario con independencia de dónde use Domo. Para obtener más información, consulte Nuevo anuncio de navegación.
+  
+<Frame><img alt="Left_Nav_Pub_Groups.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL75.png"/></Frame>
+## Domo Everywhere
+
+Hemos incorporado nuevas características a la experiencia de Domo Everywhere.
+
+#### Filtros de página en el tablero integrado
+
+Con los filtros de página en el tablero integrado, ahora puede agregar los mismos filtros que usa en la instancia de Domo dentro del tablero integrado. Para obtener más información, consulte Filtros de página en el tablero integrado.
+
+<Frame><img alt="Page_Filters_in_Embed.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgq.png"/></Frame>
+#### Centro de lanzamiento de Domo Everywhere
+
+Con el Centro de lanzamiento de Domo Everywhere, puede obtener información rápidamente sobre cómo los principales clientes usan cada versión de Domo Everywhere. Esto le permite elegir el producto de Domo Everywhere que mejor satisfaga sus necesidades. Para obtener más información, consulte Centro de lanzamiento de Domo Everywhere.
+
+<Frame><img alt="Tab_1.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7M.png"/></Frame>
+## Obtener ayuda
+
+Puede ver la información más reciente de las notas de la versión en el Centro de ayuda, al que puede acceder desde Domo mediante un clic en <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> en la barra de navegación superior.
+
+Si tiene preguntas sobre Domo, puede realizar lo siguiente:
+
+* Busque un tema en el Centro de ayuda.
+* Capacítese en Domo University en
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* Busque aplicaciones de capacitación en la AppStore.
+* Obtenga respuestas en la comunidad de Domo en
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com").
+* Póngase en contacto con la asistencia técnica mediante la introducción de un vale de ayuda en el Portal de asistencia técnica de Domo.
+* Comuníquese con su administrador de éxito del cliente o consultor técnico de Domo.
+
+Si tiene comentarios, envíelos desde Domo (**Más** ****> Comentario****). O envíe un correo electrónico a [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Para obtener más información sobre cómo obtener ayuda, consulte [Obtención de ayuda](/s/article/360042922874 "Obtener ayuda").
+

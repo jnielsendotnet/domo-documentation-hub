@@ -1,0 +1,38 @@
+---
+title: "ODataコネクター"
+---
+
+## はじめに
+
+OData（Open Data Protocol）は、クエリ可能で相互運用可能なREST APIを簡単かつ標準的な方法で構築して使用するためのベストプラクティスを定義するOASIS標準です。ODataを使用すると、RESTful APIを構築する際に、リクエストおよび応答ヘッダー、ステータスコード、HTTPメソッド、URL規則、ペイロードフォーマット、クエリオプションなどの様々な定義方法について悩む必要がなくなり、ビジネスロジックに集中できるようになります。DomoのODataコネクターを使用すると、ODataエンドポイントから公開されたデータを取得できます。ODataの詳細については、ODataのページ（https://www.odata.org/
+）を参照してください。
+
+ODataアカウントには、Data Centerから接続します。このトピックでは、ODataコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+ODataアカウントに接続してDataSetを作成するには、ODataアカウントに関連付けられたユーザー名とパスワードが必要です。
+
+## ODataアカウントに接続する
+
+このセクションでは、ODataコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、ODataアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> ODataアカウントに関連付けられたユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> ODataアカウントに関連付けられたパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> URL </td><td colspan="1" rowspan="1"> ODataエンドポイントURLを入力します。 </td></tr></tbody></table>
+
+有効なODataの認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいOData DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Data Tag </td><td colspan="1" rowspan="1"> データタグキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Fields To Expand </td><td colspan="1" rowspan="1"> データ内で展開するフィールドのカンマ区切りのリストを入力します。入力したフィールドで、複数の行にわたって各オブジェクトが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Select Data Filter </td><td colspan="1" rowspan="1"> データのフィルター方法を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> All Data </td><td colspan="1" rowspan="1"> 利用可能なすべてのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Use Date Filter </td><td colspan="1" rowspan="1"> 選択した日付範囲のデータをフィルターします。 </td></tr><tr><td colspan="1" rowspan="1"> Backfill Data </td><td colspan="1" rowspan="1"> 特定のフィールドでデータをバックフィルします。 </td></tr><tr><td colspan="1" rowspan="1"> Data Filter Field </td><td colspan="1" rowspan="1"> 応答をフィルターするために応答で利用できるものと同じ日付フィルターフィールド名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Backfill Field </td><td colspan="1" rowspan="1"> データのバックフィルを行うフィールド名を入力します。この機能は、追加モードでのみ機能します。 <br/><b><b> 注記： </b></b> 応答にバックフィルフィールドが存在し、このフィールドが整数型である必要があります。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,85 @@
+---
+title: "DomoStats - Activity Log App"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### Intro
+
+DomoStats helps you discover how your team is using Domo. Because DomoStats is powered by a live Domo DataSet with no configuration, you can easily build cards, alerts, and workflows around the metrics you want to see and use the pre-built dashboard.
+
+The DomoStats Activity Log App provides key insights into how your organization is using Domo. See activities like how many people are logging in each day, the top favorited cards, and how many DataSets were created last week. Stay up to date and informed on all the activity happening in your Domo instance.
+
+---
+
+* [Required permissions](#required_permissions)
+* [Use the DomoStats - Activity Log app](#use_domostats_activity_log_app)
+* [Dashboard components](#app_components)
+
+---
+
+### Required Permissions
+
+You must have admin-level access to download the DomoStats Activity Log App from the [Domo Appstore](https://www.domo.com/appstore/app/domostats-activity-log-app/overview) <InlineImage src="/images/kb/ka0Vq000000DpMT-00N5w00000Ri7BU-0EMVq000007i4Db.jpg" />.
+
+### Use the DomoStats - Activity Log App
+
+You can use the pre-built dashboard or build any of your own content using the DomoStats DataSets in the Data Center. When you first download the app, a new page is created titled "DomoStats - Activity Log."
+
+Follow these steps to power the dashboard:
+
+1. Log into Domo.
+2. In the Domo Appstore, navigate to the DomoStats Activity Log App
+   [entry](https://www.domo.com/appstore/app/domostats-activity-log-app/overview) <InlineImage src="/images/kb/ka0Vq000000DpMT-00N5w00000Ri7BU-0EMVq000007i4Db-1.jpg" />.
+3. Select **Connect Data**.
+     
+   <Frame><img alt="DomoStats_-_Connect_Data.png" src="/images/kb/ka0Vq000000DpMT-00N5w00000Ri7BU-0EM5w000005vNq0.png" style={{width: 901, height: 415}}/></Frame>
+4. In the connection dropdown, select **Connect** to connect the page to the DomoStats DataSets or select **Assign** if you want to assign another Domo user to set up the data.
+     
+   <Frame><img alt="DomoStats_-_DataSet_Connect.png" src="/images/kb/ka05w000001230R-00N5w00000Ri7BU-0EM5w000005vNq5.png" style={{width: 900, height: 85}}/></Frame>
+5. In the last window, select **Connect**.
+     
+   <Frame><img alt="DomoStats_-_Connect_Data_Last_Step.png" src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq7.png"/></Frame>
+6. The pre-built dashboard is now powered by data and ready to use.
+
+### App Components
+
+# Data
+
+The following DataSets are included with the download of the DomoStats - Activity Log app:
+
+* People
+* Activity Log
+
+The following DataFlow is also included:
+
+* Activity Log - User Inactivity
+
+<Note>
+  **Note:** All DataSets powering the app run once a day. Runtime is every 24 hours from when the app is first deployed. While the run frequency cannot be changed, you can edit the runtime in the DataSet settings.
+
+</Note>
+
+#### How to Find the DataSets
+
+After downloading the app, navigate to **DataSets**. Then use the **Add Filter** option to select a **Type** > **DomoStats** filter.
+
+<Frame><img alt="" src="/images/kb/ka0Vq000000DpMT-00N5w00000Ri7BU-0EMVq000007iFdd.jpg" style={{width: 501, height: 380}}/></Frame>
+# Cards
+
+<Note>
+  **What counts as a card view?**
+
+  When you open the Details view of a card, a card view event is captured in the Activity Log.
+
+  When you filter a card in the Details view, this is also captured as a card view event.
+
+  If a Page Filter is in place when you open the card Details view, that Filter is applied to the card, and you see two card view events in the log: one for the view of the card Details and one for the filtering.
+
+  Opening a card in full-screen mode from the dashboard, filtering or interacting with a card in full-screen mode, and using filter-in-place at the dashboard level are not captured as card view events.
+
+</Note>
+
+The following cards are included on the pre-built dashboard.
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:209;a"><tbody><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"><b> Collection </b></td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"><b> Card </b></td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"><b> Description </b></td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="10"> Users </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Distinct User Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Distinct user logins over time. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Login Rate - Last 14 Days </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Percentage of users who logged into Domo during the given time period. The default date range is set to the last 14 days, but can be adjusted. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Daily User Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Total number of logins per day. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Most Active Users </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Most active users based on the number of actions they've taken. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> User Inactivity </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Sorts users based on the length of time since their last login. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Zero Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Displays the users that have been invited to Domo, but have yet to login. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Failed Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Number of failed logins over time. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Password Resets </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Top users based on the number of times they've reset their password. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> User Action Log </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Tracks every user action in your Domo instance. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Login Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Tracks total logins over time. </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="13"> Content </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Favorited Cards </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Titles of the top 10 most favorited cards. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Card Detail Views Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Shows the trend of card detail views over time. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Card Detail Views by User </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Number of card detail views and the distinct number of users who have viewed each card. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Most Viewed Card </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Top 10 cards with the most detail views and counts the total number of detail views for each. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Card Viewers </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Top 10 viewers based on their total number of card detail views. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 25 Card Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 25 users who have created the highest number of cards. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Page Views Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Trend of page views over time. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Page Views by User </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Number of times each page has been viewed and the number of distinct users who have viewed the page. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Most Viewed Pages </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Top 10 most viewed pages, and the total view count for each. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Page Viewers </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Top 10 viewers based on total page views. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Page Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Shows the 25 users who have created the most cards. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> App Deployment Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Shows the trend of app deployments over time. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Apps Deployed </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Displays the apps that have been deployed, the users that have deployed the apps, and the number of times each app has been deployed. </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="9"> Data </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Creation </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Tracks the number of data sources created over time, organized by creator. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> DataFlow Creation </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Tracks the number of DataFlows created over time, organized by creator. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Edits </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Displays the number of datasource edits in the specified time frame, grouped by edit type. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> DataFlow Edits </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Displays the amount of DataFlow edits in the specified time frame, grouped by edit type. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Beast Mode Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> The users who have created the most calculated fields in the specified time frame. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Datasource Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 15 users who have created the most data sources in the specified time frame. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top DataFlow Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Users who have created the most DataFlows in the specified time frame. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Time Since Last Update </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Tracks the number of data sources bucketed by the number of days since their last update. </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Creation Log </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Displays the datasource and DataFlow creation events over time. </td></tr></tbody></table>

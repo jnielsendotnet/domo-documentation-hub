@@ -1,0 +1,142 @@
+---
+title: "古いMagic ETLのタイル：データを結合"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+<Note>
+  **注記：** この記事は古いMagic ETLを対象としています。新しいMagic ETLの詳細については、「 [Magic ETL](/s/topic/0TO5w000000ZanvGAC) 」を参照してください。
+
+</Note>
+
+このトピックでは、Magic ETL変換フローでデータ結合を行う方法を2種類説明します。［行を追加］タイルでは、複数のDataSet行を1つのDataSetとして追加します。［データを結合］タイルでは、2つのDataSet列をJoinすることができます。
+
+Magic ETL DataFlowの作成については、「 Magic ETL DataFlowを作成する 」を参照してください。
+
+Data Centerについては、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+## 行を追加
+
+［行を追加］タイルでは、複数のDataSet（列とデータの構造が同じもの）からの行を1つのDataSetに追加すると、重複する行を含むすべての一致データが表示されます。
+
+<Note>
+  **注記：** データ行の追加は、同じデータ構造とデータタイプになっている入力DataSetからのみ行うことができます。 ［行を追加］タイルは、データ構造が一致しない場合、一致しないデータに対応する列を追加で作成します。 例えば、整数の列にテキストを追加しようとすると、整数の列とテキストの列の2つの列が作成されます。
+
+</Note>
+
+**動画 - Magic ETLで行を追加する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/FadGCVhLSjI" width="560"></iframe>
+
+**例**
+
+例えば、この変換フローを使用して...
+
+<Frame><img alt="etl_appendrows_transformflow.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgZ.png"/></Frame>
+...［行を追加］タイルを実行すると、このデータと...
+
+<Frame><img alt="etl_appendrows_datain1.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgH.png"/></Frame>
+このデータを...
+
+<Frame><img alt="etl_appendrows_datain2.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgT.png"/></Frame>
+...このように変換可能です...
+
+<Frame><img alt="etl_appendrows_dataout.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgU.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_appendrows_sampleui.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgR.png"/></Frame>
+<Note>
+  **注記：** プレビュー時に、変換されたデータでは行が必ずしも期待する順序の並びとならない場合があります。表カードでデータを表示する際に、行の順番を制御することができます。
+
+</Note>
+
+**［行を追加］タイルを設定するには：**
+
+1. キャンバスで、 **［行を追加］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNg8.png" /> をクリックして名前を入力します。
+3. 列を含めるオプションを選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSetから列を含める </p></td><td colspan="1" rowspan="1"><p> 選択したDataSetから列を含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> すべての列を含める </p></td><td colspan="1" rowspan="1"><p> すべての入力DataSetから固有の列を含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シェアされた列のみ含める </p></td><td colspan="1" rowspan="1"><p> 各入力DataSetで使用されている列のみを含めます。 </p></td></tr></tbody></table>
+
+4. 各DataSetに実行される変更点を確認します。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+## データを結合
+
+［データを結合］タイルでは、特定の列（複数可）にある共通の値を使用し、2つのDataSetまたはデータ「ストリーム」の列を1つのDataSetに結合することができます。列は、両方の入力DataSetに必ず存在し、同じデータ構造である *必要があります* 。
+
+<Note>
+  **注記：** ルックアップ列に一致する列のMagic ETLのJoinでは、大文字と小文字を区別します。
+
+</Note>
+
+**動画 - Magic ETLでのJoinのタイプを比較する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/zmjzOjP2_l0" width="560"></iframe>
+
+**動画 - Magic ETLでの複数のJoin**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/wpPRmgxchtM" width="560"></iframe>
+
+**例**
+
+例えば、この変換フローを使用して...
+
+<Frame><img alt="etl_joindata_transformflow.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNg6.png"/></Frame>
+...［データを結合］タイルを実行すると、このデータと...
+
+<Frame><img alt="etl_joindata_datain1.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgX.png"/></Frame>
+このデータを...
+
+<Frame><img alt="etl_joindata_datain2.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgS.png"/></Frame>
+...このように変換可能です...
+
+<Frame><img alt="etl_joindata_dataout.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgQ.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_joindata_sampleui.png" src="/images/kb/ka05w00000124T8-00N5w00000Ri7BU-0EM5w000005vNgI.png"/></Frame>
+<Note>
+  **注記：**
+
+  * 変換したデータでは、Domoは指定した一致する列の名前に「\_1」を追加します。
+  * プレビュー時、変換されたデータでは行が必ずしも期待する順序の並びとならない場合があります。表カードでデータを表示する際に、行の順番を制御することができます。
+
+</Note>
+
+**［データを結合］タイルを設定するには：**
+
+1. キャンバスで、 **［データを結合］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNg8-1.png" /> をクリックして名前を入力します。
+3. データの結合で使用する列を決定します。
+
+<Note>
+  **注記：** 1）行の結合に使用する特定の列が、両方のDataSetに存在し、同じデータ構造である *必要があります* 。2）Domoでは、最初の入力DataSet列を、 *特定化するための列* 、2番目の入力DataSet列を *一致する列* と呼びます。3）INNER JOIN、LEFT OUTER JOIN、およびFULL OUTER JOINの場合、最初の入力DataSet（左側）として固有な値を持つプライマリまたは「ルックアップ表」を指定します（特定化するための列内の値の重複は、10,000回を超えることは *できません* ）。
+
+</Note>
+
+4. 最初の入力DataSet（左側）を選択し、特定化するための列を選択します。
+     
+   識別列は、2番目の入力DataSetの一致する列と対になっている必要があります。
+5. 2番目の入力DataSet（右側）を選択して、一致する列を選択します。
+     
+   一致列は、最初の入力DataSetの識別列と対になっている必要があります。
+6. JOINタイプのアイコンをクリックし、実行するJoinのタイプを選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> JOINタイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNgJ.png" /><br/> 内側 </p></td><td colspan="1" rowspan="1"><p> 双方の入力DataSetの一致する行のみ含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNg9.png" /><br/> 左外側 </p></td><td colspan="1" rowspan="1"><p> 最初の入力DataSet（左側）のすべての行とそれに一致する2番目の入力DataSet（右側）の行を含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNgE.png" /><br/> 右外側 </p></td><td colspan="1" rowspan="1"><p> 2番目の入力DataSet（右側）のすべての行とそれに一致する最初の入力DataSet（左側）の行を含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka0Vq0000000KbU-00N5w00000Ri7BU-0EM5w000005vNgG.png" /><br/> 両方の外側 </p></td><td colspan="1" rowspan="1"><p> 両方の入力DataSetのすべての行を含めます。 </p></td></tr></tbody></table>
+
+7. （条件付き）別の列の対を指定する場合は、 **［他の列と一致させる］** をクリックした後、列の対を設定します。
+
+   <Tip>
+     **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+   </Tip>
+
+日本語

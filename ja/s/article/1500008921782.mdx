@@ -1,0 +1,199 @@
+---
+title: "Sprinklr V2コネクター"
+---
+
+## はじめに
+
+Domo Sprinklr V2コネクターを使用すると、Sprinklrインストールからデータを取り込むことができます。これにより、複数のソーシャルメディアチャネルにまたがるインサイトを集計できます。Domo Sprinklr V2コネクターは、カスタムクエリレポートをサポートします。このコネクターを使用すると、Sprinklrデータにすばやく接続して可視化し、インサイトを得ることができます。Sprinklr APIの詳細については、同社ウェブサイト（ [https://developers.sprinklr.com/](https://developers.sprinklr.com/ "https://developers.sprinklr.com/") ）を参照してください。
+
+Sprinklrアカウントには、Data Centerから接続します。このトピックでは、Sprinklr V2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Sprinklrアカウントに接続してDataSetを作成するには、SprinklrクライアントIDとクライアントシークレットが必要です。
+
+APIへのアクセスには、申請書を提出した上でSprinklrによる承認が必要です。 [https://developers.sprinklr.com/page/Create\_an\_APP](https://developers.sprinklr.com/page/Create_an_APP "https://developers.sprinklr.com/page/Create_an_APP") に申請プロセス完了までのすべてのステップが掲載されています。
+
+また、APIキー作成の際は、https://oauth.domo.com/api/data/v1/oauth/providers/sprinklr/exchange へのredirect\_uri設定が必要です。
+
+アクセス確認後、クライアントIDとクライアントシークレットでの認証が可能になります。
+
+## Sprinklr アカウントに接続する
+
+このセクションでは、 Sprinklr V2 コネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Sprinklr アカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Environment </p></td><td colspan="1" rowspan="1"><p> 接続先のSprinklr環境として、［Sandbox］または［Production］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> SprinklrクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Sprinklrクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+有効な Sprinklr 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Sprinklr V2 DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したい <span> Sprinklr V2 </span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Campaign By External Campaign </td><td colspan="1" rowspan="1"> キャンペーンを外部キャンペーンの詳細と、外部キャンペーンIDおよびその他の関連オブジェクトに対応するデータ別に返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign By ID </td><td colspan="1" rowspan="1"> キャンペーンIDおよびその他の関連オブジェクトに対応するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Case By Case Number </td><td colspan="1" rowspan="1"><p> 渡されたケース番号に関する詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> ウェブで業務を分析するのに役立つレポートデータを返します。このデータを使用して、トラフィックの理解、パターンの分析、特定のコンテンツの人気度の確認、情報の編集などを行い、業務の将来の戦略を立てることができます。 </td></tr><tr><td colspan="1" rowspan="1"><span> Custom Query Advanced </span></td><td colspan="1" rowspan="1"> Sprinklrでレポートの動作を再現するための、Sprinklr UIのクエリ定義を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Message By Message ID </td><td colspan="1" rowspan="1"> メッセージIDを使用してメッセージに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Profile By Profile ID </td><td colspan="1" rowspan="1"> 渡されたプロフィールIDのプロフィール詳細およびその他の関連オブジェクトを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Profile Details </td><td colspan="1" rowspan="1"> このAPIコール経由でsnTypeとsnUserIDを使用してプロフィールを返します。プロフィール詳細およびその他の関連オブジェクトを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Profile Search </td><td colspan="1" rowspan="1"> プロフィール詳細およびその他の関連オブジェクトを返します。 </td></tr><tr><td colspan="1" rowspan="1"> URL Shorteners </td><td colspan="1" rowspan="1"> 利用可能なURL短縮機能とそのIDを返します。また、IDのVanityUrlが使用可能かどうかを確認することもできます。 </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> このAPIコール経由でユーザーIDを介してユーザーに関する詳細を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> External Source ID </td><td colspan="1" rowspan="1"> 外部ソースのIDを入力します（例：1234）。 </td></tr><tr><td colspan="1" rowspan="1"> External Source Name </td><td colspan="1" rowspan="1"> 外部ソースの名前を入力します（例：abc）。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign ID </td><td colspan="1" rowspan="1"> 詳細を取得するキャンペーンIDを入力します（例：11_1）。 </td></tr><tr><td colspan="1" rowspan="1"> Case Number </td><td colspan="1" rowspan="1"> 取得するケースのケース番号を入力します（例：11）。 </td></tr><tr><td colspan="1" rowspan="1"> Reporting Engine </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します（例：INBOUND_MESSAGE）。 </td></tr><tr><td colspan="1" rowspan="1"> Report Name </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します（例：INBOUND_MESSAGE）。 </td></tr><tr><td colspan="1" rowspan="1"> GroupBy Heading </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します（例：INBOUND_MESSAGE）。 </td></tr><tr><td colspan="1" rowspan="1"> GroupBy Dimention Name </td><td colspan="1" rowspan="1"> ディメンションの名前を入力します。これは、UIペイロードの［group by］フィールドと一致する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> GroupBy Types </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します。エントリが複数ある場合は、カンマ区切りの値を入力します（例：FIELD）。 </td></tr><tr><td colspan="1" rowspan="1"> Projections Heading </td><td colspan="1" rowspan="1"> データを定義する任意の文字列の値を入力します。エントリが複数ある場合は、カンマ区切りの値を入力します（例：totalCount_UNIFIED_MESSAGE_ID_0）。 </td></tr><tr><td colspan="1" rowspan="1"> Projections Measurement Name </td><td colspan="1" rowspan="1"> UIペイロードの［measurement］フィールドの正確な値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Projections Aggregate Functions </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します。エントリが複数ある場合は、カンマ区切りの値を入力します（例：SUM）。 </td></tr><tr><td colspan="1" rowspan="1"> Filter Dimension Name </td><td colspan="1" rowspan="1"> UI［filter］フィールドの正確な値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter Filter Type </td><td colspan="1" rowspan="1"> 適用するフィルターのタイプを入力します。この値はUIペイロードの［filterType］と完全に一致する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> Filter Values </td><td colspan="1" rowspan="1"> UIペイロードからコピーされた値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Time Zone </td><td colspan="1" rowspan="1"> タイムゾーンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Columns To Flatten </td><td colspan="1" rowspan="1"> 平滑化する列のカンマ区切りのリストを入力します（例：profileLists,customProperties）。 </td></tr><tr><td colspan="1" rowspan="1"> Message ID </td><td colspan="1" rowspan="1"> メッセージのメッセージIDを入力します。これは、sourceType、sourceId、snCreatedTime、umIdの組み合わせです（例：messageId = sourceType + "" + sourceId + "" + "snCreatedTime" + "_" + umId）。 </td></tr><tr><td colspan="1" rowspan="1"> Profile ID </td><td colspan="1" rowspan="1"> 取得するプロフィールのプロフィールIDを入力します（例：1234）。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><span> 必要なクエリを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Channel Types </td><td colspan="1" rowspan="1"> プロフィールのチャネルタイプを入力します（例：FACEBOOK）。 </td></tr><tr><td colspan="1" rowspan="1"> User ID </td><td colspan="1" rowspan="1"> 取得するユーザーIDを入力します（例：1234）。 </td></tr><tr><td colspan="1" rowspan="1"> User Name </td><td colspan="1" rowspan="1"> プロフィールの一意のユーザー名を入力します（例：abc）。 </td></tr></tbody></table>
+
+#### カスタムクエリレポート - UIからペイロードを取得してコネクターフィールドにマップする
+
+1. 既存のウィジェットのAPIペイロードを取得するSprinklr環境のユーザー認証情報で、[RWP Extraction Tool](https://prod-customdev-service.sprinklr.com/public/ui/login) にログインします。
+
+2.ドロップダウンメニューから環境を選択します。環境がよく分からない場合は、サクセスマネージャーまたはSprinklrサポートにお問い合わせください。
+
+<Frame><img alt="Login_creds.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxt.png"/></Frame>
+
+<Note>
+**注記：** パートナーでTFA（2要素認証）が有効になっている場合は、モバイルまたはメールで受信したOTP（ワンタイムパスワード）を入力する必要があります。
+
+</Note>
+
+3. **［Submit］** をクリックします。
+
+4. 右上の **［Reporting］** をクリックします。
+
+<Frame><img alt="Reporting.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxr.png"/></Frame>
+
+5. ダッシュボードタイプとAPIバージョンを選択します。
+
+<Frame><img alt="Dashboard_Type.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxq.png"/></Frame>
+
+6. ダッシュボードタイプの選択にもとづいて、すべてのダッシュボードが表示されます。
+
+7. 必要なAPIペイロードのウィジェットを含むダッシュボードを選択します。
+
+8. APIペイロードを生成するウィジェットをドロップダウンメニューから選択し、**［Generate Payload］** をクリックします。
+
+9. そのウィジェットの完全なAPIペイロードを取得します。APIペイロードはテキストファイルとしてダウンロードすることもできます。
+
+<Frame><img alt="Widget.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxs.png"/></Frame>
+
+10. ペイロード内の値は、同じ名前のUIフィールドにマップできます。
+
+<table><tbody><tr><td colspan="1" rowspan="1"><p><b> コネクターのUIフィールド </b></p></td><td colspan="1" rowspan="1"><p><b> ペイロード値に対応 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> REPORTING ENGINE </p></td><td colspan="1" rowspan="1"><p> reportingEngine </p></td></tr><tr><td colspan="1" rowspan="1"><p> REPORT NAME </p></td><td colspan="1" rowspan="1"><p> report </p></td></tr><tr><td colspan="1" rowspan="1"><p> TIMEZONE </p></td><td colspan="1" rowspan="1"><p> timeZone </p></td></tr><tr><td colspan="1" rowspan="1"><p> GROUPBY HEADING </p><p> GROUPBY DIMENSION NAME </p><p> GROUPBY GROUP TYPES </p><p></p></td><td colspan="1" rowspan="1"><p> groupBys [\&#123; </p><p> Heading </p><p> dimensionName </p><p> groupType </p><p> &#125;] </p></td></tr><tr><td colspan="1" rowspan="1"><p> PROJECTIONS HEADING </p><p> PROJECTIONS MEASUREMENT NAME </p><p> PROJECTIONS AGGREGATE FUNCTIONS </p></td><td colspan="1" rowspan="1"><p> projections [\&#123; </p><p> Heading </p><p> measurementName </p><p> aggregateFunction </p><p> &#125;] </p></td></tr><tr><td colspan="1" rowspan="1"><p> FILTER DIMENSION NAME </p><p> FILTER FILTER TYPE </p><p> FILTER VALUES </p></td><td colspan="1" rowspan="1"><p> filters [\&#123; </p><p> dimensionName </p><p> filterType </p><p> Values: [] </p><p> &#125;] </p></td></tr></tbody></table>
+
+#### カスタムクエリレポートの例
+
+カスタムクエリレポートのクエリ入力には、単一値と複数の値を指定できます。カスタムクエリレポートをテストするには、次の値を使用してみます。
+
+単一値クエリ入力：
+
+* Reporting engine：INBOUND\_MESSAGE
+* Report：INBOUND\_MESSAGE
+* GroupBy Heading：UNIFIED\_MESSAGE\_ID\_0
+* GroupBy Dimension Name：UNIFIED\_MESSAGE\_ID
+* GroupBy Group Type：FIELD
+* Projections Heading：totalCount\_UNIFIED\_MESSAGE\_ID\_0
+* Projections Measurement Name：UNIFIED\_MESSAGE\_ID
+* Projections Aggregate Function：CARDINALITY
+* Filters Filter Type：IN
+* Filters Dimension Name：CAMPAIGN\_ID\_DIMENSION
+* Filters Values：1000004845\_-98
+
+<Frame><img alt="Example_values_UI.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxp.png"/></Frame>
+
+複数値クエリ入力：
+
+* Filters Filter Type：IN,IN
+* Filters Dimension Name：CAMPAIGN\_ID\_DIMENSION,CAMPAIGN\_ID\_DIMENSION
+* Filters Values：1000004845\_-98,1000004845\_1
+
+<Frame><img alt="Example_values_UI-Multiple_values.png" src="/images/kb/ka0Vq00000074V7-00N5w00000Ri7BU-0EM5w000005vNxu.png"/></Frame>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="バックフィルはどのように機能しますか？">
+
+
+最初の実行では、コネクターはフィルター「Start Date」から「End Date」までのデータを取り込みます。その後、コネクターは「Start Date」を最終実行後の翌日に設定し、現在の日付を「End Date」の値として使用します。
+
+
+</Accordion>
+<Accordion title="Sprinklr V2コネクターの置き換えモードと追加モードの動作の違いは何ですか？">
+
+
+* 置き換え – 置き換えモードでは、すべてのレポートで標準的な動作が行われます。つまり、DataSetの実行後に古いデータが新しいデータに置き換えられます。
+* 追加 – 追加モードでは、カスタムクエリレポートを除くすべてのレポートで標準的な動作が行われます。追加モードでカスタムクエリレポートを実行すると、2回目以降はコネクターが最後に実行された後のデータのみが取得されます。
+
+
+</Accordion>
+<Accordion title="このコネクターではどのバージョンのSprinklr APIを使用しますか？">
+
+
+このコネクターではバージョン2のSprinklr APIを使用します。
+  
+サンドボックスAPI URL：https://api2.sprinklr.com/sandbox/api/v2/
+  
+実稼働環境API URL：https://api2.sprinklr.com/api/v2/
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Campaign By External Campaign </td><td colspan="1" rowspan="1"> /campaign/&#123;externalSource&#125;/&#123;externalId&#125; </td></tr><tr><td colspan="1" rowspan="1"> Campaign By ID </td><td colspan="1" rowspan="1"> /campaign/&#123;campaignId&#125; </td></tr><tr><td colspan="1" rowspan="1"> Case By Case Number </td><td colspan="1" rowspan="1"> /case/case-numbers </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> reports/query </td></tr><tr><td colspan="1" rowspan="1"> Message By Message Id </td><td colspan="1" rowspan="1"> /message/byMessageId </td></tr><tr><td colspan="1" rowspan="1"> Profile By Profile ID </td><td colspan="1" rowspan="1"> /profile/&#123;profileId&#125; </td></tr><tr><td colspan="1" rowspan="1"> Profile Details </td><td colspan="1" rowspan="1"> /profile </td></tr><tr><td colspan="1" rowspan="1"> Profile Search </td><td colspan="1" rowspan="1"> /profile/search </td></tr><tr><td colspan="1" rowspan="1"> URL Shorteners </td><td colspan="1" rowspan="1"> /link/shorteners </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> /scim/&#123;userId&#125; </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Sprinklrインスタンスが実稼働環境とサンドボックスのどちらであるかを確認する必要があります（実稼働環境が最も一般的です）。また、Domoに接続するアプリケーションを作成し、そのアプリケーションに関連付けられているクライアントIDとシークレットを提供する必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+Sprinklrでは、実稼働環境インスタンスへの呼び出しに、5回/秒、500回/時の制限があります。
+
+サンドボックスインスタンスへの呼び出しは、2回/秒、100回/時の制限となります。
+
+1回のDataSet実行に複数の呼び出しが必要になる場合があるので注意してください。
+
+## トラブルシューティング
+
+このコネクターで最も多いのが、フィルターに関連した問題です。Sprinklrでは、各レポートをフィルター処理した上で、Sprinklrウェブサイトのレポートに表示されるSprinklrデータを消去する個別のクエリで実行します。コネクターの設定時には、これらと同じフィルターの使用が *必須* で、それらが使用されていない場合、データが複製されるまたは失われるといったトラブルが発生します。これを行うためには、SprinklrレポートのバックエンドにあるAPIコールの使用が必要となります。
+
+このコードにアクセスする、またはコネクターから取得するフィルターとバックエンドレポートを見つけるには、次の手順を実行します。
+
+1. Chromeブラウザーを開きます。
+2. ブラウザーを右クリックして、**［検証］** を選択します。
+3. デベロッパー用画面で **［Network］** タブに移動します。
+4. Sprinklrレポートページで画面を再読み込みします。
+     
+   再読み込みすると **［Name］** 列の下に要素が複数表示されます。
+5. クエリを検索し、対応するレポートまたは複製するデータを見つけます。
+6. クエリを選択し、**［requests］** の下を対象に検索を行い、Domoコネクターへの入力が必要なデータをすべて特定します。
+7. 認証情報を使いDomoのSprinklrコネクターに接続します。
+8. Sprinklrレポートに使用されるレポートを選択します。
+     
+   Sprinklrでは、 **［requests］>［parameter］** の下にこのレポートがあります。この例では、「Post Insights」という名称です。
+9. **［Aggregation Function］** には、Sprinklrレポートに使用される関数を選択します。
+     
+   Sprinklrでは、 **［groupBys］>［projections］** の下にこの関数があります。この例では、「 **SUM** 」となっています。
+10. **［Measurement Name］** には、Sprinklrレポートに使用される関数を選択します。
+      
+    Sprinklrでは、 **［groupbys］>［projections］>［measurement］** の下にこの関数があります。この例では、「 **TOTAL\_ENGAGEMENT** 」がこれに当たります。
+11. **［Group By Options］** には、構文(columnName,dimensionName,groupType,detail=value)を使い **［Network］** タブの **［Requests］** ドロップダウンメニューの下のSprinklrレポートで、 **［groupby］** フィールドを入力します。
+      
+    例えば、グループに［Client\_ID］フィールドがリストされている場合であれば、 **［Group By Options］** には、(Client\_ID,Client\_ID, field)の構文を使用します。
+      
+    また、Domoカードで必要なフォーマットでのデータレンダリングを行えるよう、Sprinklrレポートに含まれていなくとも、日付グループの使用を推奨します。例：(date,DATE\_HISTOGRAM,interval=1h)または(POST\_PUBLISHED\_DATE,FIELD)
+12. **［Filters］** には、Sprinklrレポートに使用されるフィルターを入力します。
+      
+    Sprinklrでは、 **［requests］>［filters］** の下にこれに当たるフィルターがあります。 **［Filters］** ボックスにある［?］の下の構文を使用します。
+13. （条件付き）Sprinklrレポートのクエリコードで、**［Columns to Expand］** と **［Measurement** **Options］** の適用が示されている場合は、「request」データに含まれる情報を入力します。
+14. 期間の設定時は、実際のSprinklrレポート/グラフに記載の期間、またはカードの可視化に必要な期間を使用します。DomoのSprinklrレポートの大半で、実際には期間がありません。
+    **［Time］** フィルターで指定の時間が、データベースに非対応であるか、また日付として認識不可能なフォーマットであるかは、バックエンドで確認可能です。
+
+
+
+</Accordion>
+</AccordionGroup>

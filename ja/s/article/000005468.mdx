@@ -1,0 +1,83 @@
+---
+title: "Google Sheets Serviceコネクター"
+---
+
+## はじめに
+
+Googleスプレッドシートは、オンラインでスプレッドシートを作成、更新、編集し、リアルタイムでデータを共有できるウェブベースのアプリケーションです。Google Sheets APIの詳細については、 [https://developers.google.com/sheets/api/guides/concepts](https://developers.google.com/sheets/api/guides/concepts "https://developers.google.com/sheets/api/guides/concepts") を参照してください。
+
+Google Sheetsアカウントには、Data Centerから接続します。このトピックでは、Google Sheetsコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Google Sheetsアカウントに接続してDataSetを作成するには、Service Token JSONキーが必要です。
+
+Google SheetsサービスアカウントのJSONキーを生成するには、以下の手順に従います。
+
+1. Google Cloudコンソール（
+   [https://console.cloud.google.com/](https://console.cloud.google.com/ "https://console.cloud.google.com/") ）にログインします。
+2. プロジェクトを選択します。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001P4hN.jpg" style={{width: 366, height: 90}}/></Frame>
+
+3. 左側のペインで
+   **［IAM & Admin］** > **［Service Accounts］** を選択します。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001OxzH.jpg" style={{width: 367, height: 338}}/></Frame>
+
+4. **［+ CREATE SERVICE ACCOUNT］** をクリックします。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001P4np.jpg" style={{width: 667, height: 161}}/></Frame>
+
+5. **［Service account details］** にサービスアカウント名を入力し、 **［CREATE AND CONTINUE］** をクリックします。
+6. **［Select a role］** フィルターの［Quick Access］で **［Basic］** > **［Owner］** を選択して、 **［CONTINUE］** をクリックします。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001P5Yb.jpg" style={{width: 670, height: 505}}/></Frame>
+
+7. **［Done］** をクリックします。
+8. 左側のペインで **［IAM & Admin］** > **［Service Accounts］** を選択し、作成したサービスアカウントをクリックします。
+9. **［Keys］** > **［Add Key］** > **［Create new key］** をクリックします。ポップアップウィンドウが表示されます。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001P5f3.jpg" style={{width: 348, height: 228}}/></Frame>
+
+10. キーのタイプとして［JSON］を選択し、 **［Create］** をクリックします。
+11. JSONキーを含むJSONファイルが自動的にダウンロードされます。
+12. ダウンロードしたファイルを保存します。
+
+## Google Sheets APIを有効にする
+
+Google Sheets APIを有効にするには、以下の手順に従います。
+
+1. GCPコンソールに移動します。
+2. 左側のペインで、**［APIs and services］** の下にある **［Library］** を選択します。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001U8UD.jpg" style={{width: 178, height: 115}}/></Frame>
+
+3. Google Sheets APIを検索してクリックします。
+4. ページの上部にある **［Enable］** をクリックします。
+
+   <Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001U8Vp.jpg" style={{width: 227, height: 90}}/></Frame>
+
+**注記：** GoogleサービスアカウントのメールアドレスをGoogle Sheet Viewerとして追加する必要があります。
+
+<Frame><img src="/images/kb/ka0Vq0000007POH-00N5w00000Ri7BU-0EMVq000001U8Z3.jpg" style={{width: 529, height: 206}}/></Frame>
+
+## Google Sheetsアカウントに接続する
+
+このセクションでは、Google Sheetsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Google Sheetsアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Token JSON </p></td><td colspan="1" rowspan="1"><p> Google APIコンソールから生成された.jsonファイルの内容すべてをコピーして貼り付けます。 </p></td></tr></tbody></table>
+
+有効なGoogle Sheetsの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいGoogle Sheets DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Search </td><td colspan="1" rowspan="1"> 指定された値にもとづいて検索を実行します。指定された値を含むすべてのスプレッドシートが返されます。 </td></tr><tr><td colspan="1" rowspan="1"> Spreadsheet ID </td><td colspan="1" rowspan="1"> スプレッドシートIDを入力します。スプレッドシートIDは、スプレッドシートのURLの最後の文字列です。例えば、URLが <a href="https://docs.google.com/spreadsheets/d/12wVPoRgSLYcD1CBHpN4dpQiPHRNqV7azwGF4JbKoXaw/edit#gid=0" target="_blank" title="https://docs.google.com/spreadsheets/d/12wVPoRgSLYcD1CBHpN4dpQiPHRNqV7azwGF4JbKoXaw/edit#gid=0"> https://docs.google.com/spreadsheets/d/12wVPoRgSLYcD1CBHpN4dpQiPHRNqV7azwGF4JbKoXaw/edit#gid=0 </a> の場合、スプレッドシートIDは <b> 12wVPoRgSLYcD1CBHpN4dpQiPHRNqV7azwGF4JbKoXaw </b> です。 </td></tr><tr><td colspan="1" rowspan="1"> Row Header Cell Range </td><td colspan="1" rowspan="1"> ヘッダー行のセル範囲を指定します（例：A1:A27）。 </td></tr><tr><td colspan="1" rowspan="1"> Row Data Cell Range </td><td colspan="1" rowspan="1"> データ行のセル範囲を指定します（任意、例：B1:N27）。 </td></tr><tr><td colspan="1" rowspan="1"> Column Header Cell Range </td><td colspan="1" rowspan="1"> ヘッダー列のセル範囲を指定します（例：A1:N1）。 </td></tr><tr><td colspan="1" rowspan="1"> Column Data Cell Range </td><td colspan="1" rowspan="1"> データ行のセル範囲を指定します（任意、例：A2:N27）。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

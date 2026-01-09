@@ -1,0 +1,72 @@
+---
+title: "新しいMagic ETLのタイル：日付と数値"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Magic ETL DataFlowの［日付と数値］タブでは、2つのタイルを使用できます。以下のものが含まれます。
+
+* 計算機
+* 日付の演算
+
+Magic ETL DataFlowの作成について詳しくは、「 [Magic ETL DataFlowを作成する](/s/article/360055259234 "Magic ETL DataFlowを作成する") 」を参照してください。
+
+Data Centerについて詳しくは、「 Data Centerのレイアウト 」を参照してください。
+
+<Warning>
+  **重要：** 新しいMagic ETLの動作は大幅に変更されました。ミッションクリティカルなMagic ETL DataFlowを変換する前に、「 **[新しいMagic ETLにアップグレードする](/s/article/360047787514 "新しいMagic ETLにアップグレードする")** 」の記事をお読みください。 **これをお読みいただくと、DataFlowで想定外の動作が生じた場合に備えることができます。**
+
+</Warning>
+
+<Warning>
+
+  <Frame><img alt="Dates_and_Number_Tab.png" src="/images/kb/ka05w00000124Tm-00N5w00000Ri7BU-0EM5w000005vNiR.png"/></Frame>
+</Warning>
+
+## ［計算機］タイル
+
+<Frame><img alt="Calculator.png" src="/images/kb/ka05w00000124Tm-00N5w00000Ri7BU-0EM5w000005vNiP.png"/></Frame>
+［計算機］タイルでは、単純な計算式によって算出された値を列に追加することができます。
+
+**［計算機］タイルを設定するには：**
+
+1. キャンバスで **［計算機］** タイルをクリックします。
+2. （オプション） タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka05w00000126hM-00N5w00000Ri7BU-0EM5w000005wL9q.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 目的の操作を選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 演算 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 加算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値を加算します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 減算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で減算します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 乗算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で乗算をします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 除算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で除算をします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 天井 </p></td><td colspan="1" rowspan="1"><p> 数値列の各系列の最高値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 床 </p></td><td colspan="1" rowspan="1"><p> 数値列の各系列の最低値を返します。 </p></td></tr></tbody></table>
+
+5. 使用する列を選択するか、目的の値を指定します。
+
+<Tip>
+  **ヒント：** タイルによる変換後のデータプレビューを行う場合は、プレビューを実行し、キャンバスで該当のタイルをクリックした後、 **［プレビュー］** タブをクリックします。
+
+</Tip>
+
+## ［日付の演算］タイル
+
+<Frame><img alt="Date_Operations.png" src="/images/kb/ka05w00000124Tm-00N5w00000Ri7BU-0EM5w000005vNiT.png"/></Frame>
+［日付の演算］タイルでは、日付にもとづいた計算による値の列を追加することができます。
+
+**［日付の演算］タイルを設定するには：**
+
+1. キャンバスで **［日付の演算］** タイルをクリックします。
+2. （オプション） タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka05w00000126hM-00N5w00000Ri7BU-0EM5w000005wL9q-1.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 目的の日付操作を選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 演算 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 日付に追加 </p></td><td colspan="1" rowspan="1"><p> 日付列の値に測定単位を追加した結果を返します。測定の単位には、月、週、日、時、分、秒、ミリ秒があります。 </p></td></tr><tr><td colspan="1" rowspan="1"> 日付から減算 </td><td colspan="1" rowspan="1"> 日付列の値から測定単位を差し引いた結果を返します。測定の単位には、月、週、日、時、分、秒、ミリ秒があります。 </td></tr><tr><td colspan="1" rowspan="1"> 日付の差 </td><td colspan="1" rowspan="1"> 2つの日付の差を測定単位で返します。測定の単位には、日、営業日数、時、分、秒、ミリ秒です。 </td></tr><tr><td colspan="1" rowspan="1"><p> 日付の年 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の年を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の四半期 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の四半期を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の月 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の月を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 年の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の年の日付を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 月の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の月の日付を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 週の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の曜日を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 年の週 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の週を数値で返します。週は日曜日から土曜日です。1週目は、今年の土曜日の最初の週です。 </p></td></tr></tbody></table>
+
+5. 使用する列を選択するか、目的の値を指定します。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+日本語

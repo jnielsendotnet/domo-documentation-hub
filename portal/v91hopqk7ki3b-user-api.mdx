@@ -1,0 +1,36 @@
+---
+title: "User API"
+sidebarTitle: Overview
+permalink: "v91hopqk7ki3b-user-api"
+---
+
+```text API Base URL
+Domo API Server: https://api.domo.com
+```
+
+<Info>
+**Security**: Bearer Auth
+
+Provide your bearer token in the Authorization header when making requests to protected resources.
+
+Example: `Authorization: Bearer 123`
+</Info>
+
+User objects allow you to manage a user and the user’s attributes such as a department, phone number, employee number, email, and username. The API allows you to create, retrieve a user or a list of users, and update user information.
+
+## The user object
+
+### Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| name | string | User's full name |
+| email | string | User's primary email used in profile |
+| role | string | The role of the user created (available roles are: 'Admin', 'Privileged', 'Participant') |
+| title | string | User's job title |
+| alternateEmail | string | User's secondary email in profile |
+| phone | string | Primary phone number of user |
+| location | string | Free text that can be used to define office location (e.g. City, State, Country) |
+| timezone | string | Time zone used to display to user the system times throughout Domo application |
+| locale | date-time | Locale used to display to user the system settings throughout Domo application |
+| employeeNumber | string | Employee number within company |

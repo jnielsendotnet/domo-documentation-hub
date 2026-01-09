@@ -1,0 +1,58 @@
+---
+title: "MongoDB Partitionコネクター"
+---
+
+## はじめに
+
+MongoDBは優れたパフォーマンスと拡張性を提供するオープンソースのドキュメント指向データベースです。Domoプラットフォームはクラス最高の分析/レポート作成ソリューションをMongoDBユーザーに提供します。これにより、組織は複雑なDataSetを簡単に監視、可視化、報告できます。DomoのMongoDB Partitionコネクターを使用すると、MongoDBコレクションからデータを取得し、カスタマイズされたレポートを作成することができます。必要なデータは、JSONクエリフィルターを入力して指定します。MongoDB APIの詳細については、http://api.mongodb.org/ を参照してください。MongoDBデータは、ほかの多数のシステムからのデータと簡単に組み合わせることができます。このため、データを組み合わせて変換し、ユーザーセルフサービスで利用することができます。
+
+MongoDB Partitionコネクターは「データベース」コネクターです。つまり、クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、このコネクターやその他のデータベースコネクターのページにアクセスできます。
+
+このトピックでは、MongoDB Partitionコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Warning>
+**重要：** このコネクターが機能するためにはSSL接続が必要です。
+
+</Warning>
+
+## 必要条件
+
+MongoDBコレクションに接続してDataSetを作成するには、以下が必要です。
+
+* MongoDBデータベースへのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：[db.company.com](http://db.company.com) ）
+* データベースのポート番号
+* データベース名
+* CA証明書テキストまたはURLパスは、**［Certificate String］** または **［URL Path］** をそれぞれ **［Certificate Format］** メニューで選択した時 *のみ* 必要になります。
+* SSL接続
+
+<Note>
+**注記：** MongoDBは、接続を確立するためにデータベース名として「admin」を使用します。
+
+</Note>
+
+また、MongoDBデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093) 」を参照してください。
+
+## MongoDBコレクション に接続する
+
+このセクションでは、 MongoDB Partition コネクターのページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、MongoDBデータベース内のコレクションに接続するための認証情報の入力フィールドが含まれています。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> MongoDBデータベースのホスト名を入力します。例： <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> MongoDBデータベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> MongoDBデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> MongoDBのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> MongoDBのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> 証明書書式を選択します。証明書を含めない場合は、 <b><b> ［No Certificate］ </b></b> を選択します。 <b><b> ［Certificate String］ </b></b> を選択する場合は、証明書用テキストを <b><b> ［Certificate］ </b></b> フィールドに貼り付ける必要があります。 <b><b> ［URL Path］ </b></b> を選択する場合は、証明書がある場所のURLを <b><b> ［Certificate］ </b></b> フィールドに入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b><b> ［Certificate Format］ </b></b> メニューで <b><b> ［No Certificate］ </b></b> を選択します。 </p></td></tr></tbody></table>
+
+一度有効な MongoDB 認証情報を入力しておくと、いつでも同じアカウントを使用して、新しい MongoDB Partition DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、JSONクエリを作成して、MongoDBコレクションからデータを取得します。また、任意のWHERE、SELECT、GROUP、SORTの節を作成し、クエリフィルターを適用してコレクション内の文書を検索することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to select your collection name? </td><td colspan="1" rowspan="1"> コレクション名の取得方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Collection Name </td><td colspan="1" rowspan="1"> MongoDBコレクションの名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Collection Name </td><td colspan="1" rowspan="1"> MongoDBコレクションの名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Method </td><td colspan="1" rowspan="1"> MongoDBコレクションからデータを取得するクエリ方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Find </td><td colspan="1" rowspan="1"> JSONクエリは「検索方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregate </td><td colspan="1" rowspan="1"> JSONクエリは「集計方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Query Filter </td><td colspan="1" rowspan="1"> コレクションに文書を集計するクエリフィルターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Limit Row </td><td colspan="1" rowspan="1"> 返す行数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Batch Size </td><td colspan="1" rowspan="1"> バッチサイズは、コネクターの内部で使用されるバッチごとに返される文書数です。2以上のバッチサイズを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Where Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでWHERE節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでSELECT節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Group Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでGROUP節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sort Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでSORT節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Column </td><td colspan="1" rowspan="1"> パーティション列の名前を入力します。パーティション列のデータタイプは「Date」にする必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xはプラスの整数です。例：30。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

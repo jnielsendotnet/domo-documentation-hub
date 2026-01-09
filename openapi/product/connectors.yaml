@@ -1,0 +1,121 @@
+openapi: 3.0.0
+info:
+  title: Connectors API
+  version: v1
+  description: API for executing Domo Connectors (Streams).
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+tags:
+  - name: Connectors
+    description: Run connectors (data streams).
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication (as seen in example).
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+
+    RunConnectorRequest:
+      type: object
+      required: [runType]
+      properties:
+        runType:
+          type: string
+          description: The type of connector run.
+          enum: [MANUAL]
+      example:
+        runType: "MANUAL"
+        
+    RunConnectorResponse:
+      type: object
+      description: Response details for a started connector execution.
+      properties:
+        streamId: { type: integer }
+        executionId: { type: integer }
+        toe: { type: string }
+        startedAt: { type: number, format: double }
+        endedAt: { type: number, format: double, nullable: true }
+        updateMethod: { type: string }
+        index: { type: boolean }
+        retryCount: { type: integer }
+        retryExecution: { type: object, nullable: true }
+        containerManagerId: { type: string }
+        uploadId: { type: object, nullable: true }
+        indexRequestKey: { type: object, nullable: true }
+        currentState: { type: string }
+        runType: { type: string }
+        createdAt: { type: object, nullable: true }
+        modifiedAt: { type: object, nullable: true }
+        latestPhase: { type: object, nullable: true }
+        currentPhase: { type: object, nullable: true }
+        removed: { type: boolean }
+        rowsInserted: { type: integer }
+        bytesInserted: { type: integer }
+        startedBy: { type: string }
+        cancelledBy: { type: object, nullable: true }
+        dataTag: { type: object, nullable: true }
+        peakMemoryUsedBytes: { type: object, nullable: true }
+        peakMemoryCommittedBytes: { type: object, nullable: true }
+        exportable: { type: boolean }
+        manualIndex: { type: boolean }
+        errors:
+          type: array
+          items: {}
+
+security:
+  - developerToken: []
+
+paths:
+  /api/data/v1/streams/{streamId}/executions:
+    post:
+      summary: Run a Connector
+      description: |
+        Runs a connector (stream) execution.
+        The `streamId` can be found using `GET /api/data/v3/datasources/{datasetId}`.
+      tags: [Connectors API]
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          description: The streamId of the Dataset associated with the connector to run.
+          schema:
+            type: string # A documentação diz "StringRequired"
+            example: "25775"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunConnectorRequest'
+      responses:
+        '201':
+          description: CREATED. The connector run has started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunConnectorResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found (Stream ID not found)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

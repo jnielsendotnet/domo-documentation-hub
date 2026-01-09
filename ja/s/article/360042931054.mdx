@@ -1,0 +1,132 @@
+---
+title: "Weather Sourceコネクター"
+---
+
+## はじめに
+
+Weather Sourceは、ビジネスインテリジェンスやアナリティクスのための過去、現在、未来の天候を網羅する世界中の局地的な気象データの包括的な製品スイートを提供します。Domo Weather Sourceコネクターを使用すると、世界中の全陸地や200マイルまでの沖合のあらゆる地点の、照合された実用的なデータに簡単にアクセスすることができます。
+
+Weather Source Domoコネクターでは、1時間単位と1日単位の両方の予測、気象履歴データ、気候学データ、天文学データにアクセスできます。履歴データの範囲は2000年～現在までで、予測データは384時間または15日先までのフォワード予測ビューを提供します。
+
+また、気候学データにアクセスして、特定の地点と時期の典型的または標準的な天気をまとめて表す手段、標準偏差、およびその他の統計を使用することもできます。気候学データを使用すると、目的の地点や特定の時期の天気に関する予測を定量化できます。また、最近の天候や予測される天候が標準的な状態からどのように異なるか（異常気象など）、また、その異常気象が統計的にどれだけまれであるかを把握するのにも使用できます。
+
+単一の気象観測入力情報（空港報告ステーションなど）のデータのみに依存し、単純な補間法を使用してこのデータを目的の地点に拡張する多くのプロバイダーとは大きく異なる方法で、Weather Sourceは天気にアプローチします。まず、世界のあらゆる陸地と200マイルまでの沖合を網羅する高解像度グリッドを始め、何百万もの全球規模の格子点（OnPoint IDなど）のそれぞれで、衛星、レーダー、IoT、空港の観測ステーションなど、すべての最良の気象観測技術を取り込み、これらの入力情報を均質化し、統計的に一貫した「信頼できる唯一の情報源」に統合します。これらの格子点から、正確な緯度/経度、地理的な境界のある領域（例えば郵便番号、DMA、国勢調査細分区、宅地）などの任意の目的の地点にマッピングを行います。
+
+お客様は、Weather Sourceデータを利用して、天気と気候がビジネスの重要業績評価指標（KPI）に与える影響を定量化できます。これにより、トラフィックの減少、製品の売り上げと予測、エネルギーの需要と消費、マーケティングと広告、物流とサプライチェーン、リスク低減などの重要な要素に関連する貴重なインテリジェンスとインサイトが得られます。
+
+Weather Source Domoコネクターは、気温、湿度、降水、降雪、風、気圧、雨氷、雲量など、21の気象パラメーターをサポートするデータを提供します。気候学データには、サポートされている同じ気象パラメーターがすべて含まれますが、標準偏差と発生頻度のデータも含まれます。天文学データには、太陽と月の方位角、距離、高度などが含まれます。Weather SourceとDomoの製品とサービスの詳細については、 [www.weathersource.com](https://weathersource.com/ "www.weathersource.com") を参照してください。Weather Source APIの詳細については、 [https://developer.weathersource.com/documentation/](https://developer.weathersource.com/documentation/ "https://developer.weathersource.com/documentation/") を参照してください。
+
+以下は、Domoコネクターを介して利用可能なWeather Source APIの製品の概要です。
+
+**OnPoint Forecast** 標準のOnPoint Forecastデータは、アメリカ国立環境予測センター（NCEP）のGlobal Forecast System（GFS）にもとづいています。
+
+OnPoint ForecastはGFSモデルを使用し、Weather Sourceによって処理された後、OnPoint Gridに展開され、ほかのDataSetとの統計的な整合性を確保します。GFSベースのOnPoint Forecastでは、現在384時間または15日先までの予測が1日単位で提供されています。このデータは6時間ごとに完全に更新されます。
+
+**OnPoint Historical Data**
+  
+OnPoint Weatherの履歴データは、2000年から現在までの1時間単位および1日単位の気象値を提供します。このデータベースは、履歴情報の安定したソースです。Weather Sourceは、様々な最新のデータソースを使用して、これらを融合した正確な履歴データ製品を生み出しています。
+
+**Climatology**
+  
+Climatologyは、特定の地点と時期の典型的または標準的な天気をまとめて表す手段、標準偏差、およびその他の統計を提供します。OnPoint Climatologyを使用すると、目的の地点や特定の時期の天気に関する予測を定量化できます。また、最近の天候や予測される天候が標準的な状態からどのように異なるか（異常気象など）、また、その異常気象が統計的にどれだけまれであるかを把握するのにも使用できます。
+
+Climatologyには、目的の地点で特定の天候が発生する頻度を明らかにする、発生頻度のインサイトも含まれています。この情報は、ビジネスおよびリソースの計画に非常に役立ち、長期予測ツールとしても使用できます。
+
+**Astronomy**
+  
+Weather SourceのAstronomy DataSetには、日の出、日の入り、太陽の方位角の情報など、1日単位および1時間単位の天文データが含まれています。
+
+**Weather SourceのAPIで利用可能なその他の製品（まもなくDomoコネクターから入手可能になります）：**
+
+**ECMWF**
+  
+Weather Sourceは、業界トップクラスのヨーロッパ中期予報センター（ECMWF）データを提供しています。ECMWFデータは、現在存在する中で最も信頼性の高いモデルと見なされ、「欧州」モデルと呼ばれることがよくあります。
+
+* **ECMWF**
+  Weather Sourceは、ヨーロッパ中期予報センター（ECMWF）データを提供しています。これには、240時間先までの1時間単位のECMWF予測と、15日先までの1日単位の予測が含まれます。また、46日先までの季節内予測も1日単位で表示されます。さらに、ECMWF季節内予測では、今後7ヶ月間の予測が1ヶ月単位で表示されます。
+* **ECMWF Vertically Adjusted Forecast**
+  これはECMWF予測と同じですが、Dynamic Elevation Adjustmentが追加されています。
+
+標高補正の概念は、Weather Sourceに固有のものです。Weather SourceのDynamic Elevation Adjustmentは、地形のバリエーションを正確に調整するために真の気象モデリングを適用します。Dynamic Elevation Adjustment Weather Sourceを追加することで、目的の地点の標高と補間する気象入力情報の標高の差を動的に解消できるようになりました。DEAは、HRRRおよびECMWF確定モデルで1時間単位のデータのみに使用できます。
+
+* **ECMWF Air Quality Forecast**
+  Air Quality Forecastは、1日単位と1時間単位の両方で提供されます。1時間単位の予測は、当日から5日先まで、1日単位の予測は当日から4日先までです。
+
+**HRRR Forecast**
+
+* **HRRR Forecast**
+
+ネイティブの空間分解能は3キロメートル、時間分解能は15分で、HRRR Forecast気象モデルは米国大陸で最も重要なメソスケール予測モデルです。HRRR Forecastには、1時間ごとに更新される18時間のフォワード予測ビューが含まれています。
+
+* **HRRR Vertical Forecast**
+
+これは同じHRRR予測ですが、Dynamic Elevation Adjustmentを使用します。Dynamic Elevation Adjustmentの概念は、Weather Sourceに固有のものであり、予測モデルの標高と実際の地面の標高の差を解消します。標高補正されたデータにより、補間入力情報と目的の地点の標高が常に同じ高さになるため、稜線の上に建設された測風塔などの目的の地点のデータをより正確に取得できます。
+
+**UV**
+
+当日から5日先までのUVデータが1日単位および1時間単位で提供されます。UV履歴データも利用できます。
+
+**Pollen Forecast** 花粉予測データは1時間単位で入手でき、現在の状況と48時間先までのフォワード予測ビューの両方を提供します。
+
+**Nowcast**
+
+Nowcastの気象データは、任意の地点の任意の時点での現在の天候を参照します。
+
+**App Weather**
+
+アプリやウェブページに最適化された気象データは、ウェブサイトやインタラクティブな表示でのあらゆる天気表示に最適です。APIを1回呼び出すと、現在の天候（Nowcast）と10日先までの予測が1時間単位および1日単位で返されます。また、天文データ、アイコン、テキストによる説明も返されます。App Weatherは、メートル法、帝国単位、国際単位系のほか、英語、スペイン語、フランス語の翻訳レイヤーをサポートしています。
+
+**Lightning**
+
+全球規模の雷アーカイブがリアルタイムで更新されます。Lightningデータは、利用可能な最も正確で信頼性の高い全球規模の雷データを提供します。指定された地点（および指定された時間範囲内）から12km（7マイル）以内の一致するすべての雷イベントが返されます。雷履歴データも利用できます。
+
+**Location Metadata**
+
+位置データは、全球規模の地点またはOnPoint IDの地理空間メタデータ（緯度/経度、標高、任意のOnPoint ID（つまり格子点）から目的の事業拠点までの距離など）で構成されます。
+
+Data CenterにあるWeather Sourceアカウントに接続します。このトピックでは、Weather Sourceコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用すると、世界の任意の地点または地理的な境界のある領域（例えば郵便番号、緯度/経度、DMA、OnPoint ID）の業界随一の過去、現在、未来の局地的な全球規模の気象データ、気候学データ、天文学データを取得できます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> 気象データをビジネスパフォーマンスと関連付けて有益なビジネスインテリジェンスを取得したいと考えている組織内の従業員またはビジネス部門。 </li><li><span class="mt-color-333333"><span class="mt-font-Open Sans,sans-serif"><span class="mt-font-size-10.5pt"> 特定の事業拠点または地理的に境界のある領域（例えば郵便番号、緯度/経度、DMA、OnPoint ID）に適切に配置された気象データを必要とする組織内の従業員またはビジネス部門。 </span></span></span></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Weather Sourceアカウントに接続しDataSetを作成するには、Weather Source APIキーが必要です。Weather Sourceアカウントに登録するとAPIキーが生成されます。 [利用を開始するには、こちらをクリックしてください。](https://www.domo.com/start/free "利用を開始するには、こちらをクリックしてください。")
+
+## Weather Sourceアカウントに接続する
+
+このセクションでは、Weather Sourceコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+使用方法：
+
+1. DomoコネクターにWeather Source APIキーを追加します。
+2. 処理するDataSetを選択します。
+3. 粒度を選択します。
+4. ワークシートにデータを取り込みます。
+
+Weather Sourceデータベース内の郵便番号のリスト：
+  
+[https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/](https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/ "https://developer.weathersourceapis.com/apis/countries-with-postal-code-support/")
+  
+Weather Sourceデータベース内のDMAのリスト：
+  
+[https://developer.weathersourceapis.com/apis/supported-dmas/](https://developer.weathersourceapis.com/apis/supported-dmas/ "https://developer.weathersourceapis.com/apis/supported-dmas/")
+
+## ［認証情報］ペイン
+
+このペインには、Weather Sourceアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Weather Source APIキーを入力します。Weather Sourceアカウントに登録するとAPIキーを受け取ります。 </td></tr></tbody></table>
+
+有効なWeather Sourceの認証情報を一度入力しておくと、随時同じアカウントを利用して新しいWeather Source DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するWeather Sourceレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウント設定を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Astronomy by DMA </td><td colspan="1" rowspan="1"><p> 特定のDMAと期間にもとづく天文学データ（日の出や日の入りなど）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Astronomy by Latitude &amp; Longitude </td><td colspan="1" rowspan="1"> 指定した緯度、経度、期間にもとづく天文学データ（日の出や日の入りなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Astronomy by OnPoint ID </td><td colspan="1" rowspan="1"> 特定のOnPoint IDと期間にもとづく天文学データ（日の出や日の入りなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Astronomy by Postal Code </td><td colspan="1" rowspan="1"> 指定した郵便番号と期間にもとづく天文学データ（日の出や日の入りなど）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Climatology by DMA </td><td colspan="1" rowspan="1"><p> 特定のDMAと期間にもとづく気候学データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Climatology by Latitude &amp; Longitude </td><td colspan="1" rowspan="1"><p> 特定の緯度、経度、期間にもとづく気候学データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Climatology by OnPoint ID </td><td colspan="1" rowspan="1"><p> 特定のOnPoint IDと期間にもとづく気候学データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Climatology by Postal Code </td><td colspan="1" rowspan="1"><p> 特定の郵便番号と期間にもとづく気候学データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Forecast by DMA </td><td colspan="1" rowspan="1"> 指定したDMAにもとづく予測データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecast by Latitude &amp; Longitude </td><td colspan="1" rowspan="1"> 指定した緯度と経度にもとづく予測データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecast by OnPoint ID </td><td colspan="1" rowspan="1"> 指定したOnPoint IDにもとづく予測データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecast by Postal Code </td><td colspan="1" rowspan="1"> 指定した郵便番号にもとづく予測データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> History by DMA </td><td colspan="1" rowspan="1"> 指定したDMAの気象履歴を返します。入手可能なのは、2013年以降の履歴です。 </td></tr><tr><td colspan="1" rowspan="1"> History by Latitude &amp; Longitude </td><td colspan="1" rowspan="1"> 指定した緯度、経度、期間にもとづく気象履歴を返します。入手可能なのは、2013年以降の履歴です。 </td></tr><tr><td colspan="1" rowspan="1"> History by OnPoint ID </td><td colspan="1" rowspan="1"><p> 指定したOnPoint IDと期間にもとづく気象履歴を返します。入手可能なのは、2013年以降の履歴です。 </p></td></tr><tr><td colspan="1" rowspan="1"> History by Postal Code </td><td colspan="1" rowspan="1"> 指定した郵便番号と期間にもとづく気象履歴を返します。入手可能なのは、2013年以降の履歴です。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Enter Latitude Location </td><td colspan="1" rowspan="1"> データを確認したい地点の緯度を入力します。これは0～90の小数で指定する必要があります。例： <span class="mt-font-courier-new"> 32.7153 </span></td></tr><tr><td colspan="1" rowspan="1"> Enter Longitude Location </td><td colspan="1" rowspan="1"> データを確認したい地点の経度を入力します。これは-180（西部）と180（東部）までの小数で指定する必要があります。例： <span class="mt-font-courier-new"> -117.5134 </span></td></tr><tr><td colspan="1" rowspan="1"> Period to Use </td><td colspan="1" rowspan="1"> 時間別、日別でレポートのデータを分類するかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> レポートに表示するデータ範囲の開始日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"> レポートに表示するデータ範囲の終了日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Country </td><td colspan="1" rowspan="1"> データを取得したい国を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Zip Code </td><td colspan="1" rowspan="1"> 使用する郵便番号をカンマで区切って入力します。一部の米国の郵便番号を使用できます。この郵便番号は、その一部の郵便番号から始まるすべての米国の郵便番号を含むように拡張されます。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

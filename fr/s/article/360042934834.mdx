@@ -1,0 +1,131 @@
+---
+title: "October 2019 Release Notes"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nouvelles fonctionnalités et optimisations
+
+Les fonctionnalités et optimisations de cette version sont notamment les suivantes:
+
+### Moteur d'automatisation pour l'entreprise: actions d'alerte
+
+Les actions d'alerte entraînent des opérations efficaces pour votre entreprise en déclenchant des événements tels que l'intégration de Webhook avec les systèmes tiers et celle des projets et tâches dans Domo. Les possibilités d'actions d'alerte sont véritablement infinies. Voici quelques exemples:
+
+* Vous êtes gérant d'un magasin et vous avez peut-être déjà une alerte qui vous informe lorsqu'un produit atteint un chiffre seuil d'unités vendues. Grâce aux actions d'alerte, vous pouvez prolonger cette alerte de base et faire en sorte que son déclenchement active également un réapprovisionnement dans le système de stockage.
+* Vous êtes responsable des ventes et vous pouvez définir une action d'alerte qui déclenche une musique ou des sirènes dans votre bureau lorsque vous concluez une affaire importante. Vous n'avez plus qu'à fêter l'événement avec vos collègues!
+* Vous êtes responsable de l'assistance et vous pouvez définir des actions d'alerte afin de créer automatiquement des tâches dans Domo et les attribuer à des individus spécifiques dès que le nombre de problèmes en cours dépasse une limite définie.
+
+Domo propose actuellement deux types d'actions d'alerte: les Webhooks et les tâches. Grâce à l'action Webhook, vous pouvez vous connecter à autant de systèmes tiers que nécessaire. Grâce aux actions tâche, vous pouvez créer une tâche dans un projet spécifique et l'attribuer à une personne de votre choix. Vous configurez ces actions dans l'assistant d'alerte lorsque vous créez une alerte ou modifiez une alerte existante.
+
+  <Frame><img alt="alert_actions_webhooks_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjN.png"/></Frame>
+  <Frame><img alt="alert_actions_tasks_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjS.png"/></Frame>
+
+Pour plus d'informations, consultez la rubrique Création d'une alerte pour une carte KPI.
+
+### Navigation mise à jour
+
+La nouvelle navigation de Domo améliore l'organisation et la gestion de vos pages pour vous permettre de trouver ces dernières plus facilement, que vous en possédiez quelques-unes ou plusieurs centaines. Elle permet également de naviguer vers toutes les fonctionnalités les plus utilisées en moins de clics qu'avant, réduisant ainsi le temps requis pour effectuer des actions dans Domo et obtenir des réponses. Pour plus d'informations, regardez cette [vidéo de démonstration](https://youtu.be/0Ekqq3CvvV4).
+
+La navigation mise à jour sera disponible pour tous les clients dans la version d'octobre. Étant donné l'ampleur de ce changement, la nouvelle structure de navigation ne remplacera pas officiellement l'ancienne structure avant mars 2020. D'ici là, tous les clients peuvent activer le nouveau système de navigation en accédant aux paramètres d'administration, en sélectionnant **Paramètres d'entreprise > Contrôle des fonctionnalités**, puis en activant l'option Activer la navigation mise à jour pour tous les utilisateurs. (Pour ce faire, vous devez disposer des privilèges de sécurité d'administrateur.) Votre organisation a alors la possibilité de procéder à cette transition lorsqu'elle est prête. Notez que les pages favorites et de troisième niveau ne sont prises en charge que dans la nouvelle version de la navigation. Cela signifie que, si vous revenez à l'ancien système de navigation, ces pages ne seront pas visibles dans l'interface.
+
+Voici une liste présentant quelques-unes des principales améliorations:
+
+#### Amélioration de l'interface utilisateur
+
+Le menu Pages a été déplacé à gauche de l'écran dans la liste déroulante Tableaux de bord. Vous pouvez réduire cette liste afin de pouvoir compter sur un espace plus grand lorsque vous souhaitez vous focaliser sur un contenu important du tableau de bord. Si vous le souhaitez, vous pouvez toujours rouvrir la liste lorsqu'elle est réduite. Vous pouvez également effectuer des recherches dans la liste afin de filtrer rapidement la liste des pages au fil de votre saisie.
+
+<Frame><img alt="new_nav_filtering.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjL.png"/></Frame>
+Vous trouverez également des raccourcis vers vos fonctions Domo les plus importantes; ils sont désormais affichés en haut de l'écran pour un accès plus rapide.
+
+<Frame><img alt="new_nav_top_bar.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjX.png"/></Frame>
+#### Pages de troisième niveau
+
+Un niveau supplémentaire dans la hiérarchie de pages vous permet de créer des sous-pages de vos sous-pages. Vous disposez maintenant d'un choix d'options considérable pour organiser les pages et afficher des informations associées.
+
+<Frame><img alt="new_nav_3_levels.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjW.png"/></Frame>
+#### Pages favorites
+
+Vous pouvez maintenant marquer des pages comme favorites pour faciliter l'accès à vos contenus les plus importants dans Domo. Pour ajouter une page comme favorite, choisissez l'option **Ajouter aux favoris** dans le menu de clé à molette de cette page.
+
+<Frame><img alt="new_nav_finding_favorites.png" src="/images/kb/ka05w000001256H-00N5w00000Ri7BU-0EM5w000005wLtI.png"/></Frame>
+Une fois la page ajoutée comme favorite, vous pouvez y accéder rapidement en cliquant sur **Favoris** en haut de la liste Pages et en sélectionnant la page que vous souhaitez ouvrir.
+
+### Diffusion de vidéos MP4 dans les Doc Cards
+
+Facilitez le visionnage grâce à la diffusion de vidéos MP4 dans les Doc Cards. Vous pouvez visionner ces vidéos depuis le niveau Page (les pages standard et les articles Domo sont pris en charge) ou depuis la vue de détails des Doc Cards. Vous pouvez également choisir une image personnalisée pour la vignette ou laisser à Domo le soin de choisir une vignette par défaut.
+
+Les vidéos peuvent être visionnées dans les versions Web et mobile de Domo. Veuillez noter que les vidéos MP4 sont *les seules* prises en charge actuellement (les formats AVI, WMV, QuickTime, etc. ne sont pas pris en charge). Si votre vidéo n'est pas un fichier MP4, la vidéo n'est pas diffusée et vous ne voyez que l'icône du fichier. Notez également que la taille des fichiers vidéo est limitée à 1 Go et que celle des images de vignette personnalisée est limitée à 10 Mo.
+
+  <Frame><img alt="video_streaming_card_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjP.png"/></Frame>
+  <Frame><img alt="video_streaming_details_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjT.png"/></Frame>
+
+Pour plus d'informations, consultez la rubrique Ajout de cartes à Domo.
+
+### Connecteur JSON sans code
+
+Connectez les données personnalisées à Domo sans écrire de code à l'aide du connecteur JSON sans code.
+
+Jusqu'à présent, si vous souhaitiez intégrer vos données personnalisées dans Domo, vous deviez demander à un membre de l'équipe Domo de concevoir un connecteur personnalisé ou de créer la connexion à l'aide de notre API ou de notre interface IDE de connecteur. Ces deux solutions exigeaient un codage important. Désormais, vous pouvez intégrer vos données personnalisées en suivant les étapes d'un assistant dans une interface simple. Cet assistant vous permet d'établir la connexion à vos données par l'intermédiaire d'un fichier JSON et de l'intégrer dans Domo.
+
+Pour utiliser cet outil, vous aurez besoin des éléments suivants:
+
+* Un ID de client et une clé secrète de client disponibles sur
+  [developer.domo.com](http://developer.domo.com)
+* Une URL d'autorisation et une URL de jeton d'accès mise à disposition par votre fournisseur de données
+* L'URL permettant d'accéder au fichier JSON
+
+Accédez à l'interface de ce connecteur en recherchant « No-Code JSON OAuth Connector » dans l'Appstore.
+
+<Frame><img alt="no_code_json_tile_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjQ.png"/></Frame>
+Pour plus d'informations, consultez la rubrique [Connecteur JSON sans code](/s/article/360043433473 "Connecteur JSON sans code").
+
+### DomoStats - DataSets et DataFlows
+
+L'application DataSets et DataFlows est la nouveauté de notre répertoire d'applications DomoStats en constante évolution. Elle est fournie avec un tableau de bord préintégré qui permet aux administrateurs d'effectuer les opérations suivantes:
+
+* Nettoyer rapidement Domo en observant les DataSets et les DataFlows qui nécessitent une attention particulière, sont orphelins ou dupliqués, etc., puis en sélectionnant un lien direct permettant d'entreprendre une action immédiatement.
+* Identifier les améliorations de ciblage afin de coriger les DataSets et les DataFlows à l'aide de cartes qui indiquent les éléments nécessitant une attention particulière en fonction du nombre de cartes, des propriétaires, etc.
+* Garantir la sécurité de Domo en observant les créateurs de données et les données entrant dans Domo.
+
+Vous êtes prêt à essayer cette application? Il vous suffit de rechercher DomoStats dans l'Appstore, de sélectionner l'application DomoStats - DataSets et DataFlows, puis de cliquer sur **Essayer**. Notez que, pour déployer les applications DomoStats dans Domo, vous devez occuper un rôle avec un niveau de sécurité d'administrateur.
+
+<Frame><img alt="domostats_datasets_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjO.png"/></Frame>
+Pour plus d'informations, consultez la rubrique [DomoStats - DataSets et DataFlows (BÊTA)](/s/article/360043439293 "DomoStats - DataSets et DataFlows (BÊTA)").
+
+### Nouveau centre d'aide
+
+Notre nouveau centre d'aide permet de retrouver facilement tous les documents de formation de Domo, car ils sont désormais centralisés. Le centre d'aide permet d'accéder à tous les contenus suivants:
+
+* 1 700 articles de base de connaissances
+* Plus de 450 vidéos de procédures (intégrées depuis YouTube)
+* Plus de 80 modules gratuits de formation en ligne
+* Notre communauté d'utilisateurs Dojo
+* Options de réservation de formateurs professionnels
+* Ressources d'assistance
+
+Le centre d'aide est public, ce qui signifie que vous pouvez accéder à toutes les ressources ci-dessus depuis Google.
+
+Pour accéder au centre d'aide, il vous suffit de cliquer sur l'icône <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> en haut à droite de l'écran.
+
+<Frame><img alt="new_help_center_rn.png" src="/images/kb/ka05w00000129uT-00N5w00000Ri7BU-0EM5w000005vOjM.png"/></Frame>
+## Obtenir de l'aide
+
+Vous pouvez afficher les dernières notes de version dans le centre d'aide, auquel vous pouvez accéder depuis Domo en cliquant sur <InlineImage src="/images/kb/ka05w00000129ua-00N5w00000Ri7BU-0EM5w000005wJIS-1.png" /> dans la barre de navigation supérieure.
+
+En cas de questions sur Domo,
+
+* recherchez un sujet dans le Centre d'aide
+* recevez une formation à
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/").
+* recherchez des applications de formation dans l'Appstore
+* obtenez des réponses dans la communauté Domo à l'adresse
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* contactez le support technique en soumettant un ticket d'aide dans le portail du support technique Domo ou en envoyant un message Buzz à `/support`.
+* contactez votre Responsable du Succès Client Domo ou votre Consultant technique
+
+Envoyez-nous vos commentaires depuis Domo (**Plus** ****> Commentaires****). Ou envoyez un e-mail à [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Pour plus d'informations sur la façon d'obtenir de l'aide, consultez [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide").
+
+Français

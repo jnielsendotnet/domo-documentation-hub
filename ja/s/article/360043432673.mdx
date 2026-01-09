@@ -1,0 +1,75 @@
+---
+title: "Zenefitsコネクター"
+---
+
+## はじめに
+
+Zenefitsは、人事管理向けにクラウドベースのサービスとしてソフトウェアを提供しており、健康保険に重点を置いています。Zenefits APIの詳細については、ウェブサイト（
+https://www.zenefits.com/app-connect/
+）を参照してください。
+
+Zenefitsアカウントには、Data Centerから接続します。このトピックでは、Zenefitsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+Zenefitsアプリケーションに接続してDataSetを作成するには、以下が必要です。
+
+* Zenefitsからリクエストする範囲のリスト。範囲の詳細については、
+  [https://developers.zenefits.com/docs/permissions](https://developers.zenefits.com/docs/permissions "https://developers.zenefits.com/docs/permissions") を参照してください。
+* Zenefitsアカウントのログインに使用するユーザー名とパスワード
+
+## Zenefitsアカウントに接続する
+
+このセクションでは、Zenefitsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Zenefitsアプリケーションにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Scopes </td><td colspan="1" rowspan="1"><p> Zenefitsからリクエストする範囲のリストを入力します。範囲は「+」記号で区切ります。例： </p><p><span class="mt-font-courier-new"> platform+people+companies+locations+departments+employments+banks+company_banks+people.department+people.location+people.manager+people.work_email+people.date_of_birth+people.gender </span></p><p> 一部の列の日付は、適切な範囲が追加されたときにのみ返されます。範囲の詳細については、 <a href="https://developers.zenefits.com/docs/permissions" target="_blank" title="https://developers.zenefits.com/docs/permissions"> https://developers.zenefits.com/docs/permissions </a> を参照してください。 </p></td></tr></tbody></table>
+
+有効なZenefits認証情報を入力すると、Zenefits OAuth画面が表示され、Zenefits認証情報の入力を求められます。新しいZenefits DataSetを作成するときはいつでも同じアカウントを使用できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するZenefitsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Companies </p></td><td colspan="1" rowspan="1"><p> 会社のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company Bank Accounts </p></td><td colspan="1" rowspan="1"><p> 特定の会社の、会社銀行口座に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Departments </p></td><td colspan="1" rowspan="1"><p> 特定の会社の部署のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employee Bank Accounts </p></td><td colspan="1" rowspan="1"><p> 特定の従業員の銀行口座のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Employments </p></td><td colspan="1" rowspan="1"><p> 特定の従業員の雇用状況のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"><p> 特定の会社の場所のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"><p> 特定の会社の従業員のリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Sub Report </p></td><td colspan="1" rowspan="1"><p> 目的のサブレポートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得する会社を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Person ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得する従業員を選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターのベースURLはどのエンドポイントですか？">
+
+
+ZenefitsのベースURLは、https://api.zenefits.com/core/ です。
+
+
+</Accordion>
+<Accordion title="# 各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> レポート名 </p></th><th colspan="1" rowspan="1"><p> エンドポイントURL </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Companies </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /companies </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Company Bank Accounts </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /companies/｛会社ID｝/company_banks </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Departments </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /departments </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Employees Bank Accounts </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /people/｛従業員ID｝/banks </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Employments </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /employments </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Locations </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /locations </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> People </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> /people </span></p></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPIコール制限はありますか？">
+
+
+Zenefitsでは、サブスクリプションごとに1分間に100回のAPIコールを呼び出すことができます。
+
+
+
+</Accordion>
+</AccordionGroup>

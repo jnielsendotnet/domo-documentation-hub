@@ -1,0 +1,111 @@
+---
+title: "Notes de version d'octobre 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nouvelles fonctionnalités et optimisations
+
+Cette version comprend notamment les fonctionnalités et optimisations suivantes:
+
+### Nouvelle Magic ETL
+
+Nouvelle Magic ETL comprend de nombreuses améliorations du système backend et de mosaïques, ainsi que de nouvelles mosaïques. Lorsque vous ouvrez la vue de modification d'un DataFlow Magic ETL, un nouveau bouton bascule vous permet d'activer nouvelle Magic ETL. Il est important de noter que la fonctionnalité de certaines mosaïques a changé. Pour plus d'informations, consultez la section [Nouveautés de Nouvelle Magic ETL](/s/article/4408794063639).
+
+<Frame><img alt="ETL_Toggle.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6N.png"/></Frame>
+<Warning>
+  **Important:** vous DEVEZ prendre connaissance de la section suivante avant de convertir un DataFlow nouvelle Magic ETL existant. Dans le cas contraire, vous risqueriez d'endommager votre DataFlow, car la fonctionnalité de certaines mosaïques a été modifiée: [Mise à jour vers Nouvelle Magic ETL](/s/article/360047787514).
+
+</Warning>
+
+**La liste suivante répertorie les fonctionnalités de nouvelle Magic ETL:**
+
+* Exécutions plus rapides.
+* Nouvelle catégorisation des mosaïques.
+* Texte d'infobulle consultable.
+* Lignes avec codage couleur et courbes.
+* Prise en charge des expressions (mosaïques Ajouter une formule, Filtrer les lignes et Regrouper par).
+* Vues au fur et à mesure de la saisie.
+* Améliorations de la classification des types de données.
+* Améliorations de la gestion des erreurs.
+* Mises à jour des mosaïques de jonction.
+* Optimisation des mosaïques d'ajout.
+* Mises à jour des mosaïques Mappage des valeurs.
+* Mosaïques Activer le pivotement et Annuler le pivotement (auparavant Réduire les colonnes et Afficher les colonnes).
+* Nouvelle mosaïque Annuler le pivotement dynamique.
+* Amélioration des mosaïques Python Script et R Script (onglet de schéma requis abandonné).
+* Texte sélectionnable dans les aperçus de données.
+
+### Fonctionnalités améliorées de planification des DataFlows
+
+Grâce aux options améliorées de planification des DataFlows, vous pouvez désormais planifier un DataFlow pour qu'il s'exécute selon un calendrier spécifique:
+
+* Jours spécifiques du calendrier (1er, 15 et 28 du mois.)
+* Jour spécifique de la semaine (dernier vendredi.)
+* Uniquement pendant les heures actives (toutes les 2 heures entre 8 h 00 et 17 h 00.)
+* Une fois par an ou une fois par trimestre.
+
+Vous pouvez également définir l'heure d'exécution dans votre fuseau horaire au lieu de l'horaire UTC par défaut. Pour plus d'informations, consultez la section Planification de DataFlows.
+  
+<Frame><img alt="DataFlow_Scheduling.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6H.png"/></Frame>
+### Nouvel assistant Connecteur dans le Data Center
+
+Grâce au nouvel assistant Connecteur dans le Data Center, vous pouvez sélectionner facilement le type de connecteur dont vous avez besoin à l'aide des onglets filtrés en fonction de types de connecteurs spécifiques. Les connecteurs favoris sont répertoriés en premier afin de faciliter l'accès aux connecteurs les plus populaires ou les plus recommandés. L'assistant comprend une configuration en ligne qui facilite la définition des connecteurs. Pour plus d'informations, consultez la section [Ajout d'un DataSet à l'aide d'un connecteur](/s/article/360042926274).
+  
+<Frame><img alt="Connector_Wizard_.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6I.png"/></Frame>
+### Nouvelle bibliothèque de ressources
+
+Le Centre d'orientation a été mis à jour et s'intitule désormais Bibliothèque de ressources. La nouvelle bibliothèque de ressources vous permet de consulter des **guides et des visites guidées**, de rechercher des **ressources** supplémentaires et de consulter des **annonces de produits**. Pour plus d'informations, consultez la section Bibliothèque de ressources.
+  
+<Frame><img alt="Resource_Library.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6O.png"/></Frame>
+### Pages de destination propres aux utilisateurs
+
+Grâce aux pages de destination propres aux utilisateurs, les administrateurs et les utilisateurs peuvent définir une page ou une carte spécifique qui doit s'ouvrir lorsqu'ils se connectent à Domo. De cette manière, vous pouvez personnaliser la vue des utilisateurs d'un service spécifique ou afficher la page/carte que vous utilisez le plus, sans clics supplémentaires pour y accéder. Pour plus d'informations, consultez la section [Configuration des pages de destination propres aux utilisateurs](/s/article/4409575159191).
+
+<Frame><img alt="Your_Landing_Page.png" src="/images/kb/ka05w00000123Zh-00N5w00000Ri7BU-0EM5w000005vOYm.png"/></Frame>
+### Nouveaux rapports DomoStats
+
+Le connecteur DomoStats propose désormais quatre nouveaux rapports:
+
+* **Comptes -** Affiche les comptes dans une instance.
+* **Comptes avec autorisations -** Affiche les comptes dans une instance, l'utilisateur qui les a consultés, ainsi que le niveau d'autorisation.
+* **Accès au DataSet -** Affiche les utilisateurs ou les groupes ayant accès aux différents DataSets, ainsi que leur niveau d'autorisation.
+* **Balises de DataSet -** Affiche les balises attribuées aux différents DataSets.
+
+Pour plus d'informations, consultez la section [Connecteur DomoStats](/s/article/360043433813).
+  
+<Frame><img alt="DomoStats_Reports.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6K.png"/></Frame>
+## Fonctionnalités Premium
+
+Ces fonctionnalités sont disponibles à la demande et sont payantes. Pour que ces fonctionnalités soient activées, adressez-vous à votre responsable du Succès Client Domo, à votre consultant technique ou au responsable de votre compte. Si vous n'avez pas leurs coordonnées, adressez-vous à l'assistance technique. Pour plus d'informations sur l'assistance et les méthodes permettant de la contacter, consultez la section [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide"). Selon la fonctionnalité demandée, vous pouvez être invité à suivre une formation avant de l'utiliser.
+
+### Modal de maximisation des détails de la carte dans les tableaux de bord Embed
+
+Grâce au modal de maximisation des détails de la carte dans les tableaux de bord Embed, vous pouvez désormais cliquer sur l'icône Développer les détails pour afficher la vue Détails de la carte. Cette vue vous permet désormais d'exporter les éléments visuels au format PDF ou PowerPoint, et elle reflète tous les filtres et interactions appliqués à la carte. Pour plus d'informations, consultez la section [Partage de cartes et de tableaux de bord à l'extérieur de Domo à l'aide de la fonctionnalité Domo Embed](/s/article/360043437993).
+  
+<Frame><img alt="Detail_Maximization.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6L.png"/></Frame>
+### Écran de connexion personnalisé
+
+L'écran de connexion personnalisé permet aux administrateurs de modifier l'image ou la couleur d'arrière-plan de l'écran de connexion. Vous pouvez ainsi afficher votre marque et avoir une expérience utilisateur plus cohérente. Cet écran fait partie de nos fonctionnalités Kit de marque. Pour plus d'informations, consultez la section Écran de connexion personnalisé.
+  
+<Frame><img alt="Custom_Image_edit.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6J.png"/></Frame>
+## Obtenir de l'aide
+
+Vous pouvez afficher les dernières notes de publication dans le centre d'aide qui est accessible depuis Domo en cliquant sur <InlineImage src="/images/kb/ka05w00000129sy-00N5w00000Ri7BU-0EM5w000005wJLh.png" /> dans la barre de navigation supérieure.
+
+En cas de questions sur Domo,
+
+* recherchez une rubrique dans le Centre d'aide
+* suivez une formation dans Domo University à l'adresse
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* recherchez des applications de formation dans l'Appstore
+* obtenez des réponses dans la communauté Domo à l'adresse
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* contactez le support technique en créant un ticket d'aide dans le portail de support Domo
+* contactez votre Responsable du Succès Client Domo ou votre Consultant technique
+
+Envoyez-nous vos commentaires depuis Domo (**Plus** ****> Commentaires****). Ou envoyez un e-mail à [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Pour plus d'informations sur la façon d'obtenir de l'aide, consultez [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide").
+
+Français

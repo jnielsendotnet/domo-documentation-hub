@@ -1,0 +1,140 @@
+openapi: 3.0.0
+info:
+  title: Activity Log API
+  version: v1
+  description: |
+    The Activity Log API allows users to retrieve audit logs and 
+    enumerate object types within their Domo instance.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance URL
+    variables:
+      domo_instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication.
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+          
+    ActivityLogEntry:
+      type: object
+      description: A single entry from the user activity log.
+      properties:
+        userName:
+          type: string
+          example: "Jae Wilson"
+        userId:
+          type: string
+          example: "1893952720"
+        userType:
+          type: string
+          example: "USER"
+        actionType:
+          type: string
+          example: "VIEWED"
+        objectType:
+          type: string
+          example: "ACTIVITY_LOG"
+        additionalComment:
+          type: string
+          example: "Jae Wilson viewed the activity log."
+        time:
+          type: integer
+          format: int64
+          description: Timestamp of the event in milliseconds.
+          example: 1654205894927
+        eventText:
+          type: string
+          example: "Viewed activity log"
+
+security:
+  - developerToken: []
+
+paths:
+  /api/audit/v1/user-audits:
+    get:
+      summary: Get Activity Log
+      description: Retrieves a list of user activity logs based on the provided query parameters.
+      tags: 
+        - Activity Log API
+      parameters:
+        - name: start
+          in: query
+          required: true
+          description: The start timestamp for the query (in milliseconds).
+          schema:
+            type: integer
+            format: int64
+        - name: end
+          in: query
+          required: true
+          description: The end timestamp for the query (in milliseconds).
+          schema:
+            type: integer
+            format: int64
+        - name: offset
+          in: query
+          description: The results offset.
+          schema:
+            type: integer
+            default: 0
+        - name: limit
+          in: query
+          description: The maximum number of results to return.
+          schema:
+            type: integer
+            default: 300
+        - name: objectType
+          in: query
+          description: "A comma-separated list of object types to filter by (e.g., DATAFLOW_TYPE,ACCOUNT)."
+          schema:
+            type: string
+      responses:
+        '200':
+          description: An array of activity log entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ActivityLogEntry'
+        '401':
+          description: Unauthorized (e.g., invalid developer token).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/audit/v1/user-audits/objectTypes:
+    get:
+      summary: Get Activity Log Object Types
+      description: Retrieves a list of available object types that can be queried in the Activity Log API.
+      tags: 
+        - Activity Log API
+      responses:
+        '200':
+          description: An array of object types.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                example: ["ACCOUNT", "DATAFLOW_TYPE", "DATA_SOURCE"]
+        '401':
+          description: Unauthorized (e.g., invalid developer token).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

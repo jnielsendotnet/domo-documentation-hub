@@ -1,0 +1,124 @@
+---
+title: "2018年8月リリース1"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## 新機能と機能拡張
+
+本リリースで新しくなった機能と拡張された機能は、以下のとおりです。
+
+### 更新されたBuzz
+
+更新されたBuzzを利用すると、チャットを行動に結び付けることができます。データについてのシンプルで分かりやすいコミュニケーションで、チャットを行動に結び付けましょう。デバイスや場所を問わず、データについて必要なすべての人とコラボレーションできます。チャットとデータをタスクに変えて、完了するまで追跡できます。準備ができたらメッセージにフラグを付けて、フォローアップを促します。目的に沿った分かりやすいお知らせにより、気にしているチャットをチェックし忘れたり、決定する機会を逃がしたりすることがなくなります。
+
+Buzzの最新のリリースには、以下のすべてが含まれています。
+
+* シンプルになったナビゲーションメニューで、最近のチャットやお気に入りに追加したチャットをすばやく見つけることができます。
+
+<Frame><img alt="buzz_highnoon_navpane_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjT.png"/></Frame>
+* 重要なメッセージにフラグを付け後で確認できるようにし、特別なペインでそのメッセージを開いて、アクションを起こすことができます。
+    
+  <Frame><img alt="buzz_flagforfolluwup_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKj2.png"/></Frame>
+* 新しい **［ディスカバー］** ペインでは、話題のトピック、オンラインのユーザー、最も反応が多かったメッセージ、最近のチャットを表示できます。
+    
+  <Frame><img alt="buzz_discover_feed_2018.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjR.png"/></Frame>
+* キーワード検索が大幅に改善され、チャットタイトル、メンバー名、メッセージの内容に基づいて結果を特定できます。
+    
+  <Frame><img alt="buzz_search_pane_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjQ.png"/></Frame>
+新しいBuzzのレイアウトに関する詳細は、「 [Buzzでチャットする](/s/article/360042925574 "Buzzでチャットする") 」を参照してください。
+
+### Data Centerの [データ] タブ
+
+新しい **[データ]** タブは、Data CenterでDataSetの詳細ページを開いたときに利用できます。このタブを使用すると、列の並べ替え、DataSetの利用状況に関するDomoが生成したメトリクスの表示、列の検索とフィルターなど、これまでにはできなかった方法でDataSetのデータを表示および操作できるようになります。
+
+**[データ]** タブは、次のような3つのサブタブで構成されています。
+
+* **[表]** サブタブでは、DataSetにあるすべての列を表示できます。検索、ソート、フィルターのオプションを利用でき、必要なデータが見つかります。
+    
+  <Frame><img alt="data_tab_table_subtab_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjU.png"/></Frame>
+* **[スキーマ]** サブタブでは、DataSetの列、説明やタグなどを並べ替えることができます。
+    
+  <Frame><img alt="data_tab_schema_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjV.png"/></Frame>
+* **[統計データ]** サブタブでは、DataSetの列に対してDomoが生成した統計データ（DataSetメトリクス）を表示できます。数値列および日付/日時列はDataSetの他の数値列に対して相関させることができ、テキスト列では選択した任意の列の合計またはカウントに対して集計した最も高い値を表示できます。
+
+<Frame><img alt="data_tab_stats_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjS.png"/></Frame>
+**[データ]** タブの詳細については、「 [Data Centerのレイアウト](/s/article/360047553253 "Data Centerのレイアウト") 」を参照してください。
+
+### 既存のカードをページに追加する機能
+
+ページを移動せずに既存のカードをそのページから別のページに追加できるようになりました。新しい **[カードを追加]** メニューオプションを使用すると、ページの構築時間を節約し、複数のバージョンの同じカードを作らないようにできます。 **[カードを追加]** メニューオプションで、 **[カードを追加]、[既存]** の順に選択して、Domoの任意の場所でカードを検索し、即座にページに追加できます。
+
+<Frame><img alt="add_existing_card_rn.png" src="/images/kb/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjX.png"/></Frame>
+詳細については、「 [既存のカードをページに追加する](/s/article/360043428393 "既存のカードをページに追加する") 」を参照してください。
+
+### モバイルでの表のセルの折り返し
+
+Domoモバイルチームは、iOSデバイスで表のテキストを折り返す機能を追加し、外出中でも確認できるようにしました。
+
+## コネクターAPI変更のお知らせ
+
+ユーザーにお知らせするその他の項目は、次のとおりです。
+
+### Google AdWordsおよびDoubleClick Campaign Manager APIのアップデート
+
+お客様へ
+  
+**変更内容**
+  
+Domoでは、500を超えるコネクターのエコシステムで、業界をリードし、優れたタイムツーバリューを実現するソリューションをお届けします。Domoではコネクターを定期的にレビューしてその機能を強化し、お客様に堅牢なサービスを提供しています。本日は、Google AdWordsコネクターおよびDoubleClick Campaign ManagerコネクターのAPIが近日中に更新されることをお知らせいたします。
+  
+**実施時期**
+  
+8月20日です。
+  
+**ユーザーへの影響**
+  
+これらのコネクターを使用すると製品の使いやすさが向上します。
+  
+**対応方法**
+  
+今回の機能強化を利用するためにする必要があることは何もありません。ただし、DataSetがすべて正常に機能していることを確認し、質問がある場合はお問い合わせください。
+
+### Salesforce APIの変更
+
+8月1日にSalesforceのAPIが変更されたため、Domoでは新しいSalesforceコネクターとSalesforce Advancedコネクターをリリースします。これらのコネクターは、Salesforce App StoreからインストールされるSalesforce管理パッケージと連動します。新しいバージョンでは、Salesforce管理者はDomo Salesforceコネクターを使用できるユーザーをSalesforce内で制限できるため、管理が簡単になり、セキュリティを強化できます。
+
+**現在のDataSetは継続して動作しますか？**
+
+現在のSalesforceとSalesforce AdvancedコネクターのDataSetは、Salesforce管理パッケージと連動せず、コネクターが機能するようにインストールする必要がある依存関係はありません。既存のDataSetは9月1日まで引き続き動作します。
+
+**新しいSalesforce DataSetを作成したいのですが、どうすればよいですか？**
+
+8月1日以降、新しく作成されたDataSetを正しく機能させるには、Salesforce App StoreからSalesforce管理パッケージをダウンロードする必要があります。
+
+**9月1日より前にSalesforce管理パッケージをインストールしない場合、どうなりますか。**
+
+SalesforceまたはSalesforce Advancedコネクター経由でDomoにデータを取り込むSalesforceインスタンスは、Salesforce管理パッケージがインストールされるまで機能を停止します。
+
+Salesforce管理パッケージをダウンロードしてインストールする方法の詳細については、「 SalesforceのDomoコネクターパッケージのインストール 」を参照してください。
+
+### Facebook APIの変更
+
+セキュリティの問題により、最近FacebookはAPIに多数の大きな変更を実施しました。これらの変更によって引き起こされている問題に対応するため、当社の開発チームは全力を尽くしています。Facebook DataSetで何らかの問題が発生した場合は、Domoサポートにお問い合わせください。
+
+## ヘルプとサポート
+
+ヘルプセンターで最新のリリースノート情報を閲覧できます。Domo からアクセスするには、 <InlineImage src="/images/kb/ja/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjW.png" /> ****、 [ヘルプセンター]**** の順にクリックします。
+
+Domoに関するご質問がある場合
+
+* ヘルプセンターでトピックを検索する
+* Domo University（
+  [http://university.domo.com](http://university.domo.com/ "http://university.domo.com") ）で研修を受ける
+* AppStoreでトレーニングアプリを検索する
+* Domoコミュニティ（
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com") ）で答えを見つける
+* Domoサポートポータルでヘルプチケットを入力するか、 `/サポート` にBuzzメッセージを送信して、テクニカルサポートに連絡する
+* Domoカスタマーサクセスマネージャー、またはテクニカルコンサルタントに問い合わせる
+
+フィードバックをお寄せください。Domoの <InlineImage src="/images/kb/ja/ka05w00000129w7-00N5w00000Ri7BU-0EM5w000005wKjW-1.png" /> ****> ［フィードバック］**** から送信できます。または、 [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") までメールでご連絡ください。
+
+ヘルプとサポートについて詳しくは、「 [ヘルプとサポート](/s/article/360042922874 "ヘルプとサポート") 」を参照してください。
+
+日本語

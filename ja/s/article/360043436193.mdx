@@ -1,0 +1,100 @@
+---
+title: "MySQLコネクター"
+---
+
+## はじめに
+
+MySQLは、広く使用されているオープンソースのリレーショナルデータベース管理システムです。DomoのMySQLコネクターを使用すると、MySQLデータベースからデータを取得してカスタムレポートを編集することができます。SQLクエリを入力することにより、必要なデータを指定することができます。MySQL APIの詳細については、ウェブサイト（
+http://dev.mysql.com/doc/refman/5.0/en/c-api.html
+）を参照してください。
+
+MySQLコネクターは「データベース」コネクターです。つまり、クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、これを含むほかのデータベースコネクターのページにアクセスできます。
+
+MySQLデータベースには、Data Centerから接続します。このトピックでは、MySQLコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：**
+
+* MySQLサーバーがTLSをサポートしていれば、このコネクターもTLSをサポートします。
+* 非SSL接続はサポートされていません。証明書が提供されていない場合、SSLで接続されますが、証明書による認証は行われません。接続では、すべてのサーバー証明書が信頼されます。詳細については、https://msdn.microsoft.com/en-us/library/bb879949%28v=sql.110%29.aspx を参照してください。
+
+</Note>
+
+| | |
+|:---|:---|
+| **主な使用事例** | データマートとデータウェアハウスSQLクエリを取得する |
+| **主なメトリクス** | 該当なし |
+| **社内における主な権限** | <ul><li>CIO</li><li>CTO</li></ul> |
+| **平均導入時間** | 5～40時間以上 |
+| **使いやすさ（1～10の段階。1が「最も使いやすい」）** | 7 |
+
+## ベストプラクティス
+
+* 結果セットのサイズをできる限り制限します。
+* 列数を最小限に抑えます。
+
+## 必要条件
+
+MySQLデータベースに接続してDataSetを作成するには、以下の情報が必要になります。
+
+* MySQLデータベースにログインするためのユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名またはスキーマ名
+* データを取得するためのSQLクエリ
+* SSL
+
+オプションで、SSL CA証明書のあるURLを含めることもできます。SSL設定で3つの.PEM証明書ファイルをすべて使用する必要がある場合は、ファイルごとにフィールドがある [MySQL Advanced Securityコネクター](/ja/s/article/4410071437335) を利用できます。
+
+### MySQLアカウントを作成する
+
+MySQLアカウントは次の2つの方法で作成することができます。
+
+* アカウントの作成とアカウント権限の設定を行うためのアカウント管理ステートメントを使用する（
+  CREATE USER や GRANT など）。このようなステートメントを使用すると、ベースとなる権限テーブルがサーバーによって更新されます。
+* MySQLの権限テーブルを、
+  INSERT 、 UPDATE 、 DELETE などのステートメントで直接操作する。
+
+アカウント管理ステートメントを使用する方法を推奨します。権限テーブルを直接操作するのに比べ、より簡潔でまたエラーも発生しにくいためです。
+
+アカウントを作成するための別の方法として、GUIツールのMySQL Workbenchを使用することもできます。また、phpMyAdminなど、いくつかのサードパーティプログラムでもMySQLアカウントを管理することができます。
+
+### ホワイトリストに登録する
+
+MySQLデータベースに接続する前に、データベースサーバーの接続ポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MySQLデータベースに接続する
+
+このセクションでは、MySQLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Tip>
+**注記：** 認証情報でコピー/ペースト機能を使用する場合、文字列の先頭や末尾に空白文字が入っていないことを確認してください。誤って空白文字をペーストすると、接続時にコネクターでエラーが発生します。
+
+</Tip>
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SQLデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名、またはスキーマ名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> MySQLユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> MySQLパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> CA Certificate </p></td><td colspan="1" rowspan="1"><p> SSL CA証明書が存在する場所のURLを入力します（オプション）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr></tbody></table>
+
+有効なMySQL認証情報を一度入力しておくと、随時同じアカウントを使用して新しいMySQL DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、SQLクエリを作成して、データベースからデータを取得します。パラメーターは使用しても、使用しなくても構いません。
+
+<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> 使用するMySQLクエリタイプを選択します（パラメーターの使用は問いません）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p><b><b> Query Helper </b></b> パラメーターを使用して、使用可能なSQLクエリを記述できます。 <b><b> Query Helper </b></b> を使用するには、以下の手順を実行します。 </p><ol><li><p> データベーステーブルとテーブルの列を適切なメニューで選択します。 </p></li><li><p><b><b> ［Query Helper］ </b></b> フィールドに表示されるSQLステートメントをコピーします。 </p></li><li><p> コピーしたSQLステートメントを <b><b> ［Query］ </b></b> フィールドに貼り付けます。 </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p> クエリパラメーターの値を入力します。これは、クエリパラメーターの初期値です。このオプションを使用して、最終実行日以降の新しいデータを取得できます。 </p><p> 例えば、 <b> ［Query］ </b> フィールドに次のクエリを入力した場合は、 </p><p><code> select * from test.lastValue where id &lt;=!\{lastvalue:id}! order by id desc </code></p><p> これに続けて、 <b> ［Query Parameter］ </b> に以下の内容を入力すると、 </p><p><code>!\{lastvalue:id}!=3 </code></p><p> この場合、最初の実行時に3行返され、それ以降は必ず1行返されます。結果は、大きな値から小さな値の順に並び変えられています。 </p><p> 同様に、 <b> ［Query］ </b> フィールドに次のクエリを入力した場合は、 </p><p><code> select * from test.lastValue where time &gt;!\{lastrundate:time}! </code></p><p> これに続けて、 <b> ［Query Parameter］ </b> に以下の内容を入力すると、 </p><p><code>!\{lastrundate:time}!=01/01/1990 </code></p><p> この場合、最初の実行時に5行返され、それ以降は必ず0行返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> TinyInt Values Treated as Boolean Values? </p></td><td colspan="1" rowspan="1"><p> TinyInt値をBoolean値として扱う場合は、 <b> ［Yes］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Cast Boolean Values To... </p></td><td colspan="1" rowspan="1"><p> 値を整数または記号列にキャストするかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするデータベーステーブルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするテーブルの列を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> このフィールドのSQLステートメントをコピーして、 <b><b> ［Query］ </b></b> フィールドに貼り付けます。詳細については、上記の「 <b><b> Query </b></b> 」を参照してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* MySQL Workbenchを使用して、認証情報を確認します。
+* 暗号化された接続がサーバーでサポートされているかどうかを確認します。
+* Domo IPがホワイトリストに登録されているかどうかを確認します。
+* 実行時間を短縮するには、結合するテーブルの列名が重複しておらず、それぞれの列が呼び出されるのは1回に限られることを確認します。
+
+

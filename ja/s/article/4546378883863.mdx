@@ -1,0 +1,30 @@
+---
+title: "マルチ放射状進捗ゲージ"
+---
+
+## はじめに
+
+ゲージは、目標達成までの進捗を示すシンプルなチャートです。マルチ放射状進捗ゲージを使用して、現在の値がどの程度まで目標に近づいているかをまるで温度計のように確認することができます。このゲージの場合、目盛りで現在の状況が表示されるため、範囲を確認することはできません。マルチ放射状進捗ゲージは円形である点と、割合ではなく実際の数値を示す点を除けば、 [プログレスバー](http://wiki.domo.com/confluence/display/DHCS/Building+a+Progress+Bar+gauge "プログレスバー") に似ています。Domoのゲージにはほかのタイプとして、 [単値ラベル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Single+Value+gauge "単値ラベル") 、 [放射状ゲージ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Radial+gauge "放射状ゲージ") 、 [フェイスゲージグラフ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Face+gauge "フェイスゲージグラフ") 、 [塗りつぶし比較ゲージグラフ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Comparative+Fill+gauge "塗りつぶし比較ゲージグラフ") があります。
+
+## マルチ放射状進捗ゲージを作成する
+
+マルチ放射状進捗ゲージには、チャートに表示されるアイテムを含む「Item Names」と、現在の値を含む「Gauge Value」というDataSetの2つの列が必要です。オプションとして、データが目標とする最大値として3番目の列を追加することもできます。値、カテゴリー、系列データについて詳しくは、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+DataSetに複数の行がある場合、すべての行の値が集計されます。目標値の列の値も集計する点に注意してください。例えば、スプレッドシートにチームAの行が2つあり、それぞれ100を目標値にしている場合、これはグラフの中で集計され、200という新しい目標値が設けられます。現在値または最大値に **［集計なし］** を選択しても、現時点では *機能しません* 。
+
+オプションの最大値に列を追加しない限り、マルチ放射状進捗ゲージの最大値は現在の値に基づいて自動的に決定されます。例えば、現在値が80である場合、最大値は100に設定されます。現在値が155である場合、最大値は200に設定されます。
+
+Analyzerでマルチ放射状進捗ゲージのデータを含む列を選択します。データ列の選択について詳しくは、「 [DataSetの列をチャートに適用する](/s/article/360043428713 "DataSetの列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートのフォーマット設定を行う方法について詳しくは、「 [Analyzerの概要](/s/article/360043428673) 」を参照してください。
+
+次の図は、典型的な列ベースのスプレッドシートのカテゴリー列と値列のデータが、どのようにマルチ放射状進捗ゲージに変換されるかを示しています。
+
+<Frame><img alt="Multi_Radial_Progress_Gauge.png" src="/images/kb/ka05w00000123ld-00N5w00000Ri7BU-0EM5w000005vP2J.png"/></Frame>
+## マルチ放射状進捗ゲージをカスタマイズする
+
+マルチ放射状進捗ゲージの外観をカスタマイズするには、 **［チャートの設定］** を編集します。すべてのチャートの設定について詳しくは、「 [ゲージのプロパティを設定する](/s/article/360042925254) 」を参照してください。
+
+<table border="1" data-aura-rendered-by="33:207;a"><thead><tr><td colspan="1" rowspan="1"><b> プロパティ </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"> General &gt; Percent of Total </td><td colspan="1" rowspan="1"> 選択すると、すべての値は値の合計値に対する割合で表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Target Value </td><td colspan="1" rowspan="1"> 設定すると、「全体の割合」が選択されている場合でも、すべてのリングは目標値に対する割合で表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Rounded Ends </td><td colspan="1" rowspan="1"> 設定すると、進捗状況を示すチャートの先端が丸くなります。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Gaps Between Items </td><td colspan="1" rowspan="1"> 選択時、進捗リングの間に隙間が現れます。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Gap Percent </td><td colspan="1" rowspan="1"> アイテム間の隙間のサイズをリング幅の割合で設定します。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Allow Over 100% </td><td colspan="1" rowspan="1"> 設定すると、ゲージの値は100％を超過することが可能です。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Background Ring Style </td><td colspan="1" rowspan="1"> チャートの背景リングのスタイルを設定します。オプションは <b> None </b> 、 <b> Thin Center </b> 、 <b> Outside </b> 、 <b> Full </b> です。デフォルトは「None」です。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Background Ring Color </td><td colspan="1" rowspan="1"> 表示された場合、背景リングの色を設定します。 </td></tr><tr><td colspan="1" rowspan="1"> General &gt; Inner Diameter Percent </td><td colspan="1" rowspan="1"> 中心の空白スペースの直径を全体の幅の何パーセントの割合にするかを設定します（20から80の間）。デフォルトは30です。 </td></tr><tr><td colspan="1" rowspan="1"> Data Label Settings &gt; Text </td><td colspan="1" rowspan="1"> データラベルに使用されるテキストです。 </td></tr><tr><td colspan="1" rowspan="1"> Data Label Settings &gt; Text Color </td><td colspan="1" rowspan="1"> データラベルテキストの色を設定します。デフォルトの色はリングの色です。 </td></tr><tr><td colspan="1" rowspan="1"> Hover Text Settings &gt; Hover Text </td><td colspan="1" rowspan="1"> チャートにマウスポインタを合わせたときに表示されるテキストです。 </td></tr><tr><td colspan="1" rowspan="1"> Hover Text Settings &gt; Center Value Text Color </td><td colspan="1" rowspan="1"> ホバー時にゲージの中央に表示される割合値のテキストの色を設定します。 </td></tr><tr><td colspan="1" rowspan="1"> Full Size Settings </td><td colspan="1" rowspan="1"> カードのページで「最大」サイズが選択されている場合に使用する幅と高さを指定します。参考までに、「中」サイズのカードは1x1で、「大」サイズのカードは2x2です。 </td></tr></tbody></table>
+
+日本語

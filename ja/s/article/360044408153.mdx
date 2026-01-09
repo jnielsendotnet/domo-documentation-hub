@@ -1,0 +1,161 @@
+---
+title: "Scorecard App | 実装ガイド"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+Scorecard Appをインストールしていただきありがとうございます。このガイドでは、このAppをご自身のデータと接続する際のサポートを提供します。このAppの購入処理を完了するか、AppsPassを購入すると、このガイドのすべてのステップを実行することができます。最初のステップでは、AppとAppのDataFlowがAppstoreから正しくダウンロードされていること、そしてデータがAppで使用される正しいフォーマットであることを確認します。
+
+<Frame><img alt="Scorecard.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vON0.png"/></Frame>
+### 必要条件：
+
+* Grid Builderと呼ばれるAppstoreツールについて理解している。Grid Builderの使用方法のウォークスルーについては、
+  [https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough "https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough") を参照してください。
+* 必要ではありませんが、MySQLクエリがどのように機能するかについての作業知識があると便利です。詳細については、
+  [https://www.w3resource.com/mysql/mysql-tutorials.php](https://www.w3resource.com/mysql/mysql-tutorials.php "https://www.w3resource.com/mysql/mysql-tutorials.php") を参照してください。
+
+以下の図は、顧客データがDataFlowを通じて供給され、Appに出力される順序を示しています。
+
+<Frame><img alt="flowchart.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMu.png"/></Frame>
+Grid Builderの動作に慣れたら、以下のステップに従い、AppとDataFlowがDomoインスタンスに適切に展開されていることを確認します。
+
+1. Appをインストールする
+   * AppsPassの一部としてAppを購入した場合は、AppsPassインターフェースでインストールボタンをクリックしてAppを展開していることを確認します。これを行うとAppstoreに移動します。ここで **［Try It］** ボタンをクリックすると、AppとDataFlowをインスタンスに展開することができます。DomoインスタンスでAppを表示するページに名前を付けるように求められます。
+   * Appstoreから購入した場合は、AppstoreのこのAppのページの **［Try It］** ボタンをクリックして、AppとそのDataFlowをインスタンスに展開していることを確認します。DomoインスタンスでAppを表示するページに名前を付けるように求められます。
+2. DataFlowが展開されていることを確認する
+   * DataFlowがインスタンスに展開されていることを再確認します。これを行うには、Domoの右上隅にあるメニューボタンをクリックし、Domoの左上隅にある［データ］ボタンをクリックして、Data Centerに移動します（以下の画像を参照）。
+
+     <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+   * 画面左側で **［DataFlow］** をクリックし、Data Centerの検索バーを使用して「scorecard」を検索します。ダウンロードしたScorecardのバージョンの名前と一致するDataFlowが表示されます。例：「Helpdesk Scorecard」、「Sales Scorecard」
+   * または、次の方法でDataFlowを見つけることができます。Appが展開されているページに移動し、Appの下部バナーをクリックしてAppの詳細ビューにアクセスします。ページの一番下までスクロールすると、Appにデータを供給しているDataSetが表示されます。Appと同様の名前が付いているDataSetが1つあるはずです。例：「Sales Scorecard」、「Retail Scorecard」。そのDataSetをクリックし、ページの右側のスパナアイコンをクリックして、ドロップダウンから **［DataFlowを編集］** をクリックします。AppのDataFlowに移動します。
+
+### ステップ1：データを準備する
+
+Scorecard Appには、データが日付でフィルターされた状態で表示され、第一グループ（営業担当者、キャンペーン、ヘルプデスク担当者、ストア所在地など）別にグループ化されています。つまり、日付の列と第一グループの列があり、各行がそれぞれの日付の第一グループのメンバーを表すようにデータをフォーマットする必要があります。データのほかの列は、Appに表示するメトリクスの数値列、またはフィルターオプションとして使用するカテゴリー列になります。以下の例を参照してください。
+
+<table class="mt-responsive-table mt-table-big" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 日付 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> 営業担当者 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 販売数 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> リードの数 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 売上額 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 地域 </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/01/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Tim Dobbs </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 4 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 16 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$1,440 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NE </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/01/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Heather Smith </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 7 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 24 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$2,520 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NW </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/02/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Tim Dobbs </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 6 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 18 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$2,160 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NE </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/02/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Heather Smith </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 3 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 16 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$1,080 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NW </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/03/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Tim Dobbs </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 9 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 22 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$3,240 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NE </td></tr><tr><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> 2017/03/01 </td><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"> Heather Smith </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 11 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 28 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> \$3,960 </td><td class="mt-noheading mt-column-width-10" colspan="1" rowspan="1"> NW </td></tr></tbody></table>
+
+この例では、第一グループは「営業担当者」で、メトリクスの表示に使用される3つの数値列と、フィルターとして使用される1つのカテゴリー列があります。より豊富なデータを含む例については、 [こちら](https://domosoftware.sharepoint.com/:x:/s/CS-Edu-PublicFiles/EehUk9ctqtJKgGPe4HGhVecBN2bR7cmzvNq303hJGnMKIA?e=WgzVIP "Sales Scorecard - Sample.xlsx") のスプレッドシートを参照してください。
+
+<Tip>
+  **プロのヒント：**
+
+  * 日付列と第一グループ列を使用してデータをJoinできるのであれば、複数のDataSetをAppのソースデータとして使用できます。Grid Builderの中でJoinを行う方法については、後のセクションで説明します。
+  * Appでは、簡単な計算を行ってメトリクスを計算できます。例えば、上の例では、「SUM(NumberOfSales)SUM(NumberOfLeads)\*100」という計算を使用して、リードから販売に至ったコンバージョン率を計算できます。通常、DataFlowで事前に計算するのではなく、後でAppで比率を計算することを推奨します。メトリクスの計算を作成する方法の詳細については、後のセクションで説明します。
+
+</Tip>
+
+### ステップ2：DataFlowにソースデータを追加する
+
+データを準備したらすぐにDataFlowに進み、DataFlowにデータを入力として追加する必要があります。これを行うには以下のステップに従います。
+
+1. Domoの上部にある［データ］ボタンをクリックしてData Centerに移動します（以下の画像を参照）。
+
+   <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+2. ページの左側で **［DataFlow］** をクリックし、Data Centerの検索バーで「Scorecard」を検索します。インストールしたAppのバージョンと同様の名前のDataFlowが表示されるはずです。例：「Sales Scorecard」、「Campaign Scorecard」
+3. そのDataFlowをクリックして詳細ビューに進み、ページ右側の鉛筆のアイコンをクリックして、DataFlowを編集します。
+
+   <Frame><img alt="Screen_1.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vON4.png"/></Frame>
+4. サンプルDataSetをDataSetの角の **［x］** をクリックして削除します。名前の末尾が「Grid Builder」または「Settings」になっていないものがサンプルDataSetです。残りの2つのDataSetは入力として保持します。
+
+   <Frame><img alt="Screen_2.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMy.png"/></Frame>
+5. **［DataSetを選択］** ボタンをクリックし、App用に準備したDataSetをここに追加します。
+6. DataSetを追加したら、ページの下部までスクロールし、 **［保存］** ボタンをクリックします。
+7. Data Centerに戻ります。
+
+### ステップ3：Grid Builderを編集する
+
+このステップでは、入力データと一致するようにGrid Builderの適切なフィールドを編集する必要があります。このガイドでは基本的なステップを説明しますが、Grid Builderの機能に関するより包括的なチュートリアルについては、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough "https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough") 」を参照してください。変更を加えるとき、ウェブブラウザーでエラーが発生した場合に備えて、作業内容をExcelシートに時々コピーして、行った変更を記録することを推奨します。
+
+以下のステップに従ってGrid Builderを編集します。
+
+1. Appに付属していたGrid Builderウェブフォームに移動します。インストールしたScorecardのバージョンの後に「-Grid Builder」という末尾が付いた名前になっています。例：「Sales Scorecard
+     - Grid Builder」。Data Centerの左側の
+   **［DataSet］** をクリックして、その名前を検索します。DataSetをクリックし、詳細ビューで右側のスパナボタンをクリックし、次に **［ウェブフォームを編集］** をクリックします。
+
+   <Frame><img alt="Screen_3.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMz.png"/></Frame>
+2. ほとんどの場合、日付範囲オプションを変更する必要はありません。したがって、最初の数行（C101～C108行）のカレンダー情報は変更しないでください。日付フィルターを変更する必要がある場合は、「Grid Builder Walkthrough」の手順を参照してください。
+3. 「FROM」列で、最初のDataSetの名前に一致するようにC201行の値を変更します（以下の画像例の#1を参照）。
+4. 「SELECT」列のC201から下で、これらのサンプル値を、Appで使用する「FROM」列で指定したDataSetの列名に置き換えます。サンプル情報よりもエントリ数が多い場合や少ない場合があるため、行を追加したり、サンプル行から余分な情報を削除したりする必要がある場合があります（以下の画像例の#2を参照）。
+5. 「AS」列のC201から下で、「SELECT」列に表示されている列の名前を選択します。ここでは、名前にスペース、数値、特殊文字を使用しないでください。例えば、Gross SalesではなくGross\_Salesを使用します。これにより、後のステップが楽になります（以下の画像例の#3を参照）。
+
+   <Frame><img alt="Grid_Screen_1.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMv.png"/></Frame>
+6. このAppが機能するには、「PhotoUrl」フィールドと呼ばれる特定のフィールドが必要です。このグループの最後に行をもう1つ追加します。「C」列に数値を割り当てます。お客様が写真のURLを含む列を持っている場合は、「SELECT」列でその列を使用します。それ以外の場合は、この列に単一引用符を2つ入れます（‘’）。「AS」列に「PhotoUrl」と入力します。大文字と小文字が区別されるため、「P」と「U」だけが大文字になっていることを確認してください（画像例の#4を参照）。
+7. 「Include」列で、Join以外の操作にも使用するデータから含める各行に1を配置します。これは通常、日付フィールド以外のすべてのものです。日付は、Appが生成するカレンダーからも取得されるためです（画像例の#5を参照）。
+8. C201行の「JoinType」列と「JoinCondition」列を再確認します。カレンダーとJoinするときは、通常、JoinTypeに「INNER」を使用し、日付列がDataSetから取り込まれる行をJoinConditionが参照していることを確認します（画像例の#6を参照）。
+9. 取り込む追加のDataSetすべてでこのプロセスを繰り返します。新しいDataSetにはそれぞれ、「C」列に100を足した値を割り当てる必要があります。例：例えば、2番目のDataSetの場合は301、3番目のDataSetの場合は401から開始します。追加のJoinは通常、「JoinType」に「LEFT」を使用し、最初のDataSetの日付と第一グループでJoinします。例：C201 = C301およびC202 = C302（201と301が両方とも第一グループで、202と302が両方とも日付であった場合）。
+
+   <Frame><img alt="Filters.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vON2.png"/></Frame>
+10. DataSetの情報を入力すると、すぐにフィルターの設定が必要になります。フィルターとして使用するデータ内の列を参照するGrid Builderの各行で、5つのフィルター列：「FilterId」、「FilterName」、「FilterInputType」、「FilterIsPrimary」、「FilterIsPrimaryGroup」を更新する必要があります。
+11. 第一グループを参照する行で、FilterIdに「2」を使用し、FilterNameで名前を選択し、FilterInputTypeに「Multi Select」を選択して、FilterIsPrimaryに「1」を入力します。
+12. フィルターとして使用するほかの行では、FilterId列に1ずつ増える数（3、4、5など）を使用し、FilterNameで名前を選択し、FilterInputTypeに「Multi Select」または「Single Select」を使用します（2つのフィルタータイプの機能の詳細については、「Grid Builder Walkthrough」を参照してください）。これらの行のFilterIsPrimaryは空のままにしておき、Appで代替第一グループとして使用する列を参照する行のFilterIsPrimaryGroupに1ずつ増える数を追加します。
+13. ページの上部にある **［保存して次へ］** をクリックし、DataSetを保存します。
+
+Grid Builderに変更を加えたら、Data Centerに移動し、Scorecard DataFlowを実行します。DataFlowが正常に実行された場合、Grid Builderに正しく入力されているはずです。エラーが発生した場合は、「Grid Builder Walkthrough」を参照するか、テクニカルサポートにお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+### ステップ4：メトリクスフォームを編集する
+
+Appを設定する最後のステップは、メトリクスフォームを編集することです。以下のステップに従ってメトリクスフォームを編集します。
+
+##### 標準メトリクスを追加する：
+
+1. Data Centerで、メトリクススフォームに移動します。Grid Builderと同様の名前、つまりインストールしたScorecardのバージョンの名前の後に「- Metrics」と付いた名前になっています。例：「Helpdesk Scorecard – Metrics」。
+2. DataSetをクリックし、スパナアイコンをクリックしてウェブフォームを編集します。
+
+   <Frame><img alt="Metrics_1.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMt.png"/></Frame>
+3. Appで表示させたいメトリクスごとに、このフォームの行に記入します。最初の列は「Name」列です。Appに表示するメトリクスの名前を入力します。
+4. 「Calculation」列に、メトリクスの計算を入力します。単純な計算しかサポートされていません。単純な合計、平均、最大、最小（「SUM(column)」、「AVG(column)」）、単純な単一演算（「SUM(columnA)
+     - SUM(column)」、「SUM(columnA) \* MIN(columnB)」など）、比率計算（「SUM(columnA)/SUM(columnB)\*100」）を使用できます。もっと複雑な計算は、あらかじめGrid Builderで一部計算しておく必要があります。
+5. DataType列に、「Currency」、「Number」、または「Percent」と入力します。これにより、Appにメトリクスの表示方法が指示されます。
+6. 「SortHighToLow」列に、メトリクスの棒グラフを長い順に表示する場合は「true」を、メトリクスの棒グラフを短い順に表示する場合は「false」を入力します。
+7. 「UnitOfMeasurement」に、メトリクスの単位を入力します。例：ドル、人、リファーラルなど。空白のままにしてもかまいません。
+8. 「Description」に、メトリクスの簡単な説明を入力します。空白のままにしてもかまいません。
+9. 「Bookmarks」に、メトリクスを含めるブックマークの名前を入力します。ここに、Appのブックマークが作成されます。ブックマークには任意の名前を付けることができます。メトリクスは複数のブックマークに含めることができます。メトリクスを含めるすべてのブックマークをカンマで区切ってリストします（スペースは入れないようにします）。
+10. 「Decimal」に、そのメトリクスに表示する小数点以下の桁数を入力します。オプションは「0」、「1」、「2」です。このフィールドを空白のままにすると、デフォルトで小数点第2位まで表示されます。
+11. 「IsDetail」に、すべての標準メトリクスについて「FALSE」と入力します。これは、以下で詳しく説明する詳細ビューをAppに追加するときに使用します。
+
+##### 詳細ビューとメトリクスを追加する：
+
+第一グループの特定のメンバーをクリックすると、詳細ビューと詳細メトリクスが詳細ウィンドウに表示されます。
+
+<Frame><img alt="Screen_5.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vON1.png"/></Frame>
+作成できる詳細ビューのオプションには、テキスト、通貨、数値、パーセントなどの単一値、円グラフ、折れ線グラフなどがあります。詳細ビューを作成するには、以下のステップに従います。
+
+<Frame><img alt="Details_1.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vON3.png"/></Frame>
+###### 単一値の詳細：
+
+1. 単一値の詳細ビューを作成するには、まず、「Name」列に、詳細のラベル付けに使用する名前を入力し、「IsDetail」の前のほかの列を空白のままにします。
+2. 「IsDetail」に「TRUE」と入力します。
+3. 「DetailType」には、単一値の詳細のフォーマットとして「single value」、「text」、「currency」、「percent」、「number」のオプションがあります。
+4. 「DetailGroup」と「DetailItem」は空白のままにします。
+5. 「DetailValue」に、数値の詳細の場合は計算を入力し、テキスト値の場合は「DISTINCT(column)」と入力します。
+6. 「DetailDimensions」で、この詳細を適用する様々な第一グループのカンマ区切りリスト（スペースなし）を使用します。Grid Builderで「FilterName」列に入力した値と同じ値を使用します。
+
+###### チャートの詳細：
+
+1. 「Name」列に、詳細のラベル付けに使用する名前を入力し、「IsDetail」の前のほかの列を空白のままにします。
+2. 「IsDetail」に「TRUE」と入力します。
+3. 「DetailType」で、円グラフの場合は「pie」を使用し、折れ線グラフの場合は「line」を使用します。
+4. 「DetailGroup」は空白のままにします。
+5. 円グラフを作成する場合は、「DetailItem」で、円グラフの様々な部分として使用する列をデータから選択して、そこで「GROUP\_BY(column)」を使用します。折れ線グラフを作成する場合は、「DetailItem」で、グラフに使用する日付単位を表す列を選択して、そこで「DATE\_GRAIN(dateColumn)」を使用します。
+6. 「DetailValue」に、追跡するメトリクスの計算を入力します。
+7. 「DetailDimensions」で、この詳細を適用する様々な第一グループのカンマ区切りリスト（スペースなし）を使用します。Grid Builderで「FilterName」列に入力した値と同じ値を使用します。
+
+<Columns>
+  <Frame><img src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMw.png" /></Frame>
+  <Frame><img alt="Pie.png" src="/images/kb/ka05w0000012Aey-00N5w00000Ri7BU-0EM5w000005vOMx.png"/></Frame>
+</Columns>
+### ステップ5：検証
+
+Grid Builderとメトリクスフォームを設定したら、Appをチェックしてメトリクスを検証する準備が整います。以下の検証プロセスに従うことを推奨します。
+
+1. KPIカードを作成して、メトリクスをテストします。これらのカードは、Appからの出力データではなくソースデータにもとづいて作成してください。例えば、Appで営業担当者ごとのトレンド売り上げを表示している場合は、営業担当者ごとの売り上げを表示し、KPIカードの日付範囲をAppに表示されている日付範囲の1つと一致させる棒グラフタイプのカードを作成します。
+2. KPIカードのデータをAppのデータと比較します。フィルターのオプションと日付範囲がAppとカードで一致していることを確認してください。
+3. 不一致があれば、Grid BuilderでJoin条件やグループ分けを変更する必要があるか確認し、計算を再確認してください。
+4. 検証する必要があるメトリクスがあれば、この処理を繰り返します。
+
+#### おめでとうございます。
+
+Scorecard Appを使用する準備ができました。データを大いに活用しましょう。質問がある場合、またはトラブルシューティングのサポートが必要な場合は、テクニカルサポートまでお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+日本語

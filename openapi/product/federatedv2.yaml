@@ -1,0 +1,367 @@
+openapi: 3.0.0
+info:
+  title: Federated V2 to Amplifier Migration APIs
+  version: 1.0.0
+  description: These APIs leverage a Domo access token that you can generate in the admin panel from within your Domo instance. Instructions on generating your access token can be found here.
+servers:
+- url: https://{domo-domain}
+  description: Domo instance domain
+  variables:
+    domo-domain:
+      default: your-instance.domo.com
+      description: The fully qualified domain of the Domo instance housing the Cloud Amplifier Integrations.
+security:
+- DeveloperToken: []
+paths:
+  /api/query/migration/integrations/types:
+    get:
+      summary: List Cloud Amplifier Integration Types
+      description: Retrieves a list of the Cloud Amplifier integration types matching integrations that exist in the Domo instance.
+      operationId: listCloudAmplifierIntegrationTypes
+      tags:
+      - Cloud Amplifier Integration
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  enum:
+                  - BIGQUERY
+                  - SNOWFLAKE
+              example:
+              - BIGQUERY
+              - SNOWFLAKE
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/integrations/types' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/integrations/{integration-type}:
+    get:
+      summary: List Cloud Amplifier Integrations by Type
+      description: Retrieves a list of Cloud Amplifier integrations matching the provided integration type.
+      operationId: listCloudAmplifierIntegrationsByType
+      tags:
+      - Cloud Amplifier Integration
+      parameters:
+      - name: integration-type
+        in: path
+        required: true
+        schema:
+          type: string
+        description: One of the integration types returned by the 'List Cloud Amplifier Integration Types' API (case-insensitive).
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CloudAmplifierIntegration'
+              example:
+              - id: 31e0307a-cb31-4018-b824-eb04b15827e1
+                name: My BigQuery Amplifier Integration
+                type: BIGQUERY
+                authMethod: SERVICE_ACCOUNT
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/integrations/{integration-type}' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/candidates/federated/to/amplifier/integrations/{integration-id}:
+    get:
+      summary: List Datasource Migration Candidates by Amplifier Integration
+      description: Retrieves a list of datasources eligible as candidates for migration from Federated to the provided Cloud Amplifier integration.
+      operationId: listDatasourceMigrationCandidates
+      tags:
+      - Migration
+      parameters:
+      - name: integration-id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The unique ID of the Cloud Amplifier integration to list migration candidates for.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MigrationCandidate'
+              example:
+              - id: 8c487fef-b62d-486f-af7a-90c7d6ee0347
+                name: Federated BigQuery fifty_row_table
+                type: bigquery-federated
+                catalogName: my-project
+                schemaName: my-schema
+                tableName: fifty_row_table
+                collision: false
+                collidingDatasourceId: null
+                collidingDatasourceName: null
+                migrated: false
+                migrationDate: null
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/candidates/federated/to/amplifier/integrations/{integration-id}' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/federated/to/amplifier/{datasource-id}/integrations/{integration-id}:
+    post:
+      summary: Migrate Datasource to Amplifier Integration
+      description: 'Migrates a candidate Federated datasource to the provided Cloud Amplifier integration. NOTE: Domo content powered by the datasource will be unavailable and/or non-functional while the migration is ongoing.'
+      operationId: migrateDatasourceToAmplifier
+      tags:
+      - Migration
+      parameters:
+      - name: datasource-id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The unique ID of the federated datasource to migrate.
+      - name: integration-id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The unique ID of the Cloud Amplifier integration that the federated datasource should be migrated to.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationResult'
+              example:
+                toe: UCIIAGMUEF-G4XS4-9G8UP
+                datasourceId: 8c487fef-b62d-486f-af7a-90c7d6ee0347
+                direction: FEDERATED_TO_CLOUD_AMPLIFIER
+                startTime: '2024-03-26T14:55:40.496+00:00'
+                state: COMPLETE
+                endTime: '2024-03-26T14:55:48.476+00:00'
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/federated/to/amplifier/{datasource-id}/integrations/{integration-id}' \
+            -X POST \
+            -H 'content-type: application/json' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/candidates/amplifier/to/federated/integrations/{integration-id}:
+    get:
+      summary: List Datasource Reverse Migration Candidates by Amplifier Integration
+      description: Retrieves a list of datasources previously migrated from Federated to the provided Cloud Amplifier integration.
+      operationId: listDatasourceReverseMigrationCandidates
+      tags:
+      - Migration
+      parameters:
+      - name: integration-id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The unique ID of the Cloud Amplifier integration to list reverse migration candidates for.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MigrationCandidate'
+              example:
+              - id: 8c487fef-b62d-486f-af7a-90c7d6ee0347
+                name: Federated BigQuery fifty_row_table
+                type: bigquery-federated
+                catalogName: my-project
+                schemaName: my-schema
+                tableName: fifty_row_table
+                collision: false
+                collidingDatasourceId: null
+                collidingDatasourceName: null
+                migrated: true
+                migrationDate: '2024-03-26T16:08:27.000+00:00'
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/candidates/amplifier/to/federated/integrations/{integration-id}' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/amplifier/to/federated/{datasource-id}:
+    post:
+      summary: Reverse Datasource Migration
+      description: Reverses the migration of a Federated datasource previously migrated to a Cloud Amplifier integration.
+      operationId: reverseDatasourceMigration
+      tags:
+      - Migration
+      parameters:
+      - name: datasource-id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+        description: The unique ID of a datasource previously migrated from federated to a Cloud Amplifier integration.
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationResult'
+              example:
+                toe: VG586G9YQ3-XERVQ-4J7VA
+                datasourceId: 8c487fef-b62d-486f-af7a-90c7d6ee0347
+                direction: CLOUD_AMPLIFIER_TO_FEDERATED
+                startTime: '2024-03-26T14:57:19.085+00:00'
+                state: COMPLETE
+                endTime: '2024-03-26T14:57:26.287+00:00'
+      x-codeSamples:
+      - lang: curl
+        source: |-
+          curl 'https://{domo-domain}/api/query/migration/amplifier/to/federated/{datasource-id}' \
+            -X POST \
+            -H 'content-type: application/json' \
+            -H 'accept: application/json,*/*;q=0.8' \
+            -H 'accept-language: en-US,en;q=0.9' \
+            -H 'cache-control: max-age=0' \
+            -H 'X-DOMO-Developer-Token: {developer-token}'
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo access token generated from the admin panel
+  schemas:
+    CloudAmplifierIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier of the Cloud Amplifier integration.
+        name:
+          type: string
+          description: Readable name of the Cloud Amplifier integration.
+        type:
+          type: string
+          description: Type of the Cloud Amplifier integration.
+        authMethod:
+          type: string
+          enum:
+          - OAUTH
+          - SERVICE_ACCOUNT
+          description: Authentication method of the Cloud Amplifier integration, one of [ "OAUTH", "SERVICE_ACCOUNT" ].
+    MigrationCandidate:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier of the datasource.
+        name:
+          type: string
+          description: Readable name of the datasource.
+        type:
+          type: string
+          description: Type of the datasource.
+        catalogName:
+          type: string
+          description: Name of the catalog (or equivalent) of the datasource in the system external to Domo.
+        schemaName:
+          type: string
+          description: Name of the schema (or equivalent) of the datasource in the system external to Domo.
+        tableName:
+          type: string
+          description: Name of the table (or equivalent) of the datasource in the system external to Domo.
+        collision:
+          type: boolean
+          description: Boolean indicating whether a different datasource matching this candidate's catalog/schema/table name combination already exists in the destination Cloud Amplifier integration. If true, this indicates that attempting to migrate the candidate datasource will fail and that Domo content associated with the candidate datasource need to be migrated to the colliding datasource.
+        collidingDatasourceId:
+          type: string
+          format: uuid
+          nullable: true
+          description: Unique identifier of the datasource colliding with this candidate datasource. Usually null.
+        collidingDatasourceName:
+          type: string
+          nullable: true
+          description: Readable name of the datasource colliding with this candidate datasource. Usually null.
+        migrated:
+          type: boolean
+          description: Boolean indicating whether the datasource has been previously migrated to the Cloud Amplifier integration.
+        migrationDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date indicating when the datasource was previously migrated to the Cloud Amplifier integration.
+    MigrationResult:
+      type: object
+      properties:
+        toe:
+          type: string
+          description: Unique request identifier. Used by Domo support to retrieve additional information for failed migration attempts.
+        datasourceId:
+          type: string
+          format: uuid
+          description: Unique identifier of the datasource the migration occurred for.
+        direction:
+          type: string
+          enum:
+          - FEDERATED_TO_CLOUD_AMPLIFIER
+          - CLOUD_AMPLIFIER_TO_FEDERATED
+          description: Direction of the migration.
+        startTime:
+          type: string
+          format: date-time
+          description: Timestamp indicating the start time of the migration.
+        state:
+          type: string
+          enum:
+          - COMPLETE
+          - INCOMPLETE
+          - ABORTED
+          description: |-
+            Final state of the migration, one of [ "COMPLETE", "INCOMPLETE", "ABORTED" ].
+            COMPLETE: Migration has completed successfully.
+            INCOMPLETE: Migration failed after some changes to the datasource were made. Domo content powered by the datasource may remain unavailable and/or non-functional until the migration is re-attempted and completes successfully. More information can be found in the 'errorMessage' property.
+            ABORTED: Migration was aborted prior to any changes being made to the datasource. More information can be found in the 'errorMessage' property.
+        errorMessage:
+          type: string
+          nullable: true
+          description: Message populated with additional details when a migration fails to complete normally or is aborted prior to starting.
+        endTime:
+          type: string
+          format: date-time
+          description: Timestamp indicating the end time of the migration.
+tags:
+- name: Cloud Amplifier Integration
+  description: Operations for managing Cloud Amplifier integrations
+- name: Migration
+  description: Operations for migrating datasources between Federated and Cloud Amplifier

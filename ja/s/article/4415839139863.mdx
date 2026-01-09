@@ -1,0 +1,170 @@
+---
+title: "タグの管理"
+---
+
+### ツールキットにアクセスする
+
+管理ツールキットは、Domoの **［管理者］** セクションで **［ガバナンス］** 、 **［ツールキット］** の順に進むと表示されます。
+
+<Note>
+  **注記：** 使用したいツールが有効になっていない場合は、アカウントエグゼクティブまでお問い合わせください。
+
+</Note>
+
+ツールキットが見つからない場合、ユーザー権限に必要な許可が付与されていることを確認してください。
+
+### 必要な許可
+
+管理ツールキットにアクセスするには、2つの許可のうち1つが有効である必要があります。カスタムユーザー権限に、許可を付与することができます。デフォルトでは、「カスタムのパイプライン処理を管理する」の許可は管理者ユーザーに対して有効になっています。
+
+* カスタムのパイプライン処理を作成する
+  + この許可により、ジョブの作成、更新、共有、削除を行うことができます。
+  + この許可では、ユーザーが作成したジョブまたは共有されたジョブだけが参照できます。
+* カスタムのパイプライン処理を管理する
+  + この許可により、ジョブの作成、更新、共有、削除を行うことができます。
+  + この許可では、すべてのジョブを参照できます。
+
+カスタマイズされた権限および許可に関する詳細は、「 [カスタマイズされた権限を管理する](/s/article/360043438973) 」を参照してください。
+
+### ジョブのタイプ
+
+選択するジョブには、 **タグ設定** と **設定DataSet** の2つのタイプがあります。
+
+タグ設定では、あらかじめ用意されているDomoタグを使ってジョブを作成することができます。ユーザーは、DataSetまたはDataFlowのサブセットにフィルターをかけ、Domoで生成されたタグをDataSetまたはDataFlowに適用できます。
+
+設定DataSetジョブでは、どのDataSetまたはDataFlowにカスタムタグを付けるかは、入力DataSetによって決定されます。
+
+### タグ設定ジョブを作成する
+
+1. ナビゲーションヘッダーで、
+**［管理者］** に進みます。
+
+2. **［ガバナンス］** で **［ツールキット］** を選択します。
+
+3. **［タグの管理］** を選択します。
+
+4. **［+新規ジョブ］** を選択します。
+
+5. 次の情報を入力します。
+
+* **ジョブ名** （必須）
+* **ジョブの説明** （オプション）
+* **DataSetを選択** （オプション）
+  + フィルターを追加して、バックアップジョブに含めるDataSetを絞り込むことができます。
+  + 各フィルターのカテゴリーは、ANDステートメントとして機能します。
+  + フィルターカテゴリーの各値は、ORステートメントとして機能します。
+
+以下のスクリーンショットは、以下のフィルターを示しています。
+
+Owner Name = 'Nolan Landefeld'
+
+AND
+
+(Tag = 'Child Cards: 4022' OR Tag= 'Downstream Datasets: 288')
+
+AND
+
+(Type = 'Federated Data' OR Type = MySQL Federated')
+
+<Frame><img alt="Screen_Shot_2021-12-03_at_1.49.30_PM.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNoh.png"/></Frame>
+6. フィルターしたDataSetに追加する
+**選択済みポリシー** をタグ付けします。
+
+#### タグ付けポリシーのリファレンスガイド
+
+<table border="1" data-aura-rendered-by="33:203;a"><tbody><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> DataSet Aging </p></td><td colspan="1" rowspan="1" width="312"><p> DataSetが最後に実行されてから経過した時間をタグ付けします。 </p><p> 経過時間は異なるカテゴリーに分類されます。例：30日以上、60日以上など。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> DataSet Certification </p><p></p></td><td colspan="1" rowspan="1" width="312"><p> DataSetの現在の認証状態をタグ付けします。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> DataSet Lineage </p><p></p></td><td colspan="1" rowspan="1" width="312"><p> そのDataSetの下流にいくつのDataSet、DataFlow、Cardがあるか、また、親DataSetがある場合は親の型に関するタグが追加されます。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> DataSet State </p><p></p></td><td colspan="1" rowspan="1" width="312"><p> DataSetの現在の状態をタグ付けします。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> Owner Email </p><p></p></td><td colspan="1" rowspan="1" width="312"><p> DataSet所有者のメールアドレスをタグ付けします。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> Owner Inactive </p></td><td colspan="1" rowspan="1" width="312"><p> DataSetの所有者がDomoユーザーではなくなったことを示すタグを追加します。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> Owner Name </p></td><td colspan="1" rowspan="1" width="312"><p> DataSetの所有者の名前をタグ付けします。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> Owner Role </p></td><td colspan="1" rowspan="1" width="312"><p> DataSet所有者の権限をタグ付けします。 </p></td></tr><tr><td class="wysiwyg-text-align-left" colspan="1" rowspan="1" width="312"><p> Owner Title </p></td><td colspan="1" rowspan="1" width="312"><p> DataSet所有者のタイトルをタグ付けします。 </p></td></tr></tbody></table>
+
+7. **タグの適用先：** （必須）
+
+ジョブで作成したタグを、DataSetまたはDataFlow、あるいはその両方に適用します。
+
+8. 実行ログ（必須）
+
+各ジョブはジョブの実行状況とその関連情報をそれぞれ記録します。
+
+* **新規DataSet：** Domoインスタンスに新しいDataSetを作成します。その新しいDataSetに、すべてのジョブ実行のログが書き込まれます。
+* **既存のDataSet：** 複数のDataSetタグ付けジョブを1つのログ収集DataSetにまとめます。
+
+  <Warning>
+    **重要：**
+
+    * このDataSetは、DataSetタグ付けツールによって作成されたものである必要があります。
+    * また、DataSetにはデータ行が含まれている必要があります。
+
+  </Warning>
+
+<Frame><img alt="Tagging_Metrics_Dataset.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNol.png"/></Frame>
+9. **通知を受け取るメールアドレス** （オプション）
+
+* このフィールドにユーザーのメールアドレスを追加できます。
+* ジョブが実行されるたびにDomoから通知メールが届きます。
+* この通知には、ジョブの実行内容と発生した障害の概要が記載されます。
+
+  <Columns>
+    <Frame><img alt="Tagging_Notification.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNoi.png"/></Frame>
+    <Frame><img alt="Screen_Shot_2021-12-03_at_1.57.01_PM.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNok.png"/></Frame>
+  </Columns>
+## 設定DataSetジョブを作成する
+
+<Warning>
+  **重要：** 設定DataSetでは、「オンデマンド」のDataSetビューはサポートされていません。スケジュール通りに更新されたビュー、またはDataSet更新によって更新されたビューのみ許可されます。
+
+</Warning>
+
+1. ナビゲーションヘッダーで、
+**［管理者］** に進みます。
+
+2. **［ガバナンス］** で **［ツールキット］** を選択します。
+
+3. **［タグの管理］** を選択します。
+
+4. **［+新規ジョブ］** を選択します。
+
+5. 次の情報を入力します。
+
+* **ジョブ名** （必須）
+* **ジョブの説明** （オプション）
+* **設定DataSet** を選択
+
+  <Warning>
+    **重要：** 設定DataSetを選択した場合、次の3つの列に入力してください。
+
+    * **ID：**
+    タグ付けするオブジェクト（DataSetまたはDataFlow）のID。現時点では、タグのサポート対象は、DataSetまたはDataFlowのみとなっています。
+    * **タグ：**
+    DataSetまたはDataFlowに追加したいタグのリスト。ユーザーが複数の場合、パイプ「|」で区切ります。設定ファイルに定義されているタグはすべてテキストリテラル（カスタム）と見なされます。したがって、「Dataset Aging」が追加されている場合は、DataSetの実際の経年数ではなく「Dataset Aging」のタグが追加されます。
+    * **タイプ：**
+    タグ付けされているDomoオブジェクトのタイプ（「DataFlow」または「DataSet」）
+
+  </Warning>
+
+6. **既存のタグを処理する** （必須）
+
+ユーザーは、入力設定DataSetからDataSetまたはDataFlowにあるタグの **追加** または **置き換え** が可能です。
+
+7. 実行ログ（必須）
+
+各ジョブはジョブの実行状況とその関連情報をそれぞれ記録します。
+
+* **新規DataSet：** Domoドメインに新しいDataSetを作成します。ジョブを実行するたびに新規DataSetにログが書き込まれます。
+* **既存のDataSet：** 複数のDataSetタグ付けジョブを1つのログ収集DataSetにまとめることができます。
+
+8. **通知を受け取るメールアドレス** （オプション）
+
+* このフィールドにユーザーのメールアドレスを追加できます。
+* ジョブが実行されるたびにDomoから通知メールが届きます。
+* この通知には、ジョブの実行内容と発生した障害の概要が記載されます。
+
+  <Frame><img alt="Tagging_Notification.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNoi.png"/></Frame>
+## ジョブを実行する
+
+各ジョブには［有効］トグルがあります。これは、ジョブの実行方法をコントロールするものです。
+
+* 無効
+  + ジョブは手動で実行されているときにのみ実行されます。
+* 有効
+  + このジョブは12時間おきに実行されます。
+  + 設定DataSetが更新されると、設定DataSetジョブが実行されます。
+
+<Frame><img alt="Screen_Shot_2021-12-03_at_1.58.08_PM.png" src="/images/kb/ka0Vq0000000RwH-00N5w00000Ri7BU-0EM5w000005vNoj.png"/></Frame>
+日本語

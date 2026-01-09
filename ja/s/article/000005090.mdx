@@ -1,0 +1,67 @@
+---
+title: "e-Statサードパーティ コネクター"
+---
+
+## はじめに
+
+e-Statは、日本政府の公式統計のワンストップサービスです。
+
+e-Statコネクターを使用すると、人口予測、労働力調査、GDPなどの様々な公式統計をDomoインスタンスにインポートできます。これらの統計を自社のデータと比較したり、この情報を外部要因として分析したりすることができます。
+
+e-Statは、APIに加えて、Excel形式またはPDF形式のデータも提供しています。ただし、このコネクターはAPIを介したデータ取得のみをサポートしています。
+
+e-Statアカウントには、Data Centerから接続します。このトピックでは、e-Statコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+e-Statアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* e-StatアカウントのアプリケーションID
+
+e-Statにユーザー登録する方法と、アプリケーションIDを取得する方法については、「 [利用ガイド](https://www.e-stat.go.jp/api/api-info/api-guide "利用ガイド") 」を参照してください
+
+## e-Statアカウントに接続する
+
+このセクションでは、e-Statコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である［スケジュール設定］や［DataSetに名前を付け、説明を入力］に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、e-Statアカウントに接続する認証情報の入力フィールドがあります。
+
+以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> e-Statのマイページから取得したアプリケーションIDを入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「 **必要条件** 」を参照してください。
+
+有効なLINE MUSIC Analytics認証情報を一度入力しておくと、随時同じアカウントを使用して新しいLINE MUSIC AnalyticsのDataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](https://domohelp.domo.com/hc/en-us/articles/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［Data Selection］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、選択したレポートタイプに応じて様々なメニューが表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。以下のレポートを利用できます。 </p><ul><li><p><b> ［統計表表示IDで取得］ </b><br/> 統計表をIDで取得します。統計表は、e-Statによって提供されるDataSetです。 </p></li></ul></td></tr></tbody><tbody><tr><td colspan="1" rowspan="1"><p> 統計表表示ID </p></td><td colspan="1" rowspan="1"><p> 統計表を識別するIDを入力します。IDは、インポートする統計表の詳細ページにあります。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを使用するには何が必要ですか？">
+
+
+e-Statにユーザー登録し、アプリケーションIDを取得する必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+現在、制限はありません。
+
+
+
+</Accordion>
+</AccordionGroup>

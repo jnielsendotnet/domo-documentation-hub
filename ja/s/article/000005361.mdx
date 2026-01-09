@@ -1,0 +1,42 @@
+---
+title: "Airtable OAuthコネクター"
+---
+
+## 概要
+
+**Airtable OAuthコネクター** を使用すると、Airtableのすべてのデータを数分で効果的に取得することができます。Airtable APIの性質上、認証情報は正確に入力する必要があります。Airtable OAuth APIの詳細については、「 [Airtable OAuth API](https://airtable.com/developers/web/api/introduction "Airtable OAuth API") 」を参照してください。
+
+Airtable OAuthアカウントには、Data Centerから接続できます。この記事では、Airtable OAuthコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Airtable OAuthアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Airtableのメールアドレス
+* Airtableのパスワード
+
+## Airtable OAuthアカウントに接続する
+
+このセクションでは、Airtable OAuthコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+Airtable OAuthコネクター は認証にOAuthを使用します。
+
+このペインには、Airtable OAuthアカウントにアクセスする認証情報の入力フィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Email </td><td colspan="1" rowspan="1"> Airtableアカウントに関連付けられたメールアドレスを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"> Airtableアカウントに関連付けられたパスワードを入力します。 </td></tr></tbody></table>
+
+有効なAirtable OAuth認証情報を一度入力しておくと、同じアカウントを使用して新しいAirtable OAuth DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> App ID </td><td colspan="1" rowspan="1"> （大文字と小文字の区別やスペースを含め）正確なアプリケーションID。これは、特定のAPIドキュメントにアクセスすることで確認できます。これを行うには、 <a href="https://airtable.com/api" target="_blank"> https://airtable.com/api </a> に移動し、アカウントにサインインして、データを取得したい特定のレポートを選択します。App IDは、URLの <a href="http://airtable.com" rel="noopener" target="_blank"> airtable.com </a> /の後の部分で「app」から始まります。 </td></tr><tr><td colspan="1" rowspan="1"> Table </td><td colspan="1" rowspan="1"> データを取得するテーブルの（大文字と小文字の区別やスペースを含め）正確な名前。 </td></tr><tr><td colspan="1" rowspan="1"> View（オプション） </td><td colspan="1" rowspan="1"> データを取得するビューの（大文字と小文字の区別やスペースを含め）正確な名前とID。 </td></tr><tr><td colspan="1" rowspan="1"> Field Selection Method </td><td colspan="1" rowspan="1"> データを取得するには、すべてのフィールド/列を選択するか、フィールド/列を手動で入力するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Flatten Sublists?（チェックボックス） </td><td colspan="1" rowspan="1"> サブリストを平滑化する場合はチェックボックスを選択します。このチェックボックスを選択すると、列が多すぎるためにエラーが発生する場合があります。平滑化しないと、実際のデータのサブリストの代わりに値の <b> リスト </b> がボックスに表示される場合があります。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,58 @@
+---
+title: "Kintone OAuthコネクター"
+---
+
+## 概要
+
+Kintoneは、チーム向けのノーコードエンタープライズアプリケーションプラットフォームです。DomoのKintone OAuthコネクターを使用すると、Kintone AppおよびKintone Appレコードに関するレポートを作成できます。Kintone APIの詳細については、 [https://kintone.dev/en/docs/kintone/rest-api/](https://kintone.dev/en/docs/kintone/rest-api/ "https://kintone.dev/en/docs/kintone/rest-api/") を参照してください。
+
+Kintone OAuthアカウントには、Data Centerから接続します。 この記事では、Kintone OAuthコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Kintone OAuth アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* インスタンス/ドメイン名
+* クライアントID
+* クライアントシークレット
+
+## OAuth用Kintone Appを作成する
+
+OAuth用Kintone Appを作成するには、以下の手順に従います。
+
+1. [cybozu.com](http://cybozu.com)
+   の管理ホームページにログインします。
+2. ［外部連携］で［OAuth］をクリックします。
+3. ［OAuthクライアントの追加］をクリックします。
+4. アプリケーション名を入力します。
+
+   次に、［リダイレクトエンドポイント］に「 [https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/kintone-oauth/exchange")
+
+   」と入力します。
+
+<Frame><img alt="image-2025-01-22-14-01-31-477.png" src="/images/kb/ka0Vq0000006nHN-00N5w00000Ri7BU-0EMVq000004wBqP.jpg" style={{width: 621, height: 399}}/></Frame>
+
+5. OAuth Appを保存し、作成されたAppの編集画面を開きます。
+6. クライアントIDとクライアントシークレットをコピーします。
+
+## Kintone OAuthアカウントに接続する
+
+このセクションでは、Kintone OAuthコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Kintone OAuthアカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Instance/Domain Name </p></td><td colspan="1" rowspan="1"><p><span> Kintoneドメイン名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> OAuth統合のクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p><span> OAuth統合のクライアントシークレットを入力します。 </span></p></td></tr></tbody></table>
+
+有効なKintone OAuth認証情報を一度入力しておくと、同じアカウントを使用して新しいKintone OAuth DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span class="s1"> Kintone OAuth </span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> All Apps </td><td colspan="1" rowspan="1"> 名前、説明、関連スペース、作成者、アップデータ情報など、複数のAppの一般情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> All Records of 1 App </td><td colspan="1" rowspan="1"> Appのすべてのレコードの詳細を取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Guest Space ID </td><td colspan="1" rowspan="1"> お使いのアプリケーションがゲストスペース内にある場合、ゲストスペースIDが必要です。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

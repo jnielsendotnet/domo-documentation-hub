@@ -1,0 +1,136 @@
+---
+title: "Google BigQuery Workload Identity Federationコネクター"
+---
+
+## はじめに
+
+適切なハードウェアやインフラストラクチャがなければ、膨大なDataSetのクエリには時間とコストがかかる可能性があります。Google Big Queryは、Googleのインフラストラクチャの処理能力を使用して、追加専用表に対するSQLに似た超高速クエリを有効にすることで、この問題を解決します。データはまず、データベンダーが効果的にクエリを実行できる場所からGoogle BigQueryに読み込む必要があります。
+
+ワークロードアイデンティティーフェデレーションでは、機密情報のない外部認証情報メタデータのみが入力に含まれるため、より安全な接続が可能です。外部認証情報メタデータを外部環境で使用することで、必要な操作のための一時的な/有効期限が短いトークンを生成できます。詳細については、「 [Workload Identity連携](https://cloud.google.com/iam/docs/workload-identity-federation "Workload Identity連携") 」を参照してください。
+
+このトピックでは、Google BigQuery Workload Identity Federationコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** writeback DataSetの所有者は、入力DataSetの所有者または共同所有者である必要があります。
+
+</Note>
+
+## 必要条件
+
+このコネクターを設定するには、次の情報が必要です。
+
+* **ワークロードアイデンティティーフェデレーションクライアントライブラリ設定JSONキー**（JSON設定ファイルとして）。
+* GCPプロジェクトのプロジェクトID。
+
+認証情報を取得するには、次のステップを実行します。
+
+1. GCPに既存のプロジェクトがない場合は、Google Developers Consoleでプロジェクトを作成します。
+2. GCPインスタンスでBig Query APIを有効にします。
+3. ワークロードアイデンティティープールとワークロードアイデンティティープロバイダーを作成します。
+4. サービスアカウントを作成し、このアカウントをプールに関連付けるか、プールを持つ既存のサービスアカウントに関連付けます。
+5. コネクターで使用するJSON設定ファイルをダウンロードします。
+
+次のステップでは、プロジェクトを作成して必要な認証情報を取得する方法について詳しく説明します。
+
+### ステップ1：Google Developers Consoleでプロジェクトを作成する
+
+<Note>
+**注記：** 使用したいプロジェクトが既にある場合は、このステップをスキップできます。
+
+</Note>
+
+Google Developers Consoleでプロジェクトを作成するには、次の手順を実行します。
+
+1. [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com") に移動します。
+2. **［My Project］** の横のドロップダウン矢印をクリックします。
+
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. **［New Project］** をクリックして、新しいプロジェクトの名前と、新しいプロジェクトの親組織またはフォルダを指定します。
+
+   <Frame><img alt="Select Project Name.jpg" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uVQq.jpg" style={{width: 567, height: 217}}/></Frame>
+
+4. **［Create］** をクリックします。
+
+### ステップ2：Google BigQuery APIを有効にする
+
+Google BigQuery APIをプロジェクトで有効にするには、次の手順を実行します。
+
+1. ハンバーガーメニューをクリックし、**［API & Services］** メニューを選択します。
+
+   <Frame><img alt="Enable Bigquery api.jpg" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uVQv.jpg" style={{width: 464, height: 415}}/></Frame>
+
+2. **［Library］** を選択し、Google BigQuery APIを検索します。
+3. Google **［BigQuery API］** **の［Enable］** をクリックします。
+
+### ステップ3：ワークロードアイデンティティープールとワークロードアイデンティティープロバイダーを作成する
+
+ワークロードアイデンティティープールとワークロードアイデンティティープロバイダーを作成するには、次のステップを実行します。
+
+1. コンソールでハンバーガーメニューをクリックし、**［IAM & Admin］** を選択します。
+
+   <Frame><img alt="IAM and Admin.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEW.jpg" style={{width: 342, height: 507}}/></Frame>
+
+2. **［Workload Identity Federation］** オプションを選択します。
+3. **［create pool］** をクリックします。
+
+   <Frame><img alt="create pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEg.jpg" style={{width: 606, height: 259}}/></Frame>
+
+4. ステップ1でプールの名前を入力し、**［enable pool］** が選択されていることを確認します。
+
+   <Frame><img alt="Enable Pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEl.jpg" style={{width: 432, height: 328}}/></Frame>
+
+5. ステップ2では、プロバイダーを選択するように求められます。**［AWS］** を選択します。
+6. **［provider details］** タブで、プロバイダーの名前とIDを入力します（例： **Domo AWS** ）。
+
+   <Frame><img alt="Add Provider Pool.png" src="/images/kb/ka0Vq00000015SH-00N5w00000Ri7BU-0EM5w000006uWEq.jpg" style={{width: 433, height: 345}}/></Frame>
+
+7. **［AWS Account ID box］** にDomoのAWSアカウントIDを入力する必要があります。
+
+   Domoインスタンスがある場所にもとづいて、次のアカウントIDのいずれかを使用します。
+
+   **米国：339405024189**
+
+   **オーストラリア：01025142412**
+
+   **ヨーロッパ、中東、アフリカ（IE）：687132894031**
+
+   **日本：622384692065**
+
+   **カナダ：710710207408**
+8. 使用するIDが不明な場合は、Domoサポートにお問い合わせください。
+9. ステップ3で追加のプロバイダー属性をオプションで設定することもできます。
+
+### ステップ4：サービスアカウントにワークロードプールへのアクセスを許可します。
+
+1. ハンバーガーメニューで、**［IAM］** に移動し、 **［Workload identity federation］** リストを選択して、最近作成したプールを選択します。
+2. ウィンドウの上部にある **［Grant Access］** を選択します。
+3. 右側のペインで、アクセスを許可するサービスアカウントを選択するように求められます。
+4. **［Select Service Account］** ドロップダウンから適切なサービスアカウントを選択します。
+5. **［Save］** をクリックします。
+6. **［Configure your application］** で、DomoのAWSアカウントIDを使用して作成したプロバイダーを選択します。
+7. **［Download Config］** ボタンをクリックしてJSON設定ファイルをダウンロードします。
+
+   このファイルは、コネクターの起動に使用されます。
+
+## 接続を設定する
+
+このセクションでは、Google BigQuery Workload Identity Federationコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］ **や** ［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Domoデベロッパーアカウントに接続するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> WORKLOAD IDENTITY FEDERATION CLIENT LIBRARY CONFIG JSON KEY </p></td><td colspan="1" rowspan="1"><p> 外部認証メタデータを含む外部認証情報JSONファイルの設定。このファイルは、上記の手順のステップ4で入手できます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> Google BigQueryおよびワークロードプールにアクセスできるGCP内のプロジェクトのプロジェクトID。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDomo-Google BigQueryワークロードアイデンティティーフェデレーション接続を設定できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> 要件にもとづいて、次のレポートを実行します。 <br/><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Google BigQuery SQLクエリを実行し、クエリが成功した場合に結果を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Data </td><td colspan="1" rowspan="1"> 表のデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Information </td><td colspan="1" rowspan="1"> 指定した表リソースを表IDで返します。このメソッドは、表のデータを返さず、この表の構造を説明する表リソースのみを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> SQL Dialect </td><td colspan="1" rowspan="1"> 使用するSQLダイアレクトを選択します。デフォルトは標準SQLです。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> クエリテキストを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> クエリパラメーターの値を入力します。これはクエリパラメーターの初期値になります。最終実行日はオプションです。指定しない場合はデフォルトで「02/01/1700」となります。例：!`{lastvalue:_id}`!=1,!`{lastrundate:start_date}`!=02/01/1944 </td></tr><tr><td colspan="1" rowspan="1"> Allow Large Results </td><td colspan="1" rowspan="1"> 有効にされている場合、任意の大きい結果が一時的な宛先表に書き込まれ、ジョブが完了したときに削除されます。一時的な表を作成するには、DataSet名が必要です。 </td></tr><tr><td colspan="1" rowspan="1"> Dataset_Names </td><td colspan="1" rowspan="1"> 利用可能なDataSetリストからDataSet名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Names </td><td colspan="1" rowspan="1"> 利用可能な表のリストから表の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Processing Location </td><td colspan="1" rowspan="1"> クエリを実行する場所を入力します。特定の場所で実行されるクエリは、そのロケーションのデータのみを参照できます。 </td></tr><tr><td colspan="1" rowspan="1"> Max Results </td><td colspan="1" rowspan="1"> 最大の結果はデータのページごとに返される結果の数です。デフォルトでは、最大の結果は1ページ当たり10,000です。DataSetのメモリー不足エラーが発生する場合、最大の結果を減らします。 </td></tr><tr><td colspan="1" rowspan="1"> Use Google BigQuery Schema </td><td colspan="1" rowspan="1"> このチェックボックスを選択して、Google BigQueryから受け取ったスキーマを使います。&lt;br&gt;これは、列のデータタイプがDomoに不正に認識される可能性がある場合に役立ちます。例：表の文字列に「123」がある。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

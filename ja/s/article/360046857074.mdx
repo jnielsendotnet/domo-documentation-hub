@@ -1,0 +1,48 @@
+---
+title: "Workbench 4 でスケジュールグループを作成する"
+---
+
+同じスケジュールで実行される DataSet ジョブを、グループとして作成することができます。 Workbench内から実行されるためオプションも少ない個別のDataSetジョブのスケジュールと異なり、DataSetジョブグループのスケジュールは、（Workbenchでグループを作成してから）Windowsのタスクスケジューラで行うため、高度なオプションが利用可能になっています。 また、Workbench内からグループを編集することもできます。
+
+基本スケジュールに関する詳細は、 [Workbench 4でジョブをスケジュールする](/ja/s/article/360046856934 "Connect/Connecting_to_Data_Using_Workbench 4/09Scheduling_a_Job_in_Workbench_4") を参照して下さい。
+
+**スケジュールグループを作成するには、**
+
+1. Workbench ウィンドウのボタンツールバーで
+   **ツール > スケジュール** をクリックします。
+2. **新規スケジュールグループ**
+   を選択し、 **次へ** をクリックします。
+3. **グループ名**
+   フィールドにグループ名を入力します。
+4. 必須のフィールドに Windows の認証情報を入力し、
+   **次へ** をクリックします。
+5. このグループに加えたい全ての DataSet ジョブのボックスにチェックマークをいれ、
+   **次へ** をクリックします。
+
+   これで、デフォルトのスケジュール設定でグループが作成されます。
+6. （条件付き）Windows タスクスケジューラで高度な設定を行うには、
+   **スケジュールを修正** をクリックし、次のステップに進みます。 それ以外の場合は、 **終了** をクリックします。
+
+   **スケジュールを修正** をクリックすると、Windowsタスクスケジューラが自動的に開き、スケジュール設定のプロセスを完了することができます。
+7. **タスクスケジューラ・ライブラリ**
+   で、 **DomoV4** をクリックします。
+
+   <Frame><img alt="wb4_taskscheduler_domov4.png" src="/images/kb/ka05w00000123r3-00N5w00000Ri7BU-0EM5w000005vPKc.png"/></Frame>
+
+8. 画面上部中央のペインで、スケジュールしたい DataSet ジョブをダブルクリックします。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123r3-00N5w00000Ri7BU-0EM5w000005vPKY.png" style={{width: 495, height: 158}}/></Frame>
+
+9. **トリガー**
+   タブをクリックします。
+10. デフォルトのトリガーを選択し、
+    **編集** をクリックします。
+
+    <Frame><img alt="wb4_taskscheduler_groupproperties.png" src="/images/kb/ka05w00000123r3-00N5w00000Ri7BU-0EM5w000005vPKX.png"/></Frame>
+
+11. **トリガーを編集**
+    ダイアログで、グループのスケジュールを設定します。
+
+    <Frame><img alt="wb4_taskscheduler_edittrigger.png" src="/images/kb/ka05w00000123r3-00N5w00000Ri7BU-0EM5w000005vPKb.png"/></Frame>
+
+    このダイアログのオプションに関する詳細は、Windows のヘルプ資料を参照して下さい。

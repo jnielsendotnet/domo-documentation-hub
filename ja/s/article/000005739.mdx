@@ -1,0 +1,38 @@
+---
+title: "Amazon Web Services IoT Analyticsコネクター"
+---
+
+## はじめに
+
+AWS IoT Analyticsは完全に管理されたサービスです。これにより、IoT Analyticsプラットフォームを構築するために一般的に必要とされるコストや複雑さを心配することなく、大量のIoTデータに対して高度な分析を簡単に実行および操作できるようになります。IoTデータ上で分析を実行し、インサイトを取得するのが最も簡単な方法です。IoTアプリケーションやユースケースに関してより正確な意思決定ができるようになります。データのパイプラインを通ってデータのノーマライズやその他の処理、時系列データの保存、Amazon Cloudのデータサイエンスツールを使ってデータを分析することができます。DomoのAWS IoT Analyticsコネクターを使用して、時系列データポイント、チャネル、DataSet、データストア、パイプラインなどのデータを受け取ります。Domoのデータにより、1つの簡単なダッシュボードでIoT Analyticsデータをすべて分析し、データに関するアラートを受け取り、データ上のほかのユーザーと一緒に作業を進めることができます。すべて1つのプラットフォームで作業できます。
+
+Amazon Web Services IoT Analyticsアカウントには、Data Centerから接続できます。このトピックでは、Amazon Web Services IoT Analyticsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Amazon Web Services IoT Analyticsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Amazon Web Servicesのアクセスキーとシークレットキー。
+* AWS IoT Analyticsサービスのリージョン。
+
+## Amazon Web Services IoT Analyticsアカウントに接続する
+
+このセクションでは、Amazon Web Services IoT Analyticsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Amazon Web Services IoT Analyticsアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Amazon Web Servicesのアクセスキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> AWS IoT Analyticsサービスのリージョンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Amazon Web Servicesのシークレットキーを入力します。 </td></tr></tbody></table>
+
+有効なAmazon Web Services IoT Analytics認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon Web Services IoT Analytics DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAmazon Web Services IoT Analyticsレポートを選択します。以下のレポートが利用できます。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"><p> Get Dataset Content </p></td><td colspan="1" rowspan="1"> AWS IoT Analyticsに保存された時系列DataSetを返します。CSV DataSetでデータをクエリするには、Athenaクエリが必要です。詳細については、Amazon IoT Analyticsのドキュメントを参照してください。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Channels </p></td><td colspan="1" rowspan="1"> Amazon IoT Analyticsチャネルと追加のメタデータのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Datasets </p></td><td colspan="1" rowspan="1"> Amazon IoT Analytics DataSetと追加のメタデータのリストを返します。このレポートはデータストアの内容を返しません。時系列データを返すには、Get Dataset Contentレポートを使用します。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Datastores </p></td><td colspan="1" rowspan="1"> Amazon IoT Analyticsデータストアと追加のメタデータのリストを返します。このレポートはデータストアの内容を返しません。時系列データを返すには、Get Dataset Contentレポートを使用します。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Pipelines </p></td><td colspan="1" rowspan="1"> Amazon IoT Analyticsパイプラインと追加のメタデータのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Tags For Resource </p></td><td colspan="1" rowspan="1"> Amazon IoT Analyticsリソースタグと追加のメタデータのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Dataset Name </td><td colspan="1" rowspan="1"> Amazon Web Services IoT Analytics DataSetを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter（オプション） </td><td colspan="1" rowspan="1"> 追加のIoTデータを展開するフィルターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Resource ARN </td><td colspan="1" rowspan="1"> リソースタグに関するデータを受け取るにはリソースARNを入力します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,37 @@
+---
+title: "Marketo Connector"
+---
+
+﻿ はじめに Marketo はマーケティングオートメーションSaaS企業で、B2Bマーケター向けの自動化マーケティングやデマンドジェネレーションソフトとサービスを開発しています。 DomoのMarketo Connectorを使用すると、連絡先、開封メール、サイトアクセス、登録と登録取り消しなどのマーケティング統計に関するレポートを編集することができます。 Marketo REST API についての詳細は、ウェブサイト (http://developers.marketo.com/documentation/rest/ ) を参照してください。
+
+Marketo アカウントには、 データセンター から接続します。 このトピックでは、Marketo Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Marketoアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Marketoでカスタムサービスを始める際に作成された、クライアントIDとクライアント・シークレット。 これらの情報を見つけるには、Marketo にサインインし、**管理者 > LaunchPoint** と進み、 **詳細を表示** をクリックしてカスタムサービスを参照します。
+* カスタムサービス作成時に提供された、rest エンドポイントURL
+* カスタムサービス作成時に提供された、identity エンドポイントURL
+
+Marketo カスタムサービス作成手順の説明については、http://developers.marketo.com/documentation/rest/custom-service/ を参照してください。
+
+## Marketoアカウントに接続する
+
+このセクションでは、Marketo Connectorページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、Marketoアカウントにアクセスするための認証情報の入力フィールドがあります。 下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> クライアントID </p></td><td colspan="1" rowspan="1"><p> Marketoでカスタムサービスを始める際に作成された、クライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 共有秘密キー </p></td><td colspan="1" rowspan="1"><p> Marketoでカスタムサービスを始める際に作成された、クライアント・シークレットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンドポイントURL </p></td><td colspan="1" rowspan="1"><p> カスタムサービス作成時に提供された、rest エンドポイントURLを入力します。 例： <span class="nowiki"><span class="mt-font-courier-new"><a href="https://100-AEK-913.mktorest/com/rest" rel="noopener" target="_blank"> https://100-AEK-913.mktorest/com/rest </a></span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Identity URL </p></td><td colspan="1" rowspan="1"><p> カスタムサービス作成時に提供された、Identity URLを入力します。 例： <span class="nowiki"><span class="mt-font-courier-new"><span class="nolink"><a href="https://100-AEK-913.mktorest.com/identity" rel="noopener" target="_blank"> https://100-AEK-913.mktorest.com/identity </a></span></span></span></p></td></tr></tbody></table>
+
+一度有効なMarketo認証情報を入力しておくと、同じアカウントを使用して随時、新しいMarketo DataSetを作成することができます。 Connectorアカウントは データセンター の アカウント タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニューと、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行したいMarketoレポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> 全キャンペーン </p></td><td colspan="1" rowspan="1"><p> 自分の全キャンペーンの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 全リスト </p></td><td colspan="1" rowspan="1"><p> 自分の全リードリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リストごとのリード </p></td><td colspan="1" rowspan="1"><p> 選択したリストおよびフィールドのリードを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 更新日ごとのリード </p></td><td colspan="1" rowspan="1"><p> 指定した過去日数間の、選択したフィールドのリードを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 更新日ごとのリード（Marketoフィールド） </p></td><td colspan="1" rowspan="1"><p> 指定した過去日数間の、Marketo フィールドのリードを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リードアクティビティ </p></td><td colspan="1" rowspan="1"><p> 指定した過去日数間の、選択したアクティビティタイプのリードを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> リードリスト </p></td><td colspan="1" rowspan="1"><p> データを取得したいリードリストを全て選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リードフィールド </p></td><td colspan="1" rowspan="1"><p> データを取得したいリードフィールドを 最大 100 個まで選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 過去日数 </p></td><td colspan="1" rowspan="1"><p> レポートで表示する（今日から数えた）過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アクティビティタイプ </p></td><td colspan="1" rowspan="1"><p> データを取得したいアクティビティタイプを最大10個まで選択します。 </p></td></tr></tbody></table>
+
+

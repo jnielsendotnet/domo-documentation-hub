@@ -1,0 +1,106 @@
+---
+title: "Marketing ROI | 実装ガイド"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Marketing ROI Appをインストールしていただきありがとうございます。このガイドは、このAppをご自身のデータと接続するためのサポートを目的として書かれたものです。Marketing ROI Appの購入処理を完了すると、このガイドのすべてのステップを実行することができます。最初のステップでは、AppとAppのDataFlowがAppStoreから正しくダウンロードされていること、そしてデータがAppで使用される正しいフォーマットであることを確認します。
+
+<Frame><img alt="marketingroi.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONp.png"/></Frame>
+## 必要条件
+
+このAppは、Grid Builderという名前のツールを使用して、Appが必要とするスキーマにデータをマッピングします。Grid Builderにまだ慣れていない場合は、 [こちら](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) でGrid Builderのウォークスルーを参照してください。必要ではありませんが、MySQLクエリがどのように機能するかについて、実経験にもとづく知識があると便利です。
+
+下の図は、データがDataFlowを通じて供給され、Appに出力される順序を示しています。
+
+<Frame><img alt="gridbuilder__1_.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONX.png"/></Frame>
+Grid Builderの動作に慣れたら、次のステップに従い、AppとDataFlowがDomoインスタンスに適切に配置されていることを確認します。
+
+* AppstoreからAppを購入した場合は、AppStoreのAppのページにある **［Try It］** ボタンをクリックして、AppとそのDataFlowをインスタンスに展開してください。DomoインスタンスでAppを表示するページに名前を付けるように求められます。
+* DataFlowがインスタンスに展開されていることを再度確認します。確認するには、Domoの上部にある **［データ］** ボタンをクリックして、Data Centerに移動します（下の画像を参照）。
+    
+  <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+* Data Centerの画面左側から **［DataFlow］** を選択し、［Data Center］の検索バーを使用して「Marketing ROI」を検索します。その名前に一致するDataFlowを見つけることができるはずです。
+
+これらのステップを実行しても、作成したページ、またはそのDataFlowでAppが見つからない場合、テクニカルサポートまでお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+## ステップ1：データを準備する
+
+Marketing ROI Appは、各マーケティングチャネルのリアルタイムROIを明確に把握するために、ファネルの各ステージで各リードソースの収益、支出、コンバージョン率を表示します。このAppを実行するには2つの別々のテーブルが必要になります。一方のテーブルには「オポチュニティーに関する現在の詳細」が含まれ、もう一方のテーブルには「オポチュニティーの段階の履歴」が含まれます。DataFlowを実行するためには、特定の列が必要です。以下のテーブルスキーマでは、必要な列がすべて表示されています。Grid Builderに入力すると列名がマップされるため、スキーマに合わせて列名を変更する必要はありません。ただし、フィルターのオプションとして使用するほかのカテゴリー列をオポチュニティーテーブルに追加することもできます（下記の例を参照）。
+
+<Columns>
+  <Frame><img src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONf.png" /></Frame>
+  <Frame><img alt="opportunityhistorytableschmea.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONu.png" style={{width: 338, height: 132}}/></Frame>
+</Columns>
+Appをダウンロードすると、「Marketing Leadsource Category Map」という名前のDataSetが作成されるので、このDataSetを検索する必要があります。DataSetを見つけたら、それをクリックして **「ウェブフォームを編集」** を選択します。ここで、データに表示されているステータス名でウェブフォームを手動で更新します。カテゴリー列を更新し、以前にサンプルデータが入力されたすべての行を消去します（下記のテーブルの例を参照）。
+
+<Frame><img alt="marketingleadsourcecategorymap.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONd.png"/></Frame>
+この例では、オポチュニティーテーブルのすべてのフィールドが2つのテーブルから作成されています。この例のオポチュニティーテーブルには所有者名の列がないため、所有者IDを使用してユーザーテーブルの所有者名をJoinしました。複数のテーブルを使用して必要なテーブルを作成することもできます。「Grid Builder」セクションで、その方法を説明します（下記のエンティティ関係図を参照）。
+
+<Frame><img alt="dataschema.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONh.png"/></Frame>
+<Note>
+  **注記：**
+
+  * Marketing ROI Appには、App内で削除したり再配置したりできないフィルターが組み込まれています（日付範囲、担当者、ステータス）。
+  * 日付列と第一グループ列を使用してDataSetをJoinできるのであれば、複数のDataSetをAppのソースデータとして使用できます。Grid Builderの中でJoinを行う方法については、後のセクションで説明します。
+  * データに列が不足している場合は、MySQLを使用してDataFlowの中にデフォルト値を設定し、列を作成できます。例えば、確率列がない場合は、すべての確率値を0に設定できます。
+
+</Note>
+
+## ステップ2：DataFlowにソースデータを追加する
+
+データを準備したらDataFlowに進み、DataFlowにDataSetを入力として追加する必要があります。
+
+Marketing ROIのDataFlowへの入力としてデータを追加するには、次のステップに従います。
+
+* Domoの上部にある **［データ］** ボタンをクリックしてData Centerに移動します（以下の画像を参照）。
+    
+  <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONS.png"/></Frame>
+* Data Center画面左側の **［DataFlow］** をクリックし、Data Centerの検索バーで「Marketing ROI」を検索します。同じ名前のDataFlowを見つけることができるはずです。
+* AppのDataFlowを選択し、詳細ビューに進み、ページ右側の鉛筆のアイコンをクリックして、DataFlowを編集します。
+* 各DataSetの隅にある **［x］** を選択して、サンプルDataSetの「Opportunity」と「Opportunity History」を削除します。DataSet名を保持します（「Marketing ROI - Grid Builder」、「Marketing ROI - Settings」、「Marketing Leadsource Category Map」）。
+* **［DataSetを選択］** ボタンをクリックして、Marketing ROI App用に作成したDataSetを検索し、それぞれをクリックして入力として追加します。
+* DataSetを追加したら、ページの下部までスクロールし、 **［保存］** ボタンをクリックします。
+* Data Centerに戻ります。
+
+<Frame><img alt="editmysql__1_.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONj.png"/></Frame>
+## ステップ3：Grid Builderを編集する
+
+3番目のステップでは、入力データと一致するようにGrid Builderの適切なフィールドを編集する必要があります。このガイドでは基本的なステップを説明しますが、Grid Builderの機能に関するより包括的なチュートリアルについては、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください。変更を加えるとき、このプロセス中にウェブブラウザーでエラーが発生した場合に備えて、作業内容をExcelスプレッドシートに時々コピーして、行った変更を追跡することを推奨します。
+
+以下のステップに従ってGrid Builderを編集します。
+
+* Appに付属するGrid Builderウェブフォームに進みます。ウェブフォームはDataSetの一種なので、DataFlowタブではなくDataSetタブで検索する必要があります。「Marketing ROI - Grid Builder」の名前がつけられます。DataSetをクリックし、詳細ビューで右側にあるスパナメニューアイコンをクリックし、次に **［ウェブフォームを編集］** をクリックします。
+
+<Frame><img alt="12345__1_.png" src="/images/kb/ka05w0000012Aeg-00N5w00000Ri7BU-0EM5w000005vONi.png"/></Frame>
+* C100から下のSELECT列で、サンプル値を、Appで利用するFROM列にリストされているDataSetの列の名前に置き換えます。この列でデータをAppにマップします。フィルターとしてさらに追加したい列があれば、行を追加する必要がある場合があります（上の画像例の#1を参照）。
+* FROM列で、最初のDataSetの名前と一致するように行C100の値を変更します。ソースデータとして使用するすべてのテーブルにこのステップを繰り返します。新しいDataSetにはそれぞれ、「C」列の次の100の倍数の値を割り当てる必要があります。例えば、2番目のDataSetの場合は200、3番目のDataSetの場合は300から開始します（上の画像例の#2を参照）。
+* C100から下のAS列で、SELECT列にリストした列の名前を選択します。名前にスペース、数字、および特殊文字を使用しないでください。例えば、Gross SalesではなくGross\_Salesを使用します。これにより、後のステップが楽になります（上の画像例の#3を参照）。
+* 例には、オポチュニティーテーブルに所有者名列がないため、ユーザーテーブルから所有者名列をJoinしました。Joinするには、C200行目の「JoinType」列と「JoinCondition」列に入力する必要があります。「JoinType」列にはすべて大文字を入力する必要があり、MySQLで使用される任意のタイプのJoinも含めることができます。追加のJoinは通常、「JoinType」にLEFTを使用します。「JoinCondition」列は、DataSetから列が取り込まれる行を参照します。「JoinCondition」は次のようになります： `Ctable#.COLUMNNAME=Ctable#.COLUMNNAME` （上の画像例の#5を参照）。
+* DataSetからすべての情報を入力したらすぐに、フィルターを設定する必要があります。フィルターとして使用するデータの列を参照するGrid Builderの各行で、3つのフィルター列、「FilterId」、「FilterName」、および「FilterInputType」をこれらで更新する必要があります。
+
+<Frame><img alt="additionalfilters__1_.png" src="/images/kb/ka05w0000012AeQ-00N5w00000Ri7BU-0EM5w000005vONU.png"/></Frame>
+* フィルターとして使用するほかの行では、「FilterId」列に1ずつ増える数（3、4、5など）を使用し、最小の数を一番上に置きます。「FilterName」列でフィルター名を定義し、「FilterInputType」に対して「複数選択」または「単一選択」を使用し、「FilterIsPrimary」と「FilterIsPrimaryGroup」は空のままにします。フィルタータイプの詳細については、「
+  [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照してください（上の例を参照）。
+* ページの上部の **［保存して次へ］** をクリックして、Grid Builderで行った変更を保存します。
+
+Grid Builderに必要な変更をすべて加えたら、Data Centerに戻りMarketing ROI DataFlowを実行します。DataFlowが正常に実行された場合、Grid Builderに正しく入力されているはずです。エラーが発生した場合は、「 [Grid Builder Walkthrough](https://developer.domo.com/docs/installation-guides/grid-builder-walkthrough) 」を参照するか、テクニカルサポートにお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+## ステップ4：検証する
+
+Grid Builderを設定したら、Appをチェックしてメトリクスを検証する準備が整います。
+
+検証には以下のプロセスを推奨します。
+
+1. KPIカードを作成して、メトリクスをテストします。これらのカードは、Appからの出力データではなくソースデータにもとづいて作成します。例えば、Appで営業担当者ごとのトレンド売り上げを表示している場合は、営業担当者ごとの売り上げを表示し、KPIカードの日付範囲をアプリに表示されている日付範囲の1つと一致させる棒グラフタイプのカードを作成します。
+2. KPIカードのデータをAppのデータと比較します。フィルターのオプションと日付範囲がAppとKPIカードで一致していることを確認してください。
+3. 不一致があれば、Grid BuilderでJoinの条件やグループ化を変更する必要があるか確認し、計算を再確認してください。
+4. 検証する必要があるメトリクスがあれば、この処理を繰り返します。
+
+#### おめでとうございます。
+
+Marketing ROI Appが利用可能になります。データを最大限に活用しましょう。質問がある場合、またはトラブルシューティングのサポートが必要な場合は、テクニカルサポートまでお問い合わせください。サポートへのお問い合わせ方法については、「 [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+日本語

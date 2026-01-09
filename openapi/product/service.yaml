@@ -1,0 +1,541 @@
+openapi: 3.0.0
+info:
+  title: Domo AI Services API
+  version: v1
+  description: |
+    Domo's AI Services API enables developers to build AI capabilities into their applications.
+    
+    Currently supported services:
+    - **Text Generation**: Generate text responses from text prompts
+    - **Text-to-SQL**: Generate SQL queries based on prompts and dataset schemas
+    - **Text Summarization**: Generate summaries from text input
+    - **Image-to-Text**: Generate text responses from images (OCR)
+    
+    Domo allows you to configure which models power each of the services.
+
+servers:
+  - url: 'https://{instance}.domo.com'
+    description: Domo Instance
+    variables:
+      instance:
+        default: example
+        description: Your Domo instance name
+
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Developer token obtained from Domo
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+
+    PromptTemplate:
+      type: object
+      properties:
+        template:
+          type: string
+          description: Template string for the prompt. Use ${input}, ${system} and other ${parameter} placeholders
+          example: "Respond to the following in ${language}: ${input}"
+
+    AIResponse:
+      type: object
+      properties:
+        output:
+          type: string
+          description: The generated output from the model
+        modelId:
+          type: string
+          description: ID of the model used
+
+    AppTextGenerationRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The prompt to send to the model
+          example: "Tell me a joke about data."
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value pairs for template parameter substitution
+          example:
+            max_words: "30"
+        model:
+          type: string
+          description: The ID of a specific model to use (optional)
+          example: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+
+    APITextGenerationRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The input text to send to the model
+          example: "Why is the sky blue?"
+        model:
+          type: string
+          description: The ID of the model to use if other than the configured default
+          example: "domo.domo_ai.domogpt-chat-small-v1:anthropic"
+        modelConfiguration:
+          type: object
+          additionalProperties: true
+          description: Additional model-specific configuration (e.g., temperature, max_tokens)
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Custom parameters to inject into the prompt template
+          example:
+            language: "Japanese"
+        system:
+          type: string
+          description: The system message to use for the Text Generation task
+          example: "Respond only in Japanese"
+
+    DataSourceColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Column name
+          example: "Date"
+        type:
+          type: string
+          description: Column data type
+          enum: [STRING, LONG, DECIMAL, DOUBLE, DATE, DATETIME]
+          example: "DATE"
+        description:
+          type: string
+          description: Column description
+
+    DataSourceSchema:
+      type: object
+      properties:
+        dataSourceName:
+          type: string
+          description: Name of the data source
+          example: "Sales"
+        description:
+          type: string
+          description: Description of the data source
+          example: "Sales Data"
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceColumn'
+
+    AppTextToSQLRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The natural language prompt to convert to SQL
+          example: "Show me the sales for the last 3 months."
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value pairs for template parameter substitution
+          example:
+            measure: "sales"
+            timeframe: "3 months"
+        model:
+          type: string
+          description: The ID of a specific model to use (optional)
+          example: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+        dataSourceSchemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceSchema'
+          description: Schemas of datasets to consider when generating SQL
+
+    APITextToSQLRequest:
+      type: object
+      required:
+        - input
+        - dataSourceSchemas
+      properties:
+        input:
+          type: string
+          description: The input text to send to the model
+          example: "What are my total sales by region?"
+        dataSourceSchemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceSchema'
+          description: A set of schemas to use for SQL generation
+        model:
+          type: string
+          description: The ID of the model to use if other than the configured default
+          example: "domo.domo_ai.domogpt-sql-v1:anthropic"
+        modelConfiguration:
+          type: object
+          additionalProperties: true
+          description: Additional model-specific configuration
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Custom parameters to inject into the prompt template
+        system:
+          type: string
+          description: The system message to use for the Text-to-SQL task
+
+    TextSummarizationRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The input text to summarize
+        outputStyle:
+          type: string
+          enum: [BULLETED, NUMBERED, PARAGRAPH]
+          description: The formatting of the summarized output
+        outputWordLength:
+          type: object
+          properties:
+            min:
+              type: integer
+              description: Minimum number of words
+            max:
+              type: integer
+              description: Maximum number of words
+          description: Word count constraints for the summary
+          example:
+            min: 5
+            max: 10
+        model:
+          type: string
+          description: The ID of the model to use if other than the configured default
+          example: "domo.domo_ai.domogpt-summarize-v1:anthropic"
+        modelConfiguration:
+          type: object
+          additionalProperties: true
+          description: Additional model-specific configuration
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Custom parameters to inject into the prompt template
+        system:
+          type: string
+          description: The system message to use for the Text Summarization task
+
+    ImageData:
+      type: object
+      required:
+        - mediaType
+        - type
+        - data
+      properties:
+        mediaType:
+          type: string
+          description: MIME type of the image
+          enum: [image/png, image/jpeg, image/jpg, image/gif, image/webp]
+          example: "image/png"
+        type:
+          type: string
+          description: Encoding type
+          enum: [base64]
+          example: "base64"
+        data:
+          type: string
+          description: Base64-encoded image data (without data URL prefix)
+
+    ImageToTextRequest:
+      type: object
+      required:
+        - input
+        - image
+        - model
+      properties:
+        input:
+          type: string
+          description: The prompt describing what to extract from the image
+          example: "return the text in the image, ensuring new lines are preserved"
+        image:
+          $ref: '#/components/schemas/ImageData'
+        model:
+          type: string
+          description: The ID of the model to use for OCR
+          example: "domo.domo_ai.domogpt-chat-medium-v1.1:anthropic"
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        system:
+          type: string
+          description: System prompt to guide the OCR process
+
+    AppAIResponse:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The actual prompt sent to the model
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              output:
+                type: string
+                description: The generated output from the model
+        modelId:
+          type: string
+          description: ID of the model used
+        isCustomerModel:
+          type: boolean
+          description: Whether a custom model was used
+
+security:
+  - developerToken: []
+
+paths:
+  # App Endpoints (domo.* methods)
+  /domo/ai/v1/text/generation:
+    post:
+      summary: Text Generation (App)
+      description: Generates a text response from a text prompt using AI (for use within Domo Apps)
+      tags: 
+        - AI Services API
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppTextGenerationRequest'
+            examples:
+              simple:
+                summary: Simple prompt
+                value:
+                  input: "Tell me a joke about data."
+              withTemplate:
+                summary: With custom template and parameters
+                value:
+                  input: "Recap the 2021 superbowl"
+                  promptTemplate:
+                    template: "${input}. You are a helpful assistant that gives answers in ${max_words} words or less"
+                  parameters:
+                    max_words: "30"
+                  model: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+      responses:
+        '200':
+          description: Text generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppAIResponse'
+
+  /domo/ai/v1/text/sql:
+    post:
+      summary: Text-to-SQL (App)
+      description: Generates a SQL query based on a natural language prompt (for use within Domo Apps)
+      tags: 
+        - AI Services API
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AppTextToSQLRequest'
+            example:
+              input: "Show me the sales for the last 3 months."
+              dataSourceSchemas:
+                - dataSourceName: "Sales"
+                  description: "Sales Data"
+                  columns:
+                    - name: "Date"
+                      type: "date"
+                    - name: "Sales"
+                      type: "number"
+      responses:
+        '200':
+          description: SQL generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppAIResponse'
+
+  /domo/ai/v1/image/text:
+    post:
+      summary: Image-to-Text (App)
+      description: Generates text from an image using OCR (for use within Domo Apps)
+      tags: 
+        - AI Services API
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToTextRequest'
+            example:
+              input: "return the text in the image, ensuring new lines are preserved"
+              image:
+                mediaType: "image/png"
+                type: "base64"
+                data: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+              model: "domo.domo_ai.domogpt-chat-medium-v1.1:anthropic"
+              promptTemplate:
+                template: "${input}"
+              system: "You are an AI assistant tasked with performing Optical Character Recognition..."
+      responses:
+        '200':
+          description: OCR successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AppAIResponse'
+
+  # API Endpoints (with authentication)
+  /api/ai/v1/text/generation:
+    post:
+      summary: Text Generation (API)
+      description: Generate text based on the given text input (external API with authentication)
+      tags: 
+        - AI Services API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APITextGenerationRequest'
+            examples:
+              basic:
+                summary: Basic example
+                value:
+                  input: "Why is the sky blue?"
+              withPromptTemplate:
+                summary: With prompt template
+                value:
+                  input: "Why is the sky blue?"
+                  promptTemplate:
+                    template: "Respond to the following in ${language}: ${input}"
+                  parameters:
+                    language: "Japanese"
+                  model: "domo.domo_ai.domogpt-chat-small-v1:anthropic"
+              withSystemMessage:
+                summary: With system message
+                value:
+                  input: "Why is the sky blue?"
+                  system: "Respond only in Japanese"
+                  model: "domo.domo_ai.domogpt-chat-small-v1:anthropic"
+      responses:
+        '200':
+          description: Text generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                output: "The sky is blue because of Rayleigh scattering."
+                modelId: "domo.domo_ai.domogpt-chat-small-v1:anthropic"
+
+  /api/ai/v1/text/sql:
+    post:
+      summary: Text-to-SQL (API)
+      description: Generate SQL based on the given text input and schemas (external API with authentication)
+      tags: 
+        - AI Services API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APITextToSQLRequest'
+            example:
+              input: "What are my total sales by region?"
+              dataSourceSchemas:
+                - dataSourceName: "Store Sales"
+                  description: ""
+                  columns:
+                    - type: "STRING"
+                      name: "product"
+                      description: ""
+                    - type: "LONG"
+                      name: "store"
+                      description: ""
+                    - type: "LONG"
+                      name: "amount"
+                      description: ""
+                    - type: "DATETIME"
+                      name: "timestamp"
+                      description: ""
+                    - type: "STRING"
+                      name: "region"
+                      description: ""
+      responses:
+        '200':
+          description: SQL generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                output: "SELECT region, SUM(amount) AS total_sales FROM `Store Sales` GROUP BY region"
+                modelId: "domo.domo_ai.domogpt-sql-v1:anthropic"
+
+  /api/ai/v1/text/summarize:
+    post:
+      summary: Text Summarization (API)
+      description: Generate a summary based on the given text input (external API with authentication)
+      tags: 
+        - AI Services API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextSummarizationRequest'
+            examples:
+              basic:
+                summary: Basic summarization
+                value:
+                  input: "San Francisco, officially the City and County of San Francisco, is a commercial, financial, and cultural center in Northern California. With a population of 808,437 residents as of 2022, San Francisco is the fourth most populous city in the U.S. state of California..."
+              customized:
+                summary: With custom output formatting
+                value:
+                  input: "San Francisco, officially the City and County of San Francisco, is a commercial, financial, and cultural center in Northern California..."
+                  outputWordLength:
+                    min: 5
+                    max: 10
+                  outputStyle: "PARAGRAPH"
+                  model: "domo.domo_ai.domogpt-summarize-v1:anthropic"
+      responses:
+        '200':
+          description: Text summarization successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                output: "Vibrant, densely populated commercial and cultural hub in Northern California."
+                modelId: "domo.domo_ai.domogpt-summarize-v1:anthropic"

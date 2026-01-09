@@ -1,0 +1,59 @@
+---
+title: "Workbench 5を実行する"
+---
+
+## はじめに
+
+Workbenchは、サービスおよびアプリケーションにより構成されています。
+
+WorkbenchサービスはWindowsサービスとして実行され、Windows起動時に自動的に実行されます。サービスは手動で開始、停止、再起動させることができます。
+  
+Workbenchサービスの実行に関しては、「 [Workbench 4サービスを開始、停止または再起動する](/ja/s/article/360043437153 "Workbench 4サービスを開始、停止または再起動する") 」を参照してください。
+
+Workbenchアプリケーションは、Windowsプログラムとして実行されます。アプリケーションは、Windowsのスタートメニューから実行させることができます。
+
+## スタートメニューからWorkbenchを実行する
+
+WindowsのスタートメニューからWorkbenchを実行するには、以下の手順で行います。
+
+**Workbenchアプリケーションを実行するには、**
+
+* **[スタート] > [Domo] > [Domo Workbench]** をクリックします。
+
+Workbenchアプリケーションは、exeファイルを直接実行することでも起動させることができます。通常、このファイルのインストール先は C:\Program Files\Domo\Workbench です。
+
+Workbenchのコントロールとフィールド設定については、「 [Workbench 5ユーザーインターフェースについて](/ja/s/article/360042932654 "Workbench 4ユーザーインターフェースについて") 」を参照してください。
+
+## Workbenchをコマンドラインから実行する
+
+Workbenchのジョブは、コマンドラインから以下のようにキュー処理することができます：
+
+`wb queue-job --server <url> --jobid <id>`
+
+この場合、 url はDomoインスタンスのサーバーで(*[mycompany.domo.com](http://mycompany.domo.com)* )、 jobid はジョブのIDです。
+
+例：
+
+`"C:\Program Files\Domo\Workbench\wb.exe" queue-job --server acme.domo.com --jobid 505`
+
+<Note>
+
+**注記：**
+
+* ジョブIDは、**[ファイル] > [ジョブを開く]** を選択することで決定することができます。
+* サーバーのパラメーターは、httpやhttpプロトコルなしでサーバーのみを指定します。
+* コマンドラインから実行されるWorkbenchのジョブは、各ジョブごとに **[ジョブ] > [ジョブの設定]** と **[ジョブ] > [通知]** で指定されたジョブと通知の設定を使用します。
+* コマンドラインで処理されたジョブのログエントリは、ジョブログフォルダの
+  Workbench.DataCollector\_\_yyyy-mm-dd ファイルにログされます。
+    
+  通常、ログファイルは C:\ProgramData\Domo\Workbench\logs にあります。
+* DataSetは、コマンドラインから作成することはできません。
+    
+  DataSet作成時にデータをアップロードするには、Workbenchを使用します。
+* Workbenchのジョブをコマンドラインから正常に実行するためには、DataSetのアップロード設定が、既存のDataSetの置き換えか、または追加するように設定されている必要があります。
+* ログ設定は、**[ファイル] > [設定] > [ログ]** で指定できます。
+    
+  たとえば、ログで使用する現地時間を指定したり、ログファイルを編集・削除したりできます。
+
+</Note>
+

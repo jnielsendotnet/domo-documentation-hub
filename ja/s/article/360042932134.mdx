@@ -1,0 +1,46 @@
+---
+title: "Microsoft OneDriveコネクター"
+---
+
+## はじめに
+
+Microsoft OneDrive（以前の名称はSkyDrive、Windows Live SkyDrive、およびWindows Live Folders）は、ビジネス用オンラインファイル共有とパーソナルクラウドコンテンツ管理サービスです。このコネクターを使うと、OneDriveアカウントからデータファイルを取得し、Domoで利用できます。データファイルは、CSV、XLS、XLSX、XML、ZIP、GZIPのいずれかのファイルタイプで取得できます。OneDrive APIについての詳細は、 [https://msdn.microsoft.com/en-us/lib.../dn659752.aspx](https://msdn.microsoft.com/en-us/library/office/dn659752.aspx "https://msdn.microsoft.com/en-us/library/office/dn659752.aspx") を参照してください。
+
+Microsoft OneDriveコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこのコネクターやほかのファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+Data CenterでMicrosoftアカウントへの接続を設定します。このトピックでは、OneDriveコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Microsoftアカウントに接続してOneDrive DataSetを作成するには、Microsoftのユーザー名とパスワードが必要です。
+
+## Microsoftアカウントに接続する
+
+このセクションでは、Microsoft OneDriveコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのMicrosoft OneDriveコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のMicrosoft OneDriveアカウントがある場合は **［アカウントを追加］** を選択）すると、Microsoftの画面が開き、Microsoftのユーザー名とパスワードを入力できます。一度有効なMicrosoft認証情報を入力しておくと、同じアカウントを使用して随時、新しいOneDrive DataSetを作成することができます。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にMicrosoftにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずMicrosoftからログアウトする必要があります。
+
+</Note>
+
+一度有効なMicrosoft認証情報を入力しておくと、同じアカウントを使用して随時、新しいOneDrive DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する")
+
+」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するOneDriveレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Children </td><td colspan="1" rowspan="1"> 指定したファイル/フォルダまたはパスを持つアイテムの子を一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> DefaultDrive </td><td colspan="1" rowspan="1"> 認証されたユーザーのOneDriveのデフォルトドライブに関するメタデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> DownloadFile </td><td colspan="1" rowspan="1"> ファイルをDataSetとしてDomoにダウンロードします。その他の情報とともに、ファイルタイプおよびファイル/フォルダまたはパスを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Drives </td><td colspan="1" rowspan="1"> 認証されたユーザーが利用可能なドライブを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> DriveById </td><td colspan="1" rowspan="1"> 選択したドライブIDのドライブを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Properties </td><td colspan="1" rowspan="1"> 指定したファイル/フォルダまたはパスを持つアイテムのプロパティを返します。 </td></tr><tr><td colspan="1" rowspan="1"> RecentItems </td><td colspan="1" rowspan="1"> 認証されたユーザーが最近使用したアイテムのリストを返します。このリストには、ユーザーのドライブにあるアイテムと、ほかのドライブからアクセスできるアイテムが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> SharedItems </td><td colspan="1" rowspan="1"> 認証されたユーザーと共有されているアイテムを一覧表示します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Addressing </td><td colspan="1" rowspan="1"> ファイル/フォルダ（ <b> ［ID Based］ </b> ）またはパス（ <b> ［Path Based］ </b> ）のどちらにもとづいてファイルを検索するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Path </td><td colspan="1" rowspan="1"><p> データを取得するアイテムの相対パスを入力します。 </p><p> 例： <span class="mt-font-courier-new"> /Documents/test.csv </span></p></td></tr><tr><td colspan="1" rowspan="1"> File/Folder Name </td><td colspan="1" rowspan="1"> データを取得するファイル/フォルダの名前（または名前の一部）を入力します。拡張子は付けないでください。コネクターは、 <b> ［Date Field］ </b> メニューで選択した内容にもとづき、入力した名前と一致するもののうち、最後に作成または変更したファイルを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Match Type </td><td colspan="1" rowspan="1"><b> ［File/Folder］ </b> フィールドに入力したファイルまたはフォルダ名が、特定の文字列を <em> 含む </em> か、指定した文字列で <em> 始まる </em> かのいずれかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Parent Folder Name </td><td colspan="1" rowspan="1"> 完全なフォルダ名（大文字小文字の区別なし）を入力して、ファイル検索を特定フォルダのルートコンテンツに限定します。サブフォルダは無視されます。これを空白にすると、自分がアクセスできるすべてのフォルダのすべてのファイルが検索の対象になります。 </td></tr><tr><td colspan="1" rowspan="1"> Date Field </td><td colspan="1" rowspan="1"> ファイルを作成日または最終変更日のどちらで取得するかを指定します。これは、 <b> ［File Name］ </b> に入力した名前が複数のファイルに含まれている場合に便利です。 </td></tr><tr><td colspan="1" rowspan="1"> File Type </td><td colspan="1" rowspan="1"> Domoにダウンロードするファイルまたはデータを取得するファイルのファイルタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Drive ID </td><td colspan="1" rowspan="1"> データを取得するドライブのIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Is Password Protected? </td><td colspan="1" rowspan="1"> ダウンロードするXLS/XLSXファイルがパスワードで保護されているかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Sheet Name（オプション） </td><td colspan="1" rowspan="1"> Domoにダウンロードする特定のXLS/XLSXシートの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 圧縮ファイルを検索するのに使うファイル名またはファイル名の一部 </td><td colspan="1" rowspan="1"> 取得するZIPファイル名を入力します。ここを空白にすると、見つかった最初のZIPファイルが返されます。 </td></tr><tr><td colspan="1" rowspan="1"> Zipped File Type </td><td colspan="1" rowspan="1"> 取得するZIPファイルのファイルタイプを選択します。 </td></tr></tbody></table>
+
+### ［Advanced］ペイン
+
+このペインでは、Domoに取り込むファイルのオプションを設定します。
+
+<table class="not-prose" border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row（オプション） </p></td><td colspan="1" rowspan="1"><p> ExcelファイルまたはCSVファイルのヘッダー行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Data Start Row（オプション） </td><td colspan="1" rowspan="1"> ExcelファイルまたはCSVファイルの最初のデータ行の番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Footer（オプション） </td><td colspan="1" rowspan="1"> ExcelファイルまたはCSVファイルのフッター行の番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Blank Rows </td><td colspan="1" rowspan="1"> Excelファイルに空白行が見つかった場合に、希望する結果を選択します。 <b> ［Skip blank rows］ </b> を選択すると、空白行なしで通常どおりファイルが処理されます。 <b> ［Stop at the first blank row］ </b> を選択すると、最初の空白行まですべて取得されます。 </td></tr><tr><td colspan="1" rowspan="1"> Empty Column Headers </td><td colspan="1" rowspan="1"> ExcelファイルまたはCSVファイルに空白の列ヘッダーが見つかった場合に、希望する結果を選択します。 <b> ［Add </b><b> blank columns］ </b> を選択すると、デフォルトの名前で新しい列が生成されます。 <b> ［Stop at the first blank column］ </b> を選択すると、空白のヘッダーがある最初の列まですべて取得されます。 </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> 日付列の変換に使用する日付形式を選択します。 <b> ［Show dates as strings］ </b> を選択すると、日付がテキストに変換されます（つまり、日付の書式が失われます）。 </td></tr><tr><td colspan="1" rowspan="1"> Delimiter </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用する区切り文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用する引用文字を選択します </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Your Data Tag </td><td colspan="1" rowspan="1"> XMLテキスト内のデータのある場所を示すタグを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Do You Require Attributes in Data? </td><td colspan="1" rowspan="1"> データの一部として属性値を必要としている場合は、 <b> ［Yes］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Fields to Exclude </td><td colspan="1" rowspan="1"> XMLインポートから除外するフィールドを、カンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter XPath Expression </td><td colspan="1" rowspan="1"> ワールドワイド・ウェブ・コンソーシアムにより定義された標準XPath構文を使って、XPathクエリを入力します（ <a href="https://www.w3.org/TR/2017/REC-xpath-31-20170321/" target="_blank"> https://www.w3.org/TR/2017/REC-xpath-31-20170321/ </a> ）。 </td></tr></thead></table>
+
+

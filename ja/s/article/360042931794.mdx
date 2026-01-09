@@ -1,0 +1,98 @@
+---
+title: "SAP HANAコネクター"
+---
+
+## はじめに
+
+SAP HANAは、SAP SE社により開発および販売された、カラム指向インメモリーリレーショナルデータベース管理システムです。DomoのSAP HANAコネクターを使用し、SQLクエリを入力することにより、SAP HANAデータベースからデータを取得します。SAP HANAの詳細については、同社のウェブサイトをご覧ください（ [https://www.sap.com/products/hana.html](https://www.sap.com/products/hana.html "https://www.sap.com/products/hana.html") ）。
+
+SAP HANAアカウントには、Data Centerから接続します。このトピックでは、SAP HANAコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+SAP HANAアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SAP HANAアカウントのログインに使用するユーザー名とパスワード
+* データベース名
+* データベースのホスト名
+* データベースのポート番号
+
+CA証明書テキストまたはURLパスは、 ****［Certificate type］**** メニューで **［Certificate text］** または ****［URL path］**** をそれぞれ選択した場合 ****のみ**** 、必要になります。
+
+SAPデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## SAP HANAアカウントに接続する
+
+このセクションでは、SAP HANAコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、SAP HANAアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドで必要とされる内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SAPデータベースのホスト名を入力します。 </p><p> 例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> データベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> SAP HANAアカウントユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> SAP HANAアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b><b> ［Certificate Type］ </b></b> メニューで <b><b> ［No certificate］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> 証明書のタイプを選択します。証明書を含めない場合は、 <b><b> ［No certificate］ </b></b> を選択します。［Certificate text］を選択する場合は、 <b><b> ［Certificate］ </b></b> フィールドに証明書のテキストを貼り付ける必要があります。 <b><b> ［URL path］ </b></b> を選択する場合は、証明書が保存されている場所のURLを <b><b> ［Certificate］ </b></b> フィールドに入力する必要があります。 </p></td></tr></tbody></table>
+
+有効なSAP HANA認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSAP HANA DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><table border="1"><thead><tr><td colspan="1" rowspan="1"> クエリタイプ </td><td colspan="1" rowspan="1"> 説明 </td></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"><span> 実行するクエリを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"><span> クエリを自動生成する表とフィールドを選択します。 </span></td></tr></tbody></table></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Query </span></td><td colspan="1" rowspan="1"> Domoに引き込むデータを選択するためのSQLクエリを入力します。 <p> 例： <span class="mt-font-courier-new"> select * from Employee </span></p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Schema Name </span></td><td colspan="1" rowspan="1"> スキーマを選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Database Object </span></td><td colspan="1" rowspan="1"> データベースオブジェクトを選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Database Table </span></td><td colspan="1" rowspan="1"> Domoに引き込むデータを含む表を選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Table Columns </span></td><td colspan="1" rowspan="1"> Domoに引き込むデータを含む表の列を選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> Query Helper </span></td><td colspan="1" rowspan="1"> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <span> このクエリは、選択された <b> ［Database Columns］ </b> と <b> ［Table Columns］ </b> にもとづいて生成されます。 </span></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><span> View </span></td><td colspan="1" rowspan="1"> ビューを選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> View Columns </td><td colspan="1" rowspan="1"><span> レポートに含める表示列を選択します。 </span></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> View Query Helper </span>
+</td>
+<td colspan="1" rowspan="1"> 
+クエリの作成にサポートが必要な場合は、このクエリをコピーして 
+<b> 
+［Query］ 
+</b>
+フィールドに貼り付けます。 
+
+<span> このクエリは、選択された 
+<b> ［View］ 
+</b> と 
+<b> ［View Columns］ 
+</b> にもとづいて生成されます。プレースホルダ―と変数の <b> '' </b> フィールドには、実際のユーザー値を入力する必要があります。 </span><p><span> 例： </span></p><ul><li><span> PLACEHOLDER = ('$$IP_Product_Category$$', '') </span></li><li><span> PLACEHOLDER = ('$$IP_Product_Category$$', 'Keyboards') </span></li></ul> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記：プレースホルダ―と変数は、入力パラメーターと変数が既に設定されているビューに対してのみ設定されます。 </b></div></div></div> 
+</Note>
+
+ </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

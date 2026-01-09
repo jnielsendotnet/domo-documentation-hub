@@ -1,0 +1,44 @@
+---
+title: "Seismicコネクター"
+---
+
+## はじめに
+
+Seismicとは、チームが適切な販売コンテンツを見つけて販売プロセスを最適化できるようにする販売およびマーケティング支援ソフトウェアです。ユーザー中心の製品デザインから深いサポートリソースにいたるまで、Seismicのプラットフォームソリューションは、クライアントが迅速に結果を得るのを支援するためにゼロから設計されています。DomoのSeismicコネクターを使用すると、Seismicデータをほかの主要セールスやマーケティングデータと組み合わせ、チーム全体に対する自分のデータをリアルタイムで確認できます。Seismic APIの詳細については、
+https://developer.seismic.com/seismicsoftware/reference
+にアクセスしてください。
+
+Data CenterでSeismicアカウントに接続します。このトピックでは、Seismicコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Seismicアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Seismicテナント
+* Seismicユーザー名とパスワード
+
+Seismicテナントを取得するには、Domo管理者にお問い合わせください。
+
+## Seismicアカウントに接続する
+
+このセクションでは、 Seismic コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### 認証情報ペイン
+
+DomoのSeismicコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。Seismicテナントを入力した後、 ****［接続］**** をクリック（または、Domoに既存のSeismicアカウントがある場合は ****［アカウントを追加］**** を選択）すると、Seismic OAuth画面が開き、Seismicの認証情報を入力できます。 下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> テナント </td><td colspan="1" rowspan="1"> Seismicテナントを入力します。 </td></tr></tbody></table>
+
+有効なSeismic認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいSeismic DataSetを作成することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するSeismicレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> コンテンツのプロパティの割り当て </td><td colspan="1" rowspan="1"> コンテンツのプロパティの割り当てに関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> コンテンツの使用履歴 </td><td colspan="1" rowspan="1"> ライブラリからソースされたコンテンツのユーザー使用/配信に関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> コンテンツ表示履歴 </td><td colspan="1" rowspan="1"> コンテンツのユーザービューに関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> ライブラリのコンテンツ </td><td colspan="1" rowspan="1"> ControlCenterライブラリのコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livenendリンクコンテンツ </td><td colspan="1" rowspan="1"> Liveendリンクに含まれるコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesendリンクのメンバー </td><td colspan="1" rowspan="1"> 各Livesendリンクのメール受信者のリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesendリンク </td><td colspan="1" rowspan="1"> すべてのアプリケーションからすべてのユーザーが作成したすべてのLivesendリンクのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Liveendページビュー </td><td colspan="1" rowspan="1"> 閲覧されたすべてのLivesendコンテンツのページビューのタイムラインを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> 検索履歴 </td><td colspan="1" rowspan="1"> プラットフォーム内の検索に関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> WorkSpaceのコンテンツ </td><td colspan="1" rowspan="1"> すべてのユーザーにWorkSpaceのコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー </td><td colspan="1" rowspan="1"> 削除されたユーザーを含むシステムのユーザーのリストを提供します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"> 単一の日付（例えば、1月23日）に対してデータを引き込むか、日付範囲（例えば、1月23日～1月31日）に対してデータを引き込むかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> レポートの日付 </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 <b><b><b><b> ［特定の日付］ </b></b></b></b> を選択すると、レポートは実行されるたびに、常に選択された日付に対するデータを引き出します。 <b><b><b><b> ［相対的な日付］ </b></b></b></b> を選択すると、レポートは実行されるたびに入力された遡る日数分のデータを引き出します。例えば、 <b><b><b><b> ［相対的な日付］ </b></b></b></b> を選択し、遡る日数に対して7を入力すると、レポートが実行されるたびに過去7日間のデータが引き込まれます。 </td></tr><tr><td colspan="1" rowspan="1"> 特定の日付を選択 </td><td colspan="1" rowspan="1"> 日付セレクターを使用してデータを取得するレポートの日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 遡る日数 </td><td colspan="1" rowspan="1"> データを取得するのに遡る日数を入力します。今日を指定するにはtodayまたは0、昨日ならyesterdayまたは1、過去7日間のデータを取得するにはtoday-7または7と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日 </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付が特定の日付か相対的な日付かを指定します。範囲の最後の日付を、 <b><b><b><b> ［終了日］ </b></b></b></b> で選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 終了日 </td><td colspan="1" rowspan="1"> 日付範囲の最終日が特定の日か、相対日付かを指定します。日付範囲の最初の日付を <b><b><b><b> ［開始日］ </b></b></b></b> で選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 特定の開始日を選択 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 特定の終了日を選択 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日まで遡る日数 </td><td colspan="1" rowspan="1"><p> データを取得したい遡る日数（開始日）を入力します。 <b><b><b><b> ［終了日まで遡る日数］ </b></b></b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b><b><b> ［開始日まで遡る日数］ </b></b></b></b> に10、 <b><b><b><b> ［終了日まで遡る日数］ </b></b></b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 終了日まで遡る日数 </td><td colspan="1" rowspan="1"><p> データを取得するのに遡る日数（終了日）を入力します。 <b><b><b><b> ［開始日まで遡る日数］ </b></b></b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b><b><b> ［開始日まで遡る日数］ </b></b></b></b> に10、 <b><b><b><b> ［終了日まで遡る日数］ </b></b></b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

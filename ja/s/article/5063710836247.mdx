@@ -1,0 +1,66 @@
+---
+title: "QuickBooks Multi Accountコネクター"
+---
+
+## はじめに
+
+QuickBooksは、支払受領、請求支払、給与支払などを行うための中小企業向け会計ソフトウェアです。Domoでは、ワンクリックによる認証プロセスを介して複数のQuickBooksアカウントと組み合わせることができます。これにより、複数のメトリクスにまたがる統合レポートが利用できます。DomoとQuickBooksを組み合わせて使用すると、必須となるマーケティング、セールス、または経営データにQuickBooksのデータを統合し、カスタマイズ可能なダッシュボードを作成することができます。
+
+Domoにデータを取り込んでおけば、バランスシート、損益計算、ベンダー収支などを可視化し、訴求力のある柔軟なチャートで財務の透明性をステークホルダーに提供することができます。また、任意のデバイスから、すべてのデータにリアルタイムでアクセスすることができます。1つのダッシュボードで容易にすべてのQuickBooksアカウントを閲覧し、リアルタイムで更新できるため、ビジネス上の意思決定の質を高めることができます。 QuickBooks APIの詳細については、QuickBooksのウェブサイト（ https://developer.intuit.com/docs/0050_quickbooks_api ）を参照してください。
+
+このトピックでは、 QuickBooks Multi Accountコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+認証情報は不要です。［詳細］セクションでは、レポートを取得するQuickBooksアカウントを複数追加できます。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Selection </td><td colspan="1" rowspan="1"><span> アカウントをどのように選択するかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Accounts Discovery </td><td colspan="1" rowspan="1"><span> アカウントを選択します。 </span><span><br/></span></td></tr><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> レポート </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> アカウントのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Account List </td><td colspan="1" rowspan="1"> 各アカウントの名称、タイプ、残高を表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts Payable Aging Detail </td><td colspan="1" rowspan="1"> 買掛金の未払いに関する詳細情報を表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts Payable Aging Summary </td><td colspan="1" rowspan="1"> 買掛金の未払い状況を集計します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts Receivable Aging Detail </td><td colspan="1" rowspan="1"> 売掛金に関する詳細情報を表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts Receivable Aging Summary </td><td colspan="1" rowspan="1"> 売掛金と、その金額の支払期限が過ぎている期間を表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Balance Sheet </td><td colspan="1" rowspan="1"> 資産、負債、株主資本をまとめます。 </td></tr><tr><td colspan="1" rowspan="1"> Budget </td><td colspan="1" rowspan="1"> 予算のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Expenses by Vendor </td><td colspan="1" rowspan="1"> ベンダー別の経費を表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss Summary </td><td colspan="1" rowspan="1"> 収益と経費をまとめます。 </td></tr><tr><td colspan="1" rowspan="1"> Profit and Loss Detail </td><td colspan="1" rowspan="1"> 収入と支出の詳細情報を表示します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Filter By </td><td colspan="1" rowspan="1"><span> 日付のフィルター方法を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Created Date Duration </td><td colspan="1" rowspan="1"><span> レポートの作成日付期間を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Account Status </td><td colspan="1" rowspan="1"><span> アカウントのステータスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Transaction Date </td><td colspan="1" rowspan="1"><span> レポートの開始日を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"><span> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </span><span> データを取得する相対的な日数を指定します。 </span><span> 特定の日付から始まるデータを取得するには、日付セレクターで日付を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Date Offset </td><td colspan="1" rowspan="1"><span> 相対日付をオフセットするために使用する過去日数を入力します。現在の日付を一定の日数遡って調整します。例：今日の場合は「0」を、昨日の場合は「1」を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"><span> 日付ピッカーを使ってレポートの日付を選択します。このオプションは、［Report Date］を「Specific」に設定した場合にのみ利用できます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Aging Method </td><td colspan="1" rowspan="1"><span> 経年方法を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Days Per Aging Period </td><td colspan="1" rowspan="1"><span> 各経年期間あたりの日数を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Number of Periods </td><td colspan="1" rowspan="1"><span> レポートに表示する経年期間の日数を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Due Date Duration </td><td colspan="1" rowspan="1"><span> レポートの期限期間を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Transaction Date Duration </td><td colspan="1" rowspan="1"><span> レポートのトランザクション日付範囲を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Accounting Method </td><td colspan="1" rowspan="1"><span> 目的の会計方法を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Summarize Column By </td><td colspan="1" rowspan="1"><span> レポートのデータを分類する方法を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Select Columns（チェックボックス） </td><td colspan="1" rowspan="1"><p><span> オプションを指定する場合はこれをチェックします。指定しなければデフォルトの選択が行われます。選択が変更されても、スキーマは常に保持されます。 </span></p><p><span><b> 注記： </b> QuickBooksは列の選択によってエラーを返すことがあるため、これは上級ユーザー向けです。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Select Columns </td><td colspan="1" rowspan="1"><span> 必要な列を選択します。1つの選択で複数の列が表示されることがあります。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのQuickbooks APIを使用しますか？">
+
+
+このコネクターはQuickbooks APIのバージョン3（ https://quickbooks.api.intuit.com/v3/company/ ）を使用します。
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するには、どのような認証情報が必要ですか？">
+
+
+認証情報は不要です。［詳細］セクションでは、レポートを取得するQuickBooksアカウントを複数追加できます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+ページに関する情報はほとんどが24時間ごとに更新されます。DataSet設定は、24時間ごとに実行することを推奨します。
+
+
+</Accordion>
+<Accordion title="このコネクターはカスタムフィールドをプルしますか？">
+
+
+いいえ。レポートと列はQuickBooksで事前に定義されています。
+
+
+</Accordion>
+<Accordion title="APIについて知っておくべき制約事項はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

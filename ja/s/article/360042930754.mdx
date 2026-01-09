@@ -1,0 +1,44 @@
+---
+title: "SurveyMonkey Advancedコネクター"
+---
+
+## はじめに
+
+SurveyMonkeyは、無料のカスタムアンケートを提供するほか、データ分析、標本抽出、バイアス除去、データ表現ツールなど一連の有料バックエンドプログラムを提供するクラウドベースの企業です。SurveyMonkey API についての詳細は、ウェブサイト（ [https://developer.surveymonkey.com/](https://developer.surveymonkey.com/ "https://developer.surveymonkey.com/") ）を参照してください。
+
+SurveyMonkeyのアカウントには、Data Centerから接続します。このトピックでは、SurveyMonkeyユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> アンケートと回答の分析 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> アンケートに回答した人数 </p></li><li><p> 回答数 </p></li><li><p> 完了したアンケートの数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> マーケティング権限 </p></li><li><p> 人事権限 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+このコネクターを使用して履歴データを取得し、再帰的なDataFlow経由で新しいデータを追加します。詳細は、「 [再帰的/スナップショットの古いMagic ETL DataFlowを作成する](/ja/s/article/360043428113 "再帰的/スナップショットの古いMagic ETL DataFlowを作成する") 」を参照してください。
+
+## 必要条件
+
+SurveyMonkeyアカウントにアクセスしてDataSetを作成するには、SurveyMonkeyのアカウントへのログイン時に使用するユーザー名とパスワードが必要です。
+
+## SurveyMonkeyアカウントに接続する
+
+このセクションでは、SurveyMonkey コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインのオプションである **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+SurveyMonkeyコネクターは、接続にOAuthを使用します。そのため、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（Domo に既存の SurveyMonkey アカウントがある場合は **［アカウントを追加］** を選択）してSurveyMonkeyのOAuth画面を開き、SurveyMonkeyのユーザー名とパスワードを入力します。有効なSurveyMonkey認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSurveyMonkey DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にSurveyMonkeyにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずSurveyMonkeyからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行するSurveyMonkeyレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［All Surveys Details］ </td><td colspan="1" rowspan="1"> すべてのアンケートまたは選択したアンケートに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Collector List］ </td><td colspan="1" rowspan="1"> 選択したアンケートのコレクターに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Responses］ </td><td colspan="1" rowspan="1"> 選択したアンケートの回答に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Survey Details］ </td><td colspan="1" rowspan="1"> 選択したアンケートの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Survey List］ </td><td colspan="1" rowspan="1"> 完了したアンケートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［User Details］ </td><td colspan="1" rowspan="1"> 現在のユーザーに関する情報を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［One or All Surveys］ </td><td colspan="1" rowspan="1"> データをすべてのアンケートから取得するか、選択した単一のアンケートから取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［All or New Data］ </td><td colspan="1" rowspan="1"> 取得するデータの量を選択します。 <b> ［All data］ </b> を選択した場合、レポートには指定した <b> ［Start Days］ </b> から <b> ［End Days］ </b> までのすべてのデータが取得されます。 <b> ［Since last successful run］ </b> を選択した場合、レポートには正常に行われた最新のアップデート以降のすべてのデータが取得されます。新しいDataSetの場合は、 <b> ［Start Days］ </b> に指定された日数分のデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Days］ </td><td colspan="1" rowspan="1"> レポートに表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［End Days］ </b> と組み合わせて、表示する日付の範囲を作成します。例えば、 <b> ［Start Days］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［End Days］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには10日前から5日前までのデータが含まれます。今日の場合は、 <span class="mt-font-courier-new"> 0 </span> を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［End Days］ </td><td colspan="1" rowspan="1"> レポートで表示する、直近の日までの日数を入力します。 <b> ［Start Days］ </b> と組み合わせて、表示する日付の範囲を作成します。例えば、 <b> ［Start Days］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［End Days］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには10日前から5日前までのデータが含まれます。今日の場合は、 <span class="mt-font-courier-new"> 0 </span> を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Collector］ </td><td colspan="1" rowspan="1"> データを取得するコレクターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Survey］ </td><td colspan="1" rowspan="1"> データを取得するアンケートを選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

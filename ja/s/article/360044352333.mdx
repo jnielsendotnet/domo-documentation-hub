@@ -1,0 +1,48 @@
+---
+title: "Anaplan Advanced V2コネクター"
+---
+
+## はじめに
+
+Anaplanは、販売業務、事業運営業務、財務業務向けのビジネスモデリングとビジネスプランニングを行うためのクラウドベースプラットフォームです。
+
+DomoのAnaplan Advanced V2コネクターを使用して、Anaplanユーザーインターフェースにエクスポートとして作成したデータを返します。Anaplan APIに関して詳しくは、Webサイト（ [https://docs.anaplan.apiary.io/](https://docs.anaplan.apiary.io/ "https://docs.anaplan.apiary.io/") ）を参照してください。
+
+Anaplanアカウントには、Data Centerから接続します。このトピックでは、Anaplan Advanced V2コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Anaplanアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Anaplanシークレットキー。
+* CA発行X509証明書。
+
+証明書を取得しシークレットキーをエクスポートする方法については、Webサイト（
+https://community.anaplan.com/t5/Content-Sandbox/A-Guide-to-CA-Certificates-in-Anaplan-Integrations/ta-p/39305
+）を参照してください。
+
+## Anaplanアカウントに接続する
+
+このセクションでは、Anaplanコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### 認証情報ペイン
+
+このペインには、
+
+Anaplanアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> CA証明書 </span></p></td><td colspan="1" rowspan="1"><p> CA発行のX509証明書のテキストをコピーして貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> シークレットキー </span></p></td><td colspan="1" rowspan="1"><p> Anaplanシークレットキーを入力します。 </p></td></tr></tbody></table>
+
+有効な証明書とシークレットキーを一度入力しておくと、いつでも同じアカウントを使用して新しいAnaplan DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、ファイルまたはプロセスを使用して取得するAnaplanワークスペースとAnaplanモデルを選択します。その際、ファイルまたはプロセスの名前も選択します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> メニュー </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> データを取得するユーザーアカウントを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> ワークスペース </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 取得するファイルを含むAnaplanワークスペースを選択します。 </span></p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> モデル </span></p></td><td colspan="1" rowspan="1"><p> 取得するファイルを含むAnaplanモデルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートタイプ </p></td><td colspan="1" rowspan="1"><p> インポートするレポートタイプ（ <b> エクスポート </b> または <b> プロセス </b> ）を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル </p></td><td colspan="1" rowspan="1"><p> Domoに取得するファイルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロセス </p></td><td colspan="1" rowspan="1"><p> Domoに取得するプロセスを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

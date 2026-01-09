@@ -1,0 +1,62 @@
+---
+title: "Ooyala Advancedコネクター"
+---
+
+## はじめに
+
+Ooyalaは、動画による収益を増加させるためのオンライン動画アナリティクスや収益化ソリューションを提供しています。Ooyala APIの詳細については、ウェブサイト（ [http://support.ooyala.com/developers...ics\_v3\_metrics](http://support.ooyala.com/developers/documentation/api/analytics_v3_api_reporting_metrics.html#analytics_v3_metrics "http://support.ooyala.com/developers/documentation/api/analytics_v3_api_reporting_metrics.html#analytics_v3_metrics") ）を参照してください。
+
+Ooyalaコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、このコネクターやその他のクラウドAppコネクターのページにアクセスできます。
+
+標準バージョンのOoyalaコネクターもあります。このコネクターはほぼ同一ですが、「Ooyala IQ Analytics v.3」レポートが含まれていません。標準バージョンの詳細については、「 [Ooyalaコネクター](/ja/s/article/360042931154 "Ooyalaコネクター") 」を参照してください。
+
+Ooyalaアカウントには、 Data Center から接続します。このトピックでは、Ooyalaコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"> このコネクターを使用すると、デバイスタイプ、プラットフォーム、画面サイズ、プレイスルーレートごとに視聴者の習慣を監視できます。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 最も多く閲覧された動画 </p></li><li><p> 合計動画閲覧数 </p></li><li><p> 合計閲覧数とユニーク閲覧数 </p></li><li><p> 動画の表示/ロード/開始 </p></li><li><p> 動画プレイスルーレート（％） </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> マーケティングディレクター </p></li><li><p> マーケティングマネージャー </p></li><li><p> トレーニングビデオプロデューサー </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3（「Ooyala IQ Analytics v.3」レポートを使用するとより高い） </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 長期にわたってアカウント/ブランドのパフォーマンスデータを取得する。
+* トレンドを確認して、視聴者の行動を判断する。
+* デバイスタイプとプラットフォームに関するアナリティクスを確認して、視聴体験を最適化する。
+
+## 必要条件
+
+Ooyalaアカウントに接続してDataSetを作成するには、Ooyala APIキーとAPIシークレットが必要です。これらの認証情報を取得するには、以下を行います。
+
+1. [https://backlot.ooyala.com](https://backlot.ooyala.com "https://backlot.ooyala.com")
+   でアカウントにログインします。
+2. 画面上部のツールバーの
+   **［Account］** ボタンをクリックします。
+3. メインツールバー下のサブタブ行の
+   **［Developers］** をクリックします。
+
+APIキーがこのタブに直ちに表示されます。APIシークレットを表示するには、 **［Display API Secret］** をクリックします。
+
+## Ooyalaアカウントに接続する
+
+このセクションでは、Ooyalaコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Ooyalaアカウントにアクセスするための認証情報を入力するフィールドがあります。これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> OoyalaアカウントのAPIキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Secret </p></td><td colspan="1" rowspan="1"><p> OoyalaアカウントのAPIシークレットを入力します。 </p></td></tr></tbody></table>
+
+一度有効なOoyalaの認証情報を入力しておくと、いつでも同じアカウントを使用して新しいOoyala DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューがあり、そこでレポートのタイプを選択することができます。選択するレポートタイプに応じて、ほかのパラメーターも必要になる場合があります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Ooyalaレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account Performance </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのアカウントのパフォーマンスメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Brand Performance </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのアカウントのブランドを基準にしたパフォーマンスメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Performance Analytics for Device Types </p></td><td colspan="1" rowspan="1"><p> デバイスタイプのパフォーマンスメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Performance Analytics for Platforms </p></td><td colspan="1" rowspan="1"><p> パフォーマンスメトリクスをプラットフォーム別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Get Total Bytes Delivered </p></td><td colspan="1" rowspan="1"><p> 特定期間において配信された総バイト数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Assets </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのアカウントにある動画やその他アセットをリストにして返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Asset Analysis </p></td><td colspan="1" rowspan="1"><p> 各アセットのパフォーマンスメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Most Popular Videos </p></td><td colspan="1" rowspan="1"><p> 最も人気の動画を降順のリストにして返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Plays By Country </p></td><td colspan="1" rowspan="1"><p> 指定した国のパフォーマンスメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Videos with Most Momentum </p></td><td colspan="1" rowspan="1"><p> 最も勢いのある動画を降順のリストにして返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Ooyala IQ Analytics v.3 </td><td colspan="1" rowspan="1"> 選択したディメンションとメトリクスおよび適用されているフィルターにもとづいてカスタマイズされたデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Label </p></td><td colspan="1" rowspan="1"><p> データを取得するラベルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Duration </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートのデータが、1日分か日付期間を対象にしたものかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Report Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> データの対象を特定の日付にするか相対的な日付にするかを指定します。現在の日付から特定の日数を遡ったデータ（ <b> ［Days Back］ </b> で指定）をレポートで取得したい場合は、 <b> ［Relative］ </b> を選びます。例えば、 <b> ［Days Back］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> 」を入力し、DataSetを毎日更新するように設定した場合、日が更新されるたびにその日から5日前の日付の情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select Specific Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> データを取得する日付を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Days back </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートで、現在の日付から過去何日分を表示するかを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Start Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。現在の日付から数えて一定数の過去の日数（ <b> ［Days Back to Start From］ </b> で指定）におけるデータをレポートで取得したい場合は、 <b> ［Relative］ </b> を選びます。ここで <b> ［Relative］ </b> を選択した場合、 <b> ［End Date］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Days Back to End At］ </b> を指定する必要があります。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> ［Days Back to Start From］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> 」を入力し、 <b> ［Days Back to End At］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> 」を入力し、そのDataSetを毎日更新するように設定した場合、日が更新されるたびにその日の5日前から10日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> End Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の最終日を、特定日付とするか相対日付とするかを指定します。現在の日付から特定の日数を遡ったデータ（ <b> ［Days Back to End At］ </b> ）をレポートで取得したい場合は、 <b> ［Relative］ </b> を選びます。ここで <b> ［Relative］ </b> を選択した場合、 <b> ［Start Date］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Days Back to Start From］ </b> を指定する必要があります。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> ［Days Back to Start From］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> 」を入力し、 <b> ［Days Back to End At］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> 」を入力し、そのDataSetを毎日更新するように設定した場合、日が更新されるたびにその日の5日前から10日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select Specific Start Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の最初の日付を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Select Specific End Date </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の最後の日付を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Days Back to Start From </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 開始日として使用する現在の日付前の日数を入力します。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> ［Days Back to Start From］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> 」を入力し、 <b> ［Days Back to End At］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> 」を入力し、そのDataSetを毎日更新するように設定した場合、毎日、その日の5日前から10日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Days Back to End At </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 終了日として使用する現在の日付前の日数を入力します。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> ［Days Back to Start From］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> 」を入力し、 <b> ［Days Back to End At］ </b> に「 </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> 」を入力し、そのDataSetを毎日更新するように設定した場合、毎日、その日の5日前から10日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Period Type </p></td><td colspan="1" rowspan="1"><p> レポートデータの期間タイプを選択します。例えば、 <b> ［Start Day］ </b> に「 <span class="mt-font-courier-new"> 30 </span> 」、そして <b> ［Report Period Type］ </b> に「 <b> Month </b> 」を選択した場合、そして今日の日付が9月15日の場合は、データは8月分を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Breakdown </p></td><td colspan="1" rowspan="1"><p> レポートのデータの内訳の時間単位を選択します。例えば、 <b> ［Week］ </b> を選択すると、レポートでは各週にそれぞれ1行が割り当てられます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Sub Account </p></td><td colspan="1" rowspan="1"><p> サブアカウントを含めるかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Device Type </td><td colspan="1" rowspan="1"> データを取得したいデバイスタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filters（オプション） </td><td colspan="1" rowspan="1"><p> 以下の構文を使用してフィルターを入力します。 </p><p><span class="mt-font-courier-new"> filter_type1=='filter_value1',filter_type2=='filter_value2'... </span></p><p> 例： </p><p><span class="mt-font-courier-new"> country=='CA',device_type=='mobile' </span></p><p> 詳細については、 <a href="http://help.ooyala.com/video-platform/api/analytics_v3_api_reporting_filters.html#analytics_v3_filters" target="_blank"> http://help.ooyala.com/video-platform/api/analytics_v3_api_reporting_filters.html#analytics_v3_filters </a> を参照してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+アカウント/動画の日付範囲が有効であることを確認します。
+
+

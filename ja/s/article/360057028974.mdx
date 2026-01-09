@@ -1,0 +1,104 @@
+---
+title: "Amazon S3 AssumeRole Writebackコネクター"
+---
+
+## はじめに
+
+Amazon S3は、Amazon Web Servicesが提供するオンラインファイルストレージのWebサービスです。Webを使っていつでも、どこからでも、どんな量のデータも保存、取得することができます。セッションに想定される権限を使用して、Domo DataSetからAmazon S3バケットにデータをエクスポートするには、DomoのAmazon S3 AssumeRole Writebackコネクターを使用します。Amazon S3 APIについて詳しくは、製品ドキュメント（ [http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+データはData CenterのS3バケットにエクスポートします。このトピックでは、DomoからS3 AssumeRole Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** Writeback DataSetの所有者は、入力DataSetの所有者または共同所有者である必要があります。
+
+</Note>
+
+## 必要条件
+
+Amazon S3アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* DomoクライアントIDとクライアントシークレット。
+* 引き受ける権限のAmazonリソースネーム（ARN）。
+* 引き受けた権限のセッションの識別子。信頼ポリシーの設定が必要です。このことについては、以下で説明します。
+* サードパーティが顧客のアカウントで権限を引き受ける時に使う一意の識別子。
+* データの引き込み元となるAmazon S3バケットの名前。
+
+### 信頼ポリシーの設定
+
+権限のセッション識別子に対する信頼ポリシーは、以下の通りです。
+
+`{`\
+`"Effect": "Allow",`\
+`"Principal": {`\
+`"AWS": "arn:aws:iam::*accountId*:root"`\
+`},`\
+`"Action": "sts:AssumeRole",`\
+`"Condition": {`\ 
+`"StringEquals": {`\ 
+`"sts:ExternalId": "*customer externalID*"`\
+`}`\
+`}`\
+`}`
+
+Domo環境のアカウントIDは、以下の通りです。
+
+* 米国：339405024189
+* オーストラリア：010251424122
+* ヨーロッパ、中東、アフリカ（IE）：687132894031
+* 日本：622384692065
+* カナダ：710710207408
+
+例えば、オーストラリア在住でアカウントIDが「46822464880681」のユーザー「myIAMuser123」にアクセスを許可する場合、信頼ポリシーは次のようになります。
+
+`{`\
+`"Effect": "Allow",`\
+`"Principal": {`\
+`"AWS": "arn:aws:iam::46822464880681:user/myIAMuser123 "`\
+`},`\
+`"Action": "sts:AssumeRole",`\
+`"Condition": {`\ 
+`"StringEquals": {`\ 
+`"sts:ExternalId": "010251424122"`\
+`}`\
+`}`\
+`}`
+
+
+#### DomoクライアントIDとクライアントシークレットを取得するには：
+
+1. [Domoデベロッパーアカウント](https://developer.domo.com/login "https://developer.domo.com/login") にログインします。
+2. 右上の ********［My Accounts］******** > ********［New Client］******** をクリックします。
+3. アプリケーション名と説明を入力します。
+4. ****************［Data］**************** と ****************［User］**************** のチェックボックスを選択して、アプリケーションのスコープを提供します。
+5. ********［Create］******** をクリックします。
+
+クライアントを作成し終えると、 ********［Manage Client］******** をクリックすることでクライアントを管理できます。 ********［Manage Client］******** セクションに ********クライアントシークレット******** が表示されます。
+
+<Warning>
+**重要** ：Amazon S3への書き込み（s3:PutObject）権限が必要です。
+
+</Warning>
+
+## 接続を設定する
+
+このセクションでは、 Amazon S3 AssumedRole Writeback コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Domo開発者アカウントとS3バケットに接続するための認証情報の入力フィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"> DomoクライアントIDを入力します。詳細は <a href="#h_01EPR103F5ZFQE5KHA83EMS3X6" target="_blank" title="必要条件"> 必要条件 </a> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"> Domoクライアントシークレットを入力します。詳細は <a href="#h_01EPR103F5ZFQE5KHA83EMS3X6"> 必要条件 </a> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Role Session Name </td><td colspan="1" rowspan="1"> 引き受けた権限セッションに対する識別子を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Role ARN </td><td colspan="1" rowspan="1"> 引き受ける権限のAmazonリソースネーム（ARN）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> External ID </td><td colspan="1" rowspan="1"> サードパーティが顧客のアカウントで権限を引き受けるときに使う一意の識別子を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Bucket </td><td colspan="1" rowspan="1"> ファイルを取得したいAmazon S3バケットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> ファイルがあるS3バケット地域を選択します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDomo-S3接続を作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How Would You Like to Select Your Folder Path? </td><td colspan="1" rowspan="1"> フォルダーパスを検索するか手動で入力するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Folder Path </td><td colspan="1" rowspan="1"> 使用するフォルダーのパスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Path </td><td colspan="1" rowspan="1"> Amazon S3バケットに保存するファイルのフォルダーパスを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Overwrite </td><td colspan="1" rowspan="1"> Amazon S3バケット内の既存のファイルを選択したファイル名で上書きする場合は、このチェックボックスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> How Would You Like to Select Your Input DataSet? </td><td colspan="1" rowspan="1"> DataSet IDを検索するか手動で入力するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"> 使用するDataSet IDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Input DataSet ID </td><td colspan="1" rowspan="1"><p> S3バケットにコピーするDataSet ID（GUID）を入力します。 </p><p> Data CenterでDataSetの詳細ビューを開き、URLのdatasources/に続く箇所で、DataSet IDを見つけることができます。例えば、URL <a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" target="_blank" title="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"> https://mycompany.domo.com/datasourc...tails/overview </a> で、DataSet IDは845305d8-da3d-4107-a9d6-13ef3f86d4a4です。 </p></td></tr><tr><td colspan="1" rowspan="1"> Select Filename </td><td colspan="1" rowspan="1"><p> DataSetの参照に、 <b> ［Input DataSet ID］ </b> 、 <b> ［Input DataSet Name］ </b> 、出力ファイル名のいずれを使用するかを選択します。 </p><p><b><b> ［Use Input Dataset Name］ </b></b> または <b><b> ［Enter File Name］ </b></b> を選択し、DataSet名にスペースのないマクロ&lt;current_date&gt;または&lt;current_date-1&gt;を指定すると、&lt;current_date&gt;は今日の日付に、&lt;current_date-1&gt;は昨日の日付に、-31は31日前にyyyy-MM-dd形式で置き換えられます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Filename </td><td colspan="1" rowspan="1"><p> 出力ファイル名を入力します。 </p><p> 現在の日付をファイル名に追加するには、マクロ&lt;current_date&gt;か&lt;current_date-1&gt;を使ってください。例えば、ファイル名が <b><b> domo_&lt;current_date&gt; </b></b> の場合、S3バケットで生成される出力ファイルはdomo_2019-07-16のようにdomo_（yyyy-mm-dd形式の今日の日付）になります。 </p></td></tr><tr><td colspan="1" rowspan="1"> Only Writeback New Data </td><td colspan="1" rowspan="1"> 入力DataSetから最後の実行データのみを取り出し、それをS3オブジェクトにエクスポートするには、このボックスにチェックマークを入れます。 </td></tr><tr><td colspan="1" rowspan="1"> File Extension </td><td colspan="1" rowspan="1"> 出力ファイルの拡張子として使用する拡張子を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Delimiter </td><td colspan="1" rowspan="1"> 出力ファイルの区切り文字に使用する文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Choose the Escape character </td><td colspan="1" rowspan="1"> 入力データセットのエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Compression </td><td colspan="1" rowspan="1"> 出力ファイルに使用する圧縮方式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Encryption Method </td><td colspan="1" rowspan="1"> 出力ファイルに使用する暗号化方式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Encryption Key </td><td colspan="1" rowspan="1"> 暗号化キーを入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

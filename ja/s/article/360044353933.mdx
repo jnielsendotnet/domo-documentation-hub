@@ -1,0 +1,204 @@
+---
+title: "Snowflakeフェデレーテッドエージェント"
+---
+
+## はじめに
+
+Domoフェデレーテッドエージェントとは、Snowflakeを介してオンプレミスのデータをDomoに接続できるようにするソリューションです。エージェントはDomoへのソケット接続を作成し、データベースへのリクエストをプロキシします。これにより、DomeのSnowflakeデータをリアルタイムで、いつでも、どこでも可視化できるようになります。Snowflakeフェデレーテッドエージェントでは、データは常にお客様のデータベースにあり、Domoに保存されることはありません。
+
+## フェデレーテッドエージェントを入手する方法
+
+Snowflakeフェデレーテッドエージェントの価格やアクセスについて詳しくは、カスタマーサクセスマネージャー（CSM）までお問い合わせください。
+
+## 必要条件
+
+* データベースへの管理者アクセス権と、新しいテーブルをデータベースに書き込む権限
+* データベースアクセス認証情報
+* Domoでの管理者レベルのアクセス
+* データベース接続URL
+* （オプション）
+  [アクセストークンを管理する](/ja/s/article/360042934494)
+
+## エージェントの設定
+
+###### Domoフェデレーテッドエージェントを適切に設定するには：
+
+1. Domoが提供する解凍ファイルのconfディレクトリに移動します。
+2. 「agentConfig.yml」というタイトルのエージェント設定ファイルを開きます。
+
+<Note>
+   **注記：** 設定ファイルはすべて.ymlファイルです。大文字と小文字が区別されます。
+
+</Note>
+
+3. Domoドメインに入力します。
+
+   <Frame><img alt="Snowflake_Federated_Customer_Domain.jpg" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuI.jpg"/></Frame>
+
+4. `adapterType: snowflake`
+   行および `configurationFileName: snowflakeAdapterConfig.yml` 行のコメントを解除します。
+
+   <Frame><img alt="adapterType.png" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuP.png"/></Frame>
+
+Domoへの認証には、developerTokenプロパティを使用する方法（推奨）とOauth2を使用する方法（デフォルト）の2つの方法があります。developerTokenを使用すると、毎回自動的にDomoに認証されるため、こちらの方法を推奨します。Oauth2を使用すると、エージェントを変更または再起動するたびに、再認証する必要があります。
+
+**developerTokenを使用して認証するには：**
+
+1. Domoでアクセストークンを作成します。アクセストークンの作成に関する詳細な手順については、「
+   [アクセストークンを管理する](/ja/s/article/360042934494 "アクセストークンを管理する") 」を参照してください。
+2. developerToken行のコメントを解除して、アクセストークンを入力します。
+
+   <Frame><img alt="Snowflake_Federated_Access_Token.gif" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuO.gif"/></Frame>
+
+**Oauth2を使用して認証するには：**
+
+追加の設定は必要ありません。developerToken行のコメントをそのままにしておくと、エージェントによりOauthログインの認証を求めるプロンプトが表示されます。
+
+## アダプターの設定
+
+1. Domoが提供する解凍ファイルのconfディレクトリで、snowflakeAdapterConfig.ymlファイルを開きます。
+2. コメントを解除した行に必要な情報を入力します。
+
+Domoで可視化するすべてのテーブルに対して、 `tableName:` 行をコピーする必要があります。
+
+<Frame><img alt="tableName.png" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuK.png" style={{width: 774, height: 210}}/></Frame>
+
+<Warning>
+**重要：** テーブル名が指定されていない場合は、Snowflakeエージェントではデータベースで使用可能なすべてのテーブルが可視化されます。
+
+</Warning>
+
+## パスワードの暗号化
+
+Snowflakeフェデレーテッドエージェントを実行するには、パスワードを設定する必要があります。オプションで、パスワードを使用してデータベースのパスワードとDomoアクセストークンを暗号化することができます。
+
+パスワードを暗号化しない場合でも、パスワードを生成して、2つの方法のいずれかで保存する必要があります。
+
+### パスワードを環境変数として設定する
+
+<Warning>
+**重要：** これは、暗号化パスワードを設定するために推奨される方法です。
+
+</Warning>
+
+変数： `DOMO_FD_ENCRYPTION_PW`
+
+例： `DOMO_FD_ENCRYPTION_PW=<your encryption password>`
+
+### コマンドラインプロパティとして渡す
+
+<Note>
+**注記：** -pまたは--encryptionPasswordを使用できます。
+
+</Note>
+
+この方法を選択する場合は、binディレクトリにある [startAgent.sh](http://startAgent.sh) またはstartAgent.batファイルを編集し、java -jar行の最後にp=&lt;yourPassword&gt;プロパティを追加する必要があります。この方法を使用すると、パスワードはコマンドの履歴に保存されます。
+
+例： `java -jar libs/federated-agent.jar -p=testpw`
+
+<Frame><img alt="Snowflake_Federated_Command_Line_Property.jpg" src="/images/kb/ka05w00000129Cv-00N5w00000Ri7BU-0EM5w000005vNuM.jpg"/></Frame>
+
+オプションで、データベースパスワードとDomo認証トークンは、暗号化jarを使用して暗号化することができます。パスワードをテキスト形式で設定ファイルに保存することもできます。
+
+パスワードまたはトークンを暗号化するには、binフォルダの [startEncryption.sh](http://startEncryption.sh) またはstartEncryption.batファイルを実行して、その指示に従ってください。新しく暗号化されたデータベースパスワードをコピーして、適切なアダプターの設定に保存します。
+
+## 標準カレンダーテーブルの設定
+
+Domoで日付単位クエリを機能させるには、domo.standardcalendarをデータベースに読み込む必要があります。
+
+<Warning>
+**重要：**
+
+* 標準カレンダーテーブルが設定されていない場合は、日付タイプの列を含むクエリは失敗します。
+* DomoではSQLクエリの識別子に二重引用符を使用するため、大文字小文字の違いにより、Snowflakeで使用されない識別子がクエリに含まれる場合があります。このような状況が発生しないようにするために、Snowflakeにより提供されるセッションパラメーターQUOTED\_IDENTIFIERS\_IGNORE\_CASEを使用します。これにより、セッション内で作成された識別子のすべてのアルファベット文字が、識別子が二重引用符で囲まれているかどうかに関係なく、大文字で格納されます。
+  ALTER USER コマンドを使用してユーザーレベルでセッションパラメーターを設定することにより、問題を修正することができます。構文は次のようになります。
+    
+   ```
+   ALTER USER [ IF EXISTS ]
+   &lt;name&gt;
+   SET { [ objProperties ] [ sessionParams ] }
+   ```
+    
+  詳細については、
+  https://docs.snowflake.com/ja/sql-reference/parameters#quoted-identifiers-ignore-case
+  を参照してください。
+
+</Warning>
+
+**標準カレンダーテーブルを設定するには：**
+
+1. Domoが提供する解凍ファイルのstandardCalendarフォルダに移動します。
+2. snowflakeフォルダを選択します。各データベースタイプの下に, `<databaseName>Standardcalendar.sql` フォーマットでテーブル作成ステートメントが一覧表示されます。
+
+   <Note>
+   **注記：** 使用するデータベースごとに、以下の [スキーマ](#h_02b6f2c1-2b8b-4b98-a457-547e27c23082 "Snowflakeフェデレーテッドクエリ") を使用する標準カレンダーテーブルを作成する必要があります。
+
+   </Note>
+
+3. テーブルが作成されたら、standardCalendarファイルのstandardcalendar\_data.csvまたはstandardcalendar\_data.txtファイルのいずれかを使用してデータを読み込みます。
+
+<Note>
+   **注記：** フィールドは「,」文字で、行は「\r\n」リターンで終了するようにします。データを囲む引用符も、フィールドをエスケープする必要もありません。日付は「yyyy-MM-dd」形式です。
+
+</Note>
+
+4. オプションで、データがINSERTステートメントとして書式設定されているstandard\_calendar\_data.sqlファイルもあります。
+
+##### domo.standardcalendarスキーマ
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> フィールド名 </th><th colspan="1" rowspan="1"> データタイプ </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo_Key </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> DayOfWeek </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInWeek </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInMonth </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInQuarter </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> DayNumberInYear </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> MonthName </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> MonthAbrv </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> MonthNumberInYear </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> Quarter </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> Year </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> CalendarMonth </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> CalendarQuarter </td><td colspan="1" rowspan="1"> 文字列 </td></tr><tr><td colspan="1" rowspan="1"> WeekStart </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> QuarterStart </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> DaySinceEpoch </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> WeekSinceEpoch </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> MonthSinceEpoch </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> QuarterSinceEpoch </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> YearSinceEpoch </td><td colspan="1" rowspan="1"> 整数 </td></tr><tr><td colspan="1" rowspan="1"> MonthStart </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> YearStart </td><td colspan="1" rowspan="1"> 日付 </td></tr><tr><td colspan="1" rowspan="1"> QuarterNumberInYear </td><td colspan="1" rowspan="1"> 整数 </td></tr></tbody></table>
+
+## 年次カレンダーの設定
+
+フェデレーテッドデータ用に年次カレンダーを設定する必要がある場合は、 [labs@domo.com](mailto:labs@domo.com "mailto:labs@domo.com") 宛てにメールを送信してください。その際、以下の項目を記載してください。
+
+* Domoドメイン
+
+その後、Domoよりデータベースにカレンダーを追加するためのスキーマと手順を提供します。
+
+## エージェントを実行する
+
+上記のすべてのコンポーネントが適切に設定されたら、エージェントを実行します。
+
+**エージェントを実行するには：**
+
+1. Domoが提供したファイルのbinフォルダから、お使いのコンピューターに適切なstartAgentファイルを使用します。
+
+   * Windowsの場合は、.batファイルを使用します。
+   * MacまたはLinuxの場合は、.shファイルを使用します。
+2. DomoのData Centerに移動して、Domoでテーブル用にDataSetが作成されたことを確認してください。
+   * フィルターをData AnywhereのDataSetタイプに適用して、クエリされたフェデレーテッドDataSetを表示します。
+
+これで、DomoでフェデレーテッドDataSetを使用してカードを作成し、オンプレミスのデータを利用できるようになりました。
+
+<Tip>
+**ヒント：** 同じタイプの複数のデータベースを使用するには、タイプ設定をコピーして別の設定ファイルを指定してください。
+
+</Tip>
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="引き続きPDPを使用して、フェデレーテッドDataSetでBeastmodeを作成できますか？">
+
+
+はい、引き続きPDPを使用して、標準のDataSetと同じようにBeastmodeを作成していただけます。
+
+
+</Accordion>
+<Accordion title="Domo DataFlowでフェデレーテッドDataSetを使用できますか？">
+
+
+いいえ、フェデレーテッドDataSetは、Magic ETL、MySQL DataFlow、Fusionでの入力としてサポートされていません。
+
+
+</Accordion>
+<Accordion title="フェデレーテッドDataSetを利用したカードにアラートを設定できますか？">
+
+
+いいえ、アラートは現在、フェデレーテッドDataSetを利用したカードではサポートされていません。
+
+
+
+</Accordion>
+</AccordionGroup>

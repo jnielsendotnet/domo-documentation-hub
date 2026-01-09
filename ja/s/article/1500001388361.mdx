@@ -1,0 +1,111 @@
+---
+title: "Amazon Redshift SSH Writebackコネクター"
+---
+
+## はじめに
+
+Amazon Redshiftは、ホスト型Data Warehouseプロジェクトで、大型クラウドコンピューティングプラットフォームであるAmazon Web Servicesの一部です。Amazon Redshift SSH Writebackコネクターを使うと、Domo DataSetから提供されているAmazon RedshiftデータベースにSSHトンネルを使って簡単かつ安全にデータをエクスポートできるようになります。 Redshift APIについて詳しくは、ウェブサイト（ [http://docs.aws.amazon.com/redshift/...\_commands.html](http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html "http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html")
+
+）を参照してください。
+
+Data CenterでDomo-Redshift接続を設定します。このトピックでは、Amazon Redshift SSH Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** Writeback DataSetの所有者は、入力DataSetの所有者または共同所有者である必要があります。
+
+</Note>
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* SSHトンネルを使用しているUNIXサーバーのホスト名
+* UNIXアカウントのSSHユーザー名とパスワード
+* SSHポート番号
+* SSH秘密キー
+* Redshiftデータベースのホスト名またはIPアドレス
+* Redshiftデータベース名
+* Redshiftデータベースのログインに使用するユーザー名とパスワード
+* Redshiftデータベースのポート番号
+* AWSアクセスキー。これは、AWS Consoleの［Security Credentials］セクションで、IAMを使用している場合は［Users］で確認できます。
+* AWSシークレットキー。これは、アクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWS Consoleで生成できます。
+* AWS S3バケットの名前
+* Google Developersアカウントに関連付けられたクライアントIDとクライアントシークレット
+* CA証明書テキストまたはURLパスは、**［Certificate String］** または **［URL Path］** をそれぞれ **［Certificate Format］** メニューで選択した時 *のみ* 必要になります。
+
+<Note>
+**注記： Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+#### DomoクライアントIDとクライアントシークレットを作成するには、以下の手順を実行します。
+
+1. [Domoデベロッパーアカウント](https://developer.domo.com/login "https://developer.domo.com/login")
+   にログインします。
+2. 右上隅の
+   **［My Account］** の下にある **［New Client］** をクリックします。
+3. アプリケーション名と説明を入力します。
+4. **［Data］**
+   と **［User］** のチェックボックスを選択して、アプリケーションのスコープを指定します。
+5. **［Create］**
+   をクリックします。
+6. クライアントの作成が完了すると、
+   **［Manage Client］** をクリックすることによってクライアントを管理できるようになります。
+
+**クライアントシークレット** が **［Manage Client］** セクションに表示されます。
+
+## 接続を設定する
+
+このセクションでは、Amazon Redshift SSH Writebackコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、DomoデベロッパーアカウントとAmazon Redshiftデータベースに接続するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> SSH Server Hostname </td><td colspan="1" rowspan="1"> SSHトンネルの接続先であるUNIXサーバーのホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Username </td><td colspan="1" rowspan="1"> UNIXアカウントのSSHユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Password </td><td colspan="1" rowspan="1"> UNIXアカウントのSSHパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Port </td><td colspan="1" rowspan="1"> SSHポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key </td><td colspan="1" rowspan="1"> SSH秘密キーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Hostname </td><td colspan="1" rowspan="1"> Redshiftデータベースのホスト名またはIPアドレスを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Redshiftデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Username </td><td colspan="1" rowspan="1"> Redshiftデータベースのログインに使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Password </td><td colspan="1" rowspan="1"> Redshiftデータベースのログインに使用するパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Port </td><td colspan="1" rowspan="1"> Redshiftデータベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Certificate Format </td><td colspan="1" rowspan="1" width="1183"> 証明書書式を選択します。証明書を含めない場合は、 <b> ［No certificate］ </b> を選択します。証明書テキストを選択する場合は、 <b> ［Certificate］ </b> フィールドに証明書のテキストを貼り付ける必要があります。 <b> ［URL path］ </b> を選択する場合は、証明書がある場所のURLを <b> ［Certificate］ </b> フィールドに入力する必要があります。 </td></tr><tr><td colspan="1" rowspan="1" width="94"><p> Certificate </p></td><td colspan="1" rowspan="1" width="1183"> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b> ［Certificate Type］ </b> メニューで <b> ［No Certificate］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。これは、AWS Consoleの［Security Credentials］セクションで、IAMを使用している場合は［Users］で確認できます。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。これは、アクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWS Consoleで生成できます。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> Amazon S3のリージョンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Bucket </td><td colspan="1" rowspan="1"><span> AWS S3バケットの名前を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"> DomoクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"> Domoクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDomo-Amazon Redshift SSH接続を設定できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Input DataSet ID </td><td colspan="1" rowspan="1"><span> DataSet URLにあるDomo DataSet ID（GUID）を入力します。 </span> Data CenterでDataSetの詳細ビューを開き、URLの「 <span class="mt-font-courier-new"> datasources/ </span> 」に続く部分でIDを見つけることができます。例えば、URLが <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span> であれば、DataSet IDは <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span> になります。 </td></tr><tr><td colspan="1" rowspan="1"> Table Name Source </td><td colspan="1" rowspan="1"><span> Redshiftテーブルに名前を付ける方法を選択します。 </span><ul><li><b> ［DataSet ID］ </b> 。Redshiftテーブル名は、 <b> ［DataSet ID］ </b> に入力した番号になります。 </li><li><b> ［DataSet Name］ </b> 。Redshiftテーブル名は、入力DataSetの名前と同じになります。 </li><li><b> ［Custom Name］ </b> 。 <b> ［Custom Table Name］ </b> フィールドにRedshiftテーブルのカスタム名を入力します。 </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Custom Table Name </td><td colspan="1" rowspan="1"><span> Redshiftテーブルの名前を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Schema Name </td><td colspan="1" rowspan="1"><span> DataSetのデータを書き込むスキーマを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Operation Type </td><td colspan="1" rowspan="1"><span> 新しいテーブルを作成するか既存のテーブルを更新するかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Create New Table </td><td colspan="1" rowspan="1"><span> 実行ごとに新しいテーブルを作成するには、このオプションを選択します。テーブル名は、テーブル名ソースフィールドで指定された名前に数値カウンターが追加されます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Update an Existing Table </td><td colspan="1" rowspan="1"><span> Redshiftサーバーでテーブル名が既存のものと一致した場合にのみ既存のテーブルを更新します。一致しなければ、コネクターは最初の実行で新しいテーブルを作成します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Append Or Overwrite </span></td><td colspan="1" rowspan="1"><span> データベーステーブルの更新方法を選択します。 </span><span><b> 注記： </b> 最初の実行でテーブルが存在しない場合、コネクターは新しいテーブルを作成することができます。その後の実行またはスケジュール実行で、選択されたオプションに従ってテーブルを更新します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Append Data </span></td><td colspan="1" rowspan="1"><span> コネクターは取得したデータを既存のテーブルに追加します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Overwrite With New Data </span></td><td colspan="1" rowspan="1"><span> コネクターは取得した新しいデータで既存のテーブルを上書きします。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースの残りのセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Redshift SSHサーバーのホスト名、ポート番号、秘密キー、ユーザー名、パスワード、およびデータベースのホスト名、ポート番号、データベース名、ユーザー名、パスワードが必要です。AWSアクセスキーとシークレットキー、AWS S3バケット名、Domo開発者アカウント認証情報（クライアントIDとクライアントシークレット）も必要です。
+
+
+</Accordion>
+<Accordion title="Redshiftデータベースに接続できない理由は？">
+
+
+Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093) 」を参照してください。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+制限は使用するサーバー構成によって異なります。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

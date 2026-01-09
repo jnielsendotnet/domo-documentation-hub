@@ -1,0 +1,98 @@
+---
+title: "DataSet Copyコネクター（アクセストークンのみ）"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+DomoのDataSet Copyコネクターを使うと、Domoのインスタンスから別のインスタンスにデータをコピーすることができます。この操作はData Centerで行います。
+
+DataSet Copyコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこのコネクターやほかのファイルコネクターのコネクターページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+このコネクターには、通常バージョンと高度なバージョンの2つのバージョンがあります。これらのバージョンの違いは、高度なバージョンではコピー元となるDomoインスタンスのユーザー名とパスワードが必要な点のみです。そのため、高度なバージョン専用のドキュメントは用意していません。
+
+このトピックでは、DataSet Copyコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+インスタンスから別のインスタンスにデータをコピーするには、以下が必要です。
+
+* データのコピー元となるDataSetのアクセストークン。このトークンは、データのコピー元となるDataSetの所有者に属しています。「管理者」のセキュリティ権限があれば、アクセストークンを生成することができます。もしそうでない場合は、管理者にアクセストークンをリクエストする必要があります。トークンの期限が切れていないことを確認します。アクセストークンの生成に関する詳細は、「
+  [アクセストークンを管理する](/ja/s/article/360042934494 "アクセストークンを管理する") 」を参照してください。
+* コピーするDataSetを含むDomoインスタンス。例えば、DomoのURLが https://abc123.domo.com の場合は、インスタンスは abc123 です。
+* コピーするデータのデータソースID。データソースIDは、Data CenterでDataSetの詳細ビューを開いて見つけることができます。IDは、URL内の「 /datasources/ 」に続く数値です。
+
+  <InlineImage src="/images/kb/ka05w00000125wu-00N5w00000Ri7BU-0EM5w000005vNwc.png" />
+
+## コネクターを設定する
+
+このセクションでは、DataSet Copyコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** の項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、DataSet Copyアカウントを作成するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> データのコピー元となるDataSetのデベロッパートークンを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Domo Instance </td><td colspan="1" rowspan="1"><span> Domoインスタンス名を入力します。例えば、 <a href="https://abc123.domo.comで" rel="noopener" target="_blank"> https://abc123.domo.comで </a> は、インスタンスはabc123になります。 </span></td></tr></tbody></table>
+
+前述の認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDataSet Copy DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、コピーするDataSetの詳細を入力します。
+
+<table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSource ID </p></td><td colspan="1" rowspan="1"><p> データを引き出すDataSetの <span> DomoデータソースIDを入力します。データソースIDは、DataSetのURL、/datasources/の直後にあるGUIDです。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Exclude Meta Columns </td><td colspan="1" rowspan="1"> コピーしたDataSetにDomoでメタ列を追加しない場合は、このチェックボックスを選択します（バッチID、最終実行日のバッチ、Domoインスタンス）。 </td></tr><tr><td colspan="1" rowspan="1"><p> Only Updated Data </p></td><td colspan="1" rowspan="1"><p><span> このDataSetコピーの最終実行後にDataSetが実行された場合にのみ［Yes］を選択してデータを取得します。これによりデータが古くなるのを防ぎます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Preserve Empty String </p></td><td colspan="1" rowspan="1"><p><span> 空白の文字列をnull値に変換しない場合、このチェックボックスを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Use Origin DataSet's Schema </p></td><td colspan="1" rowspan="1"><p><span> 入力DataSetからのスキーマをすべての実行に使用するには［Yes］を選択します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+元のDataSetにアクセスできるアカウントのアクセストークンとDomoインスタンスが必要です。例えば、DomoのURLが「 https://abc123.domo.com 」の場合は、インスタンスは「abc123」です。
+
+
+</Accordion>
+<Accordion title="アクセストークンはどこにありますか？">
+
+
+「管理者」のセキュリティ権限があれば、アクセストークンを生成することができます。もしそうでない場合は、管理者にアクセストークンをリクエストする必要があります。トークンの期限が切れていないことを確認します。アクセストークンの生成に関する詳細は、「 [アクセストークンを管理する](/ja/s/article/360042934494) 」を参照してください。
+
+
+</Accordion>
+<Accordion title="アクセストークンが必要な理由を教えてください。">
+
+
+アクセストークンはDomoにデータをインポートする、またはDomoからデータをエクスポートするのに使用します。
+
+
+</Accordion>
+<Accordion title="アクセストークンと接続できません。なぜでしょうか？">
+
+
+アクセストークンは特定のユーザーアカウントに関連付けられており、そのユーザーと同じアクセス権限を持っています。ユーザーの権限が変更されると、アクセストークンにも反映されます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+DataSetの更新は、15分に1回になるように設定してください。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

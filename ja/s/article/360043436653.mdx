@@ -1,0 +1,42 @@
+---
+title: "HTML Tableコネクター"
+---
+
+## はじめに
+
+Data CenterでHTMLの表への接続を設定します。このトピックでは、HTML Tableコネクターのユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Domoでウェブサイトへの接続を設定し、HTML Tableのデータを取り込むには、対象の表が存在するウェブサイトのURLが必要です。接続が動作するには、URLに https プロトコルが指定されている *必要があります* （例：
+https://www.domo.com
+）。接続にユーザー名とパスワードが必要な場合は、それらも入力する必要があります。
+
+## HTML Tableに接続する
+
+このセクションでは、HTML Tableコネクターページの **［認証情報］** および **［詳細］ペイン** のオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、目的のテーブルがあるウェブサイトに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> HTML Tableのデータがあるウェブサイトのユーザー名を入力します。ウェブサイトにアクセスするのに認証情報が必要な場合にのみ必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> HTML Tableのデータがあるウェブサイトのパスワードを入力します。ウェブサイトにアクセスするのに認証情報が必要な場合にのみ必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Web Page URL </p></td><td colspan="1" rowspan="1"><p> HTML Tableのデータを含むウェブページのURLを入力します。接続が動作するには、URLに <span class="mt-font-courier-new"> https </span> プロトコルが指定されている <em> 必要があります </em> （例： <span class="mt-font-courier-new"><span class="nowiki"><a href="https://www.domo.com" rel="noopener" target="_blank"> https://www.domo.com </a></span></span> ）。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいHTML Table DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、目的の表を指定するためのフィールドが1つあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Table Number </p></td><td colspan="1" rowspan="1"><p> 指定されたウェブページから取り込む表の連番を入力します。たとえば、必要な表がウェブページの2番目の表である場合は、ここに「 <span class="mt-font-courier-new"> 2 </span> 」を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Location </p></td><td colspan="1" rowspan="1"><p> 表で列ヘッダーまたは行ヘッダーのいずれを使用するかを選択します。 </p><p> 列ヘッダー </p><table><tbody><tr class="row-hover"><th class="text-right" colspan="1" rowspan="1"> ヘッダー1 </th><th class="text-right" colspan="1" rowspan="1"> ヘッダー2 </th></tr><tr class="row-hover"><td class="text-right" colspan="1" rowspan="1"> abcd </td><td class="text-right" colspan="1" rowspan="1"> efgh </td></tr><tr class="row-hover"><td class="text-right" colspan="1" rowspan="1"> ijkl </td><td class="text-right" colspan="1" rowspan="1"> mnop </td></tr></tbody></table><p> 行ヘッダー </p><table><tbody><tr class="row-hover"><th class="bold" colspan="1" rowspan="1"> ヘッダー1 </th><td class="text-right" colspan="1" rowspan="1"> abcd </td><td class="text-right" colspan="1" rowspan="1"> efgh </td></tr><tr class="row-hover"><th class="bold" colspan="1" rowspan="1"> ヘッダー2 </th><td class="text-right" colspan="1" rowspan="1"> ijkl </td><td class="text-right" colspan="1" rowspan="1"> mnop </td></tr></tbody></table></td></tr></tbody></table>
+
+<Warning>
+**重要** ：HTMLのrowspan属性は、現在このコネクターではサポートされていません。
+
+</Warning>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

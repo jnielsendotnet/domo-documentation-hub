@@ -1,0 +1,475 @@
+openapi: 3.0.0
+info:
+  title: Task Center API
+  version: v1
+  description: |
+    API for managing Task Center queues and tasks.
+    Task Center allows you to organize manual tasks into different queues of work 
+    and control who can access them.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo API
+tags:
+  - name: Queues
+    description: Operations for managing Task Queues.
+  - name: Tasks
+    description: Operations for managing individual Tasks within a Queue.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Access token obtained via Domo's authentication flow."
+  schemas:
+    #========= ERROR =========
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+
+    #========= QUEUE =========
+    Queue:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        active:
+          type: boolean
+        taskLevelFiltersEnabled:
+          type: boolean
+        taskLevelFilters:
+          type: object
+          nullable: true
+        owner:
+          type: string
+        createdBy:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+        updatedOn:
+          type: string
+          format: date-time
+
+    #========= TASK (COMPLEX) =========
+    Task_SourceInfo:
+      type: object
+      properties:
+        modelId: { type: string }
+        modelVersion: { type: string }
+        instanceId: { type: string }
+        deploymentId: { type: string }
+        instanceCreatedBy: { type: string }
+        taskKey: { type: string }
+        workflowInstanceId: { type: string }
+        flowNodeId: { type: string }
+        elementInstanceKey: { type: string }
+
+    Task_DisplayEntity_Field:
+      type: object
+      properties:
+        id: { type: string }
+        label: { type: string }
+        description: { type: string, nullable: true }
+        optional: { type: boolean }
+        fieldType: { type: string }
+        dataType: { type: string }
+        acceptsInput: { type: boolean }
+        acceptsOutput: { type: boolean }
+        options:
+          type: object
+          properties:
+            values: { type: array, items: {} }
+        alias: { type: string }
+        isList: { type: boolean }
+        useExternalValues: { type: boolean }
+        value: { type: boolean }
+
+    Task_DisplayEntity_Section:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        fields:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task_DisplayEntity_Field'
+
+    Task_DisplayEntity:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        description: { type: string, nullable: true }
+        settings: { type: object }
+        createdBy: { type: string }
+        createdOn: { type: string, format: date-time }
+        updatedBy: { type: string }
+        updatedOn: { type: string, format: date-time }
+        version: { type: string }
+        sections:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task_DisplayEntity_Section'
+        releasedOn: { type: string, format: date-time }
+        userPermissions: { type: array, items: {} }
+
+    Task_Contract_Property:
+      type: object
+      properties:
+        name: { type: string }
+        displayName: { type: string, nullable: true }
+        type: { type: string }
+        required: { type: boolean }
+        list: { type: boolean }
+        validValues: { type: object, nullable: true }
+
+    Task_Contract:
+      type: object
+      properties:
+        input:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task_Contract_Property'
+        output:
+          type: array
+          items:
+            $ref: '#/components/schemas/Task_Contract_Property'
+
+    Task:
+      type: object
+      properties:
+        id: { type: string }
+        attributes: { type: array, items: {} }
+        queueId: { type: string, format: uuid }
+        version: { type: integer }
+        createdOn: { type: string, format: date-time }
+        createdBy: { type: string }
+        updatedOn: { type: string, format: date-time }
+        updatedBy: { type: string }
+        completedOn: { type: string, format: date-time, nullable: true }
+        completedBy: { type: string, nullable: true }
+        assignedOn: { type: string, format: date-time }
+        assignedBy: { type: string }
+        assignedTo: { type: string }
+        assigneeType: { type: string, enum: ['USER'] }
+        lockedOn: { type: string, format: date-time, nullable: true }
+        lockedBy: { type: string, nullable: true }
+        status: { type: string, enum: ['OPEN', 'COMPLETED', 'VOIDED'] }
+        tags: { type: array, items: {} }
+        comments: { type: array, items: {} }
+        sourceSystem: { type: string }
+        sourceInfo:
+          $ref: '#/components/schemas/Task_SourceInfo'
+        displayType: { type: string, enum: ['ENIGMA_FORM', 'EMAIL', 'UNKNOWN'] }
+        displayId: { type: string }
+        displayEntity:
+          $ref: '#/components/schemas/Task_DisplayEntity'
+          nullable: true
+        contract:
+          $ref: '#/components/schemas/Task_Contract'
+        inputVariables:
+          type: object
+          additionalProperties: true
+        outputVariables:
+          type: object
+          additionalProperties: true
+
+    #========= TASK LIST FILTERS =========
+    TaskListFilters:
+      type: object
+      description: Filters to apply when listing tasks.
+      properties:
+        queueId:
+          type: array
+          items: { type: string, format: uuid }
+        displayType:
+          type: array
+          items: { type: string, enum: ['ENIGMA_FORM', 'EMAIL', 'UNKNOWN'] }
+        status:
+          type: array
+          items: { type: string, enum: ['OPEN', 'COMPLETED', 'VOIDED'] }
+        assignedBy:
+          type: array
+          items: { type: string }
+        assignedTo:
+          type: array
+          items: { type: string }
+        createdOn:
+          type: array
+          items:
+            type: array
+            items: { type: string, format: date-time }
+            minItems: 2
+            maxItems: 2
+          example: [["2023-10-04T12:22:54.239Z", "2024-01-02T13:22:54.239Z"]]
+        createdBy:
+          type: array
+          items: { type: string }
+        assignedOn:
+          type: array
+          items:
+            type: array
+            items: { type: string, format: date-time }
+            minItems: 2
+            maxItems: 2
+        updatedOn:
+          type: array
+          items:
+            type: array
+            items: { type: string, format: date-time }
+            minItems: 2
+            maxItems: 2
+        completedOn:
+          type: array
+          items:
+            type: array
+            items: { type: string, format: date-time }
+            minItems: 2
+            maxItems: 2
+        completedBy:
+          type: array
+          items: { type: string }
+        orderBy:
+          type: array
+          items: { type: string }
+        version:
+          type: array
+          items: { type: string }
+
+    #========= TASK OUTPUTS =========
+    TaskOutputVariables:
+      type: object
+      description: Key-value pairs for each input/output property of the task.
+      additionalProperties: true
+      example:
+        Suggested_Action_Items: "1. Investigate assembly line...\n"
+        Send_to_QA_Team: true
+
+security:
+  - bearerAuth: []
+
+paths:
+  #========= Queue Endpoints =========
+  /domo/queues/v1:
+    get:
+      summary: Get Queues
+      description: Returns all queues the user has access to.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: combineAttributes
+          in: query
+          schema:
+            type: boolean
+            default: true
+        - name: archived
+          in: query
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: A list of all queue objects the user has access to.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Queue'
+
+  /domo/queues/v1/{queueId}:
+    get:
+      summary: Get Queue by ID
+      description: Returns a queue by ID.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: The queue object based on the queueId specified.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+        '404':
+          description: Queue not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  #========= Task Endpoints =========
+  /domo/queues/v1/tasks/list:
+    post:
+      summary: Get Tasks
+      description: Returns tasks based on the filters provided in the body. If the body is an empty object, it returns all tasks the user has access to.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: render
+          in: query
+          schema:
+            type: boolean
+            default: true
+        - name: renderParts
+          in: query
+          schema:
+            type: string
+            example: "NAME,DESCRIPTION,MAPPING,METADATA,VERSIONS"
+      requestBody:
+        description: The request body accepts an object containing filters to apply to the request for tasks. All properties are optional and the body can be passed as an empty object to return all tasks.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskListFilters'
+            example:
+              queueId: ["168ecd84-4a15-45f6-89d9-021fbbce0481"]
+              status: ['OPEN']
+      responses:
+        '200':
+          description: A list of tasks.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+
+  /domo/queues/v1/{queueId}/tasks/{taskId}:
+    get:
+      summary: Get Task by ID
+      description: Returns a task by its id.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: render
+          in: query
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: The requested task object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task or Queue not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/queues/v1/{queueId}/tasks/{taskId}/outputs:
+    put:
+      summary: Save Task Progress
+      description: Saves current task values given in the body.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        description: An object containing key-value pairs for each input property of the task.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskOutputVariables'
+      responses:
+        '200':
+          description: The current saved state of the task.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task or Queue not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/queues/v1/{queueId}/tasks/{taskId}/complete:
+    post:
+      summary: Complete Task
+      description: Completes the task with the values given in the body.
+      tags: 
+        - Task Center API
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: taskId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: version
+          in: query
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: An object containing key-value pairs for the final task properties.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskOutputVariables'
+      responses:
+        '200':
+          description: The completed task.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Task'
+        '404':
+          description: Task or Queue not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

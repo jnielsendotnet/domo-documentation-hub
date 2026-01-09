@@ -1,0 +1,74 @@
+---
+title: "Azure Data Lake Gen2 OAuth Writebackコネクター"
+---
+
+## はじめに
+
+Azure Data Lake Storageは、ビッグデータ分析ワークロードに最適化されたMicrosoftのストレージソリューションです。Data Lake Storage Gen2の基本的な役割は、Blob Storageへの階層型名前空間の追加です。このコネクターを使用すると、Azure StorageのデータをDomoに取り込み、そのデータに関する視覚的なインサイトを得ることができます。
+
+Azure Data Lake Storage Gen2は世界で最も生産性の高いData Lakeです。これにより、Azure Storageが、Azure上にエンタープライズデータレイクを構築するための基礎になります。大量のデータを簡単に管理することによって、PoC（導入検証）から生産への移行を迅速に行うことができます。
+
+Azure Data Lake Gen2 OAuth Writebackアカウントには、Data Centerから接続できます。このトピックでは、Azure Data Lake Gen2 OAuth Writebackコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Azure Data Lake Gen2 OAuth Writebackアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* クライアントID
+* クライアントシークレット
+* テナントID
+
+## Azure Appを設定する
+
+Microsoft Exchange Metricsアカウントとの接続を作成するには、最初にMicrosoft Azure Web Appを作成して、必要なクライアントIDとシークレットを取得する必要があります。
+
+**Azure Appを設定するには** ：
+
+1. [Azureポータル](https://portal.azure.com/#home "https://portal.azure.com/#home") にログインします。
+2. **［Azure Active Directory］>［App Registrations］>［New Registration］** の順に選択します。
+
+<Frame><img alt="New_registration.png" src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO99.png"/></Frame>
+
+3. 登録フォームに以下のように入力します。
+
+* + ［Name］：アプリケーションの名前を入力します。
+  + ［Supported account types］：オプションを選択して、このアプリケーションを使用できる、またはこのAPIにアクセスできるユーザーを指定します。
+  + ［Redirect URI］：リダイレクトURI（ [https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange](https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange "https://oauth.domo.com/api/data/v2/oauth/providers/adls-gen2-azure-active-directory-oauth-writeback/exchange") ）を入力します。認証応答はユーザーの認証に成功した後にこのURIに送信されます。この段階でURIを指定することはオプションです。URIは後で変更できますが、ほとんどの認証シナリオでは値が必要です。
+
+<Frame><img alt="clipboard_eac88f9aa2966a791f11417756903afc4.png" src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO9B.png" style={{width: 767, height: 622}}/></Frame>
+
+4. **［Register］** をクリックします。登録したAppの概要が表示されます。ここに表示される **アプリケーションID** は、Domoの **［認証情報］** ペインに入力する **クライアントID** です。
+5. **［API Permissions］>［+Add a permission］** の順にクリックします。
+6. **［Request API permissions］** セクションが表示されます。アプリケーションのAPIのアクセス許可を追加します。
+
+<Frame><img alt="clipboard_e9ed1fc0137b700a6e1c7bb384b55b721.png" src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO91.png" style={{width: 763, height: 388}}/></Frame>
+
+7. 次に、**［Certificates and secrets］** をクリックします。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。また、パブリックキーと呼ばれることもあります。
+8. **［New client secret］** をクリックします。
+     
+   <Frame><img alt="clipboard_ea0abe516411f9db35904232995bd00d9.png" src="/images/kb/ka0Vq0000003W6b-00N5w00000Ri7BU-0EM5w000005vO93.png" style={{width: 811, height: 379}}/></Frame>
+
+9. クライアントシークレットの説明とクライアントシークレットの有効期限を指定し、**［Add］** をクリックします。
+10. 値をコピーし、Domoの **コネクターの［認証情報］** セクションの **［Client Secret］** フィールドに貼り付けます。
+
+## Azure Data Lake Gen2 OAuth Writebackアカウントに接続する
+
+Azure Data Lake Storage Gen2はOAuth 2.0認証をサポートしています。このセクションでは、Azure Data Lake Gen2 OAuth Writebackコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Azure Data Lake Gen2 OAuth Writebackアカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Azure Active Directory設定から取得されるクライアントWeb AppのクライアントID（GUID）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> クライアントWeb Appのシークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Tenant ID </td><td colspan="1" rowspan="1"><p> テナントIDを入力します。［ <a href="http://Portal.azure.com" rel="noopener" target="_blank"> Portal.azure.com </a> ］&gt;［Azure Active Directory］&gt;［Properties］に移動します。 </p><p> ディレクトリIDはお使いのテナントIDです。 </p></td></tr></tbody></table>
+
+一度有効なAzure Data Lake Gen2 OAuth Writeback認証情報を入力したら、新しいAzure Data Lake Gen2 OAuth Writeback DataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Enter Storage Account Name </td><td colspan="1" rowspan="1"> ストレージアカウント名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Container Name </td><td colspan="1" rowspan="1"> コンテナ名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose the directory name? </td><td colspan="1" rowspan="1"> ディレクトリ名をどのように選択するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover Directory Name </td><td colspan="1" rowspan="1"> ディレクトリ名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Directory Name </td><td colspan="1" rowspan="1"><p> ディレクトリ名を入力します。 </p><table><tbody><tr><td colspan="1" rowspan="1"><b> test </b></td><td colspan="1" rowspan="1"> メインまたはルートディレクトリの例 </td></tr><tr><td colspan="1" rowspan="1"><b> test/test </b></td><td colspan="1" rowspan="1"> サブディレクトリの例 </td></tr><tr><td colspan="1" rowspan="1"><b> test/test/test </b></td><td colspan="1" rowspan="1"> サブサブディレクトリの例 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Input DataSet Id </td><td colspan="1" rowspan="1"><p> DataSet URLにあるDomo DataSet ID（ <abbr title="Globally Unique Identifier"> GUID </abbr> ）を入力します。 <br/><br/> 例： <a href="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings" target="_blank" title="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"> https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings </a></p></td></tr><tr><td colspan="1" rowspan="1"> Select filename </td><td colspan="1" rowspan="1"><p> 入力DataSet GUIDを使用するか、ファイル名を手動で入力するかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"> FileName </td><td colspan="1" rowspan="1"><p> 出力ファイル名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> My Domo Input DataSet is very large </td><td colspan="1" rowspan="1"><p> DomoからAzure Data Lakeに非常に大きなDataSetをエクスポートする場合は、このチェックボックスをオンにします。このボックスをオンにすると、コネクターは別のよりスピーディなプロセスを使用します。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

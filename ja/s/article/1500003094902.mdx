@@ -1,0 +1,88 @@
+---
+title: "Snapchat Ads OAuthコネクター"
+---
+
+## はじめに
+
+Snapchatはソーシャルメディアの新しい方向性を体現し、テクノロジーを利用したより瞬時の共有やコミュニケーションを求めている、若年層のユーザーから多くの支持を集めています。DomoのSnapchat Ads OAuthコネクターを使うと、組織や広告、キャンペーンなどの詳細を取得できます。Snapchat Ads APIについての詳細は、Snapchatのページ（https://developers.snapchat.com/ads/ ）を参照してください。
+
+Snapchat Adsアカウントには、Data Centerから接続します。このトピックでは、Snapchat Ads OAuthコネクターユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Snapchat Ads OAuthアカウントに接続し、DataSetを作成するには、関心のある広告アカウントにアクセスできるSnapchat Adsアカウントのユーザー名とパスワードが必要です。
+
+## Snapchat Ads OAuthアカウントに接続する
+
+このセクションでは、Snapchat Ads OAuthコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。 このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのSnapchat Ads OAuthコネクターは接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のSnapchat Adsアカウントがある場合は **［アカウントを追加］** を選択）すると、Snapchat Ads OAuth画面が開き、Snapchat Adsの認証情報を入力できます。有効なSnapchat Adsの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいSnapchat Ads OAuth DataSetを作成できます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にSnapchat Adsにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずSnapchat Ads OAuthからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> 実行するSnapchat Ads OAuthレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Object Info: Organizations </td><td colspan="1" rowspan="1"> このレポートは、ログインしたユーザーがアクセスできるすべての組織を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Ad Accounts </td><td colspan="1" rowspan="1"> このレポートは、指定した組織のすべての広告アカウントを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Campaigns </td><td colspan="1" rowspan="1"> このレポートは、指定した広告アカウント内のすべてのキャンペーンを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: All Campaigns </td><td colspan="1" rowspan="1"> このレポートは、指定した広告アカウント内のすべてのキャンペーンを返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Ad Squads </td><td colspan="1" rowspan="1"> このレポートは、指定したキャンペーンまたは広告アカウント内のすべての広告チームを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: All Ad Squads </td><td colspan="1" rowspan="1"> このレポートは、指定したキャンペーンまたは広告アカウント内のすべての広告チームを返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Ads </td><td colspan="1" rowspan="1"> このレポートは、指定した広告チームまたは広告アカウント内のすべての広告を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Object Info: All Ads </td><td colspan="1" rowspan="1"> このレポートは、指定した広告チームまたは広告アカウント内のすべての広告を返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Campaign（廃止） </td><td colspan="1" rowspan="1"> このレポートは、指定したキャンペーン、またはそのキャンペーンに所有されているすべての広告または広告チームの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Campaign (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定したキャンペーンまたはそのキャンペーンに所有されているすべての広告または広告チームの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Campaigns (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定したキャンペーンまたはそのキャンペーンに所有されているすべての広告または広告チームの統計情報を返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad Squad（廃止） </td><td colspan="1" rowspan="1"> このレポートは、指定した1つの広告チームの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad Squad (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定した1つの広告チームの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Ad Squads (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定した広告チームの統計情報を返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad（廃止） </td><td colspan="1" rowspan="1"> このレポートは、指定した1つの広告の統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定した1つの広告の統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Ads (Insights and Dimensions) </td><td colspan="1" rowspan="1"> このレポートは、更新されたインサイトおよびディメンションクエリを使用して、指定した広告の統計情報を返します。複数の広告アカウントをサポートしています。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Statistics Merge </td><td colspan="1" rowspan="1"> このレポートは、組織およびキャンペーンレポートと統合された時点で、要求されたキャンペーンの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Squads Statistics Merge </td><td colspan="1" rowspan="1"> このレポートは、組織、広告アカウント、広告チームレポートと統合された時点で、要求された広告チームの統計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ads Statistics Merge </td><td colspan="1" rowspan="1"> このレポートは、組織、広告アカウント、広告チーム、広告レポートと統合された時点で、要求された広告の統計情報を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Organization </p></td><td colspan="1" rowspan="1"><p> データを取得したい組織を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Account </p></td><td colspan="1" rowspan="1"><p> データを取得したい広告アカウントを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Account Selection Criteria </p></td><td colspan="1" rowspan="1"><p> 選択した広告アカウントからデータを取得するか、すべての広告アカウントからデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Select Ads By </td><td colspan="1" rowspan="1"> 返される広告を所有しているオブジェクトのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Select Ad Squads By </p></td><td colspan="1" rowspan="1"><p> 返される広告チームを所有しているオブジェクトのタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Campaign Selection Criteria </td><td colspan="1" rowspan="1"> 選択したキャンペーンを取得するか、すべてのキャンペーンを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Campaign </p></td><td colspan="1" rowspan="1"><p> データを取得するキャンペーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Ad Squad Selection Criteria </td><td colspan="1" rowspan="1"> すべての広告チームのデータを取得するか、選択した広告チームのデータを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Ad Squad </p></td><td colspan="1" rowspan="1"><p> データを取得する広告チームを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Ad Selection Criteria </td><td colspan="1" rowspan="1"> すべての広告のデータを取得するか、選択した広告のデータを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Ad </p></td><td colspan="1" rowspan="1"><p> データを取得する広告を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Breakdown </p></td><td colspan="1" rowspan="1"><p> 結果を広告、広告チーム、またはキャンペーンによって分類するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Granularity </p></td><td colspan="1" rowspan="1"><p> レポートの中でデータを集計する方法を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Dimension </p></td><td colspan="1" rowspan="1"><p> レポートの中でデータをグループ化する方法を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pivot </p></td><td colspan="1" rowspan="1"><p> レポートの中でデータがどのようにピボットされるかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields </p></td><td colspan="1" rowspan="1"><p> レポートに含めるフィールド（列）を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Swipe Up Attribution Window </p></td><td colspan="1" rowspan="1"><p> 1、7、または28日間のスワイプアップ属性ウィンドウを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> View Attribution Window </p></td><td colspan="1" rowspan="1"><p> 希望するビュー属性ウィンドウを選択します。この値は <b><b> ［Swipe Up Attribution Window］ </b></b> より小さくなければなりません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付か、日付範囲に対してデータを取得するかどうか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は <b><b> ［End Date］ </b></b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b><b> ［Start Date］ </b></b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b><b> ［Days Back to End At］ </b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b> ［Days Back to Start From］ </b></b> に10、 <b><b> ［Days Back to End At］ </b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b><b> ［Days Back to Start From］ </b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b> ［Days Back to Start From］ </b></b> に10、 <b><b> ［Days Back to End At］ </b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのSnapchat APIを使用しますか？">
+
+
+このコネクターはSnapchat APIのバージョン1（ [https://adsapi.snapchat.com/v1.](https://adsapi.snapchat.com/v1. "https://adsapi.snapchat.com/v1.") ）を使用します。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Object Info: Organizations </td><td colspan="1" rowspan="1"> /me/organizations </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Ad Accounts </td><td colspan="1" rowspan="1"> /organizations/&#123;organization-id&#125;/adaccounts </td></tr><tr><td colspan="1" rowspan="1"> Object Info: Campaigns </td><td colspan="1" rowspan="1"> /adaccounts/&#123;ad_account_id&#125;/campaigns </td></tr><tr><td colspan="1" rowspan="1"> Object Info: All Campaigns </td><td colspan="1" rowspan="1"> /adaccounts/&#123;ad_account_id&#125;/campaigns </td></tr><tr><td colspan="1" rowspan="2"> Object Info: Ad Squads </td><td colspan="1" rowspan="1"> adSquadsBy/&#123;campaignId&#125;/adsquads </td></tr><tr><td colspan="1" rowspan="1"> /adSquadsBy/&#123;adSquadId&#125;/adsquads </td></tr><tr><td colspan="1" rowspan="2"> Object Info: All Ad Squads </td><td colspan="1" rowspan="1"> /adSquadsBy/&#123;campaignId&#125;/adsquads </td></tr><tr><td colspan="1" rowspan="1"> /adSquadsBy/&#123;adAccountId&#125;/adsquads </td></tr><tr><td colspan="1" rowspan="2"> Object Info: Ads </td><td colspan="1" rowspan="1"> /AdsVia/&#123;ad_squad_id&#125;/ads </td></tr><tr><td colspan="1" rowspan="1"> /AdsVia/&#123;Id&#125;/ads </td></tr><tr><td colspan="1" rowspan="2"> Object Info: All Ads </td><td colspan="1" rowspan="1"> /AdsVia/&#123;ad_squad_id&#125;/ads </td></tr><tr><td colspan="1" rowspan="1"> /AdsVia/&#123;adAccountId&#125;/ads </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Campaign（廃止） </td><td colspan="1" rowspan="1"> /campaigns/&#123;campaign-id&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Campaign (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /campaigns/&#123;campaignId&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Campaign (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /campaigns/&#123;adAccIdAndTimeZone&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad Squad（廃止） </td><td colspan="1" rowspan="1"> /adsquads/&#123;adsquad-id&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad Squad (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /adsquads/&#123;adSquadId&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Ad Squads (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /adsquads/&#123;adAccIdAndTimeZone&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad（廃止） </td><td colspan="1" rowspan="1"> /ads/&#123;ad-id&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: Ad (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /ads/&#123;adId&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Statistics: All Ads (Insights and Dimensions) </td><td colspan="1" rowspan="1"> /ads/&#123;adAccIdAndTimeZone&#125;/stats </td></tr><tr><td colspan="1" rowspan="1"> Campaign Statistics Merge </td><td colspan="1" rowspan="1"> /getAndWriteCampaignStatsData </td></tr><tr><td colspan="1" rowspan="1"> Ad Squads Statistics Merge </td><td colspan="1" rowspan="1"> /getAndWriteAdSquadsStatsData </td></tr><tr><td colspan="1" rowspan="1"> Ads Statistics Merge </td><td colspan="1" rowspan="1"> /getAndWriteAdsStatsData </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+関心のある広告アカウントにアクセスできるSnapchat Adsアカウントのユーザー名とパスワードが必要です。
+
+
+</Accordion>
+<Accordion title="自分のデータがファイナライズされているかどうかを確認するには、どのしたらよいですか？">
+
+
+指定した日のデータは、広告アカウントのタイムゾーンでその日の終了後、最大48時間までSnapchatで変更できます。
+
+返されるデータには「finalized\_data\_end\_time」という列があります。これがファイナライズされた最新データの時間です。この時間より前のデータはすべてファイナライズされています。この時間より後のデータは、まだ変更の対象になります。
+
+
+</Accordion>
+<Accordion title="複数の広告、広告チーム、またはキャンペーンに関する情報を一度に取得するには、どうしたらよいですか？">
+
+
+「Statistics: Ad (Insights and Dimensions)」と「Statistics: Ad Squad (Insights and Dimensions)」は1つまたは複数のオブジェクト（広告または広告チーム）のデータを提供します。複数のオブジェクトに関する情報を取得するには、「Statistics: Campaign (Insights and Dimensions)」レポートを使用する必要があります。
+
+このレポートでは、レポートするメトリクス、およびデータの分割方法を選択できます。データは広告、広告チーム、キャンペーンごとに分割できます。これらのいずれかを選択すると、各広告、広告チーム、またはキャンペーンごとにデータがレポートされます。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

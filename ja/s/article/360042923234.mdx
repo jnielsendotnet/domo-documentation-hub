@@ -1,0 +1,81 @@
+---
+title: "SQLとMagic ETL DataFlowを使用したデータクリーニング演算"
+---
+
+## はじめに
+
+このトピックでは、SQLとMagic ETL DataFlowで利用可能なデータクリーニング演算の一覧を表示し、演算を使用する前後のデータの見え方を示します。
+
+## データタイプを変更
+
+例：ID番号のデータタイプを数字からテキストフィールドに変更
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><code> CAST(`id` AS CHAR) AS `id_cast_datatype` </code></td><td colspan="1" rowspan="1"> ［列タイプを設定］タイルを使用します。 </td><td colspan="1" rowspan="1"> 1 </td><td colspan="1" rowspan="1"> 1（見た目は同じですが、テキストのディメンションを指定します） </td></tr></tbody></table>
+
+## 列を連結して複合フィールドを作成
+
+例：「ファーストネーム」列と「姓」列を連結して「フルネーム」列を作成
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> CONCAT(`first_name`, ' ', `last_name`) AS `full_name` </code></td><td colspan="1" rowspan="1"> ［列を結合］タイルを使用します。 </td><td colspan="1" rowspan="1"> ‘John’ | ‘Smith’（ファーストネームと姓が2つの独立した列にある） </td><td colspan="1" rowspan="1"> ‘John Smith’ （単一の列が完全な名前を含んでいる） </td></tr></thead></table>
+
+## テキスト文字列の一部を抽出
+
+例：ユーザーIDとして使用するメールアドレスの最初の部分を抽出
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> SUBSTRING_INDEX(`email`,'@', 1) AS `user_id` </code></td><td colspan="1" rowspan="1"> その列に［テキストを置換］タイルを使用し、文字列のどの部分を空の文字列：@.+に置換するかを指定します。 </td><td colspan="1" rowspan="1"><a href="mailto:userid@email.com" target="_blank" title="mailto:userid@email.com"> userid@email.com </a></td><td colspan="1" rowspan="1"> userid </td></tr></thead></table>
+
+## 日付を再フォーマット
+
+例：非標準の日付文字列を日付タイプにフォーマットします
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> STR_TO_DATE(`send_date`, '%d.%m.%Y') AS date_formatted </code></td><td colspan="1" rowspan="1"> ［列タイプを設定］タイルを使用します。 </td><td colspan="1" rowspan="1"> 23.01.2017（文字列データタイプ） </td><td colspan="1" rowspan="1"> 01/23/2017（日付データタイプ） </td></tr></thead></table>
+
+## 日付列から日付属性を取得
+
+例：日付列から曜日を抽出
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> DAYNAME(`receive_date`) AS receive_date_name </code></td><td colspan="1" rowspan="1"> ［日付の演算］タイルを使用します。 </td><td colspan="1" rowspan="1"> 01/23/2017 </td><td colspan="1" rowspan="1"> 月曜日 </td></tr></thead></table>
+
+## 1つの列を列内の1つの文字にもとづいて2つの列に分割
+
+例:「状態コード」列を、列内で見つかった `/` 区切り文字にもとづいて状態コードの部分に分割します
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> SUBSTRING_INDEX(`status_code`, '/', 1) AS status_code_p1 <br/>, SUBSTRING_INDEX(`status_code`, '/', -1) AS status_code_p2 </code></td><td colspan="1" rowspan="1"> その列に［テキストを置換］タイルを使用し、文字列のどの部分を空の文字列：最初の部分に対しては <code> \/.+ </code> 、2番目の部分に対しては <code>.+\/ </code> に置換するかを指定します。 </td><td colspan="1" rowspan="1"> SHI/DELV </td><td colspan="1" rowspan="1"> SHI | DELV </td></tr></thead></table>
+
+## 列からエラーとなるスペースをトリミング
+
+例：「Department」列の行頭と行末の空白文字をトリミング
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> TRIM(`department`) AS department_trimmed </code></td><td colspan="1" rowspan="1"> ［テキストを置換］タイル内で正規表現を使用して、行頭と行末の空白文字を指定して、何もないものに置き換えます。 </td><td colspan="1" rowspan="1"> ' department ' </td><td colspan="1" rowspan="1"> 'department' </td></tr></thead></table>
+
+## 全体の列の大文字/小文字の使い方を変更
+
+例：「Category」列を大文字に変更
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> UPPER(`category`) AS category_change_case </code></td><td colspan="1" rowspan="1"> ［テキストフォーマット］タイル内の <b> すべて大文字 </b> オプションを使用します。 </td><td colspan="1" rowspan="1"> health </td><td colspan="1" rowspan="1"> HEALTH </td></tr></thead></table>
+
+## 列の最初の文字を大文字にする
+
+例：「Category」列の最初の単語の最初の文字を大文字にします
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> CONCAT(UPPER(LEFT(`category`, 1)), SUBSTRING(`category`, 2, LENGTH(`category`))) AS category_cap_first </code></td><td colspan="1" rowspan="1"> ［テキストフォーマット］タイル内の <b> 頭文字を大文字にする </b> オプションを使用します。 </td><td colspan="1" rowspan="1"> health </td><td colspan="1" rowspan="1"> Health </td></tr></thead></table>
+
+## 特定の列の値にもとづいて行を分類
+
+例：ストア番号にもとづいて各行に地域を割り当てる
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `store_number` IN ('100', '101', '104', '109') THEN 'region_1' <br/> WHEN `store_number` IN ('102', '105', '110') THEN 'region_2' <br/> WHEN `store_number` IN ('103', '106', '107', '108') THEN 'region_3' <br/> ELSE 'no region' END) AS region </code></td><td colspan="1" rowspan="1"><b> ［行をフィルター］ </b> タイルを使ってストア番号にもとづいて別々のグループに分離し、 <b> ［定数を追加］ </b> を使って、各グループにカテゴリーを追加し、 <b> ［行を追加］ </b> を使って、分離されていた行を合せて元に戻します。 </td><td colspan="1" rowspan="1"> store_number = 100 </td><td colspan="1" rowspan="1"> store_number = 100 | region = ‘region_1’ </td></tr></thead></table>
+
+## 特定の列の値にもとづいて行を分類
+
+例：カテゴリーを名前の最初の文字にもとづいた動物名に割り当てます。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `animal_names` LIKE 'H%' THEN 'Hs' <br/> WHEN `animal_names` LIKE 'B%' THEN 'Bs' <br/> WHEN (`animal_names` LIKE 'A%' OR `animal_names` LIKE 'E%') THEN 'AEs' <br/> ELSE 'another letter' END) AS animal_names_categories </code></td><td colspan="1" rowspan="1"> ［テキストを置換］タイル内で正規表現を使用してパターンを識別し、カテゴリーを割り当てます。例えば、 <code> ^H.+ </code> はHで始まる名前を、 <code> ^B.+ </code> はBで始まる名前を、 <code> ^A.+|^E.+ </code> はAまたはEで始まる名前を、 <code> ^[^H,b,a,E]+ </code> はH、B、A、E,で始まらない名前を検索します。 </td><td colspan="1" rowspan="1"> animal_names = ‘Horse’ </td><td colspan="1" rowspan="1"> animal_names = ‘Horse’ | animal_names_categories = ‘Hs’ </td></tr></thead></table>
+
+## 数値のしきい値にもとづいて行を分類
+
+例：給与の額にもとづいて行を分類する
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"> MySQLの場合 </th><th colspan="1" rowspan="1"> Magic ETLの場合 </th><th colspan="1" rowspan="1"> 前 </th><th colspan="1" rowspan="1"> 後 </th></tr><tr><td colspan="1" rowspan="1"><code> (CASE WHEN `salary` &lt; 50000 THEN '&lt;\$50,000' <br/> WHEN `salary` &lt; 100000 THEN '\$50,000 - \$99,999' <br/> WHEN `salary` &lt; 150000 THEN '\$100,000 - \$149,999' <br/> WHEN `salary` &lt; 200000 THEN '\$150,000 - \$199,999' <br/> ELSE '&gt;\$200,000' END) AS salary_bucket </code></td><td colspan="1" rowspan="1"> ［行をフィルター］タイルを使ってストア番号にもとづいて別々のグループに分離し、［定数を追加］を使って、各グループにカテゴリーを追加し、［行を追加］を使って、分離されていた行を合せて元に戻します。 </td><td colspan="1" rowspan="1"> salary = \$45,000 </td><td colspan="1" rowspan="1"> salary = \$45,000 | salary_bucket = ‘&lt;\$50,000’ </td></tr></thead></table>
+
+日本語

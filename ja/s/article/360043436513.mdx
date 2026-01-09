@@ -1,0 +1,134 @@
+---
+title: "CSV Advancedコネクター"
+---
+
+## はじめに
+
+文字区切り値（CSV）ファイルは、表形式データをプレーンテキスト形式で保存します。Domo CSV Advancedコネクターを使うと、SFTPサーバーにアップロードしたCSVファイルにアクセスすることができます。HTTPSコールでファイルをインポートすることもできます。
+
+<Note>
+**注記：** セキュリティ上の懸念により、DomoではFTPでのデータアップロードが許可されなくなりました。FTPの代わりにSFTPをサポートするように、必要に応じてサーバー設定を更新してください。
+
+</Note>
+
+CSVファイルには、Data Centerから接続します。このトピックでは、CSV Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使ってSFTPサーバーからCSVファイルにアクセスする。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> アナリスト </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10までのスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+SFTPを使っている場合、認証情報の準備ができており、認証情報がSSHキーで証明されていることを確認してください。キーに使用できるフォーマットは、DESまたはRSAです。HTTPSを使っている場合は、使うリソースが保護されていることを確認するだけで十分です。
+
+## 必要条件
+
+SFTPサーバーに接続してCSVファイルにアクセスする場合は、そのサーバーに認証するためのユーザー名とパスワードが必要です。HTTPS経由でCSVファイルにアクセスする場合は、ソースが保護されている場合にのみ認証情報が必要となります。
+
+CSVファイルに関連付けられているユーザ名とパスワードが必要です。また、SSHキーとSSHキーのパスフレーズも必要です。
+
+<Note>
+注記： **Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESキーまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+## CSVファイルにアクセスする
+
+このセクションではCSV Advancedコネクターページの **［認証情報］** 、 **［詳細］** 、 **［高度］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインでは、CSV データにアクセスするとき使うプロトコルと、データが保護されているかに応じて、ユーザー名とパスワードの入力が必要となる場合があります。SFTPサーバーに接続してCSVファイルにアクセスする場合は、そのサーバーの認証情報（ユーザー名、パスワード、ホスト名）をこちらに入力する必要があります。HTTPS経由でファイルにアクセスする場合は、リソースが保護されている場合にのみ認証情報の入力が必要になります。また、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "IPアドレスをホワイトリストに登録する") 」の記事にしたがって、サーバー上のIPアドレスをホワイトリストに登録する必要があります。
+
+どちらの場合でも、一度 **［Next］** をクリックすると、このCSVアカウントが保存され、いつでも同じアカウントを使って新しいCSV Advanced DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+URLからCSVファイルをインポートすることも可能です。その場合はURLに加え、ソースの要件によってはユーザー名とパスワードも必要になる場合があります。
+
+### ［詳細］ペイン
+
+このペインではプロトコル（HTTPリクエストまたはSFTPファイル転送）を選択し、そのプロトコルの詳細情報を入力します。このペインには以下のフィールドとメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> Protocol </p></td><td colspan="1" rowspan="1"><p> CSVファイルへのアクセスに使うプロトコルを選択します。 </p><p> SFTPサーバーにあるCSVファイルにアクセスするときは、SFTPを使います。 </p><p> HTTP GETリクエストを使ってCSVファイルにアクセスするときは、HTTPリクエストを使います。このリクエストは、CSVファイルを提供するサービスで定義された固有のURLパラメータを使うとトリガーされます。 </p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> URL </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> CSVファイルのURLを入力します。 </p><p><span> ファイル転送プロトコルを使う場合は、CSVファイルが保存されているフォルダのURLを入力します。例：s <a href="ftp://hostname/home/test" rel="noopener" target="_blank"> ftp://hostname/home/test </a> また、SFTPサーバが標準のポート22で動作するように設定されていない場合は、URLにポートに含める必要があります。1234ポートを指定するURLは「s <a href="ftp://hostname:1234/home/test」" rel="noopener" target="_blank"> ftp://hostname:1234/home/test」 </a> のようになります。 </span></p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> セキュリティ上の懸念により、DomoではFTPでのデータアップロードが許可されなくなりました。FTPの代わりにSFTPをサポートするように、必要に応じてサーバー設定を更新してください。 </div></div></div> 
+</Note>
+
+ <p> 
+ HTTPリクエストプロトコルを使う場合は、CSVファイルの完全なURLを入力します。これは、URL だけでなくファイル名を含む完全修飾パスを入力する必要があります。例： 
+ <span class="nowiki">
+ <span class="mt-font-courier-new"><a href="http://www.ferc.gov/docs-filing/eqr/...v/contract.txt" rel="noopener" target="_blank"> http://www.ferc.gov/docs-filing/eqr/...v/contract.txt </a></span>
+ </span>
+ </p>
+ <p> 
+ また、特定の日付のファイルをリクエストすることもできます。 
+ <span class="mt-font-courier-new"> 
+ file_[yyyyMMdd]_suffix.csv 
+ </span> 
+ というフォーマットでファイルの名前を付けます。 
+ </p>
+ <p> また、 
+ <span class="mt-font-courier-new"> filenameprefix_[latest] </span> というフォーマットを使うと最新のファイルを選択できます。 </p>
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p> File Location Method </p></td><td colspan="1" rowspan="1"><p> 指定したディレクトリから特定のファイルを選択するか、ファイル名で検索するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name </p></td><td colspan="1" rowspan="1"><p> 検索するファイル名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Directory File </p></td><td colspan="1" rowspan="1"><p> 指定したディレクトリからファイルを選択します。解析するCSVまたはGZファイルか、解凍するZIPファイルを選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Type </p></td><td colspan="1" rowspan="1"><p> アクセスするファイルのファイルタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> HTTP Headers </p></td><td colspan="1" rowspan="1"><p> 必要に応じてHTTP/HTTPS CSV URLの追加ヘッダーを入力します。 <span class="mt-font-courier-new"> header Name1 = 'headerValue1' </span> と <span class="mt-font-courier-new"> headerName2 = 'headerValue2' </span> というフォーマットを使います。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> HTTP Body </p></td><td colspan="1" rowspan="1"><p> 必要に応じてHTTPS CSV URLの追加リクエストボディを入力します。 </p></td></tr>
+ </tbody></table>
+
+### ［高度］ペイン
+
+このペインでは CSV ファイルの区切り文字を選択します。
+
+<table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Delimiter Character </p></td><td colspan="1" rowspan="1"><p> CSVファイルの列を区切る文字を選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* 認証情報が正しいことを確認する。
+* SFTPで接続できないときは、ファイアウォール設定を確認する。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+データ更新は1時間おきに行われます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="# 同一のCSV Advancedアカウントを複数のDataSetに使えますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="# SFTPで接続できないときは、どうすればよいですか？">
+
+
+SFTPで接続できないときは、ファイアウォール設定を確認してください。
+
+
+
+</Accordion>
+</AccordionGroup>

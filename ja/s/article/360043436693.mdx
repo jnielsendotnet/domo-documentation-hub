@@ -1,0 +1,94 @@
+---
+title: "Microsoft Azure Blob Storageコネクター"
+---
+
+## はじめに
+
+Microsoft Azure Blob Storageは、画像、ビデオ、オーディオ、ドキュメントなど、あらゆる種類の非構造化データを簡単かつ効率的に保存できます。DomoのMicrosoft Azure Blob Storageコネクターを使用すると、CSV、TSV、およびTXTデータファイルをMicrosoft Azure Blob StorageアカウントからDomoに引き込むことができます。Azureデータと、社内のすべてのデータソースのデータを結合することで、会社を全体的に把握することができます。主要なメトリクスが変更された場合にリアルタイムに通知を行うカスタムアラートを設定し、ビジネスの意思決定をより迅速かつ的確に行えるようにします。Azure Blob Storage APIについての詳細は、同社のページ（ [https://docs.microsoft.com/en-us/res...rvice-rest-api](https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api "https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api")
+）を参照してください。
+
+Microsoft Azure Blob Storageアカウントには、Data Centerから接続します。このトピックでは、Azure Blob Storage Connectorのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Azure Blob Storageアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Microsoft Azure Blob Storageアカウント名
+* Microsoft Azure Blob Storageアカウントキー
+
+認証情報がわからない場合は、Microsoftのアカウント担当者にお問い合わせください。
+
+## Azure Blob Storageアカウントに接続する
+
+このセクションでは、Azure Blob Storage Connectorページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのその他のペインある **［スケジュール設定］** と **［DataSetの名前と説明］の** 項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Azure Blob Storageアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Microsoft Azure Blob Storageアカウント名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Key </p></td><td colspan="1" rowspan="1"><p> Microsoft Azure Blob Storageアカウントキーを入力します。 </p></td></tr></tbody></table>
+
+有効なAzure Blob Storage認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAzure Blob Storage DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoにインポートするファイルを選択、設定するための様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> What File Type Would You Like to Import? </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> CSV、TSV、またはTXTファイルのどれをDomoに引き込むかを選択します。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> ファイル拡張子（.CSV、.TSV、.TXT）はコネクターで選択されているファイルタイプに一致させる必要があります。 <p> 例：「File1.csv」を選択する場合は、最初にドロップダウンからファイルタイプとしてCSVを選択しておく必要があります。 </p></div></div></div> 
+</Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Blob Container </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするファイルを含むコンテナーを選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Do your blob containers have directories? </p></td><td colspan="1" rowspan="1"><p> Blobコンテナーにディレクトリが含まれている場合は［Yes］を選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Blob Directory </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするファイルを含むディレクトリを選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Pull All Files </p></td><td colspan="1" rowspan="1"><p> 選択したBlobディレクトリからすべてのファイルを引き込む場合は、このチェックボックスを選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> How would you like to choose your Block Blob? </p></td><td colspan="1" rowspan="1"><p> ブロックBlobをリストから選択するか、または手動で名前を入力するかを選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Select Block Blob </p></td><td colspan="1" rowspan="1"><p> 目的のファイルを選択します。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"><p> Enter Block Blob </p></td><td colspan="1" rowspan="1"><p> 目的のファイル名を入力します。 <b> ［Block Blob Match Type］ </b> では、どのようにこの文字列がブロックBlob名に一致するかを指定できます。 </p></td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1">
+ <p> Block Blob Match Type </p>
+ </td>
+ <td colspan="1" rowspan="1">
+ <p> ファイルのファイル名が <span></span><b> ［Enter Block Blob］ </b> フィールドで入力した名前から始まるのか、それともファイル名にその名前が含まれるのかを指定します。 </p> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span><b> 注記： </b></span> 選択したファイルタイプのファイル拡張子とファイル名を入力する必要があります。 <p> 例：「File1.csv」を引き込むには、［Enter Block Blob］フィールドに「File1.csv」と入力する必要があります。 </p></div></div></div> 
+ </Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p> File Encoding </p></td><td colspan="1" rowspan="1"><p> ファイルのエンコーディングを選択します。デフォルトでは <span></span><b> UTF-8 </b> が選択されています。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the delimiting character </p></td><td colspan="1" rowspan="1"><p> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specify your delimiter </p></td><td colspan="1" rowspan="1"><p> CSV テキストを区切る文字を入力してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> CSVファイルの解析に使用する引用文字を選択します（CSVの標準のデフォルトの引用符は二重引用符です）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Quote Character </p></td><td colspan="1" rowspan="1"><p> 希望するCSV引用符を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> CSVファイルを解析するために使用するエスケープ文字を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Escape Character </p></td><td colspan="1" rowspan="1"><p> 希望するCSVエスケープ文字を入力します。 </p></td></tr>
+ </tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

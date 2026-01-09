@@ -1,0 +1,49 @@
+---
+title: "バブルチャート（廃止）"
+---
+
+## はじめに
+
+<Warning>
+  **重要：** バブルチャートタイプは廃止され、 [散布図](/s/article/360042924694) に含まれるようになりました。
+
+</Warning>
+
+バブルチャートには、 [散布図](/s/article/360042924694 "散布図") と同様に2つの値の目盛りがあり、X座標とY座標のペアがチャートに描画されます。バブルチャートは、バブルサイズという別の次元が加わっている点で、散布図よりも複雑になっています。チャートに含まれるバブルのサイズは、チャート内のほかのバブルのサイズと相関関係があります。例えば、チャートにサイズが25の系列とサイズが50の系列という2つの系列が含まれる場合、50の値のバブルは、小さいバブルのサイズの2倍として示されます。
+
+X軸に、値データではなくタイムラインデータを適用することも可能です。この場合、すべてのバブルは該当する日時の線上に配置されます。その場合でも、特定の線上におけるバブルの位置は、Y座標の値によって決まります。
+
+## バブルチャートを作成する
+
+バブルチャートは、DataSetから、以下の3つのデータの列または行を必要とします。
+
+* Y軸で測定される値が含まれる列または行
+* X軸で測定される値または日時データが含まれる列または行
+* 各バブルのサイズの値が含まれる列または行
+
+また、必要に応じて、オプションの系列の列を追加することもできます。系列の列を含めない場合、凡例は表示されません。2017年8月リリースより前は、系列データが必須でしたが、その要件は廃止されました。現在でもバブル（レガシー）チャートタイプを選択することで、古いバージョンのチャートを使用できます。
+
+<Note>
+  **注記：** バブルチャートをドリルダウンすると、X軸やY軸のデータ *ではなく* 、系列データのみをドリルダウンできます。データのドリルダウンの詳細については、「 [データをドリルダウンする](/s/article/360042923994 "データをドリルダウンする") 」を参照してください。
+
+</Note>
+
+値、カテゴリー、系列データについては、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+Analyzerでは、バブルチャートで使用するデータを含む列を選択します。データ列の選択の詳細については、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については、「 [Analyzerの概要](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：Analyzer") 」を参照してください。
+
+次の図は、典型的な列ベースのスプレッドシートのデータが、どのように標準的なXY座標のバブルチャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHe.png" style={{width: 732, height: 657}}/></Frame>
+次の図は、典型的な列ベースのスプレッドシートのデータが、どのように日時データを含むバブルチャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHV.png" style={{width: 784, height: 753}}/></Frame>
+## バブルチャートをカスタマイズする
+
+バブルチャートの外観は、チャートの設定を編集することでカスタマイズできます。すべてのチャートのプロパティについては、「 [チャートのプロパティ](/s/topic/0TO5w000000ZaodGAC "チャートのプロパティ") 」を参照してください。バブルチャート固有のプロパティには以下があります。サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［全てのグリッドを非表示］ </p></td><td colspan="1" rowspan="1"><p> グリッド線を非表示にします。これは、「四分割チャート」（2本の座標線を使って4つのセクションに分割されたチャート）を作成する場合に役立ちます。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Yのゼロ（0）線の色］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の横軸の「ゼロ線」の色を決定します。この属性はゼロ線がチャート内の底線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、色は赤に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1336/y_zero_line_color.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7p.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Yのゼロ（0）線の幅］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の横軸の「ゼロ線」の幅を決定します。この属性はゼロ線がチャート内の底線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、このプロパティは <code> ［5］ </code> に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1335/y_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7z.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Xのゼロ（0）線の色］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の縦軸の「ゼロ線」の色を決定します。この属性は縦軸のゼロ線がチャート内の最左線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、色は赤に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1337/x_zero_line_color.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP81.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Xのゼロ（0）線の幅］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の縦軸の「ゼロ線」の幅を決定します。この属性はゼロ線がチャート内の最左線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、このプロパティは <code> ［5］ </code> に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1334/x_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7r.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［四分線］&gt;［Xの目盛りの値］ </p></td><td colspan="1" rowspan="1"><p> 「四分割チャート」を作成する際に、縦方向の四分線に数値を設定できます。このプロパティに数値を指定しない場合、縦方向の四分線は表示されません。 </p><p> 例では、XおよびYの目盛りの四分線が中点の値50に設定されているバブルチャートを示しています。これにより、チャートは均等に四分割されます。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/990/quadrant_lines.png"><img alt="" src="/images/kb/ka05w00000123pN-00N5w00000Ri7BU-0EM5w000005vPHg.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［四分線］&gt;［Yの目盛りの値］ </p></td><td colspan="1" rowspan="1"><p> 「四分割チャート」を作成する際に、横方向の四分線に数値を設定できます。このプロパティに数値を指定しない場合、横方向の四分線は表示されません。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［回帰直線］&gt;［線形回帰線を表示］ </p></td><td colspan="1" rowspan="1"><p> 散布図またはバブルチャートの各系列に、回帰直線を追加できます。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1352/scatter_with_regression_line.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7v.png"/></a></p></td></tr></tbody></table>
+
+日本語

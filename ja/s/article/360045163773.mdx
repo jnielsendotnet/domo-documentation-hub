@@ -1,0 +1,54 @@
+---
+title: "Integration Studio"
+---
+
+## はじめに
+
+Integration Studioを使用すると、すべてをMagic ETLでデータパイプラインを開始から終了まで構築することができます。Integration Studioでは、コネクターの設定、パイプラインの作成、およびライトバックコネクターの設定を、すべてMagic ETLキャンバスで行うことができます。
+
+<Note>
+  **注記：** Writebackコネクターを購入すると、Integration Studioを使用できるようになります。使用可能なWritebackコネクターの一覧については、「 Writebackコネクター 」を参照してください。
+
+</Note>
+
+## Integration Studioを使用する
+
+1. 「
+**入力DataSet** 」タイルをMagic ETLキャンバスにドラッグします。
+
+<Frame><img alt="1.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuQ.png"/></Frame>
+2. **［DataSetを選択］** を選択し、既存のDataSetを選択するか、または **［新規作成］** を選択して、新しいコネクターを設定します。
+
+<Frame><img alt="2.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOug.png"/></Frame>
+3. 検索コネクターボックスで必要なコネクターを検索します。
+
+<Frame><img alt="3.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOui.png"/></Frame>
+4. コネクターウィザードの各ステップを設定し、
+**［保存］** を選択して終了します。DataSetが作成され、列が **［設定］** セクションの中に表示されます。
+
+<Frame><img alt="4.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuV.png"/></Frame>
+5. 必要に応じタイルを追加して、データをクリーンアップし、操作します。
+
+6. Magic ETLの
+**［DataSet］** セクションにあるキャンバスに、「 **ライトバック** 」タイルをドラッグします
+
+7. 出力DataSetに名前を付け、オプションの説明を追加します。次に、
+**「ライトバックを設定」** を選択します。
+
+<Frame><img alt="5.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOue.png"/></Frame>
+8. 使用するライトバックコネクターを選択します。
+
+<Frame><img alt="6.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuS.png"/></Frame>
+9. コネクターの設定を行います（
+[https://developer.domo.com](https://developer.domo.com "https://developer.domo.com") で、クライアントIDとクライアントシークレットを取得する必要があります）。
+
+<Frame><img alt="7.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuT.png"/></Frame>
+10. **［DataSetを更新］** を選択して、DataFlowが実行されるたびにライトバックDataSetを更新するか、スケジュールを設定して指定時刻に実行します。
+
+<Frame><img alt="8.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuY.png"/></Frame>
+11. **［保存して実行］** を選択し、DataFlowとWritebackコネクターを実行します。
+  
+<Frame><img alt="9.png" src="/images/kb/ka05w00000123iN-00N5w00000Ri7BU-0EM5w000005vOuO.png"/></Frame>
+ライトバックコネクターは適切に設定されており、Magic ETL DataFlowの作成を続けることができます。
+
+日本語

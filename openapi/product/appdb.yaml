@@ -1,0 +1,302 @@
+openapi: 3.0.0
+info:
+  title: App DB API
+  version: v1
+  description: |
+    The App DB API allows developers to interact with AppDB, a NoSQL database 
+    for storing arbitrary JSON documents. This API supports CRUD operations, 
+    querying, and aggregation, enabling developers to manage data efficiently 
+    within their Domo applications.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+tags:
+  - name: Documents
+    description: Manage individual documents in an AppDB collection.
+  - name: Collections
+    description: Manage AppDB collections (schema, permissions).
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication.
+  schemas:
+    #========= SHARED SCHEMAS =========
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+          
+    #========= REQUEST BODY SCHEMAS =========
+    DocumentContent:
+      type: object
+      required: [content]
+      properties:
+        content:
+          type: object
+          additionalProperties: true
+          description: "Arbitrary JSON content of the document."
+      example:
+        content: { "username": "Bill", "band": "Wyld Stallyns" }
+
+    QueryRequest:
+      type: object
+      additionalProperties:
+        type: object
+      description: A MongoDB-style query object.
+      example:
+        "content.userId": { "$eq": "123456789" }
+
+    CollectionColumn:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [STRING, LONG, DECIMAL, DOUBLE, DATE, DATETIME]
+        name:
+          type: string
+        visible:
+          type: boolean
+          
+    CollectionSchemaRequest:
+      type: object
+      properties:
+        schema:
+          type: object
+          properties:
+            columns:
+              type: array
+              items:
+                $ref: '#/components/schemas/CollectionColumn'
+        syncEnabled:
+          type: boolean
+          
+security:
+  - developerToken: []
+
+paths:
+  #========= Collection Endpoints =========
+  /api/datastores/v1/collections/{collectionId}:
+    put:
+      summary: Update Collection Schema
+      description: Update the schema of a collection.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionSchemaRequest'
+      responses:
+        '200':
+          description: OK
+
+  /api/datastores/v1/collections/{collectionId}/permission/RYUU_APP/{proxyId}:
+    put:
+      summary: Update Collection Permissions
+      description: Update permissions for a collection as it relates to a specific Custom App.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+        - name: proxyId
+          in: path
+          required: true
+          schema: { type: string }
+          description: Proxy ID available in the Asset Library.
+        - name: permissions
+          in: query
+          required: true
+          description: "Comma-separated list of permissions (e.g., read,create_content)."
+          schema:
+            type: string
+            example: "read,create_content,read_content"
+      responses:
+        '204':
+          description: No Content
+
+  #========= Document Endpoints (v1) =========
+  /api/datastores/v1/collections/{collectionId}/documents:
+    get:
+      summary: List Documents
+      description: Retrieve all documents from a specified collection (limit 10,000).
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+      responses:
+        '200':
+          description: OK (Response body is not documented)
+          
+    post:
+      summary: Create Document
+      description: Add a new document to a specified collection.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentContent'
+      responses:
+        '200':
+          description: OK (Response body is not documented)
+
+  /api/datastores/v1/collections/{collectionId}/documents/{documentId}:
+    get:
+      summary: Get Document
+      description: Retrieve a specific document from a collection.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+        - name: documentId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the document.
+      responses:
+        '200':
+          description: OK (Response body is not documented)
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+                
+    put:
+      summary: Update Document
+      description: Modify an existing document in a collection.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+        - name: documentId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the document.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentContent'
+      responses:
+        '200':
+          description: OK (Response body is not documented)
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+                
+    delete:
+      summary: Delete Document
+      description: Remove a document from a collection.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+        - name: documentId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the document.
+      responses:
+        '204':
+          description: No Content
+        '404':
+          description: Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/datastores/v1/collections/{collectionId}/documents/bulk:
+    delete:
+      summary: Bulk Delete Documents
+      description: Remove multiple documents from a collection in a single request.
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+        - name: ids
+          in: query
+          required: true
+          description: A comma-separated list of document IDs.
+          schema:
+            type: string
+          example: "id1,id2,id3"
+      responses:
+        '200':
+          description: OK (Response body is not documented)
+  /api/datastores/v2/collections/{collectionId}/documents/query:
+    post:
+      summary: Query Document
+      description: Retrieve documents from a collection via query (using v2 endpoint).
+      tags: 
+        - App DB API (Product)
+      parameters:
+        - name: collectionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The ID of the collection.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+      responses:
+        '200':
+          description: OK (Response body is not documented)

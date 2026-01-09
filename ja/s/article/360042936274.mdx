@@ -1,0 +1,77 @@
+---
+title: "2017 年 4 月リリース 1"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## 新機能と機能拡張
+
+本リリースで新しくなった機能と拡張された機能は、以下のとおりです：
+
+### Buzz の更新
+
+皆様のフィードバックをもとに Buzz が更新され、コミュニケーションを容易にする多数の拡張機能が追加されました。 拡張機能には次のものがあります...
+
+* **メッセージを編集する機能** 。 メッセージを投稿した後に、間違いを編集できます。
+    
+  <Frame><img alt="buzz_edit_message_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnT.png"/></Frame>
+* **カテゴリーに基づいてソートするメンションのフィルター** 。 Buzz で @メンションするとカテゴリーに基づいてフィルターされ、探しているカードやグループに簡単にナビゲートできるようになりました。
+    
+  <Frame><img alt="buzz_filterby_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnU.png"/></Frame>
+* **オンライン中のユーザーを表示します** 。 以前の DomoBuzz と同様、社内で誰が Domo にログインしているかを見ることができます。 詳細は、 [Domo のオンラインユーザーを確認する](/s/article/360042925774 "Domo のオンラインユーザーを確認する") を参照してください。
+    
+  <Frame><img alt="buzz_online_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnE.png"/></Frame>
+* **添付ファイルを折りたたむ機能** 。 注意をそらさせるような添付ファイルや GIF を非表示にします。
+    
+  <Frame><img alt="buzz_collapse_attachment_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnD.png"/></Frame>
+Buzz に関する詳細は、 [Buzz レイアウト](/s/article/360043429973 "Buzz レイアウト") を参照してください 。
+
+### ハイブリッド SSO
+
+ハイブリッド SSO では、シングルサインオンが有効になっているユーザーは、Domo に直接ログインできるユーザーを指定することができます。
+
+これまでのハイブリッド SSO では、管理者が機能スイッチを使用してのみ利用することができました。 SSO をご利用のお客様が契約業者や社員以外のユーザーに Domo へのアクセスを付与しようとした場合、通常そういったユーザーには社内メールやディレクトリーシステムにアカウントがないため、ジレンマに陥ることが多々ありました。 今後は、管理者は管理者設定の **シングルサインオン** タブで Domo に直接サインインできるユーザーを指定できるようになりました。そのユーザーは、SSO が有効でない場合のようにサインインできます。 ユーザーは Domo のログイン画面でログインモード（直接またはシングルサインオン）を切り替えることができます。
+  
+<Frame><img alt="hybrid_sso_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnL.png"/></Frame>
+詳細は、 直接サインオンにユーザーを追加する を参照してください。
+
+### App 展開での改善
+
+本リリースでは、App 展開プロセスで以下の改善を推進しています：
+
+* マルチ Connector によるコンテンツのサポート。  App は、1:n の Connector で起動することができるようになりました。これで、簡単で理解しやすいインターフェースを提供されます。
+* マルチユーザーの展開機能。 より複雑な App では、成功するために必要な認証情報を 1 人のユーザーが全て保有していることは、まずありえません。  そこで Buzz を活用することで、起動時のプロセスを共同で行うことができるような機能を追加しました。 特定の部分だけを、適切なユーザーに依頼することができます。  これで、もう付箋をベタベタ貼ったり、その都度認証情報を要請したりする必要がなくなります。
+
+### アップデートされた Google アナリティクス Connector の UI
+
+Google アナリティクス Connector のユーザーインターフェースが、より直感的で手順を追ったワークフローを提供できるようになりました。 1 つのペインでパラメータやレポートタイプを全て選択する代わりに、新しいインターフェースではオプションを 5 つのペインに分割しました： **ビューを選択** 、 **レポートを選択** 、 **セグメントを選択** 、 **期間を選択** 、 **設定をテスト** です。
+
+以下のスクリーンショットは、この新しくなった Domo の Google アナリティクスレポート選択画面です：
+  
+<Frame><img alt="google_analytics_new_ui_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnW.png"/></Frame>
+詳細および FAQ に関しては、 Google アナリティクス Connector を参照してください。
+
+## ページとカード Analyzer フィルター検索ボックス
+
+ページやカードにフィルターを追加する際、新しい検索ボックスで使い、探している列をより簡単に見つけることができるようになりました。
+  
+<Frame><img alt="analyzer_search_box_rn.png" src="/images/kb/ka05w00000129vK-00N5w00000Ri7BU-0EM5w000005vOnN.png"/></Frame>
+## ヘルプとサポート
+
+ヘルプセンターで最新のリリースノート情報を閲覧できます。Domo からアクセスするには、 <InlineImage src="/images/kb/ja/ka05w00000129vM-00N5w00000Ri7BU-0EM5w000005wLqa-1.png" /> **> ヘルプセンター** をクリックします。
+
+Domo に関するご質問は、
+
+* ヘルプセンターを検索する
+* Domo University で研修を受ける：
+  [http://www.domo.com/university](http://www.domo.com/university "http://www.domo.com/university")
+* Domo コミュニティ dojo.domo.com で答えを見つける
+* テクニカルサポートに問い合わせる。Buzz なら @DomoSupport 、メールは
+  [support@domo.com](mailto:support@domo.com "support@domo.com") 、お電話は 801-805-9505（米国山岳部標準時で月曜から金曜の 7am～6pm） までどうぞ。
+* Domo カスタマーサクセスマネージャ、またはテクニカルコンサルタントに問い合わせる
+
+フィードバックは、Domo 内から送信してください（ <InlineImage src="/images/kb/ja/ka05w00000129vM-00N5w00000Ri7BU-0EM5w000005wLqa-2.png" /> **> フィードバック** ）。 あるいは、 [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") までメールでどうぞ。
+
+サポートに関する詳細は、 [ヘルプとサポート](/s/article/360042922874 "ヘルプとサポート") を参照してください。
+
+日本語

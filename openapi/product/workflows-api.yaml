@@ -1,0 +1,301 @@
+openapi: 3.0.3
+info:
+  title: Domo Workflows Product API
+  description: |
+    API for interacting with Domo Workflows from external Domo instances, environments outside of Domo, or scripts running in Domo's Jupyter Workspaces.
+    
+    For authentication details, please refer to the Product APIs authentication overview.
+    For more information about Workflows, check the Domo Knowledge Base.
+  version: 1.0.0
+  contact:
+    name: Domo Support
+    url: https://www.domo.com
+
+servers:
+  - url: https://{instance}.domo.com/api/workflow/v1
+    description: Domo Workflow API
+    variables:
+      instance:
+        default: your-instance
+        description: Your Domo instance name
+
+security:
+  - DeveloperToken: []
+
+tags:
+  - name: Workflow Instances
+    description: Operations for managing workflow instances
+  - name: Workflow Models
+    description: Operations for managing workflow models and permissions
+
+paths:
+  /instances/message:
+    post:
+      tags:
+        - Workflows API (Product)
+      summary: Start a Workflow
+      description: Starts a Workflow and returns details about the Workflow Instance
+      operationId: startWorkflow
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StartWorkflowRequest'
+            examples:
+              simpleNumericInputs:
+                summary: Simple workflow with two numeric parameters
+                value:
+                  messageName: "Start MyWorkflow"
+                  version: "0.0.1"
+                  modelId: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+                  data:
+                    parameter1: 13
+                    parameter2: 7
+      responses:
+        '200':
+          description: Workflow started successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowInstance'
+              example:
+                id: "2052e10a-d142-4391-a731-2be1ab1c0188"
+                modelId: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+                modelName: "AddTwoNumbers"
+                modelVersion: "1.1.0"
+                createdBy: "8811501"
+                createdOn: "2023-11-15T15:28:57.479Z"
+                updatedBy: "8811501"
+                updatedOn: "2023-11-15T15:28:57.479Z"
+                status: null
+        '400':
+          description: Bad request - Invalid input parameters
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Workflow not found
+
+  /instances/{instanceId}/cancel:
+    post:
+      tags:
+        - Workflows API (Product)
+      summary: Cancel a Workflow
+      description: Cancels an in-progress Workflow instance
+      operationId: cancelWorkflow
+      parameters:
+        - name: instanceId
+          in: path
+          required: true
+          description: The ID of the Workflow instance to cancel
+          schema:
+            type: string
+          example: "2052e10a-d142-4391-a731-2be1ab1c0188"
+      responses:
+        '200':
+          description: Workflow canceled successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowInstanceDetailed'
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Workflow instance not found
+
+  /models/{modelId}/permissions:
+    post:
+      tags:
+        - Workflows API (Product)
+      summary: Change Workflow Permissions
+      description: Updates the permissions for a workflow model
+      operationId: updateWorkflowPermissions
+      parameters:
+        - name: modelId
+          in: path
+          required: true
+          description: The ID of the workflow model
+          schema:
+            type: string
+          example: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PermissionEntry'
+            example:
+              - id: "123456"
+                permissions:
+                  - "ADMIN"
+                  - "SHARE"
+                  - "DELETE"
+                  - "WRITE"
+                  - "READ"
+                  - "EXPORT"
+                  - "EXECUTE"
+                  - "UPDATE_CONTENT"
+                name: "John Doe"
+                type: "USER"
+              - id: "98765"
+                name: "John Smith"
+                type: "USER"
+                permissions:
+                  - "READ"
+      responses:
+        '200':
+          description: Permissions updated successfully
+        '400':
+          description: Bad request - Invalid permissions data
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '403':
+          description: Forbidden - Insufficient permissions to modify workflow
+        '404':
+          description: Workflow model not found
+
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+
+  schemas:
+    StartWorkflowRequest:
+      type: object
+      required:
+        - messageName
+        - version
+        - modelId
+        - data
+      properties:
+        messageName:
+          type: string
+          description: Message passed to start the Workflow Instance, usually `"Start {workflow_name}"`
+        version:
+          type: string
+          description: The version identifier (e.g., 0.0.1)
+        modelId:
+          type: string
+          description: The ID of the Workflow
+        data:
+          type: object
+          description: |
+            The start parameters required to kick off the Workflow. Structure this object to be consistent.
+          additionalProperties: true
+          example:
+            parameter1: 13
+            parameter2: 7
+
+    WorkflowInstance:
+      type: object
+      properties:
+        id:
+          type: string
+          description: ID of the newly created workflow instance
+          example: "2052e10a-d142-4391-a731-2be1ab1c0188"
+        modelId:
+          type: string
+          description: ID of the workflow
+          example: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+        modelName:
+          type: string
+          description: Name of the workflow
+          example: "AddTwoNumbers"
+        modelVersion:
+          type: string
+          description: Workflow version number
+          example: "1.1.0"
+        createdBy:
+          type: string
+          description: User ID of workflow creator
+          example: "8811501"
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the instance was created
+          example: "2023-11-15T15:28:57.479Z"
+        updatedBy:
+          type: string
+          description: User ID of last updater
+          example: "8811501"
+        updatedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the instance was last updated
+          example: "2023-11-15T15:28:57.479Z"
+        status:
+          type: string
+          nullable: true
+          description: Status of the workflow instance. Can be null, IN_PROGRESS, CANCELED, or COMPLETED. A null status means the workflow hasn't reported back as started yet.
+          enum:
+            - null
+            - IN_PROGRESS
+            - CANCELED
+            - COMPLETED
+          example: null
+
+    WorkflowInstanceDetailed:
+      allOf:
+        - $ref: '#/components/schemas/WorkflowInstance'
+        - type: object
+          properties:
+            deploymentId:
+              type: string
+              description: ID of the deployment
+            bpmnProcessId:
+              type: string
+              description: BPMN process ID
+            bpmnProcessName:
+              type: string
+              description: BPMN process name
+            isTestRun:
+              type: boolean
+              description: Indicates if this is a test run
+
+    PermissionEntry:
+      type: object
+      required:
+        - id
+        - type
+        - permissions
+      properties:
+        id:
+          type: string
+          description: User or group ID
+          example: "123456"
+        name:
+          type: string
+          description: Name of the user or group
+          example: "John Doe"
+        type:
+          type: string
+          description: Type of entity
+          enum:
+            - USER
+            - GROUP
+          example: "USER"
+        permissions:
+          type: array
+          description: Array of permissions to grant
+          items:
+            type: string
+            enum:
+              - ADMIN
+              - SHARE
+              - DELETE
+              - WRITE
+              - READ
+              - EXPORT
+              - EXECUTE
+              - UPDATE_CONTENT
+          example:
+            - "ADMIN"
+            - "READ"
+            - "EXECUTE"

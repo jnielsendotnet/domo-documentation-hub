@@ -1,0 +1,70 @@
+---
+title: "AnalyzerとDataSetビューの統合"
+---
+
+## はじめに
+
+DataSetビューはAnalyzer内に統合されているため、軽量のETLデータ変換に対応できるほか、データの可視化も可能です。Analyzer内から、次のことができるようになりました。
+
+* 別のDataSetのJoin
+* 列の名前の変更、列の削除、データタイプの変更による、データのクリーンアップ
+* ネストしたBeast Modeの作成
+
+Analyzerの詳細については、「 [DataSetビュー](/s/article/360046074774) 」を参照してください。
+
+## Analyzer内でのDataSetビューの使用
+
+1. 既存のカードを編集するか、新しいカードを作成します。
+2. Analyzerを開きます。
+3. **［データ］** タブをクリックします。
+     
+   <Frame><img alt="Data_Tab.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt5.png"/></Frame>
+4. DataSetに変更を加えます。
+5. **［可視化する］** タブをクリックします。
+     
+   <Frame><img alt="Visualize_Tab.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt8.png"/></Frame>
+6. 更新されたDataSetでカードをデザインします。
+7. カードが完成したら、ドロップダウンメニューから **［保存して閉じる］** を選択します。
+     
+   <Frame><img alt="Save_and_Close.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt9.png"/></Frame>
+## ビューのカスタム権限
+
+管理者やMajor Domoによるインスタンス内でのデータガバナンスを容易にするために、新しいカスタム許可が追加され、Analyzer内でDataSetビューを作成できるユーザーをより細かく制御できるようになりました。
+
+［管理者］>［権限］セクションに新しい権限が追加されました。これにより、管理者は、AnalyzerでDataSetビューを作成するユーザーの権限を有効または無効にできます。
+
+インスタンス内のユーザーが「データを編集」の許可を持っている場合、そのユーザーはAnalyzerでDataSetビューを作成できます。この新しい許可の選択を解除すると、Analyzerで新規DataSetビューを作成するためのユーザーの許可が無効になります。ユーザーはAnalyzerでのみDataSetを表示でき、変更を加えることはできません。
+
+この新しい許可は「データを編集」と関連しています。ユーザーが「データを編集」を有効にすると、DataSetビューを作成するための新しい許可も有効になります。この許可を削除するには、「データを編集」を無効にする必要があります。
+
+## Analyzer DataSetタグ
+
+Analyzerで作成されたDataSetビューの追跡をサポートするために、Analyzerで作成されたDataSetビューにはタグが自動的に付与されます。Data Centerでこのタグを簡単にフィルターできます。
+  
+<Frame><img alt="Analyzer_Views_Tag.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt7.png"/></Frame>
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="AnalyzerのDataSetビューでは、カスタマイズされた権限はどのように機能しますか？">
+
+
+Domoのほかの機能と同様に、ユーザーの許可がDataSetビューに適用されます。AnalyzerでDataSetビューを作成または編集するには、「編集可能」なDataSetが必要です。「データを編集」の許可がない場合、ユーザーは、Analyzerの［DataSetデータ］タブを閲覧することのみが許可されます。ユーザーは、DataSetの編集も変更もできません。閲覧のみ可能です。
+
+
+</Accordion>
+<Accordion title="AnalyzerのDataSetビューでPDPはどのように動作しますか？">
+
+
+PDPはほかのDataSetでの動作と同様に動作します。行レベルのセキュリティが適用されている場合、ユーザーは、自身がアクセスできる行のみをAnalyzerの［データ］タブで確認できます。PDPを適用したDataSetからDataSetビューを作成すると、そのPDPは新しいDataSetビューに自動的に適用されます。
+
+
+</Accordion>
+<Accordion title="Analyzer内のDataSetビューの作成と編集は、監査ログで追跡されていますか？">
+
+
+はい、Analyzerに新規DataSetビューが作成されると、監査ログイベントがアクティビティログに追加されます。ログには、作成した新規DataSetとその作成者が記録されます。DataSetビューを編集すると、追加の監査イベントが監査ログに追加されます。
+
+日本語
+
+</Accordion>
+</AccordionGroup>

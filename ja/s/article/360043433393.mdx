@@ -1,0 +1,47 @@
+---
+title: "IBM Informixコネクター"
+---
+
+## はじめに
+
+IBM Informixは、高速でスケーラブルなデータベースサーバーであり、従来のリレーショナルデータベース、オブジェクトリレーショナルデータベース、ディメンションデータベースを管理できます。Informixの詳細については、IBMのWebサイト（ [https://www.ibm.com/jp-ja/products/informix/developer-tools?mhsrc=ibmsearch\_a&mhq=informix%20API](https://www.ibm.com/jp-ja/products/informix/developer-tools?mhsrc=ibmsearch_a&mhq=informix%20API "https://www.ibm.com/jp-ja/analytics/us/en/technology/informix/") ）を参照してください。
+
+Informixファイルには、Data Centerから接続します。このトピックでは、Informixコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Informixアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Informixデータベースのログインに使用するユーザー名とパスワード
+* Informixデータベースのポート番号
+* Informixデータベースホスト名またはIPアドレス
+* Informixデータベース名
+* Informixサーバー名
+
+Informixデータベースに接続する前に、以下のIPアドレスをデータベースサーバーの接続ポートでホワイトリスト登録する必要があります。IPアドレスの詳細なリストは、「 コネクターのIPアドレスをホワイトリストに登録する 」を参照してください。
+
+## Informixアカウントに接続する
+
+このセクションでは、Informixコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Informixアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> Informixデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース名 </p></td><td colspan="1" rowspan="1"><p> Informixデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> Informixサーバーのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Informixユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Informixパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サーバー </p></td><td colspan="1" rowspan="1"><p> Informixサーバーの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> Informixのポート番号を入力します。 </p></td></tr></tbody></table>
+
+有効なInformix認証情報を一度入力しておくと、随時同じアカウントを使用して新しいInformix DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する")
+
+」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、SQLクエリを入力するためのメニューが1つあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Domoに入力するInformixデータのSQLクエリを入力します。 </p><p></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

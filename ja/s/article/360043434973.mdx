@@ -1,0 +1,150 @@
+---
+title: "JIRA Rest APIコネクター"
+---
+
+## はじめに
+
+JIRAは素晴らしい製品を開発するためにチームを組織し、協力して作業をするのに活用できますが、製品チームは組織の一部に過ぎません。Domoを使用すると、複数のソースからのデータを単一のプラットフォームに結合することができます。製品開発、マーケティング、セールス、運営、財務などからデータを取得し、事業全体をリアルタイムに把握することができます。データをDomoに取り込むと、リアルタイムデータによるダイナミックな可視化がすべてのデバイスで実現します。
+  
+DomoのJIRAコネクターを使用すると、JIRAアカウントに接続してJIRAからデータを抽出することができます。カスタムクエリまたは事前定義されたクエリを使用すると、問題追跡、チームごとの完了済みチケット、チケット解決時間、プロジェクト管理メトリクスなどのデータをインポートできます。JIRA APIの詳細については、 [https://developer.atlassian.com/jira...e-query-issues](https://developer.atlassian.com/jiradev/jira-apis/jira-rest-apis/jira-rest-api-tutorials/jira-rest-api-example-query-issues "https://developer.atlassian.com/jiradev/jira-apis/jira-rest-apis/jira-rest-api-tutorials/jira-rest-api-example-query-issues") を参照してください。
+
+JIRAコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部にあるツールバーで **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+JIRAアカウントには、Data Centerから接続します。このトピックでは、JIRAコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> チケットの進捗や動向の追跡 </p></li><li><p> 特定のユーザーやグループにアサインされたチケット数 </p></li><li><p> オープンである特定のタイプのチケット（バグ）が多すぎないか確認 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> バグ、問題、またはチケットの追跡（経過時間、タイプ、ステータス、提出者により分類） </p></li><li><p> チームごとの完了済みチケット </p></li><li><p> チケット解決時間 </p></li><li><p> プロジェクト管理メトリクス（プロジェクトやエピックに含まれる個々のタスクを追跡） </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 製品マネージャー </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 実装の形態や、JIRAシステムに関するユーザーの知識レベルにより大きく異なります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* JIRAコネクターでは、必ず「置換」を使用してください。「追加」は適切に作動しません。
+* クエリを長期間にわたるデータに対して実行する場合、スケジュール間隔は最低限に抑えてください（1日1回）。短期間のクエリについては、より頻繁なアップデートが適しています。
+
+## 必要条件
+
+JIRAアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* JIRAへのログインに使用するユーザー名とパスワード/APIキー。
+  Jira CloudユーザーはAPIキーを使用する必要があります。APIキーは、http://id.atlassian.comで 生成できます。
+* 会社のJIRAインスタンスのURL。
+* データを引き出すのに使用するJQLクエリ（カスタマイズされたレポートを作成する場合）。
+
+認証情報は、アカウントの作成時に取得します。JIRA管理者は、オンプレミスでJIRAを実装した場合、社内の大多数のユーザーに対してユーザー名とパスワードを作成したものと想定されます。
+
+### SSO
+
+シングルサインオン（SSO）認証情報は機能しません。ただし、以下を実行することでSSO制限を回避できます。
+
+1. JIRA管理者に、APIで使用するための、専用のユーザー名とパスワードを持つローカルアカウントの作成を依頼します。
+2. APIキーを [http://id.atlassian.com/](http://id.atlassian.com/ "http://id.atlassian.com/") で作成します。
+3. DomoのJIRAコネクターページで、パスワードの代わりに作成したAPIキーを入力します（アカウントによっては、ユーザー名として、あなたのユーザー名、またはJIRAアカウントメールアドレスの入力を求められる場合があります）。
+
+## JIRAインスタンスに接続する
+
+このセクションでは、JIRA Rest APIコネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、JIRAインスタンス接続用の認証情報を入力するフィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> JIRAインスタンスのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> JIRAインスタンスのログインに使用するパスワードを入力します。 <span> Jira CloudユーザーはAPIキーを使用する必要があります。APIキーは、 <a href="http://id.atlassian.comで" rel="noopener" target="_blank"> http://id.atlassian.comで </a> 生成することができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Server URL </p></td><td colspan="1" rowspan="1"><p><span> JIRAインスタンスのURLを入力します（例： <a href="http://onjira.mycompany.com" rel="noopener" target="_blank"> onjira.mycompany.com </a> ）。 </span></p></td></tr></tbody></table>
+
+一度有効なJIRA認証情報を入力しておくと、随時同じアカウントを使用して新しいJIRA DataSetを作成することができます。コネクターのアカウントは Data Center の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示／非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span></span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> レポート </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Issue Query </td><td colspan="1" rowspan="1"> ユーザーがJQL（JIRA Query Language）を使って問題をクエリできるようにします。 </td></tr><tr><td colspan="1" rowspan="1"> Boards </td><td colspan="1" rowspan="1"> スクラムボードのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Board Sprints </td><td colspan="1" rowspan="1"> 選択したボードスプリントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Sprint Issues </td><td colspan="1" rowspan="1"> 選択したスプリントの問題を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"> ユーザーのJIRAアカウントで使用するフィールドのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Group Members </td><td colspan="1" rowspan="1"> 指定されたグループに属するユーザーのリストを返します。このレポートを実行するには管理者アクセス権が必要です。 </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> ユーザーがアクセスするプロジェクトすべてのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Project Versions </td><td colspan="1" rowspan="1"> 指定したプロジェクトのバージョンすべてのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> JQL Query </td><td colspan="1" rowspan="1"><p><span> カスタマイズされたデータを取得するためのJQLクエリを入力します。 </span><a href="https://confluence.atlassian.com/display/JIRA/Advanced+Searching" target="_blank"> JIRAのドキュメント </a> を参照してください。 </p><table border="1"><tbody><tr><th colspan="1" rowspan="1"> 説明 </th><th colspan="1" rowspan="1"> クエリの例 </th></tr><tr><td colspan="1" rowspan="1"> 3ヶ月前の月初以降に作成されたすべての問題 </td><td colspan="1" rowspan="1"> created &gt;= STARTOFMONTH(-3) </td></tr><tr><td colspan="1" rowspan="1"> 10日前以降に作成されたすべての問題 </td><td colspan="1" rowspan="1"> created &gt;= STARTOFDAY(-10) </td></tr><tr><td colspan="1" rowspan="1"> 特定の日以降に更新されたすべての問題 </td><td colspan="1" rowspan="1"> updated &gt;= '2020-01-01' </td></tr><tr><td colspan="1" rowspan="1"> 自分に割り当てられたすべての問題 </td><td colspan="1" rowspan="1"> assignee = currentUser() </td></tr><tr><td colspan="1" rowspan="1"> クローズされた「Some Project」に対するすべての問題 </td><td colspan="1" rowspan="1"> project = 'Some Project' <br/> and status = closed </td></tr><tr><td colspan="1" rowspan="1"> 特定のユーザーから報告されたすべての問題 </td><td colspan="1" rowspan="1"> reporter = ' <a href="http://user.name" rel="noopener" target="_blank"> user.name </a> ' </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Data Option </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> データオプション </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Comments Report </td><td colspan="1" rowspan="1"> 関連するコメントを持つJIRAチケットを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Changelog Report </td><td colspan="1" rowspan="1"> クエリに該当する問題に関するチェンジログを返します。ChangelogレポートはJira Cloudユーザーのみが利用可能です。 </td></tr><tr><td colspan="1" rowspan="1"> Labels Report </td><td colspan="1" rowspan="1"> クエリに該当する問題のラベルを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Linked Issues Report </td><td colspan="1" rowspan="1"> クエリに該当する問題にリンクされた問題を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Sprint Report </td><td colspan="1" rowspan="1"> クエリに該当する問題のスプリントの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Standard Ticket Report </td><td colspan="1" rowspan="1"> JIRAチケットのほぼすべてのパラメーター（問題サマリ、説明、作成日、解決日、影響のあった顧客名、環境など）の列を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ticket History Report </td><td colspan="1" rowspan="1"> チケットの履歴情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Worklog Report </td><td colspan="1" rowspan="1"> クエリに該当する問題に関するワークログを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Filter Type </td><td colspan="1" rowspan="1"><span> 返されるデータセットに特定のフィールドを含めるか除外するかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Group Name </td><td colspan="1" rowspan="1"><span> 取得したいユーザーを含むグループを入力します。このレポートには管理者アカウントが必要です。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="20%"> レポート名 </th><th colspan="1" rowspan="1" width="20%"></th><th colspan="1" rowspan="1" width="60%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="3"> Agile API: </td><td colspan="1" rowspan="1"> Agile Boards </td><td colspan="1" rowspan="1"> /rest/agile/1.0/board </td></tr><tr><td colspan="1" rowspan="1"> Board Sprints </td><td colspan="1" rowspan="1"> /rest/agile/1.0/board/{boardId}/sprint </td></tr><tr><td colspan="1" rowspan="1"> Sprint Issues </td><td colspan="1" rowspan="1"> /rest/agile/1.0/board/{boardId}/sprint/{SprintId}/issue </td></tr><tr><td colspan="1" rowspan="1"> Fields </td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"> /rest/api/2/field </td></tr><tr><td colspan="1" rowspan="1"> Group Members </td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"> /rest/api/2/group/member </td></tr><tr><td colspan="1" rowspan="1"> Issue Query </td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"> /rest/api/2/search </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"> /rest/api/2/project </td></tr><tr><td colspan="1" rowspan="1"> Project Versions </td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"> /rest/api/2/project/{projectId}/versions </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+JIRAインスタンスには、ユーザー名、パスワード、サーバーのURLが必要です。
+
+
+</Accordion>
+<Accordion title="Domoから、JIRA認証情報が無効であると返されます。原因は何でしょうか？">
+
+
+エラーの原因として、以下が考えられます。
+
+* JIRAサーバーでAPIアクセスが有効になっていない。APIアクセスを有効にするには、JIRAの管理者に連絡してください。
+* JIRAのユーザー名ではなく、メールアドレスを使用している。ユーザー名とメールアドレスがまったく同じであることは多いのですが、「 [user.name@company.com](mailto:user.name@company.com) 」というメールアドレスのユーザーの実際のユーザー名が「 [user.name](http://user.name) 」であることも珍しくありません。
+
+
+</Accordion>
+<Accordion title="SSOアカウントを使ってログインできますか？">
+
+
+JIRAではSSOの実装はサポートされていません。ただし、これらの制限を回避することはできます。
+
+* JIRAサーバー – JIRA管理者に、APIで使用する専用のユーザー名とパスワードを持つローカルアカウントの作成を依頼します。
+* JIRAクラウド – [ATLASSIAN](https://id.atlassian.com/login) でAPIキーを作成することができます。DomoのJIRAコネクターページで、パスワードの代わりに作成したAPIキーを入力します。
+    
+  注記：アカウントによっては、ユーザー名として、自分のユーザー名またはJIRAアカウントのメールアドレスを入力する必要があります。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+JIRAのサーバーからのデータは、通常すぐにAPIで利用可能です。
+
+
+</Accordion>
+<Accordion title="クエリが正しいかどうかを確認する方法はありますか？">
+
+
+JIRAプラットフォームには、クエリが有効かどうかを確認できる便利なツールがあります。このツールにアクセスする簡単な方法は、単にJIRAの検索バーで検索を行うことです。検索画面では、クエリ文字列の横に有効であることを示す緑のチェックボックスが表示されます。そうでない場合には、赤の「X」が表示されます。基本的な検索機能に戻して利用可能なセレクターからクエリを作成し、再び［Advanced］に切り替えることで作成したクエリを確認できます。
+
+
+</Accordion>
+<Accordion title="接続エラー（ゲートウェイのタイムアウト、ゲートウェイ不良、接続タイムアウト、接続リセットなど）が何度も発生します。どうすればいいですか？">
+
+
+接続エラーの最も一般的な原因は、JIRAサーバーに、リクエストに対処できないほどの負荷がかかっていることです。JIRAサーバーにさらにリソースを割り当てる方法については、JIRAの管理者にお問い合わせください。
+
+
+</Accordion>
+<Accordion title="このコネクターはカスタムフィールドをプルしますか？">
+
+
+JIRAは非常に多くのデータを返すため、コネクターではフィールドをインクルーシブまたはエクスクルーシブで指定できます。インクルーシブを選択すると、指定したフィールドのみが返されます。エクスクルーシブを選択すると、指定したフィールドを除くすべてのフィールドが返されます。
+
+
+</Accordion>
+<Accordion title="ボードからデータを引き出せますか？">
+
+
+アクセス権のあるすべてのアジャイルボードのリストを取得するには、レポートタイプで **［Agile API］** 、アジャイルレポートで **［Agile Board］** を選択します。
+
+
+</Accordion>
+<Accordion title="このコネクターでOAuthを使用できますか？">
+
+
+JIRAインスタンスでOAuthを使用する場合は、Jira Cloudコネクターを使用してください。Jira CloudコネクターはOAuth2認証をサポートしています。JIRAアカウントにオンラインでログインするのと同じ認証情報を使用して、Jira Cloudコネクターで認証することができます。
+
+## トラブルシューティング
+
+* JIRAでは、APIアクセスを確実に有効化するため、JIRA管理者側で、多くの設定を必要とします。よくある問題としては、タイムアウトが短すぎる、またはJIRAサーバーに十分なリソースが提供されないことが挙げられます。
+* JQLのフォーマットを理解するのが難しい場合は、JIRAフロントエンドにログインするのが最も簡単な解決法です。JIRAは、［検索］バーで、プリセットされたフィルターを用いてJQLクエリを作成できるツールを提供しています。クエリの作成後に **［Advanced］** ボタンを押すと、選択にもとづいてJQLフォーマットで表示されます。
+
+
+
+</Accordion>
+</AccordionGroup>

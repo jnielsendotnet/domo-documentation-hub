@@ -1,0 +1,154 @@
+---
+title: "Beast Mode計算例：その他の変換"
+---
+
+## はじめに
+
+## 平均時間（秒）を計算する
+
+所要平均時間の計算には、次のコードを使用します。平均時間は秒で返されますが、出力を分割すれば日数、時間、分を取得できます。
+
+```
+-- Days --
+
+AVG(DATE(`end_date`)-DATE(`start_date`)) * 86400
+
++
+
+-- Hours --
+
+AVG(HOUR(`end_date`)-HOUR(`start_date`)) * 3600
+
++
+
+-- Minutes --
+
+AVG(MINUTE(`end_date`)-MINUTE(`start_date`)) * 60
+
++
+
+-- Seconds --
+
+AVG(SECOND(`end_date`)-SECOND(`start_date`))
+```
+
+## 折れ線グラフからNULL値を削除する
+
+線がゼロにならないように、折れ線グラフのNULL値にフィルターをかける計算を作成するには、次のコードを使います。
+
+`` SUM(CASE WHEN `Number of SQLs`!= 0 THEN`Number of SQLs` END) ``
+
+`SUM()` は、CASEステートメントの外側に置くのがベストプラクティスです。 `` `Number of SQLs` = 0 `` の場合、NULL値を返します。
+
+## NULL値にフィルターをかける
+
+NULL値を含む列の値を合計する場合は、IFNULL関数を使用してNULL値をゼロに変換する必要があります。
+
+例：
+
+`` IFNULL(`col`,0) ``
+
+例えば、「カテゴリー」列に「A」、「B」、「C」という値があり、「金額」列に「20」、「10」という値と空白のセル（NULL）があるとします。「金額」列をSUMすると、IFNULL計算によりNULL値が0に変換され、SUMは通常通りに適用されます。
+
+## Page Analyzerのリンク（またはフィルターを使ったディープリンク）を作成する
+
+Beast Mode計算を使うと、表カードのほかのページへのリンクを作成し、またBeast Modeの設定に従ってAnalyzerのフィルターを適用させることができます。これは現在のカードのドリルパスにないカードを使ってストーリーを語りたいとき、または中央あるいは親の表カードからページにAnalyzerフィルターを簡単に適用できるようにしたいときに使える強力な機能です。
+
+いずれかのリンクを作成するには、次のコードをBeast Mode計算にコピーします。
+
+```
+CONCAT('<a HREF="https://customer.domo.com/page/##########'
+,'?
+pfilters=%5B%7B%22column%22:%22ColumnName%22,%22dataSourceID%22:%22DataSetID%22,%22dataType%22:%22string%22,%22operand%22:%22OperandType%22,%22values%22:%5B%22'
+,`Owner.Name`
+,'%22%5D%7D%5D" _target=BLANK>'
+,’Link Display Name’
+,'</a>'
+)
+```
+
+<Note>
+  **注記：** iFrameでpフィルターを使用する場合、一重引用符は使用できません。引用符の代わりにASCIIコード `%22` を使用してください。
+
+</Note>
+
+カスタムのディープリンクを作成するには、上の **bold** の部分を次のように置き換えます。
+
+<table class="mt-responsive-table"><tbody><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><code> https://customer.domo.com/page/########## </code></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> ユーザーがリンクをクリックしたときの移動先DomoページのURLに置き換えます。 </td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"> ColumnName </td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> フィルターを適用する列名に置き換えます。 </td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p></p><p> DataSet ID </p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> フィルターを適用するDataSetのDatasetIDに置き換えます。これを確認するには、Data CenterでDataSetに移動します。IDはURL内にあります。 </p><p><img alt="DataSet_ID_URL.png" src="/images/kb/ka05w00000123S2-00N5w00000Ri7BU-0EM5w000005vOEG.png"/><br/></p><div class="mdx-embed"><Tip><p><b> ヒント： </b> 情報を追加するDataSetに関係なく、ページのすべてのカードにフィルターを適用するには、Beast ModeからDataSet IDパラメーターをまとめて削除します。 </p></Tip></div></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"> String </td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> フィルターを適用する列のデータタイプに置き換えます。文字列、値、日付のいずれかを使用できます。 </td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"> OperandType </td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> フィルターに使用するオペランドのタイプに置き換えます。INやNOT_INのオプションがあります。<div class="mdx-embed"><Tip><p><b> ヒント： </b> NOT_INを使用する場合は、アンダースコアを含める必要があります。オペランドはURLに含まれるため、スペースを使用することはできません。 </p></Tip></div></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p></p><p></p><p></p><p><a href="http://Owner.Name" rel="noopener" target="_blank"> Owner.Name </a></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> フィルターを適用する値を含む列に置き換えます。例えば、 <code> Owner.Name </code> 値を使用する場合、行1のディープリンクをクリックすると、Bob Smithのデータが返されます。行3のリンクを選択すると、Jeff Clarkのデータが返されます。 </p><p><img alt="Deep Link Table.png" src="/images/kb/ka05w00000123S2-00N5w00000Ri7BU-0EM5w000005vOEF.png"/></p></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"> _target=BLANK </td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> （オプション）ブラウザーの新しいタブでリンクを開きます。同じブラウザータブでリンクを開く場合は、この部分をBeast Modeから削除します。 </td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"> Link Display Name </td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"> リンクに表示されるテキストです。URL全体を表示する代わりに、リンクの表示方法を指定できます。 </td></tr></tbody></table>
+
+### 複数のフィルターを追加する
+
+複数のフィルターを追加するには、下のフィルター部分全体をコピーします。
+
+``,'?,'%22%5D%7D,%7B%22column%22:%22ColumnName%22,%22dataSourceID%22:%22DataSetID%22,%22dataType%22:%22string%22,%22operand%22:%22OperandType%22,%22values%22:%5B%22', `Owner.Name2` ``
+
+必要な数のフィルターを挿入します。
+
+```
+CONCAT('<a HREF="hQps://
+
+ customer.com/page/#########'
+
+;
+
+,'?
+
+pfilters=%5B%7B%22column%22:%22ColumnName%22,%22dataSourceID%22:%22DataSetID%22,%22dataType%22:%22string%22,%22operand%22:%22OperandType%22,%22values%22:%5B%22'
+
+,`
+
+ Owner.Name
+
+`
+```
+
+/\* 追加列フィルター - 次のコードをコピーし、フィルターをかける追加列ごとに貼り付けます。\*/
+
+```
+,'%22%5D%7D,%7B%22column%22:%22ColumnName%22,%22dataSourceID%22:%22DataSetID%22,%22dataType%22:%22string%22,%22operand%22:%22OperandType%22,%22values%22:%5B%22', `Owner.Name2`
+
+,'%22%5D%7D%5D" _target=BLANK>'
+```
+
+/\* ヒント：何にフィルターをかけるかを表示する列名を結合します。\*/
+
+```
+,CONCAT(`Name`, ' | ', `Ac&on`)
+
+,'</a>'
+
+)
+```
+
+<Note>
+  **注記：** iFrameでpフィルターを使用する場合、一重引用符は使用できません。引用符の代わりにASCIIコード `%22` を使用してください。
+
+</Note>
+
+DomoのHTMLの詳細については、「 [Beast Modeを使用してグラフィック、リンク、画像を表カードに追加する](/s/article/360043430033 "Beast Modeを使用してグラフィック、リンク、画像を表カードに追加する") 」を参照してください。
+
+## ウェブフォームフィールドを利用する
+
+直近に終了した月や現在の月をフィルターに反映するために、毎月多くのカードを更新する必要があるとします。一括で更新できる基準点としてフィルターを合理化し、すべてのカードが同じ新しい月または年を使用するようにトリガーすれば、各カードを個別に更新する必要はありません。例：Closed Month = Septまたは9、Current Month = Octまたは10、Closed Year = 2016。次の手順を実行して行います。
+
+1. 必要に応じて手動で更新し、現在の月数と年を指定する日付参照を持つウェブフォームを作成します。
+2. DataFlowを使用してウェブフォームをデータに結合します。
+3. ウェブフォームフィールドを利用するBeast Mode計算を作成します。
+     
+   例えば、9の値を持つ「Closed Month」列がある場合、このBeast Modeは次のように機能します。
+
+   ```
+   CASE
+
+   WHEN MONTH(`Date`) = `Closed Month` THEN "Closed Month"
+
+   ELSE "Other"
+
+   END
+   ```
+
+4. フィルターにこのBeast Modeを使用します。フィルターを「Closed Month」に設定します。そうすると、ウェブフォームの値を更新するたびに、そのフィルターを使用するすべてのカードに新しいデータが表示されます。
+
+毎月の手作業が不要になるもう1つの方法として、DataFlowを使用して `` MAX(`Date`) `` を計算し、 `` MAX(`Date`) `` と同じ月にあるすべてのデータを特定する列を追加する方法があります。カードで最新の月のみを使用する場合は、カード内の該当するフィールドにフィルターをかけます。
+
+日本語

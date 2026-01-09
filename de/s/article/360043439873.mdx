@@ -1,0 +1,90 @@
+---
+title: "Januar 2019 Version 1"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Neue Funktionen und Verbesserungen
+
+In dieser Version gibt es folgende Funktionen und Verbesserungen:
+
+### Workbench 5
+
+Wir freuen uns sehr, Ihnen mitteilen zu können, dass nun eine neue Version von Workbench zum Download zur Verfügung steht. Zudem werden alle Nutzer von Workbench 4 automatisch zu Workbench 5 migriert, sodass Installationen nicht manuell aktualisiert werden müssen. (Wenn Sie das Upgrade auf Workbench 5 zu einem späteren Zeitpunkt vornehmen möchten, können Sie die Funktion für automatische Updates deaktivieren, indem Sie zu **Mehr >** **Einstellungen > Updates** navigieren und dann das Kontrollkästchen **Updates automatisch installieren** deaktivieren.)
+
+In Workbench 5 wird für alle Jobs in neuen Diagrammen zum Jobstatus direkt auf der Startseite angezeigt, ob sie erfolgreich ausgeführt wurden (siehe unten). In der neuen Benutzeroberfläche können Sie Jobs zentral an einem Ort hinzufügen, ändern und prüfen, sodass Sie schnell navigieren und zur Arbeit zurückkehren können. Sollten einmal Probleme auftreten, finden Sie direkt in Workbench Hilfeartikel und müssen das Programm nicht extra verlassen.
+
+<Frame><img alt="workbench_5_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkF.png"/></Frame>
+In Workbench 5 profitieren Sie von optimaler Transparenz für Ihre Jobs.
+
+Weitere Informationen finden Sie unter [Verbindungsherstellung mit Daten anhand von Workbench 5](/s/topic/0TO5w000000ZapTGAS "Verbindungsherstellung mit Daten anhand von Workbench 5").
+
+### Seitenfilterung auf Übersichts- und Favoritenseiten
+
+Auf Übersichts- und Favoritenseiten sind nun Seitenfilter verfügbar, sodass alle Nutzer diese Seiten (unabhängig von ihrer jeweiligen Berechtigung) an die eigenen Anforderungen anpassen können.
+
+Weitere Informationen zur Seitenfilterung finden Sie unter Anwenden von Filtern auf Seitenebene.
+
+### Unterstützung für Gruppengenehmigung bei zertifiziertem Content
+
+Für zertifizierten Content ist es nun möglich, Domo-Gruppen in der Genehmigungskette beliebiger Zertifizierungsprozesse als genehmigende Einheit hinzuzufügen. Admin-Nutzer können die Funktion aktivieren, um auf organisatorische Veränderungen zu reagieren und genehmigende Personen, die länger abwesend oder überlastet sind, zu entlasten. Mit Gruppengenehmigungsschritten fallen für Admin-Nutzer bei zertifiziertem Content weniger Wartungsarbeiten an und Content kann schneller und effizienter zertifiziert werden.
+
+<Frame><img alt="certified_content_group_approval_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkK.png"/></Frame>
+Weitere Informationen zum Zertifizieren von Inhalten finden Sie unter [Zertifizieren von Inhalten](/s/topic/0TO5w000000Zan5GAC "Zertifizieren von Inhalten").
+
+### Grants zum Anfordern einer Zertifizierung und Herunterladen von Workbench
+
+Zwei neue Nutzerrechte wurden zu unserer Liste mit Grants hinzugefügt, die für die Erstellung von benutzerdefinierten Rollen für die Domo-Nuzter Ihres Unternehmens verfügbar sind. Es handelt sich um:
+
+* "Zertifizierung anfordern." Ermöglicht Nutzern das Einreichen von Zertifizierungsanforderungen für Inhalte.
+* "Workbench herunterladen." Ermöglicht Nutzern das Herunterladen von Workbench von der **On Premise-** Seite im Data Center.
+
+Mit diesen Grants können Sie noch genauer festlegen, wer in Ihrer Domo-Instanz welche Befugnisse hat.
+
+Weitere Informationen zu Grants und zur Erstellung neuer benutzerdefinierter Rollen finden Sie unter [Verwalten benutzerdefinierter Rollen](/s/article/360043438973 "Verwalten benutzerdefinierter Rollen").
+
+### Einfaches Indizieren in SQL-DataFlows
+
+Einfaches Indizieren in SQL-DataFlows ermöglicht Ihnen das direkte Einbetten von Datenindizes in DataFlows, sodass Sie die Leistung Ihrer DataFlow-Laufzeiten steigern können.
+
+<Frame><img alt="easy_indexing_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkN.png"/></Frame>
+Bitte beachten Sie, dass bestehende Index-Transformationen nicht automatisch in neue Indizes konvertiert werden. Bitte beachten Sie auch, dass einfaches Indizieren nur für MySQL-DataFlows konzipiert wurde und für ETL oder Redshift nicht funktioniert.
+
+Weitere Informationen finden Sie unter [Erstellen eines SQL-DataFlows](/s/article/360042922994 "Erstellen eines SQL-DataFlows").
+
+### Verbesserter PowerPoint-Export
+
+Wenn Sie eine Kartenseite in PowerPoint exportieren, wird unten links am Bildschirm nun eine Statusleiste angezeigt, die Sie über die Fertigstellung des Exports informiert. So können Sie Ihre Arbeit in Domo während des Exports fortsetzen und gleichzeitig den Exportstatus einsehen.
+
+<Frame><img alt="improved_powerpoint_export_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkB.png"/></Frame>
+### JavaScript-API-Filterung für Domo Everywhere
+
+Die Domo Everywhere-JavaScript-API ermöglicht eine deutliche Beschleunigung der Ladezeit, wenn Filter auf mehrere eingebettete Karten angewendet werden. So wird nicht die gesamte Seite neu geladen und jede Karte der Reihe nach gefiltert. Stattdessen bleibt der Seitenkontext erhalten und die Karten werden gleichzeitig gefiltert. Es kommt zu weniger Flimmern, das die Nutzererfahrung in dem Portal oder in der Anwendung, in dem bzw. der die Karten eingebettet sind, stören könnte. Filterstatus können jetzt vom End-Client über Benutzersitzungen hinweg gespeichert werden, sodass die aktuellsten Ansichten von Domo für zukünftige Anmeldungen beibehalten werden.
+
+Weitere Informationen finden Sie im API-Bereich des Entwicklerportals von Domo unter [https://developer.domo.com/manage-domo](https://developer.domo.com/manage-domo "https://developer.domo.com/manage-domo").
+
+## Weitere Ankündigungen
+
+### URL-Umleitungen in Wissensdatenbank
+
+Wenn Sie in anderen Anwendungen, z. B. in E-Mails, auf Seiten der Wissensdatenbank verweisen, können Sie nun einfach die Seiten-URLs verwenden und müssen nicht mehr die hartcodierten URLs verwenden, die oben auf jeder Seite angezeigt werden. Diese hartcodierten URLs wurden erstellt, um zu vermeiden, dass extern verwendete Links, z. B. in E-Mails oder anderen Anwendungen, beim Verschieben oder Umbenennen einer Seite nicht mehr funktionieren. Doch nun sorgen automatische Umleitungen für verschobene oder umbenannte Seiten dafür, dass die hartcodierten URLs nicht mehr erforderlich sind. Aus diesem Grund wird der oben auf jeder Seite angezeigte Hinweis "Wichtig: Verwenden Sie diesen Link, wenn Sie außerhalb der Wissensdatenbank auf diese Seite verweisen." entfernt. Bitte beachten Sie, dass alle hartcodierten Links in der Wissensdatenbank erhalten bleiben. Wenn Sie diese Links extern verwenden, funktionieren sie auch in Zukunft wie gewohnt.
+
+## Hilfe anfordern
+
+Sie können die neuesten Versionshinweise im Hilfecenter aufrufen. Auf das Hilfecenter können Sie von Domo aus zugreifen, wenn Sie in der Navigationsleiste oben auf <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> klicken.
+
+Bei Fragen zu Domo
+
+* suchen Sie im Hilfecenter nach einem Thema
+* informieren Sie sich auf der Domo University unter
+  [http://university.domo.com](http://university.domo.com/ "http://university.domo.com")
+* suchen Sie nach Schulungs-Apps im AppStore
+* erhalten Sie Antworten in der Domo-Community unter
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* wenden Sie sich an den technischen Support, indem Sie im Supportportal von Domo ein Ticket eröffnen oder eine Buzz-Mitteilung an `/support` senden.
+* wenden Sie sich an Ihren Domo-Customer Success Manager oder technischen Berater
+
+Ihr Feedback können Sie aus Domo heraus übermitteln (<InlineImage src="/images/kb/ka05w00000124Tr-00N5w00000Ri7BU-0EM5w000005vPKS.png" /> ****> Feedback****). Alternativ können Sie eine E-Mail an [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") senden.
+
+Weitere Informationen dazu, wie Sie Hilfe erhalten können, finden Sie unter [„Hilfe anfordern“](/s/article/360042922874 "Hilfe anfordern").
+

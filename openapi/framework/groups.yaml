@@ -1,0 +1,191 @@
+openapi: 3.0.0
+info:
+  title: Groups API
+  version: v1
+  description: |
+    The Groups API is a Read Only set of endpoints available to retrieve 
+    information about the various groups that belong to the instance 
+    in which a Custom App is published.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo API
+tags:
+  - name: Groups
+    description: Read Only endpoints for retrieving group information.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Access token obtained via Domo's authentication flow."
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+    Group:
+      type: object
+      description: Details of a Domo group.
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1051417
+        name:
+          type: string
+          example: "New Users"
+        type:
+          type: string
+          example: "adHoc"
+          description: The type of group (e.g., adHoc, directory).
+        userIds:
+          type: array
+          items:
+            type: integer
+            format: int64
+          description: A list of user IDs in the group (often empty in summary views).
+        created:
+          type: string
+          format: date-time
+          example: "2018-10-03T23:26:04.000+0000"
+        memberCount:
+          type: integer
+          example: 15210
+        active:
+          type: boolean
+          example: true
+        default:
+          type: boolean
+          example: false
+
+security:
+  - bearerAuth: []
+
+paths:
+  /domo/groups/v1:
+    get:
+      summary: All Groups
+      description: Retrieve a list of details for all groups of an instance.
+      tags: 
+        - Groups API
+      responses:
+        '200':
+          description: A list of all groups.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/groups/v1/name:
+    get:
+      summary: Group by Name
+      description: Retrieve the details for an individual group given its name.
+      tags: 
+        - Groups API
+      parameters:
+        - name: groupName
+          in: query
+          required: true
+          description: The name of the desired group.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The details for the specified group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/groups/v1/{groupId}:
+    get:
+      summary: Group by Id
+      description: Retrieve the details for an individual group given its Id.
+      tags: 
+        - Groups API
+      parameters:
+        - name: groupId
+          in: path
+          required: true
+          description: The ID of the desired group.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: The details for the specified group.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Group'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Group not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/groups/v1/user/{userId}:
+    get:
+      summary: Groups by User
+      description: Retrieve the details for all groups that an individual user belongs to.
+      tags: 
+        - Groups API
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          description: The id of the desired user.
+          schema:
+            type: integer
+            format: int64
+      responses:
+        '200':
+          description: A list of groups the user belongs to.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Group'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: User not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

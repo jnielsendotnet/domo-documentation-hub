@@ -1,0 +1,3758 @@
+---
+title: "Salesforce ExactTargetコネクター"
+---
+
+## はじめに
+
+ExactTarget（現在はSalesforce Marketing Cloudになっています）は、デジタルマーケティングオートメーション/分析ソフトウェアサービスを提供しています。メールをはじめ、モバイル、ソーシャルおよびオンラインマーケティング用のマーケティングオートメーションと分析ソフトウェアを開発しています。DomoのExactTargetコネクターを使用すると、アカウントやグループ、メールアクティビティに関するレポートを作成することができます。ExactTarget APIの詳細については、ウェブサイト（ [https://developer.salesforce.com/doc...index-api.html](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.html "https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.html") — SOAPのみ）を参照してください。
+
+Salesforce ExactTargetコネクターは「クラウドApp」です。つまり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+ExactTargetアカウントには、Data Centerから接続します。このトピックでは、ExactTargetコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a">
+
+<tbody>
+
+<tr>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+
+<b>
+ 主な使用事例 
+</b>
+
+</p>
+
+</td>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+ DomoのExactTargetコネクターを使用すると、ソーシャルメディアエンゲージメント、メールマーケティングキャンペーン、モバイル（SMS）マーケティングを追跡できます。また、様々なプラットフォームから事前に集計されたソーシャルメディアメトリクスを取得することもできます。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+
+<b>
+ 主なメトリクス 
+</b>
+
+</p>
+
+</td>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<ul>
+
+<li>
+
+<p>
+ インプレッション数 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ エンゲージメント 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ リツイート 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ 「いいね！」 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ 送信 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ 開封 
+</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+
+<b>
+ 社内における主な権限 
+</b>
+
+</p>
+
+</td>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<ul>
+
+<li>
+
+<p>
+ マーケティングディレクター 
+</p>
+
+</li>
+
+<li>
+
+<p>
+ マーケティングマネージャー 
+</p>
+
+</li>
+
+</ul>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+
+<b>
+ 平均導入時間 
+</b>
+
+</p>
+
+</td>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+ APIは一度に2,500行のデータのみをリクエストするため、特に大量のデータをリクエストする場合には、数時間かかる場合があります。コネクターがタイムアウトした場合は、日付のフィルタリングを使用して、リクエストするデータの数を減らします。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+
+<b>
+ 使いやすさ（1～10の段階。1が「最も使いやすい」） 
+</b>
+
+</p>
+
+</td>
+
+<td class="mt-noheading" colspan="1" rowspan="1">
+
+<p>
+ 6 
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+## ベストプラクティス
+
+最良の結果を得るには、特定のリストの送信レポートを取得する場合であれば、認証情報を確認し、リストIDがあることを確認してください。
+
+## 必要条件
+
+ExactTargetアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* ExactTargetユーザー名
+* ExactTargetパスワード
+* SOAPサービスのエンドポイント
+
+SOAPサービスのエンドポイントは、 **［Account Settings in Setup］** または **［User Settings in Cloud Preferences］** のいずれかにあります。
+
+例：
+https://mc563885gzs27c5t9-63k636ttgm.soap.marketingcloudapis.com/Service.asmx
+
+さらに、Domoで接続するユーザーのAPIアクセスをExactTargetで構成する必要があります。構成するには、次の手順を実行します。
+
+1. ExactTargetインスタンスで、**［Email］ > ［Admin］ > ［My Users］** に移動します。
+2. アクセスを有効にするユーザーのボックスにチェックを入れます。
+3. **［Manage Roles］** をクリックします。
+4. **［Edit Permissions］** をクリックします。
+5. **［Automation Studio］>［Automation］** を拡張します。
+6. **［Execute (API)］** の右側のボックスにチェックを入れます。
+7. **［Users］** リストに戻り、ユーザーの名前をクリックします。
+8. **［Edit］** をクリックします。
+9. **［API User］** のボックスにチェックを入れます。
+
+## ExactTargetアカウントに接続する
+
+このセクションでは、ExactTargetコネクターページの ［認証情報］ および ［詳細］ ぺインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、ExactTargetアカウントに接続するための認証情報入力フィールドが含まれています。下表は、各フィールドに必要な内容を説明しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ フィールド 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Username 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ ExactTargetユーザー名を入力します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Password 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ ExactTargetパスワードを入力します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ SOAP Service Endpoint 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ ここにはSOAPサービスのエンドポイントを入力します。詳細は、「必要条件」を参照してください。 
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+ExactTarget（Salesforce Marketing Cloud）アカウント入手に関する詳細は、 [www.exacttarget.com](http://www.exacttarget.com.) を参照してください。
+
+有効なExactTargetの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいExactTarget DataSetを作成することができます。コネクターアカウントは Data Center の **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、 **［Reports］** メニューがあり、多数の様々なExactTargetレポートタイプから選択することができます。以下の表はこれらのレポートのリストと説明を表示しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ レポート 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Account Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 作成日、アカウントタイプ、連絡先などアカウントに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Account User Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 連絡先、ユーザーIDなどアカウントのユーザーに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Automation Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントのAutomation Studioにあるオートメーションに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Bounce Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 特定のメールメッセージのバウンスイベントに関して、SMTPやその他の情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Business Unit Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 大型EnterpriseまたはEnterprise 2.0アカウント内のユニットに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Click Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ メッセージに含まれるリンクに対するクリックに関して、その時間と日付情報、およびURL IDとURLを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Content Area Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 利用可能コンテンツの定義済みセクションに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Field Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントでのデータ拡張内のフィールドに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Object Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントでのデータ拡張内のオブジェクトに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Template Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウント内のデータ拡張テンプレートに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Folder Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントのフォルダーに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Doubt Opt In MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ モバイルユーザーがダブルオプトイン・ワークフローを使用してSMSメッセージを購読できるようにするMOキーワードを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Email Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 件名、本文、作成日など認証ユーザーの保存メールに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Email Send Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ メールメッセージ情報、送信者プロフィール、送信プロフィール、受信者情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Extract Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 抽出リクエストに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Extract Description Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ 特定のデータ抽出に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ File Trigger Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforceは「NOT CURRENTLY AVAILABLE」と表示しますが、ファイルトリガーに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ File Trigger Type Last Pull Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforceは「NOT CURRENTLY AVAILABLE」と表示しますが、ファイルトリガーの最後の取得に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Filter Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ フィルター定義に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Forwarded Email Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーが「Forward To A Friend」（友だちに転送する）機能を使ってメールをほかのユーザーに送信したイベントを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Forwarded Email Opt In Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 「Forward To A Friend」（友だちに転送する）イベントに関連するオプトインイベントに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Global Unsubscribe Category Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforceは「NOT CURRENTLY AVAILABLE」と表示しますが、グローバルサブスクライブ解除カテゴリーに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Group Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アプリケーションUIで定義されるサブスクライバーのグループに関する情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Help MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントのHELP SMSキーワードに関連する操作を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Import Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ インポートオプションの再利用可能なパターンを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Import Results Summary Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ImportDefinitionにより開始された個別インポートに関するステータスと総合情報を含んだ、読み取り専用のオブジェクトを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Link Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 送信にあるリンクに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Attribute Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforceは「NOT CURRENTLY AVAILABLE」と表示しますが、リスト属性に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーのマーケティングリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 完了した送信のリストに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Subscriber Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ リストのサブスクライバーを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Messaging Configuration Report（廃止予定） 
+</td>
+
+<td colspan="1" rowspan="1">
+ メッセージング設定の詳細を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Messaging Vendor Kind Report（廃止予定） 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMS（ショートメッセージサービス）またはボイスメッセージベンダーに関する詳細を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ New Link Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 送信日で選択された送信にあるリンクに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Open Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーに送信されたメッセージの開封に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Portfolio Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントのポートフォリオ内のファイルのリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Private IP Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ メッセージ送信の一部として使用されるプライベートIPアドレスに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Program Manifest Template Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforceには「NOT CURRENTLY AVAILABLE」と表示されますが、プログラムマニフェストテンプレートに関する情報が返されます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Public Key Management Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforce は「NOT CURRENTLY AVAILABLE」と表示します。パブリックキー管理に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Publication Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforce は「NOT CURRENTLY AVAILABLE」と表示しますが、パブリケーションに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Publication Subscriber Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ パブリケーションリストのサブスクライバーに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query Definition Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ SOAP APIがアクセスし実行したSQLクエリアクティビティに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Reply Mail Management Configuration Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウント内の返信メール管理の設定を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Result Item Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 非同期APIコールの結果を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Result Message Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 非同期APIコールの結果を含むメッセージに関する詳細を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Role Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントでユーザーに指定された役割と権限のリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Additional Attribute Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 送信に関連する追加属性を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Classification Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アカウントの送信分類に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Email MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ MOメッセージで定義されたメールアドレスにトリガーされたメールメッセージを送信した操作に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ユーザーのメール送信アクティビティに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send SMS MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定したMOキーワード受信時に取られた行動に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Sent Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 個別サブスクライバーを含む、送信に関連するトラッキングデータを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS MT Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーに送信されたSMSメッセージに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS Shared Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMSメッセージで使用されたキーワードに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS Triggered Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMSでトリガーされた送信に関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーのリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定されたサブスクライバーのリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber Send Result Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Salesforce に「NOT CURRENTLY AVAILABLE」と表示されますが、サブスクライバー送信結果に関する情報が返されます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscribers Detail by List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 特定のリストの詳細を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscribers Events by List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーのリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Suppression List Context Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SuppressionListDefinitionsと関連する可能性のあるコンテキストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Suppression List Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ 異なるコンテキストと関連する可能性のあるサプレッションリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Survey Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アンケート回答イベントに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Template Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ メールテンプレートに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Time Zone Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ アプリケーション内のタイムゾーンに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Triggered Send Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ トリガーによる送信に関する定義情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Triggered Send Summary Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ トリガーによるメール送信に関する結果サマリ情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Unsubscribe Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライブ解除イベントに関する情報を返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Unsubscribe from SMS Publication MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ サブスクライバーがSMSパブリケーションリストのサブスクライブを解除するのに使うキーワードを返します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+## レポートフィールド
+
+次の表に、このコネクターを使用するすべてのレポートで使用可能なフィールドを示します。
+
+
+<table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ レポート名 
+</p>
+
+</th>
+
+<th class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ フィールド 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Account Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, CreatedDate, AccountType, Address, BrandID, BusinessName, City, Country, CustomerKey, DeletedDate, EditionID, Email, Fax, InheritAddress, IsActive, IsTestAccount, IsTrialAccount, ParentID, ParentName, PartnerKey, Phone, PrivateLabelID, State, Zip\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Account User Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, AccountUserID, ActiveFlag, ChallengeAnswer, ChallengePhrase, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, DefaultBusinessUnit, Email, IsAPIUser, IsLocked, LastSuccessfulLogin, ModifiedDate, MustChangePassword, Name, NotificationEmailAddress, Password, UserID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Automation Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, AutomationSource, AutomationTasks, AutomationType, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CorrelationID, CreatedDate, CustomerKey, Description, InteractionObjectID, IsActive, Keyword, ModifiedDate, Name, Notifications, ObjectID, ObjectState, PartnerKey, Schedule, ScheduledTime, Status\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Bounce Event Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, AutomationSource, AutomationTasks, AutomationType, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CorrelationID, CreatedDate, CustomerKey, Description, InteractionObjectID, IsActive, Keyword, ModifiedDate, Name, Notifications, ObjectID, ObjectState, PartnerKey, Schedule, ScheduledTime, Status\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Content Area Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, CategoryID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Content, CreatedDate, CustomerKey, IsBlank, IsDynamicContent, IsSurvey, Key, Layout, ModifiedDate, Name, ObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Click Event Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EventDate, EventType, ModifiedDate, ObjectID, PartnerKey, SendID, SubscriberKey, TriggeredSendDefinitionObjectID, URL, URLID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Data Extension Field Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, DefaultValue, FieldType, IsPrimaryKey, IsRequired, MaxLength, ModifiedDate, Name, ObjectID, Ordinal, PartnerKey, Scale\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+ Data Extension Object Report 
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<span class="mt-color-ff0000">
+ 作成中 
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Data Extension Template Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, ModifiedDate, Name, ObjectID, PartnerKey, \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Data Folder Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, AllowChildren, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ContentType, CreatedDate, CustomerKey, Description, IsActive, IsEditable, ModifiedDate, Name, ObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Double Opt in MO Keyword Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, InvalidPublicationMessage, InvalidResponseMessage, IsDefaultKeyword, MissingPublicationMessage, ModifiedDate, NeedPublicationMessage, PromptMessage, SuccessMessage, UnexpectedErrorMessage, ValidPublications, ValidResponses\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Email Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;Name, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ID, EmailType, CreatedDate, Status, Subject, CharacterSet, ClonedFromID, ContentCheckStatus, CustomerKey, Folder, PartnerKey, TextBody\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Email Send Definition Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;Additional, AutoBccEmail, BccEmail,CategoryID, CCEmail, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, DeduplicateByEmail, Description, DynamicEmailSubject, EmailSubject, ExclusionFilter, IsMultipart, IsSendLogging, IsWrapped, ModifiedDate, Name, ObjectID, SendDefinitionList, SendLimit, SendWindowClose, SendWindowOpen, SuppressTracking, TestEmailAddr\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Extract Definition Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ConfigurationPage, CorrelationID, CreatedDate, CustomerKey, ModifiedDate, Name, ObjectID, ObjectState, PackageKey, 
+<br/>
+ Parameters, PartnerKey, Values\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Extract Description Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ConfigurationPage, CorrelationID, CreatedDate, CustomerKey, ModifiedDate, Name, ObjectID, ObjectState, PackageKey, 
+<br/>
+ Parameters, PartnerKey, \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ File Trigger Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, ExternalReference, FileName, IsActive, LastPullDate, ModifiedDate, Name, ObjectID, RequestParameterDetail, ResponseControlManifest, ScheduledDate, Status, StatusMessage, Type\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ File Trigger Type Last Pull Report 
+</p>
+
+</td>
+
+<td class="mt-column-width-85" colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ExternalReference, LastPullDate, ObjectID, Type\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Filter Definition Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;CategoryID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, DataFilter, Description, ModifiedDate, Name, ObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Forwarded Email Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EventDate, EventType, ModifiedDate, ObjectID, PartnerKey, SendID, SubscriberKey, TriggeredSendDefinitionObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Forwarded Email Opt-in Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EventDate, EventType, ModifiedDate, ObjectID, OptInSubscriberKey, PartnerKey, SendID, SubscriberKey, TriggeredSendDefinitionObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Global Unsubscribe Category Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CorrelationID, CreatedDate, CustomerKey, IgnorableByPartners, Ignore, ModifiedDate, Name, ObjectID, ObjectState, PartnerKey, \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Group Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ObjectID, Name, CreatedDate, Description, PartnerKey\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Help MO Keyword Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, DefaultHelpMessage, FriendlyName, IsDefaultKeyword, MenuText, ModifiedDate, MoreChoicesPrompt\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Import Definition Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;AllowErrors, CustomerKey, Delimiter, Description, EndOfLineRepresentation, FieldMappingType, FileSpec, FileType, HeaderLines, MaxFileAge, MaxFileAgeScheduleOffset, MaxImportFrequency, Name, NullRepresentation, ObjectID, 
+<br/>
+ PartnerKey, StandardQuotedStrings, UpdateType\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Import Results Summary Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , DestinationID, EndDate, ImportDefinitionCustomerKey, ImportStatus, ImportType, NumberDuplicated, NumberErrors, NumberSuccessful, ObjectID, StartDate, TaskResultID, TotalRows\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Link Send Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ObjectID, PartnerKey, SendID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ New Link Send Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ObjectID, PartnerKey, SendID, Link.Alias, Link.URL, Link.TotalClicks, Link.UniqueClicks\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ List Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, Category, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, ListClassification, ListName, ModifiedDate, ObjectID, PartnerKey, Type\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ List Attribute Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, DefaultValue, Description, FieldLength, FieldType, Inheritable, IsHidden, IsNullable, IsReadOnly, MaxValue, MinValue, ModifiedDate, MustOverride, Name, ObjectID, Ordinal, Overridable, OverrideType, RestrictedValues, Scale\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ List Send Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Duplicates, ExistingUndeliverables, ExistingUnsubscribes, ForwardedEmails, HardBounces, InvalidAddresses, MissingAddresses, NumberDelivered, NumberSent, OtherBounces, PartnerKey, PreviewURL, SendID, SoftBounces, UniqueClicks, UniqueOpens, Unsubscribes, 
+<a href="http://List.ID" rel="noopener" target="_blank">
+ List.ID 
+</a>
+ , List.ListName, EmailName, SendDate\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ List Subscriber Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, ListID, ModifiedDate, ObjectID, Status, SubscriberKey\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Messaging Configuration Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;CallbackUrl, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Code, CreatedDate, IsActive, MediaTypes, ModifiedDate, ObjectID, Password, ProfileID, Url, UserName\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Messaging Vendor Kind Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, CreatedDate, IsPasswordRequired, IsProfileRequired, IsUsernameRequired, Kind, ModifiedDate, Vendor\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Open Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EventDate, EventType, ModifiedDate, ObjectID, PartnerKey, SendID, SubscriberKey, TriggeredSendDefinitionObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Portfolio Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;CacheClearTime, CategoryID, CategoryType, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, DisplayName, FileHeightPX, FileName, FileSizeKB, FileURL, FileWidthPX, IsActive, IsUploaded, ModifiedDate, ObjectID, PartnerKey, ThumbSizeKB, ThumbURL, TypeDescription\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Private IP Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, Description, IPAddress, IsActive, Name, OrdinalID, PartnerKey\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Program Manifest Template Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Content, CreatedDate, CustomerKey, ModifiedDate, ObjectID, OperationType, Type\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Publication Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, Category, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, ModifiedDate, Name, PartnerKey\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Publication Subscriber Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Public Key Management Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Query Definition Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;CategoryID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, FileSpec, FileType, ModifiedDate, Name, ObjectID, QueryText, Status, TargetType, TargetUpdateType\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Reply Mail Management Configuration Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, AutoReplyBody, AutoReplySubject, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, DeleteAutoReplies, DNSRedirectComplete, EmailDisplayName, EmailReplyAddress, ForwardingAddress, ModifiedDate, ReplySubdomain, SendAutoReplies, SupportLeaveKeyword, SupportMisspelledKeywords, SupportOptOutKeyword, SupportRemoveKeyword, SupportUnsubKeyword, SupportUnsubscribeKeyword, SupportUnsubscribes\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Result Item Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ConversationID, CorrelationID, CreatedDate, ErrorCode, OrdinalID, RequestID, RequestObjectType, RequestType, StatusCode, StatusMessage\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Result Message Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;CallsInConversation, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , ConversationID, CreatedDate, ErrorCode, OverallStatusCode, RequestID, RequestType, ResultType, SequenceCode, StatusCode, StatusMessage\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Role Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, IsPrivate, IsSystemDefined, ModifiedDate, Name, ObjectID, Permissions, PermissionSets\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Send Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, PreviewURL, SendDate, SendLimit, EmailName, ExistingUndeliverables, ExistingUnsubscribes, ForwardedEmails, FromAddress, FromName, HardBounces, InvalidAddresses, MissingAddresses, NumberErrored, NumberExcluded, NumberTargeted, OtherBounces, PartnerKey, SendWindowClose, SendWindowOpen, SoftBounces, Status, Subject, UniqueClicks, UniqueOpens, Unsubscribes, NumberSent, NumberDelivered\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Send Additional Attribute Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ \&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Send Classification Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ArchiveEmail, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, ModifiedDate, Name, ObjectID, PartnerKey, SendClassificationType\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Send Email MO Keyword Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, FailureMessage, IsDefaultKeyword, MissingEmailMessage, ModifiedDate, SuccessMessage\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Send SMS MO Keyword Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, IsDefaultKeyword, Message, ModifiedDate, ObjectID, ScriptErrorMessage\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Sent Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , EventDate, EventType, PartnerKey, SendID, SubscriberKey, TriggeredSendDefinitionObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ SMS MT Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;Carrier, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , EventDate, MOCode, ObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ SMS Shared Keyword Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EffectiveDate, ExpireDate, ModifiedDate, RequestDate, ReturnToPoolDate, SharedKeyword, ShortCode\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ SMS Triggered Send Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, ObjectID, SmsSendId\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Subscribers Details by List Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123; 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , PartnerKey, CreatedDate, ID, EmailAddress, SubscriberKey, Status, EmailTypePreference, UnsubscriberDate\&#125; plus custom attributes that have been defined for subscribers in Exact Target. 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+ Subscribers Events by List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<span class="mt-color-ff0000">
+ 作成中 
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Subscriber List Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, ModifiedDate, PartnerKey, Status, 
+<a href="http://List.ID" rel="noopener" target="_blank">
+ List.ID 
+</a>
+ , List.ListName, Subscriber.Status, Subscriber.CreatedDate, 
+<a href="http://Subscriber.ID" rel="noopener" target="_blank">
+ Subscriber.ID 
+</a>
+ , Subscriber.EmailAddress, Subscriber.SubscriberKey, Subscriber.UnsubscribedDate\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Subscriber Send Result Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, BounceDate, ClickDate, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , FromAddress, FromName, HardBounces, OpenDate, OtherBounces, PartnerKey, SentDate, SoftBounces, Subject, TotalClicks, UniqueClicks, UnsubscribeDate\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Suppression List Context Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;AppliesToAllSends, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Context, CreatedDate, ModifiedDate, ObjectID, SendClassificationType\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Suppression List Definition Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;Category, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, ModifiedDate, Name, ObjectID, SubscriberCount\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Survey Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, Answer, BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, EventDate, EventType, ModifiedDate, ObjectID, PartnerKey, Question, SendID, SubscriberKey, TriggeredSendDefinitionObjectID\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Template Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, ActiveFlag, Align, BackgroundColor, BorderColor, BorderWidth, CategoryID, CategoryType, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Cellpadding, Cellspacing, CustomerKey, IsTemplateSubjectLocked, LayoutHTML, ObjectID, OwnerID, TemplateName, TemplateSubject, Width\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Time Zone Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;ID, Name\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Triggered Send Definition Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;AllowedSlots, AutoAddSubscribers, AutoUpdateSubscribers, BatchInterval, BccEmail, CategoryID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, Description, DynamicEmailSubject, EmailSubject, FromAddress, FromName, IsMultipart, IsWrapped, Keyword, ModifiedDate, Name, NewSlotTrigger, ObjectID, PartnerKey, Priority, SendLimit, SendWindowClose, SendWindowOpen, SuppressTracking, TriggeredSendStatus, TriggeredSendType\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Triggered Send Summary Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;Bounces, Clicks, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , Conversions, CustomerKey, FTAFEmailsSent, FTAFOptIns, FTAFRequests, InProcess, NotSentDueToError, NotSentDueToOptOut, NotSentDueToUndeliverable, ObjectID, Opens, OptOuts, PartnerKey, Queued, Sent, SurveyResponses, UniqueClicks, UniqueConversions, UniqueOpens\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Unsubscribe from SMS Publication MO Keyword Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;AllUnsubSuccessMessage, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ , CreatedDate, CustomerKey, InvalidPublicationMessage, IsDefaultKeyword, ModifiedDate, SingleUnsubSuccessMessage\&#125;; 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td class="mt-column-width-15" colspan="1" rowspan="1">
+
+<p>
+ Unsubscribe Event Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \&#123;BatchID, 
+<a href="http://Client.ID" rel="noopener" target="_blank">
+ Client.ID 
+</a>
+ ,CreatedDate, EventDate, EventType, PartnerKey,ID,IsMasterUnsubscribed,ModifiedDate, SendID, SubscriberKey, TriggeredSendDefinitionObjectID, 
+<a href="http://List.ID" rel="noopener" target="_blank">
+ List.ID 
+</a>
+ \&#125; 
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのメソッドですか？">
+
+
+
+<table data-aura-rendered-by="33:195;a">
+
+<tbody>
+
+<tr>
+
+<th colspan="1" rowspan="1" width="30%">
+ レポート名 
+</th>
+
+<th colspan="1" rowspan="1" width="70%">
+ メソッド名 
+</th>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Account Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Account 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Account User Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ AccountUser 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Automation Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Automation 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Bounce Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ BounceEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Business Unit Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ BusinessUnit 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Click Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ClickEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Content Area Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ContentArea 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Field Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ DataExtension 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Object Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ DataExtensionObject 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Extension Template Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ DataExtensionTemplate 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Folder Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ DataFolder 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Doubt Opt in MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ DoubleOptInMOKeyword 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Email Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Email 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Email Send Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ EmailSendDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Extract Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ExtractDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Extract Description Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ ExtractDescription 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ File Trigger Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ FileTrigger 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ File Trigger Type Last Pull Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ FileTriggerTypeLastPull 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Filter Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ FilterDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Forwarded Email Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ForwardedEmailEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Forwarded Email Opt in Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ForwardedEmailOptInEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Global Unsubscribe Category Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ GlobalUnsubscribeCategory 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Group Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Group 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Help MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ HelpMOKeyword 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Import Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ImportDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Import Results Summary Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ImportResultsSummary 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Link Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ LinkSend 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Attribute Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ ListAttribute 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ List 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ListSend 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ List Subscriber Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ListSubscriber 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Messaging Configuration Report（廃止予定） 
+</td>
+
+<td colspan="1" rowspan="1">
+ MessagingConfiguration 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Messaging Vendor Kind Report（廃止予定） 
+</td>
+
+<td colspan="1" rowspan="1">
+ MessagingVendorKind 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ New Link Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ LinkSend 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Open Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ OpenEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Portfolio Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Portfolio 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Private IP Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ PrivateIP 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Program Manifest Template Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ ProgramManifestTemplate 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Public Key Management Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ PublicKeyManagement 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Publication Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ Publication 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Publication Subscriber Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ PublicationSubscriber 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query Definition Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ QueryDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Reply Mail Management Configuration Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ReplyMailManagementConfiguration 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Result Item Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ResultItem 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Result Message Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ ResultMessage 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Role Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Role 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Additional Attribute Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SendAdditionalAttribute 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Classification Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SendClassification 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Email MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SendEmailMOKeyword 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Send 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Send SMS MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SendSmsMOKeyword 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Sent Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SentEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS MT Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMSMTEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS Shared Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMSSharedKeyword 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ SMS Triggered Send Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SMSTriggeredSend 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscribers Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Subscriber 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SubscriberList 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber Send Result Report（将来用） 
+</td>
+
+<td colspan="1" rowspan="1">
+ SubscriberSendResult 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscriber Detail by List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SubscriberListByList 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Subscribers Events by List Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ EventForSubscribersByList 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Suppression List Context Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SuppressionListContext 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Suppression List Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SuppressionListDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Survey Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ SurveyEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Template Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ Template 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Time Zone Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ TimeZone 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Triggered Send Definition Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ TriggeredSendDefinition 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Triggered Send Summary Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ TriggeredSendSummary 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Unsubscribe Event Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ UnsubEvent 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Unsubscribe from SMS Publication MO Keyword Report 
+</td>
+
+<td colspan="1" rowspan="1">
+ UnsubscribeFromSMSPublicationMOKeyword 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+Salesforce ExactTargetアカウントに関連付けられたユーザー名とパスワードが必要です。SOAPサービスのエンドポイントも必要です。SOAPサービスのエンドポイントは、［Account Settings in Setup］または［User Settings in Cloud Preferences］のいずれかにあります。
+
+
+</Accordion>
+<Accordion title="コネクターを設定するには、データサービスの何らかのアカウントが必要ですか？">
+
+
+Salesforce ExactTargetでは、APIアクセスを有効にするために、ウェブサイト上でアカウントに設定された一連のパラメータが必要です。詳細については、 [「Salesforce ExactTargetコネクター」ナレッジベース>「必要条件」](/ja/s/article/360043431753) を参照してください。
+
+
+</Accordion>
+<Accordion title="Marketing Cloudユーザーの設定時に追加権限を設定する必要がありますか？">
+
+
+UsernameTokenを使用して認証する：
+
+1. Marketing Cloudユーザーの設定時に、［API User］を選択します。
+2. ロールベースの権限のMarketing Cloudアカウントでは、［Role］>［Email］>［Admin］>［API Access］>［WebServices API permission］を選択します。
+3. 従来の権限のアカウントでは、［Grant the user access to the web services permission］を選択します。
+4. 次に、［Setup］>［Security］>［Security Settings］をクリックしてユーザー名とパスワードのセキュリティー設定を有効にし、［Username and Logins］で設定を確認します。
+
+
+</Accordion>
+<Accordion title="このコネクターはカスタムフィールドを取得しますか？">
+
+
+はい
+
+
+</Accordion>
+<Accordion title="タイムアウトの問題が発生する原因は何ですか？どのように修正すればよいですか？">
+
+
+DataSetが大量のデータを取得している場合、タイムアウトの問題が発生する可能性があります。タイムアウトの問題に対処するには、日付を使用してデータをフィルターします。日付範囲に制限はありません。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+## トラブルシューティング
+
+タイムアウトの問題が発生した場合は（大量のデータを作成する場合に発生する可能性があります）、日付を使用してデータをフィルターします。日付範囲に制限はありません（データを一括でリクエストします）。このコネクターにはAPIコールの制限もありません。
+
+
+
+</Accordion>
+</AccordionGroup>

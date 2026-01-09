@@ -1,0 +1,43 @@
+---
+title: "GoToMeetingコネクター"
+---
+
+## はじめに
+
+Citrix GoToMeetingはオンラインミーティング、デスクトップ共有、ビデオ会議向けのソフトウェアアプリケーションです。GoToMeeting APIの詳細については、Webサイト（ [https://goto-developer.logmeininc.co...g-api-overview](https://goto-developer.logmeininc.com/gotomeeting-api-overview "https://goto-developer.logmeininc.com/gotomeeting-api-overview") ）を参照してください。
+
+GoToMeetingアカウントには、Data Centerから接続します。このトピックでは、GoToMeetingコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+GoToMeetingアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* GoToMeetingアカウントの登録時に使用したメールアドレス
+* GoToMeetingアカウントのパスワード
+
+Facebook、Google、LinkedInのいずれかの認証情報を使ってサインインすることも、組織でEnterprise Sign-Inが有効になっている場合は会社のログインでサインインすることもできます。
+
+## GoToMeetingアカウントに接続する
+
+このセクションでは、GoToMeetingコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付けて説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoToMeetingコネクターは、接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のGoToMeetingアカウントがある場合は **［アカウントを追加］** を選択）すると、GoToMeeting OAuth画面が開き、ログインの認証情報を入力できます。有効な認証情報を入力した後は、新しいGoToMeeting DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoToMeetingにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoToMeetingからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGoToMeetingレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> グループ </p></td><td colspan="1" rowspan="1"><p> アカウントのすべてのグループのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 過去のミーティング </p></td><td colspan="1" rowspan="1"><p> 現在認証されている開催者の過去のミーティングのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開催者 </p></td><td colspan="1" rowspan="1"><p> アカウントの開催者のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 近日予定のミーティング </p></td><td colspan="1" rowspan="1"><p> 現在認証されている開催者の近日中のミーティングを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 開始日までの日数 </p></td><td colspan="1" rowspan="1"><p> レポートデータの取得を開始する過去の日数を入力します。 <b> ［終了日までの日数］ </b> と組み合わせることで、レポートの日数の範囲を作成できます。例えば、 <b> ［開始日までの日数］ </b> に <span class="mt-font-courier-new"> 14 </span> 、 <b> ［終了日までの日数］ </b> に <span class="mt-font-courier-new"> 7 </span> を入力すると、レポートが実行されるたびに、過去14日前から7日前までのデータが取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日までの日数 </p></td><td colspan="1" rowspan="1"><p> レポートデータの取得を終了する過去の日数を入力します。 <b> ［開始日までの日数］ </b> と組み合わせることによって、レポートの日数の範囲を作成できます。例えば、 <span class="mt-font-courier-new"> ［開始日までの日数］ </span> に <b> 14 </b> 、 <span class="mt-font-courier-new"> ［終了日までの日数］ </span> に <b> 7 </b> を入力すると、レポートが実行されるたびに、過去14日前から7日前までのデータが取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開催者メールアドレス </p></td><td colspan="1" rowspan="1"><p> データを取得する開催者のメールアドレスを入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

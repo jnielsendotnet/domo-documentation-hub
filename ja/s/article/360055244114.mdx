@@ -1,0 +1,112 @@
+---
+title: "2020年7月リリース2"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## 新機能と機能拡張
+
+本リリースで新しくなった機能と拡張された機能は、以下の通りです。
+
+## カードの拡張
+
+見栄えの良いストーリーのためのチャートの改善
+
+### 表カード
+
+#### パディング
+
+表にカスタムパディングを追加することで、新たなすっきりした表を提供します。これで、表の外観をこれまで以上に制御できるようになりました。詳細については、「 [表グラフ](/s/article/360043429573 "表グラフ") 」を参照してください。
+  
+<Columns>
+  <Frame><img alt="Padding_Sizes.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiY.png"/></Frame>
+  <Frame><img alt="Padding_Examples.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiT.png"/></Frame>
+</Columns>
+#### ページ
+
+Mega表カードのデータ行の動的なページ機能により、これまで以上に大きな表を扱うことができます。
+
+#### コピー
+
+Mega表にコピーが追加され、コピーペーストで簡単にデータを移動できるようになりました。
+
+### 複数値パネル
+
+チャート上のテキストの外観を向上させるためのカスタマイズ可能なオプションが増えました。新しい太字と斜体のオプションを選択できます。詳細については、「 [複数値パネル](/s/article/360042924774 "複数値パネル") 」を参照してください。
+  
+<Columns cols={3}>
+  <Frame><img alt="Font_Styles.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOib.png"/></Frame>
+  <Frame><img alt="Bold.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiQ.png"/></Frame>
+  <Frame><img alt="Italics.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOie.png"/></Frame>
+</Columns>
+### マップカード
+
+境界線オプション、最小値目盛りと最大値目盛り、緯度/経度マップにおけるバブルの3つの大きなサイズなど、マップをポップにする新しいオプションが新たに加わり、説得力のあるデータストーリーを作成することができます。新たな大胆な方法で大きな数字を強調します。詳細については、「 [緯度/経度マップ](/s/article/360043429213 "緯度/経度マップ") 」を参照してください。
+  
+<Columns cols={4}>
+  <Frame><img alt="Symbol_Borders.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOic.png"/></Frame>
+  <Frame><img alt="Min_Max_Scale.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiR.png"/></Frame>
+  <Frame><img alt="Symbol_Sizes.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOia.png"/></Frame>
+  <Frame><img alt="Bubble_Example.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiO.png"/></Frame>
+</Columns>
+### カードのデータポイント制限が拡大
+
+大量のデータをチャートにレンダリングできるようになりました。Analyzer内の **［行の制限］** コマンドを使用して、通常よりも大きな値を設定できるようになりました。ダッシュボードの応答性を高速に保つために、チャートエンジンはブラウザーにダウンロードする行数を制限します。これらの値を明示的に設定することで、これらの制限を上書きすることができるようになりました。詳細については、「 [カード作成に関するよくある質問](/s/article/360042924214 "カード作成に関するよくある質問") 」を参照してください。
+  
+<Frame><img alt="Limit_Rows.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiZ.png"/></Frame>
+### メッセージの制御
+
+「データがありません」というメッセージが呼び出された時に、ユーザーのチャートに表示されるメッセージを制御します。代わりに、パーソナライズされたメッセージを設定します。
+  
+<Columns>
+  <Frame><img alt="Filter_Error_Message.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiW.png"/></Frame>
+  <Frame><img alt="Customized_Message.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOid.png"/></Frame>
+</Columns>
+## 更新されたスピードメーターパネル
+
+新しいスピードメーターパネルは、お好みの外観を設定できる次のオプションを備えています。
+
+* ゲージ幅
+* 主目盛りと補助目盛り
+* 表示の度数
+* ニードルルック
+* 色
+    
+  詳細については、「 [スピードメーター](/s/article/360042924934 "スピードメーター") 」を参照してください。
+    
+  <Frame><img alt="Radial_Gauges.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiX.png"/></Frame>
+## ダッシュボードの「名前を付けて保存」オプション
+
+ダッシュボードで **［名前を付けて保存］** を選択すると、新しい **［すべてのカードを複製］** オプションが利用できます。ダッシュボードの新しいバージョンを作成する際に、コピーを作成することなく元のカードを簡単に参照できるため、時間を節約できます。元のカードを使用するには、ボックスのチェックを外します。詳細については、「 [ダッシュボードを複製する（「名前を付けて保存」）](/s/article/360043428273 "https://knowledge.domo.com/Visualize/Managing_Cards_and_Pages/01Duplicating_Pages") 」を参照してください。
+  
+<Frame><img alt="Save_As_Modal.png" src="/images/kb/ka05w00000123T9-00N5w00000Ri7BU-0EM5w000005vOFv.png"/></Frame>
+## グループの管理
+
+改善されたグループ管理機能により、監視や管理がより簡単になり、企業システム（Active Directoryなど）との統合が可能です。詳細については、「 [ユーザーグループの作成と管理](/s/article/360042934294 "ユーザーグループの作成と管理 - ベータ版") 」を参照してください。
+  
+<Frame><img alt="Group_Management.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiP.png"/></Frame>
+## Beast Modeマネージャー
+
+Beast Modeマネージャーを使用して、すべてのBeast Modeを1ヵ所で確認できるようになりました。一括操作を実行したり、使用されていないBeast Modeを確認したり、Beast Modeを編集されないようにロックしたりすることもできます。詳細については、「 [Beast Modeマネージャー](/s/article/360042925474 "DomoインスタンスのBeast Mode計算を管理する - ベータ版") 」を参照してください。
+  
+<Frame><img alt="Beast_Mode_Manager.png" src="/images/kb/ka0Vq0000000cJp-00N5w00000Ri7BU-0EM5w000005vOiU.png"/></Frame>
+## ヘルプとサポート
+
+ヘルプセンターで最新のリリースノート情報を閲覧できます。Domoからアクセスするには、画面上部のナビゲーションバーで <InlineImage src="/images/kb/ja/ka0Vq000000AnYz-00N5w00000Ri7BU-0EM5w000005vOiV.png" /> をクリックします。
+
+Domoに関するご質問がある場合
+
+* ヘルプセンターでトピックを検索する
+* Domo University（
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/") ）のトレーニングを受講する
+* AppstoreでトレーニングAppを検索する
+* Domoコミュニティ（
+  [https://community-forums.domo.com/jp](https://community-forums.domo.com/jp "https://community-forums.domo.com/jp") ）に質問して回答を得る
+* Domoサポートポータルにヘルプチケットを入力してテクニカルサポートに問い合わせる
+* Domoカスタマーサクセスマネージャー、またはテクニカルコンサルタントに問い合わせる
+
+Domo（ **［その他］** > ****>［フィードバック］**** ）からコメントをお送りください（英文メッセージのみ）。日本語でフィードバックを送る場合は、Domoコミュニティ（ https://community-forums.domo.com/main） をご利用ください。または、 [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") までメールでご連絡ください。
+
+ヘルプとサポートの詳細については、「 [ヘルプとサポート](/s/article/360042922874 "ヘルプとサポート") 」を参照してください。
+
+日本語

@@ -1,0 +1,76 @@
+---
+title: "DoubleClick Campaign Managerコネクター"
+---
+
+## はじめに
+
+DoubleClick Campaign Managerを使用すると、メディアのプランニングからレポート作成まで、広告キャンペーンの管理が簡単になります。DoubleClick Campaign Managerコネクターを使用すると、DoubleClickのウェブサイトからレポートを実行して、デジタルマーケティングの予算をより適切に割り当て、最大限のROIを得ることができます。DoubleClick Campaign Manager APIの詳細については、ウェブサイト（ [https://developers.google.com/double...k-advertisers/](https://developers.google.com/doubleclick-advertisers/ "https://developers.google.com/doubleclick-advertisers/") ）を参照してください。
+
+DoubleClick Campaign Managerアカウントには、Data Centerから接続します。このトピックでは、DoubleClick Campaign Managerコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+DoubleClick Campaign Managerアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Google APIクライアントID
+* Google APIクライアントシークレット
+
+Google APIクライアントIDとクライアントシークレットを作成するには、次の手順を実行します。
+
+1. [Google APIコンソール](https://console.developers.google.com "https://console.developers.google.com")
+   に移動します。
+2. **［Credentials］**
+   を選択して、 **［Create Credentials］** をクリックします。
+     
+   <Frame><img alt="DoubleClick_-_Create_Creds.png" src="/images/kb/ka0Vq00000096qz-00N5w00000Ri7BU-0EM5w000005vO3I.png"/></Frame>
+
+3. ドロップダウンリストからOAuthクライアントIDを選択します。
+4. ［Application type］で［Web application］を選択します。
+5. リダイレクト URL：
+
+   https://oauth.domo.com/api/data/v1/oauth/providers/doubleclick-cm/exchange
+   を入力します。
+     
+   <Frame><img alt="Doubleclick_-_Client_ID.png" src="/images/kb/ka0Vq00000096qz-00N5w00000Ri7BU-0EM5w000005vO3H.png"/></Frame>
+
+6. **［Create］**
+   をクリックします。
+7. 新しく作成されたクライアントIDとクライアントシークレットを示すウィンドウが表示されます。
+     
+   <Frame><img alt="DoubleClick_-_Client_Id_and_Secret.png" src="/images/kb/ka0Vq00000096qz-00N5w00000Ri7BU-0EM5w000005vO3G.png"/></Frame>
+
+認証を行う前に、次の操作も行う必要があります。
+
+1. DCM/DFAレポートおよびトラフィックAPIへのアクセスを有効にします。
+2. このリダイレクト URL：
+
+   https://oauth.domo.com/api/data/v1/oauth/providers/doubleclick-cm/exchange
+   を登録します。
+
+詳しくは、ウェブサイト（ [https://developers.google.com/double...rs/authorizing](https://developers.google.com/doubleclick-advertisers/authorizing "https://developers.google.com/doubleclick-advertisers/authorizing") ）を参照してください。
+
+## DoubleClick Campaign Managerアカウントに接続する
+
+このセクションでは、DoubleClick Campaign Managerコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、DoubleClick Campaign Managerアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Google APIクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Google APIクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+これらの認証情報の入手および認証の有効化については、前述の「必要条件」を参照してください。
+
+有効なDoubleClick Campaign Manager認証情報を入力した後は、新しいDoubleClick Campaign Manager DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、レポートを設定するための様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> DoubleClick Campaign Managerレポートのオプションを選択します。現在、使用できるオプションは1つだけです。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Create And Run Report </td><td colspan="1" rowspan="1"> レポートを作成して実行します。 </td></tr><tr><td colspan="1" rowspan="1"> Run Existing Report </td><td colspan="1" rowspan="1"> 既存のDoubleClick Campaign Managerレポートを実行します。 </td></tr><tr><td colspan="1" rowspan="1"> Run Multiple Reports </td><td colspan="1" rowspan="1"> 複数のレポートを実行します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> User Profiles </td><td colspan="1" rowspan="1"> データを取得するユーザープロフィールを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> How would you like to select the DCM report? </span></td><td colspan="1" rowspan="1"><span> DCMレポートをどのように選択するかを選択します。レポートが［Prepopulated Dropdown］に見つからない場合は、［Manual］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Scope </td><td colspan="1" rowspan="1"> 自分のアカウントのすべてのレポートのデータを取得するか（ <b> ［All］ </b> ）、または自分のレポートのみを取得するか（ <b> ［Mine］ </b> ）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Type </td><td colspan="1" rowspan="1"><span> レポートタイプを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Report Name </span></td><td colspan="1" rowspan="1"><span> レポート名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Floodlight Config Id </span></td><td colspan="1" rowspan="1"><span> このレポートのデータを表示するフラッドライトIDを入力します。このIDに関連付けられているすべての広告主が自動的に追加されます。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the dimensions </span></td><td colspan="1" rowspan="1"><span> ディメンションを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select the metric </span></td><td colspan="1" rowspan="1"><span> メトリクスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> DCM Reports </td><td colspan="1" rowspan="1"> Googleキャンペーンマネージャーから取得するDCMレポートを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Report Id </span></td><td colspan="1" rowspan="1"><span> 実行するDCMレポートIDを入力します。これは目的のレポートが［DCM Reports］ドロップダウンに表示されない場合に使用できます。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Report dates selection </span></td><td colspan="1" rowspan="1"><span> レポートを実行する日付を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Custom Report Date </span><span><br/></span></td><td colspan="1" rowspan="1"><span> カスタマイズされた日付を（YYYY-MM-DD形式で）入力します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

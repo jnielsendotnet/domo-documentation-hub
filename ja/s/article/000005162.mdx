@@ -1,0 +1,61 @@
+---
+title: "Microsoft Azure Data Lake Gen2 OAuthコネクター"
+---
+
+## はじめに
+
+Azure Data Lake Gen2 OAuthコネクターは、ビッグデータ解析ワークロード用の全社規模のハイパースケールリポジトリです。これにより、Azure Storageが、Azure上にエンタープライズデータレイクを構築するための基礎になります。大量のデータを簡単に管理することによって、PoC（導入検証）から生産への移行を迅速に行うことができます。データファイルは、CSV、XLS、XLSX、JSONのいずれかのファイルタイプで取得できます。AzureのAPIの詳細については、 [https://docs.microsoft.com/en-us/azu...ta-lake-store/](https://docs.microsoft.com/en-us/azure/data-lake-store/ "https://docs.microsoft.com/en-us/azure/data-lake-store/") を参照してください。
+  
+Microsoft Azure Data Lake Gen2 OAuthアカウントには、Data Centerから接続します。このトピックでは、Microsoft Azure Data Lake Gen2 OAuthコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft Azure Data Lake Gen2 OAuthアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Microsoft Azure AppクライアントID
+* Microsoft Azure Appクライアントシークレット
+* テナントID
+
+認証情報を取得する場合は、Microsoftのアカウント担当者にお問い合わせください。
+
+## Microsoft Azure Data Lake Gen2 OAuthコネクターに接続する
+
+このセクションでは、 Microsoft Azure Data Lake Store Gen2 OAuthコネクター ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Microsoft Azure Data Lake Store Gen2 アカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Microsoft Azure App Client ID </td><td colspan="1" rowspan="1"> Azure Active Directory設定から取得されるクライアントWeb AppのクライアントID（GUID）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Microsoft Azure App Client Secret </td><td colspan="1" rowspan="1"> クライアントWeb Appのシークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Tenant ID </td><td colspan="1" rowspan="1"> テナントIDを入力します。 <br/> テナントIDを見つけるには、次の手順を実行します。 <br/><b><a href="http://Portal.azure.com" rel="noopener" target="_blank"> Portal.azure.com </a> &gt;［Azure Active Directory］&gt;［Properties］ </b> に移動します。 <br/><b> ディレクトリID </b> はお使いの <b> テナントID </b> です。 </td></tr></tbody></table>
+
+一度有効な Microsoft Azure Data Lake Gen2 OAuth認証情報を入力したら、新しい Microsoft Azure Data Lake Gen2 OAuth DataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What file type would you like to import? </td><td colspan="1" rowspan="1"> インポートするファイルタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Storage Account Name </td><td colspan="1" rowspan="1"> ストレージアカウント名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Container Name </td><td colspan="1" rowspan="1"> コンテナを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose the directory name? </td><td colspan="1" rowspan="1"> ディレクトリ名をどのように選択するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover Directory Name </td><td colspan="1" rowspan="1"> ディレクトリ名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Enter Directory Name </p></td><td colspan="1" rowspan="1"><p> ディレクトリ名を入力します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> test </td><td colspan="1" rowspan="1"> メインまたはルートディレクトリの例 </td></tr><tr><td colspan="1" rowspan="1"> test/test </td><td colspan="1" rowspan="1"> サブディレクトリの例 </td></tr><tr><td colspan="1" rowspan="1"> test/test/test </td><td colspan="1" rowspan="1"> サブサブディレクトリの例 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Would you like to pull data from multiple files? </td><td colspan="1" rowspan="1"> ディレクトリ内の複数のファイルからデータを取得する場合に選択します。複数のファイルからデータを取得する場合は、同じスキーマを持つファイルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover Files </td><td colspan="1" rowspan="1"> 同じスキーマを持つファイルを選択して、データを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose the File name? </td><td colspan="1" rowspan="1"> ファイル名をどのように選択するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter File Name </td><td colspan="1" rowspan="1"> ファイル名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover File Name </td><td colspan="1" rowspan="1"> ファイル名を選択します。 </td></tr></tbody></table>
+
+### ［詳細］ペイン
+
+このペインには **［詳細］** メニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、 <b> ［Other］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。 </td></tr></tbody></table>
+
+### トラブルシューティング
+
+#### コネクターを使用して認証しようとすると、次のエラーメッセージが表示されます。
+
+<Frame><img alt="OAuthエラー" src="/images/kb/ka0Vq0000003Qaf-00N5w00000Ri7BU-0EM5w000006uERU.jpg" style={{width: 483, height: 423}}/></Frame>
+
+この問題は権限に関連しています。Azure Storageにアクセスするには適切な権限が必要です。権限がないと、接続に失敗します。
+
+必要な権限を追加するには、次の手順を実行します。
+  
+**［App］>［API Permissions］>［Add a permission］>［Select Azure Storage］>［Check user\_impersonation］>［Add permissions］** の順に選択します。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,33 @@
+---
+title: "Google Cloud Storage - FileWatchコネクター"
+---
+
+## はじめに
+
+Google Cloud Storageは、Googleのクラウド内にデータを保管するためのインターネットサービスです。DomoのGoogle Cloud Storageコネクターを使うと、Google Cloud Storage内のプロジェクトバケットとオブジェクトに関するレポートを生成することができます。
+
+Google Cloud Storage - FileWatchアカウントには、Data Centerから接続できます。このトピックでは、Google Cloud Storage - FileWatchコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Google Cloud Storage - FileWatchアカウントに接続してDataSetを作成するには、Googleの認証情報が必要です。
+
+## Google Cloud Storage - FileWatchアカウントに接続する
+
+このセクションでは、Google Cloud Storage - FileWatchコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+コネクターに接続するには、Googleの認証情報が必要です。
+
+有効なGoogle Cloud Storage - FileWatchの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいGoogle Cloud Storage - FileWatch DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Storage Type </td><td colspan="1" rowspan="1"> 実行するGoogle Cloud Storageタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Project ID </td><td colspan="1" rowspan="1"> データを取得するプロジェクトのAPI IDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Bucket Name </td><td colspan="1" rowspan="1"> 監視するバケットの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> ファイル名の一部を入力します。これは、指定したバケット内で <b> このパターンで始まるファイル </b> を検索するために使用します。 </td></tr><tr><td colspan="1" rowspan="1"> Ignore Files Before Date </td><td colspan="1" rowspan="1"> 日付を選択します。この日付より前に <b> 作成された </b> ファイルはコネクターで無視されます。 </td></tr><tr><td colspan="1" rowspan="1"> File Type </td><td colspan="1" rowspan="1"> 取得するデータファイルのファイルタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Contains Header Row? </td><td colspan="1" rowspan="1"> CSVファイルにヘッダー行が含まれていない場合は、［No］を選択します。コネクターは、このようなファイルのヘッダー行を生成します。 </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> CSVテキストで列を区切るのに使用されている文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。また、文字にUnicode値を入力することもできます。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

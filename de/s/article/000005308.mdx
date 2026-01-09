@@ -1,0 +1,278 @@
+---
+title: "Versionshinweise für Juli 2023"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+---
+
+###### Plattformverbesserungen
+
+* [Neue Gewährungen](#new_grants)
+* [MS Office-Add-ins](#office_add-ins)
+* [Zertifizierter Inhalt](#certified_content)
+* [AppStore-Verbesserungen](#appstore_improvements)
+* [Diagrammaktualisierungen](#chart_updates)
+* [Neue DomoStats-Berichte](#domostats)
+
+###### Neue Funktionen
+
+* [Erweiterte DataFlow-Auslöser](#advanced_dataflow_triggering)
+* [Teilmengen-Verarbeitung und Partitionierung in Magic ETL](#partition_subset_processing)
+* [API-Client-Verwaltung](#api_client_management)
+
+###### Premium-Updates
+
+* [Flex Map v2](#flex_maps_v2)
+* [Inline-Bearbeitung](#inline_editing)
+* [Marken-Kit-E-Mail-Domänen](#brand_kit_email_domains)
+* [Dauer des Domo Everywhere-Veröffentlichungsvorgangs](#domo_everywhere_duration)
+* [Jupyter Workspaces-Dateifreigabe](#jupyter_file_sharing)
+* [Regeln für die Sandbox-Neubenennung und Abhängigkeitsdiagramm](#sandbox)
+* [Kontroll-Toolkit-Updates](#governance_toolkit)
+* [Cloud-Verstärker](#cloud_amplifier)
+
+###### Beta-Ankündigung
+
+* [Domo Bricks + ChatGPT](#domo_bricks_and_chatgpt)
+
+---
+
+## Neue Gewährungen
+
+Diese Version umfasst die folgenden Gewährungen:
+
+* Dateifreigabe-Verzeichnisse erstellen
+* Dateifreigabe-Verzeichnisse verwalten
+
+Weitere Informationen finden Sie im Abschnitt zum Update der [Jupyter Workspaces-Dateifreigabe](#jupyter_file_sharing) unten.
+
+## MS Office-Add-ins
+
+<Frame><img alt="domo add-ins.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM3r.jpg" style={{width: 94, height: 105}}/></Frame>
+Die folgenden Funktionen wurden den Domo MS Office-Add-ins hinzugefügt. Weitere Informationen finden Sie im [Add-ins-Benutzerhandbuch](/s/article/000005143).
+
+#### Dynamisches Grafikrendering
+
+Um Verzerrungen zu vermeiden, wenn Sie in einem Dokument die Größe einer Grafik ändern, können Sie die Karte nach der Größenänderung neu laden. Dadurch wird die ursprüngliche Bildqualität mit dem korrekten Seitenverhältnis wiederhergestellt.
+
+#### Verbesserte Importeinstellungen
+
+Mit den folgenden Änderungen der Einstellungen für den Import von Inhalten haben Sie noch mehr Konfigurationsmöglichkeiten, wenn Sie Domo-Inhalte in Dokumente einfügen:
+
+* Die erweiterten Grafikeinstellungen ermöglichen Ihnen die Anpassung von Breite, Höhe und Skalierung der importierten Grafiken.
+* Sie können die Sammelnummer importieren und das Kartenbild einblenden (dann wird nur die Sammelnummer im Dokument angezeigt).
+* Das Gesamtdesign für die Importeinstellungen wurde optimiert.
+* Sie können einen transparenten Hintergrund verwenden.
+
+<Frame><img alt="new settings.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMB7.jpg" style={{width: 707, height: 476}}/></Frame>
+#### Outlook-Unterstützung
+
+Das Outlook-Add-in umfasst jetzt eine verbesserte Unterstützung von Android und iOS.
+
+## Zertifizierter Inhalt
+
+<Frame><img alt="Screenshot 2023-07-18 at 5.05.40 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuj.jpg" style={{width: 133, height: 121}}/></Frame>
+Wenn Sie in Ihrer Instanz über die Gewährung „Zertifizierten Inhalt verwalten“ verfügen, können Sie jetzt wahlweise Ihre eigenen Inhalte zertifizieren, anstatt sie durch eine Genehmigungskette zu senden.
+
+Außerdem können Administratoren vorgeben, dass Zertifizierungsanforderungen bestimmte Informationen enthalten müssen. Felder für Zertifizierungsdetails sind in den Administratoreinstellungen für zertifizierte Inhalte zu finden.
+
+Weitere Informationen finden Sie unter [Zertifizierung von Karten und DataSets](/s/article/360043430613).
+
+## AppStore-Verbesserungen
+
+<Frame><img alt="Screenshot 2023-07-20 at 10.14.07 AM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM7Z.jpg" style={{width: 706, height: 365}}/></Frame>
+Im AppStore-Ökosystem wurde u. a. Folgendes verbessert:
+
+#### Automatische Erkennung eingereichter Komponenten
+
+Wenn eine Liste eingereicht wird, erkennt das System sie jetzt automatisch und schlägt Komponenten vor, die die Liste am besten beschreiben und in den Suchergebnissen angezeigt werden.
+
+#### Konsolidierung von App-Typ und Komponenten
+
+Bei der Suche im AppStore wurden die App-Typ-Optionen mit den Komponenten konsolidiert, um die Suchergebnisse zu verbessern.
+
+#### Konsolidierung von Werbe- und Servicelisten
+
+Der Übersichtlichkeit halber haben wir die Option, eine Liste als Werbeliste zu kategorisieren, entfernt. Wir empfehlen stattdessen, den Service-Typ für diese Listen zu verwenden.
+
+<Frame><img alt="service type.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKaj.jpg" style={{width: 436, height: 337}}/></Frame>
+#### Sofortige Probeversion erhalten
+
+Anstatt „Demo anfordern“ oder „Probeversion erhalten“ bieten zahlungspflichtige Apps jetzt die Option „Sofortige Probeversion erhalten“.
+
+#### Liste enthält
+
+Bei AppStore-Listen gibt es jetzt den Abschnitt **Liste enthält**, der angibt, welche Assets in der Liste enthalten sind und in welcher Anzahl. In diesem Beispiel enthält die Liste eine Karte, ein DataSet und eine Enterprise-App.
+
+<Frame><img alt="listing includes.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vGBj.jpg" style={{width: 261.996, height: 160.994}}/></Frame>
+#### Rich-Text-Formatierung und Beschreibungen
+
+Beim Einreichen von Listen gibt es jetzt mehr Optionen für die Rich-Text-Formatierung, und Herausgeber können auch das Layout von Tabellen und die Textausrichtung konfigurieren.
+
+Weitere Informationen finden Sie in unserer [AppStore-Dokumentation](https://domo-support.domo.com/s/topic/0TO5w000000ZampGAC/appstore).
+
+## Diagrammaktualisierungen
+
+Pivot- und Mega-Tabellen bieten jetzt die Möglichkeit, Zahlen als Abkürzungen zu formatieren. So lassen sich große Zahlen kompakt anzeigen, wodurch Sie Platz für mehr Daten haben.
+
+Weitere Informationen finden Sie unter [Werte in Diagrammen formatieren](/s/article/360042924134).
+
+<Frame><img alt="Screenshot 2023-07-21 at 3.02.05 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vNMQ.jpg" style={{width: 232, height: 317}}/></Frame>
+## Neue DomoStats-Berichte
+
+<Frame><img alt="Screenshot 2023-07-18 at 5.09.58 PM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuy.jpg" style={{width: 148, height: 148}}/></Frame>
+Die folgenden neuen Berichte sind verfügbar: Benutzer mit einer standardmäßigen Administratorrolle können auf die DomoStats-Konnektoren zugreifen und eine Verbindung zu den DomoStats-Apps herstellen.
+
+### Ansichtseingaben
+
+Der DomoStats-Bericht über Ansichtseingaben liefert Informationen zu jeder bereits vorhandenen DataSet-Ansicht in einer Domo-Instanz. Damit können Administratoren besser nachvollziehen und steuern, wie ihre DataSet-Ansichtseingaben verwendet werden.
+
+### Landing-Ressource von Benutzer
+
+Der DomoStats-Bericht „Landing-Ressource von Benutzer“ ruft Benutzerdaten von Domo ab und ermöglicht es Administratoren, die Landing Page/Karte bzw. das Landing Dashboard für alle Benutzer in ihrer Instanz anzuzeigen.
+
+---
+
+## Erweiterte DataFlow-Auslöser
+
+<Frame><img alt="select a trigger.jpeg" src="/images/kb/ka05w00000128xX-00N5w00000Ri7BU-0EM5w000006utno.jpg" style={{width: 702, height: 263}}/></Frame>
+Mit den erweiterten DataFlow-Auslösern können Sie DataFlows so planen, dass sie ausgelöst werden, wenn fein anpassbare Auslöser und Bedingungen erfüllt sind. Dank dieser Funktion können Ihre Benutzer umgehend auf die aktuellen Daten zugreifen.
+
+Weitere Informationen finden Sie unter [Erweiterte DataFlow-Auslöser](/s/article/000005216).
+
+## Teilmengen-Verarbeitung und Partitionierung in Magic ETL
+
+<Frame><img alt="subset processing image.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM6H.jpg" style={{width: 711, height: 435}}/></Frame>
+Die Teilmengen-Verarbeitung und Partitionierung in Magic ETL bietet jetzt eine effizientere Datenverarbeitung. Sie können wahlweise nur die Batches laden, die seit der letzten erfolgreichen DataFlow-Ausführung aktualisiert wurden, oder Batches nach Erstellungsdatum oder Partitionsname laden. Durch diesen präzise anpassbaren Ansatz wird die Datenpipeline deutlich optimiert.
+
+Weitere Informationen finden Sie unter [Teilmengen-Verarbeitung und Partitionierung in Magic ETL](/s/article/000005150).
+
+## API-Client-Verwaltung
+
+<Frame><img alt="api clients.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM6W.jpg" style={{width: 359, height: 308}}/></Frame>
+Administratoren können jetzt die API-Clients von Benutzern direkt in Domo verwalten. In den Administratoreinstellungen für die Authentifizierung können Sie eine Liste der Clients und Bereiche anzeigen und die Clients widerrufen, die nicht mehr benötigt werden. Diese Funktion erhöht die Transparenz und ermöglicht eine geschlossenere Verwaltung.
+
+Weitere Informationen finden Sie unter [API-Clients verwalten](/s/article/000005240).
+
+---
+
+## Flex Map v2
+
+Flex Map v2 verbessert die Version v1: Sie bietet zusätzliche Optionen für die Anpassung der Karten, entfernt den Großteil der erforderlichen Konfigurations-DataSets, steigert die Leistung von großen DataSets und ergänzt Stil-Optionen wie neue Pinnnadel-Farben, neue Basis-Layer und eine umfassendere Bibliothek an Formen. Flex Map v2 unterstützt außerdem Domo-Filter und ermöglicht es Ihnen, beim Erstellen einer Karte Änderungen rückgängig zu machen oder erneut vorzunehmen.
+
+Wenn Sie Flex Map v1 bereits besitzen, steht Ihnen Flex Map v2 zur Verfügung. Sie müssen die neue Version allerdings erst aus dem [AppStore](https://www.domo.com/appstore/) herunterladen.
+
+Weitere Informationen finden Sie im [Flex Map v2-Implementierungsleitfaden](/s/article/000005073) und im [Flex Map v2-Benutzerhandbuch](/s/article/000005048).
+
+<Frame><img alt="flex map 2.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vGxi.jpg" style={{width: 473.999, height: 310.98}}/></Frame>
+## Inline-Bearbeitung
+
+Die Inline-Bearbeitungs-App bietet eine um 30 % schnellere App-Ladezeit\* und um 50 % schnellere Daten-Writeback-Geschwindigkeiten\*, sodass Sie Massenänderungen effizienter durchführen können. Die Ladeanzeige wurde ebenfalls verbessert und liefert jetzt besseres Feedback, und die Fehlerberichte enthalten mehr Informationen, damit Sie Probleme effektiver lösen können.
+
+Weitere Informationen finden Sie im [Handbuch zur Inline-Bearbeitung](/s/article/360042933754) und im [Implementierungsleitfaden zur Inline-Bearbeitung](/s/article/1500000406641).
+
+<Frame><img alt="Screenshot 2023-07-20 at 10.19.35 AM.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vM7t.jpg" style={{width: 483, height: 218}}/></Frame>
+**beim Test mit 100.000 Zeilen**
+
+## Marken-Kit-E-Mail-Domänen
+
+Mit dem Marken-Kit können Sie jetzt über Ihre eigenen Server von Domo erzeugte E-Mails versenden, die die Kopf- und Fußzeile und den Absender anzeigen, der Ihr Unternehmen am besten repräsentiert.
+
+Erfahren Sie mehr zum [Marken-Kit](/s/article/5428851518999).
+
+## Dauer des Domo Everywhere-Veröffentlichungsvorgangs
+
+Die neuesten Updates von Domo Everywhere-Veröffentlichungen zeigen die Startzeit, die Dauer und den aktuellen Status von jedem Veröffentlichungsauftrag in Ihrer Instanz an. Durch die Kombination aus Startzeit und Dauer erhalten Sie bei der Planung von Aktualisierungen und zukünftigen Veröffentlichungen umfassendere Einblicke. Änderungen sind je nach Anzahl an DataSets, Dashboards, Karten und Abonnenten möglich.
+
+Weitere Informationen zu Veröffentlichungen finden Sie unter [Inhalte an eine Abonnentenorganisation veröffentlichen](/s/article/360045120554).
+
+<Frame><img alt="Duration.jpg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMeO.jpg" style={{width: 651, height: 225}}/></Frame>
+## Jupyter Workspaces-Dateifreigabe
+
+Mit der Dateifreigabe können die Benutzer von Jupyter Workspaces Dateien erstellen, bearbeiten und löschen, die auf mehreren Domo Jupyter Workspaces gemeinsam verwendet werden. Anstatt Skriptressourcen und Datenmodelle zwischen einzelnen Projekten zu kopieren, können Sie sie einfach an einen Speicherort hochladen und von mehreren Arbeitsplätzen auf sie zugreifen.
+
+Die Gewährungen „Dateifreigabe-Verzeichnisse erstellen“ und „Dateifreigabe-Verzeichnisse verwalten“ gestattet den Zugriff auf diese Funktion.
+
+Weitere Informationen zur Dateifreigabe finden Sie in unserem [Jupyter Workspaces-Benutzerhandbuch](https://domo-support.domo.com/s/article/36004740075?language=en_US#file_sharing).
+
+<Frame><img alt="file shares.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMcX.jpg" style={{width: 601.984, height: 362.992}}/></Frame>
+## Regeln für die Sandbox-Neubenennung und Abhängigkeitsdiagramm
+
+#### Regeln für die Neubenennung
+
+Regeln für die Neubenennung ermöglichen es Ihnen, Namen und Beschreibungen von Domo-Inhalten bei der Hochstufung auf eine andere Instanz problemlos zu bearbeiten. Sie brauchen die Details für alle Daten nicht mehr manuell zu bearbeiten. Stattdessen werden die Namen und Beschreibungen von Dashboards, Karten, Beast Mode-Berechnungen, DataSet-Ansichten und DataFlows von den Regeln für die Neubenennung entfernt, ersetzt oder hinzugefügt.
+
+#### Abhängigkeitsdiagramm
+
+Das Abhängigkeitsdiagramm in einem Sandbox-Repository ist ein leistungsstarkes Tool für die Untersuchung und Visualisierung von Inhalten in Domo. Es zeigt Domo-Inhalte im hierarchischen Diagrammformat an. So können Sie die Beziehung zwischen den verschiedenen Elementen des Repositorys untersuchen und nachvollziehen. Wenn beim Commit oder Hochstufen eines Repositorys ein Fehler auftritt, liefert das Diagramm zusätzlichen Kontext für Fehler und ihre Beziehungen, was die Problembehebung beschleunigt.
+
+Erfahren Sie mehr über [Domo Sandbox](/s/article/4403367344023).
+
+<Frame><img alt="dependency graph.png" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vMdB.jpg" style={{width: 706, height: 365}}/></Frame>
+## Kontroll-Toolkit-Updates
+
+Das Kontroll-Toolkit umfasst jetzt die folgenden Funktionen.
+
+#### Kopie der Unternehmensdaten
+
+Mit diesem Tool können Sie Daten massenweise über mehrere Instanzen hinweg kopieren. Sie können mit ihm eine manuelle Liste von DataSets erstellen, die Sie in ein separates DataSet kopieren möchten, oder mit dynamischen Filtern eine variierende Anzahl an zu kopierenden DataSets einschließen, die spezifischen Kriterien entsprechen. Administratoren können mit diesem Tool Daten aus einer bestimmten Instanz abrufen und auf eine bestimmte Instanz pushen.
+
+Erfahren Sie mehr über die [Kopie der Unternehmensdaten](/s/article/000005197).
+
+#### Webhook-Benachrichtigung
+
+Das DataSet-Watchdog-Tool bietet jetzt eine Option für Webhook-Benachrichtigungen. Mit Webhook-Benachrichtigungen können Sie automatisch Benachrichtigungen zu Änderungen an den wichtigsten DataSets und DataFlows über den bevorzugten Messaging-Dienst versenden.
+
+Erfahren Sie mehr über [DataSet-Watchdog](/s/article/000005105).
+
+## Cloud-Verstärker
+
+Cloud-Verstärker lässt sich nun in die folgenden Data Warehouses von Drittanbietern auf den angeführten Ebenen integrieren:
+
+* Amazon Redshift – schreibgeschützt
+* Databricks – schreibgeschützt
+* [Google BigQuery](/s/article/000005237) – schreibgeschützt
+
+<Frame><div style={{display: 'flex',justifyContent: 'space-around',alignItems: 'center',gap: '16px'}}><img src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XQ.jpg"alt="Amazon Redshift"style={{ width: '250px', height: 'auto' }}/><img src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XV.jpg"alt="Databricks"style={{ width: '250px', height: 'auto' }}/><img src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006v2XL.jpg"alt="Google BigQuery"style={{ width: '250px', height: 'auto' }}/></div></Frame>
+
+Erfahren Sie mehr über [Cloud-Verstärker](/s/article/4412849158167).
+
+---
+
+## Domo Bricks + <InlineImage src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vME1.jpg" />
+
+Erleben Sie die Leistung von ChatGPT in zwei Domo Bricks, die im [AppStore](https://www.domo.com/appstore/) verfügbar sind: AI ChatGPT Brick und ChatGPT DataSet Description Brick. Sie müssen Ihr eigenes KI-Token bereitstellen. Wenn Sie ein Brick heruntergeladen haben, wenden Sie sich an [ai@domo.com](mailto:ai@domo.com), um der Beta beizutreten.
+
+#### AI ChatGPT Brick
+
+Dieser Brick ermöglicht in Domo den Zugriff auf ChatGPT und kombiniert die KI mit der vollständigen Funktionalität von Domo Bricks.
+
+#### ChatGPT DataSet Description Brick
+
+ChatGPT liest das Schema Ihres DataSets und erzeugt automatisch eine Beschreibung davon.
+
+<Frame><img alt="domo_final_RGB_512x512.jpg" src="/images/kb/ka05w0000012AZy-00N5w00000Ri7BU-0EM5w000006vprH.jpg" style={{width: 172, height: 172}}/></Frame>
+## Benötigen Sie Unterstützung?
+
+Sie können auf die folgenden Ressourcen zugreifen:
+
+* Suchen Sie im
+  [Hilfecenter](https://www.domo.com/help-center) nach einem Thema.
+* Studieren Sie in der
+  [Domo University](https://www.domo.com/university).
+* Suchen Sie Schulungs-Apps im
+  [AppStore](https://www.domo.com/appstore/).
+* Finden Sie Antworten im
+  [Community-Forum](https://dojo.domo.com).
+* Wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im
+  [Domo-Supportportal](https://domo-support.domo.com/) einreichen
+* Wenden Sie sich an Ihren Domo Customer Success Manager (CSM) oder technischen Berater.
+
+Ihr Feedback können Sie aus Domo heraus übermitteln.
+
+Wählen Sie in der Navigationskopfzeile **Mehr** > **Feedback** aus. Im angezeigten Modul wählen Sie dann **Produkt-Feedback** aus.
+
+<Frame><img alt="REL10.png" src="/images/kb/ka05w00000129tX-00N5w00000Ri7BU-0EM5w000005vXis.png" style={{width: 381, height: 340}}/></Frame>
+Weitere Informationen über das Anfordern von Hilfe finden Sie unter [Hilfe anfordern](https://domo-support.domo.com/s/article/360042922874).
+

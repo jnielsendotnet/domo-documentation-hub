@@ -1,0 +1,166 @@
+---
+title: "Google BigQuery Serviceコネクター"
+---
+
+## はじめに
+
+Google BigQueryは、大量の読み出し専用DataSetを処理するクラウドベースのビッグデータ解析ウェブサービスです。DomoのGoogle BigQuery Serviceコネクターを使用すると、指定したプロジェクトからデータを取得することができます。BigQueryのクエリは、標準の SQL SELECT ステートメントのバリエーションを使って記述されています。BigQuery APIの詳細については、ウェブサイト（
+https://cloud.google.com/bigquery/docs/reference/v2/
+）を参照してください。
+
+Google BigQuery Serviceコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータを取得できます。Data Centerのウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、Google BigQueryを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+このトピックでは、Google BigQuery Serviceコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Google BigQueryからのデータの抽出が必要になる状況。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> DFPデータ </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> マーケティング権限 </p></li><li><p> 財務権限 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 記述しなければならないクエリの数によって異なります。BigQueryデータベース構造を理解し、クエリの作成方法を知っている人物がいると、デプロイメント時間が大幅に短縮されます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* Domoに取得する *前に* データを事前集計するようにクエリ構造を最適化しておくと、パフォーマンスが大幅に向上します。
+* 取り込む前に視覚化できるようにデータを厳密に構造化しておけば、DomoのETLプロセスが不要になる場合があり、時間を節約できます。
+
+## 必要条件
+
+BigQueryサービスアカウントに接続するには、 Google BigQueryサービスアカウントのJSONキーが必要です。キーを生成するには、次の手順を実行します。
+
+1. Google Cloud Platform Consoleで、［IAM & Admin］ページを開きます。
+2. 左側のナビゲーションペインで **［Service accounts］** をクリックします。
+3. プロジェクトを選択して **［Open］** をクリックします。
+4. **［Create Service Account］** をクリックします。
+5. サービスアカウントの名前と説明を入力します。
+6. **［Create］** をクリックします。
+
+   <Note>
+   **注記：** サービスアカウントの許可ダイアログで「BigQuery Admin」権限が必要になる場合があります。詳細についてはGoogle管理者にお問い合わせください。
+
+   </Note>
+
+7. **［Project］>［Owner］** の順に選択します。
+8. **［Continue］** をクリックします。
+9. **［Create key］** をクリックします。
+10. キーのタイプに **［JSON］** を選択します。
+11. **［Create］** をクリックします。
+
+秘密キーがコンピューターに保存されます。
+
+## BigQuery Serviceアカウントに接続する
+
+このセクションでは、Google BigQuery Serviceコネクターページの ［認証情報］ ペインと ［詳細］ ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、BigQueryサービスアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Account Key JSON </p></td><td colspan="1" rowspan="1"><p> BigQueryサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </p></td></tr></tbody></table>
+
+有効なキーを一度入力しておくと、随時同じアカウントを使用して新しいGoogle BigQuery Service DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、レポートの設定に使用できるいくつかのフィールドとメニューがあります。
+
+<Tip>
+**ヒント：** DataSet ID、プロジェクトID、表名などを取得する場合は、「表の詳細」レポートを使用します。そうすると、クエリを簡単に作成、形成できます。
+
+</Tip>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するBigQueryレポートタイプを選択します。以下のレポートが利用できます。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Query </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> クエリを入力してパラメーターを設定できます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Table Data </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 選択したBigQueryプロジェクト、DataSet、表のデータを取得できます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Table Information </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> この表の構造を記述する表リソースを返します。このレポートは、表のデータを <em> 返しません </em> 。これを行うには、「Table Data」レポートを実行します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> SQL Dialect </p></td><td colspan="1" rowspan="1"><p> クエリの記述にLegacySQLを使用するか、StandardSQLを使用するかを選択します。デフォルトでは <span> 標準SQLが使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 適切に記述されたBigQueryクエリを入力します。使用するクエリ言語は、 <b> ［SQL Dialect］ </b><b></b> メニューで選択したものと同じものである必要があります。 </p><p> BigQueryクエリの記述に関する詳しい文書については、ウェブサイト（ <a href="https://cloud.google.com/bigquery/query-reference" target="_blank"> https://cloud.google.com/bigquery/query-reference </a> ）を参照してください。クエリプレフィックスの設定についての詳細は、ウェブサイト（ <a href="https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql" target="_blank"> https://cloud.google.com/bigquery/docs/reference/standard-sql/enabling-standard-sql </a> ）を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p><span> クエリパラメーターの値を入力します。これは、クエリパラメーターの初期値です。クエリパラメーターは、カンマで区切って複数指定することができます。上記の［Query］フィールドのクエリは、ここで指定されたパラメーター値に従ってデータを取得します。詳しくは、後述の「クエリパラメーターを使用する」セクションを参照してください。 </span></p><p><span> 例： <tt>!\{lastvalue:_id}!=1,!\{lastrundate:start_date}!=02/01/1944 </tt></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Allow Large Results </p></td><td colspan="1" rowspan="1"><p> このクエリで取得されるDataSetが大きくなることが想定されるかどうかを選択します。 <b> ［Yes］ </b> を選択すると、一時的な表が作成され、ジョブの終了後に削除されます。作成する表の <b> ［DataSet ID］ </b> フィールドにDataSet IDを入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet Name </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むDataSetの名前を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> データの取得元になる表を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Processing Location </p></td><td colspan="1" rowspan="1"><p> クエリを実行する場所を入力します。特定の場所で実行されるクエリは、その場所のデータのみを参照できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Max Results </p></td><td colspan="1" rowspan="1"><p> レポートで返す結果の最大数を入力します。デフォルトは1ページ当たり10,000件です。DataSetが「Out of Memory」エラーをスローする場合は、この数を減らします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Use Google BigQuery Schema </p></td><td colspan="1" rowspan="1"><p><span> Google BigQueryから受け取ったスキーマを使用するには、このチェックボックスを選択します。 </span><br/><span> これは、列のデータタイプがDomoで正しく認識されない場合に役立ちます。 </span></p><p><span> 例：表の文字列に「123」が含まれている可能性があります。 </span></p></td></tr></tbody></table>
+
+### Using the Query Parameter
+
+クエリパラメーターは、クエリパラメーターの初期値を示します。初回実行後、クエリは2回目以降の実行時にプロバイダーから更新済みのデータのみを要求します。クエリパラメーターは、カンマで区切って複数指定することができます。
+
+<Note>
+**注記：** 上記の［Query］フィールドには、ここで提供されたパラメーターを使用する必要があります。クエリは、ここで提供されたパラメーター値に従ってデータを取得します。
+
+</Note>
+
+例：
+
+<Frame><img alt="Query_Parameters.png" src="/images/kb/ka05w00000123NG-00N5w00000Ri7BU-0EM5w000005vO6S.png"/></Frame>
+
+この例では、値「id=1」と「start date=02/01/1944」が上記のクエリの最初の実行で使用されます。
+
+クエリパラメーター「最終実行日」の値はオプションです。指定されていない場合は、最終実行日はデフォルトで「02/01/1700」になります。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* 認証情報に、表のクエリに必要なアクセス権があることを確認してください。
+* クエリが正しく記述されており、適切に指定したデータソースを呼び出していることを確認してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="ページサイズはどのようにして決まりますか？">
+
+
+コネクターの **［詳細］** セクションで設定される **［Max Results］** パラメーターは、結果のページごとに返されるデータの最大行数です。 **［Max Results］** を1,000などの小さい値に設定し、結果を改ページすると、クエリ結果セットが大きい場合の信頼性が向上することがあります。
+
+Domoの **［Max Results］** 行制限以外にも、Googleにも結果のページごとに10 MBのバイト制限があります。行の値に大量のデータが含まれる場合、バイト制限を超過しないよう、返されるページ当たりの行数が少なくなる場合があります。
+
+
+</Accordion>
+<Accordion title="特定のロケーションにあるデータを処理するにはどうすればよいですか？">
+
+
+DataSetを作成するときに、BigQueryデータを保存するためのクエリレポートで処理を実行するロケーションを指定できます。DataSetを作成した後は、ロケーションを変更できません。特定の場所で実行されるクエリは、そのロケーションのデータのみを参照できます。場所には、リージョンのロケーションとマルチリージョンのロケーションの2種類があります。詳細については、「 [データセットのロケーション](https://cloud.google.com/bigquery/docs/locations "https://cloud.google.com/bigquery/docs/locations") 」を参照してください。
+
+
+</Accordion>
+<Accordion title="DataSetから「大き過ぎて実行できません」のエラーが返されます。クエリで大きな結果を取得するにはどうすればよいですか？">
+
+
+クエリで大きな結果が予想される場合は、コネクターインターフェースの **［詳細］** セクションに移動し、 **［Allow large results?］** で **［Yes］** を選択し、 **［DataSet Name］** メニューでDataSetを選択します。 **［Allow large results］** を **［Yes］** に設定するには、Googleアカウントで表作成の権限を有効にする必要があります。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません
+
+
+</Accordion>
+<Accordion title="同一のGoogle BigQueryアカウントを複数のDataSetに使えますか？">
+
+
+はい
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Google BigQuery ServiceアカウントのサービスアカウントJSONキーが必要です。
+
+
+</Accordion>
+<Accordion title="サービスアカウントJSONキーはどこにありますか？">
+
+
+サービスアカウントJSONキーを確認するには：
+
+1. GCP Consoleで、［IAM & Admin］ページを開きます。
+2. 左側のナビゲーションで **［Service accounts］** をクリックします。
+3. プロジェクトを選択して **［Open］** をクリックします。
+4. **［Create Service Account］** をクリックします。
+5. サービスアカウント名とサービスアカウントの説明を入力します。**［Create］** をクリックします。
+6. サービスアカウント（プロジェクトの所有者）に付与する権限を選択します。**［Continue］** をクリックします。
+7. **［Create key］** をクリックします。キーのタイプに［JSON］を選択します。 **［Create］** をクリックします。秘密キーがコンピューターに保存されます。
+8. ポップアップを閉じます。**［Done］** をクリックします。
+
+
+
+</Accordion>
+</AccordionGroup>

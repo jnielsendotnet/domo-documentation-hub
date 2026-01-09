@@ -1,0 +1,43 @@
+---
+title: "Workbench 5.2でのCloud Amplifierのサポート"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Workbench 5.2にはCloud Amplifierサポートのプレミアムオプションが含まれています。Cloud Amplifierが有効になっていて、複数のデータウェアハウスが利用可能な場合、クラウドウェアハウスセレクターはジョブ設定の一部となります。Workbench 5.2にアップグレードする必要がある場合は、「 [Workbench 5.2にアップグレードする](/ja/s/article/000005103) 」を参照してください。
+
+## クラウドウェアハウスを選択する
+
+1. Workbench 5.2で、
+<InlineImage src="/images/kb/ka05w000001240b-00N5w00000Ri7BU-0EM5w000005vXkE.png" /> **［DataSetジョブ］** に移動します。
+
+2. <InlineImage src="/images/kb/ka05w00000126aG-00N5w00000Ri7BU-0EM5w000005vXk7.png" /> **［Add Job］** を選択します。
+
+3. **［概要］** タブの **［ジョブの詳細］** セクションに入力します。
+
+4. ［概要］タブの
+**［Domoの詳細］** セクションに入力します。Cloud Amplifier接続が適切に設定されていると、 **［DataSetクラウド］** というフィールドが表示されます。
+
+5. クラウドウェアハウスのリストを表示する
+**［DataSetクラウド］** フィールドを選択します。
+
+<Frame><img alt="dataset_cloud.png" src="/images/kb/ka05w00000126aG-00N5w00000Ri7BU-0EM5w000005vXkA.png"/></Frame>
+
+6. Workbenchジョブデータを書き込むクラウドウェアハウスを選択します。
+
+7. **［作成］** を選択します。
+
+8. ジョブ設定を終了し、
+<InlineImage src="/images/kb/ka05w000001240b-00N5w00000Ri7BU-0EM5w000005vXk9.png" /> **［保存］** を選択します。
+
+## トラブルシューティング
+
+ジョブの設定中に **［DataSetクラウド］** のフィールドが表示されない場合、AppstoreからWorkbench 5.2がダウンロードされていることを確認します。
+
+Cloud Amplifierが有効になっているDomoのインスタンスに接続していること、および認証されたWorkbenchユーザーに同じインスタンスでの「デフォルトクラウドに上書き」の許可があることを確認してください。
+
+それでもフィールドが表示されない場合は、 [Domoサポート](https://domo-support.domo.com/) にお問い合わせください。
+
+

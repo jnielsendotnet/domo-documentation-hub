@@ -1,0 +1,85 @@
+---
+title: "Dialpad Enterpriseコネクター"
+---
+
+## はじめに
+
+Dialpad Enterpriseはクラウドベースの電話システムであり、通話の発着信とメッセージの送受信を行うことができます。Dialpadは、接続性に優れたオールインワンのワークスペースを提供します。AIが組み込まれた真の統合コミュニケーションの体験、より迅速な拡張、グローバルチームの一括展開、エンタープライズ級のセキュリティを実現できます。このコネクターを使って、ユーザー、オフィス、部署などの電話システムの使用状況に関するデータを受信します。Dialpad APIの詳細は、Dialpadのウェブサイト（https://developers.dialpad.com/docs ）を参照してください。
+
+Dialpad Enterprise コネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+Dialpad Enterprise アカウントには、Data Centerから接続します。このトピックでは、 Dialpad Enterprise コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Dialpad Enterprise アカウントに接続してDataSetを作成するには、 Enterprise アカウントに関連付けられたDialpad APIキー が必要です。
+
+## Dialpad Enterpriseアカウントに接続する
+
+このセクションでは、 Dialpad Enterprise コネクターページの［認証情報］ペインと［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Dialpad Enterprise アカウントに接続するための認証情報の入力フィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［API Key］ </td><td colspan="1" rowspan="1"><span> EnterpriseアカウントにDialpad APIキーを入力します。 </span></td></tr></tbody></table>
+
+有効な Dialpad Enterprise 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Dialpad Enterprise DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行する <span> Dialpad Enterprise </span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［Offices］ </td><td colspan="1" rowspan="1"><span> すべてのオフィスのリストを取得します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Call Centers］ </td><td colspan="1" rowspan="1"><span> オフィスのコールセンターを一覧表示します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Operators］ </td><td colspan="1" rowspan="1"><span> 指定されたコールセンターのすべての演算子を一覧表示します。各項目には、各演算子を一意に識別するためのキーパラメーターが含まれます。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Stats］ </td><td colspan="1" rowspan="1"><span> サマリーの統計とコール/テキストログを取得します。 </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［Office］ </td><td colspan="1" rowspan="1"><span> オフィスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Target Type］ </td><td colspan="1" rowspan="1"><span> IDのターゲットタイプを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Call Center］ </td><td colspan="1" rowspan="1"><span> コールセンターを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> ［Stat Type］ </span></td><td colspan="1" rowspan="1"><span> 統計タイプを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Export Type］ </td><td colspan="1" rowspan="1"><span> 統計データとレコードのどちらをエクスポートするかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Today's Data］ </td><td colspan="1" rowspan="1"><span> 現在の日のデータを取得するには［Yes］を選択します。［Today's Data］を履歴データと組み合わせることはできません。日付範囲オプションを表示するには［NO］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Date Selection］ </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Single Date］ </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Specific Date］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Relative Date］ </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <span></span><b> ［Days Back］ </b><span></span> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Date Range］ </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b> ［End Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b> ［Start Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのDialpad APIを使用しますか？">
+
+
+このコネクターではDialpad APIのバージョン2（ https://dialpad.com/api/v2 ）を使用します。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="2" rowspan="1"> ［Offices］ </td><td colspan="1" rowspan="1"><span> /offices </span></td></tr><tr><td colspan="2" rowspan="1"> ［Call Centers］ </td><td colspan="1" rowspan="1"><span> /offices/\{office_id\}/callcenters </span></td></tr><tr><td colspan="2" rowspan="1"> ［Operators］ </td><td colspan="1" rowspan="1"><span> /callcenters/\{callcenter_id\}/operators </span></td></tr><tr><td colspan="2" rowspan="1"> ［Stats］ </td><td colspan="1" rowspan="1"><span> /stats </span></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+エンタープライズアカウントに関連付けられているDialpad APIキーが必要です。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+必要に応じて何回でも更新できます。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

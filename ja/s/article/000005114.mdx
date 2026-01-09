@@ -1,0 +1,60 @@
+---
+title: "Spotifyサードパーティコネクター"
+---
+
+## はじめに
+
+Spotifyは数千万曲の楽曲を配信するデジタル音楽配信サービスです。
+  
+DomoのSpotifyコネクターを利用すると、SpotifyのBulk APIを利用してSpotify For Artistsで提供されるパフォーマンスデータをDomoインスタンスに取り込むことができます。このパフォーマンスデータには、ライセンサーに紐づくユーザー、トラック、ストリームが含まれます。
+
+SpotifyアカウントにはData Centerから接続します。このトピックでは、Spotifyコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Spotifyアカウントに接続してDataSetを作成するには以下の情報が必要です。
+
+* クライアントID
+* クライアントシークレット
+
+Spotifyコネクターを使用するにはSpotify’s Bulk APIを利用する必要があります。このBulk APIを利用するにはユーザーはSpotifyとの間にDirect Distributionの関係が必要となります。その上で、
+
+「 [ヘルプ - SpotifyのBulk APIを利用する – Spotify for Artists](https://artists.spotify.com/help/article/getting-access-to-bulk-api) 」のページを参考にBulk APIの利用申請が必要となります。利用申請が許可されるとクライアントID、クライアントシークレットを入手することができます。
+
+## Shopifyアカウントに接続する
+
+このセクションでは、Spotifyコネクターページの **［認証情報］** と **［詳細］** ペインのオプションについて説明します。このページのその他のペインである **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** の項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Spotifyアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Spotifyから発行されたクライアントIDを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Spotifyから発行されたクライアントシークレットを指定します。 </p></td></tr></tbody></table>
+
+これらの認証情報の取得方法については、上記「 **必要条件** 」を参照してください。
+  
+有効なSpotify認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSpotify DataSetを作成できます。コネクターアカウントは、Data Centerの［アカウント］タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> 実行するレポートを選択します。以下のレポートが利用できます。 <table border="1" cellpadding="1" cellspacing="1"><thead></thead><tbody><tr><td colspan="1" rowspan="1"> Streams </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付でのストリームの一覧を取得します。このストリームオブジェクトにはトラックとユーザー情報を含みます。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付での個別のユーザーの情報とデバイスに関連した情報の一覧を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Track </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付でのトラックの詳細情報の一覧を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Sub30SecStreams </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付でのストリーム（30秒未満のストリームのみ）の一覧を取得します。このストリームオブジェクトにはトラックとユーザー情報を含みます。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregated Stream – Summary </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付での個別のトラック単位のアグリゲーテッドストリームの一覧を返します。この情報にはメタデータと統計情報が含まれます。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregated Stream – Count </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付での個別のトラック単位のアグリゲーテッドストリームの一覧のうち、国別、性別、年代別の再生回数の内訳を取得します。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregated Stream – Skips </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付での個別のトラック単位のアグリゲーテッドストリームの一覧のうち、国別のスキップ回数の内訳を取得します。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregated Stream – Saves </td><td colspan="1" rowspan="1"> 指定したライセンサーと日付での個別のトラック単位のアグリゲーテッドストリームの一覧のうち、国別、ユーザーのプラン別の保存回数の内訳を取得します。これは実際のストリームだけが含まれ、ローカルトラック（ユーザーのコンピューターに保存されたトラック）の再生数は考慮されません。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Licensor </p></td><td colspan="1" rowspan="1"><p> 情報を取得する対象のライセンサーの名前を指定します。 <br/> これはすべて小文字の名前で、Spotifyからのウェルカムメールに記載されています。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"><p> レポートを取得する範囲を指定します。 <b> ［日付の選択］ </b> で日付の指定方法を選択します。 </p><table border="1" cellpadding="1" cellspacing="1"><thead></thead><tbody><tr><td colspan="1" rowspan="1"> 単一の日付 </td><td colspan="1" rowspan="1"> 特定の単一の日付、または相対的な単一の日付を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 日付範囲 </td><td colspan="1" rowspan="1"> 特定の日付範囲、または、相対的な日付範囲を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"> ［期間］ドロップダウンから期間を選択します。 </td></tr></tbody></table></td></tr><tr></tr><tr><td colspan="1" rowspan="1"><p> Date – 日付 </p></td><td colspan="1" rowspan="1"><p><b> ［日付タイプ］ </b> を以下から選択し、単一の日付を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"><b> ［遡る日数］ </b> に、遡ってデータを取得する日数を入力してください。今日の場合は0、昨日の場合は1、今日から過去に遡って7日分のデータを取得したい場合は、7と指定してください。 </td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"><b> ［日付］ </b> フィールドの日付セレクターで特定の日付を選択してください。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – 開始日 </td><td colspan="1" rowspan="1"><p><b> ［日付タイプ］ </b> を以下から選択し、日付範囲の開始日を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。［終了日］と組み合わせることによって、表示日数の範囲を作成できます。 <br/> 例えば、 <b> ［開始日］ </b> に10、 <b> ［終了日］ </b> を［相対］に設定して「5」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Date – 終了日 </p></td><td colspan="1" rowspan="1"><p><b> ［日付タイプ］ </b> を以下から選択し、日付範囲の終了日を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"> レポートで表示する、直近の日までの日数を入力します。［開始日］と組み合わせることによって、表示される日の範囲を作成できます。 <br/> 例えば、 <b> ［開始日］ </b> に10、 <b> ［終了日］ </b> を［相対］にして「5」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"> 日付範囲の2番目の日付を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Date – 期間 </p></td><td colspan="1" rowspan="1"><p> 特定の日付か、または日付範囲に対してデータを取得するかどうか選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### FAQ
+
+<AccordionGroup>
+<Accordion title="コネクターの利用には何が必要ですか？">
+
+Spotifyコネクターを使用するにはSpotify’s Bulk APIの使用許可と、クライアントID、クライアントシークレットが必要です。このBulk APIを利用するにはユーザーはSpotifyとの間にDirect Distributionの関係が必要となります。その上で、「 [ヘルプ - SpotifyのBulk APIを利用する – Spotify for Artists](https://artists.spotify.com/help/article/getting-access-to-bulk-api) 」のページを参考にBulk APIの利用申請が必要となります。利用申請が許可されるとクライアントID、クライアントシークレットを入手することができます。
+</Accordion>
+
+<Accordion title="知っておく必要のあるAPIの制限はありますか？">
+
+現在のところありません。
+</Accordion>
+</AccordionGroup>

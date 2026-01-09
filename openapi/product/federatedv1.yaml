@@ -1,0 +1,361 @@
+openapi: 3.0.0
+info:
+  title: Federated V1 to V2 Migration APIs
+  description: |
+    These APIs leverage a Domo access token that you can generate in the admin panel from within your Domo instance. Instructions on generating your access token can be found here: https://domo-support.domo.com/s/article/360042934494?language=en_US
+
+    ## Prerequisites
+
+    ### Federated Architecture: Standard vs. Agent
+
+    Please go through the Federated V2 setup instructions found at https://domo-support.domo.com/s/article/360042932974?language=en_US and decide whether you will be utilizing a Standard Federated Architecture, or a Federated Agent Architecture.
+
+    ### Create Federated V2 Accounts
+
+    Migrating Federated V1 datasources to V2 requires that Federated V2 accounts of the matching integration type (MySQL, Snowflake, Postgres, etc.) be created in the Domo platform prior to attempting migration. To create these Federated V2 accounts, first please contact your Domo account representative to ensure that Federated V2 has been enabled in your Domo instance.
+
+    Once Federated V2 has been enabled, create the necessary Federated V2 account(s) by repeating the following steps as many times as needed:
+
+    1. Navigate to the Domo Datacenter page, then the DataSets view on that page.
+    2. Click on the Federated button to open the Federated / Cloud Amplifier start screen.
+    3. Select the Federated integration type matching the V1 datasource(s) to migrate. If you do not see a matching integration type, click on the 'See More' option.
+    4. In the opened 'Connect a Federated DataSet' dialog, click the 'Add New Account' button.
+    5. Complete the displayed form and click the now enabled 'Connect' button to finish creating the account.
+  version: 1.0.0
+servers:
+- url: https://{domo-domain}
+  variables:
+    domo-domain:
+      default: your-instance.domo.com
+      description: The fully qualified domain of the Domo instance housing the Federated integrations.
+security:
+  - DeveloperToken: []
+paths:
+  /api/query/migration/federated/v1/to/v2/types:
+    get:
+      summary: List Federated Integration Types
+      description: Retrieves a list of the Federated integration types matching integrations that exist in the Domo instance.
+      operationId: list-federated-integration-types
+      tags:
+        - Federated V1 to V2 Migration
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+                  description: Federated integration type name
+              example:
+                - "mysql-federated"
+                - "snowflake-federated"
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl 'https://{domo-domain}/api/query/migration/federated/v1/to/v2/types' \
+              -H 'accept: application/json,*/*;q=0.8' \
+              -H 'accept-language: en-US,en;q=0.9' \
+              -H 'cache-control: max-age=0' \
+              -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/federated/v1/to/v2/accounts/{integration-type}:
+    get:
+      summary: List Federated V2 Accounts by Integration Type
+      description: Retrieves a list of Federated V2 accounts matching the provided Federated integration type. The accounts returned are ones accessible to the calling user, and my change depending on that user's permissions.
+      operationId: list-federated-v2-accounts-by-integration-type
+      tags:
+        - Federated V1 to V2 Migration
+      parameters:
+        - name: integration-type
+          in: path
+          required: true
+          description: One of the in-use federated integration types returned from the List Federated Integration Types API.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FederatedV2Account'
+              example:
+                - id: "2"
+                  type: "mysql-federated"
+                  name: "mysql v2 agent"
+                - id: "1"
+                  type: "mysql-federated"
+                  name: "mysql v2"
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl 'https://{domo-domain}/api/query/migration/federated/v1/to/v2/accounts/{integration-type}' \
+              -H 'accept: application/json,*/*;q=0.8' \
+              -H 'accept-language: en-US,en;q=0.9' \
+              -H 'cache-control: max-age=0' \
+              -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/federated/v1/to/v2/candidates/{account-id}:
+    get:
+      summary: List Federated V1 Migration Candidate Datasources by Account
+      description: Retrieves a list of migration candidate datasources matching the provided Federated V2 account.
+      operationId: list-federated-v1-migration-candidate-datasources-by-account
+      tags:
+        - Federated V1 to V2 Migration
+      parameters:
+        - name: account-id
+          in: path
+          required: true
+          description: The unique ID of one of the Federated V2 accounts returned from the List Federated V2 Accounts by Integration Type API.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MigrationCandidateDatasource'
+              example:
+                - id: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
+                  name: "MySQL Table 1"
+                  migrated: false
+                  migrationDate: null
+                - id: "F495e28ec-6c07-41fc-99ed-b2dce9a5f569"
+                  name: "MySQL Table 2"
+                  migrated: false
+                  migrationDate: null
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl 'https://{domo-domain}/api/query/migration/federated/v1/to/v2/candidates/{account-id}' \
+              -H 'accept: application/json,*/*;q=0.8' \
+              -H 'accept-language: en-US,en;q=0.9' \
+              -H 'cache-control: max-age=0' \
+              -H 'X-DOMO-Developer-Token: {developer-token}'
+  /api/query/migration/federated/v1/to/v2/{datasource-id}/accounts/{account-id}:
+    post:
+      summary: Migrate Federated V1 Datasource to V2
+      description: Migrates the provided Federated V1 datasource to V2, associating it with the provided Federated V2 account.
+      operationId: migrate-federated-v1-datasource-to-v2
+      tags:
+        - Federated V1 to V2 Migration
+      parameters:
+        - name: datasource-id
+          in: path
+          required: true
+          description: The unique ID of one of the Federated V1 datasources returned from the List Federated V1 Migration CandidateDatasources by Account API.
+          schema:
+            type: string
+        - name: account-id
+          in: path
+          required: true
+          description: The unique ID of one of the Federated V2 accounts returned from the List Federated V2 Accounts by Integration Type API.
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MigrationRequest'
+            example:
+              catalog: "MyCatalogName"
+              schema: "MySchemaName"
+              table: "MyTableName"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationResponse'
+              example:
+                toe: "DM4X9GT6H5-5ERQX-MPDO6"
+                datasourceId: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
+                direction: "V1_TO_V2"
+                startTime: "2024-04-15T19:48:00.073+00:00"
+                state: "COMPLETE"
+                errorMessage: null
+                endTime: "2024-04-15T19:48:02.410+00:00"
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl 'https://{domo-domain}/api/query/migration/federated/v1/to/v2/{datasource-id}/accounts/{account-id}' \
+              -X POST \
+              -H 'content-type: application/json' \
+              -H 'accept: application/json,*/*;q=0.8' \
+              -H 'accept-language: en-US,en;q=0.9' \
+              -H 'cache-control: max-age=0' \
+              -H 'X-DOMO-Developer-Token: {developer-token}' \
+              -d '{"catalog":"{catalog-name}","schema":"{schema-name}","table":"{table-name}"}'
+  /api/query/migration/federated/v1/to/v2/{datasource-id}/reverse:
+    post:
+      summary: Reverse Federated V1 to V2 Datasource Migration
+      description: Reverses the migration of the provided Federated V1 datasource to V2.
+      operationId: reverse-federated-v1-to-v2-datasource-migration
+      tags:
+        - Federated V1 to V2 Migration
+      parameters:
+        - name: datasource-id
+          in: path
+          required: true
+          description: The unique ID of one of the Federated V1 datasources returned from the List Federated V1 Migration CandidateDatasources by Account API.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MigrationReversalResponse'
+              example:
+                toe: "DM4X9GT6H5-5ERQX-MPDO6"
+                datasourceId: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
+                direction: "V2_TO_V1"
+                startTime: "2024-04-15T19:48:00.073+00:00"
+                state: "COMPLETE"
+                errorMessage: null
+                endTime: "2024-04-15T19:48:02.410+00:00"
+      x-codeSamples:
+        - lang: cURL
+          source: |
+            curl 'https://{domo-domain}/api/query/migration/federated/v1/to/v2/{datasource-id}/reverse' \
+              -X POST \
+              -H 'content-type: application/json' \
+              -H 'accept: application/json,*/*;q=0.8' \
+              -H 'accept-language: en-US,en;q=0.9' \
+              -H 'cache-control: max-age=0' \
+              -H 'X-DOMO-Developer-Token: {developer-token}'
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo access token that you can generate in the admin panel from within your Domo instance.
+  schemas:
+    FederatedV2Account:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the Federated V2 account
+        type:
+          type: string
+          description: Federated integration type
+        name:
+          type: string
+          description: Name of the Federated V2 account
+    MigrationCandidateDatasource:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the datasource
+        name:
+          type: string
+          description: Name of the datasource
+        migrated:
+          type: boolean
+          description: Whether the datasource has been migrated
+        migrationDate:
+          type: string
+          format: date-time
+          nullable: true
+          description: Date and time when the datasource was migrated
+    MigrationRequest:
+      type: object
+      required:
+        - catalog
+        - schema
+        - table
+      properties:
+        catalog:
+          type: string
+          description: Case-sensitive name of the catalog/database of the database table the Federated V1 datasource is referencing.
+        schema:
+          type: string
+          description: Case-sensitive name of the schema of the database table the Federated V1 datasource is referencing. May be the literal 'NULL' if the database does not utilize schemas.
+        table:
+          type: string
+          description: Case-sensitive name of the database table the Federated V1 datasource is referencing.
+    MigrationResponse:
+      type: object
+      properties:
+        toe:
+          type: string
+          description: Unique identifier of the migration request.
+        datasourceId:
+          type: string
+          description: Unique identifier of the datasource migration was requested for.
+        direction:
+          type: string
+          description: Direction of the migration. Will be 'V1_TO_V2'.
+          enum:
+            - "V1_TO_V2"
+        startTime:
+          type: string
+          format: date-time
+          description: Starting date and time of the migration.
+        state:
+          type: string
+          description: |
+            Final state of the migration, one of ["COMPLETE", "INCOMPLETE", "ABORTED"].
+            - COMPLETE: Migration has completed successfully.
+            - INCOMPLETE: Migration failed after some changes to the datasource were made. Domo content powered by the datasource may remain unavailable and/or non-functional until the migration is re-attempted and completes successfully. More information can be found in the 'errorMessage' property.
+            - ABORTED: Migration was aborted prior to any changes being made to the datasource. More information can be found in the 'errorMessage' property.
+          enum:
+            - "COMPLETE"
+            - "INCOMPLETE"
+            - "ABORTED"
+        errorMessage:
+          type: string
+          nullable: true
+          description: Message populated with additional details when a migration fails to complete normally or is aborted prior to starting.
+        endTime:
+          type: string
+          format: date-time
+          description: Timestamp indicating the end time of the migration.
+    MigrationReversalResponse:
+      type: object
+      properties:
+        toe:
+          type: string
+          description: Unique identifier of the migration reversal request.
+        datasourceId:
+          type: string
+          description: Unique identifier of the datasource migration reversal was requested for.
+        direction:
+          type: string
+          description: Direction of the migration reversal. Will be 'V2_TO_V1'.
+          enum:
+            - "V2_TO_V1"
+        startTime:
+          type: string
+          format: date-time
+          description: Starting date and time of the migration reversal.
+        state:
+          type: string
+          description: |
+            Final state of the migration reversal, one of ["COMPLETE", "INCOMPLETE", "ABORTED"]
+            - COMPLETE: Migration reversal has completed successfully.
+            - INCOMPLETE: Migration reversal failed after some changes to the datasource were made. Domo content powered by the datasource may remain unavailable and/or non-functional until the migration reversal is re-attempted and completes successfully. More information can be found in the 'errorMessage' property.
+            - ABORTED: Migration reversal was aborted prior to any changes being made to the datasource. More information can be found in the 'errorMessage' property.
+          enum:
+            - "COMPLETE"
+            - "INCOMPLETE"
+            - "ABORTED"
+        errorMessage:
+          type: string
+          nullable: true
+          description: Message populated with additional details when a migration reversal fails to complete normally or is aborted prior to starting.
+        endTime:
+          type: string
+          format: date-time
+          description: Timestamp indicating the end time of the migration reversal.

@@ -1,0 +1,63 @@
+---
+title: "Microsoft SQL Serverコネクター"
+---
+
+## はじめに
+
+Microsoft SQL Serverは、Microsoft社が開発したリレーショナルデータベース管理システムです。データベースとは、同じコンピュータで稼働しているか（インターネットも含め）ネットワーク上の他のコンピュータで実行されているかにかかわらず、他のソフトウェアプリケーションの要求に応じてデータを保存・取得することを主要な機能とするソフトウェア製品です。主なクエリ言語はT-SQLとANSI SQLです。DomoのMicrosoft SQL Serverコネクターを使用すると、Microsoft SQL Serverデータベースからデータを引き出し、カスタマイズされたレポートを編集できます。取得するデータの指定は、SQLクエリの入力で行います。Microsoft SQL Server APIについての詳細は、同社のウェブサイト（
+https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx
+）を参照してください。
+
+Microsoft SQL Serverコネクターは「データベース」コネクターです。つまり、クエリを使ってデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、これを含む他のデータベースコネクターのページにアクセスできます。
+
+Microsoft SQL Serverには、Data Centerから接続します。このトピックでは、Microsoft SQL Serverコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Workbenchが利用できず、生データに直接アクセスする必要がある場合、このコネクターを使用します。上記が該当しない場合、通常、SQL Serverへの接続にはWorkbenchが推奨されます。なお、このコネクターを使用するためには、コーポレートイントラネットの外部からSQL Serverにアクセスできるよう、IT部門がアクセスを開放する必要があります。詳細は「 <a target="_blank" title="Workbench 4を使用してデータに接続する"> Workbenchを使ってデータに接続する </a> 」を参照してください。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主なロール </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> IT </p></li><li><p> プロジェクト管理 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> サーバーとアカウントが正しく設定されており、データの取得に必要なクエリが既知の場合、数分で導入できる可能性があります。上記が該当しない場合、より長い時間を要する可能性があります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+アクセス権が必要なデータベースと表に限定されている、読み取り専用アカウントを使用していることを確認します。
+
+## 必要条件
+
+Microsoft SQL Serverデータベースに接続してDataSetを作成するには、必要なデータベースと表に対する読み取り専用アクセス権を持つアカウントの作成をDBAに依頼してください。接続するには、以下のすべてが必要です。
+
+* Microsoft SQL Serverアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベースの名前
+* データを引き出すのに使用するSQLクエリ
+
+オプションで、SSL CA証明書のあるURLを含めることもできます。
+
+SQL Serverに接続する前に、接続先となるデータベースサーバーのポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリスト化する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Microsoft SQL Serverデータベースに接続する
+
+このセクションでは、［Microsoft SQL Serverコネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目である **［スケジュール設定］** や **［DataSetに名前を付けて説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、データベースに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Microsoft SQL Serverアカウントのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Microsoft SQL Serverアカウントのログインに使用するパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> データベースのホスト名を入力します。ホスト名は、SQL Server Management Studioで次のようにSQL <span class="mt-font-courier-new"> SELECT </span> クエリを使用して取得することができます： </p><p><code> SELECT serverproperty('Machinename') as Hostname </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース </p></td><td colspan="1" rowspan="1"><p> データベース名を入力します。データベース名は、SQL Server Management Studioで次のようにSQL <span class="mt-font-courier-new"> SELECT </span> クエリを使用して取得することができます： </p><p><code> SELECT DB_NAME() AS DataBaseName </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書 </p></td><td colspan="1" rowspan="1"><p> SSL CA証明書のあるURLを入力します（オプション） </p></td></tr></tbody></table>
+
+一度有効なMicrosoft SQL Server認証情報を入力したら、新しいMicrosoft SQL Server DataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p> メニュー </p></td><td colspan="1" rowspan="1"><p> 説明 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SQLクエリ </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するための構造化照会言語（SQL）クエリを入力します。例： </p><p><code> Select GeneralManager from Sales WHERE GeneralManager = 'jane'; </code></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* Windowsサーバーでポートが開放されており、ファイアーウォールでポートが開放されてフォワーディングされていることを確認します。
+* クライアントネットワーク内のワークステーションから接続できることを確認します。
+* リモート接続を行うには、ネットワークプロトコルを有効化する必要があります。
+
+

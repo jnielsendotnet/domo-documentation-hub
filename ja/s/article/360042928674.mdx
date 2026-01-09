@@ -1,0 +1,59 @@
+---
+title: "FreshServiceコネクター"
+---
+
+## はじめに
+
+FreshServiceはITサービスデスク管理システムです。FreshService APIについて詳しくは、FreshServiceのウェブサイト（ [http://api.freshservice.com/](http://api.freshservice.com/ "http://api.freshservice.com/") ）を参照してください。
+
+FreshServiceアカウントには、データセンターから接続します。このトピックでは、FreshServiceコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+FreshServiceアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* FreshServiceアカウントがホストされているサブドメイン。例えば、
+  [domo.freshservice.com](http://domo.freshservice.com) でログインする場合は、このフィールドに domo と入力します。ドメインでSSLが有効になっている必要があります。
+* FreshServiceのユーザー名とパスワード。
+
+## FreshServiceアカウントに接続する
+
+このセクションでは、FreshServiceコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、FreshServiceアカウントにアクセスするための認証情報を入力するフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Domain］ </p></td><td colspan="1" rowspan="1"><p> FreshServiceアカウントがホストされているサブドメイン。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Username］ </p></td><td colspan="1" rowspan="1"><p> FreshServiceのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Password］ </p></td><td colspan="1" rowspan="1"><p> FreshServiceのパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいFreshService DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、FreshServiceレポートを選択するメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行するFreshServiceレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> ［Agents］ </p></td><td colspan="1" rowspan="1"><p> アクティブなエージェントのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Assets］ </p></td><td colspan="1" rowspan="1"><p> リストのすべてのアセットを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Changes］ </p></td><td colspan="1" rowspan="1"><p> サービスデスクの変更の一覧を返します。このレポートを使用するには「Garden」レベル以上のFreshService料金プランが必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Departments］ </p></td><td colspan="1" rowspan="1"><p> リスト内のすべての部署を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Problems］ </p></td><td colspan="1" rowspan="1"><p> サービスデスクのすべての問題を返します。このレポートを使用するには「Garden」レベル以上のFreshService料金プランが必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Releases］ </p></td><td colspan="1" rowspan="1"><p> サービスデスクのすべてのリリースを返します。このレポートを使用するには「Garden」レベル以上のFreshService料金プランが必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Tasks］ </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーのタスクをすべて返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［Tickets］ </p></td><td colspan="1" rowspan="1"><p> サービスデスクのすべてのチケットを返します。 </p></td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+FreshServiceのAPIコール制限により、DataSetの更新は1日1回のみにする必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+FreshServiceでは、1日あたり1,000回のAPIコールが可能です。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,126 @@
+---
+title: "Amazon S3 Advancedコネクター"
+---
+
+## はじめに
+
+Amazon S3は、Amazon Web Servicesが提供するオンラインファイルストレージのウェブサービスです。ウェブを使用していつでも、どこからでも、どんな量のデータも保存および取得することができます。Amazon S3 APIについて詳しくは、ウェブサイト（ [http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+Amazon S3コネクターとAmazon S3 Advanced Unloadコネクターは、ほぼ同じです。唯一の違いは、コネクターの **［詳細］** セクションで指定したプレフィックス文字列で始まる複数のファイルの処理方法です。標準のAmazon S3コネクターでは、変更された最新のファイルのみインポートされます。Amazon S3 Advanced Unloadコネクターでは、同じプレフィックスのファイルは同じスキーマを使用するという前提で、指定したプレフィックスを持つすべてのファイルがインポートされます。ただし、Amazon S3 Advanced Unloadコネクターは、最後の実行以降に変更されたファイルまたは最初の実行後に作成された新規ファイルのみを取得します。コネクターの標準バージョンについて詳しくは、「 [Amazon S3コネクター](/ja/s/article/360043436393 "Amazon S3コネクター") 」を参照してください。
+
+Amazon S3 Advanced Unloadコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこれを含むほかのファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+Amazon S3のアカウントには、Data Centerから接続します。このトピックでは、Amazon S3 Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、APIが使用できない状況でフラットファイルを取得するための最善の方法です。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> データスペシャリスト </li><li> マーケティング権限 </li><li> 財務権限 </li><li> S3にデータを保存しているあらゆるユーザー </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> S3に適切なタイプのファイルがあれば1時間以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+S3に保存されたデータや、ほかのS3データベースとの関係を理解していると、このコネクターを使用する上で大変役立ちます。
+
+## 必要条件
+
+Amazon S3アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** の中にもあります。
+* AWSアクセスキーの作成時に取得したAWSシークレットキー。新しいシークレットキーは、AWS Consoleで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+
+### 適切な許可が付与されたユーザーを作成する
+
+DomoでS3データに接続する前に、IAM Amazonコンソールで適切な許可を有するユーザーを作成する必要があります。
+
+**IAM Amazon Consoleでユーザーを設定するには：**
+
+1. 新規ユーザーを追加し、次のオプションを設定します。
+
+   1. **［Details］**
+      ペインの **［Select AWS access type］** で **［Programmatic Access］** のボックスをチェックします。
+        
+      <Frame><img alt="" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5B.png"/></Frame>
+
+   2. **［Permissions］**
+      ペインで、 **［Attach existing policies directly］** を選択し、 **［AmazonS3FullAccess］** または **［AmazonS3ReadOnlyAccess］** のボックスをチェックします。
+        
+      カスタマー管理ポリシーは *使用できません* 。
+        
+      <Frame><img alt="" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5G.png"/></Frame>
+
+   3. **［Review］**
+      ペインで、 **［Create User］** をクリックします。
+2. ユーザーを作成したら、使用するアクセスキーとシークレットキーをコピーし、Domoの
+   **［認証情報］** ペインに入力します。
+
+## Amazon S3アカウントに接続する
+
+このセクションでは、Amazon S3 Advanced Unloadコネクターページの **［認証情報］** ペインおよび **［詳細］ペイン** のオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon S3アカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"><p> ファイルを取得したいAmazon S3バケットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> 使用したいAmazon S3 Bucketリージョンを選択します。 </p></td></tr></tbody></table>
+
+有効なAmazon S3認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon S3 Advanced DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoに取得したいファイルを検索し、設定するための様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Type to Import </p></td><td colspan="1" rowspan="1"><p> Domoにインポートしたいファイルのタイプを、CSV、JSON、XMLから選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> How Would You Like to Choose Your Filename? </p></td><td colspan="1" rowspan="1"><p> Domoがファイルを識別する方法を選択します。オプションは以下の通りです。 </p><table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Complete Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ファイルへの完全パスを入力します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Partial Filename </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ファイル名の一部を入力し、取得したいファイル名がその文字列から始まるのか、その文字列を含んでいるのかを指定します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> FilesDiscovery </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 選択したバケットにあるファイルのリストが表示され、そこから希望するものを選択します。このオプションは、選択したS3バケットにあるファイルの数が100未満の場合に <em> のみ </em> 使用できます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Prefix（オプション） </p></td><td colspan="1" rowspan="1"><p> 結果にフィルターを適用するためのプレフィックスを入力します。プレフィックスにより、指定したプレフィックスで始まるキーのみに結果が絞り込まれます。S3コネクターの高度なバージョンでは、同じプレフィックスのファイルは同じスキーマを使用するという前提で、指定したプレフィックスを持つ <em> すべての </em> ファイルがインポートされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Complete Filepath </p></td><td colspan="1" rowspan="1"><p> 使用するファイルの完全パスを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name </p></td><td colspan="1" rowspan="1"><p> インポートしたいファイル名を入力します。ファイルパスはあってもなくても構いません。例： <span class="mt-font-courier-new"><em> folder_name/file_name </em></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name Match Type </p></td><td colspan="1" rowspan="1"><p> 取得したいファイルの名前が、 <b> ［File Name］ </b> で入力したテキストで始まる名前なのか、それとも入力したテキストを含む名前なのかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Compression Type </p></td><td colspan="1" rowspan="1"><p> 取得するファイルの圧縮タイプを選択します。ファイルが圧縮されていない場合は、 <b> ［None］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Are Headers Present in CSV File? </p></td><td colspan="1" rowspan="1"><p> インポートするCSVファイルにヘッダーがある場合、 <b> ［Yes］ </b> を選択します。ない場合は、 <b> ［No］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Files </p></td><td colspan="1" rowspan="1"><p> 取得したいファイルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Delimiting Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルで使用されている区切り文字を選択します。区切り文字がリストにない場合は、 <b> ［Other］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルを解析する引用文字を選択します。CSVの標準は二重引用符（"）です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルを解析するエスケープ文字を選択します。CSVの標準はバックスラッシュ（\）です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enable Parsing for Large JSON Files? </p></td><td colspan="1" rowspan="1"><p> 大きなJSONファイルの解析を有効にするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Does Your JSON Text Require a Line Reader? </p></td><td colspan="1" rowspan="1"><p> JSONファイルのテキストで、複数の行を読み込む必要があるかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Should the Backslash be Escaped? </p></td><td colspan="1" rowspan="1"><p> JSONファイルのテキストに、エスケープする必要のあるバックスラッシュが含まれているかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Data Tag </p></td><td colspan="1" rowspan="1"><p> JSONまたはXMLファイルのデータのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Fields to Exclude </p></td><td colspan="1" rowspan="1"><p> JSON/XMLのインポートで除外したいフィールドを、カンマで区切ったリストとして指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter Your Header Tag </p></td><td colspan="1" rowspan="1"><p> JSONまたはXMLファイルのヘッダーのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Do You Require Attributes in Data? </p></td><td colspan="1" rowspan="1"><p> XMLデータの一部として属性値を必要とするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter XPath Expression </p></td><td colspan="1" rowspan="1"><p> XPath式を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Is Password Protected? </p></td><td colspan="1" rowspan="1"><p> 取得するファイルがパスワードで保護されている場合は、 <b> ［Yes］ </b> を選択します。保護されていない場合は、 <b> ［No］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Header Start Row </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルのヘッダー行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Start Row </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルの最初のデータ行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Footer </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルのフッター行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Blank Rows </p></td><td colspan="1" rowspan="1"><p> 空白行が見つかった場合に取るべきアクションを選択します。 <b> ［Skip blank rows］ </b> を選択すると、空白行がスキップされます。 <b> ［Stop at the first blank column］ </b> を選択すると、空白行が見つかった列でインポートが停止します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Empty Column Headers </p></td><td colspan="1" rowspan="1"><p> 空白の列ヘッダーが見つかった場合にどうするかを指定します。 <b> ［Add blank columns］ </b> を選択した場合、新規の列には列名が自動的に生成されます。 <b> ［Stop at the first blank column］ </b> を選択した場合、空白のヘッダーが見つかったときに、データのインポートが停止します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* S3バケットにファイルが存在しており、コネクターの設定で正しいファイルタイプが指定されていることを確認します。
+* コネクターが正常にデータを取得できるよう、NULL列を削除しておく
+  *必要があります* 。
+* CSVファイルをインポートしようとして「Failed to Import Successfully」というエラーが発生した場合は、
+  **［Quote Character］** メニューのオプションを **［Null Character］** に変更することによって回避できることがあります。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="データはどれぐらいの頻度で更新されますか？">
+
+
+必要に応じた頻度で行われます。
+
+
+</Accordion>
+<Accordion title="同じAmazon S3アカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+アカウント当たりのAmazon S3バケットが100個に制限される場合があります。
+
+
+</Accordion>
+<Accordion title="コネクターがデータを取得できないのはなぜですか？">
+
+
+S3バケットにファイルが存在しており、コネクターの設定で正しいファイルタイプが指定されていることを確認します。また、コネクターがデータを取得できるように、NULL列を削除します。
+
+
+</Accordion>
+<Accordion title="標準のAmazon S3コネクターとAdvancedバージョンとの違いは何ですか？">
+
+
+Amazon S3コネクターとAmazon S3 Advancedコネクターは、どちらも同じSDKを使用しています。2つのコネクターの違いは、複数のファイルを処理する方法にあります。
+  
+Amazon S3コネクターでは、Amazon S3バケットにコネクターの［詳細］セクションで指定したプレフィックスで始まる複数のファイルがある場合、最後に変更されたファイルのみがインポートされます。Amazon S3 Advancedコネクターでは、同じプレフィックスのファイルは同じスキーマを使用するという前提で、指定したプレフィックスを持つすべてのファイルがインポートされます。
+
+
+
+</Accordion>
+</AccordionGroup>

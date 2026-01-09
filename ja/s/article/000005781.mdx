@@ -1,0 +1,40 @@
+---
+title: "Cvent REST Writebackコネクター"
+---
+
+## はじめに
+
+Cvent Inc.は、ミーティング、イベント、ホスピタリティーマネジメント技術を専門とする、SaaSの上場企業です。DomoのCvent Rest Writebackコネクターを使用すると、Domo DataSetのデータをCventアカウントに書き出すことができます。
+
+Cvent REST Writebackアカウントには、Data Centerから接続できます。このトピックでは、Cvent REST Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Cvent REST Writebackアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Cventインスタンスの地域
+* クライアントIDとクライアントシークレット
+* DomoクライアントID
+* Domoクライアントシークレット
+
+## Cvent REST Writebackアカウントに接続する
+
+このセクションでは、Cvent REST Writebackコネクターページの **［認証情報］** ペインおよび **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Cvent REST Writebackアカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Cventアカウントの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> Cventインスタンスの地域を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> Cvent AppからクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Cvent Appからクライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> DOMO Client ID </td><td colspan="1" rowspan="1"><p> DOMOクライアントIDを作成するには、以下の手順を実行します。 </p><ol><li> まず、 <a href="https://developer.domo.com/login" target="_blank" title="デベロッパーアカウントにログインします。"> デベロッパーアカウントにログインします。 </a></li><li><a href="https://developer.domo.com/new-client" target="_blank" title="新しいクライアント"> 新しいクライアント </a> を作成します。 </li><li> データとユーザーアプリケーションのスコープを選択します。 </li><li> ［Create］をクリックします。 </li></ol></td></tr><tr><td colspan="1" rowspan="1"> DOMO Client Secret </td><td colspan="1" rowspan="1"><p> DOMOクライアントシークレットを作成するには、以下の手順を実行します。 </p><ol><li> まず、 <a href="https://developer.domo.com/login" target="_blank" title="デベロッパーアカウントにログインします。"> デベロッパーアカウントにログインします。 </a></li><li><a href="https://developer.domo.com/new-client" target="_blank" title="新しいクライアント"> 新しいクライアント </a> を作成します。 </li><li> データとユーザーアプリケーションのスコープを選択します。 </li><li> ［Create］をクリックします。 </li></ol></td></tr></tbody></table>
+
+有効なCvent REST Writeback認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいCvent REST Writebackを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> サブフィールド/説明 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Domo DataSet </td><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"><div> Cventに書き込むデータを含むDomo DataSetのIDを入力します。 </div><div> このIDはDataSet URL内にあります。例： <a href="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings" target="_blank" title="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"> https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings </a> 。 </div></td></tr><tr><td colspan="1" rowspan="1"> Configuration Mapping </td><td colspan="1" rowspan="1"><div> DataSetのIDを入力すると、 <b> ［Use automated mapping］ </b> と <b> ［Select mapping manually］ </b> のラジオボタンが表示されます。自動マッピングを使用するか（DataSetフィールドがCventフィールドと一致する場合）、手動でマッピングを定義するかを選択します。 </div></td><td colspan="1" rowspan="1"><p><b> Use automated mapping： </b> CventフィールドとDataSetフィールドが完全に一致する場合は、自動マッピングを選択できます。 </p><p><b> Select mapping manually： </b> マニュアルマッピングでは、目的のCventフィールドとDataSet列を一致させます。 </p><p><b> Upsert Choice： </b> ドロップダウンリストから、データをCventにUpsertする方法を選択します。［Upsert Choice］に <b> ［Upsert based on custom fields］ </b> を選択すると、次のフィールドが表示されます。 </p><ul><li> Upsert Filter Fields </li><li> Dataset field to filter on </li><li> Dataset Fields：このフィールドは、手動マッピングのオプションを選択している場合に表示されます。 </li></ul><p></p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

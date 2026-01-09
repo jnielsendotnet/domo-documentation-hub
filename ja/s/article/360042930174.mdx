@@ -1,0 +1,38 @@
+---
+title: "Box Governanceコネクター"
+---
+
+## はじめに
+
+Box Governanceは、ユーザーがシームレスにビジネス文書のライフサイクル全体を管理できる、グローバルにアクセス可能なクラウドベースソリューションを提供します。Box APIの詳細については、ウェブサイト（ [https://developer.box.com/](https://developer.box.com/ "https://developer.box.com/") ）を参照してください。
+
+Box Governanceアカウントには、Data Centerから接続します。このトピックでは、Box Governanceコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+BoxアカウントにアクセスしてBox Governance DataSetを作成するには、Boxアカウントのユーザー名とパスワードが必要です。
+
+## Boxアカウントに接続する
+
+このセクションでは、Box Governanceコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのBox Governanceコネクターは、接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のBox Governanceアカウントがある場合は **［アカウントを追加］** を選択）すると、Box OAuth画面が開き、Boxの認証情報を入力できます。有効なBox Governance認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいBox Governance DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にBoxにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずBoxからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するBox Governanceレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> File Classification Report </p></td><td colspan="1" rowspan="1"><p> ファイル分類ポリシーに関するデータを取得します。これらのポリシーは、コンテンツを分類して、その分類にもとづくセキュリティ設定の開始を実現します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Legal Hold Reports </p></td><td colspan="1" rowspan="1"><p> 2種類の異なるリーガルホールドサブレポートを取得できます。リーガルホールドポリシーにより、ホールドが解除されるまでそのコンテンツをBoxに保持する必要があるカストディアンを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retention Report </p></td><td colspan="1" rowspan="1"><p> リテンションポリシーに関するデータを取得します。これらのポリシーにより、指定された処分日に至る前に、ファイルをBoxに保持する必要がある時間の長さを指定できます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Enterprise Metadata Templates </p></td><td colspan="1" rowspan="1"><p> データを取得するテンプレートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Type of Subreport </p></td><td colspan="1" rowspan="1"><p> ［Legal Hold Report］で目的のサブレポートを、 <b></b> ［File Versions］または［Assignments］から選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Assign To Type </p></td><td colspan="1" rowspan="1"><p> レポートで使用する、目的のフィルターを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Assign To ID（オプション） </p></td><td colspan="1" rowspan="1"><p> そのIDに限定して、割り当てをフィルターするIDを入力します。このエンティティには、これらの割り当てのみが直接適用されることに注意してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Disposition Action </p></td><td colspan="1" rowspan="1"><p> レポートでデータを表示させる廃棄アクションを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

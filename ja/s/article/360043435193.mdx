@@ -1,0 +1,66 @@
+---
+title: "Google Gmail Serviceコネクター"
+---
+
+Google Gmailは、世界中で使用されている高性能のメールサーバーです。Google Gmail Serviceコネクターを使用すると、Gmailの受信トレイからDomoにデータをプルし、メールデータのパワーを組み合わせて受信トレイを効率的に管理できます。Gmail APIについての詳細は、ウェブサイト（ [https://developers.google.com/gmail/api/](https://developers.google.com/gmail/api/ "https://developers.google.com/gmail/api/") ）を参照してください。
+
+Gmailサービスアカウントには、Data Centerから接続します。このトピックでは、Google Gmail Serviceコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「データコネクターを使用してDataSetを追加する」で説明しています。
+
+## 必要条件
+
+Gmailサービスアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* GoogleサービスアカウントJSONキー
+* サービスアカウントフローでアプリケーションが偽装するユーザーのメールアドレス
+
+JSONキーを生成するには、次の手順を実行します。
+
+1. GCP Consoleで、[IAMと管理] ページを開きます。
+2. 左側のナビゲーションペインで
+   **[サービス アカウント]** をクリックします。
+3. プロジェクトを選択して
+   **[開く]** をクリックします。
+4. **[サービスアカウントを作成]**
+   をクリックします。
+5. サービスアカウントの名前と詳細を入力します。
+6. **[作成]**
+   をクリックします。
+7. **[プロジェクト所有者]**
+   を選択します。
+8. **[次に進む]**
+   をクリックします。
+9. **[キーを作成]**
+   をクリックします。
+10. キーのタイプに [JSON] を選択します。
+11. **[作成]**
+    をクリックします。
+
+秘密キーがコンピューターに保存されます。
+
+## Gmail Serviceアカウントに接続する
+
+このセクションでは、Gmail Serviceコネクターページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。このページの他のペインの項目である **[スケジュール設定]** や **[DataSetの名前と説明]** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「データコネクターを使用してDataSetを追加する」 を参照してください。
+
+### 認証情報ペイン
+
+このペインには、Gmailサービスアカウントにアクセスするための認証情報を入力するフィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> サービスアカウントJSONキー </p></td><td colspan="1" rowspan="1"><p> GoogleサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サービスアカウントユーザー </p></td><td colspan="1" rowspan="1"><p> サービスアカウントフローでアプリケーションが偽装するユーザーのメールアドレスを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいGoogle Gmail Service DataSetを作成できます。コネクターのアカウントはData Centerの **[アカウント] **タブで管理できます。このタブの詳細については、「コネクターのユーザーアカウントを管理する」を参照してください。****
+
+### [詳細] ペイン
+
+****このペインには、メインの **[レポート]** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他さまざまなメニューがあります。****
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><b><b> メニュー </b></b></p></th><th colspan="1" rowspan="1"><p><b><b> 説明 </b></b></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b><b> レポート </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 実行するGmailレポートを選択します。以下のレポートが利用できます。 </b></b></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b><b> 添付ファイルの詳細 </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定したメッセージの添付ファイルを返します。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 下書きメッセージの詳細 </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定した下書きメッセージを返します。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 履歴の詳細 </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定したメールボックスへの全ての変更の履歴を一覧表示します。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> ラベル </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定したラベルを詳細とともに返します。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> メッセージ </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定したメッセージを詳細とともに返します。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> スレッドの詳細 </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> 指定したスレッドを返します。 </b></b></p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> メッセージID </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> データを取得するメッセージのIDを入力します。メッセージIDは、「メッセージ」レポートを実行して見つけることができます。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 履歴ID </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> データを取得する開始履歴IDを入力します。これは、メッセージ、スレッド、または以前のリスト応答のhistoryIdから取得できます。 </b></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 添付ファイルID </b></b></p></td><td colspan="1" rowspan="1"><p><b><b> データを取得する添付ファイルのIDを入力します。 </b></b></p></td></tr></tbody></table>
+
+### その他のペイン
+
+****スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「データコネクターを使用してDataSetを追加する」を参照してください。****
+
+---
+
+****Google Gmail Serviceコネクターを使用すると、Gmailの受信トレイからDomoにデータをプルし、メールデータのパワーを組み合わせて受信トレイを効率的に管理できます。****
+
+

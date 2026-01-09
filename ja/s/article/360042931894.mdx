@@ -1,0 +1,44 @@
+---
+title: "CSV SFTPプルコネクター"
+---
+
+## はじめに
+
+文字区切り値（CSV）ファイルは、表形式データをプレーンテキスト形式で保存します。Domoが提供する2つのコネクターによって、SFTP（Secure File Transfer Protocol）サーバーにアップロードされたCSVファイルにアクセスできます。
+
+* Domo CSV SFTPプルコネクター（旧称はCSV-SFTPコネクター）を使用すると、専用のSFTPサーバーにアップロードしたCSVファイルにアクセスできます。
+* CSV SFTPプッシュコネクターを使用すると、Domo自体のSFTPにアップロード済みのCSVファイルを取得し、処理できます。Domoでこのコネクターを使用すると、認証情報が入力され、お客様のデータをDomoに送信できます。
+
+この記事ではCSV SFTPプルコネクターについて説明します。CSV SFTPプッシュコネクターについての詳細は、「 [CSV SFTPプッシュコネクター](/ja/s/article/360042931914 "CSV SFTPプッシュコネクター") 」を参照してください。
+
+ディレクトリにあるファイルにアクセスする必要がある場合は、 [CSV Advanced](/ja/s/article/360043436513 "CSV Advancedコネクター") コネクターを使用してください。
+
+CSV SFTPプルコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこのようなファイルコネクターのコネクターページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+CSVファイルには、Data Centerから接続します。このトピックでは、CSVコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+SFTPサーバーに対する認証を獲得するにはSFTPホスト名、ユーザー名とパスワードが必要です。 リージョンの適切なIPアドレスをホワイトリストに登録する必要もあります。 IPアドレスのリストにリージョン別にアクセスするには、「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093) 」を参照してください。
+
+## CSVファイルに接続する
+
+このセクションでは、CSV SFTPプルコネクターの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインは、SFTPサーバーに接続する認証情報の入力フィールドを含んでいます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> SFTP Host Name </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 接続するSFTPホスト名を入力します。これは <em> 必ず </em></span><span class="mt-font-courier-new"><span class="s3"> sftp:// </span></span><span class="s1"> から始まる必要があります。例： </span><span class="nowiki"><span class="s3"> s <a href="ftp://hostname" rel="noopener" target="_blank"> ftp://hostname </a></span></span><span class="s1"></span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Username </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> SFTPサーバーへのログインに使用するユーザー名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Password </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> SFTPサーバーへのログインに使用するパスワードを入力します。 </span></p></td></tr></tbody></table>
+
+CSVファイルをアップロードするにあたり、SFTPサーバーがない場合には、当社の [Workbenchソリューション](/ja/s/article/360042932554 "Boxコネクター") もご用意しています。
+
+### ［詳細］ペイン
+
+このペインでは、アクセスしたSFTPサーバーから取得するCSVレポートを選択します。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

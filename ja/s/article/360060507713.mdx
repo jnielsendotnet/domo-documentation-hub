@@ -1,0 +1,157 @@
+---
+title: "Google BigQuery High Bandwidth Serviceコネクター"
+---
+
+## はじめに
+
+BigQueryは、データを作成、管理、共有、クエリするためのデータプラットフォームです。DomoのGoogle BigQuery High Bandwidth Serviceコネクターを使用すると、Google Cloud Storageサービスを利用してBigQueryから大きな結果を取得できます。BigQuery APIの詳細については、https://cloud.google.com/bigquery/docs/reference/v2/ を参照してください。
+
+Google BigQuery High Bandwidth Serviceコネクターは「クラウドApp」コネクターであり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで ********［クラウドApp］******** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+このトピックでは、Google BigQuery High Bandwidth Serviceコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+BigQueryに接続してDataSetを作成するには、以下が必要です。
+
+* JSON BigQueryサービスアカウントキー
+* JSON Google Cloud Storage Serviceアカウントキー
+
+##### 必要なサービスアカウントキーを生成するには、次の手順を実行します ：
+
+1. Google Cloud Platform Consoleで、**［IAM & Admin］** ページを開きます。
+
+<Frame><img alt="IAM_Admin_-_Services.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzl.png"/></Frame>
+
+2. ********［Service accounts］******** をクリックします。
+
+3. プロジェクトを選択して ********［Open］******** をクリックします。
+
+4. ********［Create Service Account］******** をクリックします。
+
+<Frame><img alt="Create_service_account1.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzg.png"/></Frame>
+
+5. サービスアカウントの名前と説明を入力します。
+
+6. ********［Create］******** をクリックします。
+
+7. このサービスアカウントのプロジェクトへのアクセスを許可するには、**［Select a role］** ドロップダウンをクリックします。
+
+8. **［Project］** をクリックしてから ********［Owner］******** をクリックします。
+
+<Frame><img alt="Select_Project_Owner.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzj.png"/></Frame>
+
+9. 所有者が権限フィールドに表示されます。
+
+10. ********［Continue］******** をクリックします。
+
+11. ********［Create key］******** をクリックします。
+
+<Frame><img alt="Create_key1.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzI.png"/></Frame>
+
+12. キーのタイプに ********［JSON］******** を選択します。
+
+<Frame><img alt="Create_key_json2.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzJ-1.png"/></Frame>
+
+13. ********［Create］******** をクリックします。
+
+秘密キーがコンピューターに保存されます。
+
+##### サービスキーについて、以下の権限を含めます 。
+
+**BIGQUERY ROLES**
+
+bigquery.datasets.get
+
+bigquery.jobs.create
+
+bigquery.jobs.get
+
+bigquery.jobs.list
+
+bigquery.tables.list
+
+bigquery.tables.export
+
+bigquery.tables.create
+
+bigquery.tables.delete
+
+**CLOUD STORAGE ROLES**
+
+storage.buckets.get
+
+storage.buckets.list
+
+storage.objects.create
+
+storage.objects.delete
+
+storage.objects.get
+
+storage.objects.list
+
+## BigQueryに接続する
+
+このセクションでは、Google BigQuery High Bandwidth Serviceコネクターページの ****［認証情報］**** ペインと ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+ネストや繰り返しのあるデータをCSVフォーマットでエクスポートすることはできません。Avro、JSON、Parquetのエクスポートでは、ネストや繰り返しのあるデータがサポートされています。
+
+基本的に、タイプがアレイの列がある場合、BigQueryではそのデータをCSVフォーマットでアンロードすることはサポートしていません。
+
+アンロードを正常に実行するには、アレイの列を除外するか、アレイの列のネストを解除する必要があります。
+
+### ［認証情報］ペイン
+
+このペインには、 BigQuery Unload アカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Service Account Key JSON BigQuery </td><td colspan="1" rowspan="1"> Google BigQuery JSONサービスアカウントキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Service Account Key JSON Google Cloud Storage </td><td colspan="1" rowspan="1"> Google Cloud Storage JSONサービスアカウントキーを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を入力した後は、新しい Google BigQuery High Bandwidth Service DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> BigQuery SQLクエリを実行し、クエリが完了した場合に結果を返します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"> データのBigQuery DataSet IDを選択します。 <br/> BigQueryのDataSetの詳細については、ウェブサイト（ <a href="https://cloud.google.com/bigquery/docs/datasets-intro" target="_blank"> https://cloud.google.com/bigquery/docs/datasets-intro </a> ）を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Google Cloud Storage bucket name </td><td colspan="1" rowspan="1"> データをDomoに転送する際に一時保存に使用するGoogle Cloud Storageのバケット名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> 実行するクエリを入力します。標準のSQLクエリのみサポートされています。例：Select * from Table_Name。 </td></tr><tr><td colspan="1" rowspan="1"> Partition query to determine partition tags </td><td colspan="1" rowspan="1"> パーティションタグを特定するためのパーティションクエリを入力します。 <b> 日付 </b> データを含む列は、パーティション列です。例：Select <b> Date </b> from Table_Name。 </td></tr><tr><td colspan="1" rowspan="1"> Force to string </td><td colspan="1" rowspan="1"> Domoで文字列として扱う必要のあるフィールドを、カンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Force to number </td><td colspan="1" rowspan="1"> Domoで数値として扱う必要のあるフィールドを、カンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to pull your data? </td><td colspan="1" rowspan="1"> データを取得する方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition column name </td><td colspan="1" rowspan="1"> パーティション列の名前を入力します。 <b> 日付 </b> データを含む列は、パーティション列です。 </td></tr><tr><td colspan="1" rowspan="1"> Upsert key columns </td><td colspan="1" rowspan="1"> Upsertするキー列の名前を、カンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back </td><td colspan="1" rowspan="1"> データを取得するのに遡る日数です。例：過去7日間のデータを取得するには7を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Data Rolling Window </td><td colspan="1" rowspan="1"> データは指定された日数で保存されます。例：60日間データを保存するには60を指定します。 </td></tr></tbody></table>
+
+##### SQLクエリとパーティションクエリを入力する
+
+<Frame><img alt="clipboard_ecd64363a5df614584835f22327e84ce7.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNze.png"/></Frame>
+
+##### パーティション列の名前とほかのパラメーターを入力する
+
+<Frame><img alt="2._Query___Rolling_window___Column_name.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNza.png"/></Frame>
+
+データは **［Days Back］** フィールドで指定された日数で取得され、 **［Data Rolling Window］** フィールドで指定された日数で保存されます。
+
+<Note>
+**注記：** パーティションオプションを使用する場合、DataSetを［Replace］ではなく、 **［Append］** に設定する必要があります。
+
+</Note>
+
+##### Upsertモードを使用する
+
+<Frame><img alt="3._Upsert_method.png" src="/images/kb/ka0Vq0000000X8r-00N5w00000Ri7BU-0EM5w000005vNzW.png"/></Frame>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** 現在、このコネクターは日付パーティションのみをサポートしています。
+
+</Note>
+
+### トラブルシューティング
+
+#### データの行が返されないが、実行履歴に行がある場合は、どのようにしますか？
+
+Google APIドキュメントには、BigQueryとCloud Storageは次のルールに従う必要があると記載されています。
+
+* BigQuery DataSetが特定の場所にある場合は、Cloud Storageを同じ場所に配置する必要があります。
+* BigQuery DataSetがマルチリージョンにある場合は、Cloud Storageも同じマルチリージョンにあるか、そのマルチリージョンに含まれている場所にある必要があります。
+
+APIドキュメントでの記載については、「 [Cloud Storage](https://cloud.google.com/bigquery/docs/dts-locations#cloud-storage "Google Cloud Storage") 」を参照してください。
+
+バケットの場所については、 [https://cloud.google.com/storage/docs/locations](https://cloud.google.com/storage/docs/locations "https://cloud.google.com/storage/docs/locations") を参照してください。

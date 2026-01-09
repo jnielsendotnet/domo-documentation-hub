@@ -1,0 +1,183 @@
+openapi: 3.1.0
+info:
+  title: Pages API
+  version: "1.0.0"
+  description: "Endpoints to create subpages, bulk move pages, and revoke page access."
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    Pages_CreateSubpageRequest:
+      type: object
+      required: [parentPageId, title]
+      properties:
+        parentPageId:
+          type: string
+          description: ID of the parent page
+        title:
+          type: string
+          description: Title of the subpage
+        hasLayout:
+          type: boolean
+          description: Whether the page should have a layout
+          default: true
+      example:
+        parentPageId: "12345"
+        title: "New Subpage Title"
+        hasLayout: true
+    Pages_CreateSubpageResponse:
+      type: object
+      properties:
+        pageId:
+          type: integer
+        parentPageId:
+          type: integer
+        ownerId:
+          type: integer
+        owners:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              type:
+                type: string
+              displayName:
+                type: string
+                nullable: true
+        type:
+          type: string
+        title:
+          type: string
+        pageName:
+          type: string
+        locked:
+          type: boolean
+        mobileEnabled:
+          type: boolean
+        sharedViewPage:
+          type: boolean
+        metadata:
+          type: string
+        virtualPage:
+          type: boolean
+        hasLayout:
+          type: boolean
+      example:
+        pageId: 11111111
+        parentPageId: 2222222
+        ownerId: 123123123
+        owners:
+          - id: 123123123
+            type: "USER"
+            displayName: null
+        type: "page"
+        title: "Test Subpage"
+        pageName: "Test Subpage"
+        locked: false
+        mobileEnabled: true
+        sharedViewPage: true
+        metadata: '{"pageTitle":"Test Subpage","title":"Test Subpage","type":"page"}'
+        virtualPage: false
+        hasLayout: true
+    Pages_BulkMoveRequest:
+      type: object
+      required: [pageIds, parentPageId, pagePermission]
+      properties:
+        pageIds:
+          type: array
+          description: IDs of pages to move
+          items:
+            type: integer
+        parentPageId:
+          type: integer
+          description: ID of the new parent page
+        pagePermission:
+          type: string
+          description: Permission for the pages
+          enum:
+            - ORIGINAL
+      example:
+        pageIds: [123, 456]
+        parentPageId: 789
+        pagePermission: ORIGINAL
+security:
+  - DomoDeveloperToken: []
+tags:
+  - name: Pages
+paths:
+  /api/content/v1/pages:
+    post:
+      tags: [Pages API]
+      summary: Create Subpage
+      description: "Create a subpage under a parent page."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pages_CreateSubpageRequest'
+      responses:
+        "200":
+          description: "Success (200): Page created successfully."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pages_CreateSubpageResponse'
+        "403":
+          description: "Forbidden (403): Operation not permitted."
+        "409":
+          description: "Conflict (409): Conflict encountered (e.g., duplicate title)."
+  /api/content/v1/pages/bulk/move:
+    put:
+      tags: [Pages API]
+      summary: Bulk Move Pages
+      description: "Move multiple pages under a new parent page."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pages_BulkMoveRequest'
+      responses:
+        "200":
+          description: "Success (200): Pages moved successfully."
+        "403":
+          description: "Forbidden (403): Permission denied."
+        "409":
+          description: "Conflict (409): Conflict encountered (e.g., permission constraints)."
+  /api/content/v1/share/page/{pageId}/user/{personId}:
+    delete:
+      tags: [Pages API]
+      summary: Revoke Page Access
+      description: "Revoke a user's access to a page."
+      parameters:
+        - in: path
+          name: pageId
+          required: true
+          description: ID of the page
+          schema:
+            type: integer
+        - in: path
+          name: personId
+          required: true
+          description: ID of the user
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: "Success (200): Access revoked successfully."
+        "403":
+          description: "Forbidden (403): Operation not permitted."
+        "409":
+          description: "Conflict (409): Conflict encountered while attempting to revoke access."

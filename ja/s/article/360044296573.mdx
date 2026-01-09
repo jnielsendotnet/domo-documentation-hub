@@ -1,0 +1,39 @@
+---
+title: "新しいMagic ETLでフィルタースクリプトに書き込む方法"
+---
+
+## はじめに
+
+フィルタースクリプトを使用すると、Magic ETL DataFlowの作成者はSQL形式の構文を使用してデータを簡単にフィルターすることができます。フィルタースクリプトは論理（Boolean型）式である必要があります。つまり、スクリプトの結果はTrue/Falseが返される必要があります。従来の［フィルター設定］タブを開くのではなく、 *'Column name' >= 7* または *`Column name` BETWEEN 15 AND 20* のような式を使用することで時間を節約できるようになりました。
+
+<Warning>
+  **重要：** 新しいMagic ETLの動作は大幅に変更されました。ミッションクリティカルなMagic ETL DataFlowを変換する前に、「 [**新しいMagic ETLにアップグレードする**](/s/article/360047787514 "新しいMagic ETLにアップグレードする") 」の記事をお読みください。 **これをお読みいただくと、DataFlowで想定外の動作が生じた場合に備えることができます。**
+
+</Warning>
+
+## 一般的な論理フィルター
+
+一般的な論理フィルターの例は次のとおりです。
+
+* *'id' >= 7*
+* *`Percent Change` BETWEEN.35 AND.65*
+* *`Phone Number` LIKE ‘801%’ AND `Age` \< 35 AND `State` = ‘California’*
+* *(`Age` > 20 AND (`Salary` / 12) > 40000) or `Age` > 50*
+* *REGEXP\_LIKE(`Email`, ‘@
+  [gmail.com](http://gmail.com) ’)*
+* *`Product Type` IN (1, 3, 7, 9)*
+
+## 行をフィルター
+
+NULL値は、比較関数によって異なる方法で処理されます。SQLおよびMagic ETL DataFlowでは、nullとの比較の結果は常にnullであり、 **［行をフィルター］** タイルによって誤った結果として処理されます。Magic ETLのほとんどのコンテキストでは、nullはnullと等しくありませんが、nullもnullと等しくないわけでもありません。また、nullは0以下ですが、0以上でもあり、0と等しくもありません。 **［行をフィルター］** タイルが参照する列にnullがある場合、関数や引数に関係なく、それらの行はすべてドロップされます。nullを適切に処理できる関数は、「is null」と「is not null」のみです。v1では、フィルターが「column = null」のテストを実行した可能性があります。このような場合は今後、同じ結果を得られないため、 このようなフィルターは、「is null」演算子を使用するように変更する必要があります。
+
+フローをMagic ETL（レガシー）から新しいMagic ETLに切り替えた後、正常に実行されていても出力から行が欠落しているような場合は、この変更が原因である可能性があります。「is not equal to」関数を使用するときには特に注意する必要があります。「column \<> 5」は、列の値が5の行のみを除外するように見えるかもしれませんが、実際には、上記の理由により、列にnullを含む行も除外します。次の表に、 **［行をフィルター］** でのnullの動作の追加の例を示します。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:205;a"><thead><tr><th colspan="1" rowspan="1"><p> テスト </p></th><th colspan="1" rowspan="1"><p> 評価済みの結果 </p></th><th colspan="1" rowspan="1"><p> フィルターの有効性 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 4 &lt;&gt; 5 </td><td colspan="1" rowspan="1"> true </td><td colspan="1" rowspan="1"> keep </td></tr><tr><td colspan="1" rowspan="1"> 5 &lt;&gt; 5 </td><td colspan="1" rowspan="1"> false </td><td colspan="1" rowspan="1"> drop </td></tr><tr><td colspan="1" rowspan="1"> null &lt;&gt; 5 </td><td colspan="1" rowspan="1"> null </td><td colspan="1" rowspan="1"> drop </td></tr><tr><td colspan="1" rowspan="1"> null = null </td><td colspan="1" rowspan="1"> null </td><td colspan="1" rowspan="1"> drop </td></tr><tr><td colspan="1" rowspan="1"> null &lt;&gt; null </td><td colspan="1" rowspan="1"> null </td><td colspan="1" rowspan="1"> drop </td></tr><tr><td colspan="1" rowspan="1"> null is null </td><td colspan="1" rowspan="1"> true </td><td colspan="1" rowspan="1"> keep </td></tr><tr><td colspan="1" rowspan="1"> null is not null </td><td colspan="1" rowspan="1"> false </td><td colspan="1" rowspan="1"> drop </td></tr><tr><td colspan="1" rowspan="1"> 5 is not null </td><td colspan="1" rowspan="1"> true </td><td colspan="1" rowspan="1"> keep </td></tr><tr><td colspan="1" rowspan="1"> 5 is null </td><td colspan="1" rowspan="1"> false </td><td colspan="1" rowspan="1"> drop </td></tr></tbody></table>
+
+より複雑な方法でnullを処理するには、新しいスクリプトシステムを使用します。 **［行をフィルター］** タイルは、スクリプトの評価をサポートする3つのタイル（ **［グループ化］** と **［スクリプトを追加］** がほかの2つ）の1つです。IFNULL()関数は、フィルター式からnull結果を処理する場合に特に適しています。例えば、列「col」にnull値があり、「col」の値が5でない行をフィルターしてnullを保持する場合は、次の式を記述できます：IFNULL(col \<> 5, TRUE)
+
+null処理のほかに、フィルタースクリプトによって簡単になるシナリオはほかにも多くあります。Magic ETL（レガシー）では、以下の1つのスクリプトで、それぞれ複数の条件を持つ2つの個別の **［行をフィルター］** タイルが必要でした。
+
+<Frame><img alt="2.png" src="/images/kb/ka05w00000123iR-00N5w00000Ri7BU-0EM5w000005vOuc.png"/></Frame>
+日本語

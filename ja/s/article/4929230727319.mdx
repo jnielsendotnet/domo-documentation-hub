@@ -1,0 +1,59 @@
+---
+title: "MySQL SSH Partitionコネクター"
+---
+
+## はじめに
+
+MySQLは、広く使用されているオープンソースのリレーショナルデータベース管理システムです。DomoのMySQLの統合により、MySQLデータを簡単に接続して、より迅速な意思決定を行うことができます。パーティショニングをすると、ユーザー定義のルールにもとづいて、テーブルデータを1つ以上のテーブルの列の値に従って複数のストレージオブジェクト（データパーティション）にまたがって分割できます。DomoのMySQL SSH Partitionコネクターを使用すると、データベースエンジンがデータを保存する方法を最適化できます。
+
+MySQLアカウントには、Data Centerから接続します。このトピックでは、MySQL SSH Partitionコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：**
+
+* MySQLサーバーがTLSをサポートしていれば、このコネクターもTLSをサポートします。
+* 非SSL接続はサポートされていません。証明書が提供されていない場合、SSLで接続されますが、証明書による認証は行われません。接続では、すべてのサーバー証明書が信頼されます。詳細については、https://msdn.microsoft.com/en-us/library/bb879949%28v=sql.110%29.aspx を参照してください。
+
+</Note>
+
+必要条件
+
+MySQLアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SSHトンネルを使用しているUNIXサーバーのホスト名
+* UNIXアカウントのSSHユーザー名とパスワード
+* PEM形式のSSH秘密キー（DESまたはRSA）
+* データベースのホスト名
+* データベース名
+* MySQLデータベースにログインするためのユーザー名とパスワード
+
+<Note>
+注記： **Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+また、MySQLデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MySQLアカウントに接続する
+
+このセクションでは、 MySQL SSH Partition コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 MySQL SSH Partition アカウントに接続するための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBC Driver </td><td colspan="1" rowspan="1"> データベースサーバーの接続に使用するJDBCドライバーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> SSH Server Hostname </p></td><td colspan="1" rowspan="1"><p> SSHトンネルの接続先であるUNIXサーバーのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> SQLデータベースのホスト名またはIPアドレスを入力します。例： <span></span><span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> PEM形式のSSH秘密キー（DESまたはRSA）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名、あるいはスキーマ名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> MySQLユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> MySQLパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい MySQL SSH Partition DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、データをパーティショニングする属性と条件を指定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><span> 実行するSQLクエリを入力します。テーブル名をバッククォート付きで入力してください（例：select * from `table_name`）。 </span></td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> データベーステーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30 </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"><span> パーティション列にある日付形式に従って、正しい日付形式を選択/入力してください。デフォルトでは、 <b> yyyy-MM-dd </b> が使用されます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"><span> カスタマイズされた日付形式を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Select if you want to compress the data </td><td colspan="1" rowspan="1"> データをアップロードする方法を選択します。アップロードの際にデータを圧縮する場合は［True］を選択し、そうでない場合は［False］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Tinyint values treated as (bit) boolean values </td><td colspan="1" rowspan="1"> 小さい整数値をBoolean値として扱う場合は［Yes］を、そうでない場合は［No］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Cast Boolean Values to... </td><td colspan="1" rowspan="1"> 文字列または整数のBoolean値をDataSet内でキャストするかどうかを選択します。 <br/> String: False/True <br/> Integer: 0/1 </td></tr><tr><td colspan="1" rowspan="1"><span> Keep connection alive (for large queries) </span></td><td colspan="1" rowspan="1"><span> 追加のスレッドを実行して接続を維持します。長時間の実行に便利です。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

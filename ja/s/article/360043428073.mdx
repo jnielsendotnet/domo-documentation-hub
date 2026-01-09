@@ -1,0 +1,278 @@
+---
+title: "DataFlowを使用して履歴データをアーカイブする"
+---
+
+## はじめに
+
+例えば、1月のデータを2月に読み込んで開始するため1ヶ月遅れている、年度の初めから今日までのDataSetの中に情報を追加 するとしましょう 。これは年度の初めから今日までのDataSetなので、翌年の2月になると、前年からのデータは新しい現在の年のデータ用に保管場所を空けるためにこのDataSetから消えます。12月のデータがこの年度の初めから今日までのファイルに読み込まれた際に、データを別のDataSetにアーカイブするにはどうすればよいですか？結論から言えば、いくつかの方法があります。これは、MySQLとMagic ETL のどちらでも行うことができます。
+
+このプロセスは、年度の初めから今日までのデータを含むどのDataSetにも適用されます。年のマークをクリックして、履歴目的のためにアーカイブすることができます。
+
+## メソッド1
+
+### メソッド1 MySQL DataFlowを使用する
+
+これはストアドプロシージャを使うことにより実行できます。この方法は最も柔軟な方法で、適用する必要のある特別なロジックを考慮して適合させることができます。
+
+このストアドプロシージャ内のコードは次を想定しています。
+
+* 現在の年度の初めから今日までのデータは再帰的なDataFlowを介して履歴アーカイブに追加されます。
+* この再帰的なDataFlowは既に作成されています。
+* DataFlowは、年度の初めから今日までのDataSetが更新されるときに、自動的に実行されるように設定されています。
+
+以下の例では、 `ytd_premium_data`
+
+という名前のDataSetからデータが取得され、履歴アーカイブは `move_to_history_method_1`
+
+と呼ばれます。
+  
+<Columns>
+  <Frame><img alt="archivingdata1.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwB.png"/></Frame>
+  <Frame><img alt="archivingdata2.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwO.png"/></Frame>
+</Columns>
+以下は、ストアドプロシージャ用のコードです。
+
+```
+CREATE PROCEDURE archive()
+
+BEGIN
+
+-- Get the max date from the premium data
+
+SELECT @maxDataDate:= MAX(`Date`)
+
+FROM   ytd_premium_data;
+
+-- Get the max date from the archived data
+
+SELECT @maxArchiveDate:= MAX(`Date`)
+
+FROM   move_to_historical_method_1;
+
+-- We will use these two dates later to determine whether or not the
+
+-- current year-to-date data has already been added to the historical
+
+-- archive
+
+-- The following is a shortcut to dynamically create a table structure
+
+-- that's identical to another table, but leave it with no data in it.
+
+-- We’re going to use this trick to create a table with the same
+
+-- structure as the year-to-date-data
+
+-- Create a table by selecting only one row from the premium data
+
+CREATE TABLE archive_data
+
+SELECT     *
+
+FROM    ytd_premium_data LIMIT 1;
+
+-- Get rid of all rows from the newly created table
+
+TRUNCATE TABLE archive_data;
+
+-- If the conditions are met to archive the year-to-date data, this
+
+-- new table will be populated with the year-to-date data and appended
+
+-- to the historical DataSet. If the conditions are not met, the table
+
+-- will remain empty, and an empty table will be appended to the
+
+-- historical DataSet.
+
+-- The year of data to be archived is last year's data. Remember that
+
+-- the year-to-date data is a month behind, so December’s data won’t
+
+-- be loaded until January of the next year.
+
+IF YEAR(CURRENT_DATE()) - 1 = YEAR(@maxDataDate)
+
+-- It's January, which means we should have December's data
+
+AND MONTH(CURRENT_DATE()) = 1
+
+-- The data to be archived contains December's data
+
+AND MONTH(@maxDataDate) = 12
+
+-- The data from the year-to-date has not already been added to the
+
+-- archive
+
+AND @maxDataDate!= @maxArchiveDate
+
+-- If every condition checks out, then insert the year-to-date data to
+
+-- be archived into the archive_data table for unioning to the
+
+-- historical data. Because of the date checks in the previous step,
+
+-- the following code will only ever be executed once.
+
+THEN INSERT INTO archive_data
+
+SELECT     *
+
+FROM ytd_premium_data;
+
+END IF;
+
+END;
+```
+
+ストアドプロシージャを呼び出すには...
+
+`CALL archive();`
+
+年度の初めから今日までのデータを（アーカイブの準備ができている場合）履歴アーカイブデータに追加するには（ステップ名は **DataFlow\_output** ）...
+
+`-- Union whatever's in archive_data to thie historical table. If the coniditons for moving the data weren't met, archive_data will be empty.`
+
+SELECT     \*
+
+```
+FROM move_to_historical_method_1
+
+UNION ALL
+
+SELECT     *
+
+FROM archive_data
+```
+
+これは、DataSetに既にアーカイブされたデータと、これからアーカイブされるデータを比較します。データの `MAX` 日付が一致します。次に、アーカイブするデータを格納する表を作成します。上限が1の表から `SELECT *` のショートカットを使用できます。その後、表を切り捨てます。これは、手動でプロセスを実行する必要がなく、表スキーマを迅速に作成できる方法です。表スキーマを複製する必要がなく、自動的に作成されます。
+
+いくつかのチェックを実行します。
+
+* 正しい年ですか？
+* 1月ですか？（その場合は、12月のDataSetが読み込まれます。）
+* アーカイブする月は12月ですか？
+
+次に、コードの最後の部分で、アーカイブするデータがまだアーカイブされていないことを確認します。データがアーカイブされると、そのデータを再びアーカイブする必要はなくなります。
+
+これが渡されると、上記で作成されたアーカイブのデータ表に追加されます。次に必要なのは、アーカイブされたデータの残りとすべてのデータを単純に結合するだけです。これですべてが統合されます。プロセスはアーカイブを一度だけ実行します。
+
+### メソッド1 Magicを使用する
+
+この方法はMySQLを使用する方法ほど簡単ではありませんが、DataFlowは同じロジックを使用します。
+
+1. Magicの `MAX` 日付を取得するには、すべての行で同一の列で **Group By** 変換を行う必要があります。したがって最初のステップは、 **Add Constant** 変換を使用して一定値を使用して列を追加します。このケースでは、数値1を入力し、「One」と名前をつけました。これを2回行います。1回は年度の初めから今日までのプレミアムデータに対して、もう1回は履歴アーカイブデータに対してです。
+     
+   <Frame><img alt="archivingdata3.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwV.png"/></Frame>
+2. **Group By** 変換を挿入し、今作成した列（「One」）によるグループ化を行い、各グループ化に対して新しい列を作成し、「Date」列に対して **Maximum** を選択します。このステップも2回行います。1回は年度の初めから今日までのプレミアムデータに対して、もう1回は履歴アーカイブデータに対してです。ただし、新たに集計された各列に異なる名前を付ける必要があります。
+     
+   <Columns>
+     <Frame><img alt="archivingdata4.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwT.png"/></Frame>
+     <Frame><img alt="archivingdata5.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOw5.png"/></Frame>
+   </Columns>
+3. **Join** 変換を使用して、ステップ2の2つのDataSetを列「One」に結合します。
+     
+   <Frame><img alt="archivingdata6.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwK.png"/></Frame>
+   その結果は、年度の初めから今日までのデータの中の最大日付、履歴アーカイブデータの中の最大日付、そして「One」を含む2つの列を含むことになります。
+     
+   <Frame><img alt="archivingdata7.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwJ.png"/></Frame>
+4. **［定数を追加］** を使用して、今日の日付をDataSetの中の他の日付に追加します。
+     
+   <Frame><img alt="archivingdata8.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOw9.png"/></Frame>
+5. **Date Operations** 変換を挿入し、「Today」列から「Current Month」と「Current Year」の列を作成し、「MaxDataDate」列から「Data Month」と「Data Year」を作成します。
+     
+   <Frame><img alt="archivingdata9.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwW.png"/></Frame>
+データは次のようになります。
+  
+<Frame><img alt="archivingdata10.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwF.png"/></Frame>
+年度の初めから今日までのデータを履歴アーカイブデータに追加するかどうかを決定するために必要な日付と情報がすべて揃いました。
+
+6. 年度の初めから今日までのDataSetの中のすべての行に、今作成したデータが含まれていることを確認するには、両方のDataSetで内部結合が行われ、「One」列で結合されるように **Join Data** 変換を挿入します。
+     
+   <Frame><img alt="archivingdata11.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwZ.png"/></Frame>
+7. **Calculator** 変換を使用して、「Current Year」から1を引いて「Prior Year」を決定します。
+     
+   <Frame><img alt="archivingdata12.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwH.png"/></Frame>
+8. **Filter Rows** 変換を追加して、年度の初めから今日までのDataSetに12月からのデータが含まれているかどうか、それが履歴データアーカイブに既に追加されているかどうかを決定するロジックを適用します。
+     
+   <Frame><img alt="archivingdata13.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwE.png"/></Frame>
+このステップですべてのチェックにパスすれば、年度の初めから今日までのDataSetからのすべてのデータが含まれていることになります。パスしない場合は、何も含まれていないことになります。
+  
+<Frame><img alt="archivingdata14.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwA.png"/></Frame>
+9. **Select Columns** 変換を使用して、作成した追加の列をすべて取り除き、スキーマが履歴データアーカイブにあるものと一致するようにします。
+     
+   <Frame><img alt="archivingdata15.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwN.png"/></Frame>
+10. **Append Rows** 変換を追加して、（該当する場合は）年度の初めから今日までのDataSetを履歴アーカイブDataSetに追加します。ドロップダウンから **すべての列を含める** を選択します。すべてを正しく行った場合は、各入力DataSetの横に「変更なし」と表示されます。
+      
+    <Frame><img alt="archivingdata16.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOw7.png"/></Frame>
+11. **設定** の下で、ボックスにチェックマークを入れ、年度の初めから今日までのDataSetが更新されるたびに、変換が必ず実行されるようにします。
+      
+    <Frame><img alt="archivingdata17.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOw8.png"/></Frame>
+## メソッド2
+
+### メソッド2 MySQLを使用する
+
+年度の初めから今日までのデータをアーカイブするかどうかを決定するための多数の要件がない場合、そして年度の初めから今日までのDataSetが特定の日付までに完了することが分かっている場合は、データをアーカイブする以外には何も実行しないDataFlowを作成できます。作成した後は、このDataFlowを毎年決まった日に実行するようにスケジュールすれば便利です。
+
+この例では、年度の初めから今日までのDataSetが毎年1月20日までに完了して最終的なDataSetとなることとします。最初にしなければならないことは、CSV DataSetを作成し、毎年1月20日に更新するようスケジュールすることです。
+
+1. https:// *お使いのインスタンス名*. [domo.com/connectors/com.domo.connector.csv.easy](http://domo.com/connectors/com.domo.connector.csv.easy) にアクセスします。
+2. 任意のテキストをボックス内に入力します。ここでは、 `1800-01-01` の値をもつ「Date」という名の列を作成します。
+     
+   <Frame><img alt="archivingdata19.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwD.png"/></Frame>
+3. **［次へ］** をクリックして **スケジュール** セクションを表示します。
+     
+   <Frame><img alt="archivingdata20.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwX.png"/></Frame>
+4. **［スケジュールの詳細設定］** タブをクリックします。
+     
+   <Frame><img alt="archivingdata21.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwP.png"/></Frame>
+5. 適切な **月** と **月の日付** をチェックします。
+6. **時間** タブをクリックし、ジョブを実行する時間を選択します。
+7. **［次へ］** をクリックします。
+8. CSV DataSetに任意の名前を付け、 **［保存］** をクリックします。
+
+毎月1月20日に自動的に更新するDataSetができました。必要なものは、年度の初めから今日までのデータをアーカイブDataSetに追加するMySQL DataFlowのみです。このCSV DataSetをDataFlow内のDataSetsに追加し、そのDataSetが更新されたらすぐにDataFlowが実行されるように設定を変更します。DataSetは毎年1月20日にのみ更新されるので、以上の動作を実行するとスケジュールされたDataFlowを作成するのと同じ効果があります。
+  
+<Frame><img alt="archivingdata22.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOw6.png"/></Frame>
+**DataFlow Output** 変換で使用するSQLは、以下の通りです。
+
+```
+-- This DataFlow won't automatically trigger until the scheduled
+
+-- update file gets updated. When that happens, it will append last
+
+-- year's data to historical data.
+
+SELECT     *
+
+FROM move_to_historical_method_2
+
+UNION ALL
+
+SELECT     *
+
+FROM ytd_premium_data
+```
+
+最後に保存しますが、 **DataFlowは実行しないでください。** 実行すると、直ちに年度の初めから今日までのデータがアーカイブされます。
+
+### メソッド2 Magic ETL を使用する
+
+自動的にスケジュールされたMagic ETLは、年度の初めから今日までのデータを履歴アーカイブデータに追加するだけです。自動スケジュールを追加するには、自動アップデートDataSetを追加し、更新時にはいつでも変換を実行する設定にチェックする必要があります。MySQL DataFlowを使用する場合とは異なり、Magic ETLを使用すると、単に入力DataSetを追加して変換に含めることはできません。これを行うとMagicがエラーになってしまいます。したがって、DataFlowの中に組み込むためのいくつかの手順を実行する必要がありますが、その手順によりデータが実際に影響を受けないようにしてください。
+  
+<Frame><img alt="archivingdata23.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwL.png"/></Frame>
+1. **入力Dataset** として「自動更新」DataSetを追加します。
+2. **Filter** 変換を挿入します。このDataSetの中の列の1つは日付であるため、「日付」 がNULL値であるレコードのみを選択するようにフィルターを設定します。これによりデータの行がなくなりますが、これは後で日付の行を残りのデータに追加するので便利です。また、行がないため、影響を受けることがありません。
+     
+   <Frame><img alt="archivingdata24.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwR.png"/></Frame>
+   CSVファイルは更新時に「\_BATCH\_ID\_」と「\_BATCH\_LAST\_RUN\_,」の2つの列を追加するため、データから削除する必要があります。
+3. **Select Columns** 変換を挿入し、「日付」のみを選択します。
+     
+   <Frame><img alt="archivingdata25.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwY.png"/></Frame>
+4. 最初のドロップダウンで **すべての列を含める** を選択して **Append** 変換を挿入します。
+     
+   <Frame><img alt="archivingdata26.png" src="/images/kb/ka05w00000123jQ-00N5w00000Ri7BU-0EM5w000005vOwU.png"/></Frame>
+5. 保存 **は行いますが、DataFlowは実行しないでください** 。このDataFlowを実行すると、年度の初めから今日までのDataSetの中に存在するあらゆるデータが、アーカイブされたDataSetに追加されます。
+
+日本語

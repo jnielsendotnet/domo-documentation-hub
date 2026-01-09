@@ -1,0 +1,70 @@
+---
+title: "Apple News Publisherコネクター"
+---
+
+## はじめに
+
+Apple Newsでは、Workbench for News Publisherを使って、直販と自社広告のキャンペーンを起動、監視、レポートすることができます。DomoのApple News Publisherのコネクターを使用して、Domo内のApple News Publisherシステムからデータを取得します。Apple News APIについて詳しくは、製品ドキュメント（ [https://developer.apple.com/document...apple\_news\_api](https://developer.apple.com/documentation/apple_news/apple_news_api "https://developer.apple.com/documentation/apple_news/apple_news_api") ）を参照してください。
+
+Apple News Publisherアカウントには、Data Centerから接続します。このトピックでは、Apple News Publisherコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Apple Newsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Apple Newsクライアント側SSL秘密鍵
+* Apple Adプラットフォームによって署名されたApple Newsクライアント側のSSL証明書
+* Apple Newsアクセストークン
+
+これらの認証情報を取得するには、次の「アクセス、認証、承認」の指示（ [https://developer.apple.com/library/.../Overview.html](https://developer.apple.com/library/archive/documentation/General/Conceptual/iAd_News_Campaign_API/Book/Overview.html "https://developer.apple.com/library/archive/documentation/General/Conceptual/iAd_News_Campaign_API/Book/Overview.html") ）に従ってください。
+
+## Apple Newsアカウントに接続する
+
+このセクションでは、Apple Newsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Apple Newsアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Private Key </p></td><td colspan="1" rowspan="1"><p> クライアント側SSL証明書を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> クライアント側のSSL証明書をコピーして貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Apple Newsアクセストークンを入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なApple News認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいApple News Publisher DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するApple Newsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Ad Metrics </p></td><td colspan="1" rowspan="1"><p> 指定した広告のパフォーマンスのメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Details </p></td><td colspan="1" rowspan="1"><p> 1つ以上のキャンペーンの期間中の詳細を返します。出力には、キャンペーンや対応するライン、広告などの期間の詳細やメトリクスが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Metrics </p></td><td colspan="1" rowspan="1"><p> キャンペーンのパフォーマンスのメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Summary </p></td><td colspan="1" rowspan="1"><p> キャンペーンのデータのサマリーを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Check Inventory </p></td><td colspan="1" rowspan="1"><p> 特定の条件に対する利用可能な在庫を返します。ラインを作成する必要はありません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Check Line Inventory </p></td><td colspan="1" rowspan="1"><p> 現在の在庫状況を取得します。返される値は、そのラインで利用可能な将来の在庫の推定値です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Line Details </p></td><td colspan="1" rowspan="1"><p> 1つ以上のラインの詳細を返します。出力には、キャンペーンや対応するライン、広告などの期間の詳細やメトリクスが含まれます。ラインに広告が関連付けられていなければ、広告の詳細は返されません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Line Metrics </p></td><td colspan="1" rowspan="1"><p> 指定したラインのパフォーマンスのメトリクスを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得するキャンペーンのリストを入力します。複数ある場合はカンマで区切ります。キャンペーンサマリーのレポートを実行すると、キャンペーンIDを見つけることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sublist to Flatten </p></td><td colspan="1" rowspan="1"><p> フラット化するサブリストを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timezone </p></td><td colspan="1" rowspan="1"><p> データを取得するタイムゾーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> State </p></td><td colspan="1" rowspan="1"><p> データを取得する州を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Impression Goal </p></td><td colspan="1" rowspan="1"><p> データを取得するインプレッションの数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Line Type </p></td><td colspan="1" rowspan="1"><p> データを取得するラインのタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Creative Type </p></td><td colspan="1" rowspan="1"><p> データを取得するクリエイティブタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad Position </p></td><td colspan="1" rowspan="1"><p> データを取得する広告の位置を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Country Code </p></td><td colspan="1" rowspan="1"><p> データを取得する国のコードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Line ID </p></td><td colspan="1" rowspan="1"><p> データを取得するラインのIDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Ad ID </p></td><td colspan="1" rowspan="1"><p> データを取得する広告IDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付に対して、または日付範囲に対してデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付か相対的な日付かを指定します。範囲の最後の日付は、 <b> ［終了日］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［開始日］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b> ［終了日までの日数］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［開始日まで遡る日数］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［終了日まで遡る日数］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［開始日まで遡る日数］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［開始日まで遡る日数］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［終了日まで遡る日数］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# コネクター集計はどのようにデータを報告しますか？">
+
+
+返されるデータは、 **開始日** と **終了日** パラメーターの値に応じて集計されます。2日から31日の間のデータを指定すると、毎日のデータが返されます。1日のデータを指定すると、1時間ごとのデータが返されます。指定した日数が31日を超え28週間を超えない場合、週単位のデータが返されます。指定した日数が28週間を超える場合、月単位のデータが返されます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,31 @@
+---
+title: "Domo Dimensionsコネクター"
+---
+
+## はじめに
+
+Domo Dimensionsは、郵便番号、米国の州名、国名、市外局番、カレンダーなどのマッピングファイルのリポジトリです。Domo Dimensionsを使用すると、提供されているファイルのリストから単一のファイルを取り込むことができます。これは、一般的な形式のデータ（郵便番号、カレンダー、国など）を集計するときに便利です。Domo Dimensionsコネクターを使用してカードを機能させることも、既存のDataSetを使用してカードを機能させることもできます。
+
+このトピックでは、Domo Dimensionsコネクターのユーザーインターフェイスに固有の設定オプションについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><ul><li><p> 市外局番、郵便番号、州、国、またはこれらのレポートに対するほかのデータセットのマッピング別にマップカードを表示できます。 </p></li><li><p> カレンダーレポートを使用してカードを機能させます。 </p></li><li><p> ほかにも多数あります </p></li></ul></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><ul><li><p> 郵便番号 </p></li><li><p> 市外局番 </p></li><li><p> カレンダー日付 </p></li><li><p> 米国の州 </p></li><li><p> 国名 </p></li><li><p> ほかにも多数あります </p></li></ul></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> すべての権限 </p></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> 5分未満 </p></td></tr><tr><td class="mt-noheading mt-column-width-40" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading mt-column-width-60" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## 必要条件
+
+なし。このコネクターでは認証情報は必要ありません。
+
+## Domo Dimensionsに接続する
+
+このセクションではDomo Dimensionsコネクターページの **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoに取り込むファイルを選択する単一の **［ファイル］** メニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Files </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むDomo Dimensionsファイルを選択します。以下に示すファイルを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ACE Webinar - Sample_Project_Data.csv </td></tr><tr><td colspan="1" rowspan="1"> allCities.csv </td></tr><tr><td colspan="1" rowspan="1"> allCountriesGeo.csv </td></tr><tr><td colspan="1" rowspan="1"> area_codes.csv </td></tr><tr><td colspan="1" rowspan="1"> AUcalendar.csv </td></tr><tr><td colspan="1" rowspan="1"> calendar.csv </td></tr><tr><td colspan="1" rowspan="1"> cityzip.csv </td></tr><tr><td colspan="1" rowspan="1"> countries_latitude_longitude.csv </td></tr><tr><td colspan="1" rowspan="1"> country.csv </td></tr><tr><td colspan="1" rowspan="1"> EU territorial classification.csv </td></tr><tr><td colspan="1" rowspan="1"> GeoLite2-City-Block-IPv4.csv </td></tr><tr><td colspan="1" rowspan="1"> GeoLite2-City-Block-IPv6.csv </td></tr><tr><td colspan="1" rowspan="1"> Global User Search.csv </td></tr><tr><td colspan="1" rowspan="1"> Global User Timeline.csv </td></tr><tr><td colspan="1" rowspan="1"> history-postal_code-day-continent-na.csv </td></tr><tr><td colspan="1" rowspan="1"> ISOCountries.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_company_size_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_function_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_industry_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> linkedin_seniority_mapping.csv </td></tr><tr><td colspan="1" rowspan="1"> province_and_regions.csv </td></tr><tr><td colspan="1" rowspan="1"> StandardNormalDistribution.csv </td></tr><tr><td colspan="1" rowspan="1"> us_states.csv </td></tr><tr><td colspan="1" rowspan="1"> us_zips_cities_states_countries_lat_long.csv </td></tr><tr><td colspan="1" rowspan="1"> us_zips_cities_states_countries_lat_long_03072024.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2fips2.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2fips3.csv </td></tr><tr><td colspan="1" rowspan="1"> zip2MSA.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_codes.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_codes_norm.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_to_fips.csv </td></tr><tr><td colspan="1" rowspan="1"> zip_to_fips_06252024.csv </td></tr><tr><td colspan="1" rowspan="1"> zips_to_fips_latest.csv </td></tr><tr><td colspan="1" rowspan="1"> zips_to_fips_official.csv </td></tr></tbody></table></td></tr></tbody></table>
+
+## トラブルシューティング
+
+問題が発生した場合は、Domoサポートにご連絡ください。これらはDomoが管理するDataSetであるため、DataSetの読み込み中に問題が発生した場合は、当社まですぐに報告してください。
+
+

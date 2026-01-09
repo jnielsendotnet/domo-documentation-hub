@@ -1,0 +1,111 @@
+---
+title: "AWS Data Exchangeコネクター"
+---
+
+## はじめに
+
+AWS Data Exchangeを使用すると、クラウド内のサードパーティのデータの検索、サブスクライブ、使用が簡単になります。カテゴリーを代表するブランドを含む、経験豊かなデータプロバイダーからのDataSetにアクセスできます。年間220万本以上の個別のニュース記事を複数の言語でキュレーションしているReuters、年間140億件以上のヘルスケア業務と1兆ドル以上の請求を処理し匿名化しているChange Healthcare、3億3,000万件以上の世界中のビジネスレコードのデータベースを管理しているDun & Bradstreetなどです。DomoのData Exchangeコネクターを使用すると、Amazon S3バケットからデータをDomoにインポートできます。Domoのビジネスソリューションを可視化し作成する機能と、AWSのパワフルなDataSetを組み合わせ、自分のデータと外部DataSetを組み合わせることで、価値の高いソリューションを作成できます。このコネクターには、サブスクライブして承認したAWS Data Exchange DataSetのみが含まれます。
+
+AWS APIについて詳しくは、ウェブサイト（
+https://aws.amazon.com/api-gateway/
+）を参照してください。
+
+AWSアカウントには、Data Centerから接続します。このトピックでは、AWS Data Exchangeコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AWSアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** の中にもあります。
+* AWSアクセスキーの作成時に取得したAWSシークレットキー。新しいシークレットキーは、AWS Consoleで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+
+### 適切な権限が付与されたユーザーを作成する
+
+DomoでS3データに接続する前に、IAM Amazon Consoleで適切な権限を持つユーザーを作成する必要があります。
+
+**IAM Amazon Consoleでユーザーを設定するには：**
+
+1. 新規ユーザーを追加し、次のオプションを設定します。
+
+   1. **［Details］** ペインの **［Select AWS access type］** で **［Programmatic Access］** のボックスをチェックします。
+
+      <Frame><img alt="s3_1.png" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5B.png"/></Frame>
+
+   2. **［Permissions］** ペインで、 **［Attach existing policies directly］** を選択し、 **［AmazonS3FullAccess］** または **［AmazonS3ReadOnlyAccess］** のボックスをチェックします。
+
+      カスタマー管理ポリシーは *使用できません* 。
+
+      <Frame><img alt="s3_2.png" src="/images/kb/ka05w00000123KN-00N5w00000Ri7BU-0EM5w000005vO5G.png"/></Frame>
+
+   3. **［Review］** ペインで、 **［Create User］** をクリックします。
+2. ユーザーを作成したら、使用するアクセスキーとシークレットキーをコピーし、Domoの **［認証情報］** ペインに入力します。
+
+## AWSアカウントに接続する
+
+このセクションでは、AWS Data Exchangeコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、AWSアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「 <a href="#h_8df4966b-f212-460c-868d-d224e570612b" target="_self"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「 <a href="#h_8df4966b-f212-460c-868d-d224e570612b" target="_self"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Bucket </td><td colspan="1" rowspan="1"> ファイルを取得するAmazon S3バケットを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAWS Data Exchange DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoに取得したいファイルを検索し、設定するための様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> List Datasets </p></td><td colspan="1" rowspan="1"><p> Domoに取得するDataSetを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Dataset Revisions </p></td><td colspan="1" rowspan="1"><p> 目的のDataSetの更新を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Revision Assets </p></td><td colspan="1" rowspan="1"><p> 目的の更新アセットを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Key </p></td><td colspan="1" rowspan="1"><p> Amazon S3バケットオブジェクト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Type of File Do You Want to Import? </p></td><td colspan="1" rowspan="1"><p><b> CSV </b> 、 <b> TSV </b> 、 <b> TXT </b> からファイルタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Delimiting Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルで使用されている区切り文字を選択します。区切り文字がリストにない場合は、 <b> ［Other］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specify Your Delimiter </p></td><td colspan="1" rowspan="1"><p> CSVテキストを区切る文字を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Quote Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルを解析する引用文字を選択します。CSVの標準は二重引用符（"）です。目的の引用文字がリストにない場合は、 <b> ［Other］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Quote Character </p></td><td colspan="1" rowspan="1"><p> 希望するCSV引用文字を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Escape Character </p></td><td colspan="1" rowspan="1"><p> 取得したいCSVファイルを解析するエスケープ文字を選択します。CSVの標準はバックスラッシュ（\）です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Escape Character </p></td><td colspan="1" rowspan="1"><p> 希望するCSVエスケープ文字を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* S3バケットにファイルが存在しており、コネクターの設定で正しいファイルタイプが指定されていることを確認します。
+* コネクターが正常にデータを取得できるよう、NULL列を削除しておく *必要があります* 。
+* CSVファイルをインポートしようとして「Failed to Import Successfully」というエラーが発生した場合は、**［Quote Character］** メニューのオプションを **［No Quote Character］** に変更することによって回避できることがあります。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データはどのくらいの頻度で更新できますか？">
+
+
+必要に応じた頻度で行われます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="# このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+AWS認証情報：アクセスキー、シークレットキー、バケット名が必要です。
+
+
+</Accordion>
+<Accordion title="# アクセスキーとシークレットキーはどこにありますか？">
+
+
+アクセスキーは、AWS Consoleの **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** の中にもあります。アクセスキーを作成するときにAWSシークレットキーが提供されます。新しいシークレットキーは、AWS Consoleで生成することができます。
+
+
+</Accordion>
+<Accordion title="# このコネクターは、Amazonマーケットプレイスから利用可能なAWS Data Exchange DataSetを一覧表示しますか？">
+
+
+いいえ、サブスクライブして承認しているもののみです。
+
+
+
+</Accordion>
+</AccordionGroup>

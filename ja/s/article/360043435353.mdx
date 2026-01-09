@@ -1,0 +1,76 @@
+---
+title: "Bureau of Labor Statisticsコネクター"
+---
+
+## はじめに
+
+労働統計局（BLS：Bureau of Labor Statistics）は、米国労働省の一部署です。労働経済と統計という広範囲な分野を対象に主な実情調査を行う米国政府機関で、米国連邦統計を担う主要機関の役割を果たしています。Bureau of Labor Statisticsコネクターは、労働統計局の出版物からヘッドラインをRSS フィード（XML）フォーマットで抽出します。
+
+Bureau of Labor Statisticsコネクターは「クラウドアプリ」です。つまり、クラウドに保管されたデータを取得します。Data Centerのウィンドウ上部のツールバーで **［Cloud App］** をクリックすると、これを含むほかのクラウドアプリコネクターのページにアクセスできます。
+
+労働統計局データセットの作成は、Data Centerで行います。このトピックでは、Bureau of Labor Statisticsコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+BLSが失業者に関して公開したUnemployment DataSetについては、 [Public Datasetコネクター](/ja/s/article/360043435533 "Public Datasetコネクター") を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用すると、以下が可能です。 </p><ul><li><p> 消費者価格指数（CPI）の動向を表示 </p></li><li><p> 大学進学者数の動向を表示 </p></li><li><p> 雇用トレンドを表示 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 失業者数と割合 </p></li><li><p> 消費者価格指数（CPI）の動向 </p></li><li><p> 従業員給与の動向 </p></li><li><p> 雇用コスト指数 </p></li><li><p> 1時間あたりの実際の平均給与 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 人事責任者 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 数分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+BLSレポートタイプと定義を確認して、適切なデータが取得できる場所を確認するのに役立ちます。
+
+## 必要条件
+
+「ローカルエリアの失業統計」レポートを実行する予定がない限り、このコネクターには必要なものはありません。その場合は登録キーが必要になります。そうでなければ、認証情報は必要ありません。
+
+登録キーを取得するには、BLS Public Data API 2.0の [登録ページ](http://data.bls.gov/registrationEngine/) に進み、メールアドレスと組織名を入力します。CAPTCHA認証を完了します。 [labstat@bls.gov](mailto:labstat@bls.gov) から返信のメールと登録キーが送信されます。
+
+## Bureau of Labor Statistics DataSetの作成
+
+このセクションでは、Bureau of Labor StatisticsコネクターページでBureau of Labor Statistics DataSetを作成する方法を説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、労働統計局レポートのタイプを選択する単一のメニューがあります。
+
+下表に、DomoのBureau of Labor Statisticsコネクターを使用して作成できる所定のレポートすべてを記載しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> メニュー </b></span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> 説明 </b></span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 有給休暇と取得 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の賃金労働者の有給休暇、実際の取得、休暇に合わせて仕事のスケジュール調整ができるかなどに関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国生活時間調査 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国生活時間調査のヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働災害死亡に関する調査 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働災害死亡に関する調査のヘッドラインを表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 高校卒業者の大学進学率と就労活動 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の高校卒業者の大学進学と就労活動に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 消費支出中間報告 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国消費者の支出に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 消費者支出調査（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国消費者の支出に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 消費者物価指数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 代表的な物品とサービスに対し、米国都市部の消費者が支出する価格の変動に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 郡の雇用率と賃金 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国で平均週給の上昇率が最も高かった郡のヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国従業員の福利厚生 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 福利厚生を受けている米国の従業員の割合に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 従業員在職期間 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の賃金労働者が現在の雇用先で就労している平均年数を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 従業員給与に関する雇用主のコスト </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国において1時間あたりの社員給与として払われる平均的コストに関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 就労面からみた家族構成 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 雇用されている家族、失業している家族、母子家庭や父子家庭など、米国の家族構成に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 人件費指数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の民間企業や州・連邦政府の労働者の人件費に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 若者の就労経験：経時的調査の結果 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の若者の就労経験に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 雇用予測 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国雇用予測に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 雇用状況 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における農業以外の給与労働者の総計に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 退役軍人の雇用状況 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国退役軍人の雇用情報に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 長期にわたる大量の一時解雇（四半期毎） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における大量一時解雇の数に関する四半期ごとのヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エコグッズおよびサービス（GGS） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エコグッズおよびサービス（GGS）の生産に携わる労働人口割合の推移に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エコテクノロジーおよび実践（GTP） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エコテクノロジーおよび実践（GTP）調査のヘッドラインを返します。GTPとは、企業におけるエコテクノロジーや実践の導入と、エコテクノロジーや実践に半分以上の時間を費やす職業に関するデータを収集するためにデザインされた特別な企業調査です（注記：現在はエコテクノロジーおよび実践プログラムは終了しています）。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 製造業における、時間給に報酬費用の国際比較 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国と諸外国を比較した報酬費用に関するヘッドラインを返します（注記：現在は国際労働比較は終了しています）。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 求人数および離職率調査 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における月ごとの求人数の動向に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 外国生まれの労働者の労働人口的特徴 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国生まれおよび外国生まれの労働者の失業率に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> 地域の失業統計 </td><td colspan="1" rowspan="1"><p> 雇用、失業、労働力に関する毎月と年単位のデータを返します。 </p><p> このレポートを使用するためには、 <b> ［認証］ </b> ペインで登録キーを入力する <em> 必要があります </em> 。詳細は、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 主なストライキ（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における毎年のストライキとロックアウトに関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 大量一時解雇（月間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の大量一時解雇に関する毎月のヘッドラインを返します（注記：Mass Layoff 統計プログラムが削除されました）。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 都市部の雇用と失業（月間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の都市部における雇用と失業に関する毎月のヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 多因子分析による生産性動向 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における民間非農業事業部門の複数要素生産性の変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 多因子分析による業種別の生産性動向 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における生産性動向の変動に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 多因子分析による製造業の生産性動向 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国製造業部門における複数要素生産性の変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 雇用数、労働市場経験、増益 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の労働者が特定範囲の年数において、従事した職業の数に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 職業雇用と賃金 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の職業に関するヘッドラインを返します。例えば、最大の雇用数を有する職業や、米国全土の平均賃金、最も高賃金の職業グループなどを含みます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エコグッズとサービスにおける職業雇用と賃金 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国において全収入をエコグッズとサービス（GGS）から得ている職業に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働災害と疾病（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の職場で年間に起きている負傷や疾病の件数に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Occupational Outlook Handbook（職業案内ハンドブック） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働統計局が発行するOccupational Outlook Handbook（職業案内ハンドブック）に関する出版情報を表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 障がい者：労働人口の特徴 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における障がい者の雇用に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 生産者物価指数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国内の生産者による国内出荷品の売価の経時的な平均価格変動に関するヘッドラインを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 生産性とコスト </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国非農業事業部門の生産性の変動に関する四半期ごとのヘッドラインを表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 産業別生産性とコスト：製造業 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国製造業における年間の生産性変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 産業別生産性とコスト：一部サービス業と鉱業 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の鉱業およびサービス業の年間の生産性変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 産業別生産性とコスト：卸売業と小売業、食品サービス業と飲食店 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の卸売業、小売業、食品サービス業、飲食店の年間の生産性変動に関するデータを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ビジネス雇用ダイナミクスの四半期データシリーズ </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Quarterly Census of Employment and Wages（雇用および賃金の四半期調査）から生成されたヘッドラインを返します。四半期ごとに発行されるこのデータシリーズは、1992年以降の雇用増と雇用喪失の総数の統計により構成されています。このデータにより、労働市場の動的な実態を把握することができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 実質賃金 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の全従業員の平均時給でみた実収の変動率のデータを表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 地方および州の雇用と失業（月間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の州および地域における、毎月の雇用と失業の比較を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 地方および州の雇用と失業（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の州および地域における、毎年の雇用と失業の比較を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 夏季青年労働人口 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の4月から7月における青年の雇用の年間変動率のデータを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国輸出入物価指数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の輸出品および輸入品の毎月の変動率のデータを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働組合会員（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国における労働組合参加の年間変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 賃金および給与労働者の平均週間所得 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 米国のフルタイム賃金および給与労働者の週間所得の中間値を、四半期単位で返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国でのボランティア </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国におけるボランティアの割合の年間変動率を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 人口の就労経験（年間） </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国の年間就労経験に関するヘッドラインを返します。これには、フルタイム就労者の割合、職を探したが見つからなかった者の数、失業率、その他の情報が含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 労働者の解雇 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 解雇された労働者数に関するヘッドラインを返します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ベストプラクティス
+
+このコネクターは、BLSによって公開されている一般的で良く知られたレポートの定義済みメトリクスを提供します。BLSレポートタイプと定義を確認して、適切なデータが取得できる場所を確認するのに役立ちます。
+
+## トラブルシューティング
+
+「ローカルエリアの失業統計」レポートを実行する場合は、APIキーが有効か確認してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 登録キーなしで他のレポートを閲覧するにはどうしたらよいですか?">
+
+
+他のレポートを表示するには登録キーは必要ありません。登録キーの追加をスキップするには［接続］をクリックします。
+
+
+</Accordion>
+<Accordion title="# このコネクターはカスタムフィールドをプルしますか？">
+
+
+できません。
+
+
+</Accordion>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+
+</Accordion>
+</AccordionGroup>

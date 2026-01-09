@@ -1,0 +1,113 @@
+---
+title: "SQL DataFlowを最適化する"
+---
+
+## はじめに
+
+DataFlowにインデックスを作成してデータを制限すると、DataFlowを最適化できます。最適化すると、DataFlowをより効率的に実行できるようになり、「タイムアウト」エラーを排除できるようになります。
+
+## インデックスを使用して最適化する
+
+インデックスは、特定の列値を持つ行をすばやく見つけるために使用されます。インデックスがないと、MySQLは最初の行から始め、順番に読み込んで関連するデータを探します。インデックスを使用した最適化の使用事例についての詳細は、 [MySQLでのインデックスの使用方法](/s/article/360042923014 "SQL DataFlowを最適化する") に関する説明を参照してください。
+
+一般的に、MySQLでのデータの結合とWHEREステートメントの使用において、インデックスの使用が必要となります。結合を実行する場合や、WHERE句を使用する場合は、結合またはフィルターを適用する列にインデックスを作成する必要があります。
+
+次は、2つの表を結合するSELECTステートメントの例です。
+
+```sql
+Select
+
+a.`column1`,
+
+a.`column2`,
+
+b.`column3`,
+
+b.`column4`
+
+FROM input_dataset_1 a
+
+LEFT JOIN input_dataset_2 b
+
+ON a.`column1` = b.`column3`
+```
+
+`ON` ステートメントの2つの列にインデックスを作成する必要があります。それには2つの方法があります。
+
+1. 結合を実行する変換の前に新しいSQLタイプ変換を追加する。
+2. **簡単な **インデックス作成**** を使用する。SQLを使用しなくても、表変換から1つ以上の列にすばやくインデックスを作成できます。
+
+各種変換タイプについての詳細は、「 [変換および出力DataSetオプションを理解する](/s/article/360042922994 "SQL DataFlowを作成する") 」を参照してください。
+
+****簡単なインデックス作成は、次の方法で行います。****
+
+1. 新しい変換を追加します。
+2. 変換タイプに［表］を選択します。
+3. 次に、 ****［インデックス作成中］**** タブを選択します。
+
+   <Frame><img alt="MySQL_Indexing.png" src="/images/kb/ka05w00000123i9-00N5w00000Ri7BU-0EM5w000005vOvB.png"/></Frame>
+4. ****［インデックスのタイプ］**** を選択します。
+5. インデックスを適用する列を選択します。
+6. ****［終了］**** をクリックします。
+
+各種変換タイプについての詳細は、「 [変換および出力DataSetオプションを理解する](/s/article/360042922994 "SQL DataFlowを作成する") 」を参照してください。
+
+## その他の最適化
+
+MySQLでのインデックス作成では、DataFlowを必要な範囲で常に最適化できるわけではありません。DataFlowの最適化には、次のような方法も使用できます。
+
+* DataFlowに取り込む列にフィルターを適用する。大規模なDataSetでは多数の列があり、不要な列が含まれる場合があります。 **［入力DataSet］** セクションのDatSetをクリックすると、DataFlowに取り込まれる列を制限できます。
+* データにフィルターを適用する。最も一般的な方法は、データフィルターを使用する方法です。例：
+
+  `` SELECT `date`, `value`, `series`
+
+  FROM input_dataset_1
+
+  WHERE YEAR(`date`) = YEAR(CURRENT_DATE()) ``
+* `GROUP BY` 機能を利用する。データにフィルターを適用するときに、元のデータで別の列に分割されているため、行が重複することがあります。値列を集計してから残りの列に `GROUP BY` を適用すると、行数をまとめることができます。最も一般的な集計は `SUM` です。次に例を示します。
+
+  `` SELECT `Date`, `Series`, SUM(`value`) AS ‘value’
+
+  FROM input_dataset_1
+
+  GROUP BY `Date`, `Series` ``
+* 複数の `JOIN` の変換がある場合は、それらを複数の変換に分割できます。例：
+
+  `` SELECT a.`column`,a.`column4`, b.`column2`,b.`column5`,c.`column6`, c.`column3`
+
+  FROM input_dataset_1
+
+  LEFT JOIN input_dataset_2 b
+
+  ON a.`column4` = b.`column2`
+
+  LEFT JOIN input_dataset_3 c
+
+  ON b.`column5` = c.`column3` ``
+* 変換を2つの変換に分割することもできます。例：
+
+  Transform 1
+
+  `` SELECT a.`column`,a.`column4`, b.`column2`,b.`column5`
+
+  FROM input_dataset_1
+
+  LEFT JOIN input_dataset_2 b
+
+  ON a.`column4` = b.`column2` ``
+
+  Transform 2
+
+  `` SELECT a.`column`,a.`column4`, a.`column2`,a.`column5`,c.`column6`, c.`column3`
+
+  FROM transform_data_1 a
+
+  LEFT JOIN input_dataset_3 c
+
+  ON a.`column5` = c.`column3` ``
+
+MySQLを使用する場合は、結合を実行する前にtransform\_data\_1の列にインデックスを作成するとともに、作成していないものがあれば追加のインデックスも作成してください。
+
+これらの方法でデータを最適化できない場合は、 [Domoサポート](/s/article/360042922874) に連絡してください。
+
+日本語

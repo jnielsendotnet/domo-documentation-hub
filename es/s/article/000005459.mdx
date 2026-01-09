@@ -1,0 +1,332 @@
+---
+title: "2024 | Notas de la versión de marzo"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+#### Nuevas funciones
+
+* [Aplicación Studio](#App_Studio)
+  + [Navegación personalizada](#custom_navigation)
+  + [DomoStats de la aplicación Studio](#domostats_app_studio)
+  + [Duplicar una aplicación](#duplicate_An_App)
+  + [Nuevo menú Editor de formularios](#Form_Edit_Modal)
+* [Magic ETL](#Magic_ETL)
+    
+  + [Concat Distinct](#concat_distinct)
+* [ResponsibleGPT](#responsibleGPT)
+
+#### Mejoras de la plataforma
+
+* [Domo Everywhere](#Domo_Everywhere)
+  + [Gestión de instancias](#Instance_Management)
+  + [URL del host del correo electrónico](#Email_Host_URL)
+* [Mejoras del amplificador de nubes](#Cloud_Amplifier)
+* [Domo.AI](#domo_ai_enhancements)
+  + [Gestión del modelo de IA](#ai_models)
+* [Mejoras de Analyzer](#analyzer_enhancements)
+* [Cálculos anidados](#Nested_Calculations)
+* [Fuentes del diagrama y la tabla](#Chart_Table)
+* [Flujos de trabajo](#Workflows)
+* [Complementos de MS Office](#MS_Office)
+* [Tarjeta carga DomoStats y QuickStarts](#card_Load_Domo_Stats)
+* [Workbench Enterprise](#workbench_enterprise)
+
+#### Anuncios beta
+
+* [Domo.AI](#Domo_AIBeta)
+  + [Chat de Domo.AI](#domo_AI_Chat)
+* [Magic ETL](#magic_ETL_Beta)
+  + [MagicETL + amplificador de nubes con Snowflake](#snowflake)
+  + [Propiedad ON en el icono de unir datos](#on_Property)
+  + [Upsert](#upsert)
+* [Alerta de informe programado](#alert_To_Schedule)
+* [Limpieza de Domo para flujos de trabajo](#domo_Cleanup)
+* [Publicar contenido "solo de lectura"](#publish_Read_Only)
+* [Menú de Dataflow compartido](#menu)
+
+#### Soporte y comentarios
+
+* [¿Necesita soporte?](#support)
+* [¿Tiene comentarios?](#Feedback)
+
+---
+
+# Aplicación Studio
+
+#### Navegación personalizada
+
+Los estilos de Navegación personalizada en la aplicación Studio le permiten configurar una apariencia específica de la aplicación que esté en consonancia con su marca. La orientación superior e izquierda está disponible en la navegación, así como la opción de reordenar u ocultar los botones de navegación predeterminados.
+
+Consulte nuestro [Resumen de la aplicación Studio](https://domo-support.domo.com/s/article/000005295?language=en_US) para saber más.
+
+<Frame><img alt="1.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T4D7.jpg" style={{width: 701, height: 535}}/></Frame>
+#### DomoStats de la aplicación Studio
+
+DomoStats informa de que las aplicaciones de Studio y las páginas de aplicación de Studio proporcionan información detallada sobre cuántas aplicaciones de su instancia están bloqueadas y el número total de visitas de la página. Estos informes están disponibles para los usuarios administradores.
+
+Para ver la información de cada informe, mire el [conector de DomoStats](https://domo-support.domo.com/s/article/360043433813?language=en_US).
+
+<Frame><img alt="2.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TU7Z.jpg" style={{width: 849, height: 411}}/></Frame>
+[Volver al principio](#Top)
+
+#### Duplicar una aplicación
+
+Para ahorrarle tiempo y esfuerzo, ahora puede duplicar una aplicación en Studio para mantener la estructura, el diseño y la configuración de la aplicación existente.
+
+Duplicar la aplicación asegura que la estructura de esta se mantenga constante y que cualquier cambio o personalización que realice en sus aplicaciones duplicadas sean relevantes para su audiencia objetivo.
+
+<Frame><img alt="3.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T2Pq.jpg" style={{width: 798, height: 417}}/></Frame>
+#### Nuevo menú Editor de formularios
+
+El menú Editor de formularios disponible en la aplicación Studio y los flujos de trabajo le permiten crear y modificar formularios desde cualquiera de estas dos herramientas.
+
+La interfaz de creación de formularios es más sencilla e intuitiva. Ahora puede añadir y eliminar preguntas, cambiar los tipos de pregunta y guardar el formulario, todo esto desde el menú.
+
+Vea los [flujos de trabajo](https://domo-support.domo.com/s/article/000005108?language=en_US) y los [formularios](https://domo-support.domo.com/s/article/000005171?language=en_US) para saber más sobre estas funciones.
+
+<Frame><img alt="4.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UMG2.jpg" style={{width: 650, height: 406}}/></Frame>
+[Volver al principio](#Top)
+
+# Magic ETL
+
+#### Concat Distinct
+
+El icono de Agrupar por tiene una nueva opción que le permite crear una columna conjunta que incluya una lista de valores distintos separados por comas.
+
+Para más información sobre el icono de Agrupar por, vea el [Icono de Magic - Extracción, transformación y carga: Agregar](https://domo-support.domo.com/s/article/360044876094?language=en_US).
+
+<Frame><img alt="5.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TQlV.jpg" style={{width: 699, height: 297}}/></Frame>
+[Volver al principio](#Top)
+
+# ResponsibleGPT
+
+La aplicación ResponsibleGPT está disponible para todo el que tenga acceso a la plataforma [Domo.AI](http://Domo.AI). La aplicación se ha creado con DomoGPT y se centra en indicaciones generadas por el usuario.
+
+Cuando envía consultas o solicitudes a través de la aplicación, las interpreta DomoGPT, el gran modelo lingüístico (LLM, por sus siglas en inglés) alojado de forma segura en la infraestructura de Domo. DomoGPT está diseñado para proporcionar asistencia general según un conjunto de datos, y asegura respuestas exhaustivas e informadas a las consultas y solicitudes que presente.
+
+La aplicación de Analytics QuickStart se integra directamente con la aplicación de ResponsibleGPT para recopilar datos de las interacciones de los usuarios, consultas, satisfacción con las respuestas y métricas de participación. La aplicación presenta estas métricas usando tableros e informes.
+
+Saber más sobre [Domo.AI](https://ai.domo.com/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+
+[Volver al principio](#Top)
+
+---
+
+# Domo Everywhere
+
+#### Gestión de instancias
+
+Con la gestión de instancias en Domo Everywhere, puede solicitar nuevas instancias, añadir usuarios específicos de la cuenta del servicio y añadir los valores correctos de asignación para el filtrado; todo esto sin tener que esperar a que un representante de Domo gestione sus instancias en su lugar.
+
+Los publicadores pueden integrar su autenticación con el Agente de identidad de Domo para asegurarse de que a los usuarios externos siempre se les mande a la cuenta dedicada. Esto hace que el acceso a la experiencia de edición integrada sea segura y sin fisuras.
+
+Esta función está disponible para los administradores de Domo y se puede gestionar desde su configuración de Domo Everywhere.
+
+<Frame><img alt="6.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000b7iU.jpg" style={{width: 801, height: 260}}/></Frame>
+#### URL del host del correo electrónico
+
+Ahora puede configurar la URL del host del correo electrónico desde la configuración de Conjunto de marcas para integrar contenido mediante la plataforma Domo.
+
+Tras especificar el dominio donde se integra su plataforma Domo, todos los correos electrónicos generados por Domo se dirigen a su portal en lugar de a su instancia de Domo.
+
+Consulte el [Conjunto de marcas](https://domo-support.domo.com/s/article/5428851518999?language=en_US) para saber más.
+
+<Frame><img alt="7.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000ajkz.jpg" style={{width: 598, height: 261}}/></Frame>
+[Volver al principio](#Top)
+
+# Mejoras del amplificador de nubes
+
+Utilice el amplificador de nubes para crear canalizaciones personalizadas, automatizadas, bidireccionales y de alto rendimiento al servicio de sus necesidades de negocio sin tener que copiar o mover sus datos. Consulte y escriba datos a bases de datos en la nube de terceros mediante Magic - Extracción, transformación y carga o nuestra biblioteca de conectores, y utilice OAuth para Snowflake y BigQuery.
+
+La imagen que aparece a continuación proporciona información general sobre la disponibilidad de la función del amplificador de nubes.
+
+Para saber más sobre el amplificador de nubes, consulte el [resumen del amplificador de nubes](https://domo-support.domo.com/s/article/4412849158167?language=en_US).
+
+<Frame><img alt="8.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000ajg9.jpg" style={{width: 649, height: 346}}/></Frame>
+[Volver al principio](#Top)
+
+# Domo. AI
+
+#### Gestión del modelo de IA
+
+La gestión del modelo de IA de Domo le permite aprovechar tanto los modelos internos como los externos para visualizar sus datos. Con los modelos de IA, puede utilizar modelos públicos, grandes modelos lingüísticos e IA generativa como ChatGPT para ayudar a acelerar la velocidad de los valores.
+
+<Frame><img alt="9.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UQZl.jpg" style={{width: 701, height: 216}}/></Frame>
+[Volver al principio](#Top)
+
+# Mejoras de Analyzer
+
+Las mejoras de la interfaz de Analyzer proporcionan una experiencia de usuario más fluida con menos pantallas en mente.
+
+Las mejoras incluyen lo siguiente:
+
+* Riel izquierdo recientemente refinado incluyendo pestañas, intervalos reducidos y una interfaz de usuario mejorada
+* La capacidad de arrastrar múltiples columnas al diagrama
+* Ahora las columnas de métrica se agregan automáticamente al moverlas a las tablas
+* Números de resumen más inteligentes que enlazan a métricas predeterminadas del diagrama para un análisis más coherente
+* Barra de búsqueda de nuevos tipos de diagrama
+* Edición para campos calculados desde el eje del diagrama
+
+Para saber más de Analyzer, consulte nuestra [documentación de Analyzer](https://domo-support.domo.com/s/topic/0TO5w000000ZaoUGAS/analyzer?language=en_US).
+
+<Frame><img alt="10.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T9xa.jpg" style={{width: 752, height: 470}}/></Frame>
+[Volver al principio](#Top)
+
+# Cálculos anidados
+
+Los usuarios que tengan permiso en su función para editar tarjetas ahora pueden acceder a los cálculos anidados de Beast Mode; esto permite que los cálculos hagan referencia a otros. Cualquier cambio hecho a un cálculo referenciado se reflejará automáticamente en todos los cálculos que lo referencien. Anidar solo se permite en un nivel: no se puede hacer referencia a un cálculo que ya hace referencia a uno previo desde un cálculo posterior.
+
+Un informe de DomoStats incluido, Beast Modes usado en Beast Modes, permite a los administradores rastrear cómo se utilizan los cálculos anidados en su instancia.
+
+Para saber más, consulte [Cálculos anidados](https://domo-support.domo.com/s/article/000005307?language=en_US).
+
+<Frame><img alt="11.jpeg" src="/images/kb/ka0Vq0000000div-00N5w00000Ri7BU-0EM5w000006w9l4.jpg" style={{width: 551, height: 229}}/></Frame>
+[Volver al principio](#Top)
+
+# Fuentes del diagrama y la tabla
+
+Más de 200 diagramas, mapas y tablas ahora tienen selección de fuente en Analyzer. Estas selecciones incluyen familia, tamaño y atributos de la fuente.
+
+Para saber más sobre las actualizaciones de fuente, consulte [Propiedades disponibles para la mayoría de los diagramas](https://domo-support.domo.com/s/article/360043429793?language=en_US).
+
+<Frame><img alt="12.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UQjS.jpg" style={{width: 701, height: 355}}/></Frame>
+[Volver al principio](#Top)
+
+# Flujos de trabajo
+
+Las siguientes actualizaciones están disponibles en flujos de trabajo:
+
+* La biblioteca de plantillas de flujos de trabajo le permite revisar y seleccionar un diseño predefinido y guardar su flujo de trabajo configurado en su repositorio.
+
+* Puede utilizar y hacer referencia a los nuevos tipos de datos de Persona, Grupo y DataSets a través de los flujos de trabajo, el motor de códigos y los formularios.
+
+* La función del Generador de cadenas facilita la introducción sin fisuras de texto y valores de datos de cualquier tipo como una cadena combinada y personalizada a la cual se puede hacer referencia en cualquier paso del flujo de trabajo.
+
+* Las actualizaciones en directo opcionales permiten a los flujos de trabajo y a las páginas de inicio de Colas actualizarse continuamente para mostrar la información más reciente.
+
+Para saber más sobre los flujos de trabajo, consulte el [resumen de flujos de trabajo](https://domo-support.domo.com/s/article/000005108?language=en_US).
+
+<Frame><img alt="13.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000URVp.jpg" style={{width: 651, height: 493}}/></Frame>
+[Volver al principio](#Top)
+
+# Complementos de MS Office
+
+El nuevo convertidor de documentos le permite escanear sus documentos de los complementos heredados para encontrar objetos de Domo existentes y convertirlos fácilmente al nuevo formato de Microsoft Office. El convertidor de documentos facilita la transición a los complementos sin perder contenido, para que pueda seguir conectado y recibir las últimas actualizaciones de nuestro equipo de producto.
+
+Para saber más sobre los complementos de MS Office, consulte nuestra [documentación de los complementos de MS Office](https://domo-support.domo.com/s/topic/0TO5w000000ZkAlGAK/microsoft-office-addins?language=en_US).
+
+<Frame><img alt="14.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TRUf.jpg" style={{width: 601, height: 333}}/></Frame>
+[Volver al principio](#Top)
+
+# Tarjeta carga DomoStats y QuickStarts
+
+<Frame><img alt="15.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuy.jpg" style={{width: 130, height: 130}}/></Frame>
+Utilice el informe de DomoStats de carga de la tarjeta para obtener información más detallada sobre los datos y el rendimiento de su tarjeta. El informe incluye visibilidad de las tarjetas y la carga de tarjetas, al igual que campos como id., nombre, tipo, descripción y última modificación.
+
+Para ver detalles del informe, consulte el [conector de DomoStats](https://domo-support.domo.com/s/article/360043433813?language=en_US).
+
+# Workbench Enterprise
+
+Workbench Enterprise es un portal web para la administración de trabajos de Workbench. Workbench Enterprise aún requiere una instalación local, pero este portal web permite el acceso remoto a sus trabajos locales de Workbench.
+
+Workbench Enterprise es multiusuario y multiplataforma.
+
+Para saber más sobre Workbench, consulte nuestra [documentación de](https://domo-support.domo.com/s/topic/0TO5w000000ZaoPGAS/workbench?language=en_US) Workbench.
+
+<Frame><img alt="16.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TAOz.jpg" style={{width: 701, height: 433}}/></Frame>
+[Volver al principio](#Top)
+
+---
+
+## Anuncios beta
+
+*Para unirse a una beta, póngase en contacto con su equipo de cuentas de Domo. Si no dispone de la información de contacto de su equipo de cuentas, puede ponerse en contacto con Asistencia de Domo en [support@domo.com](mailto:support@domo.com). Puede que sea obligatorio que termine la capacitación antes de poder usar la función.*
+
+# Domo.AI
+
+### Chat de Domo.AI
+
+Tenga una conversación exhaustiva con el chat de Domo. AI y úselo para explorar su información. Haga una pregunta y el chat de la IA le mostrará preguntas anteriores, sugerirá otras adicionales y producirá otras pistas contextuales. El chat de Domo. AI le permite ir más allá de las simples consultas de lenguaje natural (NLQ, por sus siglas en inglés) y sugiere las mejores acciones que llevar a cabo a continuación al generar una visualización nueva, configurar una alerta, llamar a un modelo de IA y otras tareas relevantes.
+
+Aprende más sobre [Domo AI](https://ai.domo.com/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+
+<Frame><img alt="17.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UxXJ.jpg" style={{width: 253, height: 427}}/></Frame>
+[Volver al principio](#Top)
+
+# Magic ETL
+
+#### Integración de Snowflake
+
+<Columns cols={3}>
+  <Frame><img src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XTxh.jpg" /></Frame>
+  <Frame><img src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XU5l.jpg" /></Frame>
+  <Frame><img alt="20.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XOup.jpg" /></Frame>
+</Columns>
+El amplificador de nubes ahora conecta Magic - Extracción, transformación y carga a Snowflake para conseguir transformaciones inteligentes más rápidas donde vive su información.
+
+#### Propiedad ON en el icono de unir datos
+
+La nueva propiedad ON en el icono de unir datos le da la habilidad de escribir su propia cláusula ON de forma libre para uniones. Esto le da la flexibilidad para escribir uniones complejas, incluyendo uniones no iguales y a distancia.
+
+Para más información sobre Magic - Extracción, transformación y carga, consulte nuestra documentación de [Magic ETL.](https://domo-support.domo.com/s/topic/0TO5w000000ZanvGAC/magic-etl?language=en_US)
+
+<Frame><img alt="21.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TBT7.jpg" style={{width: 751, height: 429}}/></Frame>
+### Upsert
+
+Upsert en Magic - Extracción, transformación y carga le permite actualizar las filas en el DataSet de salida sin reprocesar el DataSet al completo, según una clave única a nivel de fila.
+
+Al seleccionar un método de actualización para su DataFlow, puede definir una clave de upsert en la configuración de su DataSet de salida. Durante el paso de salida, Domo comprobará las claves únicas que han sido resultado del procesamiento del DataFlow; si esas claves ya existen en el DataSet de salida, se reemplazarán con las filas actualizadas de la misma clave.
+
+Para más información sobre Magic - Extracción, transformación y carga, consulte nuestra documentación de [Magic ETL.](https://domo-support.domo.com/s/topic/0TO5w000000ZanvGAC/magic-etl?language=en_US)
+
+<Frame><img alt="22.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000WuQT.jpg" style={{width: 298, height: 332}}/></Frame>
+[Volver al principio](#Top)
+
+# Alerta de informe programado
+
+Configurar informes programados mediante la nueva función en el menú Alertas.
+
+<Frame><img alt="23.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XUQj.jpg" style={{width: 449, height: 279}}/></Frame>
+# Limpieza de Domo para flujos de trabajo
+
+La nueva función de limpieza de Domo para flujos de trabajo, con tecnología de DomoStats, identifica contenido sin utilizar y lo reflota en un tablero. Esta función optimiza la gestión de contenido de Inteligencia empresarial y asegura un entorno más limpio y más relevante.
+
+# Publicar contenido "solo de lectura"
+
+Publicar contenido "solo de lectura" le permite aprovechar el motor Domo Embed para publicar contenido de solo lectura para sus suscriptores. El contenido de solo lectura no permite a los suscriptores realizar cambios, los DataSets que hacen funcionar el contenido no se copian al suscriptor y los cambios se muestran sin necesidad de recargar.
+
+Para saber más sobre Publicar, consulte [Publicar contenido en la organización de un suscriptor](https://domo-support.domo.com/s/topic/0TO5w000000ZanbGAC/domo-everywhere?language=en_US).
+
+<Frame><img alt="24.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TOv1.jpg" style={{width: 800, height: 464}}/></Frame>
+El menú de DataFlow compartido. El menú de DataFlow compartido le permite compartir DataFlows con otro usuario o grupo desde un conveniente menú. Este proceso comparte todos los DataSets de entrada y salida con los usuarios y grupos seleccionados.
+
+[Volver al principio](#Top)
+
+## ¿Necesita soporte?
+
+Domo proporciona educación, respuestas de la comunidad y soporte técnico.
+
+* Busque un tema en el
+  [centro de ayuda](https://www.domo.com/domo-central/help) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Aprenda de
+  [Domo University](https://www.domo.com/domo-central/university) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Busque aplicaciones de capacitación en la
+  [AppStore](https://www.domo.com/appstore/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Obtenga respuestas en los
+  [foros comunitarios](https://community-forums.domo.com/main) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Envíe un ticket de ayuda por el
+  [Portal de asistencia de Domo](https://www.domo.com/login/customer-community) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> para ponerse en contacto con el soporte técnico
+* Póngase en contacto con su equipo de cuentas de Domo
+
+## ¿Tiene comentarios?
+
+Si tiene comentarios, envíelos a través de Domo:
+
+En el encabezado de navegación, seleccione **Más** > <InlineImage src="/images/kb/de/ka0Vq0000000qcy-00N5w00000Ri7BU-0EMVq000000g9Jq.jpg" /> **Comentario.**
+
+En el menú **Ponerse en contacto con Domo,** seleccione **Comentario sobre el producto** > **Ir ahora.**
+
+<Frame><img alt="25.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Me3d.jpg" style={{width: 551, height: 393}}/></Frame>
+[Volver al principio](#Top)
+

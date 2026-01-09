@@ -1,0 +1,208 @@
+---
+title: "Notes de version de mars 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nouvelles fonctionnalités et optimisations
+
+Cette version comprend notamment les fonctionnalités et optimisations suivantes:
+
+### Construisez votre propre connecteur de réécriture
+
+Grâce à l'IDE de connecteur, concevez un connecteur de réécriture qui envoie les données de Domo à vos systèmes externes. Les connecteurs de réécriture vous permettent de partager des données entre vos différents systèmes d'entreprise qui ne communiquent pas entre eux. Désormais, si la bibliothèque de Domo ne comprend pas encore ce dont vous avez besoin, vous avez la possibilité de concevoir la vôtre. Pour plus d'informations, consultez le site [https://developer.domo.com/docs/writeback-connectors/build](https://developer.domo.com/docs/writeback-connectors/build "https://developer.domo.com/docs/writeback-connectors/build").
+
+### Page d'accueil Science des données
+
+La page d'accueil Science des données répertorie en un même emplacement tous les outils puissants de science des données. Vous pouvez accéder rapidement aux ainsi qu'aux produits et services, ainsi qu'à des informations permettant de déterminer les outils adaptés aux différentes étapes de l'apprentissage Science des données. Pour plus d'informations, consultez la page d'accueil Science des données.
+
+<Frame><img alt="Data_Science_Home_Page.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnR.png"/></Frame>
+
+### Améliorations des SDK Python et R
+
+Les SDK R et Python ont été mis à jour afin qu'ils puissent utiliser la même fonction de dénomination pour les deux langues et disposer des mêmes fonctions. Pour plus d'informations, consultez la page [https://developer.domo.com/docs/domo-sdks/sdks](https://developer.domo.com/docs/domo-sdks/sdks "https://developer.domo.com/docs/domo-sdks/sdks").
+
+### Filtrer les vues
+
+L'option Filtrer les vues vous permet de personnaliser un tableau de bord afin qu'il réponde aux besoins de toutes les audiences.
+
+Cette option vous permet:
+
+* D'enregistrer des vues personnalisées que vous êtes la seule personne à voir
+* De sélectionner et de partager des vues importantes afin de créer un alignement sur une perspective spécifique
+* De fournir un certain nombre de stories de données personnalisées pour une personne spécifique dans un rôle défini.
+* De définir une vue filtrée enregistrée comme étant vue par défaut d'un tableau de bord.
+
+Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page (avec vues de filtre)](/s/article/360042923914 "Application de filtres au niveau de la page (avec vues de filtre) (version bêta)").
+
+<Frame><img alt="Filter_Views.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7P.png"/></Frame>
+
+### Paramètres Filtre de page
+
+Grâce aux paramètres de filtre de page, vous pouvez désormais personnaliser les modes d'interaction des utilisateurs avec les cartes de votre tableau de bord. Vous pouvez désactiver l'option **Autoriser l'ajout de nouveaux filtres** pour que les utilisateurs puissent uniquement utiliser les interactions de carte pour le filtrage. Vous pouvez également désactiver les filtres de date si votre tableau de bord est conçu pour une durée spécifique.Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page (avec vues de filtre)](/s/article/360042923914 "Application de filtres au niveau de la page (avec vues de filtre) (version bêta)").
+
+### Options de sécurité pour les rapports planifiés
+
+Grâce aux nouvelles options de sécurité des rapports planifiés, les administrateurs peuvent désormais activer l'option **Limiter aux utilisateurs Domo**. Lorsque ce paramètre est configuré, Domo bloque les rapports planifiés sur une adresse e-mail externe et seules les adresses e-mail associées à un compte existant recevront les rapports. Pour plus d'informations, consultez la section [Planification de rapports](/s/article/360043437773 "Planification de rapports").
+
+### Tableaux de bord à largeur automatique
+
+Grâce au paramètre Tableaux de bord à largeur automatique, le contenu des tableaux de bord s'élargit pour remplir tout l'espace disponible dans la fenêtre. Cela permet d'augmenter le nombre de lignes/colonnes visibles dans la vue Tableau de bord. Ce paramètre est propre à chaque tableau de bord, ce qui vous permet de personnaliser vos stories. Pour plus d'informations, consultez la section [Création de stories Domo](/s/article/360043428433 "Création de stories Domo").
+
+### Nouveaux types de graphiques d'importation personnalisés
+
+Grâce aux nouveaux types de graphiques d'importation personnalisés, vous pouvez désormais créer des graphiques personnalisés à partir d'autres sources que des fichiers SVG.
+
+Les formats suivants sont désormais pris en charge:
+
+* **KML (Keyhole Markup Language)**
+  : ce format de fichier est utilisé pour afficher les données géographiques dans un navigateur tel que Google Earth.
+* **GeoJSON**
+  : ce format standard ouvert est conçu pour représenter des fonctionnalités géographiques simples et leurs attributs non spatiaux.
+* **TopoJSON**
+  : cette extension de GeoJSON encode la topologie géospatiale et fournit généralement des fichiers de petite taille.
+* **Shape**
+  : il s'agit d'un format de fichier ESRI standard. Comprend des données vectorielles géospatiales (importation Google Earth et exportation au format KML).
+
+Pour plus d'informations, consultez la rubrique [Graphiques personnalisés](/s/article/360042924454 "Graphiques personnalisés").
+
+### Couleurs divergentes
+
+Les couleurs divergentes permettent de créer et d'afficher rapidement des distributions de plages en associant plusieurs thèmes de couleurs. Les couleurs divergentes vous permettent de sélectionner une couleur de début et une couleur de fin. Par ailleurs, vous pouvez également sélectionner le nombre de plages à utiliser. Les couleurs divergentes vous permettent aussi de contrôler le point intermédiaire. Vous pouvez sélectionner la valeur et la couleur du point intermédiaire, et choisir de ne pas inclure le point intermédiaire. Par exemple, vous pouvez utiliser des couleurs divergentes afin de faciliter la visualisation des tendances chaudes et froides de vos données grâce à un thème rouge associé à un thème vert, et également afficher une plage plus complète de valeurs. Les couleurs divergentes ajoutent cette flexibilité aux cartes géographiques et aux cartes thermiques. Pour plus d'informations, reportez-vous à la section [Carte thermique](/s/article/360042924634 "Carte thermique").
+
+<Frame><img alt="Heat_Map_Example.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmu.png"/></Frame>
+
+### Vue hebdomadaire dans les cartes du calendrier
+
+La vue hebdomadaire des cartes du calendrier propose une nouvelle option d'affichage hebdomadaire. Vous pouvez utiliser la navigation par semaine et personnaliser le début de la semaine indiquée. Pour plus d'informations, consultez la section [Calendrier](/s/article/360043427973 "Calendrier").
+
+<Frame><img alt="Calendar_Week.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnN.png"/></Frame>
+
+### Diagramme de Gantt des dépendances
+
+Le diagramme de Gantt des dépendances gère automatiquement les changements de date et propose de nombreuses options d'affichage nouvelles qui permettent de communiquer des timelines de projet:
+
+* Calcul des dates de fin à partir des données de dépendance et de durée.
+* Affichage des relations de données de dépendance.
+* Affichage des étapes.
+* Affichage des projets et des sous-projets dans une hiérarchie.
+* Autoriser le suivi et la représentation des ressources dans le graphique.
+* Calculs de date intelligents: prend en compte ou affiche automatiquement les week-ends.
+
+Pour plus d'informations, consultez la section [Diagramme de Gantt des dépendances](/s/article/1500003419382).
+
+<Frame><img alt="Dependency_Gantt_Chart.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKn6.png"/></Frame>
+
+### Plages de couleurs du graphique à barres Progression
+
+Le graphique à barres Progression propose désormais jusqu'à quatre gammes de couleurs qui peuvent être utilisées dans votre graphique. Vous pouvez spécifier une valeur minimum et une valeur maximum pour chaque plage, puis sélectionner la couleur correspondante que vous souhaitez afficher. Pour plus d'informations, consultez la section [Jauge de barre de progression](/s/article/360043429493 "Jauge de barre de progression").
+
+<Frame><img alt="Progress_Bar.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmw.png"/></Frame>
+
+### Création d'un graphique en treillis n premiers
+
+La propriété Graphique en treillis vous permet désormais de n'afficher que les n premiers d'une catégorie. Par exemple 5 principaux clients par région. La propriété Graphique en treillis est disponible dans la plupart des types de graphiques. Pour plus d'informations, consultez la section [Propriétés disponibles dans la plupart des graphiques](/s/article/360043429793 "Propriétés disponibles dans la plupart des graphiques").
+
+<Frame><img alt="Trellis_Chart.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmr.png"/></Frame>
+
+### Améliorations de l'interface utilisateur d'Analyzer
+
+Nous avons simplifié l'utilisation d'Analyzer grâce aux améliorations suivantes:
+
+* Les lignes dans Analyzer sont désormais regroupées à l'aide des options Filtrer et Trier.
+* Les options Filtrer et Trier sont associées en une même section.
+* Les modifications du menu déroulant N° de résumé et du format sont désormais enregistrées automatiquement: vous n'avez plus à cliquer sur l'option Appliquer.
+
+Pour plus d'informations, consultez la section [Disposition d'Analyzer](/s/article/360042924034 "Disposition d'Analyzer").
+
+<Frame><img alt="Analyzer_Improvements_Slow.gif" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnT.gif"/></Frame>
+
+### Recherche enregistrée
+
+Grâce à la fonctionnalité Recherche enregistrée, vous pouvez enregistrer vos recherches courantes et y revenir facilement, quelle que soit leur complexité. Pour plus d'informations, consultez la section Recherche dans Domo.
+
+<Frame>
+<img alt="" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnJ.png" />
+</Frame>
+
+<Frame>
+<img alt="" src="/images/kb/fr/ka05w00000129sf-00N5w00000Ri7BU-0EM5w000005wJP4.png" />
+</Frame>
+
+### Formatage régional pour les entreprises multinationales
+
+Le formatage régional permet aux administrateurs de définir globalement les formats de date et de chiffre sur la plateforme Domo en fonction de votre région. Les utilisateurs peuvent désormais sélectionner leur région et leur langue. Les conventions de formatage basées sur votre région sont désormais utilisées pour afficher des valeurs numériques, financières et de date/heure en fonction de votre région. Pour plus d'informations, consultez la section [Définition de votre fuseau horaire et du formatage régional](/s/article/360042934394 "Définition de votre fuseau horaire et du formatage régional").
+
+<Frame><img alt="Regional_Formatting_User.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnD.png"/></Frame>
+
+### Prise en charge des lecteurs d'écran dans les stories
+
+Grâce à l'accès étendu aux lecteurs d'écran et aux claviers dans les stories, les clients peuvent exposer le contenu Domo à des utilisateurs ayant des besoins spécifiques en matière d'accessibilité. La fonctionnalité améliorée d'accessibilité de Domo permet aux clients d'adapter leurs cartes aux lecteurs d'écran, de rechercher des stories, de consulter des dispositions et de lire les détails des cartes. Pour plus d'informations, consultez la section [Prise en charge des lecteurs d'écran dans les stories](/s/article/1500003263261 "Prise en charge des lecteurs d'écran dans les stories").
+
+<Frame><img alt="Screen_Reader.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKn4.png"/></Frame>
+
+### Statut Buzz
+
+La fonctionnalité Statut Buzz vous permet de définir votre statut sur le Web ou sur un appareil mobile sur **Disponible**, **Occupé**, **Indisponible** ou **Absent**. Lorsque quelqu'un vous envoie un message 1:1 ou vous @mentionne dans une conversation alors que vous statut n'est pas Disponible, cette personne reçoit un message lui indiquant que vous n'êtes pas disponible. Vous pouvez également ajouter des messages personnalisés à votre message de statut lorsque vous n'êtes pas disponible. Une icône sur votre avatar indique votre statut actuel. Pour plus d'informations, consultez la section [Structure de Buzz](/s/article/360043429973 "Structure de Buzz").
+
+<Frame><img alt="Buzz_Mobile.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnM.png"/></Frame>
+
+## Fonctionnalités Premium
+
+Ces fonctionnalités sont disponibles à la demande et sont payantes. Pour que ces fonctionnalités soient activées, adressez-vous à votre responsable du Succès Client Domo, à votre consultant technique ou au responsable de votre compte. Si vous n'avez pas leurs coordonnées, adressez-vous à l'assistance technique. Pour plus d'informations sur l'assistance et les méthodes permettant de la contacter, consultez la section [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide"). Selon la fonctionnalité demandée, vous pouvez être invité à suivre une formation avant de l'utiliser.
+
+### DataFlow Adrenaline
+
+Le DataFlow Adrenaline est un outil de transformations des données d'envergure et hautes performances, créé en interne, et fourni par Adrenaline, destiné aux DataSets volumineux dans Domo. Il vous permet d'exploiter les investissements et les améliorations des performances apportées au moteur Adrenaline. L'interface de transformation basée sur les scripts SQL des DataFlows Adrenaline est semblable aux DataFlows MySQL et RedShift. Pour plus d'informations, consultez la section [Création d'un DataFlow Adrenaline](/s/article/360063698733 "Création d'un DataFlow Adrenaline").
+
+### AutoML (apprentissage machine)
+
+Domo AutoML vous permet de former des dizaines de modèles ML et de déployer en production les modèles les plus performants en quelques clics. La transformation des données en modèles et en résultats est plus rapide.
+
+Domo facilite les opérations suivantes:
+
+* Formation et ajustement automatiques de dizaines de modèles ML.
+* Lancez des centaines de tâches de formation sur un DataSet dans Domo afin de rechercher le modèle qui offre les meilleures performances pour votre tâche.
+* Déployez facilement le modèle sur votre DataSet grâce à la nouvelle vignette AutoML dans Magic ETL.
+* Il suffit de fournir à AutoML un problème parfaitement défini et un DataSet correct. Domo se charge du reste.
+
+Pour plus d'informations, consultez la section [AutoML (apprentissage machine)](/s/article/360048127854 "AutoML (apprentissage machine)").
+
+### Integration Studio
+
+Integration Studio vous permet de lier des systèmes d'entreprise disparates qui ne pourraient pas partager de données. Transformez des données, ajoutez la science des données et l'intelligence artificielle avant de les partager sur un autre système d'entreprise à l'aide de la vignette de réécriture dans Magic ETL. Pour plus d'informations, consultez la section [Integration Studio](/s/article/360045163773 "Integration Studio (version bêta)").
+
+### SMS dans l'application Campagnes
+
+Le module externe SMS dans l'application Campagnes vous permet d'automatiser l'envoi de SMS depuis Domo. Vous pouvez contacter automatiquement les utilisateurs non-Domo pour différentes opérations: rappels de rendez-vous, avis de changement d'équipe destinés au personnel ou à des sous-traitants, rappels de factures impayées, informations de suivi de livraison, alertes de disponibilité de produits, etc.
+
+Le module externe SMS dans l'application Campagnes vous permet d'effectuer ces opérations:
+
+* Lire les numéros de téléphone portable depuis un DataSet Domo afin de renseigner votre liste de destinataires.
+* Préparer le contenu de votre SMS manuellement ou le remplir automatiquement à partir de valeurs DataSet Domo.
+* Envoyer des messages SMS manuellement, planifier leur envoi ou le déclencher à l'aide des alertes DataSet.
+
+Pour plus d'informations, consultez la section [Application Campagnes de Domo](/s/article/360042933494 "Application Campagnes de Domo").
+
+<Frame><img alt="Campaigns_App.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnL.png"/></Frame>
+
+## Obtenir de l'aide
+
+Vous pouvez afficher les dernières notes de publication dans le centre d'aide qui est accessible depuis Domo en cliquant sur <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> dans la barre de navigation supérieure.
+
+En cas de questions sur Domo,
+
+* recherchez un sujet dans le Centre d'aide
+* suivez une formation dans Domo University à l'adresse
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* recherchez des applications de formation dans l'Appstore
+* obtenez des réponses dans la communauté Domo à l'adresse
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* contactez le support technique en créant un ticket d'aide dans le portail de support Domo
+* contactez votre Responsable du Succès Client Domo ou votre Consultant technique
+
+Envoyez-nous vos commentaires depuis Domo (**Plus** ****> Commentaires****). Ou envoyez un e-mail à [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Pour plus d'informations sur la façon d'obtenir de l'aide, consultez [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide").
+
+Français

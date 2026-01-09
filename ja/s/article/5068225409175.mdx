@@ -1,0 +1,790 @@
+---
+title: "Magento2 Advancedコネクター"
+---
+
+## はじめに
+
+Magentoは、eコマースウェブサイトに特化した、急成長中の企業や大企業向けのエンタープライズeコマースソリューションです。Magentoでは、幅広い顧客とのつながりをサポートする多種多様な独自の機能を利用できます。Domo Magento 2 Advancedコネクターを使用して、Magento 2システムから顧客、請求、注文、製品、出荷などに関するデータを取得できます。
+  
+データをDomoと組み合わせることで強力な可視化とレポート作成が可能になり、請求、製品、出荷を分析することができます。MagentoのデータとDomoのすべての情報を組み合わせることで、将来のビジネスニーズに応えるプランが立てられます。 Magento REST APIの詳細については、Magentoのウェブサイト（ [https://devdocs.magento.com/guides/v...arted-api.html](https://devdocs.magento.com/guides/v2.2/get-started/bk-get-started-api.html "https://devdocs.magento.com/guides/v2.2/get-started/bk-get-started-api.html") ）を参照してください。
+
+MagentoアカウントにはData Centerから接続します。このトピックでは、Magento2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Magentoアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* MagentoストアのURL
+* コンシューマーキーとコンシューマーシークレット
+* アクセストークンとアクセストークンシークレットの値
+
+このコネクターが機能するためにはSSLが必要です。
+
+## Magentoアカウントに接続する
+
+このセクションでは、Magento2 Advancedコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Magentoアカウントにアクセスするための認証情報の入力フィールドがあります。下の表は、各フィールドに必要な内容を説明しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ フィールド 
+</span>
+
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ 説明 
+</span>
+
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Storebase URL 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ MagentoストアのURLを入力します。 
+</span>
+
+</p>
+
+<p>
+
+<span>
+ 例：Magentoストアが 
+<a href="https://example.comに" rel="noopener" target="_blank">
+ https://example.comに 
+</a>
+ ある場合は、 
+<a href="https://www.example.comを" rel="noopener" target="_blank">
+ https://www.example.comを 
+</a>
+ 入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Consumer Key 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ コンシューマーキーを入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Consumer Secret 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ コンシューマーシークレットを入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Access Token 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ アクセストークンを入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Access Token Secret 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ アクセストークンシークレットの値を入力します。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいMagento2 Advanced DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ メニュー 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 実行するMagento2 Advancedレポートを選択します。以下のレポートが利用できます。 
+</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Invoices 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定された検索条件にマッチする請求書のリストを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Orders 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定された検索条件に一致する注文のリストを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Products 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定された検索条件に一致する製品のリストを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Promotion Rules 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定した条件に一致する売上ルールを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Returns 
+</td>
+
+<td colspan="1" rowspan="1">
+ 検索条件にもとづいてrmaデータオブジェクトのリストを返します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Shipments 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定された検索条件に一致する出荷のリストを取得します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Date Type 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 目的の日付タイプを選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Value to Flatten 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ アイテムを展開するかステータス履歴を展開するかを選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Page Size 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ Magentoサーバーからリクエストごとに取得するレコード数です。 
+</span>
+ 50～500のページサイズを入力します。Magentoから内部サーバーエラー 
+<span>
+ 、またはDomoから内部コネクターエラー 
+</span>
+ を受信する場合は、この値を下げることもできます。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Report Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Select Specific Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポートの日付を選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Days Back 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポートに表示する過去日数を入力します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Start Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 
+<b>
+ ［End Date］ 
+</b>
+ で選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ End Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は 
+<b>
+ ［Start Date］ 
+</b>
+ で選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Select Specific Start Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付範囲の最初の日付を選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Select Specific End Date 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付範囲の2番目の日付を選択します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Days Back to Start From 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポートで表示する、最も過去の日までの日数を入力します。 
+<b>
+ ［Days Back to End At］ 
+</b>
+ と組み合わせることによって、表示日数の範囲を指定できます。 
+</p>
+
+<p>
+ 例えば、 
+<b>
+ ［Days Back to Start From］ 
+</b>
+ に 
+<span class="mt-font-courier-new">
+ 10 
+</span>
+ 、 
+<b>
+ ［Days Back to End At］ 
+</b>
+ に 
+<span class="mt-font-courier-new">
+ 5 
+</span>
+ を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Days Back to End At 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ レポートで表示する、直近の日までの日数を入力します。 
+<b>
+ ［Days Back to Start From］ 
+</b>
+ と組み合わせることによって、表示日数の範囲を指定できます。 
+</p>
+
+<p>
+ 例えば、 
+<b>
+ ［Days Back to Start From］ 
+</b>
+ に 
+<span class="mt-font-courier-new">
+ 10 
+</span>
+ 、 
+<b>
+ ［Days Back to End At］ 
+</b>
+ に 
+<span class="mt-font-courier-new">
+ 5 
+</span>
+ を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+MagentoのベースURLは、https://\{DOMAIN}/rest.です。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+
+<table data-aura-rendered-by="33:195;a">
+
+<tbody>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+ レポート名 
+</th>
+
+<th colspan="1" rowspan="1">
+ エンドボイントURL 
+</th>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Invoices 
+</td>
+
+<td colspan="1" rowspan="1">
+ /invoices 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Orders 
+</td>
+
+<td colspan="1" rowspan="1">
+ /orders 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Products 
+</td>
+
+<td colspan="1" rowspan="1">
+ /products 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Promotion Rules 
+</td>
+
+<td colspan="1" rowspan="1">
+ /salesRules/search 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Returns 
+</td>
+
+<td colspan="1" rowspan="1">
+ /returns 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Shipments 
+</td>
+
+<td colspan="1" rowspan="1">
+ /shipments 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+MagentoストアのURL、コンシューマーキー、コンシューマーシークレット、アクセストークン、アクセストークンシークレットの値が必要です。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,94 @@
+---
+title: "Adobe Analytics Advanced Legacyコネクター"
+---
+
+## はじめに
+
+Adobe Analyticsを使用すると、顧客との相互作用を実行可能なインサイトに変え、ビジネスの全体像を把握できるようになります。DomoのAdobe Analyticsコネクターを使うと、事前に作成したレポートやカスタマイズされたレポートを通して、またはAdobe Analytics APIにクエリを送信することで、データを取得できます。その後メトリクスをCRM、POS、またはほかのシステムからのデータと組み合わせることで、より迅速に、そして正確な情報にもとづいてビジネスの意思決定をすることができるようになります。Adobe Analytics APIの詳細については、ウェブサイト（ [https://marketing.adobe.com/developer/en\_US/get-started/introduction/c-introduction](https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction "https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction") ）を参照してください。
+
+上記のリンクをクリックすると、Adobe Analytics APIのデータセンターに移動します。 このトピックでは、Adobe Analyticsコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Adobe Analyticsに接続してDataSetを作成するには、Adobe Analyticsアカウントに関連付けられたクライアントIDとクライアントシークレットが必要です。
+
+クライアントIDとクライアントシークレットの取得方法の詳細については、 [Adobe Oauth](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md") [Connection](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/OAuthIntegration.md "接続") のドキュメントを参照してください。
+
+### Adobe Developer Consoleで新しいOAuthプロジェクトを作成する
+
+Adobe Developer Consoleで新しいOAuthプロジェクトを作成するには、次の手順を実行します。
+
+1. [https://console.adobe.io/projects](https://console.adobe.io/projects "https://console.adobe.io/projects")
+   にログインします。
+2. **［Create new project］**
+   ボタンをクリックします。
+3. **［Add API］**
+   をクリックしてAdobeサービスの使用を開始します。
+
+<Frame><img alt="Add_API.png" src="/images/kb/ka0Vq00000012UP-00N5w00000Ri7BU-0EM5w000005vO16.png"/></Frame>
+
+4. 利用可能なAPIは
+**［Add an API］** ウィンドウにリストされます。 **［Adobe Analytics］** を選択します。
+
+<Frame><img alt="Add_an_API-Adobe_Analytics.png" src="/images/kb/ka0Vq00000012UP-00N5w00000Ri7BU-0EM5w000005vO19.png"/></Frame>
+
+5. 認証タイプを選択します。ここで
+**［OAuth］** を選択します。
+
+<Frame><img alt="OAuth-service_account_OAuth.png" src="/images/kb/ka0Vq0000008NaX-00N5w00000Ri7BU-0EM5w000005vO1D.png"/></Frame>
+
+6. **［Web］** プラットフォームを選択してAPIを設定します。
+
+**［Redirect URI］** に「 **https://oauth.domo.com/api/data/v2/oauth/providers/adobe-analytics-oauth/exchange** 」を入力し、 **［Redirect URI pattern］** に「 **https://oauth//.domo//.com/api/data/v2/oauth/providers/adobe-analytics-oauth/exchange** 」を入力します。
+
+7. **［Save configured API］** をクリックします。
+
+## Adobe Analytics APIに接続する
+
+このセクションでは、Adobe Analyticsコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である ［スケジュール設定］や ［DataSetに名前を付け、説明を入力］に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Adobe Analytics APIに接続するための認証情報の入力フィールドが含まれています。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username: Company </td><td colspan="1" rowspan="1"> ユーザー名と会社名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Secret </td><td colspan="1" rowspan="1"> Adobe Analytics Advanced Legacyアカウントに関連付けられているクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAdobe AnalyticsのDataSetを作成できます。コネクターのアカウントは、Data Centerの **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、**［Report Suite］** と **［Report Type］** という2つのメニューがあります。これらのメニューで、事前に定義されたAdobe Analyticsレポートを選択することができます。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Company </td><td colspan="1" rowspan="1"> Adobe Analyticsで設定されている会社名を入力します。ここで入力した会社名が、 <span></span><span class="mt-font-courier-new"> Company.GetEndpoint </span><span></span> メソッドのパラメーターとして使用されます（ <span></span><a class="link-https" href="https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/admin-api/methods/company/r_GetEndpoint.md" target="_blank" title="https://github.com/AdobeDocs/analytics-1.4-apis/blob/master/docs/admin-api/methods/company/r_GetEndpoint.md"> https://github.com/AdobeDocs/analyti...GetEndpoint.md </a> を参照）。 </td></tr><tr><td colspan="1" rowspan="1"><p> Report Suite </p></td><td colspan="1" rowspan="1"><p> データを取得するAdobe Analyticsレポートスイートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Predefined Report </p></td><td colspan="1" rowspan="1"><p> Adobe Analyticsレポートタイプを選択します。以下の表に、利用可能な定義済みレポートをすべて示します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> レポート名 </b></p></td><td colspan="1" rowspan="1"><p><b> 説明 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Base Metrics </p></td><td colspan="1" rowspan="1"><p> ページ閲覧数、ウェブサイトでの平均滞在時間、月別、週別、日別のユニーク訪問者数や新規訪問者などに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Commerce Metrics </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、チェックアウト、収益、新規、リピート顧客に関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Existing Customer Campaigns </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益に関するデータを、既存の顧客キャンペーン別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Existing Customer Products </p></td><td colspan="1" rowspan="1"><p> 既存の顧客のアクセス数、注文、チェックアウト、収益に関するデータを、製品別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Types </p></td><td colspan="1" rowspan="1"><p> モバイルの閲覧数、アクセス数、毎日のユニーク訪問者数に関するデータを、デバイスタイプ別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Metrics </p></td><td colspan="1" rowspan="1"><p> デバイスタイプ、OS、閲覧数、アクセス数、毎日のユニーク訪問者数など、モバイルデバイスの利用状況に関するメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Natural Search Conversion </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益に関するデータを自然検索キーワード別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Natural Search Visits </p></td><td colspan="1" rowspan="1"><p> アクセス数、ページ閲覧数、毎日のユニーク訪問者数に関するデータを自然検索キーワード別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Best Campaigns </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益、単位に関するデータを新規訪問者キャンペーン別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Geo </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益、単位に関するデータを地域別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Geo Country </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益、単位に関するデータを国別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Keywords </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益、単位に関するデータを有料検索キーワード別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Products </p></td><td colspan="1" rowspan="1"><p> 新規顧客のアクセス数、注文、チェックアウト、収益、単位などに関するデータを製品別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> New Visitor Traffic Source </p></td><td colspan="1" rowspan="1"><p> アクセス数、注文、収益、単位に関するデータをリファラ別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Page Effectiveness </td><td colspan="1" rowspan="1"> ページアクセス数、エントリーやエグジット、バウンス、バウンス率に関するデータをページ別に返します。 </td></tr><tr><td colspan="1" rowspan="1"> Page Metrics </td><td colspan="1" rowspan="1"> ページ閲覧数、アクセス数、毎日のユニーク訪問者数、エグジットに関するデータをページ別に返します。 </td></tr><tr><td colspan="1" rowspan="1"> Paid Search Conversion </td><td colspan="1" rowspan="1"> アクセス数、注文、収益に関するデータを有料検索キーワード別に返します。 </td></tr><tr><td colspan="1" rowspan="1"> Paid Search Visits </td><td colspan="1" rowspan="1"> ページビューの数、毎日のユニーク訪問者数、総アクセス数に関するデータを有料検索キーワード別に返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Products and Categories </p></td><td colspan="1" rowspan="1"> アクセス数、注文、収入に関するデータを製品とカテゴリー別に返します。 </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="Q：このコネクターはいつ使用しますか？">
+
+
+A：このコネクターは廃止されたため、新しいDataSetの作成に使用することはできません。
+
+
+</Accordion>
+<Accordion title="Q：Adobe Analytics OAuthアカウントが正しく作成されたにもかかわらず、それから約2週間後に「Adobe Analytics OAuthアカウントが無効になりました」というアラートが表示されました。このアラートが表示されるのはなぜですか？この場合はどうすればよいですか？">
+
+
+1. A：Adobe Analytics OAuthには、2週間で期限切れになる更新トークンが付属しています（
+   [Adobeの](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens") [ドキュメント](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/OAuth/OAuth.md#exchanging-refresh-tokens "ドキュメント") を参照）。このため、2週間が経過するとAdobe OAuthを認証できなくなります。これは、Adobeによって設定された制約事項です。以前のデータベースでは、WSSE認証方式（ユーザー名として会社名を入力し、パスワードを入力する認証方式）が使用されていましたが、AdobeはこのWSSE認証方式を廃止しました。この問題の解決策については、Adobeのサポート窓口にお問い合わせください。
+
+
+</Accordion>
+<Accordion title="Q：Adobe Analyticsのデータセットで断続的にエラーが発生し、 「現在、レポート処理を実行できません。後でもう一度お試しください。」という内容のエラーメッセージが表示されます。どうすればよいですか？">
+
+
+A：これは、Adobe 側で発生しているエラーです。残念ながら、Domo側から直接コントロールできることはありませんが、Adobe と連携して、このようなタイプのエラーの解消に努めています。しかし、このようなエラーの発生を軽減するステップがあります。例えば、コネクターの数、コネクターがデータを取得する頻度を減らしたり、リクエストのサイズを小さくしたりすることができます。また、リクエストが異なる時間に実行されるようスケジュールを組むことも有効です。別の解決策として、コネクターの「再試行」設定を使うという方法もあります。
+
+
+
+</Accordion>
+</AccordionGroup>

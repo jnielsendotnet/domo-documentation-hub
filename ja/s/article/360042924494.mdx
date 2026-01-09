@@ -1,0 +1,36 @@
+---
+title: "ドーナツグラフ"
+---
+
+ページサマリの表示
+
+## ﻿はじめに
+
+ドーナツグラフはセクションに分かれた円の形をしており、各セクションはグラフ全体での割合を示します。 このタイプのグラフは、 [円グラフ](/s/article/360042924854 "円グラフ") とほぼ同じで、異なるのは中央に穴がある点です。したがって、セクションはくさびではなく、円弧になります。
+
+## ドーナツグラフを作成する
+
+ドーナツグラフは、DataSet から2つのデータ列または行を必要とします。1つは各セクションの名称を含む列または行、もう 1 つは各セクションに対応する値を含む数値の列または行です。 数値の列または行に入る数字は、その合計が100%になる必要は *ありません* 。 値、カテゴリー、系列データについては、 [チャートデータについて](/s/article/360043428693 "チャートデータについて") を参照してください。
+
+ドーナツグラフの各セクションは、大きい順に自動的に最大のものから時計回りに配置されます。
+
+Ben Green
+
+2017年7月18日 13:25
+
+デフォルトでは、他のソートオプションを選択してもドーナツグラフでは機能は *しません* 。 ただし、チャートの設定で **並べ替えされていないデータ** のボックスをチェックすると、 **ソート** オプションを使ってデータの並び替え方法を変更することができます。
+
+データ列を選択する方法に関しては、 [DataSet 列をチャートに適用する](/s/article/360043428713 "DataSet 列をチャートに適用する") を参照してください。
+
+For more information about formatting charts in the Analyzer, see [KPI Card Building Part 2: The Analyzer](/s/article/ "KPI カード作成パート 2： カードビルダー").
+
+次の図は、典型的な列ベースのスプレッドシートのデータがどのようにドーナツグラフに変換されるかを示しています。
+
+<Frame><img alt="donut_spreadsheet_example_new.png" src="/images/kb/ka0Vq0000000UxN-00N5w00000Ri7BU-0EM5w000005wLly.png"/></Frame>
+## ドーナツグラフをカスタマイズする
+
+ドーナツグラフの外観のカスタマイズは、 **チャートの設定** を編集して行います。 チャートの設定の全オプションについては、 [チャートの設定リファレンスガイド](/s/article/ "チャートの設定") を参照してください。 円グラフおよびドーナツグラフ固有のプロパティには、次があります。 サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 凡例に表示 </p></td><td colspan="1" rowspan="1"><p> グラフで、DataSetからの値をリテラル値として表示するか、または対応する割合として表示するかを決定します。 たとえば、DataSet の値が「26」であっても、ドーナツグラフでは35.9% となります。 そのため、このプロパティで <b> 値 </b> を選択すると、凡例アイテムは「26」となり、 <b> 割合 </b> を選択すると、凡例アイテムは「35.9%」となります。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; その他の前に表示する最大スライス数 </p></td><td colspan="1" rowspan="1"><p> チャートで、固有のスライスとして表示されるスライス数を決定します。チャート上のその他残りのスライスは全て、「その他」にまとめられます。 右の例では、ユーザーが <b> その他の前の最大スライス数 </b> の値を「6」と入力したため、最初の 5 つのスライスは独立したスライスとして表示され、残りのスライスは「その他」にまとめられています。 </p></td><td colspan="1" rowspan="1"><img alt="aggregated_other_slices.png" src="/images/kb/ka05w00000123l4-00N5w00000Ri7BU-0EM5w000005vP1j.png"/></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 値の書式 </p></td><td colspan="1" rowspan="1"><p> 通貨記号を値に追加するかを決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 値(小数位) </p></td><td colspan="1" rowspan="1"><p> 値の少数位の数を決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; %値(小数位) </p></td><td colspan="1" rowspan="1"><p> 値の少数位の数を決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 凡例に表示 </p></td><td colspan="1" rowspan="1"><p> 円グラフやドーナツグラフの凡例の値を、（DataSetでのように）値として示すか、または割合として示すかを選択することができます。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr></tbody></table>
+
+日本語

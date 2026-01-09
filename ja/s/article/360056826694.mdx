@@ -1,0 +1,55 @@
+---
+title: "MySQLパーティションコネクター"
+---
+
+## はじめに
+
+MySQLは、広く使用されているオープンソースのリレーショナルデータベース管理システムです。DomoのMySQLの統合により、MySQLデータを簡単に接続してより迅速な意思決定を行うことができます。パーティショニングをすると、表データを、ユーザー定義のルールに基づいて1つ以上の表の列の値に従って複数のストレージオブジェクト（データパーティション）にまたがって分割できます。DomoのMySQLパーティションコネクターを使用すると、データベースエンジンがデータを保存する方法を最適化できます。
+
+MySQLパーティションアカウントには、Data Centerから接続します。このトピックでは、MySQLパーティションコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：**
+
+* MySQLサーバーがTLSをサポートしていれば、このコネクターもTLSをサポートします。
+* 非SSL接続はサポートされていません。証明書が提供されていない場合、SSLで接続されますが、証明書による認証は行われません。接続では、すべてのサーバー証明書が信頼されます。詳細については、以下のウェブサイトを参照してください：
+  https://msdn.microsoft.com/en-us/library/bb879949%28v=sql.110%29.aspx
+
+</Note>
+
+必要条件
+
+MySQLパーティションアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* MySQLデータベースのログインに使用するユーザー名とパスワード。
+* データベースのホスト名。
+* データベースのポート番号。
+* データベース名またはスキーマ名。
+* SSL
+* オプションで、SSL CA証明書のあるURLを含めることもできます。
+
+また、MySQLデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MySQLパーティションアカウントに接続する
+
+このセクションでは、 ［MySQLパーティション コネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 MySQLパーティション アカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBCドライバー </td><td colspan="1" rowspan="1"> データベースサーバーの接続に使用するJDBCドライバーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> MySQLデータベースのホスト名を入力します。例： <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース名 </td><td colspan="1" rowspan="1"> MySQLデータベース名またはスキーマ名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> MySQLユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> MySQLパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> CA証明書 </td><td colspan="1" rowspan="1"> SSL CA証明書のあるURLを入力します（オプション）。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい MySQLパーティション DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、データをパーティショニングする属性と条件を指定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは <b><b> yyyy-MM-dd </b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> データを圧縮する場合に選択 </td><td colspan="1" rowspan="1"> データをアップロードする方法を選択します。アップロードの際にデータを圧縮する場合は［True］を選択し、そうでない場合は［False］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Tinyint値を（BOOLEAN）値として扱う </td><td colspan="1" rowspan="1"> 小さい整数値をBoolean値として扱う場合は［はい］を、そうでない場合は［いいえ］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Boolean値を他の型にキャスト... </td><td colspan="1" rowspan="1"> 文字列または整数のBoolean値をDataSet内でキャストするかどうかを選択します。 <br/> String: False/True <br/> Integer: 0/1 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

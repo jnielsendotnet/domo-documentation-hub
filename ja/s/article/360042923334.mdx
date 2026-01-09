@@ -1,0 +1,54 @@
+---
+title: "積上げ棒チャート"
+---
+
+## はじめに ﻿
+
+積上げ縦棒チャートでは、基本的な [縦棒チャート](/s/article/360043428493 "棒チャート") のように、カテゴリーはバーとして表示されますが、バーはそれぞれの上に「積上げられた」系列で構成され、各系列はその値を示します。そのため、積上げられた全体の高さは、そのカテゴリーのすべての系列の合計を表します。積上げ横棒チャートは積上げ縦棒チャートとほぼ同じですが、系列は積上げられるのではなく、横に並んで表示されます。
+
+## 積上げ棒チャートを作成する
+
+積上げ棒チャートは、DataSetから3つのデータの列または行を必要とします。1つはカテゴリー、1つは各カテゴリーの系列、そして1つは値です。すべての系列が集計されていれば、チャートに系列を追加できます。系列の追加の詳細については、「 [系列として値と日付を列に追加](/s/article/360043428713 "DataSetの列をチャートに適用する") 」を参照してください。
+
+値、カテゴリー、系列データの詳細については「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+Analyzerで積上げ棒チャートのデータを含む列を選択します。データ列の選択の詳細については「 [DataSetの列をチャートに適用する](/s/article/360043428713 "DataSetの列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については「 [KPIカード作成パート2：Analyzer](/s/article/ "KPIカード作成パート2：Card Builder") 」を参照してください。
+
+以下の図は、典型的な列ベースのスプレッドシートのデータがどのように積上げ縦棒チャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPI2.png" style={{width: 711, height: 724}}/></Frame>
+以下の図は、典型的な列ベースのスプレッドシートのデータがどのように積上げ横棒チャートに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPHz.png" style={{width: 708, height: 858}}/></Frame>
+## 積上げ棒チャートをカスタマイズする
+
+積上げ棒チャートの外観は、 **[チャートの設定]** を編集することでカスタマイズできます。チャート設定のすべての詳細については「 [チャートの設定](/s/article/ "チャートの設定") 」を参照してください。積上げ棒チャート固有のプロパティには以下があります。サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 各カテゴリーをソート </p></td><td colspan="1" rowspan="1"><p> 複数の系列をもつバーとロリポップチャートのほとんどの種類で、各カテゴリーのアイテムをソートできます。昇順または降順で列をソートできます。 <b> [デフォルト] </b> を選択すると、デフォルトのソートが適用されます。このオプションは、 <b> [値の目盛り] &gt; [対数目盛り] </b> ボックスがオンの場合は機能しません。 </p><p> 右の例では、すべてのカテゴリー内のバーが降順でソートされています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/4171/sort_each_category.png"><img alt="" src="/images/kb/ka05w00000123km-00N5w00000Ri7BU-0EM5w000005vOzS.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 合計でソート </p></td><td colspan="1" rowspan="1"><p> さまざまな種類の棒チャートやロリポップチャートで、カテゴリーを合計値別に昇順または降順にソートできます。 <b> [デフォルト] </b> を選択すると、デフォルトのソートが適用されます。このオプションは、チャートに自動時間目盛りが適用されている場合は機能しません。（自動時間目盛りをオフにするには、 <b> [カテゴリーの目盛り] &gt; [時間の目盛りを使用しない] </b> チェックボックスをオンにします。） </p><p> 右の例では、カテゴリーが合計別に昇順にソートされています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/4170/sort_on_totals.png"><img alt="" src="/images/kb/ka05w00000123km-00N5w00000Ri7BU-0EM5w000005vOzh.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 最大バー数 </p></td><td colspan="1" rowspan="1"><p> 棒チャート内に表示するバーの数を指定できます。 <b> [「その他」のバーを非表示] </b> に切り替えてこのバーを非表示にしない限り、残りのバーのデータは、1つの「その他」のバーにすべてまとめられます。 </p><p> 右の例は、バーの最大数が7に設定された棒チャートを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5982/maximum_bars.png"><img alt="maximum_bars.png" src="/images/kb/ka05w00000123mx-00N5w00000Ri7BU-0EM5w000005vP6O.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 「その他」のバーを非表示 </p></td><td colspan="1" rowspan="1"><p><b> [最大バー数] </b> オプションを使用してバーの最大数を設定したときに表示される「その他」のバーを表示または非表示にします。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの目盛り &gt; 時間の目盛りを使用しない </p></td><td colspan="1" rowspan="1"><p> 時間データを使用する、対応するチャートにどのタイプのタイムラインを使用するかを決定します。 </p><p> デフォルトでは、サポートされているチャート（折れ線チャートや棒チャートなど）に時間データを使用すると、Domoは自動的に適切な <a class="confluence-link" href="/s/article/360042924074" target="_blank" title="チャートにフィルターを追加する"> 時間粒度 </a> を使用してデータを表示します。右の最初の例では、数か月にわたる日付データを月ごとに表示しています。 </p><p> しかし、このボックスをオンにすると、DataSetで表示されるのと同じように日付データを表示します。右側の2番目の例では、DataSetと同じように、時間の目盛りで個々の日付が使用されています。 </p><p> このオプションは積上げ縦棒チャートのみに利用できます。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1406/timescales_on_stacked_bar.png"><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPI9.png"/></a></p><p><a target="_blank" title="/@api/deki/files/1407/timescales_off_stacked_bar.png"><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPI8.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> バーの設定 &gt; 積上げチャート以外のチャートのインタラクティブ機能 </p></td><td colspan="1" rowspan="1"><p> デフォルトの積上げ棒チャートのインタラクティブ機能をオフにします。 </p><p> 積上げチャートまたは100%積上げ縦棒チャートでいずれかの系列の上にマウスポインタを合わせると、最初のスクリーンショットの右側にあるように、対応するすべての系列がハイライトされ、グラフの横方向に連続表示されます。ただし、チャートのいずれかの積上げから系列データが不足している場合、2番目のスクリーンショットのように、ハイライト表示はされず、積上げには「0」と表示されます。3番目のスクリーンショットに示すように、 <b> [積上げグラフ以外のグラフのインタラクティブ機能] </b> にチェックを入れると、マウスポインタを合わせてもコネクト線、ハイライト表示、「0」は表示されなくなります。 </p><p> DataSet列に関する詳細は、「 <a href="/s/article/360043428713" target="_blank" title="DataSetの列をチャートに適用する"> DataSet列をチャートに適用する </a> 」を参照してください。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1333/stacked_interactivity1.png"><img alt="" src="/images/kb/ka05w00000123pf-00N5w00000Ri7BU-0EM5w000005vPIJ.png"/></a></p><p><a target="_blank" title="/@api/deki/files/1332/stacked_interactivity2.png"><img alt="" src="/images/kb/ka05w00000123pf-00N5w00000Ri7BU-0EM5w000005vPIL.png"/></a></p><p><a target="_blank" title="/@api/deki/files/1331/stacked_interactivity3.png"><img alt="" src="/images/kb/ka05w00000123pf-00N5w00000Ri7BU-0EM5w000005vPIE.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> バーの設定 &gt; バーの幅/高さを数値により設定 </p></td><td colspan="1" rowspan="1"><p> 積上げの個々のバーは値に応じて大きさが変更されるため、系列の違いを簡単に確認できるようになります。たとえば、右のスクリーンショットでは、プリンスジョージズ郡ではチームAのウィジェットの売上げが最も多く、セントメアリーズ郡ではチームCのウィジェットの売上げが最も少ないことがすぐに分かります。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/119/bar_width_by_value.png"><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPHu.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"> データラベル設定 &gt; グループの合計を表示 </td><td colspan="1" rowspan="1"> 積上げ縦棒チャートまたは積上げ横棒チャートの積上げ全体に単一のラベルを表示するかどうかを決定します。 </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"><p> データラベル設定 &gt; 単一のラベルを表示する（積上げ棒チャートのみ） </p></td><td colspan="1" rowspan="1"><p> 積上げ縦棒チャートの積上げ全体に単一のラベルを表示するかどうかを決定します。このプロパティは、（ <b> [表示] </b> プロパティで <code> [常に] </code> を選択することにより）常に表示されるように設定されているデータラベルにのみ適用されます。 </p><div class="mdx-embed"><Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div></div></Note></div></td></tr></tbody></table>
+
+**注記：** このプロパティは2016年10月のリリース時点で廃止される予定です。
+
+<table data-aura-rendered-by="33:203;a"><tbody><tr><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1340/show_one_label.png"><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPHv.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 数値の目盛り &gt; タイトルの位置 </p></td><td colspan="1" rowspan="1"><p> 縦棒チャートの値の目盛りラベルを、チャートの左または上部のどちらに表示するかを決定します。 </p><div class="mdx-embed"><Note><div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div></div></Note></div></td></tr></tbody></table>
+
+**注記：** このプロパティは2016年10月のリリース時点で廃止される予定です。
+
+<table data-aura-rendered-by="33:203;a"><tbody><tr><td colspan="1" rowspan="1"> - </td></tr></tbody></table>
+
+## 浮動棒チャートを作成する
+
+「浮動棒」チャートは、ベースラインの上部にバーが浮いているように見えるチャートです。この種類のチャートは、個々の系列の高さと低さの値を表示するときに便利です。たとえば以下に示すように、浮動棒チャートを使用して、一定期間にわたる高温と低温を示すことができます。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPHy.png" style={{width: 688, height: 348}}/></Frame>
+浮動棒チャートを作成するには、前に説明したように、各積上げ内に2つの系列が含まれる積上げ棒チャートを作成します。次に、下部の系列をトランスペアレントに設定します。これにより系列は非表示となり、他の系列がベースラインの上に浮いているように表示されます。
+
+**浮動棒チャートを作成するには**
+
+1. 各積上げ内に2つの系列が含まれる積上げ棒チャートを作成します。
+2. **[編集]** ビューで、 **[チャートの設定]** をクリックします。
+3. **[色]** をクリックします。
+4. **[系列1]** のドロップダウンメニューで、 **[トランスペアレント]** を選択します。
+5. **[適用]** をクリックします。
+
+日本語

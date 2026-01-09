@@ -1,0 +1,32 @@
+---
+title: "テキスト文字列から余白を削除する"
+---
+
+Magic ETLを使ってテキスト文字列からスペースを削除することができます。
+
+**テキスト文字列からスペースを削除するには、**
+
+1. Magic ETLを開きます。
+2. 入力DataSetの場合、そこからスペースを削除するDataSetを選択してください。
+
+   <Frame><img alt="df_removewhitespace_1.png" src="/images/kb/ka05w00000123is-00N5w00000Ri7BU-0EM5w000005vOv4.png"/></Frame>
+3. 「テキスト置換」タイルを追加します。
+4. **検索する列を選択** の下で、そこからスペースを削除する列を選択します。
+5. **検索する用語を入力する** の下で、 `\s` を入力してください。
+
+   <Note>
+     **注記：** RegExの中で、\sは空白に対する表現です。
+
+   </Note>
+
+6. **［RegExを使う］** ボックスにチェックマークを入れます。
+
+   <Frame><img alt="df_removewhitespace_2.png" src="/images/kb/ka05w00000123is-00N5w00000Ri7BU-0EM5w000005vOvD.png"/></Frame>
+7. 修正が必要なすべての列についてステップ4～6を繰り返します。
+8. **［終了］** をクリックします。
+9. 出力DataSetを追加し、名前を付けます。
+
+   <Frame><img alt="df_removewhitespace_3.png" src="/images/kb/ka05w00000123is-00N5w00000Ri7BU-0EM5w000005vOtm.png"/></Frame>
+あなたの出力DataSetには変更が反映されているはずです。
+
+日本語

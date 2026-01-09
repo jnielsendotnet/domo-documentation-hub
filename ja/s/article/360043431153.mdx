@@ -1,0 +1,163 @@
+---
+title: "Eloquaコネクター"
+---
+
+## はじめに
+
+Eloqua Corp.は、マーケティングオートメーションのSaaS企業で、B2Bマーケター向けの自動化マーケティング、デマンドジェネレーションのソフトウェアとサービスを開発しています。DomoのEloquaコネクターを使用すると、連絡先や開封メール、ウェブサイトへのアクセス、登録と登録解除などのマーケティング統計に関するレポートを編集することができます。Eloqua APIについての詳細は、ウェブサイト（
+https://community.oracle.com/community/topliners/code-it
+）を参照してください。
+
+Eloquaコネクターは「クラウドアプリ」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドアプリ］** をクリックすると、このコネクターやその他のクラウドアプリコネクターのページにアクセスできます。
+
+Eloquaアカウントには、Data Centerから接続します。このトピックでは、Eloquaコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、ウェブ分析およびデジタルマーケティングの使用事例に適しています。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 送信 </p></li><li><p> 開封 </p></li><li><p> クリック数 </p></li><li><p> インプレッション数 </p></li><li><p> フォーム入力 </p></li><li><p> ウェブ閲覧数 </p></li><li><p> ランディングページ </p></li><li><p> サブスクリプション解除 </p></li><li><p> サブスクリプション </p></li><li><p> 連絡先 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> デジタルマーケター </p></li><li><p> マーケティングディレクター </p></li><li><p> マーケティングアナリスト </p></li><li><p> CMO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 50時間超 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 6 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 「Contacts」レポートは、**［追加］** ではなく **［置き換え］** に設定します（連絡先は時間が経つと変更される場合があるため）。
+* 連絡先の履歴レコードが必要な場合は、再帰的なDataFlowを作成する必要があります。詳細については、「 [再帰的/スナップショットのMagic ETL DataFlowを作成する](/ja/s/article/360043428113 "再帰的/スナップショットのMagic ETL DataFlowを作成する") 」を参照してください。
+* 「Activities」レポートでは、完全な履歴を取得するようにコネクターを設定してから、毎日追加を行うように再構成します（これにより、履歴データを保持し、実行時間を短縮できます）。
+* 「Activities」を「Contacts」レポート（「Form Submits」、「Email Sends」、「Email Click-throughs」、「Email Opens」）に結合する場合は、「CONTACT ID」フィールドと「ID」フィールドでJoinします。
+* サブスクライブ、サブスクライブ解除、バウンスバックの場合は、「EMAIL ADDRESS」でJoinします。
+
+## 必要条件
+
+Eloquaアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Eloquaアカウントのログインに使用するユーザー名
+* Eloquaアカウントのログインに使用するパスワード
+* Eloquaアカウントと関連する企業名
+
+Eloquaアカウントにアクセスする
+
+このセクションでは、Eloquaコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Eloquaアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> フィールド </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Company </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Eloquaアカウントと関連のある会社名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Username </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Eloquaアカウントのログインに使用するユーザー名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Password </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Eloquaアカウントへのログインに使用するパスワードを入力します。 </span></p></td></tr></tbody></table>
+
+有効なEloqua認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいEloqua DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示／非表示になる様々なメニューがあります。
+
+<Warning>
+**重要：** 過度に容量の大きいデータを取り出すと、EloquaのユーザーAPI接続が無効になることもあります。API接続の再有効化には数日かかる場合もあります。これを避けるためには、一日のデータコールを約1,500万行に限定してください。
+
+</Warning>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> 説明 </b></span></p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Eloqua Report </p>
+</td>
+<td colspan="1" rowspan="1">
+<p class="p1"><span class="s1"> 実行したいEloquaレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Accounts </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 指定した日数における、会社と関連のあるすべてのアカウントの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"><span class="s1"> 指定した日数における、会社と関連のあるすべてのアカウントのアクティビティを返します。 <br/> 次のアクティビティタイプを使用できます。 </span><ul><li><span class="s1"> External Activities </span></li><li><span class="s1"> Online Activities </span></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Assets </td><td colspan="1" rowspan="1"><span class="s1"> 選択したすべての連絡先の情報を返します。 <br/></span><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Emails </td><td colspan="1" rowspan="1"> 件名、現状、送信者名、作成時間など、指定した日数における会社のメールの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> External Assets </td><td colspan="1" rowspan="1"> 会社のすべての外部アセットの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> External Asset Types </td><td colspan="1" rowspan="1"> 会社のすべての外部アセットのタイプに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"><span class="s1"> Landing Pages </span></td><td colspan="1" rowspan="1"><span class="s1"> ウェブサイトのランディングページの統計を返します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Lead Scoring Models </td><td colspan="1" rowspan="1"><span class="s1"> ウェブサイトのスコアリングモデルの情報を返します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span class="s1"> Microsites </span></td><td colspan="1" rowspan="1"><span class="s1"> 指定した日数における、会社のマイクロサイトを訪れた訪問者数の情報を返します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span class="s1"> Users </span></td><td colspan="1" rowspan="1"><span class="s1"> 会社のEloquaインスタンスのユーザーの情報を返します。 </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Contacts </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 選択したすべての連絡先の情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span class="s1"> Campaigns </span></td><td colspan="1" rowspan="1"><span class="s1"> 指定した日数におけるすべてのキャンペーンの情報を返します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Custom </td><td colspan="1" rowspan="1"><p><span class="s1"> 選択したカスタムレポートの情報を返します。 </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><span class="s1"> Custom Object </span></td><td colspan="1" rowspan="1"><span class="s1"> 選択したカスタムデータオブジェクトの情報を返します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Retrieve data from custom Eloqua report </td><td colspan="1" rowspan="1"> カスタムレポートからのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"><span class="s1"> Custom URL from “Data Export” </span></td><td colspan="1" rowspan="1"><span class="s1"> ダウンロードの準備が整ったデータエクスポートURLの情報を返します。 <b> ［Custom Export Report URL］ </b> フィールドにURLを入力します。 </span></td></tr></tbody></table></td></tr></tbody></table> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> Eloquaのデータは、多くのレポートに分散して記載されます。QuickStartの提供により、別々のレポート間のデータ接続はできなくなります。 <span><span></span></span></div></div></div> 
+</Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Days </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートに表示する過去日数を入力します。例えば「 </span><span class="s3"> 60 </span><span class="s1"> 」と入力すると、レポートには過去60日分のデータが含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Data to be Retrieved </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートにすべてのデータを含めるか、最後に実行した後の新しいデータのみを含めるかを指定します。今まで正常な実行がない場合は <b> ［All data］ </b> オプションを使用します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><h4><span class="s1"> Contact Fields </span></h4></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最大95の連絡先フィールドまで選択します。選択しない場合は、レポートではすべての連絡先の情報が取得されます。 <b> ［Clear All］ </b> をクリックすると、選択した連絡先がすべてクリアされます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Custom Object </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> リストからカスタムデータオブジェクトを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Custom Export Report URL </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ダウンロードの準備が整ったデータエクスポートのURLを入力します。例： <span class="nowiki"><code><a href="https://secure.p01.eloqua.com/ExportedFiles/customerName/dbb7134f-0305-4e3d-f445-c96971493894" rel="noopener" target="_blank"> https://secure.p01.eloqua.com/ExportedFiles/customerName/dbb7134f-0305-4e3d-f445-c96971493894 </a></code></span></span></p></td></tr>
+ </tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+EloquaのベースURLは https://login.eloqua.com/id です。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> レポートタイプ </b></td><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> エンドポイントURL </b></td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"><p> External Activities </p><p> Online Activities </p></td><td colspan="1" rowspan="1"><p> /api/REST/2.0/data/activity/ </p><p> /api/bulk/2.0/syncs/{syncId}/data </p></td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> /accounts/exports </p></td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"><p> Contacts </p><p> Contacts with lead scoring model statistics </p></td><td colspan="1" rowspan="1"><p> /contacts/exports </p><p> /api/bulk/2.0/syncs/{syncId}/data </p></td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"><p> Campaigns </p></td><td colspan="1" rowspan="1"><p> /API/REST/2.0/assets/campaigns </p></td></tr><tr><td colspan="1" rowspan="1"> Custom </td><td colspan="1" rowspan="1"><p> Custom Object </p><p> Retrieve data from custom Eloqua report </p><p> Custom URL from 'Data Export' </p></td><td colspan="1" rowspan="1"><p> /activities/exports </p><p> custom URL provided by user </p><p> /activities/exports </p></td></tr><tr><td colspan="1" rowspan="1"> Assets </td><td colspan="1" rowspan="1"><p> Emails </p><p> External Assets </p><p> External Asset Types </p><p> Landing Pages </p><p> Lead Scoring Models </p><p> Microsites </p><p> Users </p></td><td colspan="1" rowspan="1"><p> /API/REST/2.0/assets/emails </p><p> /api/REST/2.0/assets/externals </p><p> /api/REST/2.0/assets/external/types </p><p> /API/REST/2.0/assets/landingPages </p><p> /api/bulk/2.0/contacts/scoring/models </p><p> /API/REST/2.0/assets/microsites </p><p> /API/REST/1.0/system/users </p></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+Eloquaアカウントに関連付けられた会社名、ユーザー名、パスワードが必要です。
+
+
+</Accordion>
+<Accordion title="同一のEloquaアカウントを複数のDataSetに使用できますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="データ更新の頻度はどのくらいですか？">
+
+
+必要に応じた頻度で行われます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+## 推奨されるレポート
+
+Eloquaでメールや連絡先、ランディングページ、フォームなどに関するメトリクスデータをすぐに取得するには、次の方法を実行しましょう。
+
+まずは、以下のDataSetから180日分のデータをロードします。
+
+
+</Accordion>
+<Accordion title="メールデータ">
+
+
+使用する推奨DataSet：
+
+* キャンペーン
+* メール
+
+
+</Accordion>
+<Accordion title="ランディングページデータ">
+
+
+* ランディングページ
+
+
+</Accordion>
+<Accordion title="ユーザーデータ">
+
+
+* 連絡先
+* ユーザー
+* アカウント
+
+
+</Accordion>
+<Accordion title="カスタムデータ">
+
+
+* カスタムオブジェクト
+
+
+
+</Accordion>
+</AccordionGroup>

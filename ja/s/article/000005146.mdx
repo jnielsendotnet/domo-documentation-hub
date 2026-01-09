@@ -1,0 +1,260 @@
+---
+title: "Microsoft Office 365用Domoアドイン | 手動インストールガイド"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+### はじめに
+
+Microsoft AppsourceからDomo for Officeアドインをダウンロードすることを強く推奨します。これらの手順について、以下で説明します。Microsoft AppSourceにアクセスできない場合は、このガイドの後続の部分で、アドインを手動でインストールする方法について説明しています。
+
+<Warning>
+  **推奨：**
+
+  Microsoft AppSourceからDomo for Officeアドインをインストールする
+
+  Microsoft AppSourceからDomo for Officeアドインをダウンロードするには、次のリンクをクリックしてください。
+
+  * [Domo for Office](https://appsource.microsoft.com/ja/product/office/WA200005264?exp=ubp8)
+  <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005YB4c.jpg" /> （Excel、PowerPoint、Word）
+  * [Domo for Outlook](https://appsource.microsoft.com/ja/product/office/WA200005307?exp=ubp8&tab=Overview)
+  <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005YB4c-1.jpg" /> Outlookアドインは、AndroidとiOSの両方のモバイルデバイスでサポートされています。
+
+  <Frame><img alt="Screenshot 2023-07-31 at 12.29.41 PM.png" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006vSQd.jpg" style={{width: 471.989, height: 206.996}}/></Frame>
+  Domo for Officeアドインのアップデートは、インストールしたものに自動的に適用されます。これらのアップデートが表示されない場合は、Microsoft 365アドインのキャッシュをクリアする必要があります。この方法については、 [Microsoftのドキュメンテーション](https://learn.microsoft.com/ja-jp/office/dev/add-ins/testing/clear-cache) <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005YB4c-2.jpg" /> を参照してください。
+
+</Warning>
+
+---
+
+次のリンクを使用すると、このガイド内のタスクに移動できます。
+
+Mac
+
+* [Excel、PowerPoint、Word for Macをインストールする](#install_excel_ppt_word_mac)
+* [Outlook for Macをインストールする](#install_outlook_mac)
+
+ウェブ
+
+* [Microsoft 365 for the web用Excel、PowerPoint、Wordをインストールする](#install_excel_ppt_word_web)
+* [Microsoft 365 for the web用Outlookをインストールする](#install_outlook_web)
+
+Windows
+
+* [Excel、PowerPoint、Word for Windowsをインストールする](#install_excel_ppt_word_windows)
+
+  + [マニフェストファイルをダウンロードして準備する](#prepare_manifest_files)
+  + [マニフェストをトラストセンターに追加する](#add_manifest_to_trust_center)
+  + [アドインを有効にする](#enable_add-in)
+* [Outlook for Windowsをインストールする](#outlook_for_windows)
+
+---
+
+### Excel、PowerPoint、Word for Macをインストールする
+
+Mac向けのインストールを効率化するために、アドインのインストールの準備用にターミナルで実行できるスクリプトが3つ用意されています。これらのスクリプトは、構成ファイルを取得し、Microsoft 365が配置されているフォルダーに配置します。ファイルを手動で取得して配置することもできますが、これらのコマンドを使用すると自動的に配置されます。
+
+1. **Command
+     - Space**
+   を押し、検索バーに「ターミナル」と入力して **Enter** を押し、ターミナルを開きます。
+2. 次のリンクからGitHubのスクリプトを取得します。
+   * [Excel](https://gist.github.com/bradley-turek-at-domo/05f178a28319ade825ecd066c6e557fe#file-install_excel_addin_macos-sh) <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4.jpg" />
+   * [PowerPoint](https://gist.github.com/bradley-turek-at-domo/05f178a28319ade825ecd066c6e557fe#file-install_powerpoint_addin_macos-sh) <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-1.jpg" />
+   * [Word](https://gist.github.com/bradley-turek-at-domo/05f178a28319ade825ecd066c6e557fe#file-install_domo_word_addin_macos-sh) <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-2.jpg" />
+3. DomoをインストールするMicrosoft製品用のスクリプトをコピーし、ターミナルにペーストします。 **Enter** を押して各スクリプトを実行してから、次のスクリプトをペーストします。
+4. スクリプトを実行したMicrosoft 365アプリを開きます。
+5. **［ホーム］** タブで **［アドイン］** を選択し、 **Domoアドイン** を検索します。
+
+   <Frame><img alt="Screenshot 2024-11-12 at 8.35.12 AM.png" src="/images/kb/ka0Vq0000008E2b-00N5w00000Ri7BU-0EMVq000003lBG1.jpg" style={{width: 279, height: 401}}/></Frame>
+6. Domoアドインを選択してインストールを開始します。
+
+アドインが正常にインストールされた場合は、 **［Domo］** タブがリボンに表示されます。
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000008E2b-00N5w00000Ri7BU-0EMVq000005YHjV.jpg" style={{width: 552, height: 97}}/></Frame>
+[このページのトップへ](#intro)
+
+### Outlook for Macをインストールする
+
+1. Outlookのアドインマニフェストファイルをダウンロードするには、
+   https://extensions.domo.com/office365/addins/manifest/outlook-extensions-domo-manifest.xml
+
+   をクリックします。リンクをクリックすると、ブラウザーに読み込まれます。
+2. 読み込んだページで右クリックし、 **［名前を付けて保存］** を選択します。ファイルをコンピューターに保存します。
+3. Outlookを開きます。
+4. アプリの上部にあるリボンの
+   <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EM5w000006u5Tw.png" /> **省略記号** のメニュー（水平の三点アイコン）を選択します。
+5. **［アドインを取得する］** を選択します。
+6. **［個人用アドイン］** を選択します。
+7. **［カスタムアドインの追加］** を選択します。
+8. **［ファイルから追加...］** を選択します。
+
+   ファイルブラウザーが開きます。
+9. このタスクの2番目のステップで保存したファイルに移動して選択します。
+10. **［開く］** を選択します。
+11. **［インストール］** を選択します。
+
+[このページのトップへ](#intro)
+
+### Microsoft 365 for the Web用Excel、PowerPoint、Wordをインストールする
+
+1. インストールするプログラムのアドインマニフェストファイルをダウンロードするには、次の該当するリンクをクリックします。
+
+   リンクをクリックすると、ブラウザーに読み込まれます。
+   * Excel：
+     https://extensions.domo.com/office365/addins/manifest/excel-extensions-domo-manifest.xml <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-3.jpg" />
+   * PowerPoint：
+     https://extensions.domo.com/office365/addins/manifest/ppt-extensions-domo-manifest.xml <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-4.jpg" />
+   * Word：
+     https://extensions.domo.com/office365/addins/manifest/word-extensions-domo-manifest.xml <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-5.jpg" />
+2. 開いたページで右クリックし、 **［名前を付けて保存］** を選択します。ファイルをコンピューターに保存します。
+3. https://office.com
+   <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EMVq000005LwJ4-6.jpg" /> にログインします。
+4. 左側のメニューバーからプログラムを選択します。
+5. 選択したプログラム用に新しいファイルを作成します。
+
+   4番目のステップで選択したプログラムのアプリにリダイレクトされます。
+6. アプリの上部にあるリボンで **［挿入］** を選択します。
+7. **［Officeアドイン］** を選択します。
+8. ［マイアドイン］タブで、 **［マイアドインのアップロード］** を選択します。
+9. **［参照］** を選択します。
+10. このタスクの2番目のステップで保存したファイルに移動して選択します。
+11. ファイルを選択して、 **［開く］** をクリックします。
+12. **［アップロード］** をクリックします。
+13. アドインをインストールする各Officeプログラムに対して、この手順を繰り返します。
+
+[このページのトップへ](#intro)
+
+### Microsoft 365 for the Web用Outlookをインストールする
+
+1. Outlookのアドインマニフェストファイルをダウンロードするには、
+   https://extensions.domo.com/office365/addins/manifest/outlook-extensions-domo-manifest.xml
+
+   をクリックします。リンクをクリックすると、ブラウザーに読み込まれます。
+2. 読み込んだページで右クリックし、 **［名前を付けて保存］** を選択します。ファイルをコンピューターに保存します。
+3. https://outlook.office.com/ からメールにログインします。
+4. **［新規メール］** を選択して、新しいメールを作成します。
+5. 新しいメールの下部にある **［送信］** の右側の <InlineImage src="/images/kb/ja/ka0Vq0000008Z3s-00N5w00000Ri7BU-0EM5w000006u5Tx.png" /> 三点メニューを選択します。
+6. **［アドインを取得する］** を選択します。
+7. **［個人用アドイン］** を選択します。
+8. **［カスタムアドインの追加］** を選択します。
+9. **［ファイルから追加...］** を選択します。
+
+   ファイルブラウザーが開きます。
+10. このタスクの2番目のステップで保存したファイルに移動して選択します。
+11. **［開く］** を選択します。
+12. **［インストール］** を選択します。
+
+### Excel、PowerPoint、Word for Windowsをインストールする
+
+WindowsのExcel、PowerPoint、Wordでアドインを使用するには、アドインマニフェストファイルをダウンロードし、そのマニフェストをトラストセンターに追加して、アドインを有効にする必要があります。これらの3つのタスクは次の手順で実行します。
+
+# マニフェストファイルをダウンロードして準備する
+
+1. インストールするプログラムのアドインマニフェストファイルをダウンロードするには、次の該当するリンクをクリックします。
+
+   リンクをクリックすると、ブラウザーに読み込まれます。
+   * Excel：
+     [https://extensions.domo.com/office365/addins/manifest/excel-extensionpps-domo-manifest.xml](https://extensions.domo.com/office365/addins/manifest/excel-extensions-domo-manifest.xml)
+   * PowerPoint：
+     https://extensions.domo.com/office365/addins/manifest/ppt-extensions-domo-manifest.xml
+   * Word：
+     https://extensions.domo.com/office365/addins/manifest/word-extensions-domo-manifest.xml
+2. ファイルエクスプローラーを開きます。
+3. ローカルマシンに新しいファイルフォルダーを作成します。
+
+<Warning>
+  **重要：** アドインをフォルダーに表示するには、フォルダー名にスペースを含めてはいけません。例えば、「shared folder」ではなく「sharedfolder」を使用します。
+
+</Warning>
+
+4. ダウンロードしたマニフェストファイルをすべて新しいフォルダーに配置します。
+5. 作成したフォルダーを右クリックして、 **［プロパティ］** を選択します。
+
+   ダイアログが表示されます。
+6. ダイアログの **［共有］** タブを選択します。
+7. **［共有］** を選択します。
+
+   **［ネットワークアクセス］** ダイアログが表示されます。
+8. ダイアログで、自分自身およびアドインを共有したいほかのユーザーまたはグループを追加します。
+
+<Note>
+  **注記：** このフォルダーを表示するには、少なくとも読み取り/書き込み権限が必要です。
+
+</Note>
+
+9. すべての受信者を追加したら、 **［共有］** を選択します。
+
+   フォルダーが共有されていることを示す確認画面が表示されます。
+10. 共有の確認画面から、フォルダー名の直後に表示されるネットワークのフルパスをメモします。右クリックするとコピーできます。次のタスクで、この値をカタログのURLとして入力する必要があります。
+
+    <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーションの説明" src="/images/kb/ka0Vq0000008E2b-00N5w00000Ri7BU-0EM5w000006u5PL.png"/></Frame>
+11. **［終了］** を選択して、 **［ネットワークアクセス］** ダイアログを閉じます。
+12. **［プロパティ］** ダイアログを閉じます。
+
+[このページのトップへ](#intro)
+
+# マニフェストをトラストセンターに追加する
+
+<Note>
+  **注記：** このタスクは、ダウンロードするMicrosoft 365アプリそれぞれに対して実行する必要があります。
+
+</Note>
+
+1. 作業するOfficeアプリを開きます。
+2. アプリの上部にあるリボンで **［ファイル］** を選択します。
+3. **［オプション］** を選択します。
+4. **［トラストセンター］** を選択します。
+5. **［トラストセンターの設定］** を選択します。
+6. **［信頼できるアドインカタログ］** を選択します。
+7. **［カタログのURL］** フィールドに、前のタスクで共有したフォルダーへのネットワークのフルパスをペーストします。
+
+   <Note>
+     **注記：** フォルダーを共有したときにネットワークのフルパスをメモしなかった場合は、フォルダーの **［プロパティ］** ダイアログで確認できます。
+
+   </Note>
+
+8. **［カタログの追加］** を選択します。
+9. 追加したアイテムの **［メニューに表示する］** チェックボックスを選択します。
+10. **［OK］** を選択します。
+
+    **［トラストセンター］**
+
+    ダイアログが閉じます。
+11. Officeアプリを再起動します。
+
+[このページのトップへ](#intro)
+
+# アドインを有効にする
+
+1. 作業しているOfficeアプリで、ウィンドウの上部にあるリボンの **［挿入］** タブに移動します。
+2. **［個人用アドイン］** を選択します。
+
+   ダイアログが開きます。
+3. ダイアログで **［共有フォルダー］** を選択します。
+4. **［Domo］** を選択します。
+5. **［追加］** をクリックします。
+
+残りのOfficeアプリで「 [マニフェストをトラストセンターに追加する](#add_manifest_to_trust_center) 」および「 [アドインを有効にする](#enable_add-in) 」のタスクを繰り返します。
+
+### Outlook for Windowsをインストールする
+
+1. Outlookのアドインマニフェストファイルをダウンロードするには、
+   https://extensions.domo.com/office365/addins/manifest/outlook-extensions-domo-manifest.xml
+
+   をクリックします。リンクをクリックすると、ブラウザーに読み込まれます。
+2. 読み込んだページで右クリックし、 **［名前を付けて保存］** を選択します。ファイルをコンピューターに保存します。
+3. Outlookを開きます。
+4. アプリの上部にあるリボンから **［ホーム］** > **［アドインを取得］** を選択します。
+
+   ダイアログが表示されます。
+5. ダイアログで、 **［個人用アドイン］** を選択します。
+6. **［カスタムアドインの追加］** > **［ファイルから追加..］** を選択します。
+
+   ファイルブラウザーが開きます。
+7. このタスクの2番目のステップで保存したファイルに移動して選択します。
+8. **［開く］** を選択します。
+9. **［インストール］** を選択します。
+
+[このページのトップへ](#intro)
+
+日本語

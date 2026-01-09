@@ -1,0 +1,21 @@
+---
+title: "DataSetビューを公開する"
+---
+
+## はじめに
+
+DataSetビューは、シンプルなスプレッドシートのインターフェースで、簡単にデータを探索、収集、結合することができます。
+
+<Frame><img alt="Screenshot_1.png" src="/images/kb/ka05w000001246E-00N5w00000Ri7BU-0EM5w000005vOU7.png"/></Frame>
+## ポリシーの互換性を維持する
+
+DataSetビューは、Domo Everywhereを通じて複数のインスタンス間で公開できますが、ここで覚えておくべき重要なポイントが1つあります。つまり、 **すべての入力DataSetからのアップストリームPDPポリシーが引き続き適用されます** （ [DataSetビュー](/s/article/360046074774) の最後の行を参照）。
+  
+これらのポリシーは親インスタンスのユーザーに焦点を当てたものであるため、DataSetビューとパブリケーションの互換性を保つために3つの主要なオプションが用意されています。
+
+1. アップストリームポリシーを避け、最終的に公開されるDataSetビューにのみPDPポリシーを適用する。
+2. 入力DataSetと最終DataSetビューの両方をパブリケーションに含める。
+3. DataSetビューではなくMagic ETLを使用して、公開するDataSetsを作成する。
+
+<Frame><img alt="Screenshot 2.png" src="/images/kb/ka05w000001246E-00N5w00000Ri7BU-0EM5w000005vaMu.jpg"/></Frame>
+日本語

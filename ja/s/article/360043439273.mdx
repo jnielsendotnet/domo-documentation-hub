@@ -1,0 +1,63 @@
+---
+title: "DomoStatsユーザー"
+---
+
+## はじめに
+
+DomoStatsでは、チームによるDomoの使用状況を詳細に確認できます。DomoStatsは設定なしのライブのDomo DataSetを使用しているため、表示するメトリックのカード、アラート、ワークフローを簡単に作成したり、作成済みのダッシュボードを使用したりできます。
+
+DomoStats向けユーザーAppでは、管理者が全ユーザーのリストを確認し、Domoを使用しているユーザーやそのアクティビティレベルを全て1か所で確認できます。ログイン動向を確認し、ログイン支援の必要なユーザーを把握することで、導入レベルを監視できるほか、新規加入者のスムーズな導入を促す上での対処を迅速に行うことができます。インスタンスのセキュリティを確保でき、ユーザー全員の作業レベルを各自に最適なレベルに維持できます。
+
+### ビデオ - DomoStats People App
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/_QS-X8sMqHU" width="560"></iframe>
+
+## 要件
+
+AppStoreからのダウンロードには、管理者レベルのアクセス権が必要です。
+
+## DomoStatsアプリを導入する
+
+作成済みのダッシュボードを使用することも、 [Data CenterのDomoStats DataSet](/s/article/360043439293) を使用して、独自のコンテンツを作成することもできます。
+
+次の手順に従って、ダッシュボードをダウンロードして起動します。
+
+1. AppStoreで「DomoStatsユーザー」を検索します。
+2. オレンジ色の **[試す]** ボタンをクリックします。
+     
+   <Frame><img alt="domostats_people_step1.png" src="/images/kb/ka05w0000012572-00N5w00000Ri7BU-0EM5w000005wLs0.png"/></Frame>
+3. （条件付き）DomoインスタンスにAppのいずれかのバージョンがすでにインストールされている場合は、 **[新規に追加]** をクリックします。
+4. Appにわかりやすい名前を付けて、 **[保存して終了]** をクリックします。
+5. サンプルページの準備が整ったら、 **[接続]** をクリックしてページをDomoStats DataSetに接続します。別のDomoユーザーにデータの設定を依頼する場合は、 **[依頼]** をクリックします。
+     
+   <Frame><img alt="domostats_people_step2.png" src="/images/kb/ka05w000001230S-00N5w00000Ri7BU-0EM5w000005vNq2.png"/></Frame>
+## ダッシュボード
+
+### データ
+
+DomoStats向けユーザーAppのダウンロードには、次のデータが含まれており、Data Centerでは「DomoStats」タイプのDataSetとして表示されます。
+
+DataSetには、次のものが含まれます。
+
+* ユーザー
+
+DataFlowには、次のものが含まれます。
+
+* DomoStatsユーザーおよびアクティビティログ
+
+<Note>
+  **注記：** Appを作成する全てのDataSetが1日に1回実行されます。実行時間は、Appが最初に導入された時間から24時間ごとになります。実行頻度は変更できませんが、DataSet設定で実行時間を編集できます。DataSetをスケジュールする方法についての詳細は、「 [DataSetスケジュール](/s/article/360042926274) 」を参照してください。
+
+</Note>
+
+### カード
+
+作成済みダッシュボードには、次のカードが含まれています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><tbody><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"><b> コレクション </b></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><b> カード </b></td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="5"> ユーザー </td><td class="mt-noheading" colspan="1" rowspan="1"> ユーザーの部署と役割 </td><td class="mt-noheading" colspan="1" rowspan="1"> それぞれの役割のDomoユーザー数を部署別に表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ユーザーの累積合計 </td><td class="mt-noheading" colspan="1" rowspan="1"> 時系列で表したインスタンス内のユーザーの累積合計です。<div class="mdx-embed"><Note><p><b> 注記： </b> 情報には、インスタンスから削除されたユーザーは含まれません。 </p></Note></div></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ユーザー権限 </td><td class="mt-noheading" colspan="1" rowspan="1"> Domoインスタンス内のユーザー数を役割別に追跡します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ユーザー部署 </td><td class="mt-noheading" colspan="1" rowspan="1"> それぞれの部署のDomoユーザー数を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ユーザーディレクトリ </td><td class="mt-noheading" colspan="1" rowspan="1"> 全Domoユーザーのリストを、名前でアルファベット順にソートして表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="5"> ログイン </td><td class="mt-noheading" colspan="1" rowspan="1"> ログイン率（過去14日間） </td><td class="mt-noheading" colspan="1" rowspan="1"> 指定期間中にDomoにログインしたユーザーの割合を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ログインなし </td><td class="mt-noheading" colspan="1" rowspan="1"> Domoに招待されているが、まだログインしていないユーザーを表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 最終ログインからの日数 </td><td class="mt-noheading" colspan="1" rowspan="1"> 最終ログインが特定のバケットの時間範囲内にあるユーザーの数。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 最近のログイン </td><td class="mt-noheading" colspan="1" rowspan="1"> 全ユーザーの最近のログイン日を時系列で追跡します。色が濃いほど、特定の日に最後にログインしたユーザーの数が多いことを表します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> ユーザーの最終ログイン </td><td class="mt-noheading" colspan="1" rowspan="1"> 各ユーザーがログインしてからの日数を表示します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="5"> ユーザーのアクティビティ </td><td class="mt-noheading" colspan="1" rowspan="1"> 役割のアクティビティ </td><td class="mt-noheading" colspan="1" rowspan="1"> 過去14日間にそれぞれの役割で行われたアクティビティの数と種類。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 上位コンテンツ作成者 </td><td class="mt-noheading" colspan="1" rowspan="1"> インスタンス内で最も多くのコンテンツの作成を担当したユーザーを表示します。<div class="mdx-embed"><Note><p><b> 注記： </b> このカードのポイントシステムについての詳細は、ダウンロードしたカードの説明を参照してください。 </p></Note></div></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 上位セキュリティ管理者 </td><td class="mt-noheading" colspan="1" rowspan="1"> セキュリティ/管理者タイプのアクションに最も関与したインスタンス内のユーザーを表示します。<div class="mdx-embed"><Note><p><b> 注記 </b><b> ： </b> このカードのポイントシステムについての詳細は、ダウンロードしたカードの説明を参照してください。 </p></Note></div></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 上位カードマネージャー </td><td class="mt-noheading" colspan="1" rowspan="1"> カード管理タイプのアクションに最も関与したインスタンス内のユーザーを表示します。<div class="mdx-embed"><Note><p><b> 注記 </b><b> ： </b> このカードのポイントシステムについての詳細は、ダウンロードしたカードの説明を参照してください。 </p></Note></div></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> 権限への参加 </td><td class="mt-noheading" colspan="1" rowspan="1"> 作成されたカードの数と各役割のユーザーが閲覧したカードの数を表示します。バブルの大きさは、指定した役割への参加ユーザーの数を表します。 </td></tr></tbody></table>
+
+---
+
+DomoStats向けユーザーAppを使用すると、Domoの全てのユーザーとアクティビティを管理できます。
+
+日本語

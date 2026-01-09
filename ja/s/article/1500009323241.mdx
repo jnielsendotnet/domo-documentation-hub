@@ -1,0 +1,274 @@
+---
+title: "Scheduler | 実装ガイド"
+---
+
+### はじめに
+
+Scheduler Appに興味をお持ちいただき、ありがとうございます。このガイドは、Appへのデータ準備と接続をサポートします。市場で非常に限られたビジネスニーズを対象にして提供されるほかの製品とは対照的に、Scheduler Appの主な目的は様々なスケジューリングのユースケースを可能にすることです。以下に示すAppのデータを準備するためのステップおよび管理者設定セクションのAppの設定方法のステップに従ってください。 [Form Builder](/s/article/360043438373) Appと同様に、SchedulerによってAppをDataSet出力に接続する必要があります。
+
+<Frame><img alt="splash_screen.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ1.png" style={{width: 649, height: 463}}/></Frame>
+---
+
+* [ExternalAppointments DataSet](#externalappointments)
+* [MaskedCustomerInfo DataSet](#maskedcustomerinfo)
+* [InviteCodes DataSet](#invitecodes)
+* [Appにデータを接続する](#wire_your_data)
+* [Scheduler Appをエンベッドする](#embed_the_scheduler_app)
+* [Domoグループと権限](#domo_groups_and_permissions)
+* [管理者設定 — リストビュー](#list_view)
+* [管理者設定](#admin_settings)
+  + [ワークフローを設定する](#set_up_workflow)
+  + [場所を編集する](#edit_locations)
+  + [サービスを編集する](#edit_services)
+  + [リソースを編集する](#edit_resources)
+  + [利用可能状況を編集する](#edit_availability)
+  + [在庫を編集する](#edit_inventories)
+  + [言語を編集する](#edit_languages)
+  + [アンケートを追加する](#add_questionnaire)
+  + [設定をカスタマイズする](#customize_settings)
+* [その他の設定](#other_settings)
+* [Appを使用する](#use_the_app)
+
+---
+
+### ExternalAppointments DataSet
+
+Scheduler Appが出力する **ExternalAppointments** DataSetとは、顧客IDを使ってフォローアップのアポイントを登録するためにAppを使用することが許可されているエンドユーザーのリストです。最初のアポイントではこのDataSetを使用しませんが、Schedulerが最初のアポイントのみを提供していても、このDataSetマッピングを設定する必要があります。 **ExternalAppointments** DataSetには、以下の列IDが含まれます。
+
+1. customerId
+2. questionnaireSessionId
+3. startDateTime
+4. endDateTime
+5. serviceId
+6. serviceName
+7. locationId
+8. locationName
+9. resourceId
+10. resourceName
+
+これらは後でScheduler AppにDataSetをマップするために使用されます。
+
+フォローアップのアポイントでは、customerIdフィールドはマップ済みDataSetのカスタマーIDのリストに対して検証されます。顧客IDが入力されていても **ExternalAppointments** DataSetに読み込まれていない場合は、エンドユーザーは次のステップに進むことができません。
+
+<Frame><img alt="customerID.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJD.png"/></Frame>
+[このページのトップへ](#intro)
+
+### MaskedCustomerInfo DataSet
+
+このDataSetは **ExternalAppointments** DataSetと対になり、Schedulerに入力された顧客IDの姓と名をマスクして返します。 **MaskedCustomerInfo** DataSetは、 **ExternalAppointments** DataSetから抽出され、姓と名をマスクするためにBeast Modeに追加されます。Beast Modeの例を以下に示します。 **MaskedCustomerInfo** DataSetには以下の列IDが含まれている必要があります。
+
+1. customerId
+2. firstName
+3. lastName
+
+これらは後でScheduler AppにDataSetをマップするために使用されます。
+
+顧客IDが入力されていてもこのDataSetに読み込まれていない場合は、エンドユーザーはSchedulerで次のステップに進むことができません。
+
+<Frame><img alt="maskedcustomer.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOIu.png"/></Frame>
+マスクされた姓と名を生成するためのBeast Modeの例を以下に示します。
+
+**firstName:**
+
+CONCAT(left(`firstName`, 1), left(REGEXP\_REPLACE(`firstName`,'.','\*'),LENGTH(`firstName`)-1))
+
+**lastName:**
+
+CONCAT(left(`lastName`, 1), left(REGEXP\_REPLACE(`lastName`,'.','\*'),LENGTH(`lastName`)-1))
+
+[このページのトップへ](#intro)
+
+### InviteCodes DataSet
+
+このDataSetは招待コードをマップします。これにより、招待されたエンドユーザーのみがアポイントのスケジュールを設定できます。これは最初のアポイントにのみ適用され、管理者設定を介して有効になります。
+
+<Frame><img alt="invitecodes.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJM.png"/></Frame>
+有効にすると、SchedulerはDataSetの **inviteCodes** 列に生成されるコードのみを許可します。
+
+<Frame><img alt="invitecodes2.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJJ.png"/></Frame>
+**InviteCodes** DataSetには以下の列が含まれます。
+
+1. inviteCode
+
+この列は後でScheduler AppにDataSetをマップするために使用されます。
+
+[このページのトップへ](#intro)
+
+### Appにデータを接続する
+
+Appにデータを準備すると、AppstoreからAppを展開してデータを接続できます。Appのアセットにアクセスできる場合は、アセットライブラリーからDomoの任意のページにアセットを展開します。サンプルデータとともにAppが展開されている場合は、Appに移動し、Appの右上のスパナアイコンをクリックして、 **［カードを編集］** を選択します。
+
+上記2つのいずれかの方法で到達できる **カード編集** 画面では、スクリーン上部のAppの名前を変更できます。Appの下にスクロールダウンすると、Appが実行に必要とする各DataSetを表す一連のタブが表示されます。最初のタブ **［EXPORTCOLUMNS］** は出力Form Builder DataSetから出力されます。DataSetの正しい列IDがすべて一致していることを確認してください。 **［EXPORTFILTERS］** 、 **［EXPORTSFORMS］** 、 **［EXPORTGROUPS］** 、 **［EXPORTITEMS］** 、 **［EXPORTSECTIONS］** 、 **［EXPORTSUBMIODUSERS］** および **［EXPORTTAGS］** のタブについても同じステップを繰り返し、DataSetの正しい列IDがすべて一致していることを確認してください。 以下のDataSetがSchedulerから出力され、Appの **ExternalAppointments** 、 **MaskedCustomerInfo** および **InviteCodes** にマップされます。これらは **カード編集** 画面に対応するタブがありますが、これらを設定する際、DataSetの正しい列IDをすべて一致させるようにしてください。上へスクロールして **［保存して終了］** をクリックすると、Appを設定できるようになります。
+
+### Scheduler Appをエンベッドする
+
+次のステップに従って、エンベッドでScheduler Appを設定します。
+
+1. 次の3つの許可 **のみ** が有効になっている場合、Domoインスタンスで **エンベッドユーザー** と呼ばれる新しい権限を作成します。
+
+   1. コンテンツをエンベッド
+   2. AppDBを使う
+   3. DomoAppを表示する
+2. Domoでアカウントを作成し、「エンベッドユーザー」権限に割り当てます。
+
+   1. このユーザーからScheduler Appを **除く** すべての許可を削除します。
+3. **エンベッドユーザー** としてログインします。
+4. **エンベッドユーザー** を使用して、アセット上でDomo Everywhereリンクを有効にします。
+
+[このページのトップへ](#intro)
+
+### Domoグループと権限
+
+グループのリストと必要な権限の概要を以下に示します。これらのグループはDomoインスタンスに追加する必要があります。
+
+* \_FB\_CreateForms\_
+
+  + Form Builder作成アクセスの場合
+* \_FB\_CreateTemplate\_
+
+  + Form Builderテンプレート作成アクセスの場合
+* \_Scheduler\_Admin
+
+  + Schedulerの管理者セクションにアクセスする場合
+* \_SMS\_ADMIN\_
+
+  + キャンペーン管理者。
+* \_SMS\_USER\_
+
+  + キャンペーンユーザー。
+* エンベッドユーザーグループ
+
+  + このグループに **エンベッドユーザー** を追加します。 **エンベッドユーザー** はパブリックエンベッドリンクの作成に使用されます。
+  + このグループには **エンベッドユーザー** **のみ** を追加してください。
+  + このグループにパブリックエンベッドリンクが必要なSchedulerを共有します。
+
+[このページのトップへ](#intro)
+
+### 管理者設定
+
+# リストビュー
+
+Appの管理者部分にアクセスするには、ランディング画面で **［Admin］** オプションを選択します。デフォルトの管理者ビューは **［Manage Schedule］** またはリストビューです。 **［New Item］** ボタンを押すとランディングページに戻り、 **［Admin Settings］** ボタンを押すとApp設定に戻ります。
+
+リストビューには、今日、今週、今月、過去の4つのオプションがあります。直近のアポイントから順番に先のアポイントまでを表示します（例えば、2021年4月1日のアポイントは2021年4月21日のアポイントの前に表示されます）。氏名、メールおよび電話番号でアポイントを検索します。リストビューにフィルターを設定することもできます。フィルター設定では、場所、サービス、リソースのオプションを指定できます。事前に入力された場所、サービス、リソースのリストを絞り込むことができます。これらは、Schedulerの **［Admin Settings］** セクションで設定されている場所、サービス、リソースに依存します。
+
+行項目の横にあるごみ箱アイコンを選択して、アポイントを削除します。Appランディング画面から正式なスケジュールを作成することで、アポイントのスケジュールを再設定できます。
+
+<Frame><img alt="listview.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ2.png"/></Frame>
+[このページのトップへ](#intro)
+
+### 管理者設定
+
+管理者設定画面には9つの設定オプションがあります。これには、 **［Set up Workflow］** 、 **［Edit Locations］** 、 **［Edit Services］** 、 **［Edit Resources］** 、 **［Edit Availability］** 、 **［Edit Inventories］** 、 **［Add Questionnaire］** 、 **［Customize Confirmation］** 、 **［Customize Settings］** が含まれます。各オプションは、Scheduler App機能やエンドユーザーへの表示を完全に制御する機能を提供します。
+
+<Frame><img alt="adminsettings.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ8.png"/></Frame>
+[このページのトップへ](#intro)
+
+# ワークフローを設定する
+
+各アイテムを必要に応じてドラッグ&ドロップして、Appで場所、サービス、およびリソースが表示される順序を制御します。各タイトルの横のチェックボックスを選択または選択解除してオプションを非表示にします。Form Builderアンケートをワークフローに含める場合は、これを選択します。 **［Show Any］** スライダーを有効にすると、利用可能なすべてのオプションがエンドユーザーに表示されます（例えば、すべての場所が表示されます）。 **［Invitations required for appointment scheduling］** をチェックして、Schedulerにアクセスできるユーザーを制限します。これにより、Appによって生成された一意のIDを持つユーザーのみが、アポイントのスケジュールを設定することができます。
+
+<Frame><img alt="setupworkflow.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOIy.png"/></Frame>
+[このページのトップへ](#intro)
+
+# 場所を編集する
+
+画面の右上の［Add New Location］ボタンを選択して、Schedulerに新しい場所を追加します。場所には、場所の名前、住所、関連リソースが含まれます。場所にはリソースとサービスの両方が必要です。不完全な項目は赤色の不完全タグで表示され、App内のユーザーには見えません。
+
+既存の場所を編集するには、行項目上で下矢印を選択し、ごみ箱アイコンを選択して場所を削除します。［Edit Locations］画面で変更を行うと、ページの下部に［Save］と［Reset］ボタンが表示され、変更をリセットまたは保存するよう求められます。各行項目で［Hide］チェックボックスを選択して、ユーザーに表示したくない場所を非表示にします。
+
+場所をプライベートとして設定するには、［Private］チェックボックスを選択します。このチェックボックスを選択すると、招待IDを見ることができるようになります。こうすることで、ユーザーはAppでそのプライベートな場所をスケジュール設定することができます。
+
+関連付けられているすべての在庫が終了すると、場所はScheduler Appで非表示になります。
+
+<Frame><img alt="Locations.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOIw.png"/></Frame>
+管理者は、場所ごとに利用可能状況をプレビューすることもできます。展開したLocationビューで目のアイコンを選択します。カレンダービューとアポイントの最大件数が同時に表示されます。
+
+<Frame><img alt="availability.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ6.png"/></Frame>
+[このページのトップへ](#intro)
+
+# サービスを編集する
+
+画面の右上にある **［Add New Service］** ボタンを選択して、Schedulerに新規のサービスを追加します。サービスには、サービス名、サービスの説明、サービスの予定期間、ブッキングの種類、在庫、在庫使用量、関連リソース、関連する場所などが含まれます。サービスの予定期間は、各アポイントで必要とされるサービスの期間です（例えば、1.5は1時間30分に相当します）。ブッキングの種類は、初回のアポイントまたはフォローアップのアポイントのいずれかに設定することができます。フォローアップのアポイントは、ユーザーが既に初回のアポイントを完了または設定している場合にのみ利用できます。サービスをフォローアップに設定すると、3つの追加オプション［Follow-Up At Least］、［Follow-Up At Most］および［Follow-Up Parent Services］が表示されます。［Follow-Up At Least］は、フォローアップのアポイントを初回のアポイントから **この** 日数後に設定しなければならないことを意味します。［Follow-Up At Most］は、初回のアポイント後にフォローアップのアポイントを設定できる最大日数です。［Follow-Up Parent Services］は、選択された初回サービスに従って設定される関連サービスです。［Invenroty］は、 **［Edit Inventories］** 画面で設定されている関連する在庫です。［Inventory Usage］は、サービスが1回のブッキングで必要とする在庫のアイテム数です。サービスにはリソースと場所の両方が必要です。不完全な項目は赤色の不完全タグで表示され、App内のユーザーには見えません。
+
+既存のサービスを編集するには、行項目上で下矢印を選択し、ごみ箱アイコンを選択してサービスを削除します。 **［Edit Services］** 画面で変更を行うと、ページの下部に［Save］と［Reset］ボタンが表示され、変更をリセットまたは保存するよう求められます。各行項目で **［Hide］** チェックボックスを選択して、ユーザーに表示したくないサービスを非表示にします。
+
+<Frame><img alt="editservices.png" src="/images/kb/ka05w00000123UA-00N5w00000Ri7BU-0EM5w000005vOJi.png"/></Frame>
+[このページのトップへ](#intro)
+
+# リソースを編集する
+
+画面の右上にある **［Add New Resource］** ボタンを選択して、Schedulerに新しいリソースを追加します。リソースには、リソース名、リソースの説明、ダブルブッキング、関連する場所とサービスが含まれます。ダブルブッキングは、リソースに許可されている最大同時ブッキング数です。リソースには場所とサービスの両方が必要です。不完全な項目は赤色の不完全タグで表示され、App内のユーザーには見えません。
+
+既存のリソースを編集するには、行項目上で下矢印を選択し、ごみ箱アイコンを選択してリソースを削除します。 **［Edit Locations］** 画面で変更を行うと、ページの下部に［Save］と［Reset］ボタンが表示され、変更をリセットまたは保存するよう求められます。各行項目で［Hide］チェックボックスを選択して、ユーザーに表示したくないリソースを非表示にします。
+
+<Frame><img alt="editresources.png" src="/images/kb/ka05w00000123UA-00N5w00000Ri7BU-0EM5w000005vOJZ.png"/></Frame>
+[このページのトップへ](#intro)
+
+# 利用可能状況を編集する
+
+デフォルトスケジュールまたはカスタムスケジュールを介して、会社の利用可能状況をSchedulerに追加します。デフォルトのスケジュールは、カスタムスケジュールに追加されていないすべてのユーザーに適用されます。カスタムスケジュールはデフォルトのスケジュールを上書きし、追加されたユーザーにのみ適用されます。画面右上にある［Add Schedule］ボタンを選択して、新しいスケジュールを追加し、新しいデフォルトスケジュールまたはカスタムスケジュールのいずれかを選択します。
+
+開始日と終了日を設定することができます。これは、エンドユーザーがアポイントを利用できる期間を定義します。これを空白にすると、すべての日付が設定可能になります。
+
+設定可能にするすべてのアポイントのタイムゾーンを選択します。アラスカ、アリゾナ、中部、東部、ハワイ、山岳部または太平洋標準時から選択できます。
+
+タイムスロットの間隔を選択すると、アポイントを設定する際にユーザーが選択できる各タイムスロットに割り当てる時間が決定します。例えば、午前8時から午前9時の間に実行されるスケジュールでは、15分の間隔で、午前8時、午前8時15分、午前8時30分、午前8時45分のオプションが表示されます。
+
+<Frame><img alt="editavailbillyt_.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ3.png"/></Frame>
+デフォルトのスケジュールには、スケジュール名、 **毎週繰り返されるスケジュール** 、ブラックアウト期間、および利用可能な時間が含まれます。いつでもデフォルトスケジュールを編集でき、行項目で **ごみ箱** アイコンを選択することで削除することもできます。
+
+<Frame><img alt="defaultschedules.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJK.png"/></Frame>
+ブラックアウト期間は、特定の日付の前後の日付をアポイントの設定対象から除外するかどうかを定義します。 **［Everything Before］** チェックボックスを選択すると、選択した日付より **前** のすべての日を利用できないようにします。 **［Everything After］** チェックボックスを選択すると、選択した日付より **後** のすべての日を利用できないようにします。カスタマイズされたブラックアウトの日数には、期間や単一の日が含まれます。例えば、Schedulerで2021年4月19日のみを利用できないようにすることも、4月19日から4月21日を利用できないようにすることもできます。複数の期間や日を追加することもできます。すべてのブラックアウトの日付がモーダルの最下部に表示されます。
+
+<Frame><img alt="blackout.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJI.png"/></Frame>
+カスタムスケジュールは、デフォルトスケジュールとほぼ同じ方法で設定されますが、追加されたカスタムスケジュールはScheduler内の既存のデフォルトスケジュールより優先されます。カスタムスケジュールでは、 **［Schedule Resources］** フィールドを使用できます。ここでは、含めるリソースの追加および制限を行うことができます。ユーザーをスケジュールに追加するには、名前を検索し、検索結果から名前を選択します。
+
+<Frame><img alt="customschedule.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJG.png"/></Frame>
+[このページのトップへ](#intro)
+
+# 在庫を編集する
+
+画面の右上にある **［Add Inventory］** ボタンを選択して、Schedulerに新しい在庫を追加します。在庫には、在庫名、在庫の詳細、現在の在庫（その在庫項目で予定されているユーザー数と追加された在庫量にもとづきます）、現在の在庫に追加または在庫から削除できる修正可能な在庫量が含まれます。いつでも在庫を編集でき、行項目でごみ箱アイコンを選択することで削除することもできます。サービスは在庫に関連付けることもできます。サービスの横にある［+］ボタンを選択し、サービスと場所ごとの量を追加します。
+
+<Frame><img alt="editinventory.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJL.png"/></Frame>
+[このページのトップへ](#intro)
+
+# 言語を編集する
+
+［Edit Languages］画面で追加の言語を有効にできます。現在利用可能な言語オプションには、英語、スペイン語、ハイチ語、日本語などがあります。単一選択ボタンを使ってデフォルトで1つの言語を設定し、Appで複数の言語を有効にすることができます。言語を選択すると、App内の関連テキストフィールドを翻訳します。翻訳する必要のある領域には、ボタン、InviteLabels、FollowUpLabels、InformationLabels、DateTimeLabels、ConfirmationLabels、BookingErrors、タイトル、説明が含まれます。テキストフィールドが更新されると、変更した言語に警告インジケーターが表示され、フィールドが変更されたことを管理者ユーザーに知らせます。ほかの有効な言語では、変更に応じてフィールドを更新する必要がある場合、変更したフィールドの数も表示されます。
+
+<Frame><img alt="languages.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJF.png"/></Frame>
+[このページのトップへ](#intro)
+
+# アンケートを追加する
+
+新規アンケートを追加するには、画面で **［Add a New Form Builder DataSet］** ボタンを選択します。ここで、Form Builder Appから、Appに含めるアンケートを含む出力DataSetを選択できます。
+
+<Frame><img alt="addquestionnaire.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJA.png"/></Frame>
+DataSetを選択すると、Scheduler Appでエンドユーザーにアンケートがどのように見えるかをプレビューすることができます。
+
+<Frame><img alt="datasetfb.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ0.png"/></Frame>
+[このページのトップへ](#intro)
+
+# 設定をカスタマイズする
+
+ロゴの追加、カラーパレットのカスタマイズ、App名の編集など、Scheduler AppでエンドユーザーへのAppの表示方法をカスタマイズします。
+
+［Add/Edit Logo］セクションの［Upload］ボタンを選択して、Appで表示する新しいロゴをアップロードします。基本色と二次色、およびフォントカラーの基本色と二次色を選択し、カラーパレットをカスタマイズします。色のプレビューを確認することができます。App全体を通して表示されるApp名を追加または編集します。
+
+<Frame><img alt="settings.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJC.png"/></Frame>
+[このページのトップへ](#intro)
+
+### その他の設定
+
+［Other Settings］タブでSchedulerの住所自動入力機能を有効にできます。これを有効にするには、Mapboxトークンが必要です。トークンをテキストボックスにコピー&ペーストします。この機能を使用すると、ユーザーは住所を入力する際に提案を見ることができ、住所フィールドの続きに自動入力できるオプションを選択することができます。
+
+<Frame><img alt="other.png" src="/images/kb/ka0Vq0000004Yvx-00N5w00000Ri7BU-0EM5w000005vOJ4.png"/></Frame>
+### Appを使用する
+
+管理者設定が終了すると、Domoまたはプライベートエンベッドを使用するアポイントのスケジュールの設定をエンドユーザーに許可できるようになります。
+
+[このページのトップへ](#intro)
+
+日本語

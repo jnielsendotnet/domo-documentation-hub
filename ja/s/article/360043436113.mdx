@@ -1,0 +1,76 @@
+---
+title: "IBM DB2コネクター"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+IBM DB2には、IBMにより開発されたデータベースサーバー製品が含まれています。これらの製品は、オブジェクトリレーショナル機能と、JSONやXMLなどの非リレーショナル構造をアシストするリレーショナルモデルをサポートしています。DomoのIBM DB2コネクターを使用し、与えられたSQLクエリにもとづきIBMデータベースからデータを取得します。
+
+IBM DB2データベースには、Data Centerから接続します。このトピックでは、IBM DB2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** Domoは、IBM DA Europeanコネクターをサポートしていません。
+
+</Note>
+
+## 必要条件
+
+IBM DB2データベースに接続してDataSetを作成するには、以下が必要です。
+
+* IBMアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名
+
+CA証明書テキストまたはURLパスは、 **［Certificate type］** メニューで *［Certificate text］* または **［URL path］** をそれぞれ選択した場合 **のみ** 、必要になります。
+
+##### 認証情報を取得するには：
+
+1. **IBM Cloud** にログインします。
+2. **［Service Credentials］** に移動します。
+3. **［New credential +］** をクリックします。
+4. 名前を入力し、権限を選択して、**［Add］** をクリックします。
+5. サービス認証情報が作成されると、JSONを展開して認証ブロックのユーザー名とパスワードを確認します。
+
+##### SSL証明書を展開するには：
+
+* Webコンソールで **［Settings］>［Connections］** に移動し、証明書をダウンロードします。ファイル名は **DigiCertGlobalRootCA.crt** です。
+
+<Frame><img src="/images/kb/ka05w00000123KC-00N5w00000Ri7BU-0EM5w000005vO59.png" style={{width: 529, height: 206}}/></Frame>
+
+* 証明書はデータベースコンテナ内の ***/mnt/blumeta0/db2/ssl\_keystore/rootCA.pem*** でも入手できます。次のコマンドを使用してtmpに展開することができます： ***docker cp dashDB:/mnt/blumeta0/db2/ssl\_keystore/rootCA.pem /tmp***
+* または、***\<host volume>/db2/ssl\_keystore/rootCA.pem*** を使用して直接アクセスすることができます。
+
+##### 証明書の.crtファイルを.pemに変換するには：
+
+* 証明書がバイナリ形式の場合は、次のコマンドを実行し、OpenSSLを使用してPEM形式に変換します：
+    
+  ***$ openssl x509 -inform DER -outform PEM -in DigiCertGlobalRootCA.crt -out DigiCertGlobalRootCA.crt.pem***
+
+また、IBM DB2データベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## IBM DB2データベースに接続する
+
+このセクションでは、IBM DB2 SSHコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、IBM DB2データベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドで必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> IBMアカウントユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> IBMアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> DB2データベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> DB2データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> DB2データベースの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> 証明書のタイプを選択します。証明書を含めない場合は、 <b> ［No certificate］ </b> を選択します。［Certificate text］を選択する場合は、 <b> ［Certificate］ </b> フィールドに証明書のテキストを貼り付ける必要があります。 <b> ［URL path］ </b> を選択する場合は、証明書が保存されている場所のURLを <b> ［Certificate］ </b> フィールドに入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b> ［Certificate Type］ </b> メニューで <b> ［No certificate］ </b> を選択します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいIBM DB2 DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p> クエリタイプを選択します。 </p><table class="zebra-striped bordered"><tbody><tr><th colspan="1" rowspan="1"> クエリタイプ </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> クエリを自動生成するテーブルとフィールドを選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> クエリの作成にサポートが必要な場合は、自動生成されたクエリを <b> ［Query Helper］ </b> フィールドからコピーしてこのフィールドに貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"><span> Database Schemas </span></td><td colspan="1" rowspan="1"><p> データベーススキーマを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table </p></td><td colspan="1" rowspan="1"><p> Domoに取得するデータを含むテーブルを選択します。選択したテーブルは、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> Domoに取得するデータが含まれているテーブルの列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> フィールドでテーブルを、 <b> ［Table Columns］ </b> フィールドで列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

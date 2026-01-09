@@ -1,0 +1,67 @@
+---
+title: "MongoDB SSHコネクター"
+---
+
+## はじめに
+
+MongoDBは、構造的データをJSONのような動的スキーマを持ったドキュメントとして保管するオープンソースのドキュメント指向データベースシステムです。Domoが提供するコネクターを使用すると、MongoDBコレクションからデータを取得し、カスタマイズされたレポートを作成することができます。
+
+* MongoDBコネクターは、Javaドライバーバージョン3.2.1を使用し、検索と集計のクエリ方法をサポートします。MongoDBコネクターでコレクション名を手入力する必要があります。
+* MongoDB AdvancedコネクターはJavaドライバーのバージョン3.2.1を使用し、プレーンJSONクエリをサポートします。MongoDB Advancedコネクターでコレクション名を手入力する必要があります。
+* MongoDB V2コネクターはJavaドライバーのバージョン3.12.1を使用し、検索と集計のクエリ方法をサポートします。ドロップダウンからコレクション名を選択することも、MongoDB V2コネクターに手入力することもできます。また、MongoDB V2コネクターはCA証明書を必要としません。
+* MongoDB SSHコネクターはJavaドライバーのバージョン3.12.1を使用し、検索と集計のクエリ方法をサポートします。ドロップダウンからコレクション名を選択することも、MongoDB SSHコネクターに手入力することもできます。MongoDBコレクションからSSHトンネルを介してデータを取得するには、SSH認証情報（ホスト、ポート、ユーザー名、パスワード）が必要です。
+
+この記事では **MongoDB SSHコネクター** について説明しますDomoのMongoDB SSHコネクターを使用すると、SSHトンネル経由でMongoDBコレクションからデータを取得し、カスタマイズされたレポートを作成することができます。JSONクエリフィルターを入力して、データを指定します。MongoDB APIの詳細については、http://api.mongodb.org/ を参照してください。
+
+MongoDB SSHコネクターは「データベース」コネクターです。クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで ****［データベース］**** をクリックすることで、このコネクターやほかのデータベースコネクターのページにアクセスできます。
+
+このトピックでは、MongoDB SSHコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Warning>
+**重要：** このコネクターが機能するためにはSSL接続が必要です。
+
+</Warning>
+
+## 必要条件
+
+MongoDB SSHアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SSHホストのログインに使用するユーザー名とパスワード
+* トンネルを確立するSSHホスト
+* SSHホストのポート番号
+* SSH秘密キーまたはSSHパスワード
+* MongoDBデータベースのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：[db.company.com](http://db.company.com) ）
+* データベースのポート番号
+* データベース名
+
+また、MongoDBデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+<Note>
+注記： **Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+## MongoDBコレクションに接続する
+
+このセクションでは、 MongoDB SSH コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、MongoDBデータベース内のコレクションに接続するための認証情報の入力フィールドが含まれています。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> SSH Host </td><td colspan="1" rowspan="1"> トンネルしたいSSHホスト。例： <a href="http://dmz.mydomain.com" rel="noopener" target="_blank"> dmz.mydomain.com </a></td></tr><tr><td colspan="1" rowspan="1"> SSH Port </td><td colspan="1" rowspan="1"> SSHホストのポート番号 </td></tr><tr><td colspan="1" rowspan="1"> SSH Username </td><td colspan="1" rowspan="1"> SSHホストのログインに使用するユーザー名 </td></tr><tr><td colspan="1" rowspan="1"> SSH Password </td><td colspan="1" rowspan="1"> SSHホストのログインに使用するパスワード </td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key </td><td colspan="1" rowspan="1"> SSH秘密キーまたはSSHパスワード </td></tr><tr><td colspan="1" rowspan="1"> MongoDB Host </td><td colspan="1" rowspan="1"> MongoDBデータベースのホスト名を入力します。例： <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> MongoDB Port </td><td colspan="1" rowspan="1"> MongoDBデータベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> MongoDB Database </td><td colspan="1" rowspan="1"> MongoDBデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> MongoDB Username </td><td colspan="1" rowspan="1"> MongoDBのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> MongoDB Password </td><td colspan="1" rowspan="1"> MongoDBのパスワードを入力します。 </td></tr></tbody></table>
+
+有効な MongoDB SSH 認証情報を入力すると、新しい MongoDB SSH DataSetを作成するときにいつでも同じアカウントを使うことができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、JSONクエリを作成して、MongoDBコレクションからデータを取得します。また、任意のWHERE、SELECT、GROUP、SORTの節を作成し、クエリフィルターを適用してコレクション内の文書を、JSON形式でも検索することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to select your collection name? </td><td colspan="1" rowspan="1"> コレクション名をどのように取得するかを選択します（手入力するか、ドロップダウンから選択するか）。 </td></tr><tr><td colspan="1" rowspan="1"> Query Method </td><td colspan="1" rowspan="1"> MongoDBコレクションからデータを取得するクエリ方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Find </td><td colspan="1" rowspan="1"> JSONクエリは「検索方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregate </td><td colspan="1" rowspan="1"> JSONクエリは「集計方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Query Filter </td><td colspan="1" rowspan="1"> コレクションに文書を集計するクエリフィルターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Limit Row </td><td colspan="1" rowspan="1"> 返す行数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Batch Size </td><td colspan="1" rowspan="1"> バッチサイズは、コネクターの内部で使用されるバッチごとに返される文書数です。2以上のバッチサイズを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> コレクションの文書を集計するために使用するクエリフィルターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Query Filter </td><td colspan="1" rowspan="1"> JSON集計クエリフィルターを手入力するには「Enter Query Filter」を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Aggregate Query Filter </td><td colspan="1" rowspan="1"> コレクションに文書を集計するクエリフィルターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Query Clause </td><td colspan="1" rowspan="1"> where節、select節、group節、sort節などのカスタム節を適用するには［Custom Query Clause］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Where Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでWHERE節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでSELECT節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Group Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでGROUP節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sort Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットでSORT節を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

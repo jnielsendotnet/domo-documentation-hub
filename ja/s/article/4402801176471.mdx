@@ -1,0 +1,104 @@
+---
+title: "Hubspot Engagementコネクター"
+---
+
+## はじめに
+
+HubSpotは、ソーシャルメディアとメールマーケティング、コンテンツ管理、ウェブ分析、検索エンジン最適化を目的としたソフトウェアを開発しています。DomoのHubSpot Engagementコネクターを使用すると、コールエンゲージメントとコール傾向に関するレポートを編集できます。HubSpot APIについては、HubSpotのウェブサイト（ [http://developers.hubspot.com/docs/overview](https://developers.hubspot.jp/docs/reference/api?_gl=1*1ox0fzy*_ga*MTUwODE4NDU0LjE3NDA2NDk2NzI.*_ga_LXTM6CQ0XK*MTc0MDY0OTY3Mi4xLjAuMTc0MDY0OTY3Mi42MC4wLjA.) ）を参照してください。
+
+HubSpot Engagementコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、このコネクターやその他のクラウドAppコネクターのページにアクセスできます。
+
+HubSpotアカウントには、 Data Center から接続します。このトピックでは、HubSpot Engagementコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コールエンゲージメントやコール傾向など、ソーシャルメディアやメールマーケティングの側面に関するレポートを作成します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> コールエンゲージメントの傾向 </p></li><li> すべてのエンゲージメント </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> マーケティング/セールス権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+HubSpotアカウントに接続してDataSetを作成するには、以下の情報が必要です。
+
+* HubSpotメールアドレスとパスワード。または、GoogleやSSO（シングルサインオン）の認証情報を使用してログインすることも可能です。
+
+## HubSpotアカウントに接続する
+
+このセクションでは、HubSpot Engagementコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのHubSpot Engagementコネクターは、接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のHubSpot アカウントがある場合は **［アカウントを追加］** を選択）すると、HubSpot OAuth画面が開き、HubSpotメールアドレスとパスワードを入力できます。有効なHubSpotの認証情報を入力した後は、新しいHubSpot Engagement DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既に HubSpot にログインしている場合は、**［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まず HubSpot からログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、HubSpot Engagementレポートを選択するためのメインメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> HubSpotレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Call Engagement Dispositions </td><td colspan="1" rowspan="1"> HubSpotのタイムラインでコールを表示する際に、コールの結果の表示時に結果としてリストされる、（エンゲージメントとして保存されている）営業電話の傾向を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Engagement </td><td colspan="1" rowspan="1"> このエンドポイントは、アカウント内のすべてのエンゲージメントを取得するために使用されます。 </td></tr></tbody></table><p></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+HubSpot EngagementコネクターのベースURLは、https://api.hubapi.com/で す。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Call Engagement Dispositions </td><td colspan="1" rowspan="1"> /calling/v1/disposition </td></tr><tr><td colspan="1" rowspan="1"> Engagement </td><td colspan="1" rowspan="1"> /engagements/v1/engagements/page </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="HubSpot Engagementコネクターを作成するには、どのような認証情報が必要ですか？">
+
+
+HubSpotメールアドレスとパスワードが必要です。または、GoogleやSSO（シングルサインオン）の認証情報を使用してログインすることも可能です。
+
+
+</Accordion>
+<Accordion title="HubSpotの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってHubSpotの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="APIにアクセスするには、どのようなHubSpotアカウントが必要ですか？">
+
+
+APIにアクセスするには、マーケティングプロフェッショナル向けまたはエンタープライズ向けのHubSpotアカウントが必要です。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+必要に応じた頻度で行われます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+
+</Accordion>
+</AccordionGroup>

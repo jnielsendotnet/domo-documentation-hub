@@ -1,0 +1,196 @@
+---
+title: "2017 年 8 月リリース 1"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## 新機能と機能拡張
+
+本リリースで新しくなった機能と拡張された機能は、以下のとおりです：
+
+### Analyzer (旧：カードビルダー)
+
+新しくなった Analyzer - データ探索や強力なアナリティクス、インサイト、セルフガイドのユーザー体験が全て 1 か所に集まりました。企業に流れ込むデータが増加し、そしてデータソースの種類も拡大し続ける状況の中、新しくなった Analyzer を使うと、アナリストはデータを探索、発見、分析し、そして直感に頼らずデータに基づいた意思決定ができるようになります。
+
+次の新しい機能と更新された機能が全て利用可能になっています：
+
+**ユーザーインターフェース** ： 美しい新デザインが追加され、さらに柔軟になりました。これで、自分に必要な分析ツールを必要な時に使える、自分だけのワークスペースを作ることができます。
+
+<Frame><img alt="analyzer_ui_rn.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmJ.png"/></Frame>
+Analyzer ユーザーインターフェースの詳細については、 Analyzer レイアウト (新) を参照してください。
+  
+**前期比** 。Analyzer の強力で柔軟な前期比の機能により、無数の期間を比較してトレンドなどを見ることができるようになりました。他のどんな BI ツールよりも使いやすい前期比機能になっています。必要なのは日付範囲だけで、オプションは限りなく広がります：前年比、前四半期比、過去 30 日間など数多くあります。過去数年間の売上の成長トレンドを見て、ついでに分散割合線を追加したいですか？簡単です。過去 30 日間と、任意の日付との比較ですか？それとも月次売上を、4/8/12/52 週間前の同じ日と比較？できます。Analyzer なら、トレンドの可視化がもっと簡単になります。
+
+<Columns>
+  <Frame><img alt="pop_between.png" src="/images/kb/ka05w00000123mk-00N5w00000Ri7BU-0EM5w000005vP5q.png"/></Frame>
+  <Frame><img alt="pop_example_1.png" src="/images/kb/ka05w00000123mk-00N5w00000Ri7BU-0EM5w000005vP5x.png"/></Frame>
+</Columns>
+前期比チャート導入の詳細と使用事例については、 前期比チャート (新) を参照してください。
+  
+**Quick Filter** 。Quick Filter とは、特定分野での結果に経営陣が注目できるよう、カードに設定される定義済みのフィルターです。アナリストがデータの探索で重要なインサイトを発見し、それを経営陣と共有したいとします。Quick Filter なら、他のユーザーが自分でカード上のデータを探索し、そして自分で質問の答えを見つけることができるような、セルフガイドのユーザー体験を簡単に作成することができます。設定した Quick Filter は、Domo のデスクトップ版とモバイル版の双方でカード上に表示されます。
+
+<Columns cols={3}>
+  <Frame><img alt="slicer_example_1.png" src="/images/kb/ka05w00000123l5-00N5w00000Ri7BU-0EM5w000005vOzy.png"/></Frame>
+  <Frame><img alt="slicer_example_2.png" src="/images/kb/ka05w00000123l5-00N5w00000Ri7BU-0EM5w000005vP03.png"/></Frame>
+  <Frame><img alt="quick_filters_ios_rn.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmK.png"/></Frame>
+</Columns>
+Quick Filterに関する詳細は、 Quick Filter を適用する (新) を参照してください。
+  
+**データの系統** 。データの信頼性は重要です。答えを見つけたりデータを探索したりするにあたり、全てのデータが確実に最新のものであり、そしてスムーズに実行されている必要があります。Domo は他のどんなツールよりも効果的に全てのデータを 1 か所に集めることができるため、念のためにデータが正しく結合されているかを確かめたいと思うかもしれません。Analyzer の新しいデータの系統機能を使うと、Data Center で確認しなくとも、データが正しくそして予定通りに流れているか、見ることができます。
+
+<Frame><img alt="data_lineage.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmM.png"/></Frame>
+詳細については、 Analyzer で DataSet の系統を見る (新) を参照してください。
+  
+**条件付きの色** 。アナリストがデータを探索する際、例外に注目するためには色に一貫性があることが重要になります。例えば、多くのチャートに散在するトレンドを簡単に判別できるよう、DataSet 上で特定の企業を赤や青などに設定したい場合は、Analyzer の条件付きの色が必要になります。この新機能では、例外とトレンドが一貫した色で視認できるので、より簡単に分析できるようになります。
+
+<Frame><img alt="color_rules_example.png" src="/images/kb/ka05w00000129vl-00N5w00000Ri7BU-0EM5w000005wKzy.png" style={{width: 750, height: 382}}/></Frame>
+詳細については、 チャートの色のルールを設定する (新) を参照してください。
+
+**データ表** 。新しくなった Analyzer のデータ表では、チャートに適用した全ての列だけでなく、表示したい他の未使用の列のデータも閲覧そして操作できるようになりました。データ表でデータに加えた変更は、チャートのプレビューに反映されます。同様に、フィルターや並べ替えなど他のツールを使ってチャートに変更を加えた場合は、表のデータが更新されます。
+
+<Frame><img alt="analyzer_data_table_rn.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmC.png"/></Frame>
+詳細については、 Analyzer のデータ表について (新) を参照してください。
+  
+**60 以上の新しいグラフタイプと改善された表カード** 。新しい Analyzer には、60 以上の新しいグラフタイプが追加されています。また、表カードの色や合計の ％、そして小計なども拡張されました。これにより分析しやすくなり、また業務への影響も減らすことができます。
+
+新しいグラフタイプは以下のとおりです：
+
+* 縦方向と横方向のマリメッコグラフ
+* 縦方向と横方向のオーバーレイグラフ
+* 縦折れ線グラフ
+* 縦方向と横方向のロリポップチャート
+* 19 個の新しい面グラフ
+* データサイエンスグラフ (予測モデリング、予測、外れ値、XY 線)
+* 対数螺旋と対数螺旋ドーナツグラフ
+* ナイチンゲール ローズグラフ
+* ストリームグラフとストリームファネルグラフ
+
+以下に、Analyzer で利用できる新しいグラフタイプのスクリーンショットをいくつか示します：
+
+**縦折れ線グラフ**
+
+<Frame><img alt="vertical_line_kpi_example.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmP.png"/></Frame>
+**集合縦ロリポップチャート**
+
+<Frame><img alt="vertical_grouped_lollipop.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmG.png"/></Frame>
+**予測モデリンググラフ**
+
+<Frame><img alt="predictive_modeling_kpi_example.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmT.png"/></Frame>
+**ナイチンゲール ローズグラフ**
+
+<Frame><img alt="nightingale_rose_kpi_example.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmN.png"/></Frame>
+**改善された表 (小計行付き)**
+
+<Frame><img alt="table_subtotal_row_fill_color.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmF.png"/></Frame>
+利用できるグラフタイプの詳細については、 [各グラフタイプを作成する](/s/article/ "各グラフタイプを作成する") を参照してください。
+
+### スナップショット注釈
+
+データは、すぐ乱雑になります。データの可視化に取り組もうとすると、圧倒され、そして途方に暮れることもよくあります。しかし、新しいスナップショット注釈機能なら、混沌としたデータを明確にすることができます。百聞は一見にしかずといいますが、データを扱っていると特にそうでしょう。スナップショット注釈機能を使うと、アナリティクスが楽になります。
+  
+スナップショット注釈機能を使うと、トレンドやインサイトに注目してもらうのに、単語を並べる必要がありません。データが急上昇したりトレンドが見えたら、どんなカードにも注釈を付けることができます。具体的には、ウェブ上でもモバイルデバイス上でも、あらゆるカードに自由に描画したり、図形を配置したり、そしてテキストやハイライトを挿入したりすることができます。そして後ほどその注釈を付けたカードをシームレスに Buzz で共有できます。説明を入力する時間を節約して、業務の決定に時間を使えるようになります。
+  
+どんな人でも、それがアナリストであれマネージャーであれ、あるいは役員であれ、データにストーリーを語らせたり、またはチャートにおける重要なトレンドや相違点に注目してもらえるようにするために、ツールを必要としています。相手に理解してもらうには視覚的に伝えるほうが効率的であり、そして注釈ツールを使えば、そんな分析も誰にとっても簡単になります。
+
+<Columns>
+  <Frame><img alt="annotation_example.png" src="/images/kb/ka05w00000123qE-00N5w00000Ri7BU-0EM5w000005vPJq.png"/></Frame>
+  <Frame><img alt="snapshot_annotations_mobile_rn.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmD.png"/></Frame>
+</Columns>
+この機能に関する詳細は、 [カードのスナップショットをとる](/s/article/360043428633 "カードのスナップショットをとる") を参照してください。
+
+### 新しいセルフサービスの Connector
+
+今月は、さらに 18 個の Connector を改善そしてリリースしました。全てのお客様が Domo アカウントでご利用になれます。これらの Connector はセルフサービス式ですので、サポートに問い合わせなくても起動できます。新しい Connector は以下の通りです：
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> Connector </p></th><th colspan="1" rowspan="1"><p> ナレッジベース 記事へのリンク </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Base CRM </td><td colspan="1" rowspan="1"><a target="_blank" title="Base CRM Connector"> Base CRM Connector </a></td></tr><tr><td colspan="1" rowspan="1"> メールによる DataSet (以下に詳しく説明) </td><td colspan="1" rowspan="1"><a href="/s/article/360042931954" target="_blank" title="メールによる DataSet Connector"> メールによる DataSet Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Docebo </td><td colspan="1" rowspan="1"><a target="_blank" title="Docebo Connector"> Docebo Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Dotmailer </td><td colspan="1" rowspan="1"><a target="_blank" title="Dotmailer Connector"> Dotmailer Connector </a></td></tr><tr><td colspan="1" rowspan="1"> GradLeaders </td><td colspan="1" rowspan="1"><a target="_blank" title="GradLeaders Connector"> GradLeaders Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Indeed </td><td colspan="1" rowspan="1"><a target="_blank" title="Indeed Connector"> Indeed Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Infusionsoft </td><td colspan="1" rowspan="1"><a target="_blank" title="InfusionSoft Connector"> InfusionSoft Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Kafka </td><td colspan="1" rowspan="1"><a target="_blank" title="Kafka Connector"> Kafka Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Klaviyo </td><td colspan="1" rowspan="1"><a target="_blank" title="Klaviyo Connector"> Klaviyo Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Mavenlink </td><td colspan="1" rowspan="1"><a target="_blank" title="Mavenlink Connector"> Mavenlink Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Paydirt </td><td colspan="1" rowspan="1"><a target="_blank" title="Paydirt Connector"> Paydirt Connector </a></td></tr><tr><td colspan="1" rowspan="1"> PostgreSQL SSH </td><td colspan="1" rowspan="1"><a target="_blank" title="PostgreSQL SSH Connector"> PostgreSQL SSH Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Silverpop </td><td colspan="1" rowspan="1"><a target="_blank" title="Silverpop Connector"> Silverpop Connector </a></td></tr><tr><td colspan="1" rowspan="1"> SmartRecruiters </td><td colspan="1" rowspan="1"><a target="_blank" title="SmartRecruiters Connector"> SmartRecruiters Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Sportradar </td><td colspan="1" rowspan="1"><a target="_blank" title="Sportradar Connector"> Sportradar Connector </a></td></tr><tr><td colspan="1" rowspan="1"> ODBC 経由の Teradata </td><td colspan="1" rowspan="1"><a target="_blank" title="Workbench 4 で ODBC データに接続する"> Workbench 4 で ODBC データに接続する </a></td></tr><tr><td colspan="1" rowspan="1"> The Trade Desk </td><td colspan="1" rowspan="1"><a target="_blank" title="The Trade Desk Connector"> The Trade Desk Connector </a></td></tr><tr><td colspan="1" rowspan="1"> Treasure Data </td><td colspan="1" rowspan="1"><a href="/s/article/360042929134" target="_blank" title="Treasure Data Connector"> Treasure Data Connector </a></td></tr></tbody></table>
+
+#### メールによる DataSet Connector
+
+メールによる DataSet Connector を使うと、メールの添付ファイルとして送られてきた.xls や.xlsx、または.csv ファイルを取得そして処理し、素速くかつ簡単に Domo に取り込むことができるようになります。この Connector を設定すると、Domo の メールによる DataSet に対応する特別なメールアドレスが生成されます。このメールアドレスが作成されたら、そのアドレスに添付ファイルとしてスプレッドシートを送信します。すると Connector がメールを処理し、データを更新します。
+
+詳細については、 [メールによる DataSet Connector](/s/article/360042931954 "メールによる DataSet Connector") を参照してください。
+
+### Workbench UI の改善
+
+#### リストビュー
+
+Workbench には、DataSet ジョブを検索そしてソートしたり、もうすぐ来るスケジュールを確認したり、またジョブを末てーたす別に整理することができるの新しいリストビューが含まれます。これにより、ジョブの視認性が向上し、インスタンス内のジョブ管理がしやすくなります。
+
+<Frame><img alt="wb4_list_view_rn.png" src="/images/kb/ka05w00000123rc-00N5w00000Ri7BU-0EM5w000005vPLM.png"/></Frame>
+#### ステータスパネル
+
+Workbench の新しいステータスパネルでは、より良いインサイトをジョブが実行されている時に提供するようになったほか、ジョブを変更、中断、キャンセルそして実行することもできるようになりました。ステータスパネルは、全てのジョブ詳細ページで表示されており、これによりジョブのステータスをリアルタイムで把握することができるようになります。
+
+<Frame><img alt="wb4_status_panel_rn.png" src="/images/kb/ka05w00000123rc-00N5w00000Ri7BU-0EM5w000005vPLP.png"/></Frame>
+Workbench のユーザーインターフェースに関する詳細は、 Workbench 4 ユーザーインターフェースについて を参照してください。
+
+### Magic ETL のランクとウインドウ関数
+
+Domo の Magic ETL ツールにランクとウィンドウ関数が加わりました。この新しい関数によって、複雑な SQL 関数と構文を学ばなくともデータをランクそして比較することができるようになります。この関数は、Magic ETL の **列を編集** セクションの **ランクとウィンドウ** という新しいアクションタイルから利用で来ます。
+
+新しいランクとウィンドウ関数には、次が含まれます：
+
+* Rank
+* Dense Rank
+* Row Number
+* Avg
+* Count
+* Sum
+* Lag
+* Lead
+
+<Frame><img alt="rank_and_window_rn.png" src="/images/kb/ka05w00000129vL-00N5w00000Ri7BU-0EM5w000005vOmB.png"/></Frame>
+これら各関数の詳細と、ステップごとの説明については、 [ETL 操作：ランクとウィンドウ](/s/article/360042922814 "ETL 操作：ランクとウィンドウ") を参照してください。
+
+### セルフサービス決済
+
+8 月 10 日より、既存の Domo のお客様は、Domo 製品内から直接ライセンスの追加とお支払いができるようになります。この変更により、以下の点にご注意ください：
+
+* この変更は徐々に導入されるため、お客様によってはこの変更がすぐ表示されない場合があります。
+* 表示される価格は現在の契約内容に基づいたものです。
+* 製品の購入金額には、税が適用されます。
+
+### モバイルページのフィルター
+
+この度、強力で複雑なページフィルターのツールを、使いやすく直感的な方法でモバイルのプラットフォームにリリースしました。どんなビジネスユーザーでも、すぐに利用価値を享受できます。企業役員が、自分の監督下の実店舗にまさに今訪れようとしている時であれ、あるいは製造業者のマネージャーが特定製品ラインの検査をしている最中であれ、ページを迅速にフィルターして、必要な情報をすぐに取り出すことができます。
+
+是非試してみてください。モバイルから Domo 内の好きなページに進み、メニューをタップしてフィルターしてみましょう。
+
+<Frame><img alt="mobile_page_filters_rn.png" src="/images/kb/ka05w00000129vl-00N5w00000Ri7BU-0EM5w000005wL0Z.png"/></Frame>
+### モバイルカード/ページのシェア
+
+Domo では、より簡単にスマートフォンで共同作業ができる方法を発表しました。個人やチームとシェアしたい重要なカードやページがありますか？スマートフォンから、すぐにできるようになりました。今日から、どんなカードやページでも、タップすることで簡単に他のユーザーとシェアできます。
+
+### ページ API
+
+Domo のページパブリック API を使うと、ページの作成や複製を自動化し、シームレスにページの内容を更新することができます。API 経由でページを管理できるようになると、Domo のページ内で既存の情報やコンテンツを簡単にシェアするシステムやプロセスを作り、あらゆる状況に合わせてカスタマイズすることができるようになります。
+
+Domo のページ API を使った開発を始めるには、ほとんど労力は必要ありません。ディベロッパーポータルの [クライアントセクション](https://developer.domo.com/manage-clients) で認証トークンを作成したら、 [ページ API クイックスタート](https://developer.domo.com/docs/domo-apis/pages-api) ガイドに記載されている手順に従うか、または Domo 公式 [SDK ライブラリ](https://github.com/domoinc) から作成済みのページ API の例をダウンロードして、ページ API の機能を探索することができます。
+
+### 開発者用サンドボックス
+
+サンドボックスを入手することで、Domo の API を簡単に探索、反復し、そして開発サイクルを加速化させことができます。また、開発者用サンドボックスでは、セルフサービスツールが提供され、これにより API を使ってシナリオをシミュレーションし、特定のエラー条件を理解そして対応しやすくなります。これにより、本番環境に自信を持って導入できるような回復力のあるアプリケーションの作成が可能になります。
+
+開発者用サンドボックスを取得するオプションは、Domo デベロッパーポータルから選択できます。 [http://www.developer.domo.com/sign-up](http://www.developer.domo.com/sign-up "http://www.developer.domo.com/sign-up") サンドボックスのリクエストを提出したら、新しい Domo インスタンスが自動的に作成され、招待状がメールされるので、そこからログインをアクティベートします。
+
+アカウントをアクティベートしたら、サンドボックス内で特定の開発者用リンクを探索できるほか、作成済みのサンプルデータやカード、そしてコンテンツを活用してソリューションの開発を始められるようになります。
+
+## ヘルプとサポート
+
+ヘルプセンターで最新のリリースノート情報を閲覧できます。Domo からアクセスするには、 <InlineImage src="/images/kb/ja/ka05w00000129vl-00N5w00000Ri7BU-0EM5w000005wL0v.png" /> > **ヘルプセンター** をクリックします。
+
+Domo に関するご質問は、
+
+* ヘルプセンターを検索する
+* Domo University で研修を受ける：
+  [http://www.domo.com/university](http://www.domo.com/university "http://www.domo.com/university")
+* Domo Communityで解決策を探す：
+  [https://dojo.domo.com](https://dojo.domo.com "https://dojo.domo.com")
+* テクニカルサポートに問い合わせる：Domo サポートポータルからの場合はヘルプチケットを入力、Buzz ならメッセージを `\support` に、メールは [support@domo.com](mailto:support@domo.com "support@domo.com") 、またお電話の場合は 801-805-9505（米国山岳部標準時で月曜から金曜の 7am～6pm）までどうぞ。
+* Domo カスタマーサクセスマネージャ、またはテクニカルコンサルタントに問い合わせる
+
+フィードバックは、Domo 内から送信してください（ <InlineImage src="/images/kb/ja/ka05w00000129vl-00N5w00000Ri7BU-0EM5w000005wL0v-1.png" /> > **フィードバック** ）。または、 [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") までメールでどうぞ。
+
+サポートに関する詳細は、 [ヘルプとサポート](/s/article/360042922874 "ヘルプとサポート") を参照してください。
+
+日本語

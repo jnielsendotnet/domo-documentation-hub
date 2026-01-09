@@ -1,0 +1,138 @@
+---
+title: "Workbench 5でOLAPキューブに接続する"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+Workbench 5では、OLAP DataSetジョブを作成できます。データソースタイプにOLAPを選択してから接続の詳細を指定し、クエリを設定することができます。
+
+**Workbench 5でOLAP DataSetジョブを作成するには、**
+
+1. 左側のアイコンバーにある <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> アイコンをクリックします。
+2. ジョブリストペインの右上にある［+］ボタンをクリックします。
+3. **［Domoドメイン］** ドロップダウンメニューで、必要なアカウント（Domoインスタンス）を選択します。
+     
+   アカウントが1つしか設定されていない場合は、そのアカウントが既に選択されているためメニューは使用できません。
+4. **［名前］** フィールドに、DataSetジョブの名前を入力します。
+     
+   これは、Workbenchで表示されるジョブ名です。DomoにアップロードされたDataSet名では *ありません* 。
+5. **［トランスポートタイプ］** メニューで、 **［OLEDB接続プロバイダー］** を選択します。
+6. **［読み取りタイプ］** メニューで、 **［データベースクエリ］** を選択します。
+7. **［DataSet名］** フィールドに、DataSet名を入力します。これは、DomoにアップロードされたDataSet名です。
+     
+   新しいジョブを保存した後に変更できるのは、この設定 *のみです* 。
+8. **［DataSetタイプ］** フィールドに、ドロップダウンからDataSetのタイプを選択します。
+     
+   ここで選択または入力するDataSetのタイプは、ジョブ実行後のDomoのコネクタータイプに反映されます。
+9. 適宜DataSetの説明を入力します。
+     
+   これは、Domoに表示されるDataSetの説明です。
+10. **［作成］** をクリックします。
+      
+    現在認証されているアカウントのジョブリストに、OLAP DataSetジョブが新規に追加されます。ジョブを作成した後は、DataSet名以外の設定は編集できません。他の設定を変更する場合は、新しいジョブを作成する必要があります。
+11. **［設定］** サブタブをクリックします。
+12. 「ソース」の下の **［編集］** をクリックします。
+      
+    OLAP接続を設定し、クエリを定義するためのパネルが開きます。
+13. **［OLAP接続］** フィールドで、以下のいずれかを行います。
+
+    * プロバイダー（MSOLAPまたはEssbase）、データソース、初期カタログ、そしてユーザーIDとパスワードが入ったOLAP接続文字列を入力します。
+    * **Connection Builder** のフィールドに必要な情報を入力して接続文字列を作成し、 **［適用］** をクリックして **［OLAP接続］** フィールドに文字列を追加します。 **Connection Builder** を開くには、 **［OLAP接続］** フィールドの矢印をクリックします。
+        
+      以下の表では、 **Connection Builder** の全パラメーターについて説明します。
+
+      <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> データソース </p></td><td colspan="1" rowspan="1"><p> データベースが格納されているサーバーを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロバイダー </p></td><td colspan="1" rowspan="1"><p> MSOLAPまたはEssbaseのどちらかのプロバイダーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カタログ </p></td><td colspan="1" rowspan="1"><p> OLAP接続の初期カタログを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> このOLAP接続のユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> OLAP接続のパスワードを指定します。 </p></td></tr></tbody></table>
+
+14. （オプション）この接続に32ビット実行が必要な場合は、［32ビット実行が必要］チェックボックスをオンにします。
+15. **［適用］** をクリックします。
+16. 「処理中」の下の **［編集］** ボタンをクリックします。
+17. 必要に応じて、**［クエリ実行タイムアウト］** の値を変更します。
+      
+    これは、長時間実行されているジョブを修了するまでの経過時間を秒数で示したものです。
+18. **［クエリ］** サブタブで、取得したいデータのクエリを入力します。例：
+      
+    ```
+    with member [Measures].[PCT Discount] AS '[Measures].[Discount Amount]/[Measures].[Sales Amount]', FORMAT_STRING = 'Percent'
+      
+    set Top10SellingProducts as 'topcount([Product].[Model Name].children, 10, [Measures].[Sales Amount])'
+      
+    set Preferred10Products as '
+      
+    \{[Product].[Model Name].&[Mountain-200],
+      
+    [Product].[Model Name].&[Road-250],
+      
+    [Product].[Model Name].&[Mountain-100],
+      
+    [Product].[Model Name].&[Road-650],
+      
+    [Product].[Model Name].&[Touring-1000],
+      
+    [Product].[Model Name].&[Road-550-W],
+      
+    [Product].[Model Name].&[Road-350-W],
+      
+    [Product].[Model Name].&[HL Mountain Frame],
+      
+    [Product].[Model Name].&[Road-150],
+      
+    [Product].[Model Name].&[Touring-3000]
+      
+    }'
+      
+    select \{[Measures].[Sales Amount], [Measures].[Discount Amount], [Measures].[PCT Discount]} on 0,
+      
+    Preferred10Products on 1
+      
+    from [Analysis Services Tutorial]
+    ```
+19. （オプション）**［置換変数］** サブタブと **［グローバル置換変数］** サブタブで、DataSetの列の置き換え変数を定義します。それぞれの置換変数に対して、
+
+    1. **［列］** ドロップダウンから該当する列を選択します。
+
+       <Note>
+       **注記：** **［ソース］** メニューで有効なOLAP接続を作成するまで、 **［列］** ドロップダウンに内容は追加されません。
+
+       </Note>
+
+    2. 選択した列の置換変数を、**［値］** ドロップダウンで定義します。
+
+       <table border="1" cellpadding="1" cellspacing="1">
+       <tbody>
+       <tr>
+       <th colspan="1" rowspan="1"><p> 変数タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th>
+       </tr>
+       <tr>
+       <td colspan="1" rowspan="1">
+       <p><span class="mt-font-courier-new"> lastvalue </span></p>
+       </td>
+       <td colspan="1" rowspan="1">
+       <p><span class="mt-font-courier-new"> lastvalue </span> 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータ行の最終列について、関連するフィールドの変化を追跡します。構文は次のとおりです。 </p><p><code>!\{lastvalue:_name_}! </code></p><p><span class="mt-font-courier-new"> lastvalue </span> 変数の値は、アップロードの終了後にWorkbenchで更新されます。 <span class="mt-font-courier-new"> lastvalue </span> 変数は、ジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存されます。この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。例えば、新しい行が増えるに従って増えていく行の「id」を持つ列がデータに存在する場合、 </p><p><code>!\{lastvalue:id}! </code></p><p> を含むクエリを作成することができます。以下のようになります。 </p><p><code> select id, name, type, sales from tablename where id &gt;!{}! order by id </code></p><p> この例では、「id」列が <span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節に必ず含まれていないと、変数を使用して更新することが <em> できません </em> 。 </p><p> このジョブをアップロードするときにWorkbenchは、 </p><p><code>!\{lastvalue:id}! </code></p><p> 変数を現在の「id」値と置き換えます。アップロード終了後、Workbenchは最後にアップロードされた「id」の値をジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存します。 </p> 
+       <Note>
+        <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b><span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節の中で <span class="mt-font-courier-new"> lastvalue </span> 変数を使って参照した列は必ず含めないと、データのアップロード後に変数を使用して更新することが <em> できません </em> 。 </div></div></div> 
+       </Note>
+
+        </td>
+        </tr>
+        <tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> previewonly </span></p></td><td colspan="1" rowspan="1"><p> Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。構文は次のとおりです。 </p><p><code>!\{previewonly:Statement}! </code></p></td></tr>
+        </tbody></table>
+
+20. **［適用］** をクリックします。
+21. **［更新方法］** メニューで、更新する方法を選択します。
+
+    * 更新時に、DataSetを完全に入れ替えたい場合は、**［DataSetを置換］** を選択します。
+    * 更新データを既存のデータに追加したい場合は、**［DataSetに追加］** を選択します。
+
+これでDomoにOLAP DataSetが作成され、DataSetジョブを実行する準備ができました。しかし、Domoに送信する前にDataSetジョブでできる操作はたくさんあります。例えば以下のような操作があります。
+
+* [Workbench 5でジョブをスケジューリングする](/ja/s/article/360043212294 "Workbench 4でジョブをスケジューリングする")
+* [ジョブの更新が成功または失敗したら通知するよう設定する](/ja/s/article/360043437333 "Workbench 4で通知を設定する")
+* [Workbenchデータの暗号化と復号を行う](/ja/s/article/360043437413 "Workbench 4データの暗号化と復号を行う")
+* [計算を使用して新しい列を作成する](/ja/s/article/360042932794 "Workbench 4で計算を使用して列を作成する")
+* [列にカスタム日付形式を設定する](/ja/s/article/360043437473 "Workbench 4で列にカスタム日付形式を設定する")
+* [列の値を置き換える](/ja/s/article/360043437433 "Workbench 4で列の値を置き換える")
+* [DataSetを結合する](/ja/s/article/360043437193 "Workbench 4でDataSetを結合する")
+* [列にフィルターをかける](/ja/s/article/360042932814 "Workbench 4で列にフィルターをかける")
+* [偽装を設定する](/ja/s/article/360043437173)（WorkbenchのジョブをActive Directoryユーザーとして実行します）。
+
+

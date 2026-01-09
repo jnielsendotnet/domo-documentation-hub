@@ -1,0 +1,99 @@
+---
+title: "Infusionsoft REST Hookコネクター"
+---
+
+## はじめに
+
+Infusionsoftは、CRM、Eメールマーケティング、リードキャプチャ、Eコマースを1ヶ所に統合しながら、小規模企業の販売とマーケティングを自動化します。このコネクターを使用すると、サブスクライブしている列内で変更が行われるたびに、Infusionsoftアカウントから自動的にデータを取得できます。
+
+このコネクターはWebhookベースであるため、このコネクターを使用して作成されたDataSetは、新しいデータがInfusionsoftアカウントに送信されると自動的に更新されます。このコネクターを使用する際は、更新のスケジュール設定を心配する必要が *ありません* 。
+
+Infusionsoftアカウントには、Data Centerから接続します。このトピックでは、Infusionsoft REST Hookコネクターのユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+InfusionsoftのWebhookの詳細については、 [https://developer.infusionsoft.com/r...documentation/](https://developer.infusionsoft.com/rest-hook-documentation/ "https://developer.infusionsoft.com/rest-hook-documentation/") を参照してください。
+
+## 必要条件
+
+Infusionsoftアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Infusionsoftアカウントに関連付けられているメールアドレス
+* Infusionsoftのパスワード
+
+## Infusionsoftアカウントに接続する
+
+このセクションでは、Infusionsoft REST Hookコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインで **［Add account］** をクリックすると、Infusionsoftのログイン画面に移動します。ここで、Infusionsoftの認証情報（Infusionsoftアカウントに関連付けられている電子メールアドレスとInfusionsoftのパスワード）を使用してInfusionsoftアカウントにログインできます。
+
+Infusionsoft Appやアカウントの有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいInfusionsoft Webhook DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、サブスクライブする列を選択し、ボタンをクリックしてサブスクリプションを登録することで、InfusionsoftアプリのWebhookサブスクリプションを設定します。
+
+**AppのWebhookサブスクリプションを設定するには：**
+
+1. Domoの［詳細］ペインで、サブスクライブするすべての列のチェックボックスをオンにします。
+     
+   Infusionsoftのサブスクライブしている列のいずれかに変更が加えられると、DataSetが自動的に更新されます。
+
+   <Note>
+   **注記：** **［Webhook URL］** フィールドは無視してください。コネクターを機能させるためにこのURLをInfusionsoftに貼り付ける必要は *ありません* 。
+
+   </Note>
+
+2. ［Register Subscriptions］の下にある緑色のボタンをクリックします。
+3. （条件付き）DataSetの新しいデータを追加するのではなく置き換える場合は、
+   **［Change update settings］** をクリックしてから **［Replace］** を選択します。
+4. **［Save］**
+   をクリックします。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データはどのくらいの頻度で更新できますか？">
+
+
+Infusionsoft Webhookコネクターは、Infusionsoftがデータを受信すると自動的に更新されます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="# このコネクターとInfusionsoftコネクターの違いは何ですか？">
+
+
+Infusionsoft Webhookコネクターは、Infusionsoftが追加でデータを受信すると自動的に更新され、設定したスケジュールで更新されません。一方、InfusionsoftコネクターはAPIベースのコネクターで、レポートを選択して更新スケジュールを設定します。
+
+
+</Accordion>
+<Accordion title="# Infusionsoftの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってInfusionsoftの認証情報が表示または保存されることはありません。Domoによるアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="# ［Connect］ をクリックすると、認証情報を入力する必要がなく、自動的に検証が行われるのはなぜですか？">
+
+
+Domoに接続する際、すでにInfusionsoftにログインしている場合は、 **［Connect］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずInfusionsoftからログアウトする必要があります。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,92 @@
+---
+title: "Adobe Signコネクター"
+---
+
+## はじめに
+
+Adobe Signは、ブラウザーやモバイルデバイスを使用して、署名の送信、確認、追跡、管理を行うためのクラウドベースの電子署名サービスです。Adobe Signは、Adobe Document Cloudスイートに付属しているサービスです。Domo Adobe Signコネクターを使用すると、自分にとって重要なデータを取得することができます。Adobe Sign APIの詳細については、 [https://www.adobe.io/apis/documentcl...r/api\_usage.md](https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobedocs/adobe-sign/master/api_usage.md "https://www.adobe.io/apis/documentcloud/sign/docs.html#!adobedocs/adobe-sign/master/api_usage.md") を参照してください。
+
+このトピックでは、Google Ads OAuthコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な説明については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+このコネクターを使用してAdobe Signデータに接続するには、Adobe Signの認証情報（メールアドレスとパスワード）が必要になります。
+
+## Adobe Sign アカウントに接続する
+
+このセクションでは、Adobe Signコネクターページの **認証情報** ペインと **［詳細］** ペインに表示されるオプションについて説明します。このページの他のペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo Adobe Signコネクターは、OAuthを使用してAdobe Signに接続します。 **［接続］** をクリックすると（DomoでAdobe Signアカウントが既に作成されている場合は、 **［アカウントを追加］** を選択）、接続先のアカウントを選択するためのAdobe Sign OAuth画面が表示されます。アカウントを選択した後で、そのアカウントのパスワードを入力します。正しいパスワードを入力すると、Domoで同じアカウントを使用してAdobe SignのDataSetをいつでも作成できるようになります。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 コネクターのユーザーアカウントを管理する [」を参照してください。](/ja/s/article/360042926054)
+
+<Note>
+**注：** Adobe Signにログインしている状態でDomo内でアカウントに接続する場合は、 **［アカウントを作成］** をクリックすると、自動的に認証処理が実行されます。ログインしているAdobe Signアカウントとは別のアカウントに接続する場合は、最初にそのAdobe Signアカウントからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **[レポート]** メニューの他、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p><span> 実行するAdobe Signレポートのタイプを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 利用規約 </td><td colspan="1" rowspan="1"> ユーザー用の利用規約が表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> グループ </td><td colspan="1" rowspan="1"> グループに関する詳細情報が表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> ライブラリドキュメント </td><td colspan="1" rowspan="1"> ユーザー用のライブラリドキュメントが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Megaサイン </td><td colspan="1" rowspan="1"> ユーザー用のMegaサインの親利用規約がすべて表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー </td><td colspan="1" rowspan="1"> 特定のアカウント内のすべてのユーザーが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> ウィジェット </td><td colspan="1" rowspan="1"> ユーザー用のウィジェットが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> ワークフロー </td><td colspan="1" rowspan="1"> ユーザー用のワークフローが表示されます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> フィルター </td><td colspan="1" rowspan="1"> レポートフィルターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 失敗した利用規約をスキップ </td><td colspan="1" rowspan="1"> このオプションを選択すると、Adobe Signから利用規約の詳細情報が返されなかった場合に、その利用規約がDataSetから除外された状態で処理が続行されます。そのため、DataSet全体でエラーが発生することはありませんが、データの欠落が発生する可能性があります。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のセクションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターでは、どのバージョンのAdobe Sign APIが使用されますか？">
+
+
+このコネクターでは、バージョン5のAdobe Sign APIが使用されます（
+https://api.na1.echosign.com/api/rest/v5） 。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="30%"> フィルター </th><th colspan="1" rowspan="1" width="35%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="6"> 利用規約 </td><td colspan="1" rowspan="1"> 利用規約の詳細 </td><td colspan="1" rowspan="1"> /agreements/\{agreementId\} </td></tr><tr><td colspan="1" rowspan="1"> 結合ドキュメントページ情報 </td><td colspan="1" rowspan="1"> /agreements/\{agreementId\}/combinedDocument/pagesInfo </td></tr><tr><td colspan="1" rowspan="1"> 結合ドキュメントURL </td><td colspan="1" rowspan="1"> /agreements/\{agreementId\}/combinedDocument/url </td></tr><tr><td colspan="1" rowspan="1"> ドキュメントURLの画像 </td><td colspan="1" rowspan="1"> /agreements/\{agreementId\}/documents/imageUrls </td></tr><tr><td colspan="1" rowspan="1"> ドキュメント </td><td colspan="1" rowspan="1"> /agreements/\{agreementId\}/documents </td></tr><tr><td colspan="1" rowspan="1"> 利用規約の一覧 </td><td colspan="1" rowspan="1"> /agreements </td></tr><tr><td colspan="1" rowspan="3"> グループ </td><td colspan="1" rowspan="1"> グループの詳細情報 </td><td colspan="1" rowspan="1"> /groups/\{groupId\} </td></tr><tr><td colspan="1" rowspan="1"> グループの一覧 </td><td colspan="1" rowspan="1"> /groups </td></tr><tr><td colspan="1" rowspan="1"> ユーザー </td><td colspan="1" rowspan="1"> /groups/\{groupId\}/users </td></tr><tr><td colspan="1" rowspan="2"> ライブラリドキュメント </td><td colspan="1" rowspan="1"> ライブラリドキュメントの詳細情報 </td><td colspan="1" rowspan="1"> /libraryDocuments/\{libraryDocumentId\} </td></tr><tr><td colspan="1" rowspan="1"> ライブラリドキュメントの一覧 </td><td colspan="1" rowspan="1"> /libraryDocuments </td></tr><tr><td colspan="1" rowspan="3"> Megaサイン </td><td colspan="1" rowspan="1"> 利用規約 </td><td colspan="1" rowspan="1"> /megaSigns/\{megaSignId\}/agreements </td></tr><tr><td colspan="1" rowspan="1"> Megaサインの一覧 </td><td colspan="1" rowspan="1"> /megaSigns </td></tr><tr><td colspan="1" rowspan="1"> Megaサインの詳細情報 </td><td colspan="1" rowspan="1"> /megaSigns/\{megaSignId\} </td></tr><tr><td colspan="1" rowspan="2"> ユーザー </td><td colspan="1" rowspan="1"> ユーザーの一覧 </td><td colspan="1" rowspan="1"> /users </td></tr><tr><td colspan="1" rowspan="1"> ユーザーの詳細情報 </td><td colspan="1" rowspan="1"> /users/\{userId\} </td></tr><tr><td colspan="1" rowspan="4"> ウィジェット </td><td colspan="1" rowspan="1"> 利用規約 </td><td colspan="1" rowspan="1"> /widgets/\{widgetId\}/agreements </td></tr><tr><td colspan="1" rowspan="1"> ドキュメント </td><td colspan="1" rowspan="1"> /widgets/\{widgetId\}/documents </td></tr><tr><td colspan="1" rowspan="1"> ウィジェットの一覧 </td><td colspan="1" rowspan="1"> /widgets </td></tr><tr><td colspan="1" rowspan="1"> ウィジェットの詳細情報 </td><td colspan="1" rowspan="1"> /widgets/\{widgetId\} </td></tr><tr><td colspan="1" rowspan="2"> ワークフロー </td><td colspan="1" rowspan="1"> ワークフローの一覧 </td><td colspan="1" rowspan="1"> /workflows </td></tr><tr><td colspan="1" rowspan="1"> ワークフローの詳細情報 </td><td colspan="1" rowspan="1"> /workflows/\{workflowId\} </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Adobe Signアカウントに関連付けられているメールアドレスとパスワードが必要になります。
+
+
+</Accordion>
+<Accordion title="ログイン認証情報が保護されていることをどのようにして確認できますか？">
+
+
+OAuthプロセスを使用してログインが実行されるため、DomoでAdobe Signの認証情報が表示されたり保存されたりすることはありません。これにより、ログインの安全性が保たれます。Adobe Signアカウントに対するDomoのアクセス権限は、いつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて更新できます。
+
+
+</Accordion>
+<Accordion title="注意するべきAPI制限はありますか？">
+
+
+いいえ
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

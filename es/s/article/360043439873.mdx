@@ -1,0 +1,90 @@
+---
+title: "Versión de enero de 2019 1"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nuevas características y mejoras
+
+Las características y mejoras en esta versión incluyen lo siguiente:
+
+### Workbench 5
+
+Nos complace anunciar que ya se encuentra disponible una nueva versión de Workbench para descargarla. Además, todos los usuarios de Workbench 4 se migrarán automáticamente a Workbench 5, para ahorrar el inconveniente de tener que actualizar manualmente la instalación. (Si prefiere actualizar a Workbench 5 en otro momento, puede desactivar la actualización automática en **Más >** **Configuración > Actualizaciones** y desmarcar después la casilla en la que se lee **Instalar actualizaciones automáticamente**).
+
+En Workbench 5, puede saber si cada trabajo se ha ejecutado correctamente gracias a los nuevos diagramas de estado de los trabajos que aparecen directamente en la página de inicio (como se muestra a continuación). Mientras navega por la nueva interfaz de usuario, puede agregar, cambiar y comprobar todos los trabajos desde una única ubicación, para poder entrar y salir rápidamente y ponerse de nuevo manos a la obra. Además, si tiene algún problema, puede acceder a artículos de ayuda directamente desde Workbench, sin tener que salir de la herramienta.
+
+<Frame><img alt="workbench_5_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkF.png"/></Frame>
+Con Workbench 5, por fin dispondrá de la visibilidad de los trabajos que siempre ha deseado.
+
+Para obtener más información, consulte [Conexión a datos mediante Workbench 5](/s/topic/0TO5w000000ZapTGAS "Conexión a datos mediante Workbench 5").
+
+### Filtros de página en las páginas de resumen y favoritos
+
+Los filtros de página ahora están disponibles en las páginas de resumen y favoritos, para que todos los usuarios, con independencia de su nivel de permisos, puedan personalizar dichas páginas en función de sus propias necesidades.
+
+Para obtener más información sobre los filtros de página, consulte Aplicación de filtros a nivel de página.
+
+### Aceptación de la aprobación de contenido certificado por parte de grupos
+
+El contenido certificado ahora permite agregar grupos de Domo como aprobadores en la cadena de aprobación de cualquier proceso de certificación. Esto permite a los usuarios administradores habilitar la característica para adaptarse a los cambios organizativos, cubrir a los aprobadores en situación de excedencia y eliminar un sinfín de aprobaciones de certificación pendientes de que las atienda una sola persona. Con los pasos para la aprobación por parte de grupos, el contenido certificado precisa de menos mantenimiento de los usuarios administradores y, además, el contenido se puede certificar más rápido y con mayor eficacia.
+
+<Frame><img alt="certified_content_group_approval_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkK.png"/></Frame>
+Para obtener más información sobre la certificación de contenido, consulte [Certificación de contenido](/s/article/360043430613 "Certificación de contenido").
+
+### Asignaciones para solicitar certificaciones y descargar Workbench
+
+Se han agregado dos nuevos privilegios de usuario a nuestra lista de asignaciones disponibles para crear roles personalizados para los usuarios de Domo de la empresa. Estos son:
+
+* "Solicitar certificación". Permite a los usuarios enviar solicitudes de certificación de contenido.
+* "Descargar Workbench". Permite a los usuarios descargar Workbench de la página **Local** en Data Center.
+
+Estas asignaciones le permiten tener un mayor control de lo que se hace en su instancia de Domo y quién lo hace.
+
+Para obtener más información sobre las asignaciones y cómo crear nuevos roles personalizados, consulte [Administración de roles personalizados](/s/article/360043438973 "Administración de roles personalizados").
+
+### Fácil indexación en DataFlows de SQL (Lenguaje de consulta estructurado)
+
+La opción Fácil indexación en los DataFlows de SQL (Lenguaje de consulta estructurado) permite integrar índices de datos directamente en los DataFlows, lo que aumenta el rendimiento de los tiempos de ejecución del DataFlow.
+
+<Frame><img alt="easy_indexing_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkN.png"/></Frame>
+Tenga en cuenta que las transformaciones de índices existentes no se convierten automáticamente en nuevos índices. También debe considerar que la opción Fácil indexación solo es aplicable a DataFlows de MySQL, no a ETL (Extracción, transformación y carga) ni a Redshift.
+
+Para obtener más información, consulte [Creación de un DataFlow de SQL (Lenguaje de consulta estructurado)](/s/article/360042922994 "Creación de un DataFlow de SQL (Lenguaje de consulta estructurado)").
+
+### Exportación mejorada a PowerPoint
+
+Al exportar una página de tarjetas a PowerPoint, ahora aparece una barra de estado en la esquina inferior izquierda de la pantalla para indicar cuándo ha finalizado la exportación. Esto le permite seguir trabajando en Domo mientras se realiza la exportación, sin perder de vista el estado de la exportación.
+
+<Frame><img alt="improved_powerpoint_export_rn.png" src="/images/kb/ka05w00000129tz-00N5w00000Ri7BU-0EM5w000005vOkB.png"/></Frame>
+### Filtros de la API de JavaScript para Domo Everywhere
+
+La API de JavaScript para Domo Everywhere acelera significativamente el tiempo de carga cuando los filtros están aplicados a varias tarjetas integradas. En lugar de volver a cargar toda la página y filtrar cada tarjeta de forma secuencial, el contexto de la página se mantiene y las tarjetas se filtran simultáneamente. Esto reduce la fluctuación que puede interrumpir la experiencia del usuario con el portal o la aplicación donde están integradas las tarjetas. El cliente final puede guardar los estados de los filtros en las distintas sesiones de usuario para que Domo conserve las últimas vistas para futuros inicios de sesión.
+
+Para obtener más información, consulte la sección de la API del portal de desarrolladores de Domo en [https://developer.domo.com/manage-domo](https://developer.domo.com/manage-domo "https://developer.domo.com/manage-domo").
+
+## Otros anuncios
+
+### Redireccionamientos de URL en la Base de conocimientos
+
+Al hacer referencia a las páginas de la Base de conocimientos en otras aplicaciones, como el correo electrónico, ahora basta con usar las direcciones URL de las páginas, en lugar de las URL codificadas que aparecen en la parte superior de cada página. Estas URL codificadas se crearon para evitar la rotura de los vínculos utilizados externamente en el correo electrónico y otras aplicaciones cada vez que se movía una página o se le cambiaba el nombre. Ahora, sin embargo, se aplican los redireccionamientos automáticos de las páginas que se han movido o cuyo nombre se ha modificado, por lo que las URL codificadas ya no son necesarias. Por tanto, se eliminarán los recuadros de la parte superior de la página en los que se lee "Importante: Cuando haga referencia a esta página fuera de la Base de conocimientos, use este vínculo". Tenga en cuenta que todos los vínculos codificados existentes se conservarán en la Base de conocimientos, así que, si usa cualquiera de estos vínculos externamente, seguirán funcionando con normalidad.
+
+## Obtención de ayuda
+
+Puede ver la información más reciente de las notas de la versión en el Centro de ayuda, al que puede acceder desde Domo mediante un clic en <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> en la barra de navegación superior.
+
+Si tiene preguntas sobre Domo, puede realizar lo siguiente:
+
+* Busque un tema en el Centro de ayuda.
+* Capacítese en Domo University en
+  [http://university.domo.com](http://university.domo.com/ "http://university.domo.com")
+* Busque aplicaciones de capacitación en la AppStore.
+* Obtenga respuestas en la comunidad Domo en
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* Póngase en contacto con el equipo de soporte técnico mediante la introducción de un vale de ayuda en el Portal de soporte técnico de Domo o mediante el envío de un mensaje en Buzz a `/support`.
+* Comuníquese con su administrador de éxito del cliente o consultor técnico de Domo.
+
+Si tiene comentarios, envíelos desde Domo (**> Comentario**). O envíe un correo electrónico a [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Para obtener más información sobre cómo obtener ayuda, consulte [Obtención de ayuda](/s/article/360042922874 "Obtención de ayuda").
+

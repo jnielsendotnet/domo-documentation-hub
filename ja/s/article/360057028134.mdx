@@ -1,0 +1,40 @@
+---
+title: "Microsoft Azure Data Lake Gen2 SAS Token Writebackコネクター"
+---
+
+## はじめに
+
+Azure Data Lake Storage Gen2は、Azure Blob Storage上に構築されたビッグデータ分析専用の機能セットです。Azure Data Lake Storage Gen2は、既存の2つのストレージサービスであるAzure Blob storage とAzure Data Lake Storage Gen1の機能を統合したものです。DomoのAzure Data Lake Gen2 SAS Token Writebackコネクターを使用して、Domo DataSetからMicrosoft Azure Data Lake Gen2コンテナにデータをエクスポートします。Microsoft Azure Data Lake Gen2について、詳しくは [https://docs.microsoft.com/en-us/azu...ta-lake-store/](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction "https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction") を参照してください。
+
+Azure Data Lake Gen2へのデータのエクスポートはData Centerで行います。このトピックでは、Microsoft Azure Data Lake Gen2 Writebackコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターを設定するには、次の情報が必要です。
+
+* Microsoft Azure Data Lakeストレージのアカウント名
+* 共有アクセス署名（SAS）トークン
+
+## 接続を設定する
+
+このセクションでは、「 Azure Data Lake Gen2 SAS Token Writeback コネクター」ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、Azure Data Lakeファイルシステム（コンテナ）に接続するための認証情報を入力するフィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> アカウント名 </td><td colspan="1" rowspan="1"> Microsoft Azure Data Lake Storageアカウント名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 共有アクセス署名（SAS）トークン </td><td colspan="1" rowspan="1"> 共有アクセス署名トークンを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、 随時同じアカウントを使用して新しいDomo-Azure Data Lake Storage Gen2接続を設定できます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSet IDを入力 </p></td><td colspan="1" rowspan="1"><p> 選択したAzure Data Lake Storageファイルシステム（コンテナ）にコピーするDataSetのDataSet ID（GUID）を入力します。Data CenterでDataSetの詳細ビューを開き、URLのdatasources/に続く箇所で、IDを見つけることができます。例えば、URL <span class="nowiki"><span class="mt-font-courier-new"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span> では、DataSet ID は845305d8-da3d-4107-a9d6-13ef3f86d4a4です。 </p></td></tr><tr><td colspan="1" rowspan="1"> ファイルシステム名 </td><td colspan="1" rowspan="1"> ファイルをアップロードするファイルシステム名を入力します。ファイルシステムはお使いのファイルのコンテナとして機能します。 </td></tr><tr><td colspan="1" rowspan="1"> ファイル名を選択 </td><td colspan="1" rowspan="1"> DataSetの参照に <b><b><b><b><b><b><b><b> ［DataSet IDを入力］ </b></b></b></b></b></b></b></b> を使用するか、出力ファイル名を使用するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ファイル名 </td><td colspan="1" rowspan="1"> データの出力ファイル名を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

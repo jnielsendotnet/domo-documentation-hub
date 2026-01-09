@@ -1,0 +1,95 @@
+---
+title: "Dropbox File Advancedコネクター"
+---
+
+## はじめに
+
+Dropboxは、ファイル共有やコラボレーションによく使用されるパーソナルクラウドストレージサービスです。DomoのDropbox File Advancedコネクターを使用すると、選択したDropboxアカウントからCSV、XLS、XLSX、JSON、XML、ZIPファイルを取得できます。Dropbox APIについて詳しくは、Webサイト（ [https://www.dropbox.com/developers](https://www.dropbox.com/developers "https://www.dropbox.com/developers") ）を参照してください。
+
+このコネクターは、CSV、XLS、XLSX以外にJSON、XML、ZIPファイルをインポートできるという点で標準のDropbox Fileコネクターとは異なります。また、ファイルを見つけるためのフィルターオプションの数も多くなっています。標準のDropbox Fileコネクターについて詳しくは、「 [Dropbox Fileコネクター](/ja/s/article/360042931974 "Dropbox Fileコネクター") 」を参照してください。
+
+Dropboxアカウントには、Data Centerから接続します。このトピックでは、Dropbox File Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Dropboxアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Dropboxアカウントにアクセスするために入力するメールアドレス。
+* Dropboxパスワード。
+
+## Dropboxアカウントに接続する
+
+このセクションでは、Dropbox File Advancedコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのDropbox File Advancedコネクターは接続にOAuthを使用しています。 **［接続］** をクリック（またはDomoに既存のDropboxアカウントがある場合は **［アカウントを追加］** を選択）して、DropboxのOAuth画面を開き、Dropboxアカウントに紐付いたメールアドレスとDropboxのパスワードを入力します。有効なDropbox認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDropbox File Advanced DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にDropboxにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずDropboxからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインでは、DomoにインポートするDropboxファイルの名前とファイルタイプを指定し、その他の様々なオプションを設定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ファイルタイプ </p></td><td colspan="1" rowspan="1"><p> インポートするファイルのファイルタイプを選択します。CSV、XLS、XLSX、XML、JSON、ZIPファイルのインポートを選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名 </p></td><td colspan="1" rowspan="1"><p> DropboxからDomoにインポートするファイルの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> マッチタイプ </p></td><td colspan="1" rowspan="1"><p><b><b> ［ファイル名］ </b></b> フィールドに入力したファイル名が、特定の文字列を <em><em> 含む </em></em> か、指定した文字列で <em><em> 始まる </em></em> か、または特定の文字列と <em> 完全に一致する </em> かのいずれかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レイアウト </p></td><td colspan="1" rowspan="1"><p> Excelファイルのレイアウトを選択します。使用可能なオプションは次のとおりです。 </p><ul><li><p><b><b> 列をヘッダーとして使う </b></b> 。Excelデータに列ベースのレイアウトを使用します（つまり、各列がヘッダーを持ちます）。 </p></li><li><p><b><b> 行をヘッダーとして使う </b></b> 。Excelデータに行ベースのレイアウトを使用します（つまり、各行がヘッダーを持ちます）。 </p></li><li><p><b><b> クロス集計 </b></b> 。Excelデータにクロス集計（ピボット）レイアウトを使用します。 </p></li><li><p><b><b> 未加工 </b></b> 。Excelデータを未加工（フォーマットなし）で使用します。 </p></li><li><p><b><b> 高度 </b></b> 。ヘッダーおよびデータの開始行、スキップするフッター行、および日付形式などの高度なレイアウトオプションを設定する場合に、このオプションを使用します。 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> モード </p></td><td colspan="1" rowspan="1"><p> Excelのセル範囲を自動的に検出するか、セル範囲を手動で入力するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 列/行のヘッダーの範囲 </p></td><td colspan="1" rowspan="1"><p> ヘッダーとして使用するExcelセルの範囲を入力します（例： <span class="mt-font-courier-new"> A2:F8 </span> ）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データの範囲 </p></td><td colspan="1" rowspan="1"><p> データとして使用するExcelセルの範囲を入力します（例： <span class="mt-font-courier-new"> A3:F20 </span> ）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シート名 </p></td><td colspan="1" rowspan="1"><p> インポートするデータを含むExcelシートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フォルダからファイルを選択しますか？ </p></td><td colspan="1" rowspan="1"><p> Dropboxのフォルダ内にファイルがある場合は、 <b> ［はい］ </b> を選択します。 <b> ［フォルダ名］ </b> フィールドにフォルダ名を入力するよう求められます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フォルダ名 </p></td><td colspan="1" rowspan="1"><p> インポートするファイルを含むフォルダの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 圧縮ファイルタイプ </p></td><td colspan="1" rowspan="1"><p> 取得したい圧縮データファイルのファイルタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 圧縮ファイルを検索するのに使うファイル名 </p></td><td colspan="1" rowspan="1"><p> 取得する圧縮ファイル名を入力します。 </p></td></tr></tbody></table>
+
+### ［高度］ペイン - XLSおよびXLSX
+
+このペインでは、Excelファイルについて高度なオプションを設定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> ヘッダー開始行（オプション） </p></td><td colspan="1" rowspan="1"><p> ヘッダー行番号を入力します。番号を入力しない場合、最初の行がヘッダー行とみなされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データ開始行（オプション） </p></td><td colspan="1" rowspan="1"><p> 開始行番号を入力します。番号を入力しない場合、ヘッダー行に続く最初の行が開始行とみなされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フッター（オプション） </p></td><td colspan="1" rowspan="1"><p> ファイルの終わりの行でインポートしたくないものがある場合は、スキップする行数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（メニュー） </p></td><td colspan="1" rowspan="1"><p> インポートするファイルが一般的でないエンコーディングタイプを含む場合、 <b> ［はい］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（フィールド） </p></td><td colspan="1" rowspan="1"><p> 特定ファイルのエンコーディングを入力します。これは、標準フォーマットになっている必要があります。西欧の場合は <span class="mt-font-courier-new"> ISO-8859-1 </span> 、中国の場合は <span class="mt-font-courier-new"> GB18030 </span> などです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 空白行 </p></td><td colspan="1" rowspan="1"><p> Excelファイルに空白行が見つかった場合に、希望する結果を選択します。 <b><b> ［空白行をスキップ］ </b></b> を選択すると、空白行なしで通常どおりファイルが処理されます。 <b><b> ［最初の空白行で停止］ </b></b> を選択すると、最初の空白行まですべて取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 空白の列ヘッダー </p></td><td colspan="1" rowspan="1"><p> Excelファイルに空白の列ヘッダーが見つかった場合に、希望する結果を選択します。 <b><b> ［空白列 </b></b><b><b> を追加］ </b></b> を選択すると、デフォルトの名前で新しい列が生成されます。 <b><b> ［最初の空白列で停止］ </b></b> を選択すると、空白のヘッダーがある最初の列まですべて取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の形式 </p></td><td colspan="1" rowspan="1"><p> Excelデータで使う日付形式を選択します。日付をテキストで表すときは <b><b> ［日付を文字列として表示］ </b></b> を選択します。 </p></td></tr></thead></table>
+
+### ［高度］ペイン - CSV
+
+このペインでは、CSVファイルについて高度なオプションを設定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> ヘッダー開始行（オプション） </p></td><td colspan="1" rowspan="1"><p> ヘッダー行番号を入力します。番号を入力しない場合、最初の行がヘッダー行とみなされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データ開始行（オプション） </p></td><td colspan="1" rowspan="1"><p> 開始行番号を入力します。番号を入力しない場合、ヘッダー行に続く最初の行が開始行とみなされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フッター（オプション） </p></td><td colspan="1" rowspan="1"><p> ファイルの終わりの行でインポートしたくないものがある場合は、スキップする行数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（メニュー） </p></td><td colspan="1" rowspan="1"><p> インポートするファイルが一般的でないエンコーディングタイプを含む場合、 <b> ［はい］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（フィールド） </p></td><td colspan="1" rowspan="1"><p> 特定ファイルのエンコーディングを入力します。これは、標準フォーマットになっている必要があります。西欧の場合は <span class="mt-font-courier-new"> ISO-8859-1 </span> 、中国の場合は <span class="mt-font-courier-new"> GB18030 </span> などです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 空白の列ヘッダー </p></td><td colspan="1" rowspan="1"><p> CSVファイルに空白の列ヘッダーが見つかった場合に、希望する結果を選択します。 <b><b> ［空白列 </b></b><b><b> を追加］ </b></b> を選択すると、デフォルトの名前で新しい列が生成されます。 <b><b> ［最初の空白列で停止］ </b></b> を選択すると、空白のヘッダーがある最初の列まですべて取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の形式 </p></td><td colspan="1" rowspan="1"><p> CSVデータで使う日付形式を選択します。日付をテキストで表すときは <b><b> ［日付を文字列として表示］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 区切り文字 </p></td><td colspan="1" rowspan="1"><p> CSVファイルを解析するために使用する区切り文字を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 引用文字 </p></td><td colspan="1" rowspan="1"><p> CSVファイルを解析するために使用する引用文字を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エスケープ文字 </p></td><td colspan="1" rowspan="1"><p> CSVファイルを解析するために使用するエスケープ文字を選択します。 </p></td></tr></thead></table>
+
+### ［高度］ペイン - JSON
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> JSONテキストは、行のリーダーを必要としますか？ </p></td><td colspan="1" rowspan="1"><p> 読み込む行がJSONテキストに複数ある場合は、 <b><b> ［はい］ </b></b> を選びます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> バックスラッシュは、エスケープする必要がありますか？ </p></td><td colspan="1" rowspan="1"><p> エスケープする必要のあるバックスラッシュがJSONテキストにある場合は、 <b><b> ［はい］ </b></b> を選びます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ヘッダータグ（オプション） </p></td><td colspan="1" rowspan="1"><p> JSONテキストのヘッダーのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データタグ（オプション） </p></td><td colspan="1" rowspan="1"><p> JSONテキストのデータのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 除外するフィールド（オプション） </p></td><td colspan="1" rowspan="1"><p> JSONインポートから除外するフィールドを、カンマ区切りのリストとして指定します。 </p></td></tr></thead></table>
+
+### ［高度］ペイン - XML
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> データタグ </p></td><td colspan="1" rowspan="1"><p> XMLテキストのデータのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データに属性を必要としますか？ </p></td><td colspan="1" rowspan="1"><p> 属性値が必要な場合に、 <b> ［はい］ </b> を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 除外するフィールド（オプション） </p></td><td colspan="1" rowspan="1"><p> XMLインポートから除外するフィールドを、カンマ区切りのリストとして指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> XPath式を入力（オプション） </p></td><td colspan="1" rowspan="1"><p> ワールドワイド・ウェブ・コンソーシアムにより定義された標準XPath構文を使って、XPathクエリを入力します。（ <a href="http://www.w3.org/TR/2014/REC-xpath-30-20140408/)" target="_blank"> http://www.w3.org/TR/2014/REC-xpath-30-20140408/ </a> ） </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（メニュー） </p></td><td colspan="1" rowspan="1"><p> インポートするファイルが一般的でないエンコーディングタイプを含む場合、 <b> ［はい］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エンコーディングを手動で入力（フィールド） </p></td><td colspan="1" rowspan="1"><p> 特定ファイルのエンコーディングを入力します。これは、標準フォーマットになっている必要があります。西欧の場合は <span class="mt-font-courier-new"> ISO-8859-1 </span> 、中国の場合は <span class="mt-font-courier-new"> GB18030 </span> などです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の形式 </p></td><td colspan="1" rowspan="1"><p> CSVデータで使う日付形式を選択します。日付をテキストで表すときは <b><b> ［日付を文字列として表示］ </b></b> を選択します。 </p></td></tr></thead></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# Dropbox認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスにはOAuthプロセスが使用されるため、DomoによりDropboxの認証情報が表示または保存されることはありません。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# このコネクターと標準バージョンとの違いは何ですか？">
+
+
+Dropbox Fileコネクターでは、CSV、XLS、XLSXファイルのみインポートできますが、Dropbox File Advancedコネクターでは、JSON、XML、ZIPもインポートできます。Dropbox File Advancedコネクターでは、ファイルからデータをインポートするための高度なフィルターも使用できます。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,64 @@
+---
+title: "国別マップ"
+---
+
+## はじめに
+
+Domoでは、各国の州、省、県のデータを示すマップを追加できます。
+
+国別マップでは、DataSetから2つのデータの列または行のみを必要とします。
+
+1. 1つの列または行には、州、省、県の名称（特定の国の場合は略称）が含まれ、もう1つにはそれらの各地域の値が含まれています。
+2. 各地域の値。
+
+これらの値は、異なる色合いでマップに表示され、各色は特定の範囲に対応しています。範囲はDataSet内の値の分布にもとづいて自動的に決定され、マップの横に自動的に挿入される凡例として表示されます。
+
+値、カテゴリー、系列データの詳細については「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+<Note>
+  **注記：** DataSetに同じ地域の複数の値が含まれている場合、その値の合計が単一値として表示されます。例えば、DataSetに「ジョージア」が3行分含まれていた場合、それらの行の数値が合計され、マップ上のジョージア地域にはその合計値が表示されます。マップのこの自動集計機能をオフにすることは *できません* 。
+
+</Note>
+
+## 国別マップを作成する
+
+**Analyzer** で、マップのデータを含む列を選択します。
+
+以下の図は、典型的な列ベースのスプレッドシートのデータがどのように米国のマップに変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123yl-00N5w00000Ri7BU-0EM5w000005vWFA.png" style={{width: 624, height: 684}}/></Frame>
+データ列の選択について詳しくは、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+## 国別マップをカスタマイズする
+
+国別マップの外観は、 **［チャートの設定］** を編集することでカスタマイズできます。次の表に、カスタマイズオプションを示します。サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［テーマ］&gt;［色のテーマ］ </p></td><td colspan="1" rowspan="1"><p> マップの色のテーマを変更できます。色の設定の詳細については、「 <a href="/s/article/360043429653" target="_self" title="チャートのデフォルトの色を変更する"> チャートのデフォルトの色を変更する </a> 」を参照してください。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［バランスのとれた分布］ </p></td><td colspan="1" rowspan="1"><p> 各範囲にバランスのとれた数のアイテムが含まれるようにマップを調整します。これは、データに極端な異常値が含まれている場合に、各範囲に値を分散するのに役立ちます。 </p><p> 右のスクリーンショットの2つのマップは、 <b> バランスのとれた分布 </b> の効果を示しています。これらのマップでは、カナダの州のほとんどの値は100から1,500の範囲にあります。アルバータ州が外れ値で、10,000の値になっています。 <b> ［バランスのとれた分布］ </b> は上のマップではオンにされていないので、データの歪んだバージョンが示され、アルバータ州は暗く表示され、ほかのすべての州は明るく表示されています。 </p><p> 下のマップでは <b> ［バランスのとれた分布］ </b> がオンになっているため、アルバータ州は次に高い値の州と同じようにグループ化されます。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/113/balanced_distribution_off.png"><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1n.png"/></a></p><p><a target="_blank" title="/@api/deki/files/114/balanced_distribution_on.png"><img alt="" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1u.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［自動的にデータにズームする］ </p></td><td colspan="1" rowspan="1"><p> データがあるマップの地域にズームインします。右の例では、データのある州はユタ、アリゾナ、コロラド、ニューメキシコのみであるため、マップはこれらの州を自動的にズームします。このオプションは、データのあるすべての地域が隣接している場合にのみ使用できます。例えば、右のマップにオレゴン州にデータがあると表示された場合、オレゴン州はデータのあるほかの州に隣接していないため、自動ズームは機能しません。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5247/map_auto_zoom_to_data.png"><img alt="map_auto_zoom_to_data.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP28.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［データのないアイテムを隠す］ </p></td><td colspan="1" rowspan="1"><p> マップにデータのないすべてのアイテムを非表示にします。右の例では、データのある州はユタ、アリゾナ、コロラド、ニューメキシコのみであるため、マップはほかのすべての州を非表示にします。［自動的にデータにズームする］プロパティとは異なり、ほかの地域に隣接しない地域がある場合でも機能します。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5246/map_hide_no_data_items.png"><img alt="map_hide_no_data_items.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1s.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［短縮された凡例は非表示］ </p></td><td colspan="1" rowspan="1"><p> 一部のビューで、マップの下部に表示される凡例を非表示にします。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［最大値を上書きする］ </p></td><td colspan="1" rowspan="1"><p> マップまたはヒートマップの最大値を指定できます。 </p><p> Domoのデフォルトでは、DataSetで最も大きい値が最大値として使用されます。このプロパティを設定することで、値を上書きできます。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［凡例の吹き出し］&gt;［凡例を非表示］ </p></td><td colspan="1" rowspan="1"><p> 詳細ビューのマップの右側に通常表示される凡例を非表示にします。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［凡例の吹き出し］&gt;［合計を非表示にする］ </p></td><td colspan="1" rowspan="1"><p> 詳細ビューのマップの右側に表示される凡例の「合計」セクションを非表示にします。この例は、これが行われたマップを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5251/map_data_labels_hide_total.png"><img alt="map_data_labels_hide_total.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP24.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［凡例の吹き出し］&gt;［値を非表示にする］ </p></td><td colspan="1" rowspan="1"><p> 詳細ビューのマップの右側に表示される凡例の値と合計値の割合（％）を非表示にします。この例は、これが行われたマップを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5252/map_data_labels_hide_values.png"><img alt="map_data_labels_hide_values.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1x.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［テキスト］ </p></td><td colspan="1" rowspan="1"><p> データラベルに使用するテキストを指定します。このプロパティはデータラベルの「オンスイッチ」であり、表示するためにテキストを指定しなければなりません。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［フォントサイズ］ </p></td><td colspan="1" rowspan="1"><p> データラベルのフォントサイズを増減します。［デフォルト］フォントサイズは、最大フォントサイズと2番目に小さいフォントサイズの間になります。詳細については、「 <a href="/s/article/360042925214" target="_blank" title="チャートのフォントサイズを変更する"> チャートのフォントサイズを変更する </a> 」を参照してください。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［テキストの色］ </p></td><td colspan="1" rowspan="1"><p> マップデータラベルのテキストの色を決定します。［デフォルト］を選択すると、背景色にもとづいて自動的に色が決定されます。右の例では、暗い背景のデータラベルが白く表示され、明るい背景のデータラベルが暗い赤色で表示されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5254/map_data_labels_text_color.png"><img alt="map_data_labels_text_color.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1o.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［値の略称］ </p></td><td colspan="1" rowspan="1"><p> データラベル値を短縮するかどうかを指定します（デフォルトは有効桁数3桁です）。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［塗りつぶし］ </p></td><td colspan="1" rowspan="1"><p> マップデータラベルに色の塗りつぶしを追加します。右の例は、透明度60％の淡い青色の塗りつぶしが追加されたチャートを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5253/map_data_labels_fill.png"><img alt="map_data_labels_fill.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1l.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［塗りつぶしの色］ </p></td><td colspan="1" rowspan="1"><p> マップデータラベルの塗りつぶしの色を指定します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［データラベルの設定］&gt;［塗りつぶしの透明度の割合］ </p></td><td colspan="1" rowspan="1"><p> マップデータラベルの塗りつぶしの透明度を指定します。0～100の任意の数を指定できます。0は完全に不透明であることを示し、100は完全に透明であることを示します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［ホバーテキスト］&gt;［吹き出しテキスト］ </p></td><td colspan="1" rowspan="1"><p> マップの吹き出しで表示するテキストを設定します。マップの数値を吹き出しに表示する様々なマクロが利用可能です。利用可能なマクロに関する詳細とリストは、「 <a href="/s/article/360043429693" target="_blank" title="チャートのデータラベルとホバーテキストをフォーマットする"> チャートのデータラベルとホバーテキストをフォーマットする </a> 」を参照してください。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［ホバーテキスト］&gt;［常時マップ上に表示］ </p></td><td colspan="1" rowspan="1"><p><b> ［ホバーテキスト］ </b> オプションを使用して指定したホバーテキストをチャートでオンにするかどうかを指定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［値］&gt;［ラベルの書式］ </p></td><td colspan="1" rowspan="1"><p> マップ内のホバーテキストと凡例アイテムの一般的な数値フォーマットを決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［値］&gt;［小数位］ </p></td><td colspan="1" rowspan="1"><p> マップ内のホバーテキストと凡例アイテムの小数の値で使用される、小数位の数を決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［値］&gt;［マイナスの数値］ </p></td><td colspan="1" rowspan="1"><p> マップ内のホバーテキストと凡例アイテムのマイナスの数値のフォーマットを決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"> ［都市］&gt;［都市］ </td><td colspan="1" rowspan="1"><p> 都市と都市名をマップに表示するかどうかを示します。マップを拡大すると、より多くの都市が表示されます。 </p><p> 右に表示された最初の例は、「拡大していない」米国のマップを示しています。テキサス州には2つの都市しか表示されていません。2番目の例では、テキサス州のみを表示するようにマップを拡大し、さらに多くの都市が表示されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5442/country_map_with_cities.png"><img alt="country_map_with_cities.png" src="/images/kb/ka05w00000123xT-00N5w00000Ri7BU-0EM5w000005vWF2.png"/></a></p><p></p><p><a target="_blank" title="/@api/deki/files/5441/country_map_with_cities_zoomed.png"><img alt="country_map_with_cities_zoomed.png" src="/images/kb/ka05w00000123xT-00N5w00000Ri7BU-0EM5w000005vWEv.png"/></a></p></td></tr></tbody></table>
+
+すべてのチャートタイプのプロパティは、「 [チャートのプロパティ](/s/topic/0TO5w000000ZaodGAC "チャートの設定") 」でリスト化され、説明されています。
+
+**動画 - マップチャート**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/ahzrs6FI3uk" width="560"></iframe>
+
+Domoのデフォルトの地図リストにない国の地図を使う場合は、カスタムチャートとして追加できます。詳細については、「 [カスタムチャート](/s/article/360042924454 "カスタムチャート") 」を参照してください。
+
+世界マップに関する詳細は、「 [緯度経度マップ](/s/article/360043429213 "世界マップ") 」を参照してください。
+
+問題が発生している場合は、「 [Domoのトラブルシューティング](/s/article/360043427473 "トラブルシューティング") 」を参照してください。
+
+## その他のマップオプション
+
+米国の州別マップや経度緯度マップで米国内の市が表示されているものでは、同じマップにドリルダウンして「ズームした」ドリルレイヤーを作成することができます。
+
+例えば、州ごとに数値が表示されている緯度経度マップに、同じマップをドリルレイヤーとして追加することで、国レベルのマップのどこかをクリックすると州や地域レベルにズームインし、その部分の元のデータポイントがすべて表示されます。
+
+この方法を使用して得られる結果は、マップの種類、DataSet、適用される列によって異なります。
+
+チャートへのドリルレイヤーの追加に関しては、「 [緯度経度マップ](/s/article/360043429213 "チャートにドリルパスを追加する") 」を参照してください。
+
+## Domoにほかのマップを追加する
+
+Domoで未対応の国のマップをインストールするには、 [http://www.amcharts.com/svg-maps/](http://www.amcharts.com/svg-maps/ "http://www.amcharts.com/svg-maps/") や [https://simplemaps.com/resources/svg-maps](https://simplemaps.com/resources/svg-maps "https://simplemaps.com/resources/svg-maps") などからダウンロードできます。こうしたウェブサイトはたくさんあります。これらのサイトは、仏領ギアナやアルバなど、海外の領地も掲載しています。このようなマップをダウンロードしたら、そのマップをそのままDomoにアップロードできます。XMLを編集する必要はありません（マップ内を分割しない場合）。マップをDomoにアップロードし、独自のカスタムマップを作成する方法については、「 [カスタムチャート](/s/article/360042924454 "カスタムチャート") 」を参照してください。
+
+日本語

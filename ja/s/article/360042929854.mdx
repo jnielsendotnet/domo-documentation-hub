@@ -1,0 +1,48 @@
+---
+title: "Lithium Advancedコネクター"
+---
+
+## はじめに
+
+Lithium Technologiesは、エンタープライズ企業向けに、ソーシャルカスタマーエクスペリエンスの管理ソフトウェアを提供しています。Lithium APIの詳細については、Lithiumのウェブサイト（ [https://devdocportal.lithium.com/t5/Community-API-v2-Reference/bd-p/restv2docs](https://devdocportal.lithium.com/t5/Community-API-v2-Reference/bd-p/restv2docs "https://devdocportal.lithium.com/t5/Community-API-v2-Reference/bd-p/restv2docs") ）を参照してください。
+
+Lithiumコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+これは、Lithiumコネクターの標準バージョンです。より多くのレポートと構成オプションを含む高度なバージョンもあります。
+
+Lithiumアカウントには、 Data Center から接続します。このトピックでは、Lithiumコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ユーザーコミュニティの管理とアクティビティ </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 最も多く賞賛を受けたユーザー </p></li><li><p> 浮上したスレッド </p></li><li><p> 登録ユーザー </p></li><li><p> 訪問ユーザー </p></li><li><p> ソリューションがある投稿の数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コミュニティの権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1～2時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Lithiumアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Lithiumアカウントのログインに使用するユーザー名とパスワード
+* LithiumインスタンスのサーバーURL。例：
+
+  https://community.company.com
+
+## Lithiumアカウントに接続する
+
+このセクションでは、Lithiumコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Lithiumアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Lithiumアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Lithiumアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Base URL </p></td><td colspan="1" rowspan="1"><p> LithiumインスタンスのサーバーURLを入力します。例： <span class="nowiki"><span class="mt-font-courier-new"><a href="https://community.company.com" rel="noopener" target="_blank"> https://community.company.com </a></span></span></p></td></tr></tbody></table>
+
+有効なLithium認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいLithium DataSetを作成することができます。コネクターアカウントは、 **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、レポートを選択できるメインメニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューやフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Lithiumレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> List of Registered Users </p></td><td colspan="1" rowspan="1"><p> コミュニティ内の登録ユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Registered Users </p></td><td colspan="1" rowspan="1"><p> コミュニティ内の登録ユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Visiting Users </p></td><td colspan="1" rowspan="1"><p> 指定期間内にコミュニティを訪問したユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Solutions </p></td><td colspan="1" rowspan="1"><p> コミュニティ全体のソリューションの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Kudos </p></td><td colspan="1" rowspan="1"><p> コミュニティ全体の賞賛数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Posts </p></td><td colspan="1" rowspan="1"><p> 1つ以上のボードの投稿数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Replies from a User </p></td><td colspan="1" rowspan="1"><p> ユーザーからの返信の数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Metrics for the Entire Community </p></td><td colspan="1" rowspan="1"><p> コミュニティのメトリクス（ボードの閲覧数、メッセージの閲覧数、送信されたサブスクリプション、浮上したスレッド）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Metrics for a Board </p></td><td colspan="1" rowspan="1"><p> 特定のボードのメトリクス（ネスト化されたボードの閲覧数、メッセージの閲覧数、送信されたサブスクリプション、浮上したスレッド）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Metrics for a Category </p></td><td colspan="1" rowspan="1"><p> 特定のカテゴリーのメトリクス（ネスト化されたボードの閲覧数、メッセージの閲覧数、送信されたサブスクリプション、浮上したスレッド）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Posts </p></td><td colspan="1" rowspan="1"><p> コミュニティの投稿のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of all posts in the chosen board(s) </p></td><td colspan="1" rowspan="1"><p> 選択したボードのすべての投稿のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Solutions </p></td><td colspan="1" rowspan="1"><p> すべてまたは選択したボードで認められたソリューションリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Leaderboard of Kudos Authors </p></td><td colspan="1" rowspan="1"><p> 最も多く賞賛を受けたユーザーのリストを返します。注記：ランキングをコミュニティで有効にする必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of Escalated Threads </p></td><td colspan="1" rowspan="1"><p> コミュニティ内で浮上したスレッドのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Replies in the Community </p></td><td colspan="1" rowspan="1"> コミュニティ内の返信の数を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Custom Report URL </p></td><td colspan="1" rowspan="1"> カスタマイズされたレポートのURLを返します。 </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Period </p></td><td colspan="1" rowspan="1"><p> レポートデータの期間を選択します。 <b> ［All］ </b> を選択すると、利用できるデータがすべて表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> 今日から何日前までのデータを取得したいかを入力します。例えば、「 <code> 30 </code> 」と入力した場合、レポートは過去30日分のデータを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> All or Specific Boards </p></td><td colspan="1" rowspan="1"><p> レポートに、ボードすべてを表示するか、特定のボードのみを表示するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boards </p></td><td colspan="1" rowspan="1"><p> データを取得したいボードを選択します。 </p><div></div></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

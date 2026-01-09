@@ -1,0 +1,80 @@
+---
+title: "Oracle Autonomous Data Warehouse Cloudコネクター"
+---
+
+## はじめに
+
+Oracle Autonomous Data Warehouse Cloud (Oracle ADWC)は、フルマネージドの高機能で柔軟なデータウェアハウスサービスです。DomoのOracle ADWCコネクターを使用すると、Oracle Data Warehouseからデータを取得し、カスタムレポートを編集できます。Oracle ADWCについて詳しくは、Webサイト（ [https://cloud.oracle.com/en\_US/datawarehouse](https://cloud.oracle.com/en_US/datawarehouse "https://cloud.oracle.com/en_US/datawarehouse") ）をご覧ください。
+
+Oracle ADWCアカウントには、Data Centerから接続します。このトピックでは、Oracle ADWCコネクターユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Oracle ADWCアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* 接続するサービスの名前。サービス名は接続ウォレット内の
+  tnsnames.ora ファイルにあります。各サービス名は、 tnsnames.ora の各エントリーの中の「 = 」の左側にあるテキストです。
+
+  <Note>
+  **注記：** エントリーには **service\_name** という名のフィールドが含まれている場合があります。これは、提供される必要のあるOracleサービスでは *ありません* 。
+
+  </Note>
+
+  例えば、次のエントリーのOracleサービスは、 adw\_high です。
+    
+  `adw_high = (description= (address=(protocol=tcps)(port=1522)(host= adb.us-phoenix-1.oraclecloud.com ))(connect_data=(service_name=qfd8c2d8u4sdf_adw_high. adwc.oraclecloud.com )))`
+* Oracle Databaseのユーザー名とパスワード
+* Base64エンコードされたウォレットファイル。このファイルはOracle ADWCコンソールからダウンロードできます。ウォレットファイルをエンコードするには、コマンドラインを使って圧縮されたウォレットファイルのディレクトリーに移動します。オペレーティングシステムに対応するコマンドを実行し、
+  wallet.zip を次のウォレットファイル名に置き換えます：
+    
+  Windows: certutil -encode wallet.zip encoded\_wallet.txt
+    
+  、Mac/Linux: base64 -i wallet.zip -o encoded\_wallet.txt
+    
+  。これは、 encoded\_wallet.txt という名のテキストファイルを生成します。このファイルを開いてテキストをすべてコピーします。テキストを **Base64エンコードウォレット** のフィールドに貼り付けます。
+
+### ホワイトリスト化
+
+Oracle Databaseに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリスト化する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+## Oracle ADWC Databaseに接続する
+
+このセクションでは、Oracle Databaseコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Oracle ADWC Databaseに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Oracleサービス </p></td><td colspan="1" rowspan="1"><p> 接続するOracleサービスの名前を入力します。サービスの場所についての詳細は、上記の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Databaseユーザー名 </p></td><td colspan="1" rowspan="1"><p> Oracle Databaseのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Databaseパスワード </p></td><td colspan="1" rowspan="1"><p> Oracle Databaseのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Base64エンコードウォレット </p></td><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> encoded_wallet.txt </span> ファイルからコピーしたテキストを入力します。このファイルを生成する方法については、上記の「必要条件」を参照してください。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOracle ADWC DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、Oracle Databaseからデータを取得するために使用するSQLクエリを入力します。オプションで、特定の表とその表の列を指定してDomoに移動することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> データを取得するために使用するSQLクエリを入力します。 <b> クエリヘルパー </b> パラメーターを使って、使用可能なSQLクエリを記述できます。 <b> クエリヘルパー </b> を使用するには、以下を行います。 </p><ol><li><p> データベース表と表の列を適切なメニューで選択します。 </p></li><li><p><b> ［クエリヘルパー］ </b> フィールドに表示されるSQLステートメントをコピーします。 </p></li><li><p> コピーしたSQLステートメントを <b> ［クエリ］ </b> フィールドに貼り付けます。 </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース表（オプション） </p></td><td colspan="1" rowspan="1"><p> 必要に応じて、Domoにロードするデータベース表を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 表の列（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに取り込む表の列を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリヘルパー（オプション） </p></td><td colspan="1" rowspan="1"><p> （オプション）このフィールドのSQLステートメントをコピーして、 <b> ［クエリ］ </b> フィールドに貼り付けます。詳細は、上記の「 <b> クエリ </b> 」を参照してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# ウォレットファイルはどのようにして見つけ、アップロードしますか？">
+
+
+このページ上部の「必要条件」を参照してください。
+
+
+</Accordion>
+<Accordion title="# 接続するサービスを探すにはどうしたらよいですか？">
+
+
+このページ上部の「必要条件」を参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

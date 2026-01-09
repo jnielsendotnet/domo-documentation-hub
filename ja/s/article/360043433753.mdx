@@ -1,0 +1,102 @@
+---
+title: "CallRailコネクター"
+---
+
+## はじめに
+
+CallRailは、通話追跡を行うコールアナリティクスサービスを提供しています。CallRail APIの詳細については、ウェブサイト（ [http://apidocs.callrail.com/](http://apidocs.callrail.com/ "http://apidocs.callrail.com/") ）を参照してください。
+
+CallRailアカウントには、Data Centerから接続します。このトピックでは、CallRailコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+CallRailアカウントに接続しDataSetを作成するには、CallRail APIキーが必要です。APIキーを取得するには、以下を実行します。
+
+1. CallRailアカウントにログインします。
+2. CallRailダッシュボードで、右上の
+   **［My Account］>［Account］** を選択します。
+3. **［API Access］**
+   を選択します。
+4. 右上の
+   **［Add API Key］** をクリックします。
+
+表に、CallRail APIキーが表示されます。
+
+## CallRailアカウントに接続する
+
+このセクションでは、CallRailコネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、CallRailアカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> CallRail APIキーを入力します。APIキーを取得する方法については、上述の「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効なCallRail認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいCallRail DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するCallRailレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> All Conversations </td><td colspan="1" rowspan="1"> すべてのチャットを返します。チャットオブジェクトには最新の2つのメッセージが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"> ターゲットアカウント内のすべてのコールの一覧を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Companies </td><td colspan="1" rowspan="1"> ターゲットアカウントに関連付けられているすべての会社を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Form Submissions </td><td colspan="1" rowspan="1"> ターゲットアカウントに関連付けられているすべての送信済みフォームを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Notifications </td><td colspan="1" rowspan="1"> ターゲットアカウント内の通知を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Outbound Caller IDs </td><td colspan="1" rowspan="1"> ターゲット企業内のすべての発信者番号を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data </td><td colspan="1" rowspan="1"> エージェンシーまたは企業でまとめられたコールデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data by Time Series </td><td colspan="1" rowspan="1"> 日付別にグループ化された、アカウントまたは企業で集計したコールデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Summary Email Subscriptions </td><td colspan="1" rowspan="1"> ターゲットアカウントまたは企業のサマリーメールを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"> ターゲットアカウント内のタグを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Trackers </td><td colspan="1" rowspan="1"> ターゲットアカウントに関連付けられているすべてのトラッカーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> ターゲットアカウント内のユーザーを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account ID </p></td><td colspan="1" rowspan="1"><p> データを取得するアカウントを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company ID </p></td><td colspan="1" rowspan="1"><p> データを取得する会社を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> データを取得するユーザーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group By </p></td><td colspan="1" rowspan="1"><p> レポートのデータをグループ化するカテゴリ（キャンペーン別、会社別など）を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields </p></td><td colspan="1" rowspan="1"><p> 「Summarizing Call Data by Time Series」レポートにデータを集計するフィールドを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付の範囲について取得するか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# コネクターではどのバージョンのCallRail APIを使用しますか？">
+
+
+このコネクターではCallRail APIのバージョン2を使用します（
+https://api.callrail.com/v2）
+。
+
+
+</Accordion>
+<Accordion title="# 各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> レポート </th><th colspan="1" rowspan="1"> エンドポイントURL </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> All Conversations </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/text-messages.json </span></td></tr><tr><td colspan="1" rowspan="1"> Calls </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/calls.json </span></td></tr><tr><td colspan="1" rowspan="1"> Companies </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/companies.json </span></td></tr><tr><td colspan="1" rowspan="1"> Form Submissions </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/form_submissions.json </span></td></tr><tr><td colspan="1" rowspan="1"> Notifications </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/notifications.json </span></td></tr><tr><td colspan="1" rowspan="1"> Outbound Caller IDs </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/caller_ids.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/calls/summary.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summarizing Call Data by Time Series </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/calls/timeseries.json </span></td></tr><tr><td colspan="1" rowspan="1"> Summary Email Subscriptions </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/summary_emails </span></td></tr><tr><td colspan="1" rowspan="1"> Tags </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/tags.json </span></td></tr><tr><td colspan="1" rowspan="1"> Trackers </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/trackers.json </span></td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /a/\{account_id\}/users.json </span></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="# このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+CallRail APIキーが必要です。
+
+
+</Accordion>
+<Accordion title="# APIキーはどこにありますか？">
+
+
+APIキーを取得するには：
+
+1. CallRailアカウントにログインします。
+2. CallRailダッシュボードで、右上の **［My Account］>［Account］** を選択します。
+3. **［API Access］** を選択します。
+4. 右上の **［Add API Key］** をクリックします。
+
+表に、CallRail APIキーが表示されます。
+
+
+</Accordion>
+<Accordion title="# データはどのくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

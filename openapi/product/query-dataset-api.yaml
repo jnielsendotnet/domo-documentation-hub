@@ -1,0 +1,95 @@
+openapi: 3.1.0
+info:
+  title: Query Dataset API
+  version: "1.0.0"
+  description: |-
+    Query Dataset
+
+    Method: POST
+    Endpoint: api/query/v1/execute/export/<DATASET_ID>?includeHeader=true
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    DatasetIdParam:
+      type: string
+      description: "<DATASET_ID>"
+    QueryDatasetRequest:
+      type: object
+      properties:
+        sql:
+          type: string
+      required:
+        - sql
+      example:
+        sql: "SELECT * FROM `<DATASET_ID>` WHERE status='error'"
+    QueryDatasetResponse:
+      type: object
+      description: Description of the Response with an example of the data
+      properties:
+        datasource:
+          type: string
+        columns:
+          type: array
+          items: {}
+        metadata:
+          type: array
+          items: {}
+        numColumns:
+          type: integer
+        rows:
+          type: array
+          items: {}
+        numRows:
+          type: integer
+security:
+  - DomoDeveloperToken: []
+paths:
+  /api/query/v1/execute/export/{datasetId}:
+    post:
+      tags: [Query Dataset API]
+      summary: Query Dataset
+      parameters:
+        - in: path
+          name: datasetId
+          required: true
+          description: The dataset identifier.
+          schema:
+            $ref: '#/components/schemas/DatasetIdParam'
+        - in: query
+          name: includeHeader
+          required: false
+          description: includeHeader
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryDatasetRequest'
+      responses:
+        "200":
+          description: "200:"
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryDatasetResponse'
+              examples:
+                example:
+                  value:
+                    datasource: "<DATASET_ID>"
+                    columns: []
+                    metadata: []
+                    numColumns: 10
+                    rows: []
+                    numRows: 15

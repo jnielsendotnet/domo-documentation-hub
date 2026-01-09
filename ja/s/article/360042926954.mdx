@@ -1,0 +1,43 @@
+---
+title: "LinkedIn Adsコネクター"
+---
+
+## はじめに
+
+LinkedIn Adsは、広告主が目的の専門家にアクセスできるセルフサービスの広告媒体です。 LinkedIn Ads APIの詳細については、LinkedInのサイト（ [https://developer.linkedin.com/](https://developer.linkedin.com/ "https://developer.linkedin.com/") ）を参照してください。
+
+LinkedIn Adsアカウントには、Data Centerから接続します。このトピックでは、LinkedIn Adsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+LinkedIn Adsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* LinkedInへのサインインに使用するメールアドレス
+* お使いのLinkedInパスワード
+* **［Manage Ads］**
+  にアクセスできる1つ以上のLinkedIn Adsアカウント（このようなアカウントをお持ちでない場合はレポートデータを取得できません）
+
+## LinkedIn Adsアカウントに接続する
+
+このセクションでは、LinkedIn Adsコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+Domo LinkedIn Adsコネクターは接続にOAuthを使用しており、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（または、Domoに既存のLinkedIn Adsアカウントがある場合は **［アカウントを追加］** を選択）すると、LinkedIn OAuth画面が開き、LinkedInの認証情報を入力できます。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいLinkedIn Ads DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にLinkedInにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まず LinkedInからログアウトする必要があります。
+
+</Note>
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するLinkedIn Adsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Ad Accounts </td><td colspan="1" rowspan="1"> 広告アカウントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Analytics </td><td colspan="1" rowspan="1"> 情報番号をクリックすると、広告分析に関するインサイトを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Budget Pricing </td><td colspan="1" rowspan="1"> 目標基準にもとづいて価格メトリクスに関する主要なインサイトを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Campaigns </td><td colspan="1" rowspan="1"> 広告キャンペーンのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Campaign Groups </td><td colspan="1" rowspan="1"> すべての広告キャンペーングループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Conversion Tracking </td><td colspan="1" rowspan="1"> 選択したアカウントのコンバージョンデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Creatives（廃止） </td><td colspan="1" rowspan="1"> 指定されたキャンペーンのクリエイティブのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Creatives (Versioned) </td><td colspan="1" rowspan="1"> 指定されたキャンペーンのクリエイティブのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Forms（廃止） </td><td colspan="1" rowspan="1"> アカウントに関連する広告フォームを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Forms (Versioned) </td><td colspan="1" rowspan="1"> 新しいAPIを使用してアカウントに関連する広告フォームを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Form Question（廃止） </td><td colspan="1" rowspan="1"> アカウントに関連する広告フォームの質問を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Form Question (Versioned) </td><td colspan="1" rowspan="1"> 新しいAPIを使用してアカウントに関連する広告フォームの質問を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Targeting Facets </td><td colspan="1" rowspan="1"> ファセット（LinkedInプラットフォーム上のメンバーの人口統計グループ）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ads Targeting Reach </td><td colspan="1" rowspan="1"> 目標基準の到達予測を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Posts（廃止） </td><td colspan="1" rowspan="1"> オーガニックポストとスポンサードポストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Posts (Versioned) </td><td colspan="1" rowspan="1"> 新しいAPIを使用してオーガニックポストとスポンサードポストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Targeting Options By Ad Targeting Facet </td><td colspan="1" rowspan="1"> 広告対象のファセットに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Targeting Options By Similar Entities </td><td colspan="1" rowspan="1"> 対象とするタイプの範囲内で利用可能な類似オプションを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Targeting Options By Typeahead </td><td colspan="1" rowspan="1"> 先行入力機能を使って同様のオプションを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Search by Status </td><td colspan="1" rowspan="1"> 取得したいアカウント詳細のステータスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Search by Types </td><td colspan="1" rowspan="1"> 検索したいアカウントのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Reporting Facet </td><td colspan="1" rowspan="1"> レポートを作成するオブジェクトタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Account </td><td colspan="1" rowspan="1"> アカウントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Pivot </td><td colspan="1" rowspan="1"> 各レポートのデータポイントをグループ化するオブジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Time Granularity </td><td colspan="1" rowspan="1"> レポートの時間粒度を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Type </td><td colspan="1" rowspan="1"> キャンペーンタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> BID Type </td><td colspan="1" rowspan="1"> 入札タイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Match Type </td><td colspan="1" rowspan="1"> マッチタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Currency </td><td colspan="1" rowspan="1"> 通貨を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Targeting Facets </td><td colspan="1" rowspan="1"> 対象に含めるファセットを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> 含めるキャンペーンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter by Campaign Status </td><td colspan="1" rowspan="1"> フィルター条件として使用するステータスを選択します。デフォルトでアクティブになります。1つ以上選択する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> Form IDs </td><td colspan="1" rowspan="1"> フォームIDを入力します。（複数のフォームIDを入力する場合はカンマで区切ります） </td></tr><tr><td colspan="1" rowspan="1"> Question IDs </td><td colspan="1" rowspan="1"> 質問IDを入力します。（複数の質問IDを入力する場合はカンマで区切ります） </td></tr><tr><td colspan="1" rowspan="1"> Creatives </td><td colspan="1" rowspan="1"> 情報を取得したいクリエイティブを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 取得するデータ期間（特定の日付、日付範囲、または過去24時間）を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定とするか相対とするかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定なのか、相対なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 「10」 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 「5」 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 「10」 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 「5」 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

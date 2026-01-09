@@ -1,0 +1,72 @@
+---
+title: "Inline Editing実装ガイド"
+---
+
+## はじめに
+
+このガイドは、自分のデータを使用してInline Editing Appを実装する際に役立ちます。Inline Editing Appの詳細については、「 [Inline Editingユーザーガイド](/ja/s/article/360042933754) 」を参照してください。
+  
+Inline Editingは、Domo内のカードから任意のDataSetのコンテンツを個別に、またはまとめて変更するために使用できるプレミアムAppです。
+  
+このガイドでは、Inline Editing Appを実装する方法について以下のトピックで説明します。
+
+* [データの準備を整える](#prepare_data)
+* [Upsert DataSetに変換する](#upsert)
+* [Appを展開する](#deploy_app)
+
+## データの準備を整える
+
+Inline Editing Appは、2種類のデータモデル（標準とUpsert DataSet）を扱うために作成されています。このバージョンのAppでは、外部ソースから更新されるコネクターベースのDataSetは推奨されません。保存した変更はコネクターから取得したデータによって上書きされるためです。
+
+標準DataSetには、更新方法に固有の制限があります。したがって、Appが標準DataSetを使用している場合は、100,000行以下と500列以下のDataSetに制限されます。
+
+Upsert DataSetは任意のサイズにすることができますが、セットアップには少し時間がかかります。DataSetをUpsert DataSetに変換するには、以下の手順に従います。
+
+### Upsert DataSetに変換する
+
+（オプション）DataSetをUpsert DataSetに変換するには、以下のステップに従います。
+
+1. DomoでDataSetに移動します。
+2. **［設定］** タブに移動し、 **［アップデートモード］** 設定を選択して展開します。
+3. **［更新方法］** を選択し、リストから **［追加］** を選択します。
+4. **［保存］** を選択して変更を保存します。
+5. Upsertキーを作成します。
+     
+   Upsertキーは、データ内の列のグループで結合すると各行に固有のキーが作成されます。これらのキーは手動で設定する必要があります。
+
+   次のステップでは、キーの設定方法について説明します。
+6. https://app-domo-com-prod.s3.amazonaws.com/labs/java-sdk/latest/domoUtil.jar からJava CLIツールをダウンロードします。
+7. ターミナルまたはコマンドラインツールからJARファイルに移動して実行します。
+<Note>
+  **注記：** MacターミナルでJARファイルを実行するには、javaがインストールされていることを確認して正しいディレクトリに移動し、以下のコマンドを使用します。 `java -jar domoUtil.jar`
+
+</Note>
+
+8. プログラムがコマンドラインで実行されているときは、まずDomoインスタンスに接続して以下のコマンドを使用します。
+
+   `connect -s <domain> -t <access_token>`
+
+   \<domain>はDomoインスタンスの名前（ *mycompany*. [domo.com](http://domo.com) ）、\<access\_token>はDomoインスタンスから生成されたアクセストークンです。アクセストークンは、管理者が **［管理者］** > **［セキュリティ］** > **［アクセストークン］** に移動し **［アクセストークンを生成］** を選択すると、Domoインスタンスで管理者が生成できます。
+9. インスタンスに接続したら、以下のコマンドを使用します。
+
+   `define-upsert -i <dataset_id> -c <columns>`
+
+   \<dataset\_id>は、Upsert DataSetとして設定するDataSetのDataSet IDです。\<columns>は、upsertキーとして使用する列の名前をカンマで区切って記述したリストです（「 *Column 1* 」、「 *Column 2* 」など）。列の名前にスペースが含まれている任意の列の前後に二重引用符を必ず使用してください。
+10. このプロセスが正常に動作するかどうかを確認するには、以下のコマンドを使用します。
+
+    `get-schema -i <dataset_id>`
+
+    最後のコマンドで渡した列に対して「upsertKey」がtrueに設定されているか確認します。
+11. CLIツールを閉じます。これでDataSetがUpsert DataSetになりました。
+
+## Appを展開する
+
+Appアセットにアクセスできる場合は、 **Asset Library** からAppを展開してDataSetを接続します。
+  
+Appアセットにアクセスできない場合は、App管理者がAppをDataSetに接続できます。
+
+App管理者をDomoグループに追加する必要があります。この設定方法については、「 [Inline Editingユーザーガイド](/ja/s/article/360042933754) 」を参照してください。グループが存在しない場合でも、Appは機能しますが、ユーザーはAppに変更を加えることはできません。
+
+データが接続され、App管理者が設定されると、Appは使用できるようになります。詳細については、「 [Inline Editingユーザーガイド](/ja/s/article/360042933754) 」を参照してください。
+
+日本語

@@ -1,0 +1,77 @@
+---
+title: "Salesforce Writebackコネクター"
+---
+
+## はじめに
+
+Salesforceは、カスタマーリレーションシップ管理向けのクラウドベースのプラットフォームです。DomoのSalesforce WritebackコネクターをDomo DatasetからSalesforceアカウントへのデータのエクスポートにお使いいただけます。
+
+Salesforce APIの詳細につきましては、以下のいずれかを参照してください。
+
+* https://www.salesforce.com/developer/docs/api/
+* [http://resources.docs.salesforce.com...\_reference.pdf](http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf "http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf")
+* [https://developer.salesforce.com/doc...data\_model.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm "https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm")
+
+SalesforceへのDataSetデータのプッシュは、Data Centerから行います。このトピックでは、Salesforce Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターの設定には、DomoクライアントIDとクライアントシークレットが必要です。以下の手順で、認証情報を取得します。
+
+1. Domo開発者アカウント（[https://developer.domo.com/login](https://developer.domo.com/login "https://developer.domo.com/login") ）にログインします。
+2. [新規クライアントを作成します](https://developer.domo.com/new-client "https://developer.domo.com/new-client")。
+3. 目的のデータとユーザーアプリケーションの範囲を選択します。
+4. ********［作成］******** をクリックします。
+
+## 接続を設定する
+
+このセクションでは、Salesforceコネクターページの **［認証情報］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### 認証情報ペイン
+
+このペインには、Domo開発者アカウントに接続するための認証情報の入力フィールドがあります。下テーブルでは、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Salesforce環境 </td><td colspan="1" rowspan="1"> 任意のSalesforce環境を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> DomoクライアントID </p></td><td colspan="1" rowspan="1"><p> DomoクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domoクライアントシークレット </p></td><td colspan="1" rowspan="1"><p> Domoクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+接続するとSalesforceのOAuth画面に移動し、そこでお使いのSalesforceユーザー名とパスワードの入力を求められます。
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい新規Salesforce Writeback接続を作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### 詳細ペイン
+
+このペインは4つのセクションで構成され、Salesforceへの送信データの選択と設定を行います。
+
+#### Writebackタイプ
+
+ここで、Domo DataSetのデータを、「a）既存のSalesforceテーブルに挿入」、「b）新規のテーブルに挿入」のいずれかを選択できます。最初のオプション選択した場合、Salesforceのオブジェクトは、 **［詳細］** ペインにある **［Salesforceセットアップ］** のセクションに自動入力され、そこからプッシュするデータの選択が可能です。2番目のオプションを選択した場合は、 **［詳細］** ペインの **［Salesforceセットアップ］** セクションで、Salesforceオブジェクトの定義を求められます。
+
+#### Domo DataSet
+
+SalesforceにコピーするDataSetのDataSet ID（GUID）を入力します。Data CenterでDataSetの詳細ビューを開き、URLのdatasources/に続く箇所で、IDを見つけることができます。例えば、URLが https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview であれば、DataSet IDは 845305d8-da3d-4107-a9d6-13ef3f86d4a4 になります。
+
+<Note>
+**注記：** Salesforce Writebackコネクターは、 *\_BATCH\_ID\_* 列を検索します。この列が入力DataSetの中に存在する場合、コネクターはソースDataSetの最高の *\_BATCH\_ID\_* を追跡して、Salesforceにすでに書き込まれているデータを追跡します。次の実行では、コネクターは前の実行で記録された行よりも *\_BATCH\_ID\_* が高い行のみを書き込みます。これは、Salesforceに重複データを書き込まないようにするためです。 *\_BATCH\_ID\_* 列がソースDataSetに存在しない場合、コネクターが実行されるたびにすべてのデータがSalesforceに書き込まれます。
+
+</Note>
+
+#### Salesforceセットアップ
+
+**［Writebackタイプ］** セクションで、 **［既存のテーブルにデータを挿入］** を選択した場合、この項目にSalesforceオブジェクトが自動テーブル示され、データのプッシュ先を選択することができます。 **［Writebackタイプ］** セクションで、 **［新規のテーブルにデータを挿入］** を選択した場合は、この項目で以下の入力を求められます。
+
+* Salesforce内でのオブジェクト名（スペースなし）
+* 新規Salesforceオブジェクトのオブジェクトラベル（テーブル示ラベル）
+* 新規Salesforceオブジェクトの複数テーブル示ラベル
+
+#### 構成マッピング
+
+ここでは、Domo DataSetにある列を任意のSalesforceフィールドとマッチさせます。
+
+Salesforceの必須フィールドで、正しいDataSet列を選択します。
+
+オプションのフィールドの場合は、任意のSalesforceフィールドと、DataSet列をマッチさせます。
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

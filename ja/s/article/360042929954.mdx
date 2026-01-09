@@ -1,0 +1,38 @@
+---
+title: "Redditコネクター"
+---
+
+## はじめに
+
+Redditは登録されたコミュニティメンバーがコンテンツを送信できるエンターテイメント、ソーシャルネットワーキングサービス、ニュースのWebサイトです。DomoのRedditコネクターを使用すると、Redditユーザー、コメント、「いいね」や「よくないね」などのリストを取得することができます。Reddit APIの詳細については、RedditのWebサイト（ [https://www.reddit.com/dev/api/](https://www.reddit.com/dev/api/ "https://www.reddit.com/dev/api/") ）を参照してください。
+
+Redditアカウントには、Data Centerから接続します。このトピックでは、Redditコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Redditアカウントに接続してDataSetを作成するには、Redditのユーザー名とパスワードが必要です。
+
+## Redditアカウントに接続する
+
+このセクションでは、Redditコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインのオプションである **［スケジュール設定］** と **［DataSetに名前を付けて説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのRedditコネクターは、接続にOAuthを使用しているので、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（または、Domoに既存のRedditアカウントがある場合は **［アカウントを追加］** を選択）すると、Reddit OAuth画面が開き、Redditの認証情報を入力できます。有効なReddit認証情報を一度入力しておくと、随時同じアカウントを使用して新しいRedditのDataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にRedditにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずRedditからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するRedditレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Search </p></td><td colspan="1" rowspan="1"><p> ユーザー、タイプ、タイムフレーム、カスタムクエリなど、様々な検索フィルターの設定にもとづいてデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Comments </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーのコメントを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Details </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーの詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Disliked </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーが「よくないね」をしたアイテムを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Hidden </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーが非表示にしたアイテムを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Liked </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーが「いいね」をしたアイテムを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Overview </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーの概要を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Saved </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーが保存したアイテムを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Submitted </p></td><td colspan="1" rowspan="1"><p> 指定したユーザーが送信したアイテムを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Username (Optional) </p></td><td colspan="1" rowspan="1"><p> データを返したいユーザーのユーザー名を入力します。空欄のままにすると、認証されたユーザーのユーザー名が使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Time </p></td><td colspan="1" rowspan="1"><p> 最終の日付、時間、月などのデータを取り込むかどうかを選択します。 <b> ［All］ </b> を選択すると、利用可能なすべてのデータが返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query (Optional) </p></td><td colspan="1" rowspan="1"><p> データを取り込む検索クエリを入力します。文字列は最大512文字です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter by Types </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルタリングするためのタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sort By </p></td><td colspan="1" rowspan="1"><p> レポート内のデータの並び替え方法を選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

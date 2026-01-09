@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Get KPI Card Image API
+  version: "1.0.0"
+  description: |-
+    Authentication
+
+    Requests to this endpoint require authentication using an access token. The token must be included in the request header as X-DOMO-Developer-Token. For more information on generating an access token, refer to the Domo Support Documentation.
+
+    HTTP Method: PUT
+
+    URL
+
+    /api/content/v1/cards/kpi/{urn}/render
+
+    Tags
+
+        card-kpi-resource
+
+    Summary
+
+    This endpoint renders a KPI card chart or table based on the specified urn. It supports various parameters, including locale and specific parts of the chart to be rendered. The response contains an array of base64 encoded images corresponding to the requested parts of the KPI card. These base64 strings can then be decoded and compiled into a PDF.
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    CardURNParam:
+      type: string
+      description: The unique resource name (URN) of the KPI card to be rendered.
+    ChartRequest:
+      type: object
+      description: The request body must be in JSON format and should adhere to the ChartRequest schema.
+      additionalProperties: true
+      properties:
+        queryOverrides:
+          type: object
+          additionalProperties: true
+        treatLongsAsStrings:
+          type: boolean
+        cardLoadContext:
+          type: object
+          additionalProperties: true
+      example:
+        queryOverrides: {}
+        treatLongsAsStrings: true
+        cardLoadContext: {}
+    ChartResponse:
+      type: object
+      description: The request was successful, and the KPI card chart or table has been rendered according to the specified parameters. The response will include an array of base64 encoded images.
+      properties:
+        data:
+          type: array
+          items:
+            type: string
+            format: byte
+security:
+  - DomoDeveloperToken: []
+paths:
+  /api/content/v1/cards/kpi/{urn}/render:
+    put:
+      tags: [Get KPI Card Image API]
+      summary: Render KPI Card Chart or Table
+      description: This endpoint renders a KPI card chart or table based on the specified urn. It supports various parameters, including locale and specific parts of the chart to be rendered. The response contains an array of base64 encoded images corresponding to the requested parts of the KPI card. These base64 strings can then be decoded and compiled into a PDF.
+      parameters:
+        - in: path
+          name: urn
+          required: true
+          description: The unique resource name (URN) of the KPI card to be rendered.
+          schema:
+            $ref: '#/components/schemas/CardURNParam'
+        - in: query
+          name: locale
+          required: false
+          description: Specifies the locale in which to render the KPI card.
+          schema:
+            type: string
+        - in: query
+          name: parts
+          required: true
+          description: A list of specific parts of the chart to be rendered. This allows for a customized response that includes only the necessary components.
+          schema:
+            type: array
+            uniqueItems: true
+            items:
+              type: string
+              enum:
+                - title
+                - chartType
+                - queryResult
+                - data
+                - image
+                - imagePDF
+                - graph
+                - dynamic
+                - summary
+                - summaryImage
+                - dataSource
+                - pdp
+                - annotations
+                - extendedDateInfo
+                - table
+          style: form
+          explode: false
+      requestBody:
+        required: true
+        description: The request body must be in JSON format and should adhere to the ChartRequest schema.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChartRequest'
+            examples:
+              example:
+                value:
+                  queryOverrides: {}
+                  treatLongsAsStrings: true
+                  cardLoadContext: {}
+      responses:
+        '200':
+            description: The request was successful, and the KPI card chart or table has been rendered according to the specified parameters. The response will include an array of base64 encoded images.
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/ChartResponse'
+        '403':
+          description: The request was not authorized. The client lacks the necessary permissions to access this resource.
+        '409':
+          description: The request could not be completed due to a conflict with the current state of the target resource.

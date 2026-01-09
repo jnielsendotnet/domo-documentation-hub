@@ -1,0 +1,330 @@
+---
+title: "2024 | Versionshinweise Marsch"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+#### Neue Funktionen
+
+* [App Studio](#App_Studio)
+  + [Benutzerdefinierte Navigation](#custom_Navigation)
+  + [DomoStats für App Studio](#domostats_app_studio)
+  + [Eine App duplizieren](#duplicate_An_App)
+  + [Neues Modal für die Formularbearbeitung](#Form_Edit_Modal)
+* [Magic ETL](#Magic_ETL)
+    
+  + [Concat Distinct](#concat_Distinct)
+* [ResponsibleGPT](#responsibleGPT)
+
+#### Plattformverbesserungen
+
+* [Domo Everywhere](#Domo_Everywhere)
+  + [Instanzverwaltung](#Instance_Management)
+  + [E-Mail-Host-URL](#Email_Host_URL)
+* [Cloud Amplifier-Verbesserungen](#Cloud_Amplifier)
+* [Domo.AI](#Domo_AI)
+  + [KI-Modelle](#model_management)
+* [Analyzer-Erweiterungen](#Analyzer_Enhancements)
+* [Verschachtelte Berechnungen](#Nested_Calculations)
+* [Diagramm- und Tabellenschriftarten](#Chart_Table)
+* [Arbeitsabläufe](#Workflows)
+* [MS Office-Add-ins](#MS_Office)
+* [Kartenladungen DomoStats und QuickStarts](#card_Load_Domo_Stats)
+* [Workbench Enterprise](#workbench_Enterprise)
+
+#### Beta-Ankündigungen
+
+* [Domo.AI](#Domo_AIBeta)
+  + [Domo.AI-Chat](#domo_AI_Chat)
+* [Magic ETL](#magic_ETL_Beta)
+  + [MagicETL + Cloud Amplifier mit Snowflake](#snowflake)
+  + [ON-Eigenschaft in der Kachel „Daten vereinigen“](#on_Property)
+  + [Upsert](#upsert)
+* [Mitteilung zu Geplanter Bericht](#alert_To_Schedule)
+* [Domo-Bereinigung für Arbeitsabläufe](#domo_Cleanup)
+* [Schreibgeschützte Inhalte veröffentlichen](#publish_Read_Only)
+* [Modal für die Freigabe von DataFlows](#dataflow_Sharing)
+
+#### Unterstützung und Feedback
+
+* [Benötigen Sie Unterstützung?](#Need_Support)
+* [Möchten Sie Feedback geben?](#feedback)
+
+---
+
+# App Studio
+
+#### Benutzerdefinierte Navigation
+
+Konfigurieren Sie mit den benutzerdefinierten Navigationsstilen in App Studio ein spezifisches Erscheinungsbild für Ihre App, das mit Ihrer Marke übereinstimmt. Die Navigation kann nach oben und nach links ausgerichtet werden, und die Standardnavigationsschaltflächen können neu angeordnet oder ausgeblendet werden.
+
+In unserem [App Studio | Überblick](https://domo-support.domo.com/s/article/000005295?language=en_US) erhalten Sie weitere Informationen.
+
+<Frame><img alt="1.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T4D7.jpg" style={{width: 649, height: 495}}/></Frame>
+#### DomoStats für App Studio
+
+In den DomoStats-Berichten „App Studio Apps“ und „App Studio-App Seiten“ enthalten Einblicke dazu, wie viele Apps in Ihrer Instanz gesperrt sind und wie viele Seitenaufrufe es insgesamt gibt. Diese Berichte sind für Administratorbenutzer verfügbar.
+
+Unter [DomoStats-Konnektor](https://domo-support.domo.com/s/article/360043433813?language=en_US) werden die Details zu jedem Bericht angezeigt.
+
+<Frame><img alt="2.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TU7Z.jpg" style={{width: 850, height: 411}}/></Frame>
+#### Eine App duplizieren
+
+Um Zeit und Mühe zu sparen, können Sie jetzt eine App in App Studio duplizieren, um die Struktur, das Design und die Konfiguration der vorhandenen App beizubehalten.
+
+Mit der Duplizierung der App wird sichergestellt, dass die App-Struktur konsistent bleibt und dass alle Änderungen oder Anpassungen, die Sie an duplizierten Apps vornehmen, für Ihre Zielgruppe relevant sind.
+
+<Frame><img alt="3.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T2Pq.jpg" style={{width: 850, height: 444}}/></Frame>
+#### Neues Modal für die Formularbearbeitung
+
+Mit dem Formulareditor-Modal, das in App Studio und Arbeitsabläufe verfügbar ist, können Sie Formulare in beiden Tools erstellen und ändern.
+
+Die Schnittstelle zur Formularerstellung ist einfacher und benutzerfreundlicher. Sie können jetzt direkt im Modal Fragen hinzufügen und entfernen, die Fragetypen ändern und das Formular speichern.
+
+Unter [Arbeitsabläufe](https://domo-support.domo.com/s/article/000005108?language=en_US) und [Formulare](https://domo-support.domo.com/s/article/000005171?language=en_US) erhalten Sie weitere Informationen zu beiden Funktionen.
+
+<Frame><img alt="4.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UMG2.jpg" style={{width: 751, height: 469}}/></Frame>
+[Nach oben](#Top)
+
+# Magic ETL
+
+#### Concat Distinct
+
+Die Kachel „Gruppieren nach“ hat eine neue Option, mit der Sie eine Aggregationsspalte mit einer durch Komma getrennte Liste eindeutiger Werte enthält.
+
+Weitere Informationen über die Kachel „Gruppieren nach“ erhalten Sie unter [Magic ETL-Kacheln: Aggregiert](https://domo-support.domo.com/s/article/360044876094?language=en_US).
+
+<Frame><img alt="5.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TQlV.jpg" style={{width: 701, height: 298}}/></Frame>
+[Nach oben](#Top)
+
+# Responsible GPT- und QuickStarts-Apps
+
+Die ResponsibleGPT-App ist für alle Personen mit Zugriff auf die [Domo.AI](http://Domo.AI) -Plattform verfügbar. Die App basiert auf DomoGPT und konzentriert sich auf benutzergenerierte Eingabeaufforderungen.
+
+Wenn Sie innerhalb der App Abfragen oder Anforderungen übermitteln, werden diese von DomoGPT interpretiert. DomoGPT ist das große Sprachmodell (Large Language Model, LLM), das sicher in die Domo-Infrastruktur integriert ist. Es wurde entwickelt, um auf der Grundlage eines DataSets allgemeine Unterstützung bereitzustellen, indem umfassende und fundierte Antworten auf die von Ihnen übermittelten Abfragen und Anforderungen sichergestellt werden.
+
+Die QuickStart Analytics-App ist direkt in die ResponsibleGPT-App integriert, um Daten zu Benutzerinteraktionen, Abfragen, Antwortzufriedenheit und Interaktionsmetriken zu erfassen. In der App werden diese Metriken in Dashboards und Berichten dargestellt.
+
+Erfahren Sie mehr über [Domo.AI](https://ai.domo.com/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+
+[Nach oben](#Top)
+
+---
+
+# Domo Everywhere
+
+#### Instanzverwaltung
+
+Mit der Instanzverwaltung in Domo Everywhere können Sie neue Instanzen anfordern, bestimmte Servicekonto-Benutzer hinzufügen und die richtigen Zuordnungswerte für die Filterung hinzufügen. So entfällt das Warten auf einen Domo-Vertreter, der Ihre Instanzen für Sie verwaltet.
+
+Herausgeber können ihre Authentifizierung in den Domo Identity Broker integrieren, um sicherzustellen, dass externe Benutzer immer an ihr entsprechendes Konto gesendet werden. Dadurch bleibt der Zugriff auf die eingebettete Bearbeitungsfunktion sicher, geschützt und nahtlos.
+
+Diese Funktion ist Domo-Administratoren verfügbar und kann über Ihre Domo Everywhere-Einstellungen verwaltet werden.
+
+<Frame><img alt="6.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000b7iU.jpg" style={{width: 801, height: 260}}/></Frame>
+#### E-Mail-Host-URL
+
+Sie können jetzt die E-Mail-Host-URL in den Marken-Kit-Einstellungen konfigurieren, um Inhalte über die Domo-Plattform einzubetten.
+
+Nach der Angabe der Domäne, in der Ihre Domo-Plattform eingebettet ist, werden alle von Domo generierten E-Mails an Ihr Portal und nicht an Ihre Domo-Instanz weitergeleitet.
+
+Weitere Informationen erhalten Sie unter [Marken-Kit](https://domo-support.domo.com/s/article/5428851518999?language=en_US).
+
+<Frame><img alt="7.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000ajkz.jpg" style={{width: 600, height: 262}}/></Frame>
+[Nach oben](#Top)
+
+# Cloud Amplifier-Verbesserungen
+
+Verwenden Sie Cloud Amplifier, um benutzerdefinierte, leistungsstarke, automatisierte und bidirektionale Pipelines zu erstellen, die auf Ihre Geschäftsanforderungen zugeschnitten sind, ohne dass Sie Ihre Daten kopieren oder verschieben müssen. Fragen Sie Daten ab und schreiben Sie sie in Cloud-Datenbanken von Drittanbietern mit Magic ETL oder unserer Konnektorbibliothek, und verwenden Sie OAuth für Snowflake und BigQuery.
+
+Die folgende Abbildung zeigt einen Überblick über die Verfügbarkeit der Cloud Amplifier-Funktionen.
+
+Weitere Information zu Cloud Amplifier erhalten Sie in dem [Cloud Amplifier-Überblick](https://domo-support.domo.com/s/article/4412849158167?language=en_US).
+
+<Frame><img alt="8.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000ajg9.jpg" style={{width: 600, height: 320}}/></Frame>
+[Nach oben](#Top)
+
+# Domo. AI
+
+#### KI-Modellverwaltung
+
+Mit der KI-Modellverwaltung von Domo haben Sie die Möglichkeit, für die Visualisierung Ihrer Daten sowohl interne als auch externe Modelle zu nutzen. Mit den KI-Modellen können Sie öffentliche Modelle, große Sprachmodelle und generative KI wie ChatGPT verwenden, um die Wertschöpfung zu beschleunigen.
+
+<Frame><img alt="9.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UQZl.jpg" style={{width: 802, height: 247}}/></Frame>
+[Nach oben](#Top)
+
+# Analyzer-Erweiterungen
+
+Erweiterungen an der Analyzer-Schnittstelle bieten eine nahtlosere Benutzererfahrung – mit Blick auf kleinere Bildschirme.
+
+Folgende Verbesserungen wurden vorgenommen:
+
+* Neu gestalteter linker Bereich mit Registerkarten, schlankeren Kapseln und einer verbesserten Benutzeroberfläche
+* Die Möglichkeit, mehrere Spalten in Diagramme zu ziehen
+* Metrische Spalten werden jetzt automatisch aggregiert, wenn sie in Tabellen verschoben werden
+* Intelligentere Sammelnummern, die mit den Standardmetriken im Diagramm verknüpft sind, um eine geschlossenere Analyse zu ermöglichen
+* Neue Suchleiste für Diagrammarten
+* Bearbeitung für berechneten Felder von der Diagrammachse aus
+
+Weitere Informationen zu Analyzer erhalten Sie in unserer [Analyzer-Dokumentation](https://domo-support.domo.com/s/topic/0TO5w000000ZaoUGAS/analyzer?language=en_US).
+
+<Frame><img alt="10.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000T9xa.jpg" style={{width: 851, height: 532}}/></Frame>
+[Nach oben](#Top)
+
+# Verschachtelte Berechnungen
+
+Benutzer mit aktivierter Berechtigung „Karte bearbeiten“ für ihre Rolle können jetzt auf verschachtelte Beast Mode-Berechnungen zugreifen, wodurch eine Berechnung auf eine andere verweisen kann. Alle Bearbeitungen, die an einer referenzierten Berechnung vorgenommen werden, spiegeln sich automatisch in allen Berechnungen wider, die auf sie verweisen. Die Verschachtelung ist nur auf einer einzigen Ebene zulässig; eine Berechnung, die auf eine frühere Berechnung verweist, kann nicht von einer nachfolgenden Berechnung referenziert werden.
+
+Unter Verwendung eines begleitenden DomoStats-Berichts – Beast Modes, die in Beast Modes verwendet werden – können Administratoren verfolgen, wie verschachtelte Berechnungen in ihrer Instanz genutzt werden.
+
+Weitere Informationen erhalten Sie unter [Verschachtelte Berechnungen](https://domo-support.domo.com/s/article/000005307?language=en_US).
+
+<Frame><img alt="11.jpeg" src="/images/kb/ka0Vq0000000div-00N5w00000Ri7BU-0EM5w000006w9l4.jpg" style={{width: 599, height: 249}}/></Frame>
+[Nach oben](#Top)
+
+# Diagramm- und Tabellenschriftarten
+
+Für mehr als 200 Diagramme, Karten und Tabellen gibt es jetzt eine neue Schriftartauswahl in Analyzer. Diese Auswahl umfasst Schriftfamilie, Schriftgröße und Schriftattribute.
+
+Weitere Informationen zu diesen Schriftartaktualisierungen erhalten Sie unter [Für die meisten Diagramme verfügbare Eigenschaften](https://domo-support.domo.com/s/article/360043429793?language=en_US).
+
+<Frame><img alt="12.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UQjS.jpg" style={{width: 700, height: 354}}/></Frame>
+[Nach oben](#Top)
+
+# Arbeitsabläufe
+
+Die folgenden Aktualisierungen sind in Arbeitsabläufe verfügbar:
+
+* In der Bibliothek mit Arbeitsablaufvorlagen können Sie ein vorgefertigtes Design ansehen und auswählen und Ihren konfigurierten Arbeitsablauf in Ihrem Repository speichern.
+
+* Sie können die neuen Datentypen „Person“, „Gruppe“ und „DataSets“ in Arbeitsabläufen, Code Engine und Formularen verwenden und darauf verweisen.
+
+* Die String Builder-Funktion erleichtert die nahtlose Injektion von Text- und Datenwerten beliebigen Typs als kombinierte benutzerdefinierte Zeichenfolgen, auf die in jedem Arbeitsablaufschritt Bezug genommen werden kann.
+
+* Durch optionale Live-Updates können die Startseiten von Arbeitsabläufen und Warteschlangen ständig aktualisiert werden, um die neuesten Details anzuzeigen.
+
+Weitere Information zu Arbeitsabläufen erhalten Sie unter [Übersicht über Arbeitsabläufe](https://domo-support.domo.com/s/article/000005108?language=en_US).
+
+<Frame><img alt="13.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000URVp.jpg" style={{width: 852, height: 645}}/></Frame>
+[Nach oben](#Top)
+
+# MS Office-Add-ins
+
+Mit dem neuen Dokumente-Konverter können Sie Ihre Dokumente aus den Altversion Plug-ins scannen, um vorhandene Domo-Objekte zu finden und sie problemlos in das neue Microsoft Office-Format zu konvertieren. Der Dokumente-Konverter erleichtert den Übergang zu den Add-ins, ohne dass Inhalte verloren gehen. So bleiben Sie in Verbindung und erhalten die neuesten Updates von unserem Produktteam.
+
+Weitere Informationen zu den MS Office-Add-ins erhalten Sie in unserer [Microsoft Office Add-ins-Dokumentation](https://domo-support.domo.com/s/topic/0TO5w000000ZkAlGAK/microsoft-office-addins?language=en_US).
+
+<Frame><img alt="14.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TRUf.jpg" style={{width: 603, height: 334}}/></Frame>
+[Nach oben](#Top)
+
+# Kartenladungen DomoStats und QuickStarts
+
+<Frame><img alt="15.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuy.jpg" style={{width: 130, height: 130}}/></Frame>
+Verwenden Sie den Bericht „Kartenladungen DomoStats“, um bessere Einblicke in Ihre Karteninformationen und -leistung zu erhalten. Im Bericht finden Sie Informationen zu Karten und Kartenladungen, und es sind Felder wie ID, Name, Typ, Beschreibung und letzte Änderung enthalten.
+
+Unter [DomoStats-Konnektor](https://domo-support.domo.com/s/article/360043433813?language=en_US) werden die Details zum Bericht angezeigt.
+
+# Workbench Enterprise
+
+Workbench Enterprise ist ein Webportal für die Workbench-Auftragsverwaltung. Für Workbench Enterprise ist weiterhin eine Vor-Ort-Installation erforderlich, aber dieses Webportal ermöglicht den Remote-Zugriff auf Ihre Workbench-Aufträge vor Ort.
+
+Workbench Enterprise ist für mehrere Benutzer und Plattformen vorgesehen.
+
+Weitere Informationen über Workbench finden Sie in unserer [Workbench](https://domo-support.domo.com/s/topic/0TO5w000000ZaoPGAS/workbench?language=en_US) -Dokumentation.
+
+<Frame><img alt="16.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TAOz.jpg" style={{width: 700, height: 432}}/></Frame>
+[Nach oben](#Top)
+
+---
+
+## Beta-Ankündigungen
+
+*Um an einem Betaprogramm teilzunehmen, wenden Sie sich an Ihr Domo-Konto-Team. Wenn Sie keine Kontaktdaten für Ihr Konto-Team haben, wenden Sie sich an den Domo-Support unter [support@domo.com](mailto:support@domo.com). Möglicherweise müssen Sie zunächst eine Schulung absolvieren, bevor Sie die Funktion nutzen können.*
+
+# Domo. AI
+
+### Domo. KI-Chat
+
+Führen Sie mit Domo. KI-Chat eine umfassende Konversation mit Ihren Daten und erkunden Sie sie. Stellen Sie eine Frage, und KI-Chat zeigt Ihnen frühere Fragen an, schlägt zusätzliche Fragen vor und liefert weitere kontextbezogene Hinweise. Domo. AI Chat ermöglicht es Ihnen, über eine einfache natürlichsprachliche Abfrage (Natural Language Query, NLQ) hinauszugehen, und schlägt die besten nächsten Aktionen vor – durch das Generieren einer neuen Visualisierung, dem Einstellen einer Mitteilung, dem Aufrufen eines KI-Modells und anderen relevanten Aufgaben.
+
+Erfahren Sie mehr über [Domo.KI](https://ai.domo.com/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+
+<Frame><img alt="17.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000UxXJ.jpg" style={{width: 250, height: 422}}/></Frame>
+[Nach oben](#Top)
+
+# Magic ETL
+
+### Snowflake-Integration
+
+<Columns cols={3}>
+  <Frame><img src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XTxh.jpg" /></Frame>
+  <Frame><img src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XU5l.jpg" /></Frame>
+  <Frame><img alt="20.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XOup.jpg" /></Frame>
+</Columns>
+Cloud Amplifier verbindet jetzt Magic ETL mit Snowflake für schnellere, intelligente Transformationen – direkt am Speicherplatz Ihrer Daten.
+
+### ON-Eigenschaft in der Kachel „Daten vereinigen“
+
+Mit der neuen ON-Eigenschaft in der Kachel „Daten vereinigen“ haben Sie die Möglichkeit, Ihre eigene Freeform-ON-Klausel für Joins zu schreiben. Dies gibt Ihnen die Flexibilität, komplexe Joins zu schreiben, einschließlich Non-Equijoins und Ranged Joins.
+
+Weitere Informationen zu Magic ETL finden Sie in unserer [Magic ETL-Dokumentation.](https://domo-support.domo.com/s/topic/0TO5w000000ZanvGAC/magic-etl?language=en_US)
+
+<Frame><img alt="21.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TBT7.jpg" style={{width: 753, height: 430}}/></Frame>
+### Upsert
+
+Upsert in Magic ETL ermöglicht es Ihnen, die Zeilen in Ihrem Ausgabe-DataSet ohne die erneute Verarbeitung des gesamten DataSets zu aktualisieren, und zwar auf der Grundlage eines eindeutigen Schlüssels auf Zeilenebene.
+
+Bei Auswahl einer Aktualisierungsmethode für Ihren DataFlow können Sie einen Upsert-Schlüssel in der Konfiguration Ihres Ausgabe-DataSets definieren. Während des Ausgabeschrittes prüft Domo die eindeutigen Schlüssel, die sich aus der DataFlow-Verarbeitung ergeben. Wenn diese Schlüssel bereits im Ausgabe-DataSet vorhanden sind, werden sie durch die aktualisierten Zeilen mit demselben Schlüssel ersetzt.
+
+Weitere Informationen zu Magic ETL finden Sie in unserer [Magic ETL-Dokumentation.](https://domo-support.domo.com/s/topic/0TO5w000000ZanvGAC/magic-etl?language=en_US)
+
+<Frame><img alt="22.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000WuQT.jpg" style={{width: 302, height: 336}}/></Frame>
+[Nach oben](#Top)
+
+# Mitteilung zu Geplanter Bericht
+
+Konfigurieren Sie mit der neuen Funktion im Menü „Mitteilungen“ geplante Berichte zu Mitteilungen.
+
+<Frame><img alt="23.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000XUQj.jpg" style={{width: 551, height: 342}}/></Frame>
+# Domo-Bereinigung für Arbeitsabläufe
+
+Die neue Funktion „Domo-Bereinigung für Arbeitsabläufe“, die von DomoStats unterstützt wird, identifiziert nicht genutzte Inhalte und zeigt sie auf einem Dashboard an. Diese Funktion vereinfacht die Verwaltung von BI-Inhalten erheblich und stellt eine sauberere und relevantere Umgebung sicher.
+
+# Schreibgeschützte Inhalte veröffentlichen
+
+Mit der Funktion „Schreibgeschützte Inhalte veröffentlichen“ können Sie die Domo Embed-Engine nutzen, um schreibgeschützte Inhalte für Ihre Abonnenten zu veröffentlichen. Schreibgeschützte Inhalte lassen keine Änderungen durch den Abonnenten zu, DataSets, die die Inhalte unterstützen, werden nicht an die Abonnenten kopiert, und Änderungen werden ohne Aktualisierung per Push übertragen.
+
+Weitere Information zur Veröffentlichung erhalten Sie unter [Veröffentlichung von Inhalten an eine Abonnentenorganisation](https://domo-support.domo.com/s/topic/0TO5w000000ZanbGAC/domo-everywhere?language=en_US).
+
+<Frame><img alt="24.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000TOv1.jpg" style={{width: 651, height: 378}}/></Frame>
+Modal für die Freigabe von DataFlows – Mit dem Modal für die Freigabe von DataFlows haben Sie die Möglichkeit, DataFlows für einen anderen Benutzer oder eine andere Gruppe über einen praktischen Menüprozess aus freizugeben. Es werden alle Eingabe- und Ausgabe-DataSets für die ausgewählten Benutzer und Gruppen freigegeben.
+
+[Nach oben](#Top)
+
+## Benötigen Sie Unterstützung?
+
+Domo bietet Schulungen, Antworten in der Community und technischen Support an.
+
+* Suchen Sie im
+  [Hilfecenter](https://www.domo.com/domo-central/help) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> nach einem Thema.
+* Erfahren Sie mehr bei der
+  [Domo University](https://www.domo.com/domo-central/university) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Suchen Sie Schulungs-Apps im
+  [AppStore](https://www.domo.com/appstore/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Finden Sie Antworten in den
+  [Community-Foren](https://community-forums.domo.com/main) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />
+* Wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im
+  [Domo-Supportportal](https://www.domo.com/login/customer-community) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> einreichen
+* Wenden Sie sich an Ihr Domo-Konto-Team
+
+## Möchten Sie Feedback geben?
+
+Ihr Feedback können Sie aus Domo heraus übermitteln:
+
+Wählen Sie in der Navigationskopfzeile **Mehr** > <InlineImage src="/images/kb/de/ka0Vq0000000qcy-00N5w00000Ri7BU-0EMVq000000g9Jq.jpg" /> **Feedback.**
+
+Wählen Sie im Modal **Kontaktieren Sie Domo** **Produkt-Feedback** > **Go Now** (Jetzt starten) aus.
+
+<Frame><img alt="25.jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Me3d.jpg" style={{width: 599, height: 428}}/></Frame>
+[Nach oben](#Top)
+

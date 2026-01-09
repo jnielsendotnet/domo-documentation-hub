@@ -1,0 +1,38 @@
+---
+title: "Bitbucketコネクター"
+---
+
+## はじめに
+
+Atlassian BitbucketはMercurialまたはGitのいずれかのリビジョン管理システムを使用するソースコードおよび開発プロジェクトに使用されるウェブベースのホスティングサービスです。Bitbucket APIの詳細については、ウェブサイト（ [https://confluence.atlassian.com/bit...222724129.html](https://confluence.atlassian.com/bitbucket/use-the-bitbucket-cloud-rest-apis-222724129.html "https://confluence.atlassian.com/bitbucket/use-the-bitbucket-cloud-rest-apis-222724129.html") ）を参照してください。
+
+Bitbucketアカウントには、Data Centerから接続します。このトピックでは、Bitbucketコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Bitbucketアカウントに接続してDataSetを作成するには、BitbucketまたはGoogleの認証情報が必要です。
+
+## Bitbucketアカウントに接続する
+
+このセクションでは、Bitbucketコネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのBitbucketコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のBitbucketアカウントがある場合は **［アカウントを追加］** を選択）すると、Bitbucket OAuth画面が開き、BitbucketとGoogleのどちらかの認証情報を選択して入力できます。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいBitbucket DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にBitbucketにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずBitbucketからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したいBitbucketレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Get Directory Contents </td><td colspan="1" rowspan="1"> 指定したコミットハッシュのすべてのディレクトリコンテンツのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> List Users </p></td><td colspan="1" rowspan="1"><p> すべてのユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Users for Account </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名のユーザーの詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Followers for Username </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名のフォロワーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Followings for Username </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名のフォローのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Team Details </p></td><td colspan="1" rowspan="1"><p> 指定したチームのチーム詳細のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Team Members </p></td><td colspan="1" rowspan="1"><p> 指定したチームのチームメンバーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Team Followers </p></td><td colspan="1" rowspan="1"><p> 指定したチームのチームフォロワーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Team Following </p></td><td colspan="1" rowspan="1"><p> 指定したチームをフォローするチームのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Team Repositories </p></td><td colspan="1" rowspan="1"><p> 指定したチームのチームリポジトリのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Pullrequest Activity </p></td><td colspan="1" rowspan="1"><p> 指定した所有者とリポジトリのPullrequestアクティビティのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Pullrequest </p></td><td colspan="1" rowspan="1"><p> 指定した所有者とリポジトリのPullrequestのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Branch Restriction </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名とリポジトリのブランチ制限のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Repository Privileges </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名とリポジトリのリポジトリ権限のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Public Repositories </p></td><td colspan="1" rowspan="1"><p> すべてのパブリックリポジトリのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List All Repositories for Owner </p></td><td colspan="1" rowspan="1"><p> 指定した所有者のすべてのリポジトリのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Forks on a Repository for Owner </p></td><td colspan="1" rowspan="1"><p> 指定した所有者とリポジトリのリポジトリフォークのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Watchers on a Repository for Owner </p></td><td colspan="1" rowspan="1"><p> 指定した所有者とリポジトリのリポジトリウォッチャーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Commits on a Repository for Owner </p></td><td colspan="1" rowspan="1"><p> 指定した所有者とリポジトリのリポジトリコミットのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Events for Repository </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名とリポジトリのイベントのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Issue Component for Repository </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント名とリポジトリの課題コンポーネントのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Issue Versions for Repository </p></td><td colspan="1" rowspan="1"><p> 指定したアカウントとリポジトリの課題バージョンのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Issue Milestone for Repository </p></td><td colspan="1" rowspan="1"><p> 指定したアカウントとリポジトリの課題マイルストーンのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Group Privileges on a Repository </p></td><td colspan="1" rowspan="1"><p> 指定したアカウント、リポジトリ、所有者、グループのグループ権限のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Account Emails </p></td><td colspan="1" rowspan="1"><p> 指定したアカウントのアカウントメールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Account Events </p></td><td colspan="1" rowspan="1"><p> 指定したアカウントのアカウントイベントのリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> データを取得したいアカウントの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Team Name </p></td><td colspan="1" rowspan="1"><p> データを取得したいチームの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Owner Name </p></td><td colspan="1" rowspan="1"><p> データを取得するリポジトリ所有者の名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group Name </p></td><td colspan="1" rowspan="1"><p> データを取得するグループの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Repository Name </p></td><td colspan="1" rowspan="1"><p> データを取得するリポジトリの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report State Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するのか、レポート実行日から指定した日数を遡った日までのデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートを実行するたびに、何日間遡った日までのデータを取得するのかを指定します。例えば、「 <span class="mt-font-courier-new"> 7 </span> 」を入力すると、レポートが実行されるたびに過去7日間のデータが取得されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

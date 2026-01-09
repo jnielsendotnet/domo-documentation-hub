@@ -1,0 +1,108 @@
+---
+title: "Microsoft Excel SFTP Push Connector"
+---
+
+## SFTPクライアントを使ってExcelファイルをアップロードする
+
+SFTPクライアントを使うとExcelファイルをDomo SFTPサーバーにアップロードできます。ここでは、FileZilla SFTPクライアント（ [https://filezilla-project.org](https://filezilla-project.org/ "https://filezilla-project.org") ）を使ってアップロードする方法を説明します。ほかのSFTPクライアントを使うファイルのアップロード方法については、お使いのクライアントのマニュアルを参照するか、Google検索などを利用してください。
+
+****FileZillaを使ってDomo SFTPサーバーにExcelファイルを送信するには****
+
+1. 「 [Excelファイルに接続する]() 」の説明に従って、ExcelコネクターをDomoで設定します。
+2..pem ファイルを使用マシンのディレクトリに移動します。この例では/sftpディレクトリを使っています。
+3. 新しいDataSetのID（DataSetの［詳細］ビューの ****［アップロード方法］**** タブ内に表示）と同じ名前のExcelファイルを /sftp ディレクトリ下に作成します。
+     
+   たとえばDataSetのIDがcb4ba6a0-0934-440f-8572-1253b9f7525aの場合、Excelファイルの名前は cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel となります。
+4. FileZillaのサイトマネージャーで新規サイトを作成します。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7N.png"/></Frame>
+
+5. ［ ****全般**** ］タブで次のように設定します。
+     
+   <table><thead><tr><th colspan="1" rowspan="1"><p> 設定対象 </p></th><th colspan="1" rowspan="1"><p> 手順 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> DataSetの［詳細］ビューの <b><b> ［アップロード方法］ </b></b> タブに表示される <b><b> ホスト名 </b></b> のURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> 「22」と入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロトコル </p></td><td colspan="1" rowspan="1"><p> ［ <b><b> SFTP </b></b> ］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ログオンのタイプ </p></td><td colspan="1" rowspan="1"><p> ［ <b><b> キーファイル </b></b> ］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> DataSetの［詳細］ビューの［ <b><b> アップロード方法 </b></b> ］タブにある［ <b><b> ユーザー名 </b></b> ］の隣に表示される値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> キーファイル </p></td><td colspan="1" rowspan="1"><p> ファイルブラウザで <span class="mt-font-courier-new">.pem </span> キーを探します。 </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7D.png"/></Frame>
+
+6. 先ほど設定したサイトへの接続を開きます。
+7. **ローカルファイル** ウィンドウから **リモートサイト** ウィンドウに、アップロードするExcelファイルをドラッグします。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7I.png" style={{width: 720, height: 139}}/></Frame>
+
+8. 接続を切るか、FileZillaを終了します。
+
+ここでファイルをDomoにアップロード中であると表示されます。
+
+### コマンドラインを使ってExcelファイルをアップロードする
+
+Excelファイルは、コマンドラインクライアントを使ってDomo SFTPサーバーに送信できます。この方法はMacまたはLinuxシステム専用です。Windowsでは機能しない場合があります。
+
+****コマンドラインを使ってExcelファイルをDomo SFTPサーバーに送信するには****
+
+1. 「 Excelファイルに接続する 」の説明に従って、ExcelコネクターをDomoで設定します。
+2..pem ファイルを使用マシンのディレクトリに移動します。この例では/sftpディレクトリを使っています。
+3. 新しいDataSetのID（DataSetの［詳細］ビューの ****［アップロード方法］**** タブ内に表示）と同じ名前のExcelファイルを /sftp ディレクトリ下に作成します。
+     
+   たとえばDataSetのIDがcb4ba6a0-0934-440f-8572-1253b9f7525aの場合、Excelファイルの名前は cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel となります。
+4. /sftpディレクトリで次のコマンドを使い、SFTPサーバーに接続します。
+     
+   `sftp –i  domosftpkey.pem username@mycompany.import.domo.com`
+     
+   ここで **username** は ****［アップロード方法］**** タブの ****［ユーザー名］**** に対応する値、 **domosftpkey.pem** はお使いのキー名、 **mycompany** はお使いのDomoドメイン（お使いのDomoインスタンスのURLで「 http:// 」> のすぐ後に続く部分）です。
+5. Excelファイルをアップロードするときは次のコマンドを使います。
+     
+   `put cb4ba6a0-0934-440f-8572-1253b9f7525a.Excel`
+6. サーバーを終了するには「quit」と入力します。
+     
+   サーバーを終了すると、Domoでファイルが処理中と表示されます。
+
+サーバーに接続しようとすると、次のメッセージが表示される可能性があります。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7K.png"/></Frame>
+
+この状況になったら次のコマンドを実行し、再度接続を試みます。
+
+`chmod 600 /sftp/domosftpkey.pem`
+
+この「 **domosftpkey.pem** 」は、自分のキーの名前です。
+
+### サードパーティのサービスを使ってExcelファイルをアップロードする
+
+Excelファイルは、様々なサードパーティのサービスを使ってDomo SFTPサーバーに送信できます。こちらではAdobe Analyticsを使ってアナリティクスレポートを送信する方法を説明します。ほかのサービスを使ってファイルをアップロードする方法の詳細については、該当するサービスの資料を参照するか、Google検索などを利用してください。
+
+****Adobe Analytics ExcelファイルをDomo SFTPサーバーに送信するには****
+
+1. 「 Excelファイルに接続する 」の説明に従って、ExcelコネクターをDomoで設定します。以下のオプションが設定されていることを確認します。
+
+   * ［ ****キーを生成または選択**** ］で［ ****自分のキーを使う**** ］オプションを選択します。ここでAdobeから受け取ったRSAパブリックキーをテキストフィールドに貼り付けます。
+   * ［ ****解析オプション**** ］で
+     + 区切り文字を［ ****カンマ**** ］に設定します。
+     + Adobeでヘッダー行を除外するよう設定してある場合を除き、［ ****ヘッダー行を含める**** ］チェックボックスをオンのままにします。
+2. Adobe Analyticsに切り替え、アカウントにログインします。
+3. ****［ツール］、［Data Warehouse］**** の順に進みます。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7M.png"/></Frame>
+
+4. ［ ****Data Warehouseリクエスト**** ］タブで、Domoに送信するレポートを定義するとき必要なパラメータをすべて入力します。これに該当するパラメータには、 ****リクエスト名**** 、 ****レポートの日付**** 、 ****セグメント**** 、 ****アイテム**** 、 ****内訳**** 、 ****メトリクス**** などがあります。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7A.png"/></Frame>
+
+5. ページ下部にある［ ****配信スケジュール**** ］セクションで［ ****アドバンス配信オプション**** ］をクリックします。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7J.png"/></Frame>
+
+6. 次のように配信オプションを設定します。
+
+   <table><thead><tr><th colspan="1" rowspan="1"><p> 設定対象オプション </p></th><th colspan="1" rowspan="1"><p> 手順 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポートファイル名 </p></td><td colspan="1" rowspan="1"><p><b><b> ［カスタム］ </b></b> を選択し、Domo DataSet IDに拡張子「.Excelextension」を付けてテキストフィールドに入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートの形式 </p></td><td colspan="1" rowspan="1"><p><b><b> Excel </b></b> ファイルを選択 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポートの送信先 </p></td><td colspan="1" rowspan="1"><p> ［ <b><b> FTP </b></b> ］を選択します。ここでフィールドに以下の情報を入力します。 </p><table><tbody><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> sftp:// <em><em> ホスト名 </em></em> （Domoの［ <b><b> アップロード方法 </b></b> ］タブに記載。例： <a href="" target="_blank" title="sftp://modocorp.import.domo.com"> sftp://modocorp.import.domo.com </a> など） </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> 22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ディレクトリ </p></td><td colspan="1" rowspan="1"><p> Domoの［ <b><b> アップロード方法 </b></b> ］タブにある［ <b><b> ユーザー名 </b></b> ］の値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Domoの［ <b><b> アップロード方法 </b></b> ］タブにある［ <b><b> ユーザー名 </b></b> ］の値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> 空白のままにします。Adobeは先ほどのステップ1で入力したRSAパブリックキーを使用します。 </p></td></tr></tbody></table><p> 適宜、［ <b><b> スケジューリングのオプション </b></b> ］タブをクリックし、1回のみ有効の即時配信にするか、定期スケジュールにするかを指定することもできます。 </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7L.png"/></Frame>
+
+7. アドバンス配信オプションをすべて指定したら、［ ****送信**** ］をクリックします。
+     
+   ［ ****Data Warehouseリクエスト**** ］ページに戻ります。
+8. ［ ****このレポートをリクエスト**** ］をクリックして、設定をすべて保存します。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7C.png"/></Frame>
+
+これでレポートがAdobeのキューに入り、準備ができたところでDomoに配信されます。このリクエストをAdobeが実行するまで多少時間がかかる場合があります。
+
+

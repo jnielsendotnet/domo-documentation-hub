@@ -1,0 +1,134 @@
+openapi: 3.1.0
+info:
+  title: Managing Dataset History API
+  version: "1.0.0"
+  description: "Authentication\n\nRequests to the endpoints in this document should be authenticated using an access token. The token should be passed using the X-DOMO-Developer-Token header. For information about generating an access token see https://domo-support.domo.com/s/article/360042934494?language=en_US."
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    DatasetIdParam:
+      type: string
+      description: "<dataset-id>"
+    DataVersion:
+      type: object
+      properties:
+        schemaId:
+          type: integer
+        dataId:
+          type: integer
+        uploadStatus:
+          type: string
+          enum: [success, error, processing]
+        recordedDate:
+          type: string
+          format: date-time
+        uploadCompletedDate:
+          type: string
+          format: date-time
+        numRows:
+          type: integer
+        numBytes:
+          type: integer
+    DataVersionList:
+      type: array
+      items:
+        $ref: "#/components/schemas/DataVersion"
+    DataVersionDeleteRequest:
+      type: array
+      description: "List of data versions."
+      items:
+        type: integer
+security:
+  - DomoDeveloperToken: []
+tags:
+  - name: Dataset History
+paths:
+  /api/data/v2/datasources/{datasetId}/dataversions:
+    get:
+      tags: [Managing Dataset History API]
+      summary: Listing Dataset Versions
+      description: |-
+        This endpoint lists the data versions that are available for a dataset. Each dataversion records includes metadata indicating the following:
+
+            uploadStatus - success, error, processing
+            numRows - the number of rows in the upload
+            numBytes - the size of the upload in bytes
+            schemaId - the schema associated with the data
+            recordedDate - the time at which the data was made available to the system
+            uploadCompletedDate - the time the upload finished uploading
+      parameters:
+        - in: path
+          name: datasetId
+          required: true
+          description: "<dataset-id>"
+          schema:
+            $ref: "#/components/schemas/DatasetIdParam"
+      responses:
+        "200":
+          description: Response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DataVersionList"
+              examples:
+                example:
+                  value:
+                    - schemaId: 5
+                      dataId: 3
+                      uploadStatus: "success"
+                      recordedDate: "2023-03-31T14:21:13Z"
+                      uploadCompletedDate: "2023-03-31T14:21:13Z"
+                      numRows: 18
+                      numBytes: 458
+                    - schemaId: 7
+                      dataId: 4
+                      uploadStatus: "success"
+                      recordedDate: "2023-03-31T14:21:28Z"
+                      uploadCompletedDate: "2023-03-31T14:21:28Z"
+                      numRows: 499
+                      numBytes: 6890
+    delete:
+      tags: [Managing Dataset History API]
+      summary: Deleting Dataset Versions
+      description: |-
+        This endpoint removes a set of data versions from Vault for a given dataset. This is a destructive operation and cannot be undone. A list of data versions to delete is supplied in the body of the request. The method returns an empty response with a 200 OK http status if the delete was successful.
+
+        If you are deleting data versions that are part of the active data in Adrenaline you should include the index=true request parameter in order to remove the data from Adrenaline as well.
+
+      parameters:
+        - in: path
+          name: datasetId
+          required: true
+          description: "<dataset-id>"
+          schema:
+            $ref: "#/components/schemas/DatasetIdParam"
+        - in: query
+          name: index
+          required: false
+          description: "index=<true|false>"
+          schema:
+            type: boolean
+      requestBody:
+        required: true
+        description: "List of data versions."
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DataVersionDeleteRequest"
+            examples:
+              example:
+                value:
+                  - 2
+      responses:
+        "200":
+          description: "An empty response with a 200 OK http status if the delete was successful."

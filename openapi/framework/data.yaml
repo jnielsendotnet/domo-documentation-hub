@@ -1,0 +1,249 @@
+openapi: 3.0.0
+info:
+  title: Domo Data & SQL API
+  version: v1
+  description: |
+    API for querying Domo datasets using either URL query operators (Data API) 
+    or raw SQL (SQL API).
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo API
+tags:
+  - name: Data API
+    description: Query datasets using URL parameters.
+  - name: SQL API
+    description: Query datasets using raw SQL commands.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Access token obtained via Domo's authentication flow."
+  schemas:
+    # Schema for the "Detailed JSON" response format
+    DataResponseDetailed:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: string
+          example: ["first", "last", "age"]
+        datasource:
+          type: string
+          example: "93a5b974-1aac-49fc-ba9a-a67dff658be6"
+        device:
+          type: string
+        duration:
+          type: string
+        fromcache:
+          type: string
+        metadata:
+          type: array
+          items:
+            type: object
+            properties:
+              dataSourceId:
+                type: string
+              type:
+                type: string
+        numColumns:
+          type: integer
+        numRows:
+          type: integer
+        queryUrl:
+          type: string
+        rows:
+          type: array
+          items:
+            type: array
+            items: {} # Items can be of any type (string, number)
+          example: [["Joe", "Jacobs", 39], ["Henry", "Woolington", 23]]
+    
+    # Schema for the "array-of-objects" response format
+    DataResponseArrayObjects:
+      type: array
+      items:
+        type: object
+        additionalProperties: true
+      example:
+        - first: "Joe"
+          last: "Jacobs"
+          age: 39
+        - first: "Henry"
+          last: "Woolington"
+          age: 23
+
+    # Standard error response
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+
+security:
+  - bearerAuth: []
+
+paths:
+  /data/v1/{alias}:
+    get:
+      summary: Query a Dataset (Data API)
+      description: |
+        Retrieves data from a dataset using URL query operators.
+        The format of the response is controlled by the `Accept` header.
+      tags: [Data API]
+      parameters:
+        - name: alias
+          in: path
+          required: true
+          description: The name provided for the dataset mapping in the app's manifest.
+          schema:
+            type: string
+        # Aggregations
+        - name: avg
+          in: query
+          description: "Aggregates specified fields by average. Comma-separated."
+          schema: { type: string }
+        - name: count
+          in: query
+          description: "Aggregates specified fields by count. Comma-separated."
+          schema: { type: string }
+        - name: max
+          in: query
+          description: "Aggregates specified fields by maximum value. Comma-separated."
+          schema: { type: string }
+        - name: min
+          in: query
+          description: "Aggregates specified fields by minimum value. Comma-separated."
+          schema: { type: string }
+        - name: sum
+          in: query
+          description: "Aggregates specified fields by sum. Comma-separated."
+          schema: { type: string }
+        - name: unique
+          in: query
+          description: "Aggregates specified fields by unique count. Comma-separated."
+          schema: { type: string }
+        # Other Operators
+        - name: calendar
+          in: query
+          description: "Specify which calendar to use for date-related operations such as `todate`, `last`, and `dategrain`."
+          schema: { type: string }
+        - name: dategrain
+          in: query
+          description: "PePerform a `groupby` with predefined date grains. By default, numerical columns are summed and unique entries of non-numerical columns are counted. Can be combined with an aggregation to override this default behavior. \n\nNote: dategrain adds new columns\n\n When graining by week, month, or quarter, a column named `CalendarXXXX` will be returned with the data (e.g. CalendarMonth for month date graining). Date graining by day will return a column `Date`, and date graining by year will return a column `Year`. \n\nIf you already have a column with that name, it will be overridden by this new date field. In addition, the column you request as the date grain will not be present in the result by its original name."
+          schema: { type: string }
+        - name: fields
+          in: query
+          description: "Limit the result set to specific columns from the dataset by providing either the field alias or the original column name (if no alias was defined in the manifest). Multiple fields can be combined into a comma separated string."
+          schema: { type: string }
+        - name: filter
+          in: query
+          description: "Limit the rows returned by the request by providing more fine-grained filters. Multiple filter parameters can be combined into a single comma separated string."
+          schema: { type: string }
+        - name: groupby
+          in: query
+          description: "Aggregates identical data into groups. By default, numerical columns are summed and unique entries of non-numerical columns are counted. Can be combined with an aggregation to override this default behavior. Multiple columns can be grouped by delimiting each with a comma."
+          schema: { type: string }
+        - name: limit
+          in: query
+          description: "Provides the ability to paginate the query results."
+          schema: { type: integer }
+        - name: offset
+          in: query
+          description: "Provides the ability to paginate the query results."
+          schema: { type: integer }
+        - name: orderby
+          in: query
+          description: "Rows can be ordered by any column in `ascending` or descending order. The order defaults to ascending and a multi-column order can be defined by delimiting each order clause with a comma. \n\n Note: You cannot order on an aggregation"
+          schema: { type: string }
+        - name: useBeastMode
+          in: query
+          description: "Previously a known limitation of the Data API, you can now optionally use beast modes in your queries. In order to use beast modes in your data request, the `useBeastMode` query parameter must be set to true."
+          schema: { type: boolean, default: false }
+      responses:
+        '200':
+          description: "Successful data response. Format depends on the 'Accept' header."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseDetailed'
+            array-of-objects:
+              schema:
+                $ref: '#/components/schemas/DataResponseArrayObjects'
+            text/csv:
+              schema:
+                type: string
+                example: |
+                  'first', 'last', 'age'
+                  'Joe', 'Jacobs', '39'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+              schema:
+                type: string
+                format: binary
+        '400':
+          description: "Bad Request (e.g., invalid query parameters)."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: "Unauthorized."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: "Alias not found."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /sql/v1/{alias}:
+    post:
+      summary: Query a Dataset (SQL API)
+      description: Retrieves data from a dataset using a raw SQL query.
+      tags: [SQL API]
+      parameters:
+        - name: alias
+          in: path
+          required: true
+          description: "The dataset alias, which is used as the table name in the SQL query."
+          schema:
+            type: string
+      requestBody:
+        description: "A plain text SQL query to execute."
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+            example: "SELECT * FROM myAlias WHERE 'age' > 30 limit 100"
+      responses:
+        '200':
+          description: "Successful data response, returned in the 'Detailed JSON' format."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DataResponseDetailed'
+        '400':
+          description: "Bad Request (e.g., invalid SQL syntax)."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: "Unauthorized."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: "Alias not found."
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

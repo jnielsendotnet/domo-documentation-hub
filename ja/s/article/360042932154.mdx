@@ -1,0 +1,41 @@
+---
+title: "Microsoft Wordコネクター"
+---
+
+## はじめに
+
+幅広く利用されている書処理ツールであるMicrosoft WordはMicrosoftによって開発されました。Microsoft Office APIの詳細については、Webサイト（ [https://msdn.microsoft.com/en-us/lib.../fp179696.aspx](https://msdn.microsoft.com/en-us/library/office/fp179696.aspx "https://msdn.microsoft.com/en-us/library/office/fp179696.aspx") ）を参照してください。
+
+Microsoft Wordアカウントには、Data Centerから接続します。このトピックでは、Microsoft Wordコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+インポートするMicrosoft Wordファイルが保存されているSFTPサーバーに接続するには、以下が必要です。
+
+* SFTPサーバーのホスト名またはIPアドレス
+* SFTPサーバーのポート番号（デフォルトは22）
+* SFTPサーバーのログインに使用するユーザー名とパスワード
+
+## Microsoft Wordアカウントに接続する
+
+このセクションでは、Microsoft Wordコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのその他のペインである **［スケジュール設定］** と **［DataSetの名前と説明］** の項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Microsoft Wordアカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> インポートするMicrosoft Wordファイルが保存されているSFTPサーバのホスト名またはIPアドレスを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> インポートするMicrosoft Wordファイルが保存されているSFTPサーバーのポート番号を入力します（デフォルトは <span class="mt-font-courier-new"> 22 </span> ）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> SFTPサーバーのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> SFTPサーバーのパスワードを入力します。 </p></td></tr></tbody></table>
+
+一度有効なMicrosoft Word認証情報を入力したら、新しいMicrosoft Word DataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインにはMicrosoft Wordファイルへの接続情報を入力するフィールドが2つあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ファイルパス </p></td><td colspan="1" rowspan="1"><p> インポートするMicrosoft WordファイルのSFTPサーバー上のファイルパスを入力します。例： <span class="mt-font-courier-new"> /home/user/MyFile.docx </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイルのパスワード（オプション） </p></td><td colspan="1" rowspan="1"><p> インポートするファイルのパスワード（設定されている場合）を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

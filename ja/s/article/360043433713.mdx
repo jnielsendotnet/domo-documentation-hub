@@ -1,0 +1,96 @@
+---
+title: "Box Analyticsコネクター"
+---
+
+## はじめに
+
+Boxは、ビジネス向けのオンラインファイル共有およびパーソナルコンテンツクラウド管理のサービスです。DomoのBox Analyticsコネクターを使用すると、Boxからファイルとフォルダー、ユーザー、エンタープライズのイベント、シングルユーザーのイベントのデータを取得することができます。Box APIの詳細については、製品ドキュメント（ [https://docs.box.com/v2.0/reference#events](https://docs.box.com/v2.0/reference#events "https://docs.box.com/v2.0/reference#events")）を参照してください。
+
+Box Analyticsコネクターは「クラウドApp」であり、クラウドに保管されたデータを取得できます。Data Centerのウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+このコネクターは、 [Box Analytics Advancedコネクター](https://domo-support.domo.com/ja/s/article/360042929194 "Box Analytics Advancedコネクター") とほぼ同じものです。違いは、高度なバージョンでは「File and Folder」レポートと「Enterprise Events」レポートでより多くのフィルターオプションを使用できる点です。
+
+このトピックでは、Box Analyticsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、企業のBoxアカウントの使用状況に関するインサイトを得る必要があるITエンタープライズ管理者に最適です。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、ユーザーによるログイン、ダウンロード、表示の回数や、その他の一般的な導入に関するメトリクスについて詳細なインサイトを提供します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> IT管理者 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+このコネクターから取得されるデータは、企業のBoxアカウントで発生するイベントのストリームです。有益なデータではありますが、データを有効に活用するには、時間をかけた分析と解釈が必要になる場合があります。
+
+## 必要条件
+
+Boxアカウントに接続してBox Analytics DataSetを作成するには、以下が必要です。
+
+* Boxアカウントへのログインに使用するメールアドレス
+* Boxアカウントへのログインに使用するパスワード
+
+<Note>
+**注記：** Boxアカウントを持っている人は誰でもこのコネクターを使用できますが、管理者でない場合は、自分の使用状況に関するレポートしか表示できません。その場合、有益なデータとして使用できないことがあります。
+
+</Note>
+
+## Boxアカウントに接続する
+
+このセクションでは、Box Analyticsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### ［認証情報］ペイン
+
+Domo Box AnalyticsコネクターはBoxへの接続にOAuthを使用しています。 **［接続］** をクリック（またはDomoにBox Analyticsアカウントがある場合は **［アカウントを追加］** を選択）して、BoxのOAuth画面を開き、Boxアカウントに関連したメールアドレスとパスワードを入力します。有効なBox認証情報を一度入力しておくと、Domo内でいつでも同じアカウントを使用して新しいBox Analytics DataSetを作成することができます。
+
+コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Box Analyticsレポートを選択するメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span class="s1"> Box Analyticsレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> File and Folder Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> アカウント内のファイルとフォルダーの詳細を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> User Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> アカウントのユーザーに関する詳細を返します。個人ユーザーの場合、このレポートにはユーザー自身のユーザー情報とコンテンツのみが含まれます。エンタープライズの管理者の場合、このレポートには個人ユーザーの情報に加えて、管理者のエンタープライズアカウント内のその他のユーザーの情報も含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Enterprise Event Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> エンタープライズアカウントの全イベント履歴を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Single User Event Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 個人ユーザーのBoxアカウントに関係のある全イベントをリストにして表示します。 </span></p></td></tr></tbody></table><p></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+企業のBoxインスタンスの管理者であることを確認します。管理者でない場合は、このコネクターを使用してデータを取得できません。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# Boxアカウント認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスにはOAuthプロセスが使用されるため、DomoによりBoxの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSetの更新は、15分に1回になるように設定してください。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+Boxでは、ユーザーごとに1秒間に約10個のクエリが許可されます。1回のDataSet実行に複数のクエリが必要になる場合がありますのでご注意ください。
+
+
+</Accordion>
+<Accordion title="# 最大データを取得できないのはどうしてですか？">
+
+
+企業のBoxインスタンスの管理者であることを確認します。管理者でない場合は、このコネクターを使用してデータを取得できない場合があります。
+
+
+</Accordion>
+<Accordion title="# Box AnalyticsコネクターとBox Advanced Analyticsコネクターの違いは何ですか？">
+
+
+Box Analytics Advancedコネクターでは、「File and Folder」および「Enterprise Events」レポートでより多くのフィルタリングオプションを利用できます。
+
+
+
+</Accordion>
+</AccordionGroup>

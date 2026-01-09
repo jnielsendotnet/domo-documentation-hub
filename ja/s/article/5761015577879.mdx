@@ -1,0 +1,86 @@
+---
+title: "data.world Writebackコネクター"
+---
+
+## はじめに
+
+data.worldは、データと分析のための様々な最新テクノロジーを提供しています。企業内の隠されたデータワークフォースを有効活用し、データの価値を何倍にも増やし、データ駆動型のよりスピーディーな企業文化を創り出します。最新の直感的なユーザーエクスペリエンスにより、あらゆる役割や経歴、スキルを持つ従業員のコラボレーションが可能になり、従業員が発見、理解し、活用すべきあらゆるものとデータが結びつくようになります。その結果、データ、分析、専門知識の検索性、信頼性、再利用性が向上します。
+
+data.world Writebackコネクターを使用すると、データをDomo DataSetから指定したファイルに安全にエクスポートし、データのパフォーマンスを向上させることができます。data.world APIの詳細については、ウェブサイト（ [https://apidocs.data.world/](https://apidocs.data.world/ "https://apidocs.data.world/") ）を参照してください。
+
+Domoとdata.worldの接続は、Data Centerで設定します。このトピックでは、data.world Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+このコネクターを設定するには、data.worldアカウントのAPIトークンが必要です。 APIトークンは、 **［ユーザー設定］>［詳細］タブ** の下にあります。
+
+## 接続を設定する
+
+**このセクションでは、data.world Writebackコネクターページの** ［認証情報］ **および** ［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳しくは、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データのコピー先となるdata.worldアカウントに接続するための認証情報を入力するフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Token </td><td colspan="1" rowspan="1"><span> APIトークンを入力します。APIトークンは、 </span><b> ［ユーザー設定］&gt;［詳細］タブ </b><span> の下にあります。 </span></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいdata.world Writeback DataSetを設定することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Input DataSet ID </p></td><td colspan="1" rowspan="1"><p><span> DataSet URLにあるDomo DataSet ID（GUID）を入力します。例： <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a></span><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b><span> /details/settings </span></p></td></tr><tr><td colspan="1" rowspan="1"> Select data.world DataSet Method </td><td colspan="1" rowspan="1"><span> data.world DataSetを選択するか、DataSet IDを手動で入力するかを指定します。 </span></td></tr><tr><td colspan="1" rowspan="1"> data.world DataSet </td><td colspan="1" rowspan="1"> data.world DataSetをコピーする場所を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> data.world DataSet </td><td colspan="1" rowspan="1"><span> data.world DataSet IDを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Select File Name Method </td><td colspan="1" rowspan="1"><span> 出力ファイルを選択するか、ファイル名を手動で入力するかを指定します。 </span></td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"><span> 出力ファイル名をファイル拡張子なしで入力します。入力したファイル名が既存のファイルと一致しない場合、コネクターはそのファイルを上書きします。 </span></td></tr><tr><td colspan="1" rowspan="1"> Files </td><td colspan="1" rowspan="1"><span> 書き込み先のファイル名を選択します。ファイルの拡張子は「.csv」です。 </span></td></tr><tr><td colspan="1" rowspan="1"> Append Date or Number to Filename </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> 操作 </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> None </td><td colspan="1" rowspan="1"> ファイル名に何も追加しません。これは新しいファイルが作成されるのではなく、実行するたびにファイルが上書きされることを意味します。 </td></tr><tr><td colspan="1" rowspan="1"> Append date </td><td colspan="1" rowspan="1"> ファイル名に現在の実行日付を追加します（例：FileName_MM-DD-YYYY.csv）。同じ日に複数の実行があった場合、前の実行が上書きされます。新しい日に実行すると、新しいファイルが作成されます。 </td></tr><tr><td colspan="1" rowspan="1"> Append number </td><td colspan="1" rowspan="1"> ファイル名に1から始まる実行番号を追加します（例：FileName_1.csv）。実行するたびに新しいファイルが作成されます。 </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+data.worldアカウントに関連付けられているAPIトークンが必要です。
+
+
+</Accordion>
+<Accordion title="APIトークンはどこにありますか？">
+
+
+APIトークンは、［ユーザー設定］>［詳細］タブにあります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="入力DataSet IDはどのように見つけることができますか？">
+
+
+Domoの入力DataSet IDは、データのエクスポート元となるDataSetのURLで見つけることができます。例：
+https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings
+
+
+</Accordion>
+<Accordion title="「ファイル名」とは何ですか？">
+
+
+ファイル名は、データを保存する出力ファイルの名前です。出力ファイル名は、ファイル拡張子なしで入力します。入力したファイル名が既存のファイルと一致しない場合、コネクターはそのファイルを上書きします。
+
+
+
+</Accordion>
+</AccordionGroup>

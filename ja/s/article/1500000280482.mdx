@@ -1,0 +1,62 @@
+---
+title: "Amazon AQUAコネクター"
+---
+
+## はじめに
+
+Advanced Query Accelerator（AQUA）は、ほかのクラウドData Warehouseよりも最大10倍高速でRedshiftを実行できるようにする、新しい分散型ハードウェアアクセラレーションキャッシュです。AQUAを搭載するRedshiftは、現在使用されているバージョンのRedshiftと100％互換性があります。DomoのAmazon AQUAコネクターを使用すると、Redshiftデータベースからデータを取得してカスタムレポートをコンパイルできます。取得するデータの指定は、SQLクエリの入力で行います。
+
+Amazon AQUAのアカウントには、Data Centerから接続します。このトピックでは、Amazon AQUAコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** ネットワークの構造によっては、データコネクターがデータを取得する際に使用するIPアドレスをホワイトリストに登録する必要があります。詳細は、IT管理者にお問い合わせください。
+
+</Note>
+
+| | |
+|:---|:---|
+| **主な使用事例** | Redshift Dara Warehouseまたはデータマートからデータを取得する。 |
+| **主なメトリクス** | これは、Redshiftインスタンスに保存されたデータ次第です。 |
+| **社内における主な権限** | <ul><li>BIリード</li><li>IT権限</li></ul> |
+| **平均導入時間** | 設定と、取得するデータ量により、5時間から40時間です。 |
+| **使いやすさ（1から10のスケールで、1が「最も使いやすい」）** | 6 |
+
+## 必要条件
+
+Amazon AQUAアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Redshiftデータベースのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：
+  [db.company.com](http://db.company.com) ）。
+* データベースのポート番号
+* データベース名
+
+CA証明書テキストまたはURLパスは、 **［証明書書式］** メニューでそれぞれ **［証明書文字列］** または **［URLパス］** を選択する場合 *のみ* 必要になります。
+
+### IPアドレスをホワイトリストに登録する
+
+また、Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+Amazon AQUAアカウントに接続する
+
+このセクションでは、Amazon AQUAコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要とされる内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBCドライバー </td><td colspan="1" rowspan="1"> 使用するJDBCドライバーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> Amazon Redshiftデータベースのエンドポイント（ホスト）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> Redshiftユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Redshiftパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書書式 </td><td colspan="1" rowspan="1"> 証明書書式を選択します。証明書を含めない場合は、 <b> ［証明書なし］ </b> を選択します。 <b> ［証明書文字列］ </b> を選択する場合は、証明書用テキストを <b> ［証明書］ </b> フィールドに貼り付ける必要があります。 <b> ［URLパス］ </b> を選択する場合は、証明書がある場所のURLを <b> ［証明書］ </b> フィールドに入力する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書 </td><td colspan="1" rowspan="1"> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、［証明書書式］メニューで［証明書なし］を選択します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon AQUA DataSetを作成することができますコネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。指定のデータベース表と列を選択し、どの列をレポートに表示するかを指定することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行する構造化照会言語（SQL）クエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> スキーマ名 </td><td colspan="1" rowspan="1"> スキーマ名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース表 </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース表の列の名前 </td><td colspan="1" rowspan="1"> レポートに表示する表の列を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> クエリヘルパー </td><td colspan="1" rowspan="1"> クエリを準備するために、「クエリヘルパー」フィールドからテキストをコピーし「クエリ」フィールドに貼り付けます。 </td></tr><tr><td colspan="1" rowspan="1"> フェッチサイズ </td><td colspan="1" rowspan="1"> メモリのパフォーマンスのフェッチサイズを入力します。空白の場合、デフォルト値は1000です。値に対してメモリー不足の例外が発生した場合、フェッチサイズを縮小します。 </td></tr><tr><td colspan="1" rowspan="1"> Booleanの形式 </td><td colspan="1" rowspan="1"> Booleanデータ列で表示するフォーマットを選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

@@ -1,0 +1,100 @@
+---
+title: "DoubleClick Campaign Manager Service Account via DTV2 Serviceコネクター"
+---
+
+## はじめに
+
+Google Cloud Storageは、Googleのクラウド内にデータを保管するためのインターネットサービスです。DomoのDoubleClick Campaign Manager Service Account via Google Cloud Storage（DTV2）コネクターを使用すると、DoubleClick Campaign ManagerとDoubleClick Bid Managerのデータを取得することができます。DoubleClick Campaign Manager APIの詳細については、ウェブサイト（ [https://developers.google.com/double...k-advertisers/](https://developers.google.com/doubleclick-advertisers/ "https://developers.google.com/doubleclick-advertisers/") ）を参照してください。
+
+<Warning>
+****重要：**** DomoコネクターでOAuth認証を使用する機能にGoogleによって変更が加えられたことにより、新しいデータ接続を作成する際に、すべてのユーザーがサービスアカウントキー認証を使用しなければならなくなりました。新しいDoubleClick Campaign Manager via DTV2 DataSetを作成するには、このコネクターを使用します。既存のDoubleClick Campaign Manager via DTV2 DataSetはすべてこれまで通り正常に実行されます。
+</Warning>
+
+| | |
+|:---|:---|
+| **主な使用事例** | このコネクターは、Google Cloud StorageからDCMテーブルをDomoに取り込みます。マッチテーブルを含めるよう指定すると、これらのテーブルがJoinされます。 |
+| **主なメトリクス** | コネクターは未加工データを取り込みますが、このデータを集計して次のようなメトリクスを表示できます。<ul><li>インプレッション数</li><li>クリック数</li><li>CTR</li><li>リッチメディア配信</li><li>DCMキャンペーンのアクティビティ</li></ul> |
+| **社内における主な権限** | <ul><li>データスペシャリスト</li><li>アナリスト</li><li>Major Domo</li></ul> |
+| **平均導入時間** | このコネクターの実装の各フェーズにかかる平均時間は次の通りです。<ul><li>Google Cloud Storageへの4つのテーブルのエクスポートを設定する - 2時間</li><li>サービスのJSONキーを設定する - 15分以内</li><li>コネクターを設定する - 20分</li></ul>合計時間はDCMから取得されるファイルのサイズによっても異なります。 |
+| **使いやすさ（1～10の段階。1が「最も使いやすい」）** | 7 |
+
+DoubleClick Campaign Managerアカウントには、Data Centerから接続します。このトピックでは、DoubleClick Campaign Manager Service Account via Google Cloud Storage（DTV2）Serviceコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Google Cloud Storage DTV2 Serviceアカウントに接続してDataSetを作成するには、GoogleサービスアカウントのJSONキーが必要です。
+
+<Warning>
+****重要：****
+
+サービスアカウントのJSONキーの生成に使用されるプロジェクトのサービスアカウント権限を設定するときは、Cloud Storageの権限を選択する必要があります。
+
+</Warning>
+
+##### キーを生成するには、次の手順を実行します。
+
+1. Google Cloud Platform（GCP）コンソールで、****************［IAM & Admin］**************** ページを開きます。
+2. 左側のナビゲーションペインで ********************************［Service Accounts］******************************** をクリックします。
+3. プロジェクトを選択して ********************************［Open］******************************** をクリックします。
+4. ********************************［Create Service Account］******************************** をクリックします。
+5. サービスアカウントの名前と説明を入力します。
+6. ********************************［Create］******************************** をクリックします。
+7. サービスアカウント（Cloud Storage）に付与する権限を選択します。
+8. ********************************［Continue］******************************** をクリックします。
+9. ********************************［Create key］******************************** をクリックします。
+10. キーのタイプに ********************************［JSON］******************************** を選択します。
+11. ********************************［Create］******************************** をクリックします。
+
+シークレットキーがコンピューターに保存されます。
+
+## DoubleClick Campaign Manager Service Account via DTV2 Serviceアカウントに接続する
+
+このセクションでは、 DoubleClick Campaign Manager Service Account via DTV2 Service コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 DoubleClick Campaign Manager アカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Service Account Key JSON </td><td colspan="1" rowspan="1"> GoogleサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「 <a href="#h_01EPATGFRAV7ZXB31S6YH0MW1Y" target="_self" title="DoubleClick Campaign Manager Service Account via Google Cloud Storage（DTV2）Serviceコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効なサービスアカウントのJSONキーを入力した後は、新しい DoubleClick Campaign Manager Service Account via DTV2 Service DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead><tr>
+<th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するDoubleClick Campaign Manager Service Account via DTV2 Serviceレポートを選択します。Master Reportでは、4つのDCMテーブルがすべて1つのレポートに取り込まれます。ほかのすべてのレポートでは、マッチテーブルの有無にかかわらず、個別のDCMテーブルを取得できます。マッチテーブルは、テーブル間のJoinを実行するために使用されます。次のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Activities Report With Match Tables </td><td colspan="1" rowspan="1"> マッチテーブルとJoinされたアクティビティデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Activities Raw Data </td><td colspan="1" rowspan="1"> アクティビティの未加工データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Clicks Report With Match Tables </td><td colspan="1" rowspan="1"> マッチテーブルとJoinされたクリック数データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Clicks Raw Data </td><td colspan="1" rowspan="1"> クリック数の未加工データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Impressions Report With Match Tables </td><td colspan="1" rowspan="1"> マッチテーブルとJoinされたインプレッション数データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Impressions Raw Data </td><td colspan="1" rowspan="1"> インプレッション数の未加工データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Master Report </td><td colspan="1" rowspan="1"> マッチテーブルとJoinされたクリック数、インプレッション数、リッチメディア、アクティビティのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Rich Media Report With Match Tables </td><td colspan="1" rowspan="1"> マッチテーブルとJoinされたリッチメディアデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Rich Media Raw Data </td><td colspan="1" rowspan="1"> リッチメディアの未加工データを返します。 </td></tr></tbody></table></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Bucket Name </td><td colspan="1" rowspan="1"> DCMファイルが保存されているGoogle Cloud Storage内のバケットの名前を入力します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Backfill Days for Initial Run </td><td colspan="1" rowspan="1"> 初回の実行で遡ってデータを取得する日数を入力します。ファイルサイズによっては、あまり多くの日数をバックフィルできない場合があります。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 
+Custom Escape Character 
+</td>
+<td colspan="1" rowspan="1"> 
+適切なCSVエスケープ文字を入力します。 
+<Warning>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b><b> 重要： </b></b> これは［ESCAPE CHARACTER］ドロップダウンで <b> ［Other］ </b> を選択した場合にのみ有効になります。 </div></div></div> 
+</Warning>
+
+ </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

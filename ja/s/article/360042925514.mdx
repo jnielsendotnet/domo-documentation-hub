@@ -1,0 +1,159 @@
+---
+title: "Beast Mode計算例：数学変換"
+---
+
+## はじめに
+
+Beast Modeを使用して数学変換を実行する際には、この記事を参照してください。
+
+## 16進数を10進数に変換する
+
+16進数の値を10進数に変換するには、次のBeast Modeを使用します。
+
+```
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,1),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,1),1)*POWER(16,7)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,1),1)) 9)*POWER(16,7)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,2),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,2),1)*POWER(16,6)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,2),1)) 9)*POWER(16,6)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,3),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,3),1)*POWER(16,5)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,3),1)) 9)*POWER(16,5)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,4),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,4),1)*POWER(16,4)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,4),1)) 9)*POWER(16,4)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,5),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,5),1)*POWER(16,3)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,5),1)) 9)*POWER(16,3)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,6),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,6),1)*POWER(16,2)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,6),1)) 9)*POWER(16,2)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,7),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,7),1)*POWER(16,1)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,7),1)) 9)*POWER(16,1)
+
+END)
+
+(CASE
+
+when RIGHT(LEFT(`_id_$oid`,8),1) in ('1','2','3','4','5','6','7','8','9','0')
+
+then RIGHT(LEFT(`_id_$oid`,8),1)*POWER(16,0)
+
+else (INSTR('abcdefghijklmnopqrstuvwxyz',RIGHT(LEFT(`_id_$oid`,8),1)) 9)*POWER(16,0)
+
+END)
+```
+
+## Xバーを計算する
+
+コントロールチャートを作成し、最初にXバーを計算する場合を考えてみましょう。例えば、ある期間において、週ごとにそれぞれの1日に発生した複数の在庫トランザクションがあるとします。Xバーの計算では、その期間のトランザクションの合計をトランザクション数で割ったものが、在庫クラス別に表されます。
+
+例：
+
+11月1. 在庫クラス1トランザクション：1200+1400+1000+800。計算：4400÷4 = 1100
+
+11月2. 在庫クラス1トランザクション：1000+700+1300。計算：3000÷3 = 1000
+
+11月3. 在庫クラス1トランザクション：1200+500+500+1000。計算：3200÷4 = 800
+
+したがって、在庫クラス1に描画される点は、1100、1000、800になります。
+
+これは、選択した時間単位にもとづいてデータをグループ化することで行うことができます。サブグループの期間と一致するようにカードの時間単位を設定した場合（例：「日単位」）、 トランザクションフィールドの集計オプションに［平均］を選択すると、 各グループに分類されるレコードの数に従ってトランザクションが自動的に平均化されます。時間単位を週単位に変更した場合でも、平均化は毎日ではなく毎週のレコード数全体に対して行われるため、計算は有効になります。
+
+Beast Modeで平均化を行う場合は、フィールドをAVG関数でラップします。
+
+`` AVG(`Transactions`) ``
+
+また、時間単位はBeast Mode計算に引き続き適用されます。
+
+## 2つの列の割合を算出する
+
+2つの列を1つの列で割ったときの割合をほかの列に表示できます。例えば、「Sales」という列と「Quota」という列があり、ノルマの達成率を求めるとします。単純に次のBeast Mode計算を記述します。
+
+`` `Sales`/`Quota` ``
+
+## Y値のサブセットに対して系列を計算する
+
+多数のワークステーション（ラップトップおよびデスクトップ）があり、それらにインストールされている各エージェントの割合を示す折れ線グラフがあるとします。ラップトップのみにインストールされているエージェントは1つしかありません。ラップトップのみにインストールされているエージェントの割合を計算する場合はどうすればよいでしょうか？
+
+これは、両タイプのワークステーションにインストールされているエージェントの数とラップトップのみにインストールされているエージェントの数を比較するBeast Mode計算によって計算できます。
+
+```
+(count(case when `Device Type`='Laptop' then `OpenDNS` end)
+
+/
+
+count(case when `Device Type`='Laptop' then `System Name` end)
+
+)*100
+```
+
+この計算では、比率を取得し、それに100を掛けて割合を求めています。必要な特定のメトリクスに応じて、サポートされているBeast Mode計算はすべてこの方法で適用できます。
+
+## Xデータポイントの平均を計算する
+
+Beast Mode計算を使用して、特定のDataSet内の一連の最新データポイントの平均を求める方法があります。最近のデータから特定の平均メトリクスをカードに自動的に表示させるとします。
+
+次のBeast Mode計算を使用して、過去6ヶ月間のメトリクスの平均値を計算します。
+
+```
+(CASE
+
+when `Datefield` <= DATE_SUB(`Datefield`, interval 6 month) AND `Date` >= CURDATE()
+
+then AVG('metric')
+
+else 0
+
+END)
+```
+
+日本語

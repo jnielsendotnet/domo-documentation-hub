@@ -1,0 +1,72 @@
+---
+title: "Projects And Tasks API"
+sidebarTitle: Overview
+permalink: "wnn8cxurat78o-projects-and-tasks-api"
+---
+
+```text API Base URL
+Domo API Server: https://api.domo.com
+```
+
+<Info>
+**Security**: Bearer Auth
+
+Provide your bearer token in the Authorization header when making requests to protected resources.
+
+Example: `Authorization: Bearer 123`
+</Info>
+
+“Projects and Tasks” is a project management tool that helps you take real action with simple planning, assigning, and task-tracking features. You can create projects with various tasks and assignments. Those tasks exist within swim lanes or lists, and can be moved from list to list to show progress through a particular workflow. You can use default lists or create new custom lists. You can also add attachments to individual tasks to reference relevant materials and other artifacts.
+
+<Note>
+**Note**
+
+You will need to ensure that your client application has access to the Workflow scope in order to access the Projects and Tasks endpoints.
+</Note>
+
+## The project object
+
+### Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| name | String | The name of the project |
+| id  | String | The ID of the project |
+| members | Long | The ID's of the members of the project |
+| createdBy | Long | The ID of the user who created the project |
+| createdDate | Date | Date the project was created |
+| public | Boolean | whether or not the project is a public project |
+| description | String | Description of the project |
+| dueDate | Date | Due date of the project |
+
+## The list object
+
+### Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| name | String | The name of the List. |
+| id  | String | The ID of the List. |
+| type | String | The type of List (i.e. `TODO`, `WORKING_ON`, `COMPLETED`). |
+| index | Long | The ordered index of the list within the project. |
+
+## The task object
+
+### Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| id  | String | The ID of the task. |
+| projectId | String | The ID of the project that the task belongs to. |
+| projectListId | tring | The ID of the list within a project that the task belongs to. |
+| taskName | String | The name of the task. |
+| description | String | An optional description of the task. |
+| createdDate | ate | The date the task was created. |
+| dueDate | Date | The date the task is expected to be completed. |
+| priority | Long | The prioritized order of the task in a list. |
+| createdBy | Long | The ID of the Domo user that created the task. |
+| ownedBy | Long | The ID of the Domo user that owns the task. |
+| contributors | Long | An array of user IDs that are assigned as contributors to the task. |
+| attachmentCount | Long | The number of attachments that task has. |
+| tags | String | An array of tags that have been assigned to the task. |
+| archived | Boolean | Whether or not the task has been archived. |

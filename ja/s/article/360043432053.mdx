@@ -1,0 +1,53 @@
+---
+title: "The Trade Deskコネクター"
+---
+
+## はじめに
+
+The Trade Deskは、デジタルメディアの購買者を対象に各種購買ツールを提供するオンラインDSPです。DomoのThe Trade Deskコネクターを使用すると、広告やオーディエンス、キャンペーンなどに関するレポートを作成できるようになります。The Trade DeskのAPIの詳細については、ウェブサイト（ [https://api.thetradedesk.com/v3/doc](https://api.thetradedesk.com/v3/doc "https://api.thetradedesk.com/v3/doc") ）をご覧ください。
+
+The Trade Deskのアカウントには、Data Centerから接続します。このトピックでは、The Trade Deskコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:200;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、1つまたは複数の広告主でフィルターした、広告やキャンペーンに関するデータを取得するのに便利です。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"> マーケティング権限 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 手動で広告主を選択する代わりに、
+  **［Advertiser Type］** メニューで **［All Advertisers］** を選択することを推奨します。これにより、広告主を追加または削除した場合に、その後のDataSetの実行時にそれらの広告主が動的に取得されるようになり、変更を加えた後にDataSetを編集し直す必要がなくなります。
+
+## 必要条件
+
+The Trade Deskアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* The Trade Deskアカウントに使用するユーザー名とパスワード
+* The Trade DeskパートナーID
+
+認証情報のいずれかが不明な場合は、The Trade Deskのアカウント担当者にお問い合わせください。
+
+## The Trade Deskアカウントに接続する
+
+このセクションでは、The Trade Deskコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、The Trade Deskアカウントに接続するための認証情報の入力フィールドが含まれています。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Username］ </td><td colspan="1" rowspan="1"> The Trade Deskのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Password］ </td><td colspan="1" rowspan="1"> The Trade Deskのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Environment］ </td><td colspan="1" rowspan="1"> 本番環境とサンドボックス環境のどちらを使用するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Partner ID］ </td><td colspan="1" rowspan="1"> The Trade DeskのパートナーIDを入力します。 </td></tr></tbody></table>
+
+有効なThe Trade Deskの認証情報を一度入力しておくと、同じアカウントを使用して随時、新しいThe Trade Desk DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行するThe Trade Deskレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［Ad Formats supported］ </td><td colspan="1" rowspan="1"> The Trade Desk がサポートする広告フォーマットを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Ad Groups with an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主内の広告グループのページをクエリします。 </td></tr><tr><td colspan="1" rowspan="1"> ［Ad Groups with a campaign］ </td><td colspan="1" rowspan="1"> 選択したキャンペーンに関連する広告グループを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Ad Technologies］ </td><td colspan="1" rowspan="1"> 利用可能な広告テクノロジーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Advertisers］ </td><td colspan="1" rowspan="1"> 指定したパートナーに属するすべての広告主を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Audiences owned by an Advertiser］ </td><td colspan="1" rowspan="1"> 特定の広告主に属するオーディエンスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Campaigns belonging to an Advertiser］ </td><td colspan="1" rowspan="1"> 指定した広告主に属するすべてのキャンペーンを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Creatives belonging to an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主のクリエイティブをすべて取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Data Groups owned by an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主が所有するすべてのデータグループを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［First Party Data by Advertiser］ </td><td colspan="1" rowspan="1"> クエリと一致するファーストパーティーデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Geo Segments available to an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主に利用可能なすべての地域セグメントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［My Reports - Advertisers］ </td><td colspan="1" rowspan="1"> 選択した広告主IDと日付範囲における選択したレポートをダウンロードします。 </td></tr><tr><td colspan="1" rowspan="1"> ［My Reports - Partner Execution Report］ </td><td colspan="1" rowspan="1"> 選択した日付範囲における選択したレポートをダウンロードします。 </td></tr><tr><td colspan="1" rowspan="1"> ［Right Media Offer Types］ </td><td colspan="1" rowspan="1"> Right Mediaのすべてのオファータイプを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Site Lists Summaries belonging to an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主に属するサイトリストのサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Summaries IP Targeting List for an Advertiser］ </td><td colspan="1" rowspan="1"> 広告主に属するIPターゲットリストのサマリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Supply Vendors］ </td><td colspan="1" rowspan="1"> このパートナーが利用できるサプライベンダーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Third Party Data by Advertiser］ </td><td colspan="1" rowspan="1"> 広告主が取得および/またはクエリ可能なサードパーティーデータのファセットを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ［App Event Tracking for an Advertiser］ </td><td colspan="1" rowspan="1"> 特定広告主のAppEventTrackersリストを、基本的なアクティビティ統計と共に取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［Advertiser Type］ </td><td colspan="1" rowspan="1"> レポートにすべての広告主のデータを取得するか、または自分が選択したも広告主のみのデータを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Select Advertiser］ </td><td colspan="1" rowspan="1"><span> すべての広告主を取得するか、一部の広告主を取得するかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> ［Advertiser］ </td><td colspan="1" rowspan="1"> データを取得するすべての広告主を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Campaign］ </td><td colspan="1" rowspan="1"> データを取得するキャンペーンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Scope］ </td><td colspan="1" rowspan="1"> レポートの範囲について、 <b> ［Advertiser］ </b> または <b> ［Partner］ </b> のどちらかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Number of Days Back］ </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Specific Date］ </td><td colspan="1" rowspan="1"> 情報を取得したい日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> ［Delimiting character］ </span></td><td colspan="1" rowspan="1"><span> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> ［Specify your delimiter］ </span><span><br/></span></td><td colspan="1" rowspan="1"><span> CSVテキストを区切る文字を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> ［Quote Character］ </span><span><br/></span></td><td colspan="1" rowspan="1"><span> CSVファイルの解析に使用する引用文字を選択します（CSVの標準は二重引用符です）。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> ［Custom Quote Character］ </span><span><br/></span></td><td colspan="1" rowspan="1"><span> 希望するCSV引用符を入力します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+問題が発生した場合は、Domoの **［アカウント］** ページにアクセスし、リンクしたアカウントが検証済みの状態であるか確認してください。検証済みでない場合は、再検証してください。
+
+

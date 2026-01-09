@@ -1,0 +1,43 @@
+---
+title: "Adobe Analytics Data Feed V2コネクター"
+---
+
+## はじめに
+
+ウェブサイトやモバイルアプリから収集されたデータ、ウェブサービスAPIやデータソースを使用してアップロードされたデータは、AdobeのData Warehouseで処理、保存されます。この未加工のクリックストリームデータは、Adobe Analyticsが使用するデータセットを形成します。Adobe Analytics Data Feedコネクターを使用すると、このデータが保存されているAmazon Web Services（AWS）S3バケットからこのデータをインポートできます。Adobe Analytics APIについて詳しくは、「 APIドキュメント [」を参照してください。](https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction "https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction")
+
+データのあるAmazon Web Services（AWS）S3バケットに接続して、Adobe Analytics Data Feedデータをインポートします。この操作はDomoのData Centerで行います。このトピックでは、Adobe Analytics Data Feedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AWS S3バケットに接続してAdobe Analytics Data Feedデータをインポートするには、次のものが必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  **［Security Credentials］** セクションで確認できます。または、IAMを使用している場合は、 **［Users］** から確認できます。
+* AWSシークレットキー。これはアクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWSコンソールで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+* ファイルがあるS3バケットのリージョンを選択します。
+
+## AWS S3バケットに接続してAdobe Analyticsデータを取得する
+
+このセクションでは、Adobe Analytics Data Feed V2コネクターのページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Adobe Analyticsアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Key </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の <span></span> 「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の <span></span> 「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket </p></td><td colspan="1" rowspan="1"><p> Adobe Analyticsデータを引き込みたいAmazon S3バケットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Region </p></td><td colspan="1" rowspan="1"><p> ファイルがあるS3バケットのリージョンを選択します。 </p></td></tr></tbody></table>
+
+有効なAWS認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAdobe Analytics Data Feed DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ ペイン
+
+このペインには、S3バケットからデータを取得するためのオプションが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Prefix（オプション） </td><td colspan="1" rowspan="1"> プレフィックスを入力します。プレフィックスを指定すると、指定したプレフィックスで始まるキーのみに結果が絞り込まれます。いずれのファイルも合致しない場合、コネクターは入力されたプレフィックスでバケット全体からファイルを検索します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> 引用文字を選択します。引用文字はデータで使用される引用符を指定します。例：単一引用符、二重引用符、なし </td></tr><tr><td colspan="1" rowspan="1"> Additional Columns </td><td colspan="1" rowspan="1"> ブラウザーの詳細、イベントリスト、ユニークID、ユニーク訪問者IDをレポートに表示する場合は、「True」を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Process Multiple Files </td><td colspan="1" rowspan="1"> 最初の実行時に複数のファイルを処理する場合は「True」を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

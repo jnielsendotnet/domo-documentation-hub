@@ -1,0 +1,359 @@
+---
+title: "古いMagic ETLタイル：列を編集"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+<Note>
+  **注記：** この記事は古いMagic ETLを対象としています。新しいMagic ETLの詳細については、「 [Magic ETL](/s/topic/0TO5w000000ZanvGAC) 」を参照してください。
+
+</Note>
+
+この記事では、Magic ETLでの **［列を編集］** のほとんどのタイルについて詳しく説明しています。これには以下が含まれます。
+
+* 定数を追加
+* 計算機
+* 列を折りたたむ
+* 列を結合
+* 日付の演算
+* グループ化
+* 列を選択
+* 列のタイプを設定
+* 列を分割
+* 列を展開
+
+このトピックでは、ランクとウィンドウのタイルについては説明しません。これらのタイルについては、「 [古いMagic ETLタイル：ランクとウィンドウ](/s/article/360042922814 "ETL操作：ランクとウインドウ") 」を参照してください。
+
+Magic ETL DataFlowの作成については、「 Magic ETL DataFlowを作成する 」を参照してください。
+
+Data Centerについては、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+## 定数を追加
+
+［定数を追加］タイルでは、定数値の列を追加することができます。
+
+**［定数を追加］タイルを設定するには：**
+
+1. キャンバスで **［定数を追加］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 列のタイプを選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 列のタイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> テキスト </p></td><td colspan="1" rowspan="1"><p> テキストと、（テキストとして扱われる）数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 小数 </p></td><td colspan="1" rowspan="1"><p> 小数点を含んだ数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 小数（固定） </p></td><td colspan="1" rowspan="1"><p> 小数点以下の桁数が固定された小数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 整数 </p></td><td colspan="1" rowspan="1"><p> 小数の位のない数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付 </p></td><td colspan="1" rowspan="1"><p> 日付の値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日時 </p></td><td colspan="1" rowspan="1"><p> 日付と時刻の値が含まれます。 </p></td></tr></tbody></table>
+
+5. 一定値、日付、日時を入力するか、空白のままにします。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+## 計算機
+
+［計算機］タイルでは、単純な計算式によって算出された値を列に追加することができます。
+
+**［計算機］タイルを設定するには：**
+
+1. キャンバスで **［計算機］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-1.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 目的の操作を選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 演算 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 加算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値を加算します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 減算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で減算します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 乗算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で乗算をします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 除算 </p></td><td colspan="1" rowspan="1"><p> 2つの列の値で除算をします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 天井 </p></td><td colspan="1" rowspan="1"><p> 数値列の各系列の最高値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 床 </p></td><td colspan="1" rowspan="1"><p> 数値列の各系列の最低値を返します。 </p></td></tr></tbody></table>
+
+5. 使用する列を選択するか、目的の値を指定します。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+## 列を折りたたむ
+
+［列を折りたたむ］タイルは、テーブル内のデータの「アンピボット」または「正規化」を行います。つまり、1行複数の列を1列複数の行に変換できます。このタイルは、列数が同じデータをアンピボットする場合にのみ役立ちます。元のファイルにデータの別の列を追加しても、このタイルによって新しい列が折りたたまれたりアンピボットされたりすることはありません。
+
+**例**
+
+例えば、［列を折りたたむ］タイルにより、以下のピボット表のデータを…
+
+<Frame><img alt="etl_rownormalizer_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi7.png"/></Frame>
+以下のフォーマットのデータに変換します。
+
+<Frame><img alt="etl_rownormalizer_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi3.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_rownormalizer_sampleui.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNh2.png"/></Frame>
+**［列を折りたたむ］タイルを設定するには：**
+
+1. キャンバスで **［列を折りたたむ］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、編集アイコンをクリックして名前を入力します。
+3. 折りたたむ列の列ヘッダーを含めるために作成する列の名前を入力します。
+     
+   例えば、「Product」と入力します。
+4. 折りたたむ列の行の値を含めるために作成する列の名前を入力します。
+     
+   例えば、「Sales」と入力します。
+5. 折りたたむそれぞれの列に対し、以下を実行します。
+
+   1. 正規化する列を選択します。
+        
+      例えば、「Product A」を選択します。
+   2. 正規化する列のヘッダーを表す値を入力します。
+        
+      入力した値が、新しい列の行に表示されます。例：「A」
+   3. （条件付き）別の列を折りたたむには、 **［列を追加］** をクリックします。
+
+      <Tip>
+        **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+      </Tip>
+
+## 列を結合
+
+［列を結合］タイルでは、複数の列の値を1つの列に結合することができます。例えば、2つの列から姓と名を結合して新しいフルネーム列を作ることができます。
+
+**動画 - Magic ETLで列を結合する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/MTsusfED1lI" width="560"></iframe>
+
+**［列を結合］タイルを設定するには：**
+
+1. キャンバスで **［列を結合］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-2.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 結合された値を区切るために使用する文字を指定します。
+5. （オプション）結合した後で、元の列を削除します。
+6. 結合する列を選択します。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+## 日付の演算
+
+［日付の演算］タイルでは、日付にもとづいた計算による値の列を追加することができます。
+
+**［日付の演算］タイルを設定するには：**
+
+1. キャンバスで **［日付の演算］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-3.png" /> をクリックして名前を入力します。
+3. 新しい列の名前を入力します。
+4. 目的の日付の演算を選択します。
+
+   <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> 演算 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 日付に追加 </p></td><td colspan="1" rowspan="1"><p> 日付列の値に測定単位を追加した結果を返します。測定の単位には、月、週、日、時間、分、秒、ミリ秒があります。 </p></td></tr><tr><td colspan="1" rowspan="1"> 日付から減算 </td><td colspan="1" rowspan="1"> 日付列の値から測定単位を差し引いた結果を返します。測定の単位には、月、週、日、時間、分、秒、ミリ秒があります。 </td></tr><tr><td colspan="1" rowspan="1"> 日付の差 </td><td colspan="1" rowspan="1"> 2つの日付の差を測定単位で返します。測定の単位には、日、営業日数、時間、分、秒、ミリ秒があります。 </td></tr><tr><td colspan="1" rowspan="1"><p> 日付の年 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の年を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の四半期 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の四半期を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の月 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の月を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 年の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の年の日付を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 月の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の月の日付を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 週の日 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の曜日を数値で返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 年の週 </p></td><td colspan="1" rowspan="1"><p> 日付列の値の週を数値で返します。週は日曜日から土曜日です。1週目は、今年の土曜日の最初の週です。 </p></td></tr></tbody></table>
+
+5. 使用する列を選択するか、目的の値を指定します。
+
+<Tip>
+  **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+</Tip>
+
+## グループ化
+
+［グループ化］タイルでは、複数の列の値を1つの列にまとめて集計することができます。例えば、製品ごとの平均売上高を計算したり、黄色のシャツの在庫数を取得したりすることができます。
+
+**動画 - Magic ETLでグループ化を使用する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/K4kojE3v5uU" width="560"></iframe>
+
+**［グループ化］タイルを設定するには：**
+
+1. キャンバスで **［グループ化］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-4.png" /> をクリックして名前を入力します。
+3. グループ化する列を選択します。
+4. 追加する列それぞれに対し、以下を実行します。
+
+   1. 新しい列の名前を入力します。
+   2. 集計する列を選択して新しい列に挿入します。
+   3. 使用する集計タイプを選択します。
+
+      <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 利用可能なデータタイプ </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カウント </p></td><td colspan="1" rowspan="1"><p> 列のnull以外の値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Nullも含めてカウント </p></td><td colspan="1" rowspan="1"><p> nullを含む、列のすべての値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 固有の値をカウント </p></td><td colspan="1" rowspan="1"><p> 列の固有な値の数を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初の非null値 </p></td><td colspan="1" rowspan="1"><p> 最初のnull値以外の値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後の非null値 </p></td><td colspan="1" rowspan="1"><p> 最後のnull値以外の値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初の値 </p></td><td colspan="1" rowspan="1"><p> 最初の値（null値を含む）を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後の値 </p></td><td colspan="1" rowspan="1"><p> 最後の値（null値を含む）を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、テキスト、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 合計 </p></td><td colspan="1" rowspan="1"><p> 列のすべての値を合計します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 平均 </p></td><td colspan="1" rowspan="1"><p> 列のすべての値の平均を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 中央 </p></td><td colspan="1" rowspan="1"><p> 列のすべての値の中央値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最小 </p></td><td colspan="1" rowspan="1"><p> 列の最小値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最大 </p></td><td colspan="1" rowspan="1"><p> 列の最大値を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数、日付 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 標準偏差 </p></td><td colspan="1" rowspan="1"><p> 列の値の標準偏差を返します。 </p></td><td colspan="1" rowspan="1"><p> 小数、整数 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 「,」で区切られている文字列を結合 </p></td><td colspan="1" rowspan="1"><p> 列のすべてのテキスト値をコンマで区切って、結合します。 </p></td><td colspan="1" rowspan="1"><p> テキスト </p></td></tr></tbody></table>
+
+   4. （条件付き）列の追加は、 **［列を追加］** をクリックします。
+
+      <Tip>
+        **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+      </Tip>
+
+## 列を選択
+
+［列を選択］タイルでは、含める列を選択したり、列を並べ替えたり、列ヘッダー名を変更したりすることができます。
+
+**例**
+
+例えば、［列を選択］タイルを実行すると、このデータの列が…
+
+<Frame><img alt="etl_selectcolumns_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhG.png"/></Frame>
+...このように変換可能です...
+
+<Frame><img alt="etl_selectcolumns_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhT.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_selectcolumns_sampleui.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNh6.png"/></Frame>
+**動画 - Magic ETLでフィールド名を変更する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/QoqDBhAeb5s" width="560"></iframe>
+
+**［列を選択］タイルを設定するには：**
+
+1. キャンバスで、 **［列を選択］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-5.png" /> をクリックして名前を入力します。
+3. 含める（または除外する）列を選択するには、次のいずれかを行います。
+
+   1. **［列を追加］** をクリックして、列を選択する。これを繰り返してほかの列を追加します。
+   2. **［全ての列を追加］** をクリックしてから、列のXをクリックして対象外の列を除外する。
+        
+      例えば、「Order Quarter」を削除します。
+4. <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNgy.png" /> をクリックし、列をドラッグして並べ替えます。
+
+   例えば、「Order Date」を「Product Container」の後に移動します。
+5. 名前を変更したい列ヘッダーがあれば、それぞれ新しい名前を入力します。
+     
+   例えば、「Product Base Margin」を「Base Margin」という名前に変更します。
+
+   <Tip>
+     **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+   </Tip>
+
+## 列のタイプを設定
+
+［列のタイプを設定］タイルにより、列のデータタイプを変更することができます（例えば、数値からテキストへ）。データ型について詳しくは、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+**例**
+
+例えば、［列のタイプを設定］タイルは、以下のデータを...
+
+<Frame><img alt="etl_setcolumntype_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi5.png"/></Frame>
+<Note>
+  **注記：** 変換前の値は実際は日時値でした。しかしテキストデータタイプとして設定されていたため、そのように表示されていませんでした。変換後は、値は適切な日時値として表示されるようになりました。
+
+</Note>
+
+...このように変換可能です...
+
+<Frame><img alt="etl_setcolumntype_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhE.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_setcolumntype_sampleui__1_.png" src="/images/kb/ka05w00000124TD-00N5w00000Ri7BU-0EM5w000005vNfs.png"/></Frame>
+**［列のタイプを設定］タイルを設定するには：**
+
+1. キャンバスで、 **［列のタイプを設定］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-6.png" /> をクリックして名前を入力します。
+3. データタイプを設定する列それぞれについて、以下を行います。
+
+   1. 設定する列を選択します。
+        
+      例えば、「Order Date String」を選択します。
+   2. その列のデータタイプを選択します。
+
+      <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> データタイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> テキスト </p></td><td colspan="1" rowspan="1"><p> 文字列値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 小数 </p></td><td colspan="1" rowspan="1"><p> 小数点を含んだ数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 小数（固定） </p></td><td colspan="1" rowspan="1"><p> 小数点以下の桁数が固定された小数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 整数 </p></td><td colspan="1" rowspan="1"><p> 小数の位のない数値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付 </p></td><td colspan="1" rowspan="1"><p> 日付の値が含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日時 </p></td><td colspan="1" rowspan="1"><p> 日付と時刻の値が含まれます。 </p></td></tr></tbody></table>
+
+   3. （条件付き）列を追加するには、 **［列を追加］** をクリックします。
+
+      <Tip>
+        **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+      </Tip>
+
+## 列を分割
+
+［列を分割］タイルを使用すると、単一の文字列の列を特定の区切り文字で複数の列に分割できます。
+
+**例**
+
+例えば、［列を分割］タイルにより、このフォーマットのデータを…
+
+<Frame><img alt="Split_Column_Table.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNh0.png"/></Frame>
+以下のフォーマットのデータに変換します。
+
+<Frame><img alt="Split_String_ETL.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNiC.png"/></Frame>
+その際に以下の設定を使用します。
+
+<Frame><img alt="Split_Column_Configuration.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi0.png"/></Frame>
+**［列を分割］タイルを設定するには：**
+
+1. キャンバスで、 **［列を分割］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-7.png" /> をクリックして名前を入力します。
+3. 分割する列を選択します。
+4. 文字列を区切る区切り文字を選択します。
+5. 次に、ステップ4で指定した最後の列に追加の分割を保持するかどうかを決定します。
+     
+   例えば、上の表の1行目の最後の列Watcher Split 1には、余分に分割されたBenが存在します。
+6. 最後に、必要な数の列を追加して名前を設定します。
+     
+   上の例では、分割する3つの値を持たない行がいくつかあるため、それらの列での値は空白のままになります。
+
+   <Note>
+     **注記：** 作成した列よりも分割する値が多く、余分な分割を保持しない場合は、値はどの列にも配置されません。
+
+   </Note>
+
+## 列を展開
+
+［列を展開］タイルは、キー値のペアを使ってテーブル内のデータの「ピボット」または非正規化を行います。つまり、1列複数の行を1行複数の列に変換できます。
+
+<Note>
+  **注記：** 1,500列の上限に達するテーブルを作成すると、エラーが発生します。Magic ETL DataFlowの実行を続行するには、列の数を減らしてください。
+
+</Note>
+
+**例**
+
+例えば、［列を展開］タイルにより、このフォーマットのデータを…
+
+<Frame><img alt="etl_rowdenormalizer_datain.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhH.png"/></Frame>
+以下のフォーマットのデータに変換します。
+
+<Frame><img alt="etl_rowdenormalizer_dataout.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNi9.png"/></Frame>
+設定は以下を使用します。
+
+<Frame><img alt="etl_rowdenormalizer_sampleui.png" src="/images/kb/ka05w00000124U6-00N5w00000Ri7BU-0EM5w000005vNhF.png"/></Frame>
+**［列を展開］タイルを設定するには：**
+
+1. キャンバスで **［列を展開］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000KbV-00N5w00000Ri7BU-0EM5w000005vNh8-8.png" /> をクリックして名前を入力します。
+3. 新しい列ヘッダーに展開させたいキー列の名前を入力します。
+     
+   例えば、「Product」と入力します。
+4. 新しい列の行の値をグループ化するのに使う列を選択します。
+     
+   例えば、「Month」を選択します。
+5. キー列から作成する新しい列それぞれに対し、以下を行います。
+
+   1. 新しい列のヘッダーの名前を入力します。
+        
+      例えば、「Product A」と入力します。
+   2. 展開する列のヘッダーを表す値を、キー列から入力します。
+        
+      例えば、「A」と入力します。
+   3. 新しい列の行の値を挿入するのに使う列を選択します。
+   4. 例：「Sales」
+
+   <Note>
+     **注記：** 展開するために追加した各列に対して、同じ値列を選択します。
+
+   </Note>
+
+   5. （条件付き）列を追加するには、 **［列を追加］** をクリックします。
+
+      <Tip>
+        **ヒント：** プレビューを実行してキャンバスでタイルをクリックした後、 **［プレビュー］** タブをクリックすると、タイルで変換されたデータをプレビューすることができます。
+
+      </Tip>
+
+日本語

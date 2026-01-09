@@ -1,0 +1,119 @@
+---
+title: "Microsoft Teamsコネクター"
+---
+
+## はじめに
+
+Microsoft Teamsは、持続的なワークプレイスチャット、ビデオ会議、ファイルストレージ（ファイル上でのコラボレーションを含む）、アプリケーション統合を組み合わせた、コミュニケーションとコラボレーションのためのプラットフォームです。このサービスは、Office 365サブスクリプションのOffice生産性スイートと統合され、Microsoft以外の製品と統合できる拡張機能を備えています。Microsoft TeamsはSlackなどのビジネスコミュニケーションサービスの競合製品であり、Microsoft Skype for Businessから進化およびアップグレードしたものです。DomoのMicrosoft Teamsコネクターを使用すると、組織内のチームやグループでのチャットに関する詳細を取得できます。Microsoft Teams APIの詳細については、 [https://docs.microsoft.com/ja-jp/graph/teams-concept-overview](https://docs.microsoft.com/ja-jp/graph/teams-concept-overview "https://docs.microsoft.com/ja-jp/graph/teams-concept-overview") を参照してください。
+
+Microsoft Teamsアカウントには、Data Centerから接続します。このトピックでは、Microsoft Teamesコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft Teamsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Microsoft Azure Appのインストール。
+* Azure AppのクライアントID。
+* Azure Appのクライアントシークレット。これは、Azure Appを作成するときに生成されます。
+
+#### クライアントIDを調べるには、以下の手順を実行します。
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com")
+   にアクセスし、Microsoft認証情報を使用してサインインします。
+2. ********［Azure Active Directory］>［App registrations］********
+   を選択します。
+3. お使いのAppを探し、クリックします。
+4. Web Appの「Application ID」を確認します（これがクライアントIDです）。
+
+#### 新しいクライアントシークレットを生成するには、以下の手順を実行します。
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com")
+   にアクセスし、Microsoft認証情報を使用してサインインします。
+2. ********［Azure Active Directory］>［App registrations］********
+   を選択します。
+3. お使いのAppを探し、クリックします。
+4. ********［Certificates and secrets］********
+   を開きます。
+5. ［Client Secret］セクションで
+   **［+New Client Secret］** をクリックします。
+
+### Enterprise OAuth用Azure Appを作成する
+
+Microsoft Azure Appを作成するには、以下の手順を実行します。
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") にログインします。
+
+2. ********［App registrations］******** をクリックします。
+
+<Frame><img alt="Capture1.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz7.png"/></Frame>
+
+3. ********［New registration］******** をクリックします。
+
+4. アプリケーション名を入力し、サポートされているアカウントタイプを選択します。ここでは、サポートされているアカウントはマルチテナントである必要があります。
+
+<Frame><img alt="clipboard_eb9eab104154ca1097aaf631fb1227879.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vNzv.png"/></Frame>
+
+5. リダイレクト URI
+[https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-teams/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-reports/exchange "https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-teams/exchange") を入力します。
+
+<Frame><img alt="clipboard_e3ca801b61e568ac88bbaaf31c0352398.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO06.png"/></Frame>
+
+6. ********［Register］******** をクリックします。
+
+7. アプリケーションが登録されたら、必要なAPI権限をアプリケーションに割り当てます。
+
+8. **［API Permissions］>［+Add a permission］** を選択します。
+
+<Frame><img alt="API_Permission-Add_Permission.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyw.png"/></Frame>
+
+9. API権限要求ページが表示され、よく使われるMicrosoft APIが表示されます。
+
+<Frame><img alt="Request_API_permissions-2.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz1.png"/></Frame>
+
+10. 目的のAPIを選択し、必要に応じてユーザーに委任されたアプリケーションの権限を追加します。
+
+<Frame><img alt="clipboard_e3d304305b31d867dddacb886005e89dc.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO00.png"/></Frame>
+
+11. **［Grant admin consent］** をクリックし、 **［Yes］** をクリックすると、権限に対する管理者の同意が得られます。 追加された権限は、詳細とともに **［Configured permissions］** セクションに表示されます。
+
+<Frame><img alt="clipboard_e4414e0905f035dd543503e9d06485c22.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vNzy.png"/></Frame>
+
+12. 次に、
+****［Certificates & Secrets］**** をクリックします。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。また、パブリックキーと呼ばれることもあります。
+
+<Frame><img alt="Capture4.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyu.png"/></Frame>
+
+13. ****［+ New Client Secret］**** ボタンをクリックします。
+
+<Frame><img alt="Capture5.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz3.png"/></Frame>
+
+14. クライアントシークレットの説明と有効期限を指定し、
+********［Add］******** をクリックします。
+
+<Frame><img alt="Capture6.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO62.png"/></Frame>
+
+15. **値** をコピーして、Domoのコネクター認証情報セクションの ********［クライアントシークレット］******** フィールドに貼り付けます。
+
+<Frame><img alt="Secret.png" src="/images/kb/ka0Vq0000000NXh-00N5w00000Ri7BU-0EM5w000005vO03.png"/></Frame>
+
+## Microsoft Teamsアカウントに接続する
+
+このセクションでは、 Microsoft Teams コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、 Microsoft Teams アカウントに接続する認証情報の入力フィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> インストールしたAzure Web AppのクライアントIDを入力します。詳しくは「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Appを作成したときに生成されたクライアントシークレットを入力します。詳しくは「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効なMicrosoft認証情報を一度入力しておくと、いつでも同じアカウントを使用して、新しいMicrosoft Teams DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMicrosoft Teamsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> S. No </b></td><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> 1 </td><td colspan="1" rowspan="1"> All Channels </td><td colspan="1" rowspan="1"> 選択したチームIDのすべてのチャンネルのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 2 </td><td colspan="1" rowspan="1"> All Events </td><td colspan="1" rowspan="1"> 指定したグループのイベントオブジェクトのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 3 </td><td colspan="1" rowspan="1"> All Joined Teams </td><td colspan="1" rowspan="1"> ユーザーが直接メンバーであるMicrosoft Teamsのチームのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 4 </td><td colspan="1" rowspan="1"> All Teams </td><td colspan="1" rowspan="1"> 組織内のすべてのチームのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 5 </td><td colspan="1" rowspan="1"> Calendar View </td><td colspan="1" rowspan="1"> 指定したグループから、時間範囲で定義されたカレンダービューでのイベントの発生、例外、単一のインスタンスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 6 </td><td colspan="1" rowspan="1"><p> Channel Messages </p></td><td colspan="1" rowspan="1"> チームのチャンネルにあるメッセージのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 7 </td><td colspan="1" rowspan="1"><p> Channel Message Replies </p></td><td colspan="1" rowspan="1"> チームのチャンネルにあるメッセージの全返信のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 8 </td><td colspan="1" rowspan="1"> Groups </td><td colspan="1" rowspan="1"> 組織内のグループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 9 </td><td colspan="1" rowspan="1"> Group Attachments </td><td colspan="1" rowspan="1"> 投稿に添付されている添付オブジェクトのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 10 </td><td colspan="1" rowspan="1"> Group Conversations </td><td colspan="1" rowspan="1"> グループ内の会話のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 11 </td><td colspan="1" rowspan="1"> Group Members </td><td colspan="1" rowspan="1"> グループの直接メンバーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 12 </td><td colspan="1" rowspan="1"> Group Owners </td><td colspan="1" rowspan="1"> グループ所有者のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 13 </td><td colspan="1" rowspan="1"> Group Posts </td><td colspan="1" rowspan="1"> 指定したスレッドの投稿のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 14 </td><td colspan="1" rowspan="1"> Group Threads </td><td colspan="1" rowspan="1"> グループのすべてのスレッドのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Group ID </td><td colspan="1" rowspan="1"> グループIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Team ID </td><td colspan="1" rowspan="1"> チームIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Thread ID </td><td colspan="1" rowspan="1"> スレッドIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Post ID </td><td colspan="1" rowspan="1"> 投稿IDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Dates Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

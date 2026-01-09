@@ -1,0 +1,84 @@
+---
+title: "Amazon Vendor Partnerコネクター"
+---
+
+## はじめに
+
+Amazon Vendor Partnerコネクターは、レポートのデータにプログラムでアクセスします。Selling Partner APIを使用したアプリケーションでは、販売効率を高め、作業の手間を省き、顧客により迅速に対応することができ、出品者はビジネスを成長させることが可能です。Vendor Partner APIはAmazon Vendor Partnerコネクターの機能を基礎としていますが、開発者や操作する出品者の使いやすさとセキュリティーを向上させる機能を提供します。このガイドでは、Amazon Vendor Partnerコネクターについて説明します。
+
+Amazon Vendor Partnerアカウントには、Data Centerから接続します。このトピックでは、Amazon Vendor Partnerコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する")」で説明しています。
+
+## ベストプラクティス
+
+* ほとんどのレポートでは、日付範囲は控えめに設定し、必要なデータのみを取得してください。
+* 完了するまでに何時間もかかるレポートがある場合があります。これはAmazon APIの制限です。
+* 何年も前のデータを取得するのにはかなり時間がかかります。
+
+## 必要条件
+
+Amazon Vendor Partnerアカウントに接続してDataSetを作成するには、以下が必要です。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> パラメーター名 </b></td><td colspan="1" rowspan="1"><b> 場所 </b></td></tr><tr><td colspan="1" rowspan="1"><span> Username </span></td><td colspan="1" rowspan="1"><span> セラーセントラルにログインするために使用する認証情報 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Password </span></td><td colspan="1" rowspan="1"><span> セラーセントラルにログインするために使用する認証情報 </span></td></tr></tbody></table>
+
+## Amazon Vendor Partner アカウントに接続する
+
+このセクションでは、Amazon Vendor Partnerコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domoの Amazon Vendor Partner コネクターは接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。**［接続］** をクリック（または、Domoに既存のAmazon Vendor Partnerアカウントがある場合は **［アカウントを追加］** を選択）すると、Amazon Vendor Partner OAuth画面が開き、Amazon Vendor Partnerのユーザー名とパスワードを入力できます。有効なAmazon Vendor Partner認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Amazon Vendor Partner DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既に Amazon Vendor Partner にログインしている場合は、**［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずAmazon Vendor Partnerからログアウトする必要があります。
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span> Amazon Vendor Partner </span><span></span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><div><div> Get Report data </div></div></td><td colspan="1" rowspan="1"><div><div> レポートドキュメントのデータを取得します。 </div></div></td></tr><tr><td colspan="1" rowspan="1"><div><div> List generated reports </div></div></td><td colspan="1" rowspan="1"><div><div> 指定した範囲で作成された既存のレポートをリストにして取得します（デフォルトの範囲は過去90日間です）。 </div></div></td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+ハイブリッドのSelling Partner APIアプリケーションは、Selling Partner APIとAmazonマーケットプレイスWebサービス（Amazon MWS）の両方に対して呼び出しを行うことができるアプリケーションです。ソリューションで両方のサービスの機能が必要な場合は、ハイブリッドアプリケーションを使用してください。出品者がハイブリッドのSelling Partner APIアプリケーションを許可すると、出品者は（1）Amazon MWS開発者IDが出品者に代わってAmazon MWSの呼び出しを行うことを許可し、（2）アプリケーションが出品者に代わってSelling Partner APIの呼び出しを行うことを許可することになります。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 自分のAmazonストアでは、世界の複数のマーケットプレイスに出品しています。注文、在庫、その他の重要なAmazon MWSデータをすべて取得するにはどうすればよいですか？">
+
+
+マーケットプレイスごとにアカウントを作成する必要があります。アカウント名にはマーケットプレイスの場所（例：「米国」、「イタリア」）を入れることを推奨します。必要なアカウントを作成したら、各アカウントを使用して、重要なデータを受け取るためのコネクターDataSetを作成します。データを結合する場合は、DomoのMagic ETLツールまたはDataflowツールを使用して、異なるマーケットプレイスを統合します。
+
+
+</Accordion>
+<Accordion title="# 注文または注文品レポートはどのように設定すればよいですか？">
+
+
+APIの制限により、コネクターは「Append」モードでしか設定できません。履歴バックフィルの開始日を選択し、相対的な終了日の値を「yesterday」または「1」の値にします。コネクターを1日に1回だけ実行するように設定します。コネクターは、最新の日付のデータを取得し、最新のデータから古いデータの順にバックフィルデータの取得を開始します（一度に1日ずつ）。コネクターは最大24時間実行され、その後、履歴バックフィルの中断した場所が記憶されます。翌日、コネクターが再び実行されると、最初に最新の日のデータが追加され、その後、履歴バックフィルの中断したところから再開されます。このパターンは、コネクターが履歴バックフィルのすべてのデータを受信するまで継続されます。すべてのバックフィルが完了すると、最新の日のデータが一度に1日ずつ追加され続けます。コネクターが実行されない場合や、実行中に失敗した場合、不足するデータは最新および履歴の両方のバックフィルで受信されます。
+
+
+</Accordion>
+<Accordion title="# Amazon Vendor Reportのスケジュール設定を自分の代わりにDomoに行ってもらうことはできますか？">
+
+
+いいえ。Amazon Vendor APIでは、ユーザーに代わってコネクターがAmazon MWSレポートのスケジュールを設定することはできません。コネクターは、便宜上、ディスカバリードロップダウンのすべてのレポートを配信しますが、レポートが生成されていない場合に、「Report not generated」というエラーが表示されることがあります。エラーメッセージには、コネクターを正常に実行する前に生成されていなければならないAmazon Vendorアカウントのレポートの名前が含まれます。該当するレポートを生成し、Amazon Vendorダッシュボードのレポートスケジューラーに追加して、再試行してください。コネクターレポート「Reports - Schedule List」には、スケジュールされたすべてのレポートがリストされます。
+
+
+</Accordion>
+<Accordion title="# どれくらいの頻度でコネクタースケジュールを実行すればよいですか？">
+
+
+コネクターは1日に1回だけ実行してください。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

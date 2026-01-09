@@ -1,0 +1,51 @@
+---
+title: "Microsoft SharePoint ADFSコネクター"
+---
+
+## はじめに
+
+Microsoft SharePointでは、組織のコラボレーション用のカスタムチーム専用サイトやプロジェクト専用サイトを簡単に作成、管理できます。このコネクターはADFS（Active Directory Federation Service）を認証に使用します。
+
+SharePoint APIの詳細については、ウェブサイト（ [https://msdn.microsoft.com/en-us/lib.../jj860569.aspx](https://msdn.microsoft.com/en-us/library/office/jj860569.aspx "https://msdn.microsoft.com/en-us/library/office/jj860569.aspx") ）を参照してください。
+
+SharePoint アカウントには、Data Centerから接続します。このトピックでは、Microsoft Sharepoint ADFSコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+SharePointアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SharePointのユーザー名とパスワード
+* SharePointアカウントのホストURL およびドメインたとえば、ご利用のSharePointサイトが
+  https://my-sharepoint.sample.com
+  の場合、ホストURLは
+  https://my-sharepoint.sample.com
+  で、ドメインは sample です。
+* ADFSホスト名およびレルム管理者は、SharePoint用のADFSをセットアップします。ADFSホスト名は、ADFSを実行しているサーバーです。
+    
+  ADFSレルムは、管理者がSharePointを設定する際にセットアップされます。レルムは次の形式にする必要があります： urn:sharepoint:
+
+## SharePointアカウントに接続する
+
+このセクションでは、[SharePoint ADFSコネクター] ページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。 このページのほかのペインの項目にある **[スケジュール設定]** や **[DataSetに名前を付け、説明を入力]** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、SharePointアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> SharePointユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> SharePointパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホストURL </p></td><td colspan="1" rowspan="1"><p> SharePointアカウントのホストURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ドメイン </p></td><td colspan="1" rowspan="1"><p> SharePointアカウントのドメインを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ADFSホスト名 </p></td><td colspan="1" rowspan="1"><p> ADFSホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ADFSレルム </p></td><td colspan="1" rowspan="1"><p> ADFS レルムを入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の詳細については、前述の「必要条件」を参照してください。
+
+有効なSharePoint認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSharePoint ADFS DataSetを作成できます。コネクターアカウントは、Data Centerの **[アカウント]** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するSharePointレポートを選択します。 以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> プロパティ </td><td colspan="1" rowspan="1"> カレントサイトのプロパティを返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイトメンバーグループ </td><td colspan="1" rowspan="1"> アソシエイトメンバーグループの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイトメンバーグループのユーザー </td><td colspan="1" rowspan="1"> アソシエイトメンバーグループのユーザーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイト所有者グループ </td><td colspan="1" rowspan="1"> アソシエイト所有者グループの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイト所有者グループ </td><td colspan="1" rowspan="1"> アソシエイト所有者グループのユーザーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイトビジターグループ </td><td colspan="1" rowspan="1"> アソシエイトビジターグループの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> アソシエイトビジターグループのユーザー </td><td colspan="1" rowspan="1"> アソシエイトビジターグループのユーザーを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 利用可能なフィールド </td><td colspan="1" rowspan="1"> 利用可能なフィールドのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> コンテンツタイプ </td><td colspan="1" rowspan="1"> コンテンツタイプのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> フィールド </td><td colspan="1" rowspan="1"> 利用可能なフィールドのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> フォルダ </td><td colspan="1" rowspan="1"> 指定したサーバーの相対URLを持つフォルダの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> リスト </td><td colspan="1" rowspan="1"> 所定のタイトルを持つリストの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> リストアイテムの詳細 </td><td colspan="1" rowspan="1"> 所定のリストにあるリストアイテムの詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> リストアイテムのフィールド値 </td><td colspan="1" rowspan="1"> 所定のリストアイテムが持つフィールド値のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> リストアイテム </td><td colspan="1" rowspan="1"> 所定のリストにあるアイテムを返します。 </td></tr><tr><td colspan="1" rowspan="1"> リストテンプレート </td><td colspan="1" rowspan="1"> リストテンプレートの リストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> リスト </td><td colspan="1" rowspan="1"> すべてのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ロール定義 </td><td colspan="1" rowspan="1"> ロール定義のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> サイトユーザー情報リスト </td><td colspan="1" rowspan="1"> サイトユーザーの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> サブフォルダ </td><td colspan="1" rowspan="1"> 指定したサーバーの相対URLを持つフォルダのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ワークフローテンプレート </td><td colspan="1" rowspan="1"> ワークフローテンプレートのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> サーバー相対URL </p></td><td colspan="1" rowspan="1"><p> 情報を取得するファイルまたはフォルダを格納したサーバーの相対URLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リストタイトル </p></td><td colspan="1" rowspan="1"><p> 情報を取得するリストのタイトルを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リストアイテムID </p></td><td colspan="1" rowspan="1"><p> 情報を取得するリストアイテムのIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> デコードフィールド（オプション） </p></td><td colspan="1" rowspan="1"><p> SharePointからインポートする列名をデコードする場合、このチェックボックスをオンにします。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

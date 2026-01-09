@@ -1,0 +1,300 @@
+---
+title: "PII Vaultの保護とコンプライアンス"
+---
+
+## はじめに
+
+DomoはAnonomaticと提携して、100％のデータ精度と完全な国際データプライバシーコンプライアンスを実現し、個人を特定できる情報（PII）のデータを安全に保存、匿名化、マスク、マイニング、秘匿化し、共有しています。これにより、情報が秘匿化された状態のPIIデータを含むデータをアップロードし、Domoに保存されないようにすることができます。PIIの詳細については「 PIIの構成 」を参照してください。
+
+<Frame><img alt="Partnership.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIr.png"/></Frame>
+プライバシーコンプライアンスはPoly-Anonymization™と呼ばれるプロセスによって実現します。Poly-Anonymizationでは、任意の個人識別情報（名前、性別、住所、社会保障番号など）を取得し、それを匿名の値（Poly-ID）に入れ替えます。この値は、一意であり、一貫性がなく、予測不能であり、ハッシュされません。データの匿名化が完了すると、組織は、通常であれば発生するリスクを負うことなく、結果のデータを内部または外部で共有できます。このプロセスおよびAnonomaticについて詳しくは https://anonomatic.com をご確認ください。
+
+**ビデオ - Domo Workbench用PII Vaultプラグイン - イントロダクションと概要**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/eVMB7KriBK4" width="560"></iframe>
+
+## 試してみる
+
+PII Vaultの保護とコンプライアンス機能をDomoでテストするには、以下が必要です。
+
+* Anonomaticのトライアルアカウントを作成します。
+* Workbenchプラグインをダウンロードします。
+
+この30日間の無料トライアルでは、2,000件の個人プロフィールをアップロードできます。
+
+<Note>
+  **注記：** この機能は、ご要望をいただいた場合に有料で提供いたします 。
+
+  この機能の有効化をリクエストするには：
+
+  * Domoのカスタマーサクセスマネージャー（CSM）、テクニカルコンサルタント（TC）、またはアカウントエクゼクティブ（AE）に問い合わせてください。
+  * CSM、TC、またはAEの連絡先情報が不明な場合は、テクニカルサポートにお問い合わせください。サポートに問い合わせる方法については、「
+  [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+  機能によっては、事前にトレーニングが必要となる場合があります。
+
+</Note>
+
+## Anonomaticのトライアルアカウントを作成する
+
+DomoでPII Vaultの保護とコンプライアンス機能を使用するには、まずAnonomaticのアカウントを作成する必要があります。
+
+**ビデオ - 新しいPII Vaultトライアルアカウントの作成方法**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/KeNWZ3kldPY" width="560"></iframe>
+
+**Anonomaticアカウントを作成するには：**
+
+1. https://api.anonomatic.com/ui に移動します。
+2. **［Create New Account］** をクリックします。
+     
+   <Frame><img alt="Create_New_Account.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIn.png"/></Frame>
+3. 登録情報を入力します。
+4. （条件付き） **［Subscription Type］** ドロップダウンで、以下のいずれかを選択します。
+     
+   トライアルアカウントを作成するには、 **［Trial Vault］** を選択します。
+     
+   通常のアカウントを作成するには **［Standard Vault］** を選択します（このオプションを選択した場合は、Domoアカウントエグゼクティブまで **アクティベーションキー** についてお問い合わせください。）
+     
+   <Note>
+     **注記：** ［Trial Vault］を選択するとすべての機能を利用でき、テストすることができます。ただし、データはいつでも消去される可能性があるため、この環境では本番データを使用しないでください。
+
+   </Note>
+
+5. **［I accept the terms and conditions］** のチェックボックスを選択します。
+     
+   <Frame><img alt="Register_Page.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIk.png"/></Frame>
+6. **［Subscribe］** をクリックします。
+7. 正常に完了したことを示すページが表示されたら、 **［Login］** をクリックします。
+     
+   <Frame><img alt="Success_Page.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIh.png"/></Frame>
+8. 入力したメールアドレスに認証メールが送信されます。初めてログインする前に、リンクをクリックしてアカウントを確認する必要があります。
+     
+   <Frame><img alt="Email_Verification.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIg.png"/></Frame>
+9. 認証情報を入力します。
+10. **［Login］** をクリックします。
+11. Vaultの使用に必要な **API Access URL** 、 **AccountId** 、 **ApiKey** が記載された2通目のメールが届きます。
+
+## Workbenchプラグインのダウンロード
+
+DomoでPII Vaultの保護とコンプライアンス機能を使用するには、Domo Workbench内で使用するためのプラグインをダウンロードする必要があります。
+
+**ビデオ - Domo Workbench用PII Vaultプラグインのダウンロード方法**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/08z9-4NUvws" width="560"></iframe>
+
+**Workbenchプラグインをダウンロードするには：**
+
+1. https://github.com/AnonomaticInc/Domo に移動します。
+2. （条件付き）お使いのマシンのWorkbenchのバージョンに応じて、以下のいずれかのファイルを選択します。
+     
+   Workbench 5.0を使用している場合は、 **PIIVaultDomoPlugin5.0.zip** ファイルを選択します。
+     
+   Workbench 5.1を使用している場合は、 **PIIVaultDomoPluginWB5.1.zip** ファイルを選択します。
+     
+   <Frame><img alt="Github_Links.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIp.png"/></Frame>
+3. **［Download］** をクリックします。
+     
+   <Frame><img alt="Download_File.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIj.png"/></Frame>
+4. ファイルがダウンロードされたら、ファイルを開いて **PIIVaultDomoPlugin** フォルダを表示します。
+5. PCで別のファイルウィンドウを開き、以下のフォルダパスに移動します。
+     
+   **そのPC>OS（C:）>ProgramData>Domo>Workbench>Pipeline>AddIns**
+     
+   <Note>
+     **注記：** これは、Workbenchがマシンにインストールされたときに作成されるデフォルトのファイルパスです。インストール時に別のファイルパスを選択した場合は、Workbenchを保存した場所に移動する必要があります。
+
+   </Note>
+
+<Note>
+  **注記：** ファイルがフォルダに表示されない場合は、エクスプローラの上部で **［表示］** をクリックし、 **［隠しファイル］** ボックスにチェックマークを入れます。
+
+</Note>
+
+6. **PIIVaultDomoPlugin** フォルダをクリックして **AddIns** フォルダまでドラッグします。
+7. これで、プラグインがDomo Workbench内で利用できるようになります。
+
+## PII Vaultの保護とコンプライアンスを使用する
+
+Anonomaticのアカウントを作成し、Domo Workbenchプラグインをダウンロードしたら、Workbenchジョブを作成してデータをアップロードできます。PIIデータを処理するには、秘匿化とマスクの2つのオプションがあります。
+
+### PII Vaultとデータの秘匿化
+
+データの秘匿化の手法を用いながらPII Vaultの保護とコンプライアンスのプラグインを使用すると、Domoにデータをアップロードする前に、すべてのPIIデータがnull値に置き換えられます。値にはPoly-Anonymous識別子が与えられます。これは、データベースにデータが追加されるたびに特定の個人を参照するために使用されるものです。
+
+**ビデオ - データの秘匿化のためのPII Vaultプラグインの設定**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/Xuz_wjLW2V0" width="560"></iframe>
+
+**データを秘匿化しながらPII Vaultの保護とコンプライアンスを使用するには：**
+
+1. Domo Workbench内で新しいジョブを作成します。
+2. アップロードするデータを選択します。
+     
+<Note>
+  **注記：** データベースクエリを実行する場合は、その個人の一意のIDフィールドにOrder Byステートメントを使用してください。
+
+</Note>
+
+3. **［Transforms］** セクションで **［PIIVault Transform］** を選択します。
+4. **［+］** アイコンをクリックします。
+5. **［PII Vault Parameter Value］** に「 **Redact** 」と入力します。
+     
+   これにより、データがnull値に置き換えられます。
+     
+   <Frame><img alt="Redact_Job.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIi.png"/></Frame>
+6. **［Configure PII Vault Connection］** ボタンをクリックします。
+     
+   <Frame><img alt="Redact_Configure_Connection_Button.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIm.png"/></Frame>
+7. **PII VaultのURL** を入力します。
+8. **PII VaultのアカウントID** を入力します。
+9. **PII VaultのAPIキー** を入力します。
+     
+   <Frame><img alt="PII_Vault_Connection.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIb.png"/></Frame>
+   <Note>
+     **注記：** Anonomaticでアカウントを設定すると、PII VaultのURL、アカウントID、APIキーがメールで送信されます。アカウントを作成する方法については、「 [Anonomaticトライアルアカウントを作成する](#h_01FHXCNZ9GJN49H884WPF1M77N) 」を参照してください。
+
+   </Note>
+
+10. **［OK］** をクリックします。
+11. **［Configure Schema］** ボタンをクリックします。
+      
+    <Frame><img alt="Redact_Configure_Schema.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIl.png"/></Frame>
+12. 各列の **［Column Type］** フィールドで、含まれるPIIデータの種類を選択します（該当する場合）。
+      
+    <Frame><img alt="Schema_Definition.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIc.png"/></Frame>
+    <Note>
+      **注記：** 1つの列を **［Unique Key to Individual］** （データがアップロードされるたびに個人を識別するために使用する一貫性のある値）に設定する必要があります。
+
+    </Note>
+
+<Tip>
+  **ヒント：** **［Non-PII Data Field］** のオプションがありますが、PIIデータが含まれない各列については、このオプションを選択する必要はありません。選択項目を空白のままにすると、デフォルトで［Non-PII Data Field］のオプションに設定されます。
+
+</Tip>
+
+13. （オプション） **［Column Type Group］** フィールドを設定します。
+      
+    このオプションは、1人の個人に複数の住所（自宅住所や勤務先住所などの住所やメールアドレス）が関連付けられている場合に使用します。すべての二次的なアドレスの情報を別のグループに設定して、プラグインが各アドレスを分離した状態でデータを匿名化する方法を認識できるようにします。
+14. 秘匿化する列の横のチェックボックスをクリックします。
+15. **［OK］** をクリックします。
+16. **［Apply］** をクリックします。
+17. **［Save］** をクリックしてから **［Run］** クリックし、ジョブを実行します。
+
+### PII Vaultとデータのマスク
+
+データのマスクの手法を用いながらPII Vaultの保護とコンプライアンスのプラグインを使用すると、すべてのPIIデータが非識別化された偽値に置き換えられます。これにより、PIIデータを含めることなく、データの実際の値を表示できます。値には、その個人に固有の疑似データが割り当てられているため、Poly-Anonymous識別子は付与されません。
+
+**ビデオ - データのマスクのためのPII Vaultプラグインの設定**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/dVQ6vVdPDN8" width="560"></iframe>
+
+**データをマスクしながらPII Vaultの保護とコンプライアンスを使用するには：**
+
+1. Domo Workbench内で新しいジョブを作成します。
+2. アップロードするデータを選択します。
+     
+<Note>
+  **注記：** データベースクエリを実行する場合は、その個人の一意のIDフィールドにOrder Byステートメントを使用してください。
+
+</Note>
+
+3. **［Transforms］** セクションで **［PIIVault Transform］** を選択します。
+4. **［+］** アイコンをクリックします。
+5. **［PII Vault Parameter Value］** に「 **Mask** 」と入力します。
+     
+   これにより、データが非識別化された偽値に置き換えられます。
+     
+   <Frame><img alt="Mask_Job.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIq.png"/></Frame>
+6. **［Configure PII Vault Connection］** ボタンをクリックします。
+     
+   <Frame><img alt="Mask_Configure_Connection_Button.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOId.png"/></Frame>
+7. **PII VaultのURL** を入力します。
+8. **PII VaultのアカウントID** を入力します。
+9. **PII VaultのAPIキー** を入力します。
+     
+   <Frame><img alt="PII_Vault_Connection.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIb.png"/></Frame>
+   <Note>
+     **注記：** Anonomaticでアカウントを設定すると、PII VaultのURL、アカウントID、APIキーがメールで送信されます。アカウントを作成する方法については、「 [Anonomaticトライアルアカウントを作成する](#h_01FHXCNZ9GJN49H884WPF1M77N) 」を参照してください。
+
+   </Note>
+
+10. **［OK］** をクリックします。
+11. **［Configure Schema］** ボタンをクリックします。
+      
+    <Frame><img alt="Mask_Configure_Schema.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIf.png"/></Frame>
+12. 各列の **［Column Type］** フィールドで、含まれるPIIデータの種類を選択します（該当する場合）。
+      
+    <Frame><img alt="Schema_Definition.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIc.png"/></Frame>
+    <Note>
+      **注記：** 1つの列を **［Unique Key to Individual］** （データがアップロードされるたびに個人を識別するために使用する一貫性のある値）に設定する必要があります。
+
+    </Note>
+
+<Tip>
+  **ヒント：** **［Non-PII Data Field］** のオプションがありますが、PIIデータが含まれない各列については、このオプションを選択する必要はありません。選択項目を空白のままにすると、デフォルトで［Non-PII Data Field］のオプションに設定されます。
+
+</Tip>
+
+13. （オプション） **［Column Type Group］** フィールドを設定します。
+      
+    このオプションは、1人の個人に複数の住所（自宅住所や勤務先住所などの住所やメールアドレス）が関連付けられている場合に使用します。すべての二次的なアドレスの情報を別のグループに設定して、プラグインが各アドレスを分離した状態でデータを匿名化する方法を認識できるようにします。
+14. マスクする列の横のチェックボックスをクリックします。
+15. **［OK］** をクリックします。
+16. **［Apply］** をクリックします。
+17. **［Save］** をクリックしてから **［Run］** クリックし、ジョブを実行します。
+
+## 匿名データの一致
+
+PIIVault Readerプラグインを使用すると、異なるソースからユーザーをリンクできます。名前やメールアドレスなど、どのフィールドが一致すると2つのレコードが同じ個人であることの証明になるかを設定します。
+
+**ビデオ - 匿名データの一致に関する概念の概要**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/hr9Wj2Nluik" width="560"></iframe>
+
+**ビデオ - 匿名データの一致のプラグイン設定**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/AnpBsMPRuXc" width="560"></iframe>
+
+**匿名データを一致させながらPII Vaultの保護とコンプライアンスを使用するには：**
+
+1. Domo Workbench内で新しいジョブを作成します。
+2. **［Source］** を **［PIIVault Provider］** として設定します。
+     
+   <Frame><img alt="Source_Information.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIo.png"/></Frame>
+3. **［Configure PII Vault Connection］** ボタンをクリックします。
+4. **PII VaultのURL** を入力します。
+5. **PII VaultのアカウントID** を入力します。
+6. **PII VaultのAPIキー** を入力します。
+     
+   <Frame><img alt="PII_Vault_Connection.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIb.png"/></Frame>
+   <Note>
+     **注記：** Anonomaticでアカウントを設定すると、PII VaultのURL、アカウントID、APIキーがメールで送信されます。アカウントを作成する方法については、「 [Anonomaticトライアルアカウントを作成する](#h_01FHXCNZ9GJN49H884WPF1M77N) 」を参照してください。
+
+   </Note>
+
+7. **［OK］** をクリックします。
+8. **［Configure Accounts to Match］** ボタンをクリックします。
+9. 一致させるアカウントごとに **アカウントID** を入力します。
+10. **アカウント名** を入力すると、どのアカウントから一致したのかがリストされます。
+      
+    <Frame><img alt="Accounts_to_Match.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIe.png"/></Frame>
+11. **［OK］** をクリックします。
+12. **［Configure Matching Criteria］** ボタンを選択します。
+13. **テスト名** を入力します。
+14. **［Confidence Level］** を選択します。
+15. **テスト基準** を入力します。
+      
+    <Frame><img alt="Matching_Criteria.png" src="/images/kb/ka05w00000123U5-00N5w00000Ri7BU-0EM5w000005vOIs.png"/></Frame>
+16. **［Validate Test］** をクリックします。
+17. **［OK］** をクリックします。
+18. **［Apply］** をクリックします。
+19. **［Processing］** を **［PIIVault Reader］** に設定します。
+20. **［Data Type］** を **［Workbench CSV］** に設定します。
+21. **［Save］** をクリックしてから **［Run］** クリックし、ジョブを実行します。
+
+## よくある質問
+
+利用可能なプラグインが増えると、 [こちら](https://www.youtube.com/playlist?list=PL9Dt2EnZSLIXExIExE9Z8v-jFi2_Xn7w0) から確認できるYouTubeプレイリストに追加されます。
+
+日本語

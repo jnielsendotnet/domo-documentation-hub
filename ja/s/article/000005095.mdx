@@ -1,0 +1,64 @@
+---
+title: "XML Advancedコネクター"
+---
+
+## はじめに
+
+XML（Extensible Markup Language）はシンプルで非常に柔軟なテキストフォーマットです。DomoのXML Advanceコネクターを使うと、SFTPサーバーにアップロードしたXMLファイルにアクセスすることができます。HTTPコールまたはHTTPSコールでファイルをインポートすることもできます。XMLの詳細については、https://www.w3.org/TR/REC-xml/ を参照してください。
+
+XMLアカウントには、Data Centerから接続します。このトピックでは、XMLコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 行および列として書式設定されたXMLデータをDomoに取り込みます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> IT </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+コネクターを使用する前に、XMLが有効であることを確認します。
+
+## 必要条件
+
+XMLアカウントに接続してDataSetを作成するには、XMLファイルがあるサーバーの認証情報が必要です。
+
+接続先となるデータベースサーバーのポートでIPアドレスをホワイトリストに登録する必要もあります。IPアドレスの詳細なリストは、「 [DomoでIPアドレスをホワイトリストに登録する](/ja/s/article/360043439173 "http://knowledge.domo.com?cid=whitelistingip") 」を参照してください。
+
+## XMLアカウントに接続する
+
+このセクションでは、XMLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、XMLアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> ドメイン名を入力します。例えば、s <a href="ftp://hostnameで" rel="noopener" target="_blank"> ftp://hostnameで </a> す。その後にホスト名だけを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> XMLファイルがあるサーバーのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> XMLファイルがあるサーバーのパスワードを入力します。 </td></tr></tbody></table>
+
+有効なXML認証情報を一度入力しておくと、随時同じアカウントを使用して新しいXML DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、接続先のサーバー/SFTPサイト、XMLファイルの名前、およびその他の構成の設定を指定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What is the connection method to access the xml file? </td><td colspan="1" rowspan="1"><p> XMLファイルがSFTPサーバーにある場合は、SFTPが使用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Enter the path to your XML file </p></td><td colspan="1" rowspan="1"><p> XML URLを入力します。サポートされているプロトコルはHTTP/HTTPS/SFTPです。 </p></td></tr><tr><td colspan="1" rowspan="1"> Enter Your Data Tag </td><td colspan="1" rowspan="1"> XMLテキストのデータを含むタグを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Do you require additional options? </td><td colspan="1" rowspan="1"> 特定のフィールドの除外またはXPathの使用が必要な場合は、 <b> ［Yes］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Parser </p></td><td colspan="1" rowspan="1"><p> XMLを解析するには、 <b> ［Parser］ </b> を選択します。デフォルトでは、 <b> ［Recursive XML Parser］ </b> が使用されます。再帰的パーサー解析が失敗した場合は、［XML Parser］または［Easy XML parser］を試してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* XMLデータが有効で、認証情報が最新であることを確認します。
+* 必要なIPアドレスをホワイトリストに登録します。
+
+## よくある質問
+
+### このコネクターを使用するにはどのような認証情報が必要ですか？
+
+SFTPサーバーからXMLファイルを取得する場合は、ユーザー名、パスワード、ホスト名が必要です。URLからXMLファイルをインポートする場合は、URL、およびオプションでユーザー名とパスワードが必要です。
+
+### データはどれくらいの頻度で更新可能ですか？
+
+DataSetの更新は、1時間に1回以下になるように設定してください。
+
+### 注意すべきAPI制限はありますか？
+
+データプロバイダーが呼び出しレート制限を適用する場合がありますが、この制限を気にする必要はありません。
+
+

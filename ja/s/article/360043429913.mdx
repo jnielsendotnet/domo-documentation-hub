@@ -1,0 +1,179 @@
+---
+title: "Beast Mode計算を作成する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Beast Mode機能は、計算フィールドを追加してチャートの列を変換するのに使用できます。
+
+---
+
+この記事では、Beast Mode計算の作成に関連する情報を以下のトピックで説明します。
+
+* [Beast Modeエディター](#beast_mode_editor)
+* [Beast Mode計算を作成する](#create_a_beast_mode_calculation)
+* [Beast Mode計算を編集する](#edit_a_beast_mode_calculation)
+* [Beast Mode計算を削除する](#delete_a_beast_mode_calculation)
+
+---
+
+[一般的な使用法メモ](#general_usage_notes)
+
+* [計算をまとめ数字に適用する](#apply_a_calculation_to_a_summary_number)
+
+## Beast Modeエディター
+
+次の図は、Beast Modeエディターのインターフェースを示しています。
+
+<Frame><img alt="beast mode interface.jpg" src="/images/kb/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4PY.jpg" style={{width: 706.989, height: 310}}/></Frame>
+以下の表で、Beast Modeエディターの各コンポーネントについて説明します。
+
+<table border="1" cellpadding="2" cellspacing="2" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> コンポーネント </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b> ［列名］ </b> / <b> ［計算フィールド名］ </b></p></td><td colspan="1" rowspan="1"><p> Analyzerの <b> ［Beast Modeとセグメント］ </b> リストに表示される、またカードの変換列の見出しとして表示されるBeast Mode計算の名前です。名前は入力または編集可能です。この名前をDataSet内の列の名前と同じにすることはできません。同じにすると、「計算に指定された名前が無効です。」というエラーが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> 計算 </b></p></td><td colspan="1" rowspan="1"><p> 計算に入れることができる関数が入っています。計算に列名や計算そして関数を追加するには、 <b> ［列］ </b> 、 <b> ［変数］ </b> 、または <b> ［関数］ </b> リストにある項目をダブルクリックします。 <b> ［検証］ </b> を選択するか、 <b> ［保存して閉じる］ </b> を選択して計算を検証します。計算が検証をパスすると、緑のチェックマークが表示されます。 <InlineImage src="/images/kb/ja/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4Pd.jpg" /> 計算が検証をパスしない場合は、［計算エラー］というメッセージが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> 列 </b></p></td><td colspan="1" rowspan="1"><p> カテゴリーと値と計算のリストであり、ダブルクリックして計算に追加することができます。計算の列は、リストではカテゴリーとして表示されます。リストの項目を検索したりタイプ別にフィルターにかけることができます。最初の文字を <code> = </code> （等号）にした場合は、Beast Mode計算のみ表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> 関数 </b></p></td><td colspan="1" rowspan="1"><p> ダブルクリックして計算に追加できる関数のカテゴリーのリストです。リストの項目を検索したりタイプ別にフィルターにかけることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> 関数の詳細 </b></p></td><td colspan="1" rowspan="1"><p> 選択した関数の詳細を表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> DataSetに計算として保存 </b></p></td><td colspan="1" rowspan="1"><p> このチェックボックスをオンにすると、DataSetで選択された計算を共有することができます。つまり、このDataSetを利用しているその他のカードでもこの計算が使用できるようになります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> 計算フィールドを保存 </b></p></td><td colspan="1" rowspan="1"><p> 選択した計算を検証して保存し、エディターを閉じます。計算はチャートに使用する前に有効になっている必要があります。 </p></td></tr></tbody></table>
+
+## Beast Mode計算を作成する
+
+1. Beast Mode計算を追加するカードを **Analyzer** で開きます。Analyzerの詳細については、「 [Analyzerの概要](/s/article/360043428673) 」を参照してください。
+2. **Analyzer** でカードを開いた状態で **［計算フィールドを追加］** を選択します。
+
+   <InlineImage src="/images/kb/ja/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4Qb.jpg" /> [Beast Modeエディター](#beast_mode_editor) が表示されます。
+3. **［列名］** フィールドにこの計算のタイトルを入力します。
+
+   <Note>
+     **注記：** タイトルは、作成された列の見出しとして表示され、カードにも表示されます。Beast Mode計算に別の計算またはDataSet内の列と同じ名前を付けると、エラーモーダルが表示され、計算名を変更できます（修正が必要なほかの名前も一緒に変更できます）。
+
+     <Frame><img alt="Beast_Mode_Modal.png" src="/images/kb/ka05w00000129sq-00N5w00000Ri7BU-0EM5w000005wKmM.png" style={{width: 673.999, height: 282.997}}/></Frame>
+   </Note>
+
+<Warning>
+  **重要：** Beast Mode計算の名前付けでは、「Date」や「Sum」など、関数で使用される1語のキーワードを避けることを推奨します。このような単語を使用すると、Beast Modeが失敗する可能性があります。使用可能な名前の例としては、「作成日」や「売上高」などがあります。
+
+</Warning>
+
+4. **［計算］** フィールドに、計算を入力します。計算に列名、変数、関数を追加するには、 **［列］、［変数］、** **［関数］** タブにある項目をダブルクリックします。関数の例については、「 [Beast Mode](https://domo-support.domo.com/s/topic/0TO5w000000ZanAGAS/beast-mode) 」のトピックを参照してください。
+5. （オプション）チェックスボックスをオンにして、計算をDatatSetに保存します。詳細については、上記の「
+   [Beast Modeエディター](#beast_mode_editor) 」セクションを参照してください。
+6. **［計算フィールドを保存］** を選択し、計算の構文を検証して、変更を保存します。
+
+   エラーがあった場合には、計算を修正します。
+
+   保存すると、Analyzerのカードの **［Beast Modeとセグメント］** リストに、計算列が表示されるようになります。
+
+   <Frame><img alt="beast modes and segments.jpg" src="/images/kb/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4Qq.jpg" style={{width: 126.996, height: 418.991}}/></Frame>
+## Beast Mode計算を編集する
+
+1. Beast Mode計算を追加するカードを **Analyzer** で開きます。Analyzerの詳細については、「 [Analyzerの概要](/s/article/360043428673) 」を参照してください。
+2. **Analyzer** でカードを開いた状態で、 **［Beast Modeとセグメント］** リストを見つけ、編集する計算を選択し、Beast Modeエディターで開きます。
+3. 計算に変更を加え、 **［計算フィールドを保存］** を選択し、計算を検証して変更を保存します。
+
+## Beast Mode計算を削除する
+
+<Note>
+  **注記：** カードで使用中のBeast Mode計算を削除することはできません。Beast Mode計算を削除するには、すべてのカードから削除します。
+
+</Note>
+
+1. Beast Mode計算を追加するカードを **Analyzer** で開きます。Analyzerの詳細については、「 [Analyzerの概要](/s/article/360043428673) 」を参照してください。
+2. **Analyzer** でカードを開いた状態で、 **［Beast Modeとセグメント］** リストを見つけ、 <InlineImage src="/images/kb/ja/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4Qv.jpg" /> **削除** オプションが表示されるまで、削除する計算にマウスポインターを合わせます。
+3. <InlineImage src="/images/kb/ja/ka0Vq0000008YR7-00N5w00000Ri7BU-0EM5w000006v4Qv-1.jpg" /> **削除** を選択して計算の削除を確認します。以下の2つのダイアログのいずれかが表示されます。 **［Beast Modeを削除］** ダイアログが開き、Beast Mode計算がどのカードでも使用されておらず、削除された場合は復元できない旨が表示されます。 **［削除］** または **［キャンセル］** を選択します。
+
+   <Frame><img alt="Screenshot 2023-06-20 at 7.39.40 PM.png" src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EM5w000006v4R0.jpg" style={{width: 303.984, height: 222.997}}/></Frame>
+   それ以外の場合は、 **［選択済みBeast Modeを削除できません］** ダイアログが開き、Beast Mode計算がカードで使用されている旨が表示されます。計算を削除する前に、カードから計算を削除します。 **［キャンセル］** を選択してダイアログを閉じます。
+
+   <Frame><img alt="Screenshot 2023-06-20 at 7.41.33 PM.png" src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EM5w000006v4R5.jpg" style={{width: 436.989, height: 210.994}}/></Frame>
+## 一般的な使用法メモ
+
+ほとんどの計算は以下の一般的なフォーマットのいずれか1つを用いています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> フォーマット </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`) </code></p></td><td colspan="1" rowspan="1"><p> 1つの特定の変更を、列のすべてのセルに適用するときに使用します。 </p><p> この種の計算に使用される関数の例には次のようなものがあります： <code> AVG </code> 、 <code> MONTHNAME </code> 、 <code> CEILING </code> 。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name1`,`Column Name2`,...) </code></p></td><td colspan="1" rowspan="1"><p> 1つの計算が2つ以上の列に適用されるときに使用します。 </p><p> この種の計算に使用される関数の一例は <code> CONCAT </code> で、これは異なる列の文字列を結合します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`, <em> somevalue </em> ) </code></p></td><td colspan="1" rowspan="1"><p> 指定された値を含む計算を列に適用するときに使用します。 </p><p> この種の計算に使用される関数の一例は <code> POWER </code> です。この計算を使用する際、列のすべてのセルで乗じる指数を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`, ' <em> string </em> ') </code></p></td><td colspan="1" rowspan="1"><p> 指定した文字列を含む計算を列に適用するときに使用します。 </p><p> この種の計算に使用される関数の一例は <code> DATE_FORMAT </code> です。この計算を使用する際、日付値のフォーマットに使用する指定子の文字を指定します。 </p><p> 詳細については、「 <a href="/s/article/360043429953" target="_self" title="Beast Modeの日付形式の指定文字列"> Beast Modeの日付形式の指定文字列 </a> 」を参照してください。 </p></td></tr></tbody></table>
+
+* 計算では、Beast Mode関数名に大文字と小文字の区別はありません。
+* 計算では、列名は大文字か小文字かの区別があり、カンマによって区切られます。Beast Mode関数名は予約済みになっているため、列名として使用しないようにします。
+* 列名には、バックティック（`）またはダブルクォート（"）を使用します（例： `` `Customers` `` または `"Customers"`
+
+  ）。2つ以上の単語を含んだ列名は、バックティック（`）もしくはダブルクォート（"）で囲みます。関数名と一致する列名を使用する場合（例： `DATE` ）、バックティックかダブルクォート（"）で列名を囲みます。
+* シングルクォート（'）は文字列に使用します（例： `' mystring '` ）。
+* シングルクォートを2つ使用するとエスケープすることができます（例： `'O''Neal'` ）。
+* シングルクォートを使用した計算には、スペースを入力することができます（例： `' '`
+
+  ）。これは `CONCAT` など、文字列を結合する関数に便利です。
+* カスタム計算では、+（足し算）、-（引き算）、x（掛け算）、/（割り算）など、ほとんどの標準的な算術演算子が使用できます。
+* 別の計算で、特定の計算を名前で参照することはできません。
+
+  例えば、「MaxColumn1」という名前の計算を作成した場合、別の計算を定義づける際にその名前を使用することはできません。
+* 計算は入力しながら自動的に完了させることができます。
+
+  + 関数を入力すると関数リストが表示され、その中から選択することができます。
+  + バックティック（'）を入力すると、列名のリストが表示され、その中から選択することができます。
+* **［DataSetに計算として保存］** のチェックボックスをオンにすると、その計算はDataSetに保存されます。保存された計算は、このDataSetを使ったほかのどのチャートでも使用できます。
+* DataSet内で計算が行を集計する場合、カードのまとめ数字にそれを適用させることができます。詳細については、「
+  [計算をまとめ数字に適用する](#apply_a_calculation_to_a_summary_number) 」を参照してください。
+* 計算内でいくつかの関数を結合できる一方、数値関数を重ねることはできません。例えば、 `SUM(MIN())` は無効です。
+* 同じDataSetを使用したあるビューからほかのビューへドリルするとき、Beast Modeを使用して作成した計算は引き継がれていきます。ただし、新しいDataSetにドリルする場合は、計算は引き継がれません。ドリルパスの詳細については、「
+  [チャートにドリスパスを追加する](/s/article/360042924094) 」を参照してください。
+* 計算フィールドに「1」と「0」ではなく「Yes」と「No」を使用すると、フィルターオプションの選択が簡単になります。
+* 変換済みの列内に入れる数値のデータタイプは混ざらないようご注意ください。
+
+  例えば、 `CASE` 関数では「Yes」（文字列）と「0」（数）を同じ列に保存しないようにします。
+* エディターでカテゴリーや値、変数、関数、そしてDataSetフィールドをダブルクリックして計算に追加することができます。
+* 列または関数名を入力すると、メニューが表示されるので、そこで列や関数を選択して計算に追加することができます。例えば、「 **`** 」と入力すると列のリストが表示されるので、そこで目的の列を選択します。
+* 列名は、DataSetフィールドのタブから計算にドラッグ＆ドロップできます。
+* `COUNT (DISTINCT)` や `SUM (DISTINCT)` などの処理集約型の関数を使用するBeast Mode計算では、大きなDataSetから構築されるカードの可視化パフォーマンスが低下します。この事象は、30行を超える複雑なCASEステートメントでも発生します。これらの関数を大きなDataSetに組み込む必要がある場合は、可視化のパフォーマンスを最適化するためにDataFlowで実行することを推奨します。
+
+Beast Mode構文の例については、「 Beast Mode計算例 」を参照してください。
+
+## 計算をまとめ数字に適用する
+
+DataSet内でBeast Mode計算が行を集計する場合、カードのまとめ数字に使用できます。以下のいずれかの関数を使用して作成された計算は、まとめ数字に適用できます。
+
+* ``` AVG
+
+  COUNT
+
+  COUNT (DISTINCT)
+
+  MAX
+
+  MIN
+
+  SUM
+
+  SUM (DISTINCT)
+
+  STDDEV_POP、VAR_POP
+  ```
+
+これらの関数のいずれかを追加すると、このカードのまとめ数字で使用される利用可能な列のリストにBeast Mode計算が自動的に追加されます。
+
+<Note>
+  **注記：**
+  Beast Mode計算がまとめ数字として機能するには、何らかの手段で集計されているか（例：
+  `SUM()`
+  関数）または、関数内で数値に行われた演算の結果である必要があります（例：
+  `SUM()`
+  関数）。例えば、
+  `'Customers'`
+  はまとめ数字として使えませんが、
+  `SUM('Customers')`
+  はまとめ数字として使うことができます。
+
+</Note>
+
+まとめ数字の詳細については、「
+[チャートのまとめ数字を設定する](/s/article/360043428753 "チャートのまとめ数字を設定する")
+」を参照してください。
+
+**動画 - Beast Modeの紹介**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/SpVbmZPMAsM" width="560"></iframe>
+
+**動画 - 計算フィールドを作成する**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/h6SQR_H9OsY" width="560"></iframe>
+
+**動画 - CASEステートメントの概要**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/xFofhklohSc" width="560"></iframe>
+
+日本語

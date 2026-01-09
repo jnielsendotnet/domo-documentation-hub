@@ -1,0 +1,86 @@
+---
+title: "Twilio Advancedコネクター"
+---
+
+## はじめに
+
+Twilioは、ソフトウェア開発者がウェブサービスAPIを使用し、プログラムを使って電話やテキストメッセージの送受信をすることを可能にするクラウド通信企業です。DomoのTwilio Advancedコネクターを使うと、アカウント、コール、カンファレンス、通知、SMSメッセージ、そしてユーザーの記録に関するデータを取得することができます。Twilio APIの詳細は、
+https://www.twilio.com/docs/api
+を参照してください。
+
+Twilio Advancedコネクターは「クラウドApp」であるため、クラウドに保管されたデータを取得できます。Data Centerのウィンドウ上部にあるツールバーで **［クラウドApp］** をクリックすると、Twilio AdvancedコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+高度なバージョンであるこのTwilio Advancedコネクターが標準のTwilioコネクターと異なる点は、選択した日付または日付範囲のデータを取得できる点です。標準バージョンではこれらのデータを取得できません。標準バージョンの詳細は、「 [Twilioコネクター](/ja/s/article/360043435253 "Twilioコネクター") 」を参照してください。
+
+このトピックでは、Twilio Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、Twilioコール、カンファレンス、通知などに関するレポートを作成するために使用されます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> コールのトラフィック </p></li><li><p> SMSトラフィック </p></li><li><p> コストトレンド </p></li><li><p> コール完了率 </p></li><li><p> 平均コール時間 </p></li><li><p> コールのコスト </p></li><li><p> SMSコスト </p></li><li><p> 放棄率 </p></li><li><p> 毎日のコール数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な社内の権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 製品所有者 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+アカウントごとに所有できるデフォルトのサブアカウント数は1,000個です。詳細は、Twilioまでメール（ [help@twilio.com](mailto:help@twilio.com "mailto:help@twilio.com") ）でご連絡ください。
+
+## 必要条件
+
+Twilioアカウントに接続してDataSetを作成するには、以下が必要です：
+
+* TwilioアカウントのSID
+* Twilio認証トークン
+
+この2つのアイテムは、Twilioアカウント設定ページにある **［API Credentials］** セクションで確認できます。詳細は
+http://www.twilio.com/help/faq/twilio-basics/what-is-the-auth-token-and-how-can-i-change-it
+を参照してください。
+
+## Twilioアカウントに接続する
+
+このセクションでは、Twilioコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Twilioアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Account SID </p></td><td colspan="1" rowspan="1"><p> TwilioアカウントSIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Auth Token </p></td><td colspan="1" rowspan="1"><p> Twilio認証トークンを入力します。 </p></td></tr></tbody></table>
+
+有効なTwilio認証情報を入力した後は、いつでもDomoで同じアカウントを使用して、Twilio DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、レポートタイプを選択するメインの **［Report］** メニューと、選択したレポートに応じて表示されるその他のフィールドとメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p> Twilioレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> SID、名前、タイプ、ステータス、認証トークンなど、認証されたユーザーのアカウントに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Alerts </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーのアカウント用に生成されたアラートのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Calls </p></td><td colspan="1" rowspan="1"><p> 電話番号、コールのステータス、インバウンドまたはアウトバウンド、コール開始時間と終了時間など、コールに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Conferences </p></td><td colspan="1" rowspan="1"><p> SID、名前、ステータス、作成日と更新日など、カンファレンスに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notifications </p></td><td colspan="1" rowspan="1"><p> SID、メッセージのテキスト、メッセージの日付など、通知に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SMS Messages </p></td><td colspan="1" rowspan="1"><p> SID、本文、ステータス、価格、送信日など、SMSメッセージに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Usage Records </p></td><td colspan="1" rowspan="1"><p> カテゴリー、SID、開始日と終了日、価格、説明など、使用記録に関する情報を返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name（オプション） </p></td><td colspan="1" rowspan="1"><p> アラートデータを取得したいアカウントの名前を入力します。アカウント名を入力しない場合、すべてのアカウントのデータが取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> To Number（オプション） </p></td><td colspan="1" rowspan="1"><p> レポートをフィルターする電話番号を入力して、その番号に発信されたコールまたはSMSメッセージを表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> From Number（オプション） </p></td><td colspan="1" rowspan="1"><p> レポートをフィルターする電話番号を入力して、その番号から発信されたコールまたはSMSメッセージを表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Status </p></td><td colspan="1" rowspan="1"><p> レポートをフィルターするコールステータスを選択し、そのステータスのアイテムを表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Log </p></td><td colspan="1" rowspan="1"><p> レポートをフィルターするログを選択し、そのログからアイテムを表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Log Level </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルターするログレベルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Category </p></td><td colspan="1" rowspan="1"><p> 使用記録を分類するカテゴリーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付の範囲について取得するか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付のものか、今日から何日か前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースの残りのセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+TwilioはAPIコールを制限する場合があります。レート制限を回避するには、同時に実行するようにスケジュール設定されているDataSetの数を減らします。
+
+
+</Accordion>
+<Accordion title="# 同一のTwilioアカウントを複数のDataSetに使用できますか？">
+
+
+できます。
+
+## トラブルシューティング
+
+* 認証情報を再確認します。
+* Twilioにログインして、ダッシュボードでデータを確認します。
+
+
+
+</Accordion>
+</AccordionGroup>

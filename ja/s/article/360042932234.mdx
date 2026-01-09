@@ -1,0 +1,66 @@
+---
+title: "Eloqua Writebackコネクター"
+---
+
+## はじめに
+
+Eloqua Corp.は、マーケティングオートメーションSaaS企業で、B2Bマーケター向けの自動化マーケティングやデマンドジェネレーションソフトとサービスを開発しています。DomoのEloqua Writebackコネクターを使用すると、DomoデータをEloquaカスタムオブジェクトにプッシュできます。Eloqua APIの詳細については、ウェブサイト（
+https://community.oracle.com/community/topliners/code-it
+）を参照してください。
+
+データはData CenterのEloquaにエクスポートします。このトピックでは、Eloqua Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** Writeback DataSetの所有者は、入力DataSetの所有者または共同所有者である必要があります。
+
+</Note>
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* Eloquaのユーザー名
+* Eloquaのパスワード
+* DomoクライアントID
+* Domoクライアントシークレット
+
+DomoクライアントIDとクライアントシークレットを作成するには、以下の手順を実行します。
+
+1. [https://developer.domo.com](https://developer.domo.com/ "https://developer.domo.com")
+   に移動してログインします。
+2. ****［New Client］****
+   をクリックします（右上隅の［My Account］）。
+3. ****［Data］****
+   と ****［User］**** のアプリケーションの範囲を持つ新しいクライアントを作成します。
+     
+   ****［Create］**** をクリックすると、クライアントIDとクライアントシークレットにリダイレクトされます。
+4. すぐに必要になるため、クライアントIDとクライアントシークレットをコピーします。
+
+## 接続を設定する
+
+このセクションでは、Eloqua Writebackコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Eloquaの認証情報とDomoデベロッパーアカウントを入力するためのフィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domo Client ID </p></td><td colspan="1" rowspan="1"><p> DomoクライアントIDを入力します。クライアントIDとクライアントシークレットを取得する手順については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domo Client Secret </p></td><td colspan="1" rowspan="1"><p> Domoクライアントシークレットを入力します。クライアントIDとクライアントシークレットを取得する手順については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Eloquaのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Eloquaのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Company </p></td><td colspan="1" rowspan="1"><p> Eloquaアカウントと関連のある会社名を入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDomo-Eloqua接続を設定できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domo-Eloqua接続を設定するための様々なフィールドとメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p> EloquaカスタムオブジェクトにコピーするDataSetのDataSet ID（GUID）を入力します。Data CenterでDataSetの詳細ビューを開き、URLの <span class="mt-font-courier-new"> datasources/ </span> に続く箇所で、IDを見つけることができます。例えば、URL <span class="mt-font-courier-new"><a href="https://mycompany.domo.com/datasourc...tails/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasourc...tails/overview </a></span> では、DataSet IDは <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span> です。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Eloqua Object </p></td><td colspan="1" rowspan="1"><p> Domoデータの書き込み先となるEloquaオブジェクトを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Identifier Fieldname - Eloqua Field </p></td><td colspan="1" rowspan="1"><p> データの書き込み先となる、選択したEloquaカスタムオブジェクトのフィールド（列）を選択します。このデータは、 <b> ［Identifier Fieldname - DataSet Field］ </b> で選択した列からコピーされます。例えば、 <b> ［DataSet Field］ </b> で <b> ［Numbers］ </b> を選択し、 <b> ［Eloqua Field］ </b> で <b> ［Number of Tickets］ </b> を選択した場合、「 <b> Numbers </b> 」列のすべてのデータが「 <b> Number of Tickets </b> 」列にコピーされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Identifier Fieldname - DataSet Field </p></td><td colspan="1" rowspan="1"><p> Eloquaカスタムオブジェクトにコピーする、選択したDomo DataSetのフィールド（列）を選択します。このデータは、 <b> ［Identifier Fieldname - Eloqua Field］ </b> で選択した列にコピーされます。例えば、 <b> ［DataSet Field］ </b> で <b> ［Numbers］ </b> を選択し、 <b> ［Eloqua Field］ </b> で <b> ［Number of Tickets］ </b> を選択した場合、「 <b> Numbers </b> 」列のすべてのデータが「 <b> Number of Tickets </b> 」列にコピーされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Optional Fields - Eloqua Fields </p></td><td colspan="1" rowspan="1"><p> データの書き込み先となる、選択したEloquaカスタムオブジェクトのオプションフィールド（列）を選択します。このデータは、 <b> ［Optional Fields </b><b> - DataSet Fields］ </b> で選択した列からコピーされます。例えば、 <b> ［DataSet Field］ </b> で <b> ［Numbers］ </b> を選択し、 <b> ［Eloqua Field］ </b> で <b> ［Number of Tickets］ </b> を選択した場合、「 <b> Numbers </b> 」列のすべてのデータが「 <b> Number of Tickets </b> 」列にコピーされます。 </p><p> 右側のプラスボタンをクリックしてオプションフィールドの行を追加したり、マイナスボタンをクリックして行を削除したりできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Optional Fields - DataSet Fields </p></td><td colspan="1" rowspan="1"><p> Eloquaカスタムオブジェクトにコピーする、選択したDomo DataSetのオプションフィールド（列）を選択します。このデータは、 <b> ［Optional Fields </b><b> - Eloqua Fields］ </b> で選択した列にコピーされます。例えば、 <b> ［DataSet Field］ </b> で <b> ［Numbers］ </b> を選択し、 <b> ［Eloqua Field］ </b> で <b> ［Number of Tickets］ </b> を選択した場合、「 <b> Numbers </b> 」列のすべてのデータが「 <b> Number of Tickets </b> 」列にコピーされます。 </p><p> 右側のプラスボタンをクリックしてオプションフィールドの行を追加したり、マイナスボタンをクリックして行を削除したりできます。 </p></td></tr></tbody></table>
+
+<Note>
+**注記：** Eloqua Writebackコネクターは、「 \_BATCH\_ID\_」列を検索します。この列が入力DataSetの中に存在する場合、コネクターはソースDataSetの最高の \_BATCH\_ID\_を追跡して、Eloquaに既に書き込まれているデータを追跡します。次の実行では、コネクターは前の実行で記録された行よりも \_BATCH\_ID\_が高い行のみを書き込みます。これは、Eloquaに重複データを書き込まないようにするためです。「 \_BATCH\_ID\_」列がソースDataSetに存在しない場合、コネクターが実行されるたびにすべてのデータがEloquaに書き込まれます。
+
+</Note>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

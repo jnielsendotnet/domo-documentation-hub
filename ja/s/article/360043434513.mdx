@@ -1,0 +1,54 @@
+---
+title: "LinkedIn V2コネクター"
+---
+
+## はじめに
+
+LinkedInはプロフェッショナル向けのソーシャルネットワーキングプラットフォームです。Domo LinkedInコネクターは、DomoとLinkedInを統合してLinkedIn APIからデータを抽出します。コネクターにより、会社の詳細、シェアされた投稿、シェアに関する統計、ユーザープロフィール情報、ビデオアナリティクスにアクセスできるようになります。LinkedIn APIの詳細については、LinkedInのサイト（ [https://developer.linkedin.com](https://developer.linkedin.com "https://developer.linkedin.com") ）を参照してください。
+
+LinkedInコネクターは「クラウドアプリ」コネクターであるため、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+<Warning>
+**重要：** 一部のコネクターでは、その会社の顧客のアカウントに応じて、Domoではなく会社からAPI使用料が請求されます。このコネクターを使用すると、API使用料がかかる場合があります。
+
+</Warning>
+
+LinkedInアカウントには、 Data Center から接続します。このトピックでは、LinkedInコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、会社の更新や投稿からのエンゲージメントを測定する際に便利です。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 会社のシェアに関する統計 </p></li><li><p> ビデオアナリティクス </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> マーケティング権限、特にソーシャルエンゲージメント関連の権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+LinkedInアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* LinkedInへのログインに使用するメールアドレス
+* LinkedInへのログインに使用するパスワード
+
+## LinkedInアカウントに接続する
+
+このセクションでは、LinkedInコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+Domo Linkedinコネクターは接続にOAuthを使用しており、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（または、DomoですでにLinkedInアカウントを持っている場合は **［アカウントの追加］** を選択）
+
+すると、LinkedInログイン用のメールアドレスとパスワードを入力する ［LinkedIn OAuth］ 画面が開きます。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいLinkedIn DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて様々なメニューが表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するLinkedInレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Get Basic Share Statistics </td><td colspan="1" rowspan="1"> このレポートは選択した数の会社のシェアに関する基本統計を返します。 <br/> これにはテキスト、画像、ビデオのシェアが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Details </td><td colspan="1" rowspan="1"> このレポートは選択した会社/組織IDの会社詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Followers Statistics（廃止） </td><td colspan="1" rowspan="1"> このレポートは選択した会社/組織IDをフォローしているユーザーに関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Organization Follower Statistics (versioned) </td><td colspan="1" rowspan="1"> このレポートは選択した会社/組織IDをフォローしているユーザーに関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Network Size </td><td colspan="1" rowspan="1"> このレポートは選択した組織が所有している1次コンタクトの数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Shares </td><td colspan="1" rowspan="1"> このレポートは会社がシェアしている投稿に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Share Statistics (Aggregated) </td><td colspan="1" rowspan="1"> このレポートは会社のシェアの累計データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Company Share Statistics (Individual) </td><td colspan="1" rowspan="1"> このレポートは選択した数の会社のシェアに関するデータを、個別のシェアに分類して返します。 <br/> 注記：このレポートにビデオのシェアは含まれません。 </td></tr><tr><td colspan="1" rowspan="1"> Get Profile </td><td colspan="1" rowspan="1"> このレポートは認証されたメンバーのプロフィールを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Organization Brand Page Statistics </td><td colspan="1" rowspan="1"> このレポートは組織ブランドに関する統計を、生涯レポートまたは日付範囲レポートとして返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Organization Page Statistics </td><td colspan="1" rowspan="1"> このレポートは組織に関する統計を、生涯レポートまたは日付範囲レポートとして返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Video Analytics </td><td colspan="1" rowspan="1"> このレポートはビデオ投稿のアナリティクスデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Organization ID </p></td><td colspan="1" rowspan="1"><p> データを取得する組織を選択します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Post URN type selection </td><td colspan="1" rowspan="1"> 特定のタイプの投稿または各タイプの投稿のデータを取得するかどうかを指定します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Number of shares to retrieve </td><td colspan="1" rowspan="1"> レポートに表示するシェアの数を入力します。最近のシェアから順に、指定した数まで返されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Reporting Timeframe </p></td><td colspan="1" rowspan="1"><p> 全期間のデータを取得する（ <b> ［Retrieve Lifetime Data］ </b> ）か、指定した期間のデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Breakdown </td><td colspan="1" rowspan="1"> データをどのように分類するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Skip invalid activity IDs </td><td colspan="1" rowspan="1"> このボックスをチェックすると、アクティビティIDの要求時にAPIの失敗が無視され、DataSet全体が失敗することなく処理が続行されます。 </td></tr><tr><td colspan="1" rowspan="1"> Sub report </td><td colspan="1" rowspan="1"> 返されるサブレポートオブジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Granularity </p></td><td colspan="1" rowspan="1"><p> 日別、月別でレポートのデータを分類するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> レポートのデータの対象を、1日分にするか日付期間にするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> データの対象を特定の日付にするか相対的な日付にするかを指定します。現在の日付から数えて一定数の過去の日数（ <b> ［Date Offset］ </b> で指定）のデータをレポートで取得する場合は、 <b> ［Relative］ </b> を選択します。例えば、 <b> ［Date Offset］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」と入力し、そのDataSetを毎日更新するように設定した場合、日付が変わる度にその日から過去5日分の情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Offset </p></td><td colspan="1" rowspan="1"><p> レポートで、現在の日付から過去何日分を表示するかを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date From </p></td><td colspan="1" rowspan="1"><p> 日付範囲の1日目が特定日付か相対日付かを指定します。現在の日付から数えて一定数の過去の日数（ <b> ［Date From Offset］ </b> で指定）のデータをレポートで取得する場合は、 <b> ［Relative］ </b> を選択します。ここで <b> ［Relative］ </b> を選択した場合は、 <b> ［Date To］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Date To Offset］ </b> の値を指定する必要があります。 </p><p> 例えば、 <b> ［Date From Offset］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Date To Offset］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」と入力し、DataSetを毎日更新するように設定した場合、日付が変わる度にその日の10日前から5日前までの情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date To </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最終日が特定の日か、相対日付かを指定します。常に現在の日付から一定日数遡った日付（ <b> ［Date To Offset］ </b> で指定）までのデータをレポートで取得する場合は、 <b> ［Relative］ </b> を選択します。ここで［Relative］を選択した場合、 <b> ［Date From］ </b> にも <b> ［Relative］ </b> を選択し、 <b> ［Date From Offset］ </b> の値を指定する必要があります。 </p><p> 例えば、 <b> ［Date From Offset］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Date To Offset］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力し、DataSetを毎日更新するように設定した場合、日付が変わる度にその日の10日前から5日前までの情報が表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date From </p></td><td colspan="1" rowspan="1"><p> 日付範囲の1日目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date To </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最終日を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> データを取得する日付を選択します。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+* DataSetの作成に使用するLinkedInユーザーアカウントは、会社ページにアクセスできる
+  *必要があります* 。アクセスできない場合、コネクターはデータを取得できません。
+* LinkedInアクセストークンは、API応答の
+  expires\_in フィールドに返される秒数まで有効です。現在、すべてのアクセストークンは60日間のライフサイクルで発行されています。
+
+

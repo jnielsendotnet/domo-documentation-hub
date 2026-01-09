@@ -1,0 +1,99 @@
+---
+title: "ワードクラウドチャート"
+---
+
+## はじめに
+
+ワードクラウドチャートは、テキストデータを視覚的に表現するもので、個々の単語の重要度や使用頻度をフォントのサイズや色で表します。重要度や使用頻度が高い単語ほど、大きく目立つ色で表示されます。これにより、ユーザーはDataSetの中で最も重要な単語や、最も使用頻度の高い単語を見分けることができます。このタイプのチャートは「タグクラウド」としても知られています。
+
+ワードクラウドチャートは、DataSetから2つの列または行のデータを必要とします。1つはクラウド内の単語、もう1つは各単語を表す値です。この値は、通常、特定のDataSetにおける各単語の出現回数にもとづいています。
+
+また、重要度を別の形で測定して単語の値を決定することもできます。例えば、使用する単語を国の名前にし、各単語の値を国のGDP（国内総生産）にしたワードクラウドチャートを作成することもできます。そのチャートでは、GDPの高い国がGDPの低い国よりも目立つようになります。
+
+ある単語がDataSetに複数回出現する場合は、選択した集計タイプにもとづいてその出現回数の値が集計されます。例えば、DataSetに「青」という単語が3回出現しているとし、集計タイプに **［合計］** を選択している場合は、3つの「青」の値が加算されます。 **［集計なし］** を選択すると、各単語が最初に出現したときのその単語の値がデータとして使用されます。データの集計の詳細については、「 [データを集計する](http://wiki.domo.com/confluence/pages/viewpage.action?pageId=37466674#HowdoIapplyDataSetcolumnstomychart?-aggregating "DataSet列をチャートに適用する") 」を参照してください。
+
+ワードクラウドの上位5単語はオレンジ色、次の5単語は青、残りはグレーで表示されます。
+
+## ワードクラウドチャートを作成する
+
+Analyzerで、ワードクラウドチャートのデータを含む列を選択します。データ列の選択の詳細については、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については、「 [可視化カード作成パート2：Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：Card Builder") 」を参照してください。
+
+以下の図は、典型的な列ベースのスプレッドシートのデータがワードクラウドチャートに変換される方法を示しています。このチャートは、ロナルド・レーガン大統領の1985年の一般教書演説で使用頻度が最も高かった単語を示しています。
+
+<Frame><img alt="word_cloud_spreadsheet_example_new.png" src="/images/kb/ka05w00000123lv-00N5w00000Ri7BU-0EM5w000005vP38.png"/></Frame>
+## フレーズを含む列からワードクラウドチャートを作成する
+
+個々の単語ではなくフレーズを含む列を使用してワードクラウドチャートを作成する必要がある場合があります。デフォルトでは、チャートには単語単位ではなくフレーズ全体のインスタンスが含まれます。ワードクラウドチャートを使用する際に、個々の単語を出力できるDataFlowを作成することができます。これには、SQL DataFlowを *使用しなければなりません* 。ETLは使用できません。
+
+<Frame><img alt="true_wordcloud.png" src="/images/kb/ka05w00000123lv-00N5w00000Ri7BU-0EM5w000005vP2z.png"/></Frame>
+#### ワードクラウドで使用するMySQL DataFlowを作成するには：
+
+1. MySQL DataFlowを作成し、解析したいコラムを含むDataSetを入力DataSetとして追加します。
+
+<Note>
+  **注記：** 以下の手順を進めるために、入力DataSetには少なくとも2つの列が含まれている必要があります。
+
+</Note>
+
+2. SQL DataFlowの作成の詳細については、「
+   [SQL DataFlowを作成する](/s/article/360042922994 "SQL DataFlowを作成する") 」を参照してください。
+3. 新しい **SQL** 変換を作成します（表変換ではありません）。
+4. 以下のSQLファイルの内容をコピーして、新しい変換にペーストします。
+     
+   [procedure\_transform\_1.sql](https://domosoftware.sharepoint.com/:u:/s/CS-Edu-PublicFiles/EYDW04eH_ztEpJux410LBo0B4ih_mEY08QU-AAFLTQfIhg?e=2RrRhT "procedure_transform_1.sql")
+5. **［SQLを実行］** をクリックします。
+6. 実行が完了したら、 **［適用］** をクリックします。
+7. 新しい **SQL** 変換を作成します（表変換ではありません）。
+8. 以下のSQLファイルの内容をコピーして、新しい変換にペーストします：
+     
+   [call\_transform\_2.sql](https://domosoftware.sharepoint.com/:u:/s/CS-Edu-PublicFiles/EY6uOUEb22pJt1JuZpGRTegBQ5VEB66Bo7lV9YfzAo3ldw?e=lCD8mf "call_transform_2.sql")
+9. 表の名前、分割する必要のある列、共通の単語や記号を除外するかどうかを示すインジケーターを含めるよう、ステートメントを編集します。このCallステートメントは次のようになっています。
+     
+   `` CALL word_cloud(' your_data_table ', '` your_column `', ' exclude common words (y/n) ',' exclude common symbols (y/n) ' ); ``
+     
+   where *`your_data_table`* is the name of the DataSet and `your_column` is the column you are parsing, and you insert *`y`* to exclude common words/common symbols or `n` to keep them
+     
+   例えば、表の名前を「survey\_results」、分割する列の名前を「feedback」として、共通の単語は除外したいが、共通の記号は除外したくない場合、コードを次のように修正します。
+     
+   `` CALL word_cloud('survey_results', '`feedback`', 'y','n'); ``
+10. **［SQLを実行］** をクリックします。
+11. 実行が完了したら、 **［適用］** をクリックします。
+12. 次のようなクエリを使用して、前のステップの結果を含む出力DataSetを作成します。
+      
+    `SELECT * FROM final`
+
+分割する列の各項目に対応して作成された列とともに、元の表のデータが含まれる「final」という新しい表が作成されます。この表の各レコードの末尾には、分割された元の文字列を含む新しい列が追加されます。
+
+### 共通の単語
+
+共通の単語の削除を選択した場合、削除される単語は以下の通りです。
+
+`'1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '.', '&', 'A', 'ABLE', 'ABOUT', 'ABSOLUTELY', 'AFTER', 'AGAIN', 'ALL', 'ALONG', 'ALSO', 'ALWAYS', 'AM', 'AN', 'AND', 'ANOTHER', 'ANY', 'ANYONE', 'ANYTHING', 'ANYWHERE', 'ARE', 'AROUND', 'AS', 'ASKED', 'AT', 'AWAY', 'BACK', 'BE', 'BECAUSE', 'BECOME', 'BEEN', 'BEFORE', 'BEST', 'BETTER', 'BETWEEN', 'BIGGEST', 'BOTH', 'BRING', 'BUT', 'BY', 'CAME', 'CAN', 'CAN''T', 'CANNOT', 'CANT', 'CHANCE', 'COME', 'COMES', 'COULD', 'COULDN''T', 'DEFINITELY', 'DID', 'DIDN''T', 'DO', 'DOES', 'DOESN''T', 'DOING', 'DON''T', 'DONE', 'DURING', 'EACH', 'ELSE', 'ENOUGH', 'ENTIRE', 'ESPECIALLY', 'EVEN', 'EVER', 'EVERY', 'EVERYDAY', 'EVERYONE', 'EVERYTHING', 'FELT', 'FEW', 'FIRST', 'FOR', 'FROM', 'FRONT', 'GET', 'GETS', 'GETTING', 'GIVE', 'GIVEN', 'GIVES', 'GO', 'GOES', 'GOING', 'GOOD', 'GOT', 'GREAT', 'HAD', 'HAS', 'HASN''T', 'HAVE', 'HAVEN''T', 'HAVING', 'HE', 'HE''S', 'HELPED', 'HER', 'HER.', 'HERE', 'HERSELF', 'HERSELF.', 'HI', 'HIM', 'HIS', 'HOW', 'I', 'I''D', 'I''LL', 'I''M', 'I''VE', 'IF', 'IM', 'IN', 'INTO', 'IS', 'IT', 'IT.', 'IT''S', 'ITS', 'JUST', 'KEEP', 'KEEPS', 'KNOW', 'LAST', 'LET', 'LIKE', 'LOOKS', 'LOT', 'MADE', 'MAKE', 'MAKES', 'MAKING', 'MANY', 'MATTER', 'MAY', 'ME', 'ME.', 'MEANS', 'MORE', 'MORE.', 'MOST', 'MUCH', 'MY', 'MYSELF', 'NEARLY', 'NEED', 'NEEDS', 'NEVER', 'NEXT', 'NO', 'NOT', 'NOTHING', 'NOW', 'OF', 'ON', 'ONE', 'ONLY', 'OR', 'OTHER', 'OTHERS', 'OUR', 'OUT', 'OVER', 'OWN', 'PLEASE', 'PROBABLY', 'PUT', 'PUTS', 'REALLY', 'RECENTLY', 'SAID', 'SAME', 'SAW', 'SAY', 'SEE', 'SEEN', 'SHE', 'SHE''S', 'SHOULD', 'SIMPLE', 'SINCE', 'SO', 'SOME', 'SOMEONE', 'SOMETHING', 'SOMEWHERE', 'SPECIAL', 'STILL', 'SUCH', 'SURE', 'SURELY', 'TAKE', 'TAKES', 'TELL', 'TH', 'THAN', 'THAT', 'THAT''S', 'THE', 'THEIR', 'THEM', 'THEN', 'THERE', 'THESE', 'THEY', 'THING', 'THINGS', 'THINK', 'THINKING', 'THIS', 'THOSE', 'THOUGH', 'THOUGHT', 'THREE', 'THROUGH', 'TILL', 'TO', 'TOGETHER', 'TOLD', 'TOO', 'TOOK', 'TOWARDS', 'TRULY', 'TRYING', 'U', 'UNTIL', 'UP', 'UR', 'US', 'US.', 'USE', 'VERY', 'VIA', 'WANT', 'WANTED', 'WANTS', 'WAS', 'WAY', 'WE', 'WE''RE', 'WENT', 'WERE', 'WHAT', 'WHATEVER', 'WHEN', 'WHENEVER', 'WHERE', 'WHICH', 'WHILE', 'WHO', 'WHOM', 'WHY', 'WILL', 'WITH', 'WITHIN', 'WITHOUT', 'WOULD', 'YET', 'YOU', 'YOU.', 'YOU''D', 'YOU''RE', 'YOUR'`
+
+### 共通の記号
+
+共通の記号の削除を選択した場合、削除される記号は以下の通りです。
+
+`` '~', '`', '!', '@', '#', '£', '€', '\$', '¢', '¥', '§', '%', '°', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\', '/', ':', ';', ''', ',', '<', '>', '.', '?', '“', '”', '-', '–', '’', '"' ``
+
+#### ワードクラウドで使用するPythonスクリプトタイルでMagic ETL DataFlowを作成するには：
+
+1. Magic ETL DataFlowを作成し、解析したいコラムを含むDataSetを入力DataSetとして追加します。
+     
+   Magic ETL DataFlowの作成の詳細については、「 Magic ETL DataFlowを作成する 」を参照してください。
+2. **Pythonスクリプト** タイルをDataFlowに追加します。
+     
+   <Note>
+     **注記：** Pythonスクリプトタイルは、追加料金で利用できるプレミアム機能です。スクリプトタイルをインスタンスに追加したい場合は、アカウントエグゼクティブまたはカスタマーサクセスマネージャーまでお問い合わせください。
+
+   </Note>
+
+3. 以下のPythonファイルの内容をコピーして、Pythonスクリプトタイルの **コード** セクションにペーストします。 [wordCloud.py](https://domosoftware.sharepoint.com/:u:/s/CS-Edu-PublicFiles/Ed20q6ndffpHifQWNQl7T2EBmHXoU7nzub6cldKsC_y7Nw?e=072J29)
+4. Pythonスクリプトのコメント欄に記載されているステップに従ってください。
+5. Pythonスクリプトタイルの **［スキーマ］** タブで、ワードクラウドチャートで使用する列を追加し、データタイプを設定します。
+6. DataFlowに **出力DataSet** タイルを追加します。
+7. DataFlowを **保存して実行** します。
+
+日本語

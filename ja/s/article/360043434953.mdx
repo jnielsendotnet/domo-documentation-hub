@@ -1,0 +1,70 @@
+---
+title: "Google Calendarコネクター"
+---
+
+## はじめに
+
+Google Calendarは、タイムマネジメントおよびスケジュール管理用のカレンダーサービスで、ユーザーはイベントの作成と編集を行うことができます。Google Calendar APIの詳細については、ウェブサイト（ [https://developers.google.com/google-Apps/calendar/v3/reference](https://developers.google.com/google-apps/calendar/v3/reference) ）を参照してください。
+
+Googleアカウントには、Data Centerから接続します。このトピックでは、Google Calendarコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Googleに接続してGoogle Calendar DataSetを作成するには、Googleのユーザー名とパスワードが必要です。
+
+## Googleアカウントに接続する
+
+このセクションでは、Google Calendarコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］ や** と **［DataSetに名前を付けて説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoogle Calendarコネクターは、接続にOAuthを使用します。 そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のGoogleカレンダーアカウントがある場合は **［アカウントを追加］** を選択）すると、Google OAuth画面が開き、Googleの認証情報を入力できます。有効なGoogleの認証情報を入力した後は、新しいGoogleカレンダーDataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合 は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、2種類のメニューがあります。イベントのインポート元となるカレンダーを選択するメニューと、レポートの種類を選択するメニューです。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> カレンダー </td><td colspan="1" rowspan="1"> イベントのインポート元となるGoogleカレンダーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGoogleカレンダーレポートを選択します。 以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ACLフィード </td><td colspan="1" rowspan="1"> カレンダーのアクセス制御リストのルールを返します。 </td></tr><tr><td colspan="1" rowspan="1"> カレンダーイベントエントリー </td><td colspan="1" rowspan="1"> 選択したカレンダーからイベントを返します。 </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# Google BigQueryコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Googleアカウントの認証情報が必要です。
+
+
+</Accordion>
+<Accordion title="# Googleアカウントの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+DomoのGoogle CalendarコネクターはOAuthを使用します。OAuthは、Googleでアカウントを認証し、DomoがGoogleアカウントの認証情報にアクセスすることはありません。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSet の更新は、15分に1回程度になるように設定してください。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+Googleには呼び出しレート制限が適用される場合がありますが、この制限を気にする必要はありません。
+
+
+
+</Accordion>
+</AccordionGroup>

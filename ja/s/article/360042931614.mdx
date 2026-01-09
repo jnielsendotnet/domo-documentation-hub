@@ -1,0 +1,86 @@
+---
+title: "Amazon Redshift SSHコネクター"
+---
+
+## はじめに
+
+Amazon Redshiftは、ホスト型Data Warehouseプロジェクトで、大型クラウドコンピューティングプラットフォームであるAmazon Web Servicesの一部です。DomoのAmazon Redshift SSHコネクターを使用し、Redshiftデータベースとセキュアで暗号化された接続を確立してDomoでデータを取得すれば、より優れたデシジョンメイキングを始めることができます。SSH認証情報を入力し、必要なデータを取得するためのクエリを書くだけで、簡単に開始できます。Redshift APIに関する詳細は、ウェブサイト（ [http://docs.aws.amazon.com/redshift/...\_commands.html](http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html "http://docs.aws.amazon.com/redshift/latest/dg/c_SQL_commands.html") ）を参照してください。
+
+Amazon Redshift SSHコネクターは「データベース」コネクターです。つまり、クエリを使ってデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、このコネクターやその他のデータベースコネクターのページにアクセスできます。
+
+Redshiftデータベースには、 Data Center から接続します。このトピックでは、Redshift SSHコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** ネットワークの構造によっては、データコネクターがデータを取得する際に使用するIPアドレスをホワイトリストに登録する必要があります。詳細は、IT管理者にお問い合わせください。
+
+</Note>
+
+## 必要条件
+
+Redshiftデータベースに接続し、DataSetを作成するには、以下が必要です。
+
+* SSHトンネルの接続先であるUNIXサーバーのホスト名
+* UNIXアカウントのSSHユーザー名とパスワード
+* SSHポート番号
+* SSH秘密キー
+* Redshiftデータベースのホスト名またはIPアドレス
+* Redshiftデータベース名
+* Redshiftデータベースのログインに使用するユーザー名とパスワード
+* Redshiftデータベースのポート番号
+* Redshiftデータベース名
+
+CA証明書テキストまたはURLパスは、 **［Certificate Format］** メニューでそれぞれ **［Certificate String］** または **［URL Path］** を選択する場合に *のみ* 必要になります。
+
+<Note>
+**注記： Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+### Redshiftアカウントを作成する
+
+Redshiftユーザーアカウントを作成するには、Redshiftデータベース管理者（DBA）に連絡し、以下を行ってもらいます。
+  
+デフォルトでは、クラスターを起動したときに作成したマスターユーザーのみがクラスターの初期データベースにアクセスできます。ほかのユーザーにアクセス権を付与するには、1つ以上のユーザーアカウントを作成する必要があります。データベースのユーザーアカウントは、個々のデータベースに属するものではなく、クラスターのすべてのデータベースでグローバルに使用できます。
+  
+CREATE USER コマンドを使って、データベースの新規ユーザーを作成します。新規ユーザーを作成する際に、新規ユーザーの名前とパスワードを指定します。パスワードは必須です。8文字から64文字で、大文字と小文字、数字がそれぞれ1つ以上含まれている必要があります。
+  
+例えば、ユーザー名をGUESTにし、パスワードをABCd4321にする場合、次のコマンドを使います。
+  
+`create user guest password 'ABCd4321';`
+
+### IPアドレスをホワイトリストに登録する
+
+また、Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## SSHを使用してRedshiftデータベースに接続する
+
+このセクションでは、［Redshift SSHコネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。 **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** など、このページのほかのペインに表示されるオプションについては、ほとんどのコネクタータイプで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Server Hostname </p></td><td colspan="1" rowspan="1"><p> SSHトンネルの接続先であるUNIXサーバーのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> SSHで使用するポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密キーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベースのホスト名またはURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベースのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベースのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Format </p></td><td colspan="1" rowspan="1"><p> 証明書書式を選択します。証明書を含めない場合は、 <b> ［No Certificate］ </b> を選択します。 <b> ［Certificate String］ </b> を選択する場合は、証明書用テキストを <b> ［Certificate］ </b> フィールドに貼り付ける必要があります。 <b> ［URL Path］ </b> を選択する場合は、証明書がある場所のURLを <b> ［Certificate］ </b> フィールドに入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b> ［No Certificate］ </b> メニューで <b> ［Certificate Format］ </b> を選択します。 </p></td></tr></tbody></table>
+
+有効なRedshift認証情報を一度入力しておくと、同じアカウントを使用して随時、新しいRedshift SSH DataSetを作成することができます。コネクターのアカウントは Data Center の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。指定のデータベーステーブルと列を選択し、どの列をレポートに表示するかを指定することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p> メモリのパフォーマンスのフェッチサイズを入力します。空白にすると、デフォルトサイズの1000が適用されます。「メモリー不足」エラーが発生した場合、フェッチサイズを縮小します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Tables </p></td><td colspan="1" rowspan="1"><p> レポートに表示するデータベーステーブルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> レポートに表示する表の列をすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p><b> ［Table Columns］ </b> で選択した列に基づき, クエリヘルパーがサンプルクエリを構築します。必要な場合は、このクエリを修正します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boolean Format </p></td><td colspan="1" rowspan="1"><p> Boolean型で使用する形式を選択します。以下の表では、利用可能な形式を説明しています。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> 1/0 </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 値が真の場合は <span class="mt-font-courier-new"> 1 </span> を返し、値が偽の場合は <span class="mt-font-courier-new"> 0 </span> を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> t/f </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 値が真の場合は <span class="mt-font-courier-new"> t </span> を返し、値が偽の場合は <span class="mt-font-courier-new"> f </span> を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> T/F </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 値が真の場合は <span class="mt-font-courier-new"> T </span> を返し、値が偽の場合は <span class="mt-font-courier-new"> F </span> を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> true/false </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 値が真の場合は <span class="mt-font-courier-new"> true </span> を返し、値が偽の場合は <span class="mt-font-courier-new"> false </span> を返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query Timeout </p></td><td colspan="1" rowspan="1"><p> コネクターのタイムアウト値を分単位で入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+接続問題が発生した場合は、
+
+* pgAdminを使用して接続を確認します。
+* 必要なすべてのDomo IPがホワイトリストに登録されていることを確認します（上述の「
+  [コネクターのIPアドレスをホワイトリストに登録する](#h_17aaa1b7-c06f-4970-ae93-758d1923ce4b) 」を参照）。
+* SQLクエリでプロファイルを実行します。
+
+

@@ -1,0 +1,118 @@
+---
+title: "Microsoft Exchange Metrics RESTコネクター"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Microsoft Exchange Serverは、ユーザーのメールを保存するためのメールボックスを備えた集中ハブとして機能する、メールサーバーまたはメッセージングプラットフォームです。Microsoft Exchange Serverについての詳細は、同社のページ（ [https://docs.microsoft.com/ja-jp/exc...xchserver-2019](https://docs.microsoft.com/ja-jp/exchange/exchange-server?view=exchserver-2019 "https://docs.microsoft.com/ja-jp/exchange/exchange-server?view=exchserver-2019") ）を参照してください。
+
+このコネクターを使用するには、まずMicrosoft Azure Web Appを作成して必要な権限を設定する必要があります。これについては、後述の「必要条件」で説明しています。
+
+Microsoft Exchange Metrics RESTアカウントには、Data Centerから接続します。このトピックでは、Microsoft Exchange Metrics RESTコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft Exchange Metricsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Microsoft Azure Web Appから取得した顧客クライアントIDとクライアントシークレット
+* Microsoftアカウントの認証情報
+
+### Azure Appを設定する
+
+Microsoft Exchange Metricsアカウントとの接続を作成するには、最初にMicrosoft Azure Web Appを作成して、必要なクライアントIDとシークレットを取得する必要があります。
+
+**Azure Appを設定するには：**
+
+1. Azureポータルにログインします。
+2. **［Azure Active Directory］>［App Registrations］>［Create New Application］**
+   を選択します。
+
+   <Frame><img alt="msexchangerest_1.png" src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0s.png"/></Frame>
+
+3. **［Name］**
+   フィールドに、アプリケーションの名前を入力します。
+4. **［Application type］**
+   メニューで、 **［Web app/API］** を選択します。
+5. **［Sign-on URL］**
+   に、アプリケーションのサインオンURL（
+
+   [www.yourcompanyname.com](http://www.yourcompanyname.com) ）を入力します。
+6. **［Create］**
+   をクリックします。
+7. アプリケーションをクリックします。
+
+   ここに表示される **［Application ID］** は、Domoの **［接続］** ペインに入力するクライアントIDになります。
+
+   <Frame><img alt="msexchangerest_2.png" src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0o.png"/></Frame>
+
+8. **［Settings］>［Reply URLs］を選択します。**
+9. フィールドに次のURLを入力し、
+   **［Save］** をクリックします。
+
+   `https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-exchange-metrics-rest/exchange
+
+   <InlineImage src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0q.png" />`
+10. **［Settings］>［Required Permissions］>［Add］>［Microsoft Graph］>［Save］**
+    を選択します。
+11. 次の権限を設定します。
+
+    * ［Maintain access to data you have given it access to］
+    * ［Read all usage reports］
+    * ［Read user and shared contacts］
+    * ［Read user and shared calendars］
+    * ［Read all files that user can access］
+
+      <Frame><img alt="msexchangerest_4.png" src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0t.png"/></Frame>
+
+12. **［Settings］>［Required Permissions］>［Add］>［Windows Azure Active Directory］>［Save］**
+    を選択します。
+13. 次の権限を設定します。
+
+    * ［Sign in and read user profile］
+    * ［Read all users' basic profiles］
+
+      <Frame><img alt="msexchangerest_5.png" src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0p.png"/></Frame>
+
+14. **［Settings］>［Required Permissions］>［Grant Permissions］>［Yes］**
+    を選択します。
+
+    <Note>
+    **注記：** 場合によっては、管理者が権限を承認しなければならないことがあります。承認しないと、「Failed to grant permissions for application」というメッセージが表示されます。
+
+    </Note>
+
+    <Frame><img alt="msexchangerest_6.png" src="/images/kb/ja/ka0Vq0000006cyf-00N5w00000Ri7BU-0EM5w000005vO0r.png"/></Frame>
+
+15. **［Settings］>［Keys］>［Create New Key］**
+    を選択します。
+
+    これは、Domoの **［接続］** ペインに入力するクライアントシークレットになります。今後再び表示されることはないため、この情報は保存しておいてください。
+
+## Microsoft Exchange Metricsアカウントに接続する
+
+このセクションでは、Microsoft Exchange Metricsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Microsoft Exchange Metricsアカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Microsoft Exchange MetricsクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Microsoft Exchange Metricsクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+クライアントIDとクライアントシークレットを入力すると、MicrosoftのOAuthページに移動します。ここでは、メール、電話番号、またはMicrosoftアカウントに関連付けられているSkype名を入力するよう求められます。一度接続しておくと、いつでも同じアカウントを使用して新しいMicrosoft Exchange Metrics DataSetを作成できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+****注記：**** Domoで接続する際、既にMicrosoftにログインしている場合は、 ****［アカウントを追加］**** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずMicrosoftからログアウトする必要があります。
+
+</Note>
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMicrosoft Exchange Metricsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> レポート名 </b></p></td><td colspan="1" rowspan="1"><p><b> 説明 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity Counts </p></td><td colspan="1" rowspan="1"><p> Skype for Businessを通じて組織内で開催された会議セッションに参加したユーザーの数のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity User Counts </p></td><td colspan="1" rowspan="1"><p> Skype for Businessを通じて組織内で開催された会議セッションに参加したユニークユーザーの数のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Activity User Detail </p></td><td colspan="1" rowspan="1"><p> Skype for Businessアクティビティに関する詳細をユーザーごとに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Device Usage Distribution User Counts </p></td><td colspan="1" rowspan="1"><p> 組織内で固有のデバイスを使用しているユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Device Usage User Counts </p></td><td colspan="1" rowspan="1"><p> 組織内の何人のユーザーがSkype for Business Appを使用して接続したかについての使用状況に関するトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Device Usage User Detail </p></td><td colspan="1" rowspan="1"><p> Skype for Businessデバイス使用状況に関する詳細をユーザーごとに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email Activity Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のメールアクティビティのトレンド（送信、読み取り、受信の数など）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email Activity User Counts </p></td><td colspan="1" rowspan="1"><p> 送信、読み取り、受信などのメールアクティビティを実行しているユニークユーザーの数に関するトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email Activity User Detail </p></td><td colspan="1" rowspan="1"><p> ユーザーが実行したメールアクティビティに関する詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email App Usage User Detail </p></td><td colspan="1" rowspan="1"><p> ユーザーが様々なメールAppで実行したアクティビティに関する詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email App Usage Apps User Counts </p></td><td colspan="1" rowspan="1"><p> メールAppごとのユニークユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email App Usage User Counts </p></td><td colspan="1" rowspan="1"><p> メールAppを使用してExchange Onlineに接続したユニークユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email App Usage Versions User Counts </p></td><td colspan="1" rowspan="1"><p> Outlookデスクトップのバージョンごとにユニークユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailbox Usage Detail </p></td><td colspan="1" rowspan="1"><p> メールボックスの使用状況に関する詳細を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailbox Usage Mailbox Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーメールボックスの総数と、レポート期間のそれぞれの日にアクティブになったメールボックスの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailbox Usage Quota Status Mailbox Counts </p></td><td colspan="1" rowspan="1"><p> 各クォータカテゴリーのユーザーメールボックスの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailbox Usage Storage </p></td><td colspan="1" rowspan="1"><p> 組織で使用されているストレージの容量を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Office365 Groups Activity Detail </p></td><td colspan="1" rowspan="1"><p> Office 365グループアクティビティの詳細をグループごとに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Office365 Groups Activity Counts </p></td><td colspan="1" rowspan="1"><p> グループワークロード全体でのグループアクティビティの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Office365 Groups Activity Group Counts </p></td><td colspan="1" rowspan="1"><p> メールによる会話、Yammerの投稿、SharePointファイルのアクティビティにもとづき、グループの1日の合計数とアクティブになったグループの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Office365 Groups Activity Storage </p></td><td colspan="1" rowspan="1"><p> すべてのグループメールボックスとグループサイトで使用されている合計ストレージを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Office365 Groups Activity File Counts </p></td><td colspan="1" rowspan="1"><p> ファイルの総数と、Office 365グループに関連付けられているすべてのグループサイトでアクティブになったファイルの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> OneDrive Activity File Counts </p></td><td colspan="1" rowspan="1"><p> 任意のOneDriveアカウントに対してファイル操作を実行した、ライセンスが付与されているユニークユーザーの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> OneDrive Activity User Counts </p></td><td colspan="1" rowspan="1"><p> アクティブなOneDriveユーザーの数のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> OneDrive Usage Storage </p></td><td colspan="1" rowspan="1"><p> OneDrive for Businessで使用しているストレージ容量のトレンドを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Organizer Activity User Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーによって実施および開催された会議セッションのユニークユーザーの数と種類に関する使用状況のトレンドを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Organizer Activity Minute Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーによって実施および開催された会議セッションの長さ（分単位）と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Organizer Activity Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーによって実施および開催された会議セッションの数と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Participant Activity Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが参加した会議セッションの数と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Participant Activity User Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが参加した会議セッションのユニークユーザーの数と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Participant Activity Minute Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが参加した会議セッションの長さ（分単位）と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> PeerToPeer Activity User Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが実施したピアツーピアセッションのユニークユーザーの数と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> PeerToPeer Activity Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが実施したセッションの数と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> PeerToPeer Activity Minute Counts </p></td><td colspan="1" rowspan="1"><p> 組織内のユーザーが実施したピアツーピアセッションの長さ（分単位）と種類に関する使用状況のトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SharePoint Activity User Counts </p></td><td colspan="1" rowspan="1"><p> アクティブなユーザーの数のトレンドを返します。指定された時間内にファイルアクティビティ（保存、同期、変更、シェア）を実行したか、ページにアクセスした場合、そのユーザーはアクティブであると見なされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SharePoint Site Usage Storage </p></td><td colspan="1" rowspan="1"><p> レポート期間中に割り当てられ、利用されたストレージに関するトレンドを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Teams User Activity User Detail </td><td colspan="1" rowspan="1"> Microsoft Teamsユーザーアクティビティに関する詳細をユーザーごとに返します。 </td></tr><tr><td colspan="1" rowspan="1"> Teams User Activity Counts </td><td colspan="1" rowspan="1"> Microsoft Teamsのアクティビティの数をアクティビティタイプごとに返します。このアクティビティは、Microsoft Teamsのライセンスを持つユーザーが実行します。 </td></tr><tr><td colspan="1" rowspan="1"> Teams User Activity User Counts </td><td colspan="1" rowspan="1"> Microsoft Teamsのユーザーの数をアクティビティタイプごとに返します。アクティビティタイプは、チームチャットメッセージ、プライベートチャットメッセージ、通話、またはミーティングの数です。 </td></tr><tr><td colspan="1" rowspan="1"> Teams Device Usage User Detail </td><td colspan="1" rowspan="1"> Microsoft Teamsデバイス使用状況に関する詳細をユーザーごとに返します。 </td></tr><tr><td colspan="1" rowspan="1"> Teams Device Usage User Counts </td><td colspan="1" rowspan="1"> Microsoft Teamsの1日のユニークユーザーの数をデバイスタイプごとに返します。 </td></tr><tr><td colspan="1" rowspan="1"> Teams Device Usage Distribution User Counts </td><td colspan="1" rowspan="1"> Microsoft Teamsの選択した期間のユニークユーザーの数をデバイスタイプごとに返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Parameter Type </p></td><td colspan="1" rowspan="1"><p> データの取得対象を、選択した期間（ <b> ［Period］ </b> ）か、指定した日付または日付範囲（ <b> ［Date］ </b> ）のいずれにするかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Period </p></td><td colspan="1" rowspan="1"><p> 取得するデータの日数を選択します（「D」は日数を表します。つまり、 <b> ［D7］ </b> であれば7日間のデータを取得し、 <b> ［D30］ </b> であれば30日間のデータを取得することになります）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

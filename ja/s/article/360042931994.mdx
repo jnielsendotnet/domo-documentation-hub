@@ -1,0 +1,139 @@
+---
+title: "Glu Connector"
+---
+
+## はじめに
+
+この Connector を使うと、glu SFTP サーバーから CSV 形式のファイルを取得できます。 この Connector では、特定の glu レポートのファイル名のパターンや、glu で使われている日付形式、そして列の区切り文字などを指定することができます。
+
+これらの設定を使い、glu Connector は glu SFTP サーバーに接続して全てのファイルを検索します。 DataSet が更新されるたびに、A) ユーザーが指定したファイル名のパターンに一致し、かつ B) 過去にダウンロードされていないファイルを Connector がダウンロードします。
+
+この Connector には、QuickStart もあり、Domo の Appストアから入手できます。
+
+## 必要条件
+
+この Connector を使用するには、glu SFTP サーバーのアカウントを既に持っている必要があります。
+
+以下の 4 つの情報が必要です：
+
+* glu SFTP サーバーのアドレス
+* glu SFTP サーバーのポート
+* ｇlu SFTP サーバーのユーザー名
+* glu SFTP サーバーのパスワード
+
+以下の情報も用意しておくことをお奨めします。 これは glu システム設定の中に既にあるはずです。
+
+* glu レポートで使う日付の形式。
+
+  + Domo は欧米式のフォーマット(2016/12/01など)をサポートしています。
+* glu サービスが glu SFTP サーバーにファイルをエキスポートする際に使用しているファイル名のパターン。
+* glu のレポートファイルで使用される列の区切り文字。
+* glu が SFTP サーバーでレポートを更新する頻度と時間。
+
+## glu SFTP サーバーに接続する
+
+### 認証情報ペイン
+
+ホスト名、ユーザー名、パスワード、ポートを入力します。 ホスト名は sftp://\<Hostname_or_IP_Address>; のフォーマット、そしてポートは数値のみ使用する必要があります。
+
+複数の glu SFTP アカウントを使用している場合は、それぞれ適切なアカウント名`にしておくことを推奨します。
+
+**接続** をクリックしてもエラーメッセージが表示される場合は、2 つの可能性があります：
+
+* glu SFTP サーバーがまだ利用できる状態にない。 glu SFTP サーバーの状態を ATARA チームにお問い合わせください。
+* glu SFTP サーバーが利用可能な状態なのにやはり接続できない。 この場合は、Domo のサポートチームにお問い合わせください。
+
+### 詳細ペイン
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ファイル名のパターン </p></td><td colspan="1" rowspan="1"><p> ファイル名のパターンを指定すると、glu connector はそのファイルパターンと一致する全てのファイルを取得します。 全てのファイルのデータが結合されて DataSet　に追加されます。 ファイル名のパターンは、glu のシステム設定で確認することができます。 </p><p> ファイル名のパターンを指定すると、glu Connector はそのファイル名のパターンと一致する全てのファイルを SFTP サーバーで検索します。 </p><p> DataSet は以下の場合にのみ更新されます： </p><ul><li><p> ファイル名のパターンに一致するファイルが見つかる。 </p></li><li><p> この DataSet で、過去にこのファイル名のパターンと一致するファイルがダウンロードされたことがない。 </p><ul><li><p> 過去にファイルがダウンロードされたことはあるのに更新しなかった場合は、ファイル名が変更されていなくても、再度ダウンロードします。 </p></li></ul></li></ul><p> 以下の場合は、DataSet は更新されません： </p><ul><li><p> ファイル名のパターンと一致するファイルが glu SFTP サーバーにない。 </p></li><li><p> ファイル名のパターンと一致するファイルはあるが、この DataSet では既にダウンロードされている。 </p></li></ul><p> 「campaign_report_all~00000111.csv」 のようなファイル名の場合、最も適切なファイル名パターンは、「campaign_report_all」 になります。 複数の glu レポートタイプと一致するようなファイル名のパターンを設定しないよう、注意が必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付の形式 </p></td><td colspan="1" rowspan="1"><p> 日付の形式機能を使うと、日付形式を正確に指定できます。 Domo はデフォルトで日付形式を検出します。しかし、日付設定を明示的に指定したほうがよい場合もあります。 </p><p> 例えば、2016/12/01 としたいなら <span class="mt-font-courier-new"> YYYY/MM/DD </span> とします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 区切り文字を選択 </p></td><td colspan="1" rowspan="1"><p> glu SFTP サーバーの CSV ファイルで使われている列の区切り文字を選択します。 </p></td></tr></tbody></table>
+
+## DataFlow で glu DataSet を使用する
+
+glu は、インプレッションやクリックの変更を反映させるため、レポートを更新することがあります。 以下は、glu の最新のデータのみを表示する DataFlow の作成方法の一例です。
+
+**glu を使って DataFlow を作成するには、**
+
+1. ソースの DataSet から、「latest\_data」という最新データの表を作成します。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO6Q.png" style={{width: 700, height: 280}}/></Frame>
+
+2. この「latest\_data」の表に索引を追加します。
+
+   <Frame><img alt="glu_2.png" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO7c.png"/></Frame>
+
+3. ソースの DataSet 表に索引を追加します。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO7a.png" style={{width: 700, height: 329}}/></Frame>
+
+4. 最新のデータのみを返すよう、内部結合の演算を実行します。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO6T.png" style={{width: 700, height: 329}}/></Frame>
+
+5. 前のステップの出力から全てのデータを選択し、新規に出力 DataSet を作成します。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO6R.png" style={{width: 700, height: 335}}/></Frame>
+
+6. 最終的な DataFlow 設定をチェックします。
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123NH-00N5w00000Ri7BU-0EM5w000005vO7X.png" style={{width: 532, height: 718}}/></Frame>
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="glu SFTP サーバー上のファイルが更新されているのにファイル名が変更されない場合は、glu Connector は更新されたファイルをダウンロードするのでしょうか？">
+
+
+はい。glu Connector は、ファイル名が変更されてなくても、ファイルが更新されていることがわかりますので、そのファイルを再度ダウンロードします。
+
+
+</Accordion>
+<Accordion title="glu Connector は、追加と置換のどのモードで実行するべきでしょうか？">
+
+
+glu Connectorは、追加モードで実行するように作成されています。
+
+
+</Accordion>
+<Accordion title="glu レポートの列名を変更しても大丈夫ですか？">
+
+
+いいえ。列名はキャンペーン開始前に固定しておく必要があります。 キャンペーンの途中で列名が変更されると、Domo の DataSet が中断してしまいます。
+
+
+</Accordion>
+<Accordion title="glu レポートに使用したファイル名を変更しても大丈夫ですか？">
+
+
+いいえ。ファイル名は固定にし、変更させるべきではありません。 glu Connectorは、各 DataSet につき、ひとつのファイル名パータンしかサポートしません。 ファイル名を変更すると、DataSet の更新に失敗します。ファイル名のパターンが、glu SFTP サーバーの新しいファイルと一致しなくなるためです。
+
+
+</Accordion>
+<Accordion title="日本語の日付形式を glu レポートで使うことはできますか(例： 2016 年 12 月 01 日 など) ？">
+
+
+いいえ。Domo の Connector は現在、日本語の日付形式をサポートしておりません。 欧米式の日付形式を使用してください(例： 2016/12/01)。
+
+
+</Accordion>
+<Accordion title="複数の glu レポートを、Domo 内で結合させたいのですが、どのようにしたら良いですか？">
+
+
+Domo では、マスターレポートを 1 つだけ出力するように glu を設定することを推奨しています。そうすることで、データの結合する必要がなくなります。 ただし、各メディアから得られるレポートのディメンション次第ではそれができないことがあり、各メディアごとに新規の DataSet が必要になります。 その場合は、Dataflow を使うことで、複数の DataSet からメトリクスを結合させることができます。
+
+
+</Accordion>
+<Accordion title="毎日、glu レポートは新しいインプレッションやクリック、そしてコンバージョンデータで更新されます。 これらの行は Domo の DataSet でも自動的に更新されますか？">
+
+
+いいえ、DataFlow を使って、古い行をフィルターする必要があります。 詳細については、 [Dataflow で glu DataSet を使用する](#h_01EVWDMR5FK78FNNC381VYM7CG "glu Connector") のセクションを参照してください。
+
+
+</Accordion>
+<Accordion title="既に glu SFTP サーバーにたくさんのファイルがある状態で、glu Connector を設定しました。 Connector は、過去のファイルもすべてダウンロードしてくれますか？">
+
+
+はい、Connector は、まだダウンロードされていない過去のファイルを、全てダウンロードするように設計されています。
+
+
+</Accordion>
+</AccordionGroup>

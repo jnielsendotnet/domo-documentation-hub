@@ -1,0 +1,81 @@
+---
+title: "MySQL SSHコネクター"
+---
+
+## はじめに
+
+MySQLは、広く使用されているオープンソースのリレーショナルデータベース管理システムです。DomoのMySQL SSHコネクターを使用すると、MySQLデータベースからデータを引き出し、カスタムレポートを作成できます。取得するデータの指定は、SQLクエリの入力で行います。MySQL APIの詳細については、ウェブサイト（ http://dev.mysql.com/doc/refman/5.0/en/c-api.html ）を参照してください。
+
+MySQL SSHコネクターは「データベース」コネクターです。つまり、クエリを使ってデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、このコネクターやほかのデータベースコネクターのページにアクセスできます。
+
+MySQLデータベースには、Data Centerから接続します。このトピックでは、MySQL SSHコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> データマートとデータウェアハウスSQLクエリを取得する </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主なロール </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> CIO </p></li><li><p> CTO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5～40時間以上 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 結果セットのサイズをできる限り制限します。
+* 列数を最小限に抑えます。
+
+## 必要条件
+
+MySQLデータベースにSSHサーバー経由で接続してDataSetを作成するには、以下が必要です。
+
+* SSHトンネルを使用しているUNIXサーバーのホスト名
+* UNIXアカウントのSSHユーザー名とパスワード
+* データベースのホスト名
+* SSH秘密キー（DESまたはRSAのいずれか）
+* データベース名
+* MySQLデータベースにログインするためのユーザー名とパスワード
+
+<Note>
+注記： **Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+### MySQLアカウントを作成する
+
+MySQLアカウントは次の2つの方法で作成することができます。
+
+* アカウントの作成とアカウント権限の設定を行うためのアカウント管理ステートメントを使用する（
+  CREATE USER や GRANT など）。このようなステートメントを使用すると、ベースとなる権限テーブルがサーバーによって更新されます。
+* MySQLの権限テーブルを、
+  INSERT 、 UPDATE 、 DELETE などのステートメントで直接操作する。
+
+アカウント管理ステートメントを使用する方法を推奨します。権限表を直接操作するのに比べ、より簡潔でまたエラーも発生しにくいためです。
+
+アカウントを作成するための別の方法として、GUIツールのMySQL Workbenchを使用することもできます。また、phpMyAdminなど、いくつかのサードパーティプログラムでもMySQLアカウントを管理することができます。
+
+### ホワイトリストに登録する
+
+MySQLデータベースに接続する前に、データベースサーバーの接続ポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MySQLデータベースに接続する
+
+このセクションでは、MySQLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページ内のほかのペインに含まれるコンポーネントである **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Server Hostname </p></td><td colspan="1" rowspan="1"><p> SSHトンネルの接続先であるUNIXサーバーのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> UNIXアカウントのSSHパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> SQLデータベースのホスト名またはIPアドレスを入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密キー（DESまたはRSAのいずれか）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名、あるいはスキーマ名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> MySQLユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> MySQLパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいMySQL SSH DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインで、SQLクエリを作成してデータベースからデータを取得し、いくつかのオプションを指定します。
+
+<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p><span> クエリタイプを選択します。 </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><span> Query </span></td><td colspan="1" rowspan="1"><span> パラメーターなしの通常SQLクエリ。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Parameter </span></td><td colspan="1" rowspan="1"><span> パラメーターのあるSQLクエリ。 </span></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> SQL Query </p></td><td colspan="1" rowspan="1"><p> データを選択する時に使用する構造化照会言語（SQL）クエリです。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p><span> クエリパラメーターの値を入力します。これはクエリパラメーターの初期値になります。最終実行日はオプションです。指定されていない場合は、デフォルトで「02/01/1700」になります。 </span></p><p><span> 例：!\{lastvalue:_id}!=1,\{lastrundate:start_date}!=02/01/1944 </span></p></td></tr><tr><td colspan="1" rowspan="1"> TINYINT Values Treated as Bit (Boolean) Values? </td><td colspan="1" rowspan="1"> TINYINT値をBoolean値として扱う場合は、 <b> ［Yes］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Keep Connection Alive For Large Queries </td><td colspan="1" rowspan="1"> 大きなクエリ用に接続を維持するべき場合は、 <b> ［Yes］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Include HTML Tag </span></td><td colspan="1" rowspan="1"><span> データと共にHTMLタグを含めるには、［Yes］を選択します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* MySQL Workbenchを使用して、認証情報を確認します。
+* 暗号化された接続がサーバーでサポートされているかどうかを確認します。
+* Domo IPがホワイトリストに登録されているかどうかを確認します。
+
+

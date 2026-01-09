@@ -1,0 +1,69 @@
+---
+title: "Cordialコネクター"
+---
+
+## はじめに
+
+Cordialでは、リアルタイムデータを有効化し、変化し続ける顧客のシグナルに合わせて調整されたメッセージを配信できます。Cordinal APIの詳細については、CordialのWebサイト（ [https://api-cordial.io/docs/v1/](https://api.cordial.io/docs/v1/) ）を参照してください。
+
+Cordialアカウントには、Data Centerから接続します。このトピックでは、Cordialコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+Cordialアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* エンコードされたCordial APIキー
+* Cordialアカウントのパスワード
+
+Cordial APIキーの生成については、
+https://support.cordial.com/hc/en-us/articles/115005365087-API-Keys
+を参照してください。
+
+## Cordialアカウントに接続する
+
+このセクションでは、Cordialコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Cordialアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> APIキー </td><td colspan="1" rowspan="1"> エンコードされたCordial APIキーを入力します。APIキーを生成する方法については、上述の「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Cordialアカウントのパスワードを入力します。 </td></tr></tbody></table>
+
+有効なXML認証情報を一度入力しておくと、随時同じアカウントを使用して新しいCordial DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他さまざまなメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するCordialレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account Contact Attributes </p></td><td colspan="1" rowspan="1"><p> アカウントの連絡先属性のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Interests </p></td><td colspan="1" rowspan="1"><p> アカウントのインタレストのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Lists </p></td><td colspan="1" rowspan="1"><p> アカウントのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Automation Templates </p></td><td colspan="1" rowspan="1"><p> 自動テンプレートのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Batch Messages </p></td><td colspan="1" rowspan="1"><p> 一括メッセージのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Activities </p></td><td colspan="1" rowspan="1"><p> 連絡先の最近のアクティビティのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> 連絡先のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Includes </p></td><td colspan="1" rowspan="1"><p> 「Includes」データのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> ジョブのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Message Contacts </p></td><td colspan="1" rowspan="1"><p> メッセージの連絡先のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Orders </p></td><td colspan="1" rowspan="1"><p> オーダーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Products </p></td><td colspan="1" rowspan="1"><p> 製品のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedule </p></td><td colspan="1" rowspan="1"><p> スケジュールに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedule Log </p></td><td colspan="1" rowspan="1"><p> スケジュールログに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplements </p></td><td colspan="1" rowspan="1"><p> 補充のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplement Records </p></td><td colspan="1" rowspan="1"><p> 補充記録のリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Type </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むアカウントの連絡先属性のタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select the Index </p></td><td colspan="1" rowspan="1"><p> 「Account Contact Attributes」レポートのインデックス値を0または1で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Active Status </p></td><td colspan="1" rowspan="1"><p> 「Jobs」レポートに一覧表示されているジョブの希望のジョブステータスを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Interest Name (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングするインタレストの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Name (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングするリストの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングする時間を入力します。 <span class="mt-font-courier-new"> lt </span> 、 <span class="mt-font-courier-new"> gt </span> 、 <span class="mt-font-courier-new"> lte </span> 、 <span class="mt-font-courier-new"> gte </span> 、 <span class="mt-font-courier-new"> between </span> 、 <span class="mt-font-courier-new"> start </span> 、 <span class="mt-font-courier-new"> between.end </span> といった修飾子を含めることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Action (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートをフィルタリングするアクションを入力します。 <span class="mt-font-courier-new"> click </span> 、 <span class="mt-font-courier-new"> open </span> 、 <span class="mt-font-courier-new"> send </span> 、またはユーザー定義の操作を含めることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Email (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートをフィルタリングするメールアドレス（連絡先プライマリキーを検索）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Attribute Key (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングする属性キーを入力します。これはシステムで設定されている任意のカスタム属性のキーである可能性があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Key (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングするIncludeキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Job Name (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートでフィルタリングするジョブの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact ID </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルタリングする連絡先IDを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Purchase Date (Optional) </p></td><td colspan="1" rowspan="1"><p> 購入日を <span class="mt-font-courier-new"> eq </span> 、 <span class="mt-font-courier-new"> lt </span> 、 <span class="mt-font-courier-new"> gt </span> （ <span class="mt-font-courier-new"> YYYY-mm-DD HH:ii:ss </span> ）形式で入力します。詳細は、Cordialのサポート担当者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schedule ID </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルタリングするスケジュールを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Supplement Key </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルタリングする補充キーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Fields (Optional) </p></td><td colspan="1" rowspan="1"><p> レポートに表示するフィールド（列）の名前を入力します。コンマを使って複数のフィールドを分けることができます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターではどのバージョンのCordial APIを使用しますか？">
+
+
+このコネクターはCordial APIのバージョン1（ [https://api.cordial.io/v1/](https://api.cordial.io/v1/ "https://api.cordial.io/v1/") ）を使用します。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じた頻度で更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

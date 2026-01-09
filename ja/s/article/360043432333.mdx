@@ -1,0 +1,98 @@
+---
+title: "Salesforce Advancedコネクター"
+---
+
+## はじめに
+
+[Salesforce.com](http://Salesforce.com) は世界で最もよく使用されている顧客関係管理（CRM）製品を提供しています。DomoのSalesforce Advancedコネクターを使用すると、既に設定されている表形式レポートをインポートしたり、所定のSalesforceオブジェクトからフィールドを取得したりできます。SalesforceのAPIの詳細については、Salesforceのウェブサイト（ [https://trailhead.salesforce.com/en/content/learn/modules/api\_basics](https://trailhead.salesforce.com/en/content/learn/modules/api_basics "https://developer.salesforce.com/page/Salesforce_APIs") ）を参照してください。
+
+Salesforceのアカウントには、Data Centerから接続します。このトピックでは、Salesforceコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Salesforceアカウントに接続してDataSetを作成するには、Salesforceの認証情報が必要です。Salesforce AppExchangeからインストールしたDomoコネクターパッケージも必要となります（2018年8月1日以降は必須。インストール手順については次のセクションを参照）。
+
+### Domoコネクターパッケージをインストールする
+
+Salesforce AppExchangeにある「Domoコネクターパッケージ」を使用して、Salesforceユーザーは、SalesforceのデータをDomoにインポートできます。この手順に沿ってAppExchangeからコネクターパッケージをダウンロードし、インストールします。
+
+**DomoのSalesforce管理パッケージをインストールするには：**
+
+1. Salesforceにログインします。
+2. Salesforce AppExchange（
+   [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") ）に移動し、「Domo Connector Package」を検索してクリックします。
+3. お客様は、次のリンクを使用して直接パッケージにアクセスできます。
+
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "フォローリンク")
+4. サンドボックス組織にインストールする場合は、URLの最初の部分を
+   [http://test.salesforce.com](http://test.salesforce.com/ "フォローリンク")
+
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+   に置き換える必要があります。または、 [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB") に直接移動することもできます。
+5. **［Get It Now］**
+   をクリックします。
+
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+6. インストール先として本稼働環境かサンドボックスを選択します。
+
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+7. 利用規約を確認した後、「I have read and agree to the terms and conditions」というボックスにチェックを入れます。
+8. **［Confirm and Install］**
+   をクリックします。
+
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+9. **［Install for All Users］**
+   タイルをクリックします。
+
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+詳細については、Salesforceのドキュメント（ [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5") ）を参照してください。
+
+## Salesforceアカウントに接続する
+
+このセクションでは、Salesforceコネクターページの **［認証情報］** と **［データの選択］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Salesforce Advancedコネクターは、接続にOAuthを使用しており、Domo内で認証情報を入力する必要はありません。希望するSalesforce環境として、 **［Sandbox］**
+
+または **［Salesforce］** を選択し、 **［接続］** をクリック（Domoに既存のSalesforceアカウントがある場合は **［アカウントを追加］** を選択）します。開いたSalesforceのOAuth画面で、Salesforceの認証情報を入力できます。有効なSalesforceの認証情報を一度入力しておくと、随時同じアカウントを利用して新しいSalesforce DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にSalesforceにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしたアカウントとは異なるアカウントに接続する場合は、まずSalesforceからログアウトする必要があります。
+
+</Note>
+
+### ［データの選択］ペイン
+
+このペインから、DomoがSalesforceからデータを取得する際の4つの異なる経路にアクセスできます。それぞれの経路については、以下で説明します。
+
+#### Browse Objects and Fields
+
+このオプションを使うと、Salesforceオブジェクトを選択し、関連するフィールドとリレーションシップを定義できます。ここで選択する設定オプションはすべてSOQLクエリに反映され、 **［Query］** タブに自動で生成されます。
+
+以下の表では、この経路を選択した場合に利用できる設定オプションをまとめています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Which Salesforce Object Would You Like to Use? </p></td><td colspan="1" rowspan="1"><p> DomoにインポートするSalesforceオブジェクトを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Fields Would You Like to Retrieve? </p></td><td colspan="1" rowspan="1"><p> 取得するフィールドをすべて選択します。必要な数のフィールドを選択できます。オブジェクトをドリルダウンして、オブジェクトの下にあるフィールドを表示するか、 <b> ［Search］ </b> ボックスを使用して特定のフィールドを検索できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Would You Like to Filter by Date? </p></td><td colspan="1" rowspan="1"><p> 日付フィルターオプションを選択します。作成日、最終アクティビティの日、最終閲覧日など、多数のオプションがあります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Relationships Would You Like to Include? </p></td><td colspan="1" rowspan="1"><p> DataSetに含めるリレーションシップをすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Name Styles </p></td><td colspan="1" rowspan="1"><p> Salesforceの内部名またはラベルを、DataSetの列名として使用するかどうか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve All Fields </p></td><td colspan="1" rowspan="1"><p> 親オブジェクトの下にあるすべてのフィールドが選択されている場合、Salesforceから新しいフィールドを自動的に取得するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなフィールドのみインポートするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reset Schema? </p></td><td colspan="1" rowspan="1"><p> クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。 </p></td></tr></tbody></table>
+
+#### Query
+
+このオプションを使うと、クエリ入力でSalesforceからDomoにデータを出力します。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> Enter your SOQL Query </p></td><td colspan="1" rowspan="1"><p> 必要なSOQLクエリを入力します。 <b> ［Browse Objects and Fields］ </b> タブで設定オプションを指定すると、クエリがここに自動生成されます。ただし、必要であればクエリを編集することも、全く新しいクエリを入力することもできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Retrieval -- Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなレコードのみインポートするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema Options -- Reset Schema </p></td><td colspan="1" rowspan="1"><p> クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。 </p></td></tr></thead></table>
+
+#### Tabular Reports
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Select a Salesforce Tabular Report </p></td><td colspan="1" rowspan="1"><p> Salesforceからインポートする表形式レポートを選択します。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"> Select a Unique Key Present in the Data </td><td colspan="1" rowspan="1"> DataSetのユニークキーを選択します。2,000行を超えるデータをインポートする際には必須となります。 </td></tr><tr><td colspan="1" rowspan="1"> Select the Date Format Returned by the Report </td><td colspan="1" rowspan="1"> レポートで日付をどうフォーマットするか選択します。 </td></tr></tbody></table>
+
+#### Sharing Rules Settings
+
+レポート作成時のエラー発生リスクを軽減するため、このオプションはロックされます。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

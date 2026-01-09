@@ -1,0 +1,49 @@
+---
+title: "サンプルデータコネクター"
+---
+
+## はじめに
+
+Domoのサンプルデータコネクターを使うと、そのシステムの認証情報を実際に入力する必要がなく、あらゆるクラウドAppコネクターのためのサンプルデータを生成することができます。これは、特定のコネクターで利用できるデータの種類や、そのデータから作成できるカードタイプを確認する際に役立ちます。このコネクターは、FacebookやSalesforceレポートなど、クラウドAppコネクターのサンプルデータを生成するために使用します。ファイル（ExcelファイルやBoxファイルなど）の取得や、データベース（MySQLクエリデータなど）からデータを取得するには使用できません。コネクターのタイプに関する詳細は、「 [コネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+コネクターのサンプルデータのインポートは、Data Centerで行うことができます。このトピックでは、サンプルデータコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+このコネクターについては、次の場所で詳細を確認できます： [https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine](https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine "https://developer.domo.com/docs/appstore/data-resources-2#Sample%20Data%20Engine") 。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは以下の場合に役立ちます。 </p><ul><li><p> 検討している特定のサードパーティのシステムにDomoが何を提供できるかを理解しようとしている場合（特に、現在そのシステムにアクセスできない場合）。 </p></li><li><p> プライベートデータではなくても、プロトタイプのカード、ダッシュボード、またはAppにストーリーを語るデータが必要な場合。 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ディベロッパー </p></li><li><p> ソフトウェアの購入者 </p></li><li><p> BIアナリスト </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5分未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+**動画 - サンプルデータコネクター**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/tHJTuzBy5lA" width="560"></iframe>
+
+## ベストプラクティス
+
+サード パーティによるAPIのアップデートによって実際のコネクターのバージョンが変更される場合、新しいコネクターレポートとDataSetに対応するため、サンプルデータのバージョンがアップデートされるまでにラグタイムがあることに注意してください。
+
+## 必要条件
+
+なし。サンプルデータエンジンコネクターの実行には、認証情報や他の情報は必要ありません。生成したいサンプルデータの対象となるDomoクラウドAppコネクターと、特定のレポートを選択するだけです。
+
+## サンプルデータに接続する
+
+これは、サンプルデータであるため、サンプルデータエンジンコネクターには、 **［認証情報］** ペインはなく、 **［詳細］** ペインのみを設定する必要があります。
+
+<Frame><img alt="Sample_data_engine_connetor_-_Details.png" src="/images/kb/ka05w000001237t-00N5w00000Ri7BU-0EM5w000005vO0G.png"/></Frame>
+
+#### データソース
+
+ドロップダウンを使用して、サンプルデータを生成する対象となるサードパーティのコネクターを選択します。
+
+#### レポート
+
+ドロップダウンから、サンプルデータを生成する対象となるレポートを選択します。
+
+上記の設定を使用すると、サンプルデータは次のようになります。
+
+<Frame><img alt="Sample_data_engine_connector_-_sample_data.png" src="/images/kb/ka05w000001237t-00N5w00000Ri7BU-0EM5w000005vO0F.png"/></Frame>
+
+### その他のペイン
+
+**［スケジュール設定］** ペインと **［DataSetに名前を付け説明を入力］** ペインに関する詳細は、「 [データコネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

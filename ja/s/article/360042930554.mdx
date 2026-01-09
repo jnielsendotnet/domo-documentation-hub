@@ -1,0 +1,68 @@
+---
+title: "Cventコネクター"
+---
+
+## はじめに
+
+Cvent Inc.は、ミーティングマネジメント技術を専門とする、SaaSの上場企業です。 Cvent APIの詳細については、Cvent Inc.のページ（ [http://www.cvent.com/en/event-manage...grations.shtml](http://www.cvent.com/en/event-management-software/cvent-integrations.shtml "http://www.cvent.com/en/event-management-software/cvent-integrations.shtml") ）を参照してください 。
+
+Cventアカウントには、Data Centerから接続します。このトピックでは、Cventコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用して、会議のメトリクスを分析およびレポートし、これらの大規模なミーティングデータから学習して最適化します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ミーティングにサインアップしたのは何人ですか？ </p></li><li><p> 実際に参加したのは何人ですか？ </p></li><li><p> 各ミーティングに参加したのは合計で何人ですか？ </p></li><li><p> アンケートでのフィードバックはどのような内容でしたか？ </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 組織によって異なりますが、ほとんどの企業では、Cレベルの権限がどこかの時点でデータにアクセスできるようにする必要があります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Cventアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Cventアカウント番号。これは、［Cvent Administration Profile］ページで確認できます。
+* Cvent APIのユーザー名とパスワード。これらの認証情報は、Cventに要求できます。
+
+DomoでCventに接続する前に、Cventアカウントで次のIPアドレスをホワイトリストに登録する必要があります。
+
+`54.208.95.237`
+
+`54.208.87.122`
+
+`54.208.95.167`
+
+`54.208.94.194`
+
+`50.207.240.162`
+
+`50.207.241.62`
+
+`52.18.90.222`
+
+`52.62.103.83`
+
+`34.198.214.100`
+
+## Cventアカウントに接続する
+
+このセクションでは、Cventコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Cventアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Cvent Account Number </td><td colspan="1" rowspan="1"> Cventアカウント番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Cvent API Username </td><td colspan="1" rowspan="1"> Cvent APIユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Cvent API Password </td><td colspan="1" rowspan="1"> Cvent APIパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Cvent Environment </td><td colspan="1" rowspan="1"> ドロップダウンから該当する環境（［Production Account」、［Sandbox Account］、［EU Production Account］）を選択します。 </td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なCvent認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいCvent DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Cventレポートを選択するメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するCventレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Appointment </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアポのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Appointment Attendee </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアポ出席者のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Approver </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する承認者のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Budget </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する予算詳細（税金の種類、謝礼の種類など）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Budget Item </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する予算アイテムのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するキャンペーンのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する連絡先のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contacts Custom Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する連絡先カスタム詳細のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contact Group </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する連絡先グループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Conversion Rate </td><td colspan="1" rowspan="1"> 認証済みユーザーのアカウントに関するコンバージョン率情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> eMarketing Email History </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するeMarketingメール履歴を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するイベントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Cards </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するイベントカードのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するイベント詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Email History </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するイベントメール履歴を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Question </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するイベント質問を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Guest </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するゲストのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Invitee </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する招待客のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Request </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するミーティングリクエストのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Request Custom Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するミーティングリクエストのカスタム詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Request Sleeping Room Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するミーティングリクエストのスリーピングルームの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Request User </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するミーティングリクエストユーザーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Meeting Request Survey </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するミーティングリクエストアンケートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Proposal </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する提案のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Proposal Sleeping Room </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するスリーピングルームの提案のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Proposal Estimated Costs </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するゲストのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Rate History </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する評価履歴を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Registration </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する登録情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Registration with Order Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する注文詳細を含む登録情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Registration with Survey Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアンケート詳細を含む登録情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Respondent </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する回答者のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Response </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する回答のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> RFP </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するRFP詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> RFP Meeting Room Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するRFPミーティングルームの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> RFP Question Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するRFP質問の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> RFP Sleeping Room Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するRFPスリーピングルームの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> RFP Supplier Details </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するRFPサプライヤーの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Session </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するセッション詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Speaker </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するスピーカーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Supplier </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するサプライヤーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Supplier Proposal </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するサプライヤー提案のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Supplier RFP </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するサプライヤーRFPの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Survey </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアンケートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Survey Email History </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアンケートメール履歴を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Survey Question </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するアンケート質問のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Assignment </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関する表の割り当てのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Transaction </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するトランザクションのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するユーザーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> User Group </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するユーザーグループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> User Role </td><td colspan="1" rowspan="1"> 認証されたユーザーのアカウントに関するユーザー権限のリストを返します。 </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+認証情報を確認して、適切なアクセス権があることを確認してください。
+
+

@@ -1,0 +1,548 @@
+openapi: 3.0.0
+info:
+  title: Domo Files API
+  version: v1
+  description: |
+    API for uploading, managing, and downloading files and their permissions in Domo. 
+    Includes support for standard and multi-part uploads.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo API
+tags:
+  - name: Files
+    description: Standard file operations (upload, download, metadata, permissions).
+  - name: Multi-part Files
+    description: Operations for managing large file uploads in parts (sessions).
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Access token obtained via Domo's authentication flow."
+  schemas:
+    #========= SHARED SCHEMAS =========
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+    
+    #========= FILES SCHEMAS =========
+    FileRevisionSchema:
+      type: object
+      properties:
+        dataFileRevisionId:
+          type: integer
+        dataFileId:
+          type: integer
+        contentType:
+          type: string
+        uploadUserId:
+          type: integer
+        sizeBytes:
+          type: integer
+        uploadTimeMillis:
+          type: integer
+        md5Hash:
+          type: string
+        datetimeUploaded:
+          oneOf:
+            - type: integer
+              format: int64
+              description: Epoch timestamp
+            - type: string
+              format: date-time
+        scanState:
+          type: string
+        sha256HashValue:
+          type: string
+          
+    FileMetadataSchema:
+      type: object
+      properties:
+        dataFileId:
+          type: integer
+        name:
+          type: string
+        responsibleUserId:
+          type: integer
+        currentRevision:
+          $ref: '#/components/schemas/FileRevisionSchema'
+        datetimeCreated:
+          oneOf:
+            - type: integer
+              format: int64
+              description: Epoch timestamp
+            - type: string
+              format: date-time
+        revisions:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileRevisionSchema'
+        existing:
+          type: boolean
+          
+    FilePermissionEntrySchema:
+      type: object
+      properties:
+        entityType:
+          type: string
+          enum: [USER, GROUP]
+        entityId:
+          type: string
+        grant:
+          type: string
+        pass:
+          type: string
+          
+    FilePermissionsSchema:
+      type: object
+      properties:
+        publicAccess:
+          type: boolean
+        entries:
+          type: array
+          items:
+            $ref: '#/components/schemas/FilePermissionEntrySchema'
+
+    #========= MULTI-PART SCHEMAS =========
+    MultipartSessionCreateRequest:
+      type: object
+      required: [name, contentType]
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        contentType:
+          type: string
+        'Cache-Control':
+          type: string
+          
+    MultipartUpdateSessionRequest:
+      type: object
+      required: [fileId, name, contentType]
+      properties:
+        fileId:
+          type: integer
+        name:
+          type: string
+        description:
+          type: string
+          nullable: true
+        contentType:
+          type: string
+        'Cache-Control':
+          type: string
+          
+    MultipartSessionResponse:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          
+    MultipartCommitRequest:
+      type: object
+      properties:
+        sessionId:
+          type: string
+          
+    MultipartCommitResponse:
+      type: object
+      properties:
+        dataFileId:
+          type: string
+        revisionId:
+          type: string
+          
+security:
+  - bearerAuth: []
+
+paths:
+  /domo/data-files/v1:
+    post:
+      summary: Upload a file
+      description: Uploading a new file can be accomplished through the following request. You will pass in the file to upload, and Domo will store it and generate a unique identifier for the file, which is returned to you.
+      tags: 
+        - Files API
+      parameters:
+        - name: name
+          in: query
+          required: true
+          schema: { type: string }
+          description: The name to be given to the file in Domo.
+        - name: description
+          in: query
+          schema: { type: string }
+          description: A description of the file.
+        - name: public
+          in: query
+          schema: { type: boolean, default: false }
+          description: "Whether the permissions of the file are set to public - this is false by default in the App Framework."
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to upload.
+      responses:
+        '200':
+          description: Returns the ID of the created file.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  dataFileId:
+                    type: integer
+              example:
+                dataFileId: 401
+
+  /domo/data-files/v1/{dataFileId}:
+    put:
+      summary: Upload a file revision
+      description: The Files API provides versioning support for files that have been uploaded. You may add another version of a file by sending a `PUT` request to the files endpoint referencing the `dataFileId` of the file you wish to revise.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file of which you wish to upload a revision
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file revision to upload.
+      responses:
+        '200':
+          description: Returns the revision id of the uploaded file.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  revisionId:
+                    type: integer
+              example:
+                revisionId: 430
+    get:
+      summary: Download current file version
+      description: Below is the basic request for downloading a file. Depending on the type of file, this endpoint can be referenced inline in your application or called via an HTTP request. In this example, the `responseType` of the XHR request is being set to `blob` so that our code can reference it as a binary large object when passing the response to the Download method.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file to download.
+        - name: revisionId
+          in: path
+          required: false
+          schema: { type: integer }
+          description: The id of the file revision you wish to download.
+      responses:
+        '200':
+          description: The file to be downloaded.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+
+  /domo/data-files/v1/details:
+    get:
+      summary: Get all files metadata
+      description: Lists all metadata for files the user has access to.
+      tags: 
+        - Files API
+      parameters:
+        - name: limitToOwned
+          in: query
+          schema: { type: boolean, default: false }
+          description: Whether or not to limit the result to only files that you uploaded.
+        - name: ids
+          in: query
+          schema: { type: string }
+          description: "An array of File Ids that you wish to be returned if you only want a subset of files."
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "An array of string properties that you wish to see additional details of (either `revisions`, `metadata`, or both)."
+      responses:
+        '200':
+          description: An array of file objects.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FileMetadataSchema'
+
+  /domo/data-files/v1/{dataFileId}/details:
+    get:
+      summary: Get file metadata by ID
+      description: Lists the metadata for a specific file ID.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file.
+        - name: expand
+          in: query
+          schema: { type: string }
+          description: "An array of string properties that you wish to see additional details of (either `revisions`, `metadat`a, or both)"
+      responses:
+        '200':
+          description: The file details object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileMetadataSchema'
+
+  /domo/data-files/v1/{dataFileId}/revisions/{revisionId}:
+    get:
+      summary: Download a file revision
+      description: Downloads a previous version of a file.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file revision you wish to download.
+        - name: revisionId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file revision you wish to download.
+      responses:
+        '200':
+          description: The file to be downloaded.
+          content:
+            '*/*':
+              schema:
+                type: string
+                format: binary
+    delete:
+      summary: Delete a file revision
+      description: "Permanently deletes a File from your instance.\n\n<Danger>\n**Warning**\n\n this is destructive and cannot be reversed. However, the delete does occur at the revision level, so if you unintentionally delete a file, the previous version will now be the current version of the file for a given file Id.\n</Danger>"
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to delete.
+        - name: revisionId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to delete.
+      responses:
+        '200':
+          description: OK
+
+  /domo/data-files/v1/{dataFileId}/permissions:
+    get:
+      summary: Get file permissions
+      description: Retrieves the permission details for a specific file.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to get permission details for.
+      responses:
+        '200':
+          description: The file's permission object.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilePermissionsSchema'
+    put:
+      summary: Update file permissions
+      description: Updates the permission details for a specific file.
+      tags: 
+        - Files API
+      parameters:
+        - name: dataFileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to update permission details for.
+      requestBody:
+        required: true
+        description: A permissions object.
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FilePermissionsSchema'
+            example:
+              publicAccess: true
+              entries:
+                - entityType: "USER"
+                  entityId: "1089963280"
+                  grant: "READ_WRITE_DELETE_SHARE_ADMIN"
+                  pass: "NONE"
+      responses:
+        '200':
+          description: OK
+
+  #========= Multi-part File Operations =========
+  /domo/data-files/v1/multipart:
+    post:
+      summary: Create a Multi-part Upload Session
+      description: Begins a multi-part file upload and returns a session ID.
+      tags:
+        - Files API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipartSessionCreateRequest'
+            example:
+              name: "SampleFile"
+              description: "Sample Description"
+              contentType: "application/pdf"
+              'Cache-Control': "no-cache"
+      responses:
+        '200':
+          description: Returns the session ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipartSessionResponse'
+
+  /domo/data-files/v1/{fileId}/multipart:
+    post:
+      summary: Create a Multi-part Update Session
+      description: To update a multi-part file, create an update session by calling `createUpdateSession` and passing in the fileId. This will return a session ID that is essential for uploading file parts.
+      tags:
+        - Files API
+      parameters:
+        - name: fileId
+          in: path
+          required: true
+          schema: { type: integer }
+          description: The id of the file you wish to update.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipartUpdateSessionRequest'
+            example:
+              fileId: 401
+              name: "SampleFile"
+              description: "Sample Description"
+              contentType: "application/pdf"
+              'Cache-Control': "no-cache"
+      responses:
+        '200':
+          description: Returns the session ID.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipartSessionResponse'
+
+  /domo/data-files/v1/multipart/{sessionId}/part/{index}:
+    put:
+      summary: Upload a File Part
+      description: "After creating a session, upload the file in chunks. Each chunk is sent with a unique index and can optionally include a checksum for verification. The checkSum is used to verify the integrity of the uploaded chunk.\n\nYou can determine the chunk size manually, but a good recommended size is between 10MB and 100MB."
+      tags:
+        - Files API
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: "(String) The session ID from `createSession` or `createUpdateSession`."
+        - name: index
+          in: path
+          required: true
+          schema: { type: integer, minimum: 1, maximum: 10000 }
+          description: Part number for ordering (1-10,000).
+        - name: checksum
+          in: query
+          schema: { type: string }
+          description: Optional SHA-256 checksum for the chunk.
+      requestBody:
+        required: true
+        description: The binary file data chunk.
+        content:
+          '*/*':
+            schema:
+              type: string
+              format: binary
+      responses:
+        '200':
+          description: OK
+
+  /domo/data-files/v1/multipart/{sessionId}/commit:
+    post:
+      summary: Complete a Multi-part Upload
+      description: Once all parts are uploaded, finalize the process with complete
+      tags:
+        - Files API
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The session ID to commit.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MultipartCommitRequest'
+            example:
+              sessionId: "1234567890"
+      responses:
+        '200':
+          description: Returns the dataFileId and revisionId.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MultipartCommitResponse'
+
+  /domo/data-files/v1/multipart/{sessionId}/abort:
+    post:
+      summary: Abort a Multi-part Upload
+      description: Aborts an in-progress multi-part upload session.
+      tags:
+        - Files API
+      parameters:
+        - name: sessionId
+          in: path
+          required: true
+          schema: { type: string }
+          description: The session ID to abort.
+      responses:
+        '200':
+          description: OK

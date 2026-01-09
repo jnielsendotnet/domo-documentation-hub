@@ -1,0 +1,68 @@
+---
+title: "PostgreSQL Advancedコネクター"
+---
+
+## はじめに
+
+Domoは、オープンソースのオブジェクトリレーショナルデータベースシステムであるPostgreSQLとシームレスに連動します。DomoのPostgreSQL Advancedコネクターを使用すると、PostgreSQLデータベースからデータを取得し、カスタムレポートを作成することができます。すべてのデータとユーザーを1ヶ所にまとめる直感的なプラットフォームにより、リアルタイムなビジネスインサイト間のコラボレーションが容易になり、一元化が進みます。
+  
+PostgreSQLデータとほかの多数のシステムのデータを容易に組み合わせることができるため、ユーザーはデータを変換して、そのすべてをセルフサービスで利用することができます。必要なメトリクスをどのデバイスからでも確認でき、レポートを自動化し、業務に重要な変更が発生した場合にはアラートを受け取れます。 取得するデータの指定は、SQLクエリの入力で行います。PostgreSQL APIの詳細については、PostgreSQLのウェブサイト（ [https://www.postgresql.org/docs/](https://www.postgresql.org/docs/ "https://www.postgresql.org/docs/") ）を参照してください。
+
+PostgreSQL Advancedコネクターは「データベース」コネクターです。データベースからデータを取得するにはクエリを使用します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、このコネクターやほかのデータベースコネクターのページにアクセスできます。
+
+PostgreSQLデータベースには、 Data Center から接続します。このトピックでは、PostgreSQLコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** ネットワークの構造によっては、IT管理者が、データコネクターでデータを取得するためのIPアドレスをホワイトリストに登録する必要があります。詳細については、IT管理者にお問い合わせください。
+
+</Note>
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、データベース内の情報をDomoに取り込むのに適しています。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主なロール </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> IT </p></li><li><p> プロジェクト管理 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10時間以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 9 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 読み取り専用クエリのみを使用します。
+* 「Append」ではなく「Replace」を使用します。
+
+## 必要条件
+
+PostgreSQLデータベースに接続しDataSetを作成するには、以下が必要です。
+
+* PostgreSQLデータベースのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名
+* CA証明書
+* SSL証明書
+* SSLキー
+
+PostgreSQLデータベースに接続する前に、データベースサーバーの接続ポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## PostgreSQLデータベースに接続する
+
+このセクションでは、PostgreSQL Advancedコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> PostgreSQLユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> PostgreSQLパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SQLデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書のテキストを貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"> SSL Certificate </td><td colspan="1" rowspan="1"> SSL証明書を貼り付けます。 </td></tr><tr><td colspan="1" rowspan="1"> SSL Key </td><td colspan="1" rowspan="1"> SSLキーを貼り付けます。 </td></tr></tbody></table>
+
+有効なPostgreSQL認証情報を一度入力しておくと、随時同じアカウントを使用して新しいPostgreSQL Advanced DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><th colspan="1" rowspan="1"> クエリタイプ </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> SQLステートメントを直接入力します。このオプションはクエリパラメーターもサポートします。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> 利用可能な表と列のリストからクエリを作成します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するための構造化照会言語（SQL）クエリを入力します。 </p><p> 例： <span class="mt-font-courier-new"> select * from Employee </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter（チェックボックス） </p></td><td colspan="1" rowspan="1"><p><span> このチェックボックスを選択してクエリパラメーターを追加します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><span> クエリパラメーターとその初期値をカンマで区切って入力します。有効なクエリパラメータは、lastvalue、lastrundateです。クエリパラメーターの値を設定するには、次の構文を使用します。 </span><tt>!\{lastvalue:_id}!=1,\{lastrundate:start_date}!=02/01/1944 </tt></td></tr><tr><td colspan="1" rowspan="1"><p><span> Database Tables </span></p></td><td colspan="1" rowspan="1"><span> レポートに表示するデータベース表を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><span> レポートに表示したい表の列をすべて選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><span> 選択したフィールドにもとづいてクエリが生成されます。このテキストをコピーして、クエリフィールドに貼り付けます。必要に応じてこのクエリを編集します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p><span> メモリのパフォーマンスのフェッチサイズを入力します。このフィールドに値が指定されない場合、コネクターはデフォルト値400を使用します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Bigint To Long </p></td><td colspan="1" rowspan="1"><p><span> Domoでbigint列を常に長い列に変換する際に選択します。 <br/> これは、bigint列が大きな整数値を格納していても、Domoはその列が長い値を持っていると見なします。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* 適切なIPアドレスがホワイトリストに登録されているか確認します。
+* フェッチサイズの縮小を試みるか、空白のままにします。
+
+

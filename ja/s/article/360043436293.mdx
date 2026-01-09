@@ -1,0 +1,46 @@
+---
+title: "SAP ASEコネクター"
+---
+
+## はじめに
+
+SAP ASE（Adaptive Server Enterprise）は、ビジネス向けリレーショナルデータベースサーバー製品です。以前はSybase SQLサーバーと呼ばれていました。SAP ASEの詳細については、SAP社のウェブサイト（ [https://www.sap.com/products/sybase-ase.html#](https://www.sap.com/products/sybase-ase.html# "https://www.sap.com/products/sybase-ase.html#") ）を参照してください。
+
+SAP ASEアカウントには、Data Centerから接続できます。このトピックでは、SAP ASEコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+SAP ASEアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SAP ASEアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名
+
+CA証明書テキストまたはURLパスは、 **［Certificate type］** メニューで **［Certificate text］** または **［URL path］** をそれぞれ選択した場合 *のみ* 必要になります。
+
+また、SAPデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043439173 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## SAP ASEアカウントに接続する
+
+このセクションでは、SAP ASEコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、SAP ASEアカウントに接続するための認証情報を入力するためのフィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> SAP Adaptive Server Enterpriseアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> SAP Adaptive Server Enterpriseアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SAPデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate </p></td><td colspan="1" rowspan="1"><p> CA証明書テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b> ［Certificate Type］ </b> メニューで <b> ［No certificate］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Certificate Type </p></td><td colspan="1" rowspan="1"><p> 証明書のタイプを選択します。証明書を含めない場合は、 <b> ［No certificate］ </b> を選択します。［Certificate text］を選択する場合は、 <b> ［Certificate］ </b> フィールドに証明書のテキストを貼り付ける必要があります。 <b> ［URL path］ </b> を選択する場合は、証明書が保存されている場所のURLを <b> ［Certificate］ </b> フィールドに入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> データベース名を入力します。 </p></td></tr></tbody></table>
+
+有効なSAP ASE認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSAP ASE DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、 [「コネクターのユーザーアカウントを管理する」を参照してください。](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する")
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> クエリの作成にヘルプが必要な場合は、以下の手順を実行します。 </p><ol><li><p><b> ［Database Table］ </b> および <b> ［Table Columns］ </b> メニューで、使用する表と列を選択します。 <br/><br/> 選択した内容にもとづき、 <b> ［Query Helper］ </b> フィールドにクエリが作成されます。 </p></li><li><p> 自動生成されたクエリを <b> ［Query Helper］ </b> フィールドからコピーして <b> ［Query］ </b> フィールドに貼り付けます。 </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルを選択します。選択したテーブルは、 <b> ［Query Helper］ </b> フィールドの自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルの列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> フィールドでテーブルを、 <b> ［Table Columns］ </b> フィールドで列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

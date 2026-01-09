@@ -1,0 +1,95 @@
+---
+title: "Snapchat Publisherコネクター"
+---
+
+## はじめに
+
+Snapchatは最も人気のあるソーシャルメディアアプリの1つで、ミレニアル世代とZ世代の両方に人気のあるプラットフォームです。Story StudioはSnapchatのセルフサービスツールで、Snapchat Discoverでショーやパブリッシャーのストーリーを作成、アップロード、パブリッシュすることができます。Snapchat Publisher APIを使うと、Story Studioのユーザーがショーやパブリッシャーのストーリーにコンテンツ、アナリティクス、収益APIを呼び出せるようになります。
+
+Domoの卓越したビジネスインテリジェンスプラットフォームを活用すると、ストーリーのパフォーマンスと収益メトリクスに関する最新情報をリアルタイムに取得できます。データとDomoを組み合わせることで、すべてのプラットフォームで広告を最適化するための包括的なマーケティング戦略を開発できます。 Snapchat Ads APIについての詳細は、Snapchatのページ（ https://developers.snapchat.com/ads/ ）を参照してください。
+
+Snapchat Publisherコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+Snapchatアカウントには、Data Centerから接続します。このトピックでは、Snapchat Publisherコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Snapchatアカウントに接続してDataSetを作成するには、Snapchatアカウントに関連付けられたユーザー名とパスワードが必要です。
+
+## Snapchat Publisherアカウントに接続する
+
+このセクションでは、Snapchat Publisherコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのSnapchat Publisherコネクターは接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のSnapchatアカウントがある場合は **［アカウントを追加］** を選択）すると、Snapchat OAuth画面が開き、Snapchatのユーザー名とパスワードを入力できます。有効なSnapchatの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSnapchat Publisher DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にSnapchatにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずSnapchatアカウントからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示となる様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するSnapchat Publisherレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Publishers </td><td colspan="1" rowspan="1"> 現在のユーザに関連付けられているパブリッシャーのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Publisher Story Performance Metrics </td><td colspan="1" rowspan="1"> 指定した日付範囲で、パブリッシャーに関するストーリーのパフォーマンスメトリクスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Total Revenue </td><td colspan="1" rowspan="1"> 収益メトリクスの単一の集計を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> ECPM </td><td colspan="1" rowspan="1"> 編集ごとの収益を取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Publisher ID </td><td colspan="1" rowspan="1"> パブリッシャーIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Revenue Type </td><td colspan="1" rowspan="1"><span> 収益データを収益タイプによってフィルターします。すべてを取得するには、このパラメータを省略します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <span class="mt-font-courier-new"> ［Days Back to Start From］ </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> ［Days Back to End At］ </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Period </p></td><td colspan="1" rowspan="1"><p><span> データを受信する期間を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Starting Day of the Week </p></td><td colspan="1" rowspan="1"><p><span> 週の最初の日として設定する曜日を選択します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのSnapchat APIを使用しますか？">
+
+
+このコネクターはSnapchat APIのバージョン1（ https://api.snapkit.com/v1/stories/studio/ ）を使用します。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="2" rowspan="1"> Publishers </td><td colspan="1" rowspan="1"> /publishers </td></tr><tr><td colspan="2" rowspan="1"> Publisher Story Performance Metrics </td><td colspan="1" rowspan="1"> /analytics/publisher/&#123;publisherId&#125;/stories </td></tr><tr><td colspan="2" rowspan="1"> Total Revenue </td><td colspan="1" rowspan="1"> /revenue/publisher/&#123;publisherId&#125;/aggregate </td></tr><tr><td colspan="2" rowspan="1"> ECPM </td><td colspan="1" rowspan="1"> /revenue/publisher/&#123;publisherId&#125;/editions </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Snapchatアカウントに関連付けられたユーザー名とパスワードが必要です。
+
+
+</Accordion>
+<Accordion title="Snapchat認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってSnapchat認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

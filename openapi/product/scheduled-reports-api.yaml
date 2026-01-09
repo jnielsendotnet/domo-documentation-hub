@@ -1,0 +1,1468 @@
+openapi: 3.1.0
+info:
+  title: Scheduled Reports API
+  version: "1.0.0"
+  description: |-
+    Scheduled Reports API
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain.
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    ReportSchedule:
+      type: object
+      properties:
+        frequency:
+          type: string
+        daysToRun:
+          type: string
+        hourOfDay:
+          type: integer
+        minOfHour:
+          type: integer
+        timezone:
+          type: string
+        enabled:
+          type: boolean
+        nextRunDate:
+          type: integer
+          description: Epoch milliseconds
+        additionalRecipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportScheduleRecipient'
+    ReportScheduleInfo:
+      type: object
+      properties:
+        title:
+          type: string
+        pageId:
+          type: integer
+        viewId:
+          type: integer
+        schedule:
+          $ref: '#/components/schemas/ReportSchedule'
+        attachmentInclude:
+          type: boolean
+    ReportScheduleItem:
+      type: object
+      properties:
+        id:
+          type: integer
+        reportViewId:
+          type: integer
+        pageId:
+          type: integer
+        title:
+          type: string
+        viewName:
+          type: string
+        type:
+          type: string
+        ownerId:
+          type: integer
+        embedViewId:
+          type: integer
+        owner:
+          type: boolean
+        cardCount:
+          type: integer
+        recipientCount:
+          type: integer
+        cardId:
+          type: integer
+        schedule:
+          $ref: '#/components/schemas/ReportSchedule'
+    ReportRecipient:
+      type: object
+      properties:
+        userId:
+          type: integer
+        displayName:
+          type: string
+        emailAddress:
+          type: string
+          format: email
+    ReportScheduleRecipient:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [EMAIL]
+        value:
+          type: string
+    ReportHistoryEntry:
+      type: object
+      properties:
+        id:
+          type: integer
+        reportId:
+          type: integer
+        reportTitle:
+          type: string
+        reportSubject:
+          type: string
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        automated:
+          type: boolean
+        cardCount:
+          type: integer
+        attachmentCount:
+          type: integer
+        attachmentSize:
+          type: integer
+        emailSize:
+          type: integer
+        status:
+          type: string
+        ownerId:
+          type: integer
+        recipientCount:
+          type: integer
+        resourceType:
+          type: string
+        resourceId:
+          type: integer
+        resourceName:
+          type: string
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportRecipient'
+    CardEmailData:
+      type: object
+      properties:
+        title:
+          type: string
+        encodedImage:
+          type: string
+        encodedImageId:
+          type: string
+        timeframeLabel:
+          type: string
+        summaryNumberValue:
+          type: string
+        summaryNumberLabel:
+          type: string
+        htmlContent:
+          type: string
+        cardType:
+          type: string
+        cardLink:
+          type: string
+        pdpEnabled:
+          type: boolean
+        certified:
+          type: boolean
+        companyCertified:
+          type: boolean
+    ResourceSendNowInfo:
+      type: object
+      properties:
+        recipients:
+          type: array
+          items:
+            $ref: '#/components/schemas/ReportScheduleRecipient'
+        alertActionId:
+          type: integer
+        emailParams:
+          type: object
+          additionalProperties: true
+    ReportLogSearchCriteria:
+      type: object
+      properties:
+        includeTitleClause:
+          type: boolean
+        titleSearchText:
+          type: string
+        includeStatusClause:
+          type: boolean
+        status:
+          type: string
+        includeTypeClause:
+          type: boolean
+        isAutomated:
+          type: boolean
+        includeScheduleIdClause:
+          type: boolean
+security:
+  - DomoDeveloperToken: []
+paths:
+  /api/content/v1/reportschedules:
+    get:
+      summary: List Report Schedules
+      tags:
+        - Scheduled Reports API
+      operationId: listReportSchedules
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type for the schedules
+        - in: query
+          name: title
+          schema:
+            type: string
+            default: ""
+          description: Filter by title
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: "startDate"
+            enum: [startDate, nextRunDate, title]
+          description: Field to sort by
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort in ascending order
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportScheduleItem'
+              examples:
+                example:
+                  value:
+                    - id: 123456
+                      reportViewId: 789012
+                      pageId: 345678
+                      title: Monthly Sales Report
+                      viewName: Sales Dashboard
+                      type: RECURRING
+                      ownerId: 901234
+                      embedViewId: 567890
+                      owner: true
+                      cardCount: 5
+                      recipientCount: 10
+                      cardId: 234567
+                      schedule:
+                        frequency: MONTHLY
+                        daysToRun: "1"
+                        hourOfDay: 9
+                        minOfHour: 0
+                        timezone: America/New_York
+                        enabled: true
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+    post:
+      summary: Create Report Schedule
+      tags:
+        - Scheduled Reports API
+      operationId: createReportSchedule
+      requestBody:
+        description: ReportScheduleInfo object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportScheduleInfo'
+            examples:
+              example:
+                value:
+                  title: Weekly Performance Report
+                  pageId: 345678
+                  viewId: 789012
+                  schedule:
+                    frequency: WEEKLY
+                    daysToRun: MON
+                    hourOfDay: 8
+                    minOfHour: 0
+                    timezone: America/New_York
+                    enabled: true
+                    additionalRecipients:
+                      - type: EMAIL
+                        value: user@example.com
+                  attachmentInclude: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportScheduleItem'
+              examples:
+                example:
+                  value:
+                    id: 123457
+                    reportViewId: 789012
+                    pageId: 345678
+                    title: Weekly Performance Report
+                    schedule:
+                      frequency: WEEKLY
+                      daysToRun: MON
+                      hourOfDay: 8
+                      minOfHour: 0
+                      enabled: true
+                      nextRunDate: 1700481600000
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+    delete:
+      summary: Delete Report Schedule by Page ID
+      tags:
+        - Scheduled Reports API
+      operationId: deleteReportScheduleByPageId
+      parameters:
+        - in: query
+          name: pageId
+          required: true
+          schema:
+            type: integer
+          description: ID of the page to delete schedule for
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}:
+    get:
+      summary: Get Report Schedule by ID
+      tags:
+        - Scheduled Reports API
+      operationId: getReportScheduleById
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule to retrieve
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportScheduleItem'
+              examples:
+                example:
+                  value:
+                    id: 123456
+                    reportViewId: 789012
+                    pageId: 345678
+                    title: Monthly Sales Report
+                    schedule:
+                      frequency: MONTHLY
+                      daysToRun: "1"
+                      hourOfDay: 9
+                      minOfHour: 0
+                      timezone: America/New_York
+                      enabled: true
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+    put:
+      summary: Update Report Schedule
+      tags:
+        - Scheduled Reports API
+      operationId: updateReportSchedule
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule to update
+      requestBody:
+        description: ReportScheduleInfo object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportScheduleInfo'
+            examples:
+              example:
+                value:
+                  title: Updated Monthly Sales Report
+                  schedule:
+                    frequency: MONTHLY
+                    daysToRun: "15"
+                    hourOfDay: 10
+                    minOfHour: 30
+                    timezone: America/New_York
+                    enabled: true
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportScheduleItem'
+              examples:
+                example:
+                  value:
+                    id: 123456
+                    title: Updated Monthly Sales Report
+                    schedule:
+                      frequency: MONTHLY
+                      daysToRun: "15"
+                      hourOfDay: 10
+                      minOfHour: 30
+                      timezone: America/New_York
+                      enabled: true
+                      nextRunDate: 1701864600000
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+    delete:
+      summary: Delete Report Schedule
+      tags:
+        - Scheduled Reports API
+      operationId: deleteReportSchedule
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule to delete
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/enabled:
+    put:
+      summary: Enable/Disable Report Schedule
+      tags:
+        - Scheduled Reports API
+      operationId: setReportScheduleEnabled
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: boolean
+        required: true
+        content:
+          application/json:
+            schema:
+              type: boolean
+            examples:
+              example:
+                value: true
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/history:
+    get:
+      summary: Get Report History by Schedule ID
+      tags:
+        - Scheduled Reports API
+      operationId: getReportHistoryByScheduleId
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportHistoryEntry'
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/notifications:
+    post:
+      summary: Build and Email Report
+      tags:
+        - Scheduled Reports API
+      operationId: buildAndEmailReport
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: Array of ReportRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportRecipient'
+            examples:
+              example:
+                value:
+                  - userId: 901234
+                    displayName: John Doe
+                    emailAddress: john.doe@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/notifications/queue:
+    post:
+      summary: Queue Build and Email Report
+      tags:
+        - Scheduled Reports API
+      operationId: queueBuildAndEmailReport
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: Array of ReportRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportRecipient'
+            examples:
+              example:
+                value:
+                  - userId: 901234
+                    displayName: John Doe
+                    emailAddress: john.doe@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/queue:
+    post:
+      summary: Queue Report Now
+      tags:
+        - Scheduled Reports API
+      operationId: queueReportNow
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: Array of ReportScheduleRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportScheduleRecipient'
+            examples:
+              example:
+                value:
+                  - type: EMAIL
+                    value: john.doe@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/resubscribe:
+    post:
+      summary: Resubscribe to Report
+      tags:
+        - Scheduled Reports API
+      operationId: resubscribeToReport
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: User ID
+        - in: query
+          name: emailId
+          schema:
+            type: string
+          description: Email ID
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/sendnow:
+    post:
+      summary: Send Report Now
+      tags:
+        - Scheduled Reports API
+      operationId: sendReportNow
+      description: |-
+        You didn't provide all of the required parameters!
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: Array of ReportScheduleRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportScheduleRecipient'
+            examples:
+              example:
+                value:
+                  - type: EMAIL
+                    value: john.doe@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/sendResubscribe:
+    post:
+      summary: Send Resubscribe Email
+      tags:
+        - Scheduled Reports API
+      operationId: sendResubscribeEmail
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      requestBody:
+        description: Array of ReportScheduleRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportScheduleRecipient'
+            examples:
+              example:
+                value:
+                  - type: EMAIL
+                    value: john.doe@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/unsubscribe:
+    post:
+      summary: Unsubscribe from Report
+      tags:
+        - Scheduled Reports API
+      operationId: unsubscribeFromReport
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/{scheduleId}/unsubscribe/recipient:
+    delete:
+      summary: Delete Unsubscribed Recipient
+      tags:
+        - Scheduled Reports API
+      operationId: deleteUnsubscribedRecipient
+      parameters:
+        - in: path
+          name: scheduleId
+          required: true
+          schema:
+            type: integer
+          description: ID of the schedule
+        - in: query
+          name: userId
+          schema:
+            type: integer
+          description: User ID
+        - in: query
+          name: emailId
+          schema:
+            type: string
+          description: Email ID
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/card-email-data:
+    post:
+      summary: Render Card for Email
+      tags:
+        - Scheduled Reports API
+      operationId: renderCardForEmail
+      requestBody:
+        description: Array of integers (card IDs)
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: integer
+            examples:
+              example:
+                value: [123, 456, 789]
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/CardEmailData'
+              examples:
+                example:
+                  value:
+                    additionalProperties:
+                      title: Sample Card
+                      encodedImage: base64string
+                      encodedImageId: img123
+                      timeframeLabel: Last 30 Days
+                      summaryNumberValue: "10,000"
+                      summaryNumberLabel: Total Sales
+                      htmlContent: "<div>Card content</div>"
+                      cardType: kpi
+                      cardLink: https://instance.domo.com/cards/123
+                      pdpEnabled: true
+                      certified: true
+                      companyCertified: false
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/created:
+    get:
+      summary: Get Created Report History
+      tags:
+        - Scheduled Reports API
+      operationId: getCreatedReportHistory
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type
+        - in: query
+          name: days
+          schema:
+            type: integer
+            default: 10
+          description: Number of days to look back
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort order
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/emails/enabled:
+    put:
+      summary: Enable/Disable Scheduled Report Emails
+      tags:
+        - Scheduled Reports API
+      operationId: setScheduledReportEmailsEnabled
+      requestBody:
+        description: boolean
+        required: true
+        content:
+          application/json:
+            schema:
+              type: boolean
+            examples:
+              example:
+                value: true
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/extendedHistory:
+    get:
+      summary: Get Extended Report History
+      tags:
+        - Scheduled Reports API
+      operationId: getExtendedReportHistory
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type
+        - in: query
+          name: days
+          schema:
+            type: integer
+            default: 10
+          description: Number of days to look back
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: "startTime"
+            enum: [reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize]
+          description: Field to sort by
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort order
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportHistoryEntry'
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/failures/rerun:
+    post:
+      summary: Rerun Failed Scheduled Reports
+      tags:
+        - Scheduled Reports API
+      operationId: rerunFailedScheduledReports
+      parameters:
+        - in: query
+          name: start
+          required: true
+          schema:
+            type: integer
+          description: Start timestamp
+        - in: query
+          name: end
+          required: true
+          schema:
+            type: integer
+          description: End timestamp
+      responses:
+        "200":
+          description: OK
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/history:
+    get:
+      summary: Get Report History
+      tags:
+        - Scheduled Reports API
+      operationId: getReportHistory
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: "startTime"
+            enum: [reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize]
+          description: Field to sort by
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort order
+        - in: query
+          name: includeRecipientInfo
+          schema:
+            type: boolean
+            default: false
+          description: Include recipient information
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ReportHistoryEntry'
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/history/{id}:
+    get:
+      summary: Get Report History by ID
+      tags:
+        - Scheduled Reports API
+      operationId: getReportHistoryById
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: History entry ID
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                example:
+                  value:
+                    id: 123456
+                    reportTitle: Specific History Report
+                    startTime: "2024-11-14T10:00:00Z"
+                    endTime: "2024-11-14T10:05:00Z"
+                    status: success
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/history/search:
+    post:
+      summary: Search Report History
+      tags:
+        - Scheduled Reports API
+      operationId: searchReportHistory
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: "startTime"
+            enum: [reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize]
+          description: Field to sort by
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort order
+      requestBody:
+        description: ReportLogSearchCriteria object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReportLogSearchCriteria'
+            examples:
+              example:
+                value:
+                  includeTitleClause: true
+                  titleSearchText: Sales
+                  includeStatusClause: true
+                  status: success
+                  includeTypeClause: true
+                  isAutomated: true
+                  includeScheduleIdClause: false
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+              examples:
+                example:
+                  value:
+                    - id: 123456
+                      reportTitle: Sales Report
+                      startTime: "2024-11-14T10:00:00Z"
+                      endTime: "2024-11-14T10:05:00Z"
+                      automated: true
+                      status: success
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/misconfigured:
+    get:
+      summary: Get Misconfigured Reports
+      tags:
+        - Scheduled Reports API
+      operationId: getMisconfiguredReports
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+              examples:
+                example:
+                  value:
+                    - id: 123456
+                      title: Misconfigured Report
+                      schedule:
+                        frequency: MONTHLY
+                        enabled: false
+                      active: false
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/resources:
+    get:
+      summary: Get Resources with Reports
+      tags:
+        - Scheduled Reports API
+      operationId: getResourcesWithReports
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 100
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+        - in: query
+          name: title
+          schema:
+            type: string
+            default: ""
+          description: Filter by title
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+              examples:
+                example:
+                  value:
+                    - resourceId: 123456
+                      title: Sales Dashboard
+                      type: PAGE
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/resources/{resourceType}/{resourceId}:
+    get:
+      summary: Get Report Schedules by Resource ID
+      tags:
+        - Scheduled Reports API
+      operationId: getReportSchedulesByResourceId
+      parameters:
+        - in: path
+          name: resourceType
+          required: true
+          schema:
+            type: string
+            enum: [OPEN, PAGE, CARD, REPORT]
+          description: Type of resource
+        - in: path
+          name: resourceId
+          required: true
+          schema:
+            type: integer
+          description: ID of the resource
+        - in: query
+          name: showAll
+          schema:
+            type: boolean
+            default: false
+          description: Show all schedules
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+              examples:
+                example:
+                  value:
+                    - id: 123456
+                      title: Resource Report
+                      schedule:
+                        frequency: WEEKLY
+                        enabled: true
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/sortby:
+    get:
+      summary: Get Report Schedules Map
+      tags:
+        - Scheduled Reports API
+      operationId: getReportSchedulesMap
+      parameters:
+        - in: query
+          name: filter
+          schema:
+            type: string
+            default: "USER"
+          description: Filter type
+        - in: query
+          name: title
+          schema:
+            type: string
+            default: ""
+          description: Filter by title
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to return
+        - in: query
+          name: skip
+          schema:
+            type: integer
+            default: 0
+          description: Number of items to skip
+        - in: query
+          name: orderBy
+          schema:
+            type: string
+            default: "startDate"
+            enum: [startDate, nextRunDate, title]
+          description: Field to sort by
+        - in: query
+          name: isAscending
+          schema:
+            type: boolean
+            default: false
+          description: Sort order
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+              examples:
+                example:
+                  value:
+                    - id: 123456
+                      title: Sales Report
+                      schedule:
+                        frequency: WEEKLY
+                        enabled: true
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/views/{viewId}:
+    get:
+      summary: Get Report Schedule by View ID
+      tags:
+        - Scheduled Reports API
+      operationId: getReportScheduleByViewId
+      parameters:
+        - in: path
+          name: viewId
+          required: true
+          schema:
+            type: integer
+          description: ID of the view
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ReportScheduleItem'
+              examples:
+                example:
+                  value:
+                    id: 123456
+                    title: View Report
+                    schedule:
+                      frequency: WEEKLY
+                      enabled: true
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/views/{viewId}/sendNow:
+    post:
+      summary: Send Report Now by View ID
+      tags:
+        - Scheduled Reports API
+      operationId: sendReportNowByViewId
+      parameters:
+        - in: path
+          name: viewId
+          required: true
+          schema:
+            type: integer
+          description: ID of the view
+        - in: query
+          name: attachmentInclude
+          schema:
+            type: boolean
+          description: Include attachments
+      requestBody:
+        description: Array of ReportScheduleRecipient objects
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ReportScheduleRecipient'
+            examples:
+              example:
+                value:
+                  - type: EMAIL
+                    value: user@example.com
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict
+
+  /api/content/v1/reportschedules/views/{viewId}/sendNowWithParams:
+    post:
+      summary: Send Report Now with Parameters by View ID
+      tags:
+        - Scheduled Reports API
+      operationId: sendReportNowWithParamsByViewId
+      parameters:
+        - in: path
+          name: viewId
+          required: true
+          schema:
+            type: integer
+          description: ID of the view
+        - in: query
+          name: attachmentInclude
+          schema:
+            type: boolean
+          description: Include attachments
+      requestBody:
+        description: ResourceSendNowInfo object
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ResourceSendNowInfo'
+            examples:
+              example:
+                value:
+                  recipients:
+                    - type: EMAIL
+                      value: user@example.com
+                  alertActionId: 789012
+                  emailParams:
+                    param1: value1
+      responses:
+        "202":
+          description: Accepted
+        "403":
+          description: Forbidden
+        "409":
+          description: Conflict

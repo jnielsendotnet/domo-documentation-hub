@@ -1,0 +1,48 @@
+---
+title: "Ooyala Connector"
+---
+
+## ﻿はじめに
+
+Ooyala は、動画による収益を増加させるためのオンライン動画アナリティクスや収益化ソリューションを提供しています。 Domo の Ooyala Connector を使用すると、パフォーマンスアナリティクスや最も人気のある動画のリスト、総配信バイト数などを取得できるようになります。 Ooyala API に関する詳細は、ウェブサイトを参照してください。 ([http://support.ooyala.com/developers.../book\_api.html](http://support.ooyala.com/developers/documentation/concepts/book_api.html "http://support.ooyala.com/developers/documentation/concepts/book_api.html") )
+
+Ben Green
+
+2016年9月29日 12:57
+
+Ooyala Connector は「クラウド App」です。つまり、クラウドに保管されたデータを取得します。 データセンターでは、ウィンドウ上部のツールバーで **クラウド App** をクリックすることで、これを含む他のクラウド App Connector のページにアクセスできます。
+
+Ooyala アカウントには、 データセンター から接続します。 このトピックでは、Ooyala Connector ユーザーインターフェイスに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Ooyala アカウントに接続して DataSet を作成するには、Ooyala API キーと API シークレットが必要です。 これらの認証情報を取得するには、以下を行います：
+
+1. [https://backlot.ooyala.com](https://backlot.ooyala.com "https://backlot.ooyala.com")
+   でアカウントにログインします。
+2. 画面上部のツールバーの
+   **Account** ボタンをクリックします。
+3. メインツールバー下のサブタブ行の
+   **Developers** をクリックします。
+
+API キーはこのタブに表示されています。 API シークレットを表示するには、 **Display API Secret** をクリックします。
+
+## Ooyala アカウントに接続する
+
+このセクションでは、Ooyala Connector ページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、Ooyala アカウントにアクセスするための認証情報を入力するフィールドがあります。 これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API キー </p></td><td colspan="1" rowspan="1"><p> Ooyala アカウントの API キーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API シークレット </p></td><td colspan="1" rowspan="1"><p> Ooyala アカウントのAPI シークレットを入力します。 </p></td></tr></tbody></table>
+
+一度有効な Ooyala の認証情報を入力しておくと、いつでも同じアカウントを使用して新しい Ooyala の DataSet を作成することができます。 Connector アカウントは データセンター の **アカウント** タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニューがあり、そこでレポートのタイプを選択することができます。 選択するレポートタイプに応じて、他のパラメーターも必要になる場合があります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> アカウントパフォーマンス </p></td><td colspan="1" rowspan="1"> 認証ユーザーのアカウントのパフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> ブランドパフォーマンス </p></td><td colspan="1" rowspan="1"> 認証ユーザーのアカウントのブランドを基準にしたパフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> デバイスタイプのパフォーマンスアナリティクス </td><td colspan="1" rowspan="1"> デバイスタイプのパフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> プラットフォームのパフォーマンスアナリティクス </p></td><td colspan="1" rowspan="1"> パフォーマンスメトリクスをプラットフォーム別に返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 配信済の総バイト数を取得 </p></td><td colspan="1" rowspan="1"> 特定期間において配信された総バイト数を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> すべてのアセットをリスト </p></td><td colspan="1" rowspan="1"> 認証ユーザーのアカウントにある動画やその他アセットをリストにして返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 全てのアセット分析をリスト </p></td><td colspan="1" rowspan="1"> 各アセットのパフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 最も人気の動画をリスト </p></td><td colspan="1" rowspan="1"> 最も人気の動画を降順のリストにして返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 再生を国別にリスト </p></td><td colspan="1" rowspan="1"> 指定した国のパフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 最も勢いのある動画をリスト </p></td><td colspan="1" rowspan="1"> 最も勢いのある動画を降順のリストにして返します。 </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 期間 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートのデータが、1 日分か日付期間を対象にしたものかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートの日付 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> データが特定の日付のものか相対的な日付を対象にしたものかを指定します。 現在の日付から特定の日数を遡ったデータ（ <b> 遡る日数 </b> で指定）をレポートで取得したい場合は、 <b> 相対 </b> を選びます。 例えば、 <b> 遡る日数 </b> に </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> を入力し、DataSet を毎日更新するように設定した場合、日が更新される度にその日から 5 日前の日付の情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定の日付を選択 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> データを取得する日付を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 遡る日数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> レポートで、現在の日付から過去何日分を表示するかを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 開始日 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の第 1 日目が特定日付か相対日付かを指定します。 現在の日付から特定の日数を遡ったデータ（ <b> 開始日まで遡る日数 </b> で指定）をレポートで取得したい場合は、 <b> 相対 </b> を選びます。 ここで <b> 相対 </b> を選択した場合、 <b> 終了日 </b> にも <b> 相対 </b> を選択し、 <b> 終了日まで遡る日数 </b> を指定する必要があります。 </span></p><p class="p1"><span class="s1"> 例えば、開始日まで遡る日数に </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> を入力し 、終了日まで遡る日数に </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> を入力し、その DataSet を毎日更新するように設定した場合、日が更新される度にその日の 5 日前から 10 日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 終了日 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の最終日が特定の日か、相対日付かを指定します。 現在の日付から特定の日数を遡ったデータ（ <b> 終了日まで遡る日数 </b> で指定）をレポートで取得したい場合は、 <b> 相対 </b> を選びます。 ここで <b> 相対 </b> を選択した場合、 <b> 開始日 </b> にも <b> 相対 </b> を選択し、 <b> 開始日まで遡る日数 </b> に数値を指定する必要があります。 </span></p><p class="p1"><span class="s1"> 例えば、開始日まで遡る日数に </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> を入力し 、終了日まで遡る日数に </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> を入力し、その DataSet を毎日更新するように設定した場合、日が更新される度にその日の 5 日前から 10 日前までの情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定の開始日を選択 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の第 1 日目の日付を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定の終了日を選択 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 日付範囲の最終日を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 開始日まで遡る日数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 開始日として使用する現在の日付前の日数を入力します。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> 開始日まで遡る日数 </b></span> に <span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> を入力し、 <b> 終了日まで遡る日数 </b></span> に <span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> を入力し、その DataSet を毎日更新するように設定した場合、毎日レポートが更新され、10 日前から 5 日前までの 5 日間の範囲で情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 終了日までの日数 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 終了日として使用する現在の日付前の日数を入力します。 </span></p><p class="p1"><span class="s1"> 例えば、 <b> 開始日まで遡る日数 </b> に </span><span class="mt-font-courier-new"><span class="s3"> 10 </span></span><span class="s1"> を入力し、 <b> 終了日まで遡る日数 </b> に </span><span class="mt-font-courier-new"><span class="s3"> 5 </span></span><span class="s1"> を入力し、その DataSet を毎日更新するように設定した場合、毎日レポートが更新され、10 日前から 5 日前までの 5 日間の範囲で情報が表示されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> 個別の日付のレポートデータ </td><td colspan="1" rowspan="1"><p> 入力した日付範囲が、必要に応じて自動的に拡張するべきかと、その場合の最小範囲を指定します。 例えば、（ <b> 特定の開始日を選択 </b> で入力した）開始日と（ <b> 特定の終了日を選択 </b> で入力した）終了日が今日だけしか含んでいないにもかかわらず、このメニューで <b> 週 </b> を選択した場合、開始/終了日の範囲は拡張され、（プロバイダーのタイムゾーンで）今週全体がカバーされるようになります。 ここで <b> なし </b> を選択すると、指定された範囲の集計が返されます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 開始日 </td><td colspan="1" rowspan="1"> データを取得したい過去の日数を入力します。 例えば、 <span class="mt-font-courier-new"> 30 </span> を入力した場合は、レポートは過去 30 日分のデータを取得します。 この値は、 <span class="mt-font-courier-new"> X </span> や <span class="mt-font-courier-new"> XDay </span> 、または <span class="mt-font-courier-new"> XDays </span> のフォーマットを使用することができます。 </td></tr><tr><td colspan="1" rowspan="1"> レポート期間のタイプ </td><td colspan="1" rowspan="1"> レポートデータの期間タイプを選択します。 例えば、 <b> 開始日 </b> に <span class="mt-font-courier-new"> 30 </span> 、そして <b> レポート期間タイプ </b> に <b> 月 </b> を選択した場合、そして今日の日付が 9 月 15 日の場合は、データは 8 月分を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 内訳 </td><td colspan="1" rowspan="1"> レポートのデータの内訳の時間単位を選択します。 例えば、 <b> 週 </b> を選択すると、レポートでは各週にそれぞれ 1 行が割り当てられます。 </td></tr><tr><td colspan="1" rowspan="1"> サブアカウントを含める </td><td colspan="1" rowspan="1"> サブアカウントを含めるかを指定します。 </td></tr></tbody></table>
+
+

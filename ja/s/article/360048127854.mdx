@@ -1,0 +1,215 @@
+---
+title: "AutoML（自動機械学習）を使用してモデルを訓練して展開する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+### はじめに
+
+Domoの自動機械学習（AutoML）ツールにより、機械学習は誰もが理解できるものになりました。 AutoMLは、Amazon SageMaker Autopilotと連携して、提供するデータにもとづいて機械学習モデルを訓練し、任意のDomo DataSetで何百もの訓練ジョブを起動して、タスクに最適なモデルを見つけます。その後、Magic ETLの［AutoML推論］タイルを使用して、Domo DataSetに [モデルを展開](#generate_predictions) できます。
+
+AutoMLの動作を確認するには、 [こちらの動画](https://www.domo.com/learn/video/automatic-insights-with-automl) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000002rC3W.jpg" /> を参照してください。
+
+<Warning>
+  **AutoMLはAWS機能（Sagemaker Autopilot上に構築）です。** データは、プライベートDomo AWSネットワーク内のAutopilotで送信および処理されます。
+
+</Warning>
+
+<Columns>
+  <Frame><img alt="Screenshot 2024-09-23 at 1.44.52 PM.png" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000002rGof.jpg" style={{width: 600, height: 319}}/></Frame>
+  <Frame><img alt="Screenshot 2024-09-23 at 2.26.56 PM.png" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000002rL1x.jpg" style={{width: 900, height: 435}}/></Frame>
+</Columns>
+---
+
+* [必要な許可](#required_grants)
+* [AutoMLツールを有効にしてアクセスする](#enable_and_access_automl)
+* [AutoMLのデータを準備する](#prepare_data_for_automl)
+* [AutoMLを使用する](#use_automl)
+  + [AutoML訓練ジョブを起動する](#launch_an_automl_job)
+* [Magic ETLの［AutoML推論］タイルを使用して予測を生成する](#generate_predictions)
+
+---
+
+### 必要な許可
+
+AutoMLにアクセスするには、次の許可が有効になっているシステム権限またはカスタマイズされた権限が必要です。
+
+* **AutoMLを有効にする —** AutoMLモデルを訓練し、 AutoML推論の操作を含むDataFlowを実行できます。
+
+### AutoMLツールを有効にしてアクセスする
+
+AutoMLツールにアクセスするには、まずAutoMLツールを有効にする必要があります。
+
+コンサンプション契約を締結しているユーザーはデフォルトでAutoMLを使用できます。 コンサンプション契約を締結していないユーザーの場合、AutoMLはオンデマンドで有料で使用することができます。AutoMLを有効にするには、Domoアカウントチームにお問い合わせください。
+
+AutoMLを有効にした後は、Data Centerの任意のDataSetの詳細ビューに移動してから **［AutoML］** タブに移動することで、AutoMLにアクセスできます。
+
+<Frame><img alt="auto_ml.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000002rJTC.jpg" style={{width: 898, height: 171}}/></Frame>
+[このページのトップへ](#intro)
+
+### AutoMLのデータを準備する
+
+以下のチェックリストを使用して、AutoMLツール用にデータをクリーンアップし、準備します。以下の原則に従うと、AutoMLで効果的なモデルを訓練できる可能性が高くなります。
+
+##### パートI：データ構造
+
+DataSetを構造化するには、以下の項目を完了します。
+
++ **1つのDataSet —** データは1つのDataSetにまとめてください。DataSetには、出力変数（予測する変数）と入力変数（出力変数に影響を与えると予想される、予測に使用する変数）の両方を含める必要があります。入力変数は、機械学習の分野では一般的に「特徴量」と呼ばれます。
+
++ **結果を特定する —** DataSetには1つの出力列のみを含めてください。
+
++ **分析の単位 —** 各行はビジネス上の課題の記録の1つを表す必要があります。
+
+  例えば、どの商談が終了するかを予測する場合、各行は最初から最後まで特定の1つの商談の詳細を示し、各商談の結果を出力列に表示しなければなりません（成功か失敗か）。
+
+##### パートII：データの準備
+
+DataSetを構造化した後は、DataSetの処理前に以下の項目を完了します。
+
++ **不足しているデータを処理する —** 値が不足している行を除外するか、列の平均値や中央値を取るなどのインテリジェントな方法で値を入力してください。
++ **多重共線性を確認して削除する —** データに冗長性がないか監視し、冗長性をなくしてください。
+
+  例えば、「売り上げ」と「収益」の2つの予測列があり、「利益」列を予測したいとします。
+
+  「売り上げ」と「収益」はほぼ同じ量、ビジネスに入ってくるキャッシュフローを表しているので、どちらか一方だけを含めるべきです。
+
+  両方の列を使用すると、いくつかのアルゴリズムで数値的な安定性の問題を引き起こす可能性があります。DataSetでは、予想外に高い相関関係にある列があることが一般的なので、列間の関係を可視化したり、統計的に相関関係のテストを行うことが有効です。
+
+  冗長データを除外したら、このリストの次の項目に移動します。
++ **関連する列のみを含める —** 出力変数に影響を与えないと思われる列はすべて除外してください。IDと未加工データの列はこのカテゴリーに入ることが多いです。
+
+  このプロセスについて、またこのデータは予測時に知ることができるであろうことを正確に表しているかということを考えてください。
++ **外れ値/レバレッジポイント —** 既知の外れ値を削除してください。外れ値は統計テストか既知の経験から判断できます。
+
+  例えば、既知の異常により1週間の売り上げが不自然に増加した場合、このサンプルをDataSetから削除するのが一番です。外れ値の特定と処理の詳細については、 [こちら](https://github.com/domoinc/domo-data-science-resources/blob/main/webinars/Handling_ExtremeValues_Outliers.pdf) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003AAXR.jpg" /> を参照してください。
+
+##### パートIII：特徴エンジニアリング
+
+データをどのように表現すればベストか検討します。この処理は「特徴エンジニアリング」と呼ばれます。AutoMLは基本的な特徴エンジニアリングを行ってくれます。
+
+例えば、値「M」と「F」を「0」と「1」として「性別」列をエンコードします。
+
+これにより、課題に関してあなたが既に持っている知識をさらに活用することができます。よくある特徴エンジニアリングの例としては、10-22-2020のような未加工データを曜日「木曜日」に変換することが考えられます。これは、曜日と対応する可能性のあるパターンをモデルに学習させることができるため、より有効な表現になります。以下に一般的な特徴エンジニアリング戦略を2つご紹介します。
+
++ **ビニング —** 数値データに意味のあるカテゴリーが存在する場合は、離散的な「ビン」を作成することを検討してください。
+
+  クレジットカードのスコアシステムが良い例です。
+
+  FICOクレジットスコアは連続した数値（0～800）を提供しますが、意思決定を簡単にするために、銀行はしばしばビンや階級を作成します。例えば、クレジットスコアが750以上の場合は「優良」、700～749の場合は「良好」となります。
+
+  課題に自然な階級がある場合は、データでエンコードすると便利かもしれません。また、時系列データもビニングによって操作できます。複数年の日付を週番号にビニングすることができます。
++ **データ削減 —** 良いモデルでは、データを説明する特徴量の数が最小限になります。可能な限り、冗長または重要でない列を削除してください。無意味な機能は、モデルにノイズを発生させます。
+
+— |—
+
+[このページのトップへ](#intro)
+
+### AutoMLを使用する
+
+インスタンスでAutoMLを [有効](#enable_and_access_automl) にした後は、2つのAutoML使用フェーズがあります。AutoML訓練ジョブを起動するというフェーズと、モデルを展開するというフェーズです。
+
+* AutoML訓練ジョブを
+  [起動](#launch_an_automl_job) して、データに固有の複数の機械学習モデルを生成します。1つを選択します。
+* Domo DataSetで選択したモデルを
+  [展開](#generate_predictions) し、Magic ETL DataFlowの［AutoML推論］タイルを使用して予測を生成します。
+
+  <Note>
+    **注記：** AutoMLを試すためのサンプルDataSetは、 [こちら](https://domosoftware.sharepoint.com/:x:/s/CS-Edu-PublicFiles/EYsFcCdV10tLsAN_fjxjhyIBKgqxNniCy19EBcK5KauwXQ?e=j8IA96) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003A84F.jpg" /> からダウンロードしてください。
+
+    サンプルDataSetには、電話会社の顧客の解約状況に関するデータが含まれています。このDataSetをコンピューターにダウンロードし、新しいDataSetとしてDomoインスタンスにアップロードします。
+
+  </Note>
+
+# AutoML訓練ジョブを起動する
+
+AutoML訓練ジョブを起動するには、以下の手順に従います。このジョブ では、データに固有の複数の機械学習モデルを生成し、選択できます。
+
+1. Data Centerで、訓練するDataSetの詳細ビューに移動し、 **［AutoML］** タブに進みます。
+
+   <Frame><img alt="churn automl callout.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IuI9.jpg" style={{width: 900, height: 408}}/></Frame>
+2. **［利用を開始］** を選択します。
+
+   <Frame><img alt="get started.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003It7a.jpg" style={{width: 900, height: 588}}/></Frame>
+3. 表示されるモーダルで、 **［予測する列］** ドロップダウンを使用して、機械学習モデルを予測するための訓練を行う出力列を選択します。
+
+   **注記：** サンプルDataSetを使用している場合は、「class」列を選択します。
+4. （条件付き）指定するタスクを知っている上級ユーザーでない限り、 **［タスクタイプ］** ドロップダウンは［自動（推奨）］に設定しておきます。
+5. 処理の準備ができたら、 **［訓練を開始］** を選択します。
+
+   <Frame><img alt="Screenshot 2024-10-17 at 6.37.58 PM.png" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IuA6.jpg" style={{width: 600, height: 434}}/></Frame>
+   **［合計訓練時間］** カウンターの付いた画面が、AutoMLがデータを使用して機械学習モデルを訓練およびテストしているときに表示されます。AutoMLは、具体的には次の3つの段階を実行します。
+
+   * データ分析
+   * 特徴エンジニアリング
+   * 実行モデル
+
+   AutoMLの現在のステージは青色でハイライト表示されます。
+
+   <Frame><img alt="Screenshot 2024-10-17 at 6.42.30 PM.png" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IqWI.jpg" style={{width: 600, height: 447}}/></Frame>
+   <Warning>
+     **合計訓練時間は、様々な要因に応じて、数分から数時間に及ぶ場合があります。** この要因には、DataSet内の行数、DataSet内の列数、AutoMLが実施した特徴エンジニアリングの量、タスクタイプ、訓練とテストを受ける候補モデルの数などがあります。
+
+     通常、DataSetが大きいほど、または訓練を受けるモデルの数が多いほど、訓練時間は長くなります。
+
+     Domoが提供するサンプルDataSetを使用してAutoMLを試しており、［自動（推奨）］タスクタイプを選択した場合、訓練時間は約45分です。
+
+   </Warning>
+
+AutoMLが終了すると、 **モデルの概要** ページが表示されます。このページでは、AutoMLが作成したモデルのパフォーマンスを比較できます。 **［ベストの候補］** で、最高のパフォーマンスのモデルが自動的にハイライトされます。
+
+<Tip>
+  **ヒント：** **モデルの概要** ページに表示されるメトリクスの一部の詳細については、「 [機械学習技術を活用して効率的な処理を行う](/s/article/360060598413) 」を参照してください。
+
+</Tip>
+
+<Frame><img alt="top performing model.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IvCb.jpg" style={{width: 900, height: 453}}/></Frame>
+[このページのトップへ](#intro)
+
+### Magic ETLの［AutoML］タイルを使用して予測を生成する
+
+<Warning>
+  **重要：** ［AutoML推論］タイルを使用して予測を生成する前に、 [AutoML訓練ジョブを起動](#launch_an_automl_job) したことがある必要があります。これにより、データに固有の複数の機械学習モデルが生成され、［AutoML推論］タイルを使用して展開するモデルを選択できます。
+
+</Warning>
+
+Magic ETL DataFlowの［AutoML推論］タイルを使用して、選択したAutoMLモデルをDomo DataSetで展開するには、以下の手順に従います。［AutoML推論］タイルでは、以前訓練したAutoML機械学習モデルを選択して使用し、入力DataSetの各行の予測（推論）を行うことができます。
+
+1. AutoML機械学習モデルの訓練に使用したDataSetの詳細ビューに移動し、 **［AutoML］** タブに進みます。
+2. **モデルの概要** ページの **［候補テスト結果］** で、［AutoML推論］タイルでの予測に使用するモデルを選択します。選択したモデルはグレーでハイライト表示されます。
+
+   この例では、「Model 25」が選択されています。
+
+   <Frame><img alt="model 25.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IvhF.jpg" style={{width: 900, height: 439}}/></Frame>
+3. **［ETLにデプロイする］** を選択して、選択したモデルを展開し、Magic ETLインターフェースを開きます。
+
+   <Frame><img alt="deploy to etl callout.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003Ivm5.jpg" style={{width: 900, height: 452}}/></Frame>
+   <Note>
+     **注記：** AutoMLモデルを展開するには、新しいMagic ETL DataFlowを開き、［AutoML推論］タイルをキャンバスにドラッグしてタイルを設定する方法もあります。ただし、この方法でモデルを展開する場合は、システムによって「ベストの候補」と見なされたモデルのみを使用できます。「ベストの候補」と見なされたモデルは、 **モデルの概要** ページの **［候補テスト結果］** のリストの先頭に表示されます。
+
+   </Note>
+
+4. Magic ETLインターフェースのDataFlowには、［入力DataSet］タイルと［AutoML推論］タイルが事前に配置されています。 **［入力DataSet］タイル** > **［DataSetを変更］** を選択して、予測の生成に使用するDataSetを接続します。
+
+   <Frame><img alt="change dataset.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003Iw8f.jpg" style={{width: 899, height: 405}}/></Frame>
+   <Warning>
+     **重要：** 予測の生成に使用する入力DataSetは、AutoMLモデルの訓練に使用したDataSetと同じスキーマ（名前とデータタイプが同じ列）を持っている必要があります。例えば、訓練用DataSetに、「結果」列を予測するために使用された「教育レベル」、「時給」、「在職期間」という名前の列があった場合は、選択する入力DataSetにもこれらの3つの列が必要です。
+
+     さらに、訓練用DataSetの「教育レベル」列のデータタイプがテキストで、「時給」と「在職期間」のデータタイプが整数の場合は、入力DataSetでもこれらの列のデータタイプが同じである必要があります。
+
+     入力DataSetには、訓練用DataSetで予測された「結果」列が含まれている必要はありません。選択した入力DataSetのスキーマがAutoMLモデルの訓練に使用されたDataSetのスキーマと一致しない場合は、エラーメッセージが表示され、不一致の詳細が表示されます。
+
+   </Warning>
+
+5. （オプション）［AutoML推論］タイルを設定すると、 **［予測列に名前を付ける］** が事前に入力されています。この列には別の名前を選択できます。
+
+   <Frame><img alt="name prediction column.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IwDV.jpg" style={{width: 899, height: 426}}/></Frame>
+6. 出力DataSetを接続して名前を付ける
+7. DataFlowに名前を付け、 **展開** （下向き矢印アイコン）> **［保存して実行］** を選択します。
+
+   生成される出力DataSetには、入力DataSetのすべての列と（前述の [手順5](#name_column) で名前を付けた）予測を含む列が含まれます。
+
+   <Frame><img alt="save and run.jpg" src="/images/kb/ka0Vq000000EBhx-00N5w00000Ri7BU-0EMVq000003IwJx.jpg" style={{width: 898, height: 210}}/></Frame>
+[このページのトップへ](#intro)
+
+日本語

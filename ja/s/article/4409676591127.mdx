@@ -1,0 +1,97 @@
+---
+title: "Cloudability V3コネクター"
+---
+
+## はじめに
+
+Cloudabilityは、クラウド環境全体の可視性、最適化、ガバナンスなどを向上させるクラウドコスト管理プラットフォームです。DomoのCloudability V3コネクターを使用すると、予算、ビジネスマッピング、コンテナ、ベンダー、コスト、見積もりに関するデータを取得し、クラウド管理とチームを強化することができます。
+
+DomoはCloudabilityに直接接続して必要な情報をリアルタイムで可視化できるため、分析を簡単に実行することができます。CloudabilityデータとDomoのすべての情報を組み合わせることで、戦略的な成長計画を推進するのに必要なすべての分析データを簡単に入手できるようになります。Cloudability APIの詳細については、ウェブサイト（http://developers.cloudability.com/ ）を参照してください。
+
+Cloudabilityアカウントには、Data Centerから接続します。このトピックでは、Cloudability V3コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Cloudabilityアカウントに接続してDataSetを作成するには、Cloudability APIキーが必要です。APIキーを確認するには、以下の手順を実行します。
+
+1. Cloudabilityアカウントにログインします。
+2. **［Account］>［Preferences］** に移動します。
+3. ページの下部の **［Enable Access］** をクリックします。
+
+このページでAPIキーを確認することができます。
+
+## Cloudabilityアカウントに接続する
+
+このセクションでは、Cloudability V3コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Cloudabilityアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Cloudability APIキーを入力します。APIキーを検索する方法については、上述の「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいCloudability V3 DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、 「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するCloudability V3レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Anomalies </td><td colspan="1" rowspan="1"> このレポートは異常のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Anomalies Subscriptions </td><td colspan="1" rowspan="1"> このレポートは異常のサブスクリプションのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Budgets </td><td colspan="1" rowspan="1"> このレポートは予算のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Budget Subscriptions </td><td colspan="1" rowspan="1"> このレポートは予算のサブスクリプションのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Business Mappings </td><td colspan="1" rowspan="1"> このレポートはビジネスマッピングのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Containers Allocations </td><td colspan="1" rowspan="1"> このレポートは、コンテナの割り当てのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Containers Clusters </td><td colspan="1" rowspan="1"> このレポートは、コンテナのクラスターのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Containers Counts </td><td colspan="1" rowspan="1"> このレポートは、コンテナの数のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Containers Labels </td><td colspan="1" rowspan="1"> このレポートは、コンテナのラベルのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Containers Usage </td><td colspan="1" rowspan="1"> このレポートは、コンテナの利用状況のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Cost Sharing Result Report </td><td colspan="1" rowspan="1"> このレポートは、コスト共有結果レポートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Estimates </td><td colspan="1" rowspan="1"> このレポートは見積もりのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Forecasts </td><td colspan="1" rowspan="1"> このレポートは予測のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Vendors </td><td colspan="1" rowspan="1"> このレポートはベンダーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Vendors AWS Accounts </td><td colspan="1" rowspan="1"> このレポートはAWSアカウントを持つベンダーのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Containers Metrics </td><td colspan="1" rowspan="1"><span> 割り当てを計算するメトリクスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b> ［End Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b> ［Start Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのCloudability APIを使用しますか？">
+
+
+このコネクターは、バージョン3のCloudability API（https://api.cloudability.com/v3 ）を使用します。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL </th></tr><tr><td colspan="1" rowspan="1"> Anomalies </td><td colspan="1" rowspan="1"> /anomalies </td></tr><tr><td colspan="1" rowspan="1"> Anomalies Subscriptions </td><td colspan="1" rowspan="1"> /anomalies/subscriptions </td></tr><tr><td colspan="1" rowspan="1"> Budgets </td><td colspan="1" rowspan="1"> /budgets </td></tr><tr><td colspan="1" rowspan="1"> Budget Subscriptions </td><td colspan="1" rowspan="1"> /budget-subscriptions </td></tr><tr><td colspan="1" rowspan="1"> Business Mappings </td><td colspan="1" rowspan="1"> /business-mappings </td></tr><tr><td colspan="1" rowspan="1"> Containers Allocations </td><td colspan="1" rowspan="1"> /containers/allocations </td></tr><tr><td colspan="1" rowspan="1"> Containers Clusters </td><td colspan="1" rowspan="1"> /containers/clusters </td></tr><tr><td colspan="1" rowspan="1"> Containers Counts </td><td colspan="1" rowspan="1"> /containers/counts </td></tr><tr><td colspan="1" rowspan="1"> Containers Labels </td><td colspan="1" rowspan="1"> /containers/labels </td></tr><tr><td colspan="1" rowspan="1"> Containers Usage </td><td colspan="1" rowspan="1"> /containers/usage </td></tr><tr><td colspan="1" rowspan="1"> Cost Sharing Result Report </td><td colspan="1" rowspan="1"> /internal/reporting/cost-sharing </td></tr><tr><td colspan="1" rowspan="1"> Estimates </td><td colspan="1" rowspan="1"> /estimate </td></tr><tr><td colspan="1" rowspan="1"> Forecasts </td><td colspan="1" rowspan="1"> /forecast </td></tr><tr><td colspan="1" rowspan="1"> Vendors </td><td colspan="1" rowspan="1"> /vendors </td></tr><tr><td colspan="1" rowspan="1"> Vendors AWS Accounts </td><td colspan="1" rowspan="1"> /vendors/AWS/accounts </td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"> /views </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+CloudabilityアカウントのAPIキーが必要です。
+
+
+</Accordion>
+<Accordion title="APIキーはどこにありますか？">
+
+
+APIキーを取得するには：
+
+1. Cloudabilityアカウントにログインします。
+2. ［Account］>［Preferences］に移動します。
+3. ページの下部の［Enable Access］をクリックします。
+     
+   このページでAPIキーを確認できます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

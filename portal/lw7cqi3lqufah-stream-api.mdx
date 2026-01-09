@@ -1,0 +1,49 @@
+---
+title: "Stream API"
+sidebarTitle: Overview
+permalink: "lw7cqi3lqufah-stream-api"
+---
+
+```text API Base URL
+Domo API Server: https://api.domo.com
+```
+
+<Info>
+**Security**: Bearer Auth
+
+Provide your bearer token in the Authorization header when making requests to protected resources.
+
+Example: `Authorization: Bearer 123`
+</Info>
+
+The Stream API allows you to automate the creation of new DataSets in your Domo Warehouse, featuring an accelerated upload Stream. A Domo Stream expedites uploads by dividing your data into parts, and uploading all of these parts simultaneously.
+
+<Note>
+**Best Practices**
+
+This API should be used to create and update massive, constantly changing, or rapidly growing DataSets. For creating and updating smaller DataSets that occasionally need data updated, leverage the DataSet API.
+</Note>
+
+## The Stream Object
+
+### Stream Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| id  | Number | ID of the Stream |
+| modifiedAt | String | An ISO-8601 representation of the time the Stream was last updated |
+| updateMethod | String | The data import behavior |
+| createdAt | String | An ISO-8601 representation of the create date of the Stream |
+
+#### Stream's DataSet Attributes
+
+| Property Name | Type | Description |
+| --- | --- | --- |
+| id  | String | The UID of the DataSet associated to the Stream |
+| name | String | The description of the DataSet associated to the Stream |
+| description | String | The ID of the DataSet associated to the Stream |
+| rows | Number | The number of rows in the DataSet |
+| columns | Number | The number of columns in the DataSet's schema |
+| owner\_id | Number | The ID of the owner of the Stream's underlying DataSet |
+| owner\_name | String | The name of the owner of the Stream's underlying DataSet |
+| pdpEnabled | Boolean | Indicates if PDP \[Personalized Data Permission\] policy filtering on data is active on this DataSet |

@@ -1,0 +1,32 @@
+---
+title: "比較パネル"
+---
+
+## はじめに
+
+比較パネルは、 [比較塗りつぶしパネル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Comparative+Fill+gauge "比較塗りつぶしパネル") をシンプルにしたものです。比較塗りつぶしパネルと同様に、比較パネルは前の値と現在の値との変化の度合いを表示します。違いは、グラフィカルな要素がなく、割合の数値だけで構成されており、最小値、最大値、目標値が必要ない点です。
+
+変化の程度は、割合または値で表示することができます。あるいは、現在の数値のみを表示するようにすることもできます。この設定は **［チャートの設定］** で変更することができます。
+
+Domoの他のタイプのゲージとしては、 [単値ラベル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Single+Value+gauge "単値ラベル") 、 [放射状ゲージ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Radial+gauge "放射状ゲージ") 、 [フェイスゲージグラフ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Face+gauge "フェイスゲージグラフ") 、 [プログレスバー](http://wiki.domo.com/confluence/display/DHCS/Building+a+Progress+Bar+gauge "プログレスバー") と [比較塗りつぶしパネル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Filled+gauge "塗りつぶしパネル") があります。
+
+## 比較ゲージグラフを作成する
+
+比較ゲージグラフは、DataSet.から2つのデータの列または行を必要としますこのうちの1つはゲージの現在の数値を含み、もう一方は以前の数値を含みます。
+
+DataSetに複数の行がある場合、 *1* 行目のみを使用します。集計は行われません。
+
+Analyzerでは、塗りつぶし比較ゲージグラフのデータを含む列を選択します。データ列の選択について詳しくは、「 [DataSetの列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法について詳しくは、「 [可視化カード作成パート2：Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：カードビルダー") 」を参照してください。
+
+次のグラフは、典型的な列ベースのスプレッドシートで、前と現在の値列のデータがどのように比較ゲージグラフに変換されるかを示しています。
+
+<Frame><img alt="comparative_gauge_spreadsheet_example.png" src="/images/kb/ka0Vq000000E8k5-00N5w00000Ri7BU-0EM5w000005vPAw.png"/></Frame>
+## 比較パネルをカスタマイズする
+
+**［チャートの設定］** で、比較ゲージグラフの外観をカスタマイズできます。すべてのチャートの設定については「 [パネルのプロパティを設定する](/s/article/360042925354 "チャートのプロパティ") 」を参照してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:204;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 色の方向 </p></td><td colspan="1" rowspan="1"><p> ゲージで緑の塗りつぶしが正（デフォルト）の変更を表すか、負の変更を表すかを決めます。正が緑で表される場合、マイナスは赤で表されます。逆に、緑でマイナスを表す場合は、正が赤になります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 表示された値 </p></td><td colspan="1" rowspan="1"><p> 表示された数値が以前と現在の数値の間の変更割合になるのか（デフォルト）、実際の変更数値になるのか、現在の数値になるのかを決めます。 </p><p> 例えば、DataSetの以前の数値が30で現在の数値が55の場合は、 <b> ［割合変更］ </b> を選択するとゲージでは「83.3%」と表示されます。これは、30と55の間で変更された割合です。 <b> ［数値変更］ </b> を選択すると、ゲージに「25」と表示されます。これは2つの数値の実際の差です。 </p><p> このプロパティで <b> ［数値変更］ </b> または <b> ［現在の数値］ </b> を選択する場合は、 <b> ［数値形式］ </b> を <b> ［数値］ </b> に設定してください。そうしない場合、ゲージの数値に不要な％記号が表示されます。同様に、 <b> ［割合変更］ </b> を選択する場合は、 <b> ［数値形式］ </b> を <b> 割合（%） </b> に設定してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 値のフォーマット </p></td><td colspan="1" rowspan="1"><p> ゲージ値の表示に割合の記号（%）を使用するか、通貨記号を使用するか、数値をそのまま表示するかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; ラベルを表示 </p></td><td colspan="1" rowspan="1"><p> 「現在」という単語をゲージ値の上に表示するかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 色を上書き </p></td><td colspan="1" rowspan="1"><p> ゲージの色を選択することができます。このプロパティで色を選択すると、 <b> 色の方向 </b> プロパティで選択した色が変更されます。つまり、「緑は数値アップ、赤は数値ダウンを示す」という標準的なルールは適用されません。 </p></td></tr></tbody></table>
+
+日本語

@@ -1,0 +1,1259 @@
+---
+title: "Workbench 4 で列にカスタマイズされた日付の形式を設定する"
+---
+
+Workbench 4 のDataSet ジョブの特定の列に、カスタマイズされた日付フォーマットを設定することができます。 これを行うには、まずDataSetジョブに **カスタマイズされた日付の形式** 変換を追加し、そして列を選択して日付の形式を指定します。
+
+
+<Frame>
+
+<img alt="wb4_transform_customdate.png" src="/images/kb/ka05w00000123qM-00N5w00000Ri7BU-0EM5w000005vPJt.png" style={{width: 537, height: 123}}/>
+
+</Frame>
+
+
+**トレーニングビデオ - カスタマイズされた日付の形式を設定する**
+
+Workbench 4 のデータに、カスタマイズされた日付の形式変換を適用する方法を学びます。
+
+
+<Note>
+
+**注記：** この製品トレーニングビデオは、Domo のお客様とクライアント様のみを対象としています。
+
+</Note>
+
+
+**Workbench 4 の列にカスタマイズした日付の形式を設定するには**
+
+1. **アカウント** ペインで、日付の形式をカスタマイズしたいDataSetジョブを選択します。
+2. Workbenchウィンドウ上部のボタンツールバーの **変換** グループで **新規に追加** をクリックします。
+3. **変換タイプ** のメニューで、 **カスタマイズされた日付の形式** を選択し、 **次へ** をクリックします。
+4. **終了** をクリックします。
+
+   このDataSetジョブの **変換** に、 **カスタマイズされた日付の形式** アイテムが追加されます。
+5. **変換** の下に新しくできた、 **カスタマイズされた日付の形式** アイテムをクリックします。
+
+   ダイナミックオプションパネルの中に、 **カスタマイズされた日付の形式** オプションが現れます。
+6. **列** で、カスタマイズされた日付の形式を設定したい列を選択します。
+7. **日付の形式** フィールドに、日付の形式を入力します。
+
+   サポートされている日付の形式に関しては、次のセクションを参照してください。
+8. Workbenchウィンドウ上部、ボタンツールバーの **DataSetジョブ** グループで **保存する** をクリックします。
+
+### 日付の形式の指定子
+
+日付の形式は、Workbenchに自動的に解析させるか、日時データを含む列に対して日付の形式を指定することができます。
+
+* 日付の形式を指定しない場合、Workbenchは現在使用されているロケール設定を使って日付文字列の解析を行います。 この自動モードでは、ロケールに基づき様々な書式がサポートされています。
+
+  例えば、米国のロケールでは次のフォーマットがサポートされています：
+
+  2013-04-17 12:34:56
+
+  4/17/2013 12:34:56
+
+  April 17, 2013
+
+  April 17, 2013 12:34 PM
+
+  2013-04-17 12:34:56.123456
+* 日付の形式を指定した場合、Workbench は指定した日付の形式を使用して日付文字列の解析を行います。
+
+  例えば、現在のロケール設定がオーストラリアであり、データ内の日付が 「/」 ではなく 「:」 で日、月、年を区切った書式に設定されている場合を想定します（例えば 「 10:10:2013 」）。 オーストラリア向け「自動」モードでは、区切り記号としての 「:」 の使用がサポートされていないため、日付の適切な解析のためには、日付書式文字列を d:M:yyyy と指定します。
+
+
+<Note>
+
+**注記：** データ内の日付は、指定したフォーマットと *完全に* 一致する必要があります。
+
+
+</Note>
+
+
+カスタマイズされた形式文字列は、カスタマイズされた日時の形式指定子1つ以上から構成されます。
+
+Workbench 4 で利用できる日付の形式については、以下の表を参照してください：
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 指定子
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ d
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付、数字表記（1~31）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ dd
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付、数字表記（01~31）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ ddd
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 週の英略語名（Sun..Sat）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ dddd
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 週の英語名（Sunday..Saturday）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ f
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10 分の 1 秒（0~9）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ ff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 100 分の 1 秒（00~99）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ fff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 1000 分の 1 秒（000~999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ ffff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10000 分の 1 秒（0000~9999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ fffff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 100000 分の 1 秒（00000~99999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ ffffff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 1000000 分の 1 秒（000000~999999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ fffffff
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10000000 分の 1 秒（0000000~9999999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ F
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10 分の 1 秒、0 以外（-9）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 100 分の 1 秒、0 以外（-99）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FFF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 1000 分の 1 秒、0 以外（-999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FFFF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10000 分の 1 秒、0 以外（-9999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FFFFF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 100000 分の 1 秒、0 以外（-99999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FFFFFF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 1000000 分の 1 秒、0 以外（-999999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ FFFFFFF
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 10000000 分の 1 秒、0 以外（-9999999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ g
+</code>
+ 、
+<code>
+ gg
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時代や年代（A.D. など）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ h
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時（1~12）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ hh
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時（01~12）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ H
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時（0~23）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ HH
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時（00~23）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ K
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ タイムゾーン情報
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ m
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 分、数字表記（0~59）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ mm
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 分、数字表記（00~59）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ M
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 月、数字表記（1~12）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ MM
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 月、数字表記（01~12）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ MMM
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 月の英略語名（Jan~Dec）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ MMMM
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 月の英語名（January~December）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ s
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 秒（0~59）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ ss
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 秒（00~59）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ t
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ AM または PM の頭文字（A または P）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ tt
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ AM または PM
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ y
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 年、最小 1 桁（0~99）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ yy
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 年、2 桁（00~99）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ yyy
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 年、最低 3 桁（000~9999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ yyyy
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 年、最低 4 桁（0000~99999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ yyyyy
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 年、5 桁（00000~99999）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ z
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 協定世界時とのオフセットによる現地タイムゾーン時間（-7など）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ zz
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 協定世界時とのオフセットによる現地タイムゾーン時間（-07など）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ zzz
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 協定世界時とのオフセットによる現地タイムゾーン時間と分（-07:00など）
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ :
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 時間の区切り記号
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ /
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 日付の区切り記号
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<code>
+ "string"
+</code>
+
+<br/>
+
+<code>
+ 'string'
+</code>
+
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 単一引用符または二重引用符で囲った、リテラル文字列の区切り記号
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ %
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ ユーザー設定の書式指定文字列の前に置く
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ \
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 結果にも現れるよう、指定文字列の前に置く
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 指定子以外の文字
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 結果に現れる
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>

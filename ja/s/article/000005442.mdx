@@ -1,0 +1,80 @@
+---
+title: "Analyzerのカスタマイズされた日付とタイムスタンプのフォーマット"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+<Note>
+  **帰属：** この記事の内容は、Domoコミュニティフォーラムのメンバーの投稿にもとづいています。素晴らしいコミュニティのメンバーの熱意や専門知識、Domoへのお力添えに感謝いたします。元の投稿は [こちら](https://community-forums.domo.com/main/discussion/comment/88618#Comment_88618) <InlineImage src="/images/kb/ja/ka0Vq0000003A4T-00N5w00000Ri7BU-0EMVq000000rANr.jpg" /> です。
+
+  コミュニティフォーラムは [こちら](https://community-forums.domo.com/jp) <InlineImage src="/images/kb/ja/ka0Vq0000003A4T-00N5w00000Ri7BU-0EMVq000000rANr-1.jpg" /> です。
+
+</Note>
+
+### はじめに
+
+データを正確に表示し、洞察に富んだ分析を行うには、適切にフォーマットされた日付とタイムスタンプが必要です。Analyzerでは、カスタマイズされた日付のフォーマットのパターンはJavaのDateTimeFormatterクラスにもとづいています。この記事では、データで使用できる具体的な例を紹介します。
+
+すべての例は、「 **Tuesday, March 14, 2023 03:09:26 PM** 」というタイムスタンプにもとづいています。
+
+### 例
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> フォーマット </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 曜日、月、日、年、12時間のAM/PMフォーマットのタイムスタンプ、AM/PMの区別を含む完全な日付 </p></td><td colspan="1" rowspan="1"><p><b> EEEE, MMMM dd, yyyy hh:mm:ss a </b></p></td><td colspan="1" rowspan="1"><p> Tuesday, March 14, 2023 03:09:26 PM </p></td></tr><tr><td colspan="1" rowspan="1"><p> 曜日、月、日、年を含む完全な日付 </p></td><td colspan="1" rowspan="1"><p><b> EEEE, MMMM dd, yyyy </b></p></td><td colspan="1" rowspan="1"><p> Tuesday, March 14, 2023 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付と時刻 </p></td><td colspan="1" rowspan="1"><p><b> yyyy-MM-dd HH:mm:ss </b></p></td><td colspan="1" rowspan="1"><p> 2023-03-14 15:09:26 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 短い日付フォーマット </p></td><td colspan="1" rowspan="1"><p><b> MM/dd/yyyy </b></p></td><td colspan="1" rowspan="1"><p> 03/14/2023 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 年と月 </p></td><td colspan="1" rowspan="1"><p><b> yyyy-MM </b></p></td><td colspan="1" rowspan="1"><p> 2023-03 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 短縮された曜日と短い月 </p></td><td colspan="1" rowspan="1"><p><b> E, MMMM, dd </b></p></td><td colspan="1" rowspan="1"><p> Tue, Mar 14 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 曜日、日、月、年のカスタマイズされたパターン </p></td><td colspan="1" rowspan="1"><p><b> E, dd MMMM yyyy </b></p></td><td colspan="1" rowspan="1"><p> Tue, 14 Mar 2023 </p></td></tr></tbody></table>
+
+# キー
+
+##### 省略した日付
+
+* **L** （「省略した日付」日付フォーマットに相当） *（例：03/14/2023）*
+
+曜日
+
+* **e** ：ローカライズされた曜日 *（例：2）*
+* **E** ：短い曜日 *（例：Tue）*
+* **EEEE** ：完全な曜日 *（例：Tuesday）*
+
+##### 日
+
+* **d** ：1桁または2桁の日（ *例：14* 。日付がMarch 5thだった場合は「 *5* 」）
+* **D** または **dd** ：2桁の日（ *例：14* 。March 5thだった場合は「 *05* 」）
+
+##### 月
+
+* **M** ：1桁の月 *（例：3）*
+* **MM** ：2桁の月 *（例：03）*
+
+##### 年
+
+* **y** ：2桁の年（ *例：23* ）
+* **Y** または **yyyy** ：4桁の年（ *例：2023* ）
+
+##### 時間
+
+* **HH** ：24時間表記のAM/PMフォーマットの時間を2桁で記載（ *例：15* 。午後12時の3時間後が午後3時のため）
+* **k** ：24時間表記のAM/PMフォーマットの時間 *（例：15）*
+* **hh** ：12時間表記のAM/PMフォーマットの時間を2桁で記載 *（例：03）*
+* **h** ：12時間表記のAM/PMフォーマットの時間を1桁で記載 *（例：3）*
+
+##### 分
+
+* **m** ：1桁または2桁の分 *（例：9）*
+* **mm** ：2桁の分 *（例：09）*
+
+##### 秒
+
+* **s** ：1桁または2桁の秒（ *例：26* 。タイムスタンプが03:09:09 PMだった場合は「 *9* 」）
+* **ss** ：2桁の秒（ *例：26* 。タイムスタンプが03:09:09 PMだった場合は「 *09* 」）
+* **S** ：秒の端数（ *例：246* 。タイムスタンプ03/14/2023 03:09:26 PMのミリ秒部分が246だった場合）
+
+##### AM/ PM
+
+* **a** ：タイムスタンプのAMまたはPMを小文字で記載 *（例：pm）*
+* **A** ：タイムスタンプのAMまたはPMを大文字で記載 *（例：PM）*
+
+##### オフセット
+
+* **X** ：Unixタイムスタンプ（ *例：1678824566* 。タイムスタンプがCSTのMarch 14, 2023 03:09:26 PMの場合、1970年1月1日00:00:00 UTC（Unixエポック時間）以降、1,678,824,566秒が経過しているため）
+
+[このページのトップへ](#intro)
+
+日本語

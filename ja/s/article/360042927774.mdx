@@ -1,0 +1,44 @@
+---
+title: "Microsoft Dynamics Navisionコネクター"
+---
+
+## はじめに
+
+Microsoft Dynamics Navisionは、財務、製造、顧客関係管理、サプライチェーン、分析、電子商取引を支援します。Navision APIの詳細については、Webサイト（ [https://msdn.microsoft.com/en-us/lib.../dd355398.aspx](https://msdn.microsoft.com/en-us/library/dd355398.aspx "https://msdn.microsoft.com/en-us/library/dd355398.aspx") ）を参照してください。
+
+Navisionアカウントには、Data Centerから接続します。このトピックでは、Navisionコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Navisionアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Domoに取り込むレポートのレポートサービスURL
+* Microsoft Dynamics Navisionのユーザー名とパスワード
+
+Navisionでのレポートの構成方法の詳細は、ウェブサイト（
+https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/
+）を参照してください
+
+## Navisionアカウントに接続する
+
+このセクションでは、Navisionコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### 認証情報ペイン
+
+このペインには、Navisionアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポートサービスURL </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むNavisionレポートのURLを入力します。レポートの作成方法の詳細は、 <a href="https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/" target="_blank"> https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/ </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Microsoft Dynamics Navisionのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Microsoft Dynamics Navisionのパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なNavision認証情報を一度入力しておくと、随時同じアカウントを使用して新しいNavision DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### 詳細ペイン
+
+このペインには、Navisionレポートを選択するメニューと、選択したレポートのパラメーターを指定するクエリを入力できる別のメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。利用可能なレポートは、 <b> ［レポートサービスURL］ </b> に入力したURLに基づいて、Navisionアカウントから選別されます。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> 指定したレポートのパラメーターをセミコロンで区切ったリストを入力します​​​​​（形式： <span class="mt-font-courier-new"> key1=value2;key2=value2;...keyn=valuen </span> ）。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

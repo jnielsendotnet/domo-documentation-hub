@@ -1,0 +1,101 @@
+---
+title: "Microsoft Reportsコネクター"
+---
+
+## はじめに
+
+Microsoft Reportsコネクターは、組織内のMicrosoftメールデータへの簡単なアクセス方法を提供します。Microsoftのメールデータに関する詳細を簡単かつ安全にDomoに取得することができます。そのためには、まずMicrosoft AzureでAppを作成する必要があります。Microsoftアカウントに接続するには、管理者アカウントか管理者の承認が必要です。DomoのMicrosoft Reportsコネクターを使用すると、Microsoftアカウントからメールとユーザーアクティビティに関するデータをDomoの中に取得することができます。
+
+Microsoft Reportsアカウントには、Data Centerから接続します。このトピックでは、Microsoft Reportsコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoftアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Microsoft Azure Appのインストール。
+* Azure AppのクライアントID。
+* Azure Appのクライアントシークレット。これは、Azure Appを作成するときに生成されます。
+
+##### クライアントIDを見つけるには、次の手順を実行します。
+
+1. [https://portal.azure.com](https://portal.azure.com "https://portal.azure.com") にアクセスし、Microsoft認証情報を使用してサインインします。
+2. ****［Azure Active Directory］ > ［アプリの登録］**** を選択します。
+3. お使いのAppを探し、クリックします。
+4. Web Appの「アプリケーションID」を確認します（これがクライアントIDです）。
+
+##### 新しいクライアントシークレットを生成するには、次の手順を実行します。
+
+1. [https://portal.azure.com](https://portal.azure.com "https://portal.azure.com")
+   にアクセスし、Microsoft認証情報を使用してサインインします。
+2. ****［Azure Active Directory］ > ［アプリの登録］**** を選択します。
+3. お使いのAppを探し、クリックします。
+4. ****［証明書とシークレット］**** を開きます。
+5. クライアントシークレットを作成します。
+
+### Enterprise OAuth用Azure Appを作成する
+
+Microsoft Azure Appを作成するには、次の手順を実行してください。
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") にログインします。
+
+2. ****［アプリの登録］**** をクリックします。
+
+<Frame><img alt="Capture1.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz7.png"/></Frame>
+
+3. ****［新規登録］**** をクリックします。
+
+4. アプリケーション名を入力し、下記でサポートされているアカウントタイプを選択します。WebのリダイレクトURI
+https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-reports/exchange
+を入力します。
+
+<Frame><img alt="Capture3.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO5p.png"/></Frame>
+
+5. ****［登録］**** をクリックします。
+
+6. アプリケーションが登録されたら **［証明書とシークレット］** をクリックします。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。また、パブリックキーと呼ばれることもあります。
+
+<Frame><img alt="Capture4.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyu.png"/></Frame>
+
+7. **［+新規クライアントシークレット］** ボタンをクリックします。
+
+<Frame><img alt="Capture5.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz3.png"/></Frame>
+
+8. クライアントシークレットの説明と有効期限を指定し、****［追加］**** をクリックします。
+
+<Frame><img alt="Capture6.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO62.png"/></Frame>
+
+9. 値をコピーして、Domoのコネクター認証情報セクションの ****［Client Secret］**** フィールドに貼り付けます。
+
+10. ここで、**［APIのアクセス許可］** をクリックします。
+
+<Frame><img alt="Capture7.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO5x.png"/></Frame>
+
+11. **［+権限を追加する］** ボタンをクリックします。
+
+<Frame><img alt="Capture8.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO61.png"/></Frame>
+
+12. 許可を追加した後、設定された権限は以下のように表示されます。
+
+<Frame><img alt="Capture9.PNG" src="/images/kb/ka05w00000123LH-00N5w00000Ri7BU-0EM5w000005vO5t.png"/></Frame>
+
+## Microsoftアカウントに接続する
+
+このセクションでは、 Microsoft Reports コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Azureで Microsoft アカウントに接続する認証情報の入力フィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> インストールしたAzureウェブAppのクライアントIDを入力します。クライアントIDを探す方法の詳細については、上述の「 <a href="#h_01EPASWC37FPXGG721GCEXTNNN" target="_self" title="Microsoft Reportsコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Appを作成したときに生成されたクライアントシークレットを入力します。クライアントシークレットを探す方法の詳細については、上述の「 <a href="#h_01EPASWC37FPXGG721GCEXTNNN" target="_self" title="Microsoft Reportsコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効なMicrosoft認証情報を一度入力しておくと、いつでも同じアカウントを使用して、新しい Microsoft Reports DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Get Email Activity User Detail </td><td colspan="1" rowspan="1"> このレポートは、ユーザーが実行したメールアクティビティに関する詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Email Activity Counts </td><td colspan="1" rowspan="1"> このレポートで、組織内のメールアクティビティのトレンド（送信、読み取り、受信の数など）を把握できます。 </td></tr><tr><td colspan="1" rowspan="1"> Get Email Activity Exchange </td><td colspan="1" rowspan="1"> このレポートは、組織内で今日と昨日に送信されたメール数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Email Activity Metrics </td><td colspan="1" rowspan="1"> このレポートで、メールアクティビティのトレンド（送信、読み取り、受信の数など）や、送信、読み取り、受信などのメールのアクティビティを実行しているユニークユーザー数を把握できます。 </td></tr><tr><td colspan="1" rowspan="1"> Get Email Activity User Counts </td><td colspan="1" rowspan="1"> このレポートで、送信、読み取り、受信などのメールのアクティビティを実行しているユニークユーザー数を把握できます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Period </td><td colspan="1" rowspan="1"> レポートを集計する期間を選択します。期間でサポートされている値は次のとおりです：D7、D30、D90、D180。これらの値はDn形式に従っており、nはレポートを集計する日数を示しています。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。

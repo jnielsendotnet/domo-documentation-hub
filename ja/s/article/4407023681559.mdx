@@ -1,0 +1,82 @@
+---
+title: "Workbench 5.1でのサーバー移行の簡略化"
+---
+
+## はじめに
+
+Workbenchサービスはサーバー間で移動できるため、現在のマシンから新しいマシンに効率的に移行できます。
+
+<Note>
+**注記：** この記事は、異なるバージョンのWorkbench 5から現在のバージョンのWorkbench 5に移行するためのものです。Workbench 4はエクスポート可能なキーをサポートしていません。この手順は、Workbenchのバージョン4.xからバージョン5.xに移行する際の手順とは異なります。
+
+</Note>
+
+## Workbenchサーバーを移行する
+
+Workbenchサーバーを正しく移行するには、現在のマシンと新しいマシンの両方にWorkbenchをインストール、Workbenchレジストリをエクスポートおよびインポート、Workbench暗号化キーをエクスポートおよびインポートする必要があります。これらの手順については、以下の各セクションで説明します。
+
+### Workbenchをインストールする
+
+最新バージョンのWorkbenchを、現在のWorkbenchマシンと新しいマシンの両方にインストールします。手順については、「 [Workbench 5.1をインストールする](/ja/s/article/4406022964375) 」を参照してください。
+
+### Workbenchレジストリをエクスポートおよびインポートする
+
+1. 現在のマシンで、 **［ファイル名を指定して実行］** ダイアログを開きます。
+2. **［名前］** フィールドに「regedit.exe」と入力し、 **［OK］** を選択します。
+
+   **レジストリエディター** が開きます。
+
+   <Frame><img alt="Regedit.png" src="/images/kb/ka05w00000127eo-00N5w00000Ri7BU-0EM5w000006uV8r.jpg" style={{width: 334, height: 195}}/></Frame>
+
+3. **レジストリエディター** で **HKEY\_LOCAL\_MACHINE\SOFTWARE** に移動します。
+4. Domoディレクトリを右クリックし、**［エクスポート］** を選択して、ディレクトリをファイルとして保存します。
+
+   <Frame><img alt="Export.png" src="/images/kb/ka05w00000127eo-00N5w00000Ri7BU-0EM5w000006uVA9.jpg"/></Frame>
+
+5. ファイルを新しいマシンにコピーします。
+6. Workbenchがインストールされていない場合は、新しいマシンにWorkbenchをインストールします。
+7. エクスポートしたファイルを開きます。
+
+   Workbenchがファイルのインポートを促すプロンプトを表示します。
+
+### Workbench暗号化キーをエクスポートおよびインポートする
+
+Workbench暗号化キーをエクスポートおよびインポートする前に、まず [Workbenchレジストリをエクスポートおよびインポートする](#ExportAndImportTheWorkbenchRegistry) 必要があります。
+
+1. 現在のマシンでコマンドプロンプトを管理者として開きます。
+2. Workbenchのインストールディレクトリに移動します。デフォルトでは、Workbenchは
+
+   ```
+   C:\Program Files\Domo\Workbench
+   ```
+
+   にあります。
+3. 次のコマンドを実行します。
+
+   ```bash
+    cd C:\Program Files\Domo\Workbench\
+   ```
+
+   ```
+    wb.exe import-key -n "keyExport.dwk"
+   ```
+
+4. Workbenchのインストールディレクトリに作成されたkeyExport.dwkファイルを新しいマシンにコピーします。
+5. 現在のWorkbenchマシンから新しいマシンにレジストリ設定をインポートします。
+6. コマンドプロンプトを管理者として開きます。
+7. Workbenchのインストールディレクトリに移動します。Workbenchのデフォルトの場所については、ステップ2を参照してください。
+8. 次のコマンドを実行します。
+
+   ```bash
+    cd C:\Program Files\Domo\Workbench\
+   ```
+
+   ```
+    wb.exe import-key -n "keyExport.dwk"
+   ```
+
+## 最後のステップ
+
+1. Workbenchを再起動し、すべてのジョブが正しく同期されていることを確認します。
+2. 現在のマシンでWorkbenchをアンインストールするか、Workbenchサービスをオフにします。これにより、同じジョブが同時に実行されることを防ぎます。
+3. （オプション）Workbenchサーバーをフェイルオーバー用に保ちたい場合は、どちらかのマシンのWorkbenchサービスをオフにします。

@@ -1,0 +1,90 @@
+---
+title: "ServiceDesk Plus Domoコネクター"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+ManageEngine ServiceDesk Plusは、ヘルプデスクのエージェントやITマネージャーが、エンドユーザーが生成したアセットやITに関するリクエストを監視/保守するための統合コンソールを提供する、包括的なヘルプデスクおよび資産管理ソフトウェアです。DomoでServiceDesk Plusコネクターを使用すると、ServiceDesk Plus Cloudからリクエストを取得してDataSetに変更を加えることができ、それをDomoに反映させ、必要に応じてDataSetを可視化できます。
+
+Domoにインポートできるのは、デフォルトのサービスデスクインスタンスのDataSetのみです。セキュリティコンプライアンス要件のため、MSPインスタンスのDataSetはデフォルトインスタンスであってもサポートされません。このコネクターは、ServiceDesk Plusのエンタープライズ版でのみサポートされていることにご注意ください。この記事では、コネクターを使用する必要条件、ベストプラクティス、ServiceDesk Plusアカウントへの接続方法について説明します。
+
+## 必要条件
+
+OAuth 2.0経由で認証するには、ServiceDesk Plusのログインユーザー名とパスワードが必要です。
+
+## ベストプラクティス
+
+頻繁にレポートを作成するようスケジュールすることで、リクエストおよび変更の詳細についてのデータを正確で最新の状態に保ちます。
+
+## ServiceDesk Plusに接続する方法
+
+このセクションでは、ServiceDesk Plusコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。 この
+
+コネクターは接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。
+
+* Domoにログインしたら、Domoインスタンスで **［AppStore］** に進み、「 **SDP Cloud Connector** 」を検索します。
+* 検索結果に表示される **Service DeskPlusコネクター** をクリックします。
+* **［接続］** をクリックして OAuth画面を開きます。
+
+  ［認証情報］ペインが開きます。SDPアカウントの認証情報を入力します
+  <Frame><img alt="SDP-1.png" src="/images/kb/ja/ka0Vq0000008ejR-00N5w00000Ri7BU-0EM5w000005vO3d.png"/></Frame>
+
+* ［認証情報］ペインでアカウントを選択したら、**［次へ］** をクリックします。
+
+### ［詳細］ペイン
+
+［詳細］ペインで「Request」または「Change」レポートを選択します。
+
+### DataSetスケジュール
+
+データフェッチのスケジュールを選択します。［Basic］と［Advanced］の2つのオプションがあります。
+
+* ［Basic］スケジュールでは、**更新** の間隔を **［Every Hour］** 、 **［Every Day］** 、 **［Every Weekday］** 、 **［Every Week］** 、 **［Every Month］** 、または **［Manually］** のいずれかに設定できます。スケジュールの特定の時間を設定することもできます。
+* 更新方法では、**［Replace］** または **［Append］** のいずれかを選択できます。 **［Replace］** オプションは、アプリケーション内のすべてのデータを、追加中の新しいデータに置き換えます。 **［Append］** オプションは、新旧のデータを比較し、差分データのみを既存のデータ上に追加します。
+
+<Frame><img alt="Scheduling.png" src="/images/kb/ka0Vq0000008ehp-00N5w00000Ri7BU-0EM5w000005vO3Y.png"/></Frame>
+
+**［Advanced］** オプションでは、次の方法でデータ更新をスケジュールできます。
+
+* ［Once a day］、［More than once a day］、［Every day］、［Specific days of the week］、［Specific days of the month］、［Every Month］、［Specific months］。必要なスケジュールを選択し、時間を設定します。
+
+<Frame><img alt="Advanced_Scheduling.png" src="/images/kb/ka0Vq0000008ehp-00N5w00000Ri7BU-0EM5w000005vO3X.png"/></Frame>
+
+#### エラー処理
+
+* データ更新に失敗したときの処理方法を選択します。［Do not retry when update fails］または［Always retry when an update fails］のいずれかを選択できます。
+* スケジュールを設定したら、**［Next］** をクリックします。
+
+### DataSetの名前と説明
+
+* DataSetの名前と説明を入力します。ここで選択した名前が、Domoの **［データ］** の下にDataSet用として表示されます。
+
+<Frame><img alt="SDP-2.png" src="/images/kb/ka0Vq0000008ehp-00N5w00000Ri7BU-0EM5w000005vO3c.png"/></Frame>
+
+* **［Save and Run］** をクリックします。DataSetがレンダリングされます。
+
+<Frame><img alt="SDP-3.png" src="/images/kb/ka0Vq0000008ehp-00N5w00000Ri7BU-0EM5w000005vO3W.png"/></Frame>
+
+### 取得したデータエンティティ
+
+#### リクエスト
+
+［Request ID］、［Subject］、［Description］、［Template］、［Status］、［Technician］、［Created Time］、［Mode］、［Site］、［Group］、［Level］、［Approval Status］など。
+
+#### 変更
+
+［Change Display ID］、［Title］、［Description］、［Template］、［Urgency］、［Status］、［Impact］、［Priority］、［Reason for Change］、［Stage］、［Created time］、［Item］など。
+
+以下はDomoで取得したリクエストデータの例です。
+
+<Frame><img alt="SDP-4.png" src="/images/kb/ka0Vq0000008ehp-00N5w00000Ri7BU-0EM5w000005vO3a.png"/></Frame>
+
+### サービスデスクサポートの連絡先
+
+メール： [servicedeskplus-cloud-support@manageengine.com](mailto:servicedeskplus-cloud-support@manageengine.com)
+  
+詳細については、https://www.manageengine.com/products/service-desk/support.html?cloudを 参照してください。
+
+

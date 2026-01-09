@@ -1,0 +1,171 @@
+openapi: 3.0.0
+info:
+  title: Code Engine API (External)
+  version: v2
+  description: |
+    This API reference is useful if you are wanting to use your Code Engine functions 
+    *outside* of your Domo instance.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+tags:
+  - name: Code Engine
+    description: Run serverless functions in Domo.
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication.
+  schemas:
+    #========= REQUEST SCHEMAS =========
+    RunFunctionRequest:
+      type: object
+      properties:
+        inputVariables:
+          type: object
+          additionalProperties: true
+          description: "Key-value pairs matching the function's input parameters."
+          example:
+            paramName: "some value"
+        settings:
+          type: object
+          properties:
+            getLogs:
+              type: boolean
+              description: Whether to include execution logs in the response.
+              
+    #========= RESPONSE SCHEMAS =========
+    LogOutput:
+      type: object
+      properties:
+        log:
+          type: array
+          items: {}
+          description: "An array of log entries (type 'any')."
+          
+    ErrorInformation:
+      type: object
+      properties:
+        result:
+          description: "The actual result (type 'any')."
+        expectedType:
+          type: string
+        actualType:
+          type: string
+        expectedIsList:
+          type: boolean
+        actualIsList:
+          type: boolean
+        expectedAllowNull:
+          type: boolean
+        errorMessages:
+          type: array
+          items:
+            type: string
+            
+    RunFunctionResponse:
+      type: object
+      properties:
+        executionId:
+          type: string
+        packageId:
+          type: string
+        version:
+          type: string
+        functionName:
+          type: string
+        status:
+          type: string
+        settings:
+          type: object
+          properties:
+            getLogs:
+              type: boolean
+        startedOn:
+          type: string
+          format: date-time
+        startedBy:
+          type: string
+        completedOn:
+          type: string
+          format: date-time
+        result:
+          description: "The output of the function (type 'any')."
+        stdout:
+          $ref: '#/components/schemas/LogOutput'
+        stderr:
+          $ref: '#/components/schemas/LogOutput'
+        errorInformation:
+          $ref: '#/components/schemas/ErrorInformation'
+          
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+
+security:
+  - developerToken: []
+
+paths:
+  /api/codeengine/v2/packages/{packageId}/versions/{version}/functions/{functionName}:
+    post:
+      summary: Run Function
+      description: Runs a specific version of a Code Engine function.
+      tags: [Code Engine API (Product)]
+      parameters:
+        - name: packageId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: version
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "1.0.1"
+        - name: functionName
+          in: path
+          required: true
+          schema:
+            type: string
+            example: "getExecutionDetails"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RunFunctionRequest'
+            example:
+              inputVariables:
+                paramName: "value"
+              settings:
+                getLogs: true
+      responses:
+        '200':
+          description: OK. Returns the execution details and result.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RunFunctionResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Not Found (Package, version, or function name not found).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

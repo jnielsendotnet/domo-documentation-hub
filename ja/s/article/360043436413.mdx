@@ -1,0 +1,90 @@
+---
+title: "ユーザー固有の許可を持つAmazon S3コネクター"
+---
+
+## はじめに
+
+Amazon S3は、オンラインファイルストレージのWebサービスです。Webを使っていつでも、どこからでも、どんな量のデータも保存、取得することができます。Amazon S3 APIについて詳しくは、製品ページ（ [http://docs.aws.amazon.com/AmazonS3/...I/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+Amazon S3接続はData Centerで設定します。このトピックでは、ユーザー固有の許可を持つAmazon S3コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon S3アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  ****［Security Credentials］**** セクションで確認できます。または、IAMを使用している場合は、 ****［Users］**** から確認できます。
+* AWSシークレットキー。これはアクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWS Consoleで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+* データを取得するファイルのプレフィックスパス。Domoは最初に（
+  **［認証］** セクションの中の）プレフィックスパスから存在するすべてのS3オブジェクトを事前設定し、 **入力フォーマット** 、 **部分ファイル名** 、（ **［詳細］** セクションとの） **ファイル名一致** に基づいてこれらの結果をフィルターします。プレフィックスは次のような形式になります： /path/directory/subdir/subdir/subdir/ 。
+
+## Amazon S3アカウントに接続する
+
+このセクションでは、Amazon S3 Connectorページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon S3アカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アクセスキー </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シークレットキー </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> バケット </p></td><td colspan="1" rowspan="1"><p> ファイルを取得するAmazon S3バケットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プレフィックス </p></td><td colspan="1" rowspan="1"><p> 取得するファイルのプレフィックスパスを入力します。プレフィックスパスの詳細については、上記の「必要条件」を参照してください。 </p></td></tr></tbody></table>
+
+有効なAmazon S3認証情報を一度入力しておくと、いつでも同じアカウントを使用してユーザー固有の許可を持つ新しいAmazon S3 DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> インポートするファイルタイプ </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするファイルのタイプを選択します。利用可能なファイルタイプは、CSV、JSON、XML、XLS、TSV、TXTです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名の選択方法 </p></td><td colspan="1" rowspan="1"><p> Domoがファイルを識別する方法を選択します。オプションは以下のとおりです。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> 完全なファイル名 </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ファイルへの完全パスを入力します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> 部分的ファイル名 </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ファイル名の一部を入力し、取得したいファイル名がその文字列から始まるのか、または含んでいるのかを指定します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> FilesDiscovery </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 選択したバケットにあるファイルのリストが表示され、そこから希望するものを選択します。このオプションは、選択したS3バケットにあるファイルの数が100未満の場合に <em><em> のみ </em></em> 使用できます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 部分的ファイル名 </p></td><td colspan="1" rowspan="1"><p> インポートするAmazon S3ファイルの名前を入力します。 <br/><br/> 例： <span class="mt-font-courier-new"> folder_name/file_name </span> 。 <br/><br/> 複数のファイルがこの文字列で始まるか、この文字列を含んでいる場合、コネクターは最後に変更されたファイルを選択してインポートします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名のマッチタイプ </p></td><td colspan="1" rowspan="1"><p> 取得するファイル名が、 <b> 部分ファイル名 </b> フィールドに入力したテキストで始まるか、またはそのテキストを含んでいるかどうかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル圧縮タイプ </p></td><td colspan="1" rowspan="1"><p> 取得するファイルの圧縮タイプを選択します。ファイルが圧縮されていない場合は、 <b><b> ［なし］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ZIPファイルのエンコーディング </p></td><td colspan="1" rowspan="1"><p> ZIPファイルのエンコーディングタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ZIP内のファイルの選択方法 </p></td><td colspan="1" rowspan="1"><p> ZIPファイルの名前を入力するか、またはファイルを発見させるかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ZIP内にファイル名を入力 </p></td><td colspan="1" rowspan="1"><p> 取得するZIPファイル内のファイル名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> CSVファイルのヘッダーの有無 </p></td><td colspan="1" rowspan="1"><p> インポートするCSV/TSVファイルがヘッダーを含んでいる場合は <b><b> ［はい］ </b></b> を、それ以外の場合は <b><b> ［いいえ］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 区切り文字を選択 </p></td><td colspan="1" rowspan="1"><p> 取得するCSV/TSVファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、 <b><b> ［その他］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 区切り文字を指定 </p></td><td colspan="1" rowspan="1"><p> 取得するCSV/TSVファイルで使用するカスタム区切り文字を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 引用文字 </p></td><td colspan="1" rowspan="1"><p> 取得するCSV/TSVファイルを解析する引用文字を選択します。CSVの標準は二重引用符（"）です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> エスケープ文字 </p></td><td colspan="1" rowspan="1"><p> 取得するCSV/TSVファイルを解析するエスケープ文字を選択します。CSVの標準はバックスラッシュ（\）です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カスタムエスケープ文字 </p></td><td colspan="1" rowspan="1"><p> 取得するCSV/TSVファイルで使用するカスタムエスケープ文字を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名列を追加 </p></td><td colspan="1" rowspan="1"><p><b> ［はい］ </b> を選択すると、インポートされたファイル名を指定する列がデータに追加されます。この列は「BATCH_FILE_NAME_」という名前です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイルのエンコーディング </p></td><td colspan="1" rowspan="1"><p> ファイルのエンコーディングを選択します。デフォルトは <b> UTF-8 </b> です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 大きなJSONファイルの解析を有効にしますか？ </p></td><td colspan="1" rowspan="1"><p> 大きなJSONファイルの解析を有効にするかどうかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 平面化するサブリストを入力（オプション） </p></td><td colspan="1" rowspan="1"><p> データで平面化するカンマ区切りのリストを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> JSONテキストは、行のリーダーを必要としますか？ </p></td><td colspan="1" rowspan="1"><p> JSONファイルのテキストで、複数の行を読み込む必要があるかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> バックスラッシュは、エスケープする必要がありますか？ </p></td><td colspan="1" rowspan="1"><p> JSONファイルのテキストに、エスケープする必要のあるバックスラッシュが含まれているかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データに属性を必要としますか？ </p></td><td colspan="1" rowspan="1"><p> データの一部として属性値を必要としている場合は、 <b> ［はい］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データタグを入力（オプション） </p></td><td colspan="1" rowspan="1"><p> JSONまたはXMLファイルのデータのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 除外するフィールドを入力（オプション） </p></td><td colspan="1" rowspan="1"><p> JSON/XMLのインポートで除外したいフィールドを、カンマで区切ったリストとして指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ヘッダータグを入力（オプション） </p></td><td colspan="1" rowspan="1"><p> JSONまたはXMLファイルのヘッダーのタグを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード保護されていますか？ </p></td><td colspan="1" rowspan="1"><p> 取得するファイルがパスワードで保護されている場合は、 <b><b> ［はい］ </b></b> を選択します。保護されていない場合は、 <b><b> ［いいえ］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ヘッダー開始行 </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルのヘッダー行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データ開始行 </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルの最初のデータ行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フッター </p></td><td colspan="1" rowspan="1"><p> 取得するExcelファイルのフッター行の番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 空白行 </p></td><td colspan="1" rowspan="1"><p> 空白行が見つかった場合に取るべきアクションを選択します。 <b><b> ［空白行をスキップ］ </b></b> を選択すると、空白行がスキップされます。 <b><b> ［最初の空白列で停止］ </b></b> を選択すると、空白行が見つかった列でインポートが停止します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 空白の列ヘッダー </p></td><td colspan="1" rowspan="1"><p> 空白の列ヘッダーにが見つかった場合にどうするかを指定します。 <b><b> ［空白列を追加］ </b></b> を選択した場合、新規の列には列名が自動的に生成されます。 <b><b> ［最初の空白列で停止］ </b></b> を選択した場合、空白のヘッダーが見つかると、データのインポートが停止します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# コネクターがデータを取得していないのはなぜですか？">
+
+
+ファイルがS3バケットに存在することを確認し、コネクター設定で正しいファイルタイプを指定します。また、NULL値列を削除してコネクターがデータを取得できるようにします。
+
+
+</Accordion>
+<Accordion title="# サブディレクトリーからファイルをインポートするにはどうすればよいですか？">
+
+
+Domoは最初に（ **認証** セクションの中の）プレフィックスパスから存在するすべてのS3オブジェクトを事前設定し、 **入力フォーマット** 、 **部分ファイル** **名** 、（ **詳細** セクションとの） **ファイル名一致** に基づいてこれらの結果をフィルターします。 **プレフィックス** は次のような形式になります： /path/directory/subdir/subdir/subdir/ 。
+
+
+</Accordion>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 同一のAmazon S3アカウントを複数のDataSetに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# DataSetの中に予定したファイルが見つかりません。一体何が起こっているのでしょう？">
+
+
+このコネクターは1つのファイルのみを取得します。 **部分ファイル名** を選択し、プレフィックスパスの中に一致する複数のファイルがある場合、コネクターは一番最近変更されたファイルのみをインポートします。
+
+
+</Accordion>
+<Accordion title="# Amazon S3バケットから複数のファイルを1つのDataSetにインポートしたいと思います。どのようにすればよいですか？">
+
+
+このコネクターは1つのファイルのみを取得します。1つのDomo DataSet内に複数のAmazon S3ファイルを必要とする場合は、Amazon S3 Advancedコネクターを使用してください（ドキュメント作成中）。
+
+
+
+</Accordion>
+</AccordionGroup>

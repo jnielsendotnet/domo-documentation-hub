@@ -1,0 +1,118 @@
+---
+title: "Square Multi Accountコネクター"
+---
+
+## はじめに
+
+Square, Inc.は、金融サービス、マーチャントサービスアグリゲーターおよびモバイル決済企業です。Domoのクラウドベースソリューションは、Squareのデータをすべて取り込み、それをスマートフォンやコンピューターから可視化して消費可能な状態にします。すべてのSquareアカウントを1つのダッシュボードで簡単に表示し、リアルタイムで更新できるため、ビジネス上の意思決定の質を高めることができます。
+  
+主要なメトリクスをすばやく分析し、次に取るべき行動についてインサイトを得ることができます。日付、場所、販売カテゴリー、販売タイプ（カードまたは現金）などの条件で、データをフィルタリングすることができます。販売の分析データを日別に表示したり、特定の日付範囲を指定して表示したりすることができます。今日の指定時間の値を別の日の同じ指定時間と比較することもできます。Square APIの詳細については、Webサイト（ [https://docs.connect.squareup.com/](https://docs.connect.squareup.com/ "https://docs.connect.squareup.com/") ）を参照してください。
+
+このトピックでは、Square Multi Accountコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」に記載があります。
+
+## 必要条件
+
+認証情報は不要です。［詳細］セクションでは、レポートを取得するSquareアカウントを複数追加できます。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューの他、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> Select the accounts to run </td><td colspan="1" rowspan="1"> 実行したいアカウントを選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Skip Errors </td><td colspan="1" rowspan="1"> アカウントが失敗した場合は、そのアカウントをスキップします。スキップしない場合は、コネクターが停止します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> カタログ </td><td colspan="1" rowspan="1"> 製品在庫とカタログに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 顧客 </td><td colspan="1" rowspan="1"> マーチャントのすべての顧客のサマリ情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Labor Break Types </td><td colspan="1" rowspan="1"> 可能性のある休憩のタイプを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Labor Shifts </td><td colspan="1" rowspan="1"> シフトデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Labor Wages </td><td colspan="1" rowspan="1"> チームの時給を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 場所 </td><td colspan="1" rowspan="1"> マーチャントの場所に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 注文 </td><td colspan="1" rowspan="1"> 注文に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 支払い </td><td colspan="1" rowspan="1"> 支払情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 返金 </td><td colspan="1" rowspan="1"> マーチャントまたはマーチャントのモバイルスタッフが行ったすべての返金の詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> チームのメンバー </td><td colspan="1" rowspan="1"> チームに関するサマリ情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1- Cash Drawer Shifts - 廃止 </td><td colspan="1" rowspan="1"> 2020年2月26日廃止 - v2 Cash Drawer Shiftを使用 </td></tr><tr><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> v1 - マーチャント </td><td colspan="1" rowspan="1"> 会社名やメールアドレスなど、マーチャントのアカウント情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1 - 支払い </td><td colspan="1" rowspan="1"> マーチャントまたはマーチャントのモバイルスタッフが行ったすべての支払いの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1 - Payment Itemization </td><td colspan="1" rowspan="1"> マーチャントまたはそのモバイルスタッフが取得した支払情報すべてを、割引、変更者、税などの支払情報項目に分類して返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1 - 返金 </td><td colspan="1" rowspan="1"> マーチャントまたはマーチャントのモバイルスタッフが行ったすべての返金の詳細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1 - 決済エントリ </td><td colspan="1" rowspan="1"> 決済におけるすべてのトランザクションの情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> v1 - 決済 </td><td colspan="1" rowspan="1"> マーチャントの銀行口座に対してSquareが行ったすべての入金と引き出しのサマリ情報を返します。 </td></tr></tbody></table></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Location Selection </td><td colspan="1" rowspan="1"> すべての場所を選択するか、それとも入力DataSetから場所を選択するかを決めます。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Ignore Accounts </td><td colspan="1" rowspan="1"> アカウントの選択を無視して、InputDataSetに一覧表示されているデータを取得する場合は、これをオンにします。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Domo DataSet Id </td><td colspan="1" rowspan="1"> Domo DataSet ID（GUID）を、次の例のようにデータセットのURLで入力します。 <span></span><a class="link-https" href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b> /details/settings </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Account Column </td><td colspan="1" rowspan="1"> アカウント名を持つDataSetにある列を、そのまま入力します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Location Column </td><td colspan="1" rowspan="1"> DataSetにある、ロケーションIDを持つ列をそのまま入力します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Entry Type </td><td colspan="1" rowspan="1"> SearchOrdersは、Orderオブジェクトの代わりにOrderEntryオブジェクトを返します。OrderEntryオブジェクトは、order_idが含まれる注文を軽量言語で記述したものです。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Settlement Status </td><td colspan="1" rowspan="1"> フィルターの条件に指定したい決済ステータスを選択します。Squareは、処理のために送信された決済が失敗したかどうかは判断できますが、その決済が完了するタイミングまでは把握できません。この点に注意してください。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 開始日 </td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は、 <span></span><b> ［終了日］ </b> で選択します。 </p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 
+特定の開始日を選択 
+</td>
+<td colspan="1" rowspan="1">
+<p> 日付範囲の1日目の日付を選択します。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span> 注記： <span></span> 1年を超える日付範囲を選択すると、コネクターからエラーがスローされます。 </span></div></div></div> 
+</Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 終了日 </td><td colspan="1" rowspan="1"> 日付範囲の2つ目の日付が特定の日か、相対日付かを指定します。日付範囲の最初の日付は、 <span></span><b> ［開始日］ </b> で選択します。 </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 
+ 特定の終了日を選択 
+ </td>
+ <td colspan="1" rowspan="1">
+ <p> 日付範囲の最終日を選択します。 </p> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span> 注記： <span></span> 1年を超える日付範囲を選択すると、コネクターからエラーがスローされます。 </span></div></div></div> 
+ </Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"> 開始日のオフセット </td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <span></span><b> ［終了日のオフセット］ </b><span></span> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <span></span><b> ［開始日のオフセット］ </b><span></span> で <span></span><span class="mt-font-courier-new"> 10 </span><span></span> 、 <span></span><b> ［終了日のオフセット］ </b> で <span></span><span class="mt-font-courier-new"> 5 </span><span></span> を入力した場合、レポートに含まれるのは、 <span class="mt-font-courier-new"> 10 </span><span></span> 日前から <span class="mt-font-courier-new"> 5 </span><span></span> 日前のデータになります。 </p></td></tr><tr><td colspan="1" rowspan="1"> 終了日のオフセット </td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <span></span><b> ［開始日のオフセット］ </b><span></span> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <span></span><b> ［開始日のオフセット］ </b><span></span> で <span></span><span class="mt-font-courier-new"> 10 </span><span></span> 、 <span></span><b> ［終了日のオフセット］ </b> で <span></span><span class="mt-font-courier-new"> 5 </span><span></span> を入力した場合、レポートに含まれるのは、 <span class="mt-font-courier-new"> 10 </span><span></span> 日前から <span class="mt-font-courier-new"> 5 </span><span></span> 日前のデータになります。 </p></td></tr>
+ </tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のセクションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+認証情報は不要です。［詳細］セクションでは、レポートを取得するSquareアカウントを複数追加できます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは、1時間に1回更新できます。レート制限エラーが発生する場合は、更新頻度を減らしてください。
+
+
+</Accordion>
+<Accordion title="注意するべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

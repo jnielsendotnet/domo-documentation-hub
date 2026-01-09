@@ -1,0 +1,188 @@
+---
+title: "Deltek Visionコネクター"
+---
+
+## はじめに
+
+Deltek Visionはプロジェクトに焦点を絞った企業のために構築されたERPソリューションです。プロジェクト予算やスケジュールなどのプロジェクトデータを可視化できます。DomoのDeltekコネクターを使用すると、キャンペーン、セールス機会、社員経費、社員報酬などのDeltekエンティティに関するデータを取得できます。Deltek APIについて詳しくは、DeltekのWebサイト（
+https://deltek.custhelp.com/app/answers/detail/a_id/62647/kw/web%20services%20api
+）をご覧ください。
+
+Deltekアカウントには、Data Centerから接続します。このトピックでは、Deltekコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+ご自身のネットワーク上のオンプレミスデータベースを使ってDeltekに接続することもできます。この場合、SQLを使用する必要があります。
+
+## 必要条件
+
+Deltekアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Deltekユーザー名
+* Deltekパスワード
+* Deltekインスタンスのドメイン名（例えばインスタンスが [mycompany.deltek.com](http://mycompany.deltek.com) の場合、ドメイン名は mycompanyになります ）
+* データの取得元となるデータベース名
+* Deltekホスト名
+* Deltekホストのポート番号
+
+## Deltekアカウントに接続する
+
+このセクションでは、Deltekコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Deltekアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> Deltekユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Deltekパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> Deltekのドメイン名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> データの取得元となるDeltekデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Deltekホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Deltekホストのポート番号を入力します。 </td></tr></tbody></table>
+
+有効なDeltek認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDeltek DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するDeltekレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> アクティビティのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> AP Disbursements </td><td colspan="1" rowspan="1"> 買掛金支払のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> AP Vouchers </td><td colspan="1" rowspan="1"> 買掛金伝票のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Cash Disbursements </td><td colspan="1" rowspan="1"> 現金支払のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Cash Receipts </td><td colspan="1" rowspan="1"> 現金入金のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Clients </td><td colspan="1" rowspan="1"> クライアントに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> 連絡先のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> EmployeeExpenses </td><td colspan="1" rowspan="1"> 社員の経費に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> EmployeeRepayments </td><td colspan="1" rowspan="1"> 社員の報酬に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Employees </td><td colspan="1" rowspan="1"> 社員に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> 請求書のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> JournalEntries </td><td colspan="1" rowspan="1"> 仕訳帳入力データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> LaborAdjustments </td><td colspan="1" rowspan="1"> 労働調整に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> 見込み客に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> MiscellaneousExpenses </td><td colspan="1" rowspan="1"> 雑費に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> MktCampaigns </td><td colspan="1" rowspan="1"> マーケティングキャンペーンに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Opportunities </td><td colspan="1" rowspan="1"> セールス機会に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> PrintandReproductions </td><td colspan="1" rowspan="1"> 印刷と複製のデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> プロジェクトに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> TextLibraries </td><td colspan="1" rowspan="1"> テキストライブラリーのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Timesheets </td><td colspan="1" rowspan="1"> タイムシートのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Units </td><td colspan="1" rowspan="1"> 部署に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> UnitsByProject </td><td colspan="1" rowspan="1"> プロジェクトごとの部署に関するデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Rolling Months of Data </td><td colspan="1" rowspan="1"> データを取得したい過去の月数を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## クエリ
+
+Deltek Visionコネクターは以下のクエリを使用します。
+
+APVouchers
+  
+`create index cbatchindex on APVouchersControl(Batch);`\
+`create index mbatchindex on APVouchersMaster(Batch);`\
+`create index mmasterkeyindex on APVouchersMaster(MasterPKey);`\
+`create index dbatchindex on APVouchersDetail(Batch);`\
+`create index dmasterkeyindex on APVouchersDetail(MasterPKey);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.DefaultLiab, c.DefaultBank, c.DefaultDate, c.DefaultTaxCode, c.PostPeriod, c.PostSeq, c.Company, c.DefaultCurrencyCode, c.DefaultTax2Code, c.SubmittedBy, c.SubmittedDate, m.Vendor, m.InvoiceDate, m.Invoice, m.TransDate, m.LiabCode, m.BankCode, m.PayTerms, m.PayDate, m.Seq as MasterSeq, m.Voucher, m.CurrencyCode, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.BarCode, m.PaymentExchangeOverrideMethod, m.PaymentExchangeOverrideDate, m.PaymentExchangeOverrideRate, m.PaymentCurrencyCode, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.PKey, d.Seq as DetailSeq, d.Description, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.SuppressBill, d.TaxCode, d.NetAmount, d.TaxAmount, d.CurrencyExchangeOverrideRate, d.PONumber, d.PaymentExchangeRate, d.PaymentAmount, d.PaymentExchangeInfo, d.ExpenseCode, d.Tax2Code, d.Tax2Amount, d.CompoundTax from APVouchersControl c join APVouchersMaster m on c.Batch = m.Batch join APVouchersDetail d on m.Batch = d.Batch and m.MasterPKey = d.MasterPKey`
+  
+APDisbursements
+  
+`create index cbatchindex on APDisbursementsControl(Batch);`\
+`create index mbatchindex on APDisbursementsMaster(Batch);`\
+`create index mmasterkeyindex on APDisbursementsMaster(MasterPKey);`\
+`create index dbatchindex on APDisbursementsDetail(Batch);`\
+`create index dmasterkeyindex on APDisbursementsDetail(MasterPKey);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.DefaultLiab, c.DefaultBank, c.DefaultDate, c.DefaultTaxCode, c.PostPeriod, c.PostSeq, c.Company, c.DefaultCurrencyCode, c.DefaultTax2Code, c.SubmittedBy, c.SubmittedDate, m.Vendor, m.InvoiceDate, m.Invoice, m.TransDate, m.LiabCode, m.BankCode, m.PayTerms, m.PayDate, m.Posted, m.Seq as MasterSeq, m.Voucher, m.CurrencyCode, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.BarCode, m.PaymentExchangeOverrideMethod, m.PaymentExchangeOverrideDate, m.PaymentExchangeOverrideRate, m.PaymentCurrencyCode, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.PKey, d.Seq as DetailSeq, d.Description, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.SuppressBill, d.TaxCode, d.NetAmount, d.TaxAmount, d.CurrencyExchangeOverrideRate, d.PONumber, d.PaymentExchangeRate, d.PaymentAmount, d.PaymentExchangeInfo, d.ExpenseCode, d.Tax2Code, d.Tax2Amount, d.CompoundTax from APDisbursementsControl c join APDisbursementsMaster m on c.Batch = m.Batch join APDisbursementsDetail d on m.Batch = d.Batch and m.MasterPKey = d.MasterPKey`
+  
+CashDisbursements
+  
+`create index cbatchindex on CashDisbursementsControl(Batch);`\
+`create index mbatchindex on CashDisbursementsMaster(Batch);`\
+`create index mchecknoindex on CashDisbursementsMaster(CheckNo);`\
+`create index dbatchindex on CashDisbursementsDetail(Batch);`\
+`create index dchecknoindex on CashDisbursementsDetail(CheckNo);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.DefaultBank, c.DefaultTaxCode, c.PostPeriod, c.PostSeq, c.Company, c.DefaultTax2Code, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.BankCode, m.Payee, m.Posted, m.Seq as MasterSeq, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.CheckNo, d.PKey, d.Seq as DetailSeq, d.Description, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.TaxCode, d.NetAmount, d.TaxAmount, d.CurrencyExchangeOverrideRate, d.LinkCompany, d.Tax2Code, d.Tax2Amount, d.CompoundTax from CashDisbursementsControl c join CashDisbursementsMaster m on c.Batch = m.Batch join CashDisbursementsDetail d on m.Batch = d.Batch and m.CheckNo = d.CheckNo`
+  
+CashReceipts
+  
+`create index cbatchindex on CashReceiptsControl(Batch);`\
+`create index mbatchindex on CashReceiptsMaster(Batch);`\
+`create index mmasterkeyindex on CashReceiptsMaster(RefNo);`\
+`create index dbatchindex on CashReceiptsDetail(Batch);`\
+`create index dmasterkeyindex on CashReceiptsDetail(RefNo);`\
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.DefaultBank, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.BankCode, m.TransComment, m.Posted, m.Seq as MasterSeq, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.RefNo, d.PKey, d.Seq as DetailSeq, d.Description, d.WBS1, d.WBS2, d.WBS3, d.Invoice, d.Account, d.Amount, d.Interest, d.TaxCode, d.TaxBasis, d.Retainer, d.CurrencyExchangeOverrideRate, d.SourceAmount, d.SourceExchangeInfo, d.LinkCompany from CashReceiptsControl c join CashReceiptsMaster m on c.Batch = m.Batch join CashReceiptsDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+  
+EmployeeExpenses
+  
+`create index cbatchindex on EmployeeExpensesControl(Batch);`\
+`create index mbatchindex on EmployeeExpensesMaster(Batch);`\
+`create index mmasterkeyindex on EmployeeExpensesMaster(RefNo);`\
+`create index dbatchindex on EmployeeExpensesDetail(Batch);`\
+`create index dmasterkeyindex on EmployeeExpensesDetail(RefNo);`\
+  
+`select c.Recurring, c.Creator, c.Period", c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.DefaultTaxCode, c.AdvanceAmount, c.Company, c.DefaultCurrencyCode, c.DefaultTax2Code, c.SubmittedBy, c.SubmittedDate, m.Employee, m.ReportDate, m.ReportName, m.Posted, m.Seq as MasterSeq, m.AdvanceAmount, m.BarCode, m.DefaultCurrencyCode, m.PaymentExchangeOverrideMethod, m.PaymentExchangeOverrideDate, m.PaymentExchangeOverrideRate, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.PKey, d.Seq as DetailSeq, d.TransDate, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.Description, d.SuppressBill, d.TaxCode, d.NetAmount, d.TaxAmount, d.PaymentExchangeRate, d.PaymentAmount, d.PaymentExchangeInfo, d.CurrencyExchangeOverrideRate, d.CurrencyCode, d.Tax2Code, d.Tax2Amount, d.CompoundTax from EmployeeExpensesControl c join EmployeeExpensesMaster m on c.Batch = m.Batch join EmployeeExpensesDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+  
+Invoices
+  
+`create index cbatchindex on InvoicesControl(Batch);`\
+`create index mbatchindex on InvoicesMaster(Batch);`\
+`create index minvoiceindex on InvoicesMaster(Invoice);`\
+`create index mwbs1index on InvoicesMaster(WBS1);`\
+`create index mwbs2index on InvoicesMaster(WBS2);`\
+`create index mwbs3index on InvoicesMaster(WBS3);`\
+`create index dbatchindex on InvoicesDetail(Batch);`\
+`create index dinvoiceindex on InvoicesDetail(Invoice);`\
+`create index dwbs1index on InvoicesDetail(WBS1);`\
+`create index dwbs2index on InvoicesDetail(WBS2);`\
+`create index dwbs3index on InvoicesDetail(WBS3);`\
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.RetTotal, c.DefaultTaxCode, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.TransComment, m.Posted, m.Seq as MasterSeq, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.CurrencyExchangeOverrideRate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.Invoice, d.WBS1, d.WBS2, d.WBS3, d.PKey, d.Seq as DetailSeq, d.InvoiceSection, d.Account, d.Amount, d.RetAmount, d.TaxCode, d.TaxBasis, d.Retainer, d.LinkWBS1, d.LinkWBS2, d.LinkWBS3 from InvoicesControl c join InvoicesMaster m on c.Batch = m.Batch join InvoicesDetail d on m.Batch = d.Batch and m.Invoice = d.Invoice and m.WBS1 = d.WBS1 and m.WBS2 = d.WBS2 and m.WBS3 = d.WBS3`
+  
+JournalEntries
+  
+`create index cbatchindex on JournalEntriesControl(Batch);`\
+`create index mbatchindex on JournalEntriesMaster(Batch);`\
+`create index mrefnoindex on JournalEntriesMaster(RefNo);`\
+`create index dbatchindex on JournalEntriesDetail(Batch);`\
+`create index drefnoindex on JournalEntriesDetail(RefNo);`\
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.Company, c.DefaultCurrencyCode, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.Type, m.Description as MasterDescription, m.Posted, m.Seq as MasterSeq, m.UpdateBilled, m.CurrencyCode, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.RefNo, d.PKey, d.Seq as DetailSeq, d.WBS1, d.WBS2, d.WBS3, d.Account, d.DebitAmount, d.CreditAmount, d.Description as DetailDescription, d.TaxCode, d.TaxType, d.TaxDebitAmount, d.TaxCreditAmount, d.SuppressBill, d.CurrencyExchangeOverrideRate, d.LinkCompany, d.Tax2Code, d.Tax2DebitAmount, d.Tax2CreditAmount, d.DebitAmountFunctionalCurrency, d.CreditAmountFunctionalCurrency, d.DebitAmountProjectCurrency, d.CreditAmountProjectCurrency, d.CompoundTax from JournalEntriesControl c join JournalEntriesMaster m on c.Batch = m.Batch join JournalEntriesDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+  
+LaborAdjustments
+  
+`create index cbatchindex on LaborAdjustmentsControl(Batch);`\
+`create index mbatchindex on LaborAdjustmentsMaster(Batch);`\
+`create index memployeeindex on LaborAdjustmentsMaster(Employee);`\
+`create index dbatchindex on LaborAdjustmentsDetail(Batch);`\
+`create index demployeeindex on LaborAdjustmentsDetail(Employee);`\
+  
+`select c.Recurring, c.Creator, c.Period, c.StartDate, c.EndDate, c.RegHrsTotal, c.OvtHrsTotal, c.RegAmtTotal, c.OvtAmtTotal, c.BillExtTotal, c.SpecialOvtHrsTotal, c.SpecialOvtAmtTotal, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.Posted, m.Seq as MasterSeq, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.Employee, d.PKey, d.Seq as DetailSeq, d.TransDate, d.WBS1, d.WBS2, d.WBS3, d.LaborCode, d.RegHrs, d.OvtHrs, d.RegAmt, d.OvtAmt, d.BillExt, d.SuppressBill, d.TransComment, d.SpecialOvtHrs, d.SpecialOvtAmt, d.BillCategory, d.LinkCompany from LaborAdjustmentsControl c join LaborAdjustmentsMaster m on c.Batch = m.Batch join LaborAdjustmentsDetail d on m.Batch = d.Batch and m.Employee = d.Employee`
+  
+MiscellaneousExpenses
+  
+`create index cbatchindex on MiscellaneousExpensesControl(Batch);`\
+`create index mbatchindex on MiscellaneousExpensesMaster(Batch);`\
+`create index mrefnoindex on MiscellaneousExpensesMaster(RefNo);`\
+`create index dbatchindex on MiscellaneousExpensesDetail(Batch);`\
+`create index drefnoindex on MiscellaneousExpensesDetail(RefNo);`\
+
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.Company, c.DefaultCurrencyCode, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.Description as MasterDescription, m.Posted, m.Seq as MasterSeq, m.CurrencyCode, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.RefNo, d.PKey, d.Seq as DetailSeq, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.Description as DetailDescription, d.CurrencyExchangeOverrideRate from MiscellaneousExpensesControl c join MiscellaneousExpensesMaster m on c.Batch = m.Batch join MiscellaneousExpensesDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+  
+PrintandReproductions
+  
+`create index cbatchindex on PrintandReproductionsControl(Batch);`\
+`create index mbatchindex on PrintandReproductionsMaster(Batch);`\
+`create index mrefnoindex on PrintandReproductionsMaster(RefNo);`\
+`create index dbatchindex on PrintandReproductionsDetail(Batch);`\
+`create index drefnoindex on PrintandReproductionsDetail(RefNo);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.Company, c.DefaultCurrencyCode, c.SubmittedBy, c.SubmittedDate, m.TransDate, m.Description as MasterDescription, m.Posted, m.Seq as MasterSeq, m.CurrencyCode, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.RefNo, d.PKey, d.Seq as DetailSeq, d.Originals, d.Copies, d.WBS1, d.WBS2, d.WBS3, d.Account, d.Amount, d.Description as DetailDescription, d.CurrencyExchangeOverrideRate from PrintandReproductionsControl c join PrintandReproductionsMaster m on c.Batch = m.Batch join PrintandReproductionsDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+  
+Timesheets
+  
+`create index cbatchindex on TimesheetsControl(Batch);`\
+`create index mbatchindex on TimesheetsMaster(Batch);`\
+`create index memployeeindex on TimesheetsMaster(Employee);`\
+`create index dbatchindex on TimesheetsDetail(Batch);`\
+`create index demployeeindex on TimesheetsDetail(Employee);`
+  
+`select c.Recurring, c.Creator, c.Period, c.StartDate, c.EndDate, c.RegHrsTotal, c.OvtHrsTotal, c.SpecialOvtHrsTotal, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.Posted, m.Seq as MasterSeq, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.Employee, d.PKey, d.Seq as DetailSeq, d.TransDate, d.WBS1, d.WBS2, d.WBS3, d.LaborCode, d.RegHrs, d.OvtHrs, d.TransComment, d.SpecialOvtHrs, d.BillCategory, d.Locale, d.RegAmt, d.OvtAmt, d.SpecialOvtAmt, d.ExchangeInfo, d.RegAmtProjectCurrency, d.OvtAmtProjectCurrency, d.SpecialOvtAmtProjectCurrency, d.ProjectExchangeInfo, d.BillExt, d.OvtPct, d.SpecialOvtPct, d.Rate, d.OvtRate, d.SpecialOvtRate, d.RateProjectCurrency, d.OvtRateProjectCurrency, d.SpecialOvtRateProjectCurrency from TimesheetsControl c join TimesheetsMaster m on c.Batch = m.Batch join TimesheetsDetail d on m.Batch = d.Batch and m.Employee = d.Employee`
+  
+Units
+  
+`create index cbatchindex on UnitsControl(Batch);`\
+`create index mbatchindex on UnitsMaster(Batch);`\
+`create index mmasterkeyindex on UnitsMaster(Unit);`\
+`create index dbatchindex on UnitsDetail(Batch);`\
+`create index dmasterkeyindex on UnitsDetail(Unit);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.Posted, m.Seq as MasterSeq, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.Unit, d.PKey, d.Seq as DetailSeq, d.TransDate, d.WBS1, d.WBS2, d.WBS3, d.TableNo, d.Account, d.Description, d.Quantity, d.CurrencyExchangeOverrideRate from UnitsControl c join UnitsMaster m on c.Batch = m.Batch join UnitsDetail d on m.Batch = d.Batch and m.Unit = d.Unit`
+  
+UnitsbyProject
+  
+`create index cbatchindex on UnitsbyProjectControl(Batch);`\
+`create index mbatchindex on UnitsbyProjectMaster(Batch);`\
+`create index mmasterkeyindex on UnitsbyProjectMaster(RefNo);`\
+`create index dbatchindex on UnitsbyProjectDetail(Batch);`\
+`create index dmasterkeyindex on UnitsbyProjectDetail(RefNo);`
+  
+`select c.Recurring, c.Creator, c.Period, c.EndDate, c.Total, c.PostPeriod, c.PostSeq, c.Company, c.SubmittedBy, c.SubmittedDate, m.Posted, m.Seq as MasterSeq, m.CurrencyExchangeOverrideMethod, m.CurrencyExchangeOverrideDate, m.Status, m.AuthorizedBy, m.RejectReason, m.ModUser, m.ModDate, d.RefNo, d.PKey, d.Seq as DetailSeq, d.TransDate, d.WBS1, d.WBS2, d.WBS3, d.Unit, d.TableNo, d.Account, d.Description, d.Quantity, d.CurrencyExchangeOverrideRate from UnitsbyProjectControl c join UnitsbyProjectMaster m on c.Batch = m.Batch join UnitsbyProjectDetail d on m.Batch = d.Batch and m.RefNo = d.RefNo`
+
+

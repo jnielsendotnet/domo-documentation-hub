@@ -1,0 +1,44 @@
+---
+title: "Microsoft Reporting Servicesコネクター"
+---
+
+## はじめに
+
+Reporting Servicesはサーバーベースのレポート作成プラットフォームです。さまざまなデータソースに対応する包括的なレポート作成機能を提供します。Reporting Servicesにはレポートを作成、管理、配信するための完全なツールセットと、カスタムアプリケーションでデータやレポートの処理を統合または拡張するためのAPIが含まれています。Reporting ServicesツールはMicrosoft Visual Studio環境で動作し、SQL Serverのツールやコンポーネントと完全に統合されています。SQL Server Reporting Servicesの詳細については、Microsoft社のページ（ [https://docs.microsoft.com/en-us/sql...inated-reports](https://docs.microsoft.com/en-us/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports "https://docs.microsoft.com/en-us/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports") ）を確認してください。
+
+Microsoft SQL Server Reporting Servicesアカウントには、Data Centerから接続します。このトピックでは、Microsoft Reporting Servicesコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」に記載があります。
+
+## 必要条件
+
+Microsoft SQL Server Reporting Servicesアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* レポートサービスURL
+* SQL Server Reporting Servicesへのアクセスを提供するユーザー名とパスワード
+
+## Microsoft SQL Server Reporting Services アカウントに接続する
+
+このセクションでは、Microsoft Reporting Servicesコネクターページの **［認証情報］**
+
+および **［詳細］**
+
+ペインのオプションについて説明します 。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Microsoft SQL Server Reporting Servicesアカウントに接続するための認証情報を入力するフィールドがあります。 以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report Service URL </td><td colspan="1" rowspan="1"> レポートサービスURLを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> SQL Server Reporting Servicesへのアクセスを提供するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> SQL Server Reporting Servicesへのアクセスを提供するパスワードを入力します。 </td></tr></tbody></table>
+
+一度有効なMicrosoft SQL Server Reporting Services認証情報を入力したら、新しいMicrosoft SQL Server Reporting Services DataSetを作成する際はいつでも同じアカウントを使用することができます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、レポートおよびそのパラメーターの選択と構成に使用するメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Report Path </td><td colspan="1" rowspan="1"> リストからレポートを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Parameters </td><td colspan="1" rowspan="1"> パラメーターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Parameters Helper </td><td colspan="1" rowspan="1"><p> クエリを変更する場合は、プレースホルダーを適切な値に置き換えます。 </p><p> 例：Property1=Value1;Property2=Value2;...Propertyn=Valuen </p></td></tr><tr><td colspan="1" rowspan="1"> Input Parameters </td><td colspan="1" rowspan="1"> クエリを「Property1=Value1;Property2=Value2;...Propertyn=Valuen」形式で入力します。これは［Parameters Helper］から参照できます。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のセクションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

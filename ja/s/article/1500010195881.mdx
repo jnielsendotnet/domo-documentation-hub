@@ -1,0 +1,103 @@
+---
+title: "Apache Impala SSHコネクター"
+---
+
+## はじめに
+
+Apache Impalaは、Apache Hadoopを実行しているコンピュータークラスターに保存されるデータのためのオープンソースの超並列処理（MPP）SQLクエリエンジンです。CDHクラスター内の特定のホストで実行される異なるプロセスから構成されています。Domo Apache Impala SSHコネクターは、ApacheサーバーからSSHトンネルを通って安全にデータをDomoに引き込みます。
+
+Domo Apache Impala SSHコネクターは「データベース」コネクターです。つまり、クエリを使ってデータベースからデータを取得します。Data Centerのウィンドウ上部のツールバーで **［データベース］** をクリックすると、このコネクターやその他のデータベースコネクターのページにアクセスできます。
+
+このトピックでは、 Apache Impala SSH コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSet を追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Apache Impalaデータベース に接続してDataSetを作成するには、以下が必要です。
+
+* SSHホストのログインに使用するユーザー名とパスワード
+* トンネルを確立するSSHホスト
+* SSHホストのポート番号
+* SSH秘密鍵
+* Apache Impalaデータベースにログインするために使用するユーザー名とパスワード
+* データベースサーバーのホスト名 またはIPアドレス （例： [db.company.com](http://db.company.com) ）。
+* データベースのポート番号
+* データベース名
+
+Apache Impalaデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する」](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する")
+
+を参照してください。
+
+<Note>
+注記： **Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+## Apache Impalaデータベースに接続する
+
+このセクションでは、 Apache Impala SSH コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、（サードパーティツール）アカウントにアクセスする認証情報の入力フィールドが含まれています。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> SSH Server Host name </td><td colspan="1" rowspan="1"> トンネルを確立するSSHホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Port </td><td colspan="1" rowspan="1"> SSHホストのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Username </td><td colspan="1" rowspan="1"> SSHホストのログインに使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Password </td><td colspan="1" rowspan="1"> SSHホストのログインに使用するパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key </td><td colspan="1" rowspan="1"> SSH秘密鍵を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"><span> データベースサーバーのホスト名またはIPアドレスを入力します。例： <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> Database Port </td><td colspan="1" rowspan="1"><span> Apache Impalaのポート番号を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"><span> Apache Impalaデータベース/スキーマ名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><span> Apache Impalaユーザー名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><span> Apache Impalaパスワードを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Database Connection String Parameter(s) </td><td colspan="1" rowspan="1"><span> データベース接続文字列に含めるパラメーターを入力します。複数のパラメーターはセミコロンで区切ります（例：AuthMech=3;SSL=1;AllowSelfSignedCerts=1）。 </span></td></tr></tbody></table>
+
+有効なApache Impala認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいApache Impala SSH DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><p><span> クエリタイプを選択します。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> パラメーターなしの通常のSQLクエリ。 </td></tr><tr><td colspan="1" rowspan="1"> Query Parameter </td><td colspan="1" rowspan="1"> パラメーターのあるSQLクエリ。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"><span> 実行するSQLクエリを入力します。クエリはApache Impalaサーバーで実行され、そこからデータを取得します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Query Parameter </td><td colspan="1" rowspan="1"><p><span> クエリパラメーターの値を入力します。この値は、クエリパラメーターの初期値となります。最終実行日はオプションです。デフォルトでは、最終実行日が指定されていない場合、最終実行日は「02/01/1700」になります。 </span></p><p><span> 例： <tt>!\{lastvalue:_id\}!=1,!\{lastrundate:start_date\}!=02/01/1944 </tt></span></p></td></tr><tr><td colspan="1" rowspan="1"> Database Table </td><td colspan="1" rowspan="1"><p><span> データベース表を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"><p><span> 表の列を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"><p><span> ［Database Table］で表を、［Table Columns］で列を選択すると、このクエリが自動的に生成されます。クエリの作成にサポートが必要な場合は、このクエリをコピーして［Query］フィールドに貼り付けます。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Apache Impala SSH認証情報（サーバーホスト名、ポート番号、秘密鍵、ユーザー名、パスワード）に加えて、データベース認証情報（ホスト名、ポート番号、データベース名、ユーザー名、パスワード）が必要です。オプションとして、データベース接続文字列に含めるパラメーターを入力します。複数のパラメーターはセミコロンで区切ります（例：AuthMech=3;SSL=1;AllowSelfSignedCerts=1）。
+
+
+</Accordion>
+<Accordion title="データ更新の頻度はどのくらいですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+制限は使用するサーバー構成によって異なります。
+
+
+</Accordion>
+<Accordion title="同じApache Impalaアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="クエリの記述の際に注意すべき点はありますか？">
+
+
+すべての単語、表名、フィールド名が正しく記述されていることを確認します。クエリの作成方法がわからない場合は、Query Helperフィールドを参照してください。
+
+
+</Accordion>
+<Accordion title="Apache Impalaデータベースに接続できない理由は？IPアドレスのホワイトリスト登録が必要でしょうか？">
+
+
+DomoでApache Impalaデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093) 」を参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

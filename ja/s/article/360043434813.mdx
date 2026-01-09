@@ -1,0 +1,91 @@
+---
+title: "Dropbox for Business Advancedコネクター"
+---
+
+<Warning>
+**重要：** Dropboxでは、Dropbox for Business v1 APIを廃止し、エンドポイントは2019年5月30日付で無効化されています。Domoでは、Dropbox for Businessコネクターを更新いたしましたので、お客様には、新しいDropbox v2 APIをご活用いただけます。新APIでの認証およびスキーマの変更に伴い、Domo Dropbox for BusinessおよびDropbox for Business Advancedコネクターバージョン2.xにつきましては、廃止させていただきます。また当社では、これら2種類のコネクターのDropbox for Business Advancedコネクターへの統合を予定しております。お使いのDropboxデータ中断によるご不便が発生しませんよう、下記変更日にご注意くださいますようお願い申し上げます。
+
+**2019年5月31日** ：Dropbox for BusinessおよびDropbox for Business Advancedコネクターのバージョン2.xを廃止いたします。既存のDataSetはすべて、引き続きアクセスいただけますが、2.xコネクターを使用してのDataSetの新規作成はできませんのでご注意ください。Dropbox for Business Advancedコネクターの更新バージョン3.xは、この日よりご利用いただけます。新規DataSetの作成には、新たにDropbox for Business AdvancedのDataSetを作成の上、認証情報のご入力が必要です。お客様におかれましては、速やかに既存Dropbox for BusinessおよびDropbox for Business AdvancedのDataSetを移行、再作成の上、新たな3.x Dropbox for Business Advancedコネクターをお使いくださいますようお願い申し上げます。
+
+**2019年6月19日** ：Dropboxfor BusinessおよびDropbox for Business Advancedコネクターの2.x各バージョンを無効化させていただきます。これらバージョンのコネクターにより作成されたDataSetは、以降お使いいただけませんのでご注意ください。お客様におかれましては、この日までに、更新3.xバージョンのDropbox for Business Advancedコネクターでの新規アカウントおよびDataSetの作成をお願いいたします。
+
+</Warning>
+
+## はじめに
+
+Dropbox for Businessは、 ユーザーが安全にファイルを共有、保存、同期 できる ファイル共有および保存ソリューションです。Domo のDropbox for Businessコネクターをお使いいただくと、アカウント情報、チーム情報、監査ログ、チームでの使用状況統計などのレポートを コンパイル可能です。Dropbox for Business APIについて詳しくは、Webサイト（
+https://www.dropbox.com/developers/business
+）を参照してください。
+
+このコネクターは、標準的なDropbox for Businessコネクターとほぼ同等ですが、レポートタイプ「グループ情報」が追加されているほか、 いくつかの設定オプションが含まれています。標準的なDropbox for Businessコネクターについて詳しくは、「 [Dropbox for Businessコネクター](/ja/s/article/360042930214 "Dropbox for Businessコネクター") 」を参照してください。
+
+このトピックでは、 Dropbox for Business Advancedコネクターの固有フィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> システムの使用に関する情報の取得、ガバナンス上の決定にこのコネクターを使用します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ストレージの使用状況 </p></li><li><p> メンバーシップ </p></li><li><p> ユーザーのアクティビティ </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Dropboxシステム管理者 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Dropboxアカウントに接続してDropbox for Business AdvancedコネクターのDataSetを作成するには、以下が必要です。
+
+* Dropboxアカウントへのログインに使用するアカウント
+* Dropboxアカウントへのログインに使用するパスワード
+
+認証情報をお持ちでない場合は、（ [https://www.dropbox.com/business](https://www.dropbox.com/business "https://www.dropbox.com/business") ）より取得いただけます。
+
+## Dropboxアカウントに接続する
+
+このセクションでは、Dropbox for Business Advancedコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+DomoのDropbox for Business Advancedコネクターは、OAuthを使用しDropbox for Businessに接続します。（Domoがユーザーのパスワードを保存・送信することはありません。） **［接続する］** をクリック（またはDomoに 既存 のDropboxアカウントが ある場合は **［アカウントを追加する］** を選択） して、DropboxのOAuth画面を開き、Dropboxアカウントに関連付けられたアカウントとパスワードを入力します。Googleの認証情報を入力することもできます。有効なDropbox認証情報を一度入力しておくと、いつでも同じDomoアカウントを使用して新しいDropbox for Business Advanced DataSetを作成できます。
+
+コネクターのアカウントは **Data Center** の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ ペイン
+
+このペインには、レポートタイプとともに、様々な設定オプションを選択するメニューがあります。
+
+<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Dropbox for Business Advancedレポートを選択します。 以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> 監査ログ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> Dropbox for Businessのチーム用監査ログにアクセスします。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> グループ情報 </p></td><td colspan="1" rowspan="1"><p> Dropbox for Businessグループに関するレポートデータを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> リンクされているデバイス </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのリンク済みデバイスに関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> メンバー </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのメンバーをリストにして表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> メンバーシップ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのメンバーシップに関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> ストレージの使用状況 </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのストレージ使用状況に関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チーム情報 </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームの情報を取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> ユーザーのアクティビティ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのユーザーのアクティビティに関するレポートデータを取得します。 </span></p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 開始日 </p></td><td colspan="1" rowspan="1"><p> Domoに入力するデータの開始日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日 </p></td><td colspan="1" rowspan="1"><p> Domoに入力するデータの終了日を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> 情報を取得するユーザーのメールIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーフラグ </p></td><td colspan="1" rowspan="1"><p> カテゴリーによりレポートデータをフィルタリングするかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリー </p></td><td colspan="1" rowspan="1"><p> データをフィルタリングするカテゴリーを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="Dropbox認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスにはOAuthプロセスが使用されるため、DomoによりDropboxの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="同一のアカウントを複数のDataSetの作成に使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+DataSetの更新は、15分に1回程度になるように設定してください。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+Dropboxには呼び出しレート制限が適用される場合がありますが、この制限を気にする必要はありません。
+
+## トラブルシューティング
+
+受信したエラーコードに対して認証情報と権限を確認します。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,81 @@
+---
+title: "Constant Contactコネクター"
+---
+
+## はじめに
+
+Constant ContactはWebベースのメールマーケティングサービスを提供しています。Constant Contact APIに関する詳細は、Constant ContactのWebページ（ [https://developer.constantcontact.co...ion-index.html](https://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html "https://developer.constantcontact.com/docs/developer-guides/api-documentation-index.html") ）を参照してください。
+
+Constant Contactアカウントには、Data Centerから接続します。このトピックでは、Constant Contactコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Constant Contactアカウントに接続してDataSetを作成するには、Constant Contactのユーザー名とパスワードが必要です。
+
+## Constant Contactアカウントに接続する
+
+このセクションでは、Constant Contactコネクターページの **［認証情報］** および **［詳細］ ペインのオプションについて説明します。** このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのConstant Contactコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリックして（Domoに既存のConstant Contactアカウントがある場合は **［アカウントを追加］** を選択）Constant Contact OAuth画面を開き、Constant Contactのユーザー名とパスワードを入力します。有効なConstant Contact認証情報を一度入力しておくと、随時同じアカウントを使用して新しいConstant Contact DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、レポートタイプのほか、レポートを構成するための様々なオプションを選択するメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するConstant Contactレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Contact Action Summary </p></td><td colspan="1" rowspan="1"><p> 直近の200件のキャンペーンについて、特定の連絡先に最近送信されたメールのリストとそのメールに対して連絡先が実行したアクションの概要を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Activity Details </p></td><td colspan="1" rowspan="1"><p> 指定されたアカウントと連絡先の追跡アクティビティデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Lists </p></td><td colspan="1" rowspan="1"><p> アカウントの連絡先リストの一覧を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> アカウント内のすべての連絡先を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Email Campaigns </td><td colspan="1" rowspan="1"> ユーザーのアカウントのすべてのメールキャンペーンを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Contact ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得したい連絡先を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact Status </p></td><td colspan="1" rowspan="1"><p> レポートデータをフィルターするステータスを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include Subresource? </p></td><td colspan="1" rowspan="1"><p> レポートにサブリソースを含めるかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Tracking Activity Types </p></td><td colspan="1" rowspan="1"><p> データを取得する追跡アクティビティタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Updated After Date </p></td><td colspan="1" rowspan="1"><p> 日付を選択すると、レポートはその日付以降に更新されたデータをすべて返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Updated Days Back </p></td><td colspan="1" rowspan="1"><p> 遡る相対的な日数を指定すると、レポートが実行されるたびに、この相対日数後に更新されたすべてのデータを返します。例えば、 <span class="mt-font-courier-new"> 7 </span> を入力すると、レポートが実行されるたびに過去7日間のデータが取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付の範囲について取得するか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターではどのバージョンのConstant Contact APIを使用しますか？">
+
+
+このコネクターはConstant Contact APIのバージョン3を使用します（
+https://api.cc.email/v3）
+。
+
+
+</Accordion>
+<Accordion title="# 各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Contact Action Summary </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /reports/contact_reports/\{contactId\}/activity_summary </span></td></tr><tr><td colspan="1" rowspan="1"> Contact Activity Details </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /reports/contact_reports/\{contactId\}/activity_details </span></td></tr><tr><td colspan="1" rowspan="1"> Contact Lists </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /contact_lists </span></td></tr><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> /contacts </span></td></tr><tr><td colspan="1" rowspan="1"><span> Email Campaigns </span></td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"><span> /emails </span></span></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="# Constant Contactの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってConstant Contactの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+APIが毎日のコールの上限に達していると、そのAPIキーは翌日の午前0時までコールできなくなります。
+
+
+
+</Accordion>
+</AccordionGroup>

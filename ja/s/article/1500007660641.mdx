@@ -1,0 +1,142 @@
+---
+title: "Azure Data Lake Storage Gen2 Using AADコネクター"
+---
+
+## はじめに
+
+Azure Data Lake Storage Gen2は世界最高水準の生産性を持つデータレイクです。ビッグデータ解析ワークロード用の全社規模のハイパースケールリポジトリとなっています。Azure Storageが、Azure上にエンタープライズデータレイクを構築するための基礎になります。大量のデータを簡単に管理することによって、PoC（導入検証）から生産への移行を迅速に行うことができます。DomoのMicrosoft Azure Data Lake Store Gen2 using AADコネクターを使うと、Data Lake Storeからデータファイルを取得し、Domoで利用できます。データファイルは、CSV、TSV、TXTのいずれかのファイルタイプで取得できます。Azure APIについて詳しくは、製品ドキュメント（ [https://docs.microsoft.com/en-us/azu...ta-lake-store/](https://docs.microsoft.com/en-us/azure/data-lake-store/ "https://docs.microsoft.com/en-us/azure/data-lake-store/") ）を参照してください。
+
+Microsoft Azure Data Lake Store Gen2 AADアカウントには、Data Centerから接続します。このトピックでは、Microsoft Azure Data Lake Store Gen2 using AADコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Microsoft Azure Data Lake Store Gen2 AADアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Azure Active Directory設定から取得したクライアントWeb AppのクライアントID（GUID）とシークレットキー
+* Microsoft Azure Data Lake Storageのアカウント名
+* テナントID
+
+### Azure Appを設定する
+
+必要なクライアントIDとシークレットを取得するには、最初にMicrosoft Azure Web Appを作成する必要があります。
+
+**Azure Appを設定するには** ：
+
+1. [Azureポータル](https://portal.azure.com/#home "https://portal.azure.com/#home") にログインします。
+2. **［Azure Active Directory］>［App Registrations］>［New Registration］** の順に選択します。
+
+3. 登録フォームに次の通りに入力します。
+
+* ［Name］：アプリケーションの名前を入力します。
+* ［Supported account types］：オプションを選択して、このアプリケーションを使用できる、またはこのAPIにアクセスできるユーザーを指定します。
+* ［Redirect URI］：リダイレクトURIを入力します。認証応答は、ユーザーの認証に成功した後にこのURIに送信されます。この段階でURIを指定することは任意で、後で変更することもできますが、ほとんどの認証シナリオでは値が必要です。
+
+4. **［Register］** をクリックします。登録したAppの概要が表示されます。
+
+5. ここに表示される **［Application ID］** が **クライアントID** であり、**［Directory ID］** はDomoの **［認証情報］** ペインに入力する **テナントID** になります。
+
+6. 次に、**［Certificates and secrets］** をクリックします。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。これは、パブリックキーと呼ばれることもあります。
+
+7. **［+New client secret］** をクリックします。
+
+8. クライアントシークレットの説明と有効期限を指定し、**［Add］** をクリックします。
+
+9. 値をコピーして、Domoのこの **コネクターの［認証情報］** セクションの **［Client Secret］** フィールドに貼り付けます。
+
+## Microsoft Azure Data Lake Store Gen2 AAD アカウントに接続する
+
+このセクションでは、 Microsoft Azure Data Lake Store Gen2 using AADコネクター ページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Microsoft Azure Data Lake Store Gen2 AAD
+
+アカウントに接続する認証情報の入力フィールドが含まれています。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Azure Application Client ID </td><td colspan="1" rowspan="1"> Azure Active Directory設定から取得されるクライアントWeb AppのクライアントID（GUID）を入力します。詳細は、「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Azure Application Client Secret </td><td colspan="1" rowspan="1"> クライアントWeb Appのシークレットキーを入力します。詳細については、「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Tenant ID </td><td colspan="1" rowspan="1"> テナントIDを入力します。［ <a href="http://Portal.azure.com" rel="noopener" target="_blank"> Portal.azure.com </a> ］&gt;［Azure Active Directory］&gt;［Properties］に移動します。ディレクトリIDはお使いのテナントIDです。 </td></tr><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> Microsoft Azure Data Lake Storageアカウント名を入力します。 </td></tr></tbody></table>
+
+有効な
+
+Microsoft Azure Data Lake Store Gen2 AAD
+
+認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい
+
+Microsoft Azure Data Lake Store Gen2 AAD
+
+DataSetを作成できます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What file type would you like to import? </td><td colspan="1" rowspan="1"> インポートするファイルのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Container Name </td><td colspan="1" rowspan="1"> コンテナを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose the directory name? </td><td colspan="1" rowspan="1"> ディレクトリ名をどのように選択するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover Directory Name </td><td colspan="1" rowspan="1"> ディレクトリ名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Directory Name </td><td colspan="1" rowspan="1"><p> 次の例を使ってディレクトリ名を入力します。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> メインまたはルートディレクトリの例 </td><td class="mt-noheading" colspan="1" rowspan="1"> test </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> サブディレクトリの例 </td><td class="mt-noheading" colspan="1" rowspan="1"> test/test </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> サブサブディレクトリの例 </td><td class="mt-noheading" colspan="1" rowspan="1"> test/test/test </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> How would you like to choose the File name? </td><td colspan="1" rowspan="1"> ファイル名の選択方法を選びます。 </td></tr><tr><td colspan="1" rowspan="1"> Enter File Name </td><td colspan="1" rowspan="1"> ファイル名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Discover File Name </td><td colspan="1" rowspan="1"> ファイル名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> File Encoding </td><td colspan="1" rowspan="1"> ファイルのエンコーディングを選択します。デフォルトでは <span></span><b> UTF-8 </b> が選択されています。 </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルの解析に使用する引用文字を選択します（CSVの標準のデフォルトの引用符は二重引用符です）。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> 希望するCSV引用符を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するCSVエスケープ文字を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Azure Active Directory設定で取得したクライアントWeb AppのクライアントID、クライアントシークレット、テナントIDに加えて、ストレージアカウント名が必要です。
+
+
+</Accordion>
+<Accordion title="DomoクライアントID、クライアントシークレット、テナントIDを見つけるにはどうしたらよいですか？">
+
+
+クライアントIDを取得するには：
+
+* Azure Portal（ https://protal.azure.com ）にログインします。
+* ［Azure Active Directory］>［App registrations］を選択します。
+* ［Web App］>［Application ID］をクリックします。
+* アプリケーションIDがクライアントIDです。
+
+シークレットキーを取得するには：
+
+* Azure Portal（ https://protal.azure.com ）にログインします。
+* ［Azure Active Directory］>［App registrations］を選択します。
+* 証明書とシークレットをクリックしてから、［+New client secret］を選択します。
+* シークレットの値をコピーします。シークレットは一度だけ生成されることに注意してください。
+
+テナントIDを取得するには：
+
+* Azure Portal（ https://protal.azure.com ）にログインします。
+* ［Azure Active Directory］>［Properties］を選択します。
+* ディレクトリIDをコピーします。ディレクトリIDがテナントIDです。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新可能ですか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

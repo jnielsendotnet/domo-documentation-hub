@@ -1,0 +1,39 @@
+---
+title: "Snowflake Key Pair High Bandwidth Advanced Partitionsコネクター"
+---
+
+## はじめに
+
+Snowflakeを使用すると、組織はコラボレーション、AIを活用したデータアプリの構築、データインサイトの獲得のすべてを、セキュアでスケーラブルなAIデータクラウド内で実現できます。Snowflakeのアンロードテクノロジーを社内のステージングに活用し、Domoの高度な更新方法（すべての列タイプでのパーティション分割など）を使用すると、データをすばやく確実にDomoに取り込むことができます。
+
+Snowflake Key Pair High Bandwidth Advanced Partitionsアカウントには、Data Centerから接続します。このトピックでは、Snowflake Key Pair High Bandwidth Advanced Partitionsコネクターのユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Snowflake Key Pair High Bandwidth Advanced Partitionsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* アカウント名（Snowflakeが提供）
+* Snowflakeホストに関連付けられたユーザー名
+* シークレットキー
+
+## Snowflake Key Pair High Bandwidth Advanced Partitionsアカウントに接続する
+
+このセクションでは、Snowflake Key Pair High Bandwidth Advanced Partitionsコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Snowflake Key Pair High Bandwidth Advanced Partitionsアカウントに接続するための認証情報を入力するフィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> アカウントの名前（Snowflakeが提供）を入力します。米国西部地域は <b> account_name </b> 、その他の地域は <b> account_name.region_id </b> です。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Snowflakeホストに関連付けられたユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Private Key </td><td colspan="1" rowspan="1"> シークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> PassPhrase </td><td colspan="1" rowspan="1"> シークレットキーを暗号化する場合、OpenSSLが、シークレットキーファイルの暗号化に使用されるパスフレーズの入力を求めてきます。そのパスフレーズをここに入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Role </td><td colspan="1" rowspan="1"> 権限を入力します。 </td></tr></tbody></table>
+
+有効なSnowflake Key Pair High Bandwidth Advanced Partitionsの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSnowflake Key Pair High Bandwidth Advanced Partitions DataSetを作成することができます。コネクターのアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:207;a"><tbody><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table><tbody><tr><th colspan="1" rowspan="1"> クエリタイプ </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> クエリを自動生成するテーブルとフィールドを選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Warehouses </td><td colspan="1" rowspan="1"> ウェアハウスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Databases </td><td colspan="1" rowspan="1"> データベースを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Schemas </td><td colspan="1" rowspan="1"> スキーマを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Objects </td><td colspan="1" rowspan="1"> データベースオブジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"> テーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> レポートに含めるテーブルの列を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Query Helper </td><td colspan="1" rowspan="1"> 選択したフィールドにもとづいて生成されたクエリ。 </td></tr><tr><td colspan="1" rowspan="1"> Views </td><td colspan="1" rowspan="1"> ビューを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> View Columns </td><td colspan="1" rowspan="1"> レポートに含める表示列を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> View Query Helper </td><td colspan="1" rowspan="1"> 選択したフィールドにもとづいて生成されたクエリ。 </td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Criteria </td><td colspan="1" rowspan="1"> パーティション条件を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Query to determine partition tags </td><td colspan="1" rowspan="1"> パーティションタグ（キー）を指定するためのパーティションメタクエリを入力します。 <b> ［Date］ </b> データを含む列が、パーティション列です。例：SELECT DISTINCT(DATE_COLUMN_NAME) FROM TABLENAME </td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"> パーティションの形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Past Years </td><td colspan="1" rowspan="1"> データを取得する過去の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> Future Years </td><td colspan="1" rowspan="1"> データを取得する未来の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> Past Months </td><td colspan="1" rowspan="1"> データを取得する過去の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> Future Months </td><td colspan="1" rowspan="1"> データを取得する未来の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b> yyyy-MM-dd </b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> カスタマイズされた日付形式を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> パーティション列の名前を入力します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

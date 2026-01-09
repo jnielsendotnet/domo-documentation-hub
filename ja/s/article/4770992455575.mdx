@@ -1,0 +1,48 @@
+---
+title: "Seismic Direct Sign-Onコネクター"
+---
+
+## はじめに
+
+Seismicとは、チームが適切な販売コンテンツを見つけて販売プロセスを最適化できるようにする販売およびマーケティング支援ソフトウェアです。ユーザー中心の製品デザインから深いサポートリソースにいたるまで、Seismicのプラットフォームソリューションは、クライアントが迅速に結果を得るのを支援するためにゼロから設計されています。DomoのSeismic Direct Sign-Onコネクターを使用すると、Seismicデータをほかの主要セールスデータやマーケティングデータと組み合わせ、チーム全体に対する自分のデータをリアルタイムで確認できます。Seismic APIの詳細については、Seismicのウェブサイト（ https://developer.seismic.com/seismicsoftware/reference ）を参照してください。
+
+Data CenterでSeismicアカウントに接続します。このトピックでは、Seismic Direct Sign-Onコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Seismicアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Seismicテナント
+* SeismicのクライアントIDとクライアントシークレット
+* 直接サインオンのための
+  Seismicのユーザー名とパスワード
+
+Seismicテナントを取得するには、貴社のDomo管理者にお問い合わせください。
+
+## Seismicアカウントに接続する
+
+このセクションでは、Seismic Direct Sign-Onコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。
+
+このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Seismic Direct Sign-On
+
+アカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Tenant </td><td colspan="1" rowspan="1"> Seismicテナントを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"><span> パスワードフロー認証のためのSeimicクライアントID </span> を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"><span> パスワードフロー認証のためのSeimicクライアントシークレット </span> を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><span> 直接サインオン用のSeismicのユーザー名 </span> を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><span> 直接サインオン用のSeismicのパスワード </span> を入力します。 </td></tr></tbody></table>
+
+有効な Seismic Direct Sign-On の認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Seismic Direct Sign-On DataSetを作成できます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span><span class="s1"> Seismic Direct Sign-On </span></span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Content Property Assignments </td><td colspan="1" rowspan="1"> コンテンツのプロパティの割り当てに関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Content Usage History </td><td colspan="1" rowspan="1"> ライブラリからソースされたコンテンツのユーザー使用/配信に関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Content View History </td><td colspan="1" rowspan="1"> コンテンツのユーザービューに関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Library Contents </td><td colspan="1" rowspan="1"> Control Centerライブラリのコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesend Link Contents </td><td colspan="1" rowspan="1"> Livesendリンクに含まれるコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesend Link Members </td><td colspan="1" rowspan="1"> 各Livesendリンクのメール受信者のリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesend Links </td><td colspan="1" rowspan="1"> すべてのアプリケーションからすべてのユーザーが作成したすべてのLivesendリンクのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Livesend Page Views </td><td colspan="1" rowspan="1"> 閲覧されたすべてのLivesendコンテンツのページビューのタイムラインを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Search History </td><td colspan="1" rowspan="1"> プラットフォーム内の検索に関するデータを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> WorkSpace Contents </td><td colspan="1" rowspan="1"> すべてのユーザーにワークスペースのコンテンツのリストを提供します。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> 削除されたユーザーを含むシステムのユーザーのリストを提供します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Duration </td><td colspan="1" rowspan="1"> 単一の日付（例えば、1月23日）に対してデータを引き込むか、日付範囲（例えば、1月23日～1月31日）に対してデータを引き込むかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 <b><b><b><b> ［Specific］ </b></b></b></b> を選択すると、レポートは実行されるたびに、常に選択された日付に対するデータを引き出します。 <b><b><b><b> ［Relative］ </b></b></b></b> を選択すると、レポートは実行されるたびに入力された遡る日数分のデータを引き出します。例えば、 <b><b><b><b> ［Relative］ </b></b></b></b> を選択し、遡る日数に対して7を入力すると、レポートが実行されるたびに過去7日間のデータが引き込まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用してデータを取得するレポートの日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back </td><td colspan="1" rowspan="1"> データを取得するのに遡る日数を入力します。今日を指定するにはtodayまたは0、昨日ならyesterdayまたは1、過去7日間のデータを取得するにはtoday-7または7と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付を、 <b><b><b><b> ［End Date］ </b></b></b></b> で選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="1" rowspan="1"> 日付範囲の最終日が特定の日か、相対日付かを指定します。日付範囲の最初の日付を <b><b><b><b> ［Start Date］ </b></b></b></b> で選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Start Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Specific End Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back to Start From </td><td colspan="1" rowspan="1"><p> データを取得したい遡る日数（開始日）を入力します。 <b><b><b><b> ［Days Back to End At］ </b></b></b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b><b><b> ［Days Back to Start From］ </b></b></b></b> に10、 <b><b><b><b> ［Days Back to End At］ </b></b></b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Days Back to End At </td><td colspan="1" rowspan="1"><p> データを取得するのに遡る日数（終了日）を入力します。 <b><b><b><b> ［Days Back to Start From］ </b></b></b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b><b><b> ［Days Back to Start From］ </b></b></b></b> に10、 <b><b><b><b> ［Days Back to End At］ </b></b></b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

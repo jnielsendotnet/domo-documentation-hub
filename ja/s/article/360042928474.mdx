@@ -1,0 +1,117 @@
+---
+title: "Square V2コネクター"
+---
+
+## はじめに
+
+Square, Inc.は、金融サービス、マーチャントサービスアグリゲーターおよびモバイル決済企業です。DomoのSquare V2コネクターを使用すると、商品の在庫、顧客、返金などに関するデータを取得することができます。Square APIについての詳細は、ウェブサイト（ [https://docs.connect.squareup.com/](https://docs.connect.squareup.com/ "https://docs.connect.squareup.com/") ）を参照してください。
+
+Square V2コネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含む他のクラウドAppコネクターのページにアクセスできます。
+
+このバージョンのコネクターが提供するレポートは、標準のSquareコネクターのレポートとは異なるものです。標準バージョン詳細は、「 [Squareコネクター](/ja/s/article/360042928434 "Squareコネクター") 」を参照してください。
+
+このトピックでは、Square V2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用すると、在庫、販売、支払い、返金、銀行預金に関するデータを取得できます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 在庫アイテム </p></li><li><p> 支払いと売り上げ情報 </p></li><li><p> 払い戻し額 </p></li><li><p> 銀行口座へのキャッシュフロー </p></li><li><p> 支払いが行われた場所 </p></li><li><p> 場所ごとに生成された金額 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> CFO </p></li><li><p> 会計 </p></li><li><p> 営業 </p></li><li><p> ウェアハウス </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 数分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Squareアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Squareアカウントへのログインに使用するメールアドレス
+* Squareアカウントのログインに使用するパスワード
+
+## Squareに接続する
+
+このセクションでは、Square V2コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Square V2コネクターは接続にOAuthを使用しています。 **［アカウントを追加］** をクリックすると、SquareのOAuth画面が開き、Squareアカウントに関連付けられているメールアドレスとパスワードを入力することができます。別のブラウザータブにあるSquareの認証済みユーザーセッションでは、アクティブなブラウザーセッションのユーザーのOAuthを完了する必要があります。有効なSquare認証情報を入力しておくと、Domoで随時同じアカウントを使用してSquare V2 DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインではレポートタイプと必要なパラメーターを選択します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Square V2レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> カタログ </p></td><td colspan="1" rowspan="1"><p> 指定したマーチャントの製品在庫とカタログに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> 顧客 </td><td colspan="1" rowspan="1"> 指定したマーチャントの顧客に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 場所 </p></td><td colspan="1" rowspan="1"><p> 指定したマーチャントの場所に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 返金 </p></td><td colspan="1" rowspan="1"><p> マーチャントまたはマーチャントのモバイルスタッフが行ったすべての返金の詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> トランザクション </p></td><td colspan="1" rowspan="1"><p> 指定したマーチャントが開始したすべてのトランザクションの詳細を返します。 </p></td></tr></tbody></table></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 開始日 </td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は、 <b> ［終了日］ </b> で選択します。 </p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 特定の開始日を選択 </td>
+<td colspan="1" rowspan="1">
+<p> 日付範囲の最初の日付を選択します。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span><b> 注記： </b> 1年を超える日付範囲を選択すると、コネクターからエラーがスローされます。 </span></div></div></div> 
+</Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 終了日 </td><td colspan="1" rowspan="1"> 日付範囲の終了日を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は、 <b> ［開始日］ </b> で選択します。 </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 特定の終了日を選択 </td>
+ <td colspan="1" rowspan="1">
+ <p> 日付範囲の最終日を選択します。 </p> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><span><b> 注記： </b> 1年を超える日付範囲を選択すると、コネクターからエラーがスローされます。 </span></div></div></div> 
+ </Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 開始日のオフセット </td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［終了日のオフセット］ </b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b> ［開始日のオフセット］ </b> で <span class="mt-font-courier-new"> 10 </span> 、 <b> ［終了日のオフセット］ </b> で <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートに含まれるのは、 <span class="mt-font-courier-new"> 10 </span> 日前から <span class="mt-font-courier-new"> 5 </span> 日前のデータになります。 </p></td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"> 終了日のオフセット </td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［開始日のオフセット］ </b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b> ［開始日のオフセット］ </b> で <span class="mt-font-courier-new"> 10 </span> 、 <b> ［終了日のオフセット］ </b> で <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートに含まれるのは、 <span class="mt-font-courier-new"> 10 </span> 日前から <span class="mt-font-courier-new"> 5 </span> 日前のデータになります。 </p></td></tr>
+ </tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* 認証情報が有効であることを確認してください。
+* 日付範囲が適切に設定されていることを確認してください。1年を超える日付範囲を選択すると、コネクターからエラーがスローされます。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthが使用されるため、Domoによってログイン認証情報が表示または保存されることはありません。DomoのSquareアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは、1時間に1回更新できます。レート制限エラーが発生する場合は、更新頻度を減らしてください。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+SquareのAPIにはレート制限は設けられていません。
+
+
+</Accordion>
+<Accordion title="# SquareコネクターとSquare V2コネクターにはどのような違いがありますか？">
+
+
+Square V2コネクターは、カタログ、顧客、場所、返金、トランザクションのレポートをサポートします。 [Squareコネクター](/ja/s/article/360042928434 "Squareコネクター") は、アイテム、場所、マーチャント、支払い、支払い科目仕訳、返金、決済のレポートをサポートします
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,81 @@
+---
+title: "Amazon RDSコネクター"
+---
+
+## はじめに
+
+このコネクターは、AWSの任意のリレーショナルデータベースサービス（RDS）からデータを取り込むのに適しています。つまり、MySQL、Postgres、MariaDB、Oracle、SQL Serverなどを使用してデータを取り込むことができます。このドキュメントでは、AWS RDSデータベースに接続する方法と注意事項について説明します。
+
+AWS APIの詳細については、ウェブサイト（
+https://aws.amazon.com/api-gateway/
+）を参照してください。
+
+AWS RDSアカウントには、Data Centerから接続します。このトピックでは、AWS Data Exchangeコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AWS RDSアカウントに接続してDataSetを作成するには、以下の 構築済みデータコネクターが必要です。
+
+* MySQLコネクター
+* Postgresコネクター
+* SQL Server
+* MariaDB
+
+使用しているデータベースエンジン（MySQL、Postgres、SQL Server、Maria DB）に応じて、Domoの適切なコネクターを利用します。
+
+### 認証情報を見つける
+
+1. AWSマネジメントコンソールにサインインして、Amazon RDSコンソール（
+   https://console.aws.amazon.com/rds/
+   ）を開きます。
+2. ナビゲーションペインで
+   **データベース** を選択し、DBインスタンスのリストを表示します。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQMD.jpg"/></Frame>
+
+3. DBインスタンスの名前を選択して詳細を表示します（
+   **これはデータベース名です** ）。
+4. **［Connectivity & security］**
+   タブで［Endpoint］の値をコピーします（ **これはホストです** ）。
+
+   また、［Port］番号もメモしておきます（これはポートです）。DBインスタンスに接続するには、エンドポイントとポート番号の両方が必要です。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQNp.jpg"/></Frame>
+
+5. コネクターがユーザー名を必要としている場合は、［Configuration］タブを選択して、
+   **［Master Username］** の値を表示します。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQPR.jpg"/></Frame>
+
+### インバウンドトラフィックソースをホワイトリストに登録する
+
+デフォルトでは、Amazon RDSデータベースを作成した場合、インバウンドトラフィックソースをホワイトリストに登録しない限り、そのデータベースに接続できません。
+
+1. データベースを選択します。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQSf.jpg" style={{width: 823, height: 194}}/></Frame>
+
+2. 選択したデータベースの［Connectivity & security］タブに移動します。
+   **［Publicly accessible］** が **［Yes］** になっていることを確認します。
+   * **［Publicly accessible］**
+     が **［No］** の場合は、右上の **［Modify］** をクリックし、 **［Connectivity］** で公開設定を変更します（ **［Additional configuration］** セクションを展開し、 **［Publicly accessible］** > **［Yes］** を選択します）。
+3. ［Connectivity & security］タブで、データベースに適用されているセキュリティグループをクリックし、IPアドレスをホワイトリストに登録します。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQVt.jpg" style={{width: 692, height: 365}}/></Frame>
+
+4. これは、手順3でセキュリティグループを選択した後の画面です。RDSデータベースに属するセキュリティグループが選択/ハイライト表示されていることを確認します。下の
+   **［Inbound rules］** をクリックし（ハイライト表示されているアイテムを右クリックし、
+
+   **［Edit inbound rules］** をクリックすることもできます）、 **［Edit］** をクリックします。
+
+   <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQXV.jpg" style={{width: 660, height: 464}}/></Frame>
+
+5. [https://domo-support.domo.com/s/article/360043630093](/ja/s/article/360043630093)
+
+   に記載されているIPアドレスのうち必要なものをホワイトリストに登録します。無料トライアルの場合は、米国東部のIPアドレスをホワイトリストに登録します。
+6. DB識別子はデータベース名と異なる場合があります。多くの場合、データベース名は指定されていないため、DB名はDB識別子になります。ただし、DB名が指定されている場合は、データベース名としてその値を使用します。
+
+   * データベース設定画面の
+     **［Configuration］** タブに移動して、正しいデータベース名になっているかをダブルチェックし、 **［DB Name］** の値に着目します。 **［DB Name］** が空の場合は、 **［DB Instance ID］** の値を使用します。
+
+     <Frame><img src="/images/kb/ka0Vq0000000CfV-00N5w00000Ri7BU-0EMVq000000AQZ7.jpg"/></Frame>

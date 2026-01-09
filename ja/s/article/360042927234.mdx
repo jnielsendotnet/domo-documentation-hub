@@ -1,0 +1,55 @@
+---
+title: "Salesforce Radian6 Advancedコネクター"
+---
+
+## はじめに
+
+Salesforce Radian6は、ユーザーが自分の会社、製品、競合他社に関する顧客の話を聞き、それを分析し、顧客の話に対応することを可能にするものです。
+
+DomoのSalesforce Radian6コネクターを使用すると、Salesforce Marketing Cloudの機能性を拡張することができます。Radian6 APIを使うことで、以下ができるようになります。
+
+* カスタマイズされたレポートや独自の視覚化を作成する。
+* トピックプロフィールから直接投稿データを抽出する。
+* 視覚エフェクトやRadian6ダッシュボードのウィジェットからデータを抽出する。
+* ポストタグやソースタグのような後から追加された投稿データにアクセスする。
+
+Salesforce Radian6 APIの詳細については、ウェブサイト（
+https://developer.salesforce.com/docs/atlas.en-us.salesforce1api.meta/salesforce1api/radian6_intro.htm
+）を参照してください。
+
+Salesforce Radian6コネクターは「クラウドApp」コネクターです。つまり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Salesforce Radian6のアカウントには、 Data Center からアクセスします。このトピックでは、Radian6コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+これは、コネクターの「高度な」バージョンであり、標準バージョンよりも多くのレポートタイプと設定オプションが備わっています。標準バージョンの詳細については、「 [Salesforce Radian6コネクター](/ja/s/article/360043431773 "Salesforce Radian6コネクター") 」を参照してください。
+
+## 必要条件
+
+Salesforce Radian6アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Radian6のユーザー名とパスワード。
+* Radian6のAPIキー。APIキーが分からない場合は、Salesforce Radian6アカウント担当者に問い合わせてください。
+
+## Salesforce Radian6アカウントに接続する
+
+このセクションでは、Salesforce Radian6コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Salesforce Radian6アカウントに接続するための認証情報入力フィールドが含まれています。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Radian6 Environment </p></td><td colspan="1" rowspan="1"><p> 接続したいRadian6環境を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Radian6アカウントのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Radian6アカウントへのログインに使用するパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Radian6のAPIキーを入力します。APIキーが分からない場合は、アカウント担当者に問い合わせてください。 </p></td></tr></tbody></table>
+
+有効なRadian6認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいRadian6 DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Radian6レポートのタイプを選択する **［Report］** メニューがあります。選択するレポートによっては、ほかのメニューやフィールドが表示されることがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Radian6レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Conversation Cloud </p></td><td colspan="1" rowspan="1"><p> 過去数時間のConversation Cloud情報を返します。トピック、高度なフィルタータイプ、拡張メディアタイプに関するフィルターも使用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Insight Segmentation </p></td><td colspan="1" rowspan="1"><p> 特定の日または日付範囲におけるインサイトセグメント情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Number of Posts </p></td><td colspan="1" rowspan="1"><p> すべてのトピックの投稿数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Radian6 River of News </p></td><td colspan="1" rowspan="1"><p> River of Newsの投稿コンテンツを指定された過去時間数分だけ返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Radian6 River of News by Keyword Group </p></td><td colspan="1" rowspan="1"><p> River of Newsの投稿コンテンツを指定された過去時間数分だけ、キーワードグループ別に返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topic Information </p></td><td colspan="1" rowspan="1"><p> 特定の認証情報に関連するトピックの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topic Trends </p></td><td colspan="1" rowspan="1"><p> 選択したトピックの時系列データを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Topic ID/Topic Profile ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得したいトピックのIDを入力します。全トピックの情報を取得するには、「 <span class="mt-font-courier-new"> All </span> 」と入力します。「River of News」レポートの複数のトピックを取得する場合は、カンマで区切って入力します。例： <span class="mt-font-courier-new"> 123,456,789。 </span> 「Insight Segmentation」レポートは複数のIDには対応していません。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics/Topics Profile </p></td><td colspan="1" rowspan="1"><p> レポートデータを取得するトピックを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Advanced Filter Types </p></td><td colspan="1" rowspan="1"><p> データの取得に使用する高度なフィルタータイプをすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Extended Media Types </p></td><td colspan="1" rowspan="1"><p> データの取得に使用する拡張メディアタイプをすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Hours </p></td><td colspan="1" rowspan="1"><p> 過去何時間分のデータを取得したいか入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付、日付範囲、過去の時間数のいずれでデータを取得するかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付のものか、今日から何日か前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> View By </p></td><td colspan="1" rowspan="1"><p> レポートで表示させる最初のインサイトを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Segment By </p></td><td colspan="1" rowspan="1"><p><b> ［View By］ </b> で選んだインサイトの後、レポートの結果を区分するのに使うインサイトを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

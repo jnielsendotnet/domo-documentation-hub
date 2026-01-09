@@ -1,0 +1,167 @@
+---
+title: "Domo DataSetアラートからキャンペーンを発生させる"
+---
+
+## はじめに
+
+Domo DataSetアラートからキャンペーンを開始できます。Domo DataSetアラートのドキュメントは [ここ](/s/article/360042925994 "DataSetのアラートを作成する") にあります。
+
+## キャンペーンでDomo DataSetアラートを設定する
+
+### DataSetアラートに進む
+
+Domo DataSetアラートを設定するには、 **［データ］** に進み、 **［アラート］** タブでDataSetを選択し、 **［新規アラート］** をクリックします。
+
+<Frame><img alt="Alerts.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKK.png"/></Frame>
+### アラートを設定
+
+アラートのルールを設定します。アラートを設定するためのドキュメントは、 [こちら](/s/article/360042925994 "https://knowledge.domo.com/Optimize/Notifications_and_Alerts/Creating_an_Alert_for_a_DataSet") を参照してください。
+
+<Warning>
+  **注記：** ［ **データが更新され次第** 、このアラートが発生状態であるときに通知されます］セクションに進み、［発生している状態の間は通知を送信し続ける］チェックボックスの **チェックを外します** 。そうしないと、キャンペーンが何度も発生し、受信者にスパムを送ることになる可能性があります。
+
+  <Frame><img alt="Continue_Triggering.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKM.png"/></Frame>
+</Warning>
+
+完了したら **［次へ］** をクリックします。
+
+### Domo Webhookを作成
+
+次のステップは、キャンペーンを発生させるDomo Webhookを作成することです。メッセージ画面で **［別の操作を追加］** をクリックして、 **［Domo Webhook］** を選択します。
+
+<Frame><img alt="Domo_Webhook.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKP.png"/></Frame>
+### Domo Webhookを設定
+
+次に：
+
+1. **［URL］** というタイトルのボックスに、次のURLを貼り付けます。
+
+   [https://campaigns-prod.domolabs.io/api/v1/campaigns/bae/start](https://campaigns-prod.domolabs.io/api/v1/campaigns/bae/start "https://campaigns-prod.domolabs.io/api/v1/campaigns/bae/start")
+2. **［方法］** に **［POST］** を設定します。
+3. **［シークレット（オプション）］** ボックスは空白のままにしておきます。
+4. **［Webhook本文］** をクリックして、このセクションを展開します。
+
+<Frame><img alt="Configure_Webhook.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKL.png"/></Frame>
+### Domo Webhook本文を設定
+
+Domo Webhook本文を設定するには、 **メッセージ** の横にある鉛筆アイコンをクリックする必要があります。
+
+<Frame><img alt="Pencil_Icon.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKN.png"/></Frame>
+**［Webhookの本文メッセージをカスタマイズする］** セクションに、次のJSONを貼り付けます。
+
+```json
+{ "campaignId": 0, "instance": "", "domoAccessToken": "", "domoAccessTokenOwnerEmailAddress": "", "emailAddresses": [""], "isTest":true, "fields":[{"key": "", "value": ""}, {"key": "", "value": ""}, {"key": "", "value": ""}] }
+```
+
+<Frame><img alt="Json_Body.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKJ.png"/></Frame>
+各値は以下のように定義します。
+
+#### キャンペーンID
+
+開始したいキャンペーンのID。キャンペーンIDは、キャンペーンを編集し **［設定］** タブに移動することで確認できます。
+
+<Frame><img alt="Settings.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKR.png"/></Frame>
+#### Domoアクセストークン
+
+Domoで生成されたDomoアクセストークン。Domoアクセストークンは、ログインして **［管理者］** 設定セクションに移動し、 **［セキュリティ］** に進み、 **［アクセストークン］** を選択することで生成できます。ここで、APIの呼び出しに使用する新しいアクセストークンを簡単に生成できます。
+
+<Frame><img alt="AccessToken.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKU.png"/></Frame>
+#### Domoアクセストークン所有者のメールアドレス
+
+上記で指定した **Domoアクセストークン** を所有しているユーザーのメールアドレス。
+
+#### メールアドレス（オプション）
+
+キャンペーンを配信するメールアドレスのリスト。メールアドレスが選択されていない場合、キャンペーン全体が開始され、配布リストのすべての受信者に配信されます。
+
+<Note>
+  **注記：** これらのメールアドレスは配布リストに存在する **必要があります** 。配布リストに存在しないメールアドレスを指定すると、そのメールアドレスにはメールは配信されません。
+
+</Note>
+
+<Tip>
+  **ヒント：** **［+メトリクス］** ボタンを使って、このアラートを発生させたDataSet内に行の値を含めることができます。例えば、このキャンペーンを、このアラートを発生させたDataSet内の行のメールアドレスにのみ配信する場合は、 **［+メトリクス］** をクリックして、メールアドレスを含むDataSet内のフィールドを選択します。
+
+  <Frame><img alt="Email_Metric.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKS.png"/></Frame>
+  これにより、DataSet内でそのフィールドを参照するWebhookの本文メッセージにタグが追加されます。このアラートが発生すると、アラートを発生させた行のメールアドレスがキャンペーンに送信されるメッセージに含まれます。これにより、キャンペーンはそのメールアドレスにのみ配信されます。ここでも、メールアドレスは配布リストに存在している **必要がある** ことに留意してください。存在しない場合、メールは配信されません。
+
+</Tip>
+
+#### インスタンス
+
+お客様のDomoインスタンス（例： [domo.domo.com](http://domo.domo.com) ）。
+
+#### Is Test（オプション）
+
+このフラグを使ってテストキャンペーンを送信できます。受信者にメールを実際に送信せずにキャンペーン、接続、アクセストークンなどをテストできます。これは、Campaigns Appの **［Distribution List］** 内から **［Test Email］** ボタンをクリックした場合と同じ機能です。テストキャンペーンを送信すると、配信されたコンテンツをテストおよび検証できるように、受信者ではなくキャンペーンの **送信者アドレス** にメールが配信されます。
+
+<Note>
+  **注記：** このフラグを **true** に設定した場合、 **メールアドレス** のフィールドに少なくとも1つのメールアドレスを指定する **必要があります** 。少なくとも1つのメールアドレスを指定しないとテストキャンペーンを送信できません。
+
+</Note>
+
+#### フィールド（オプション）
+
+フィールドを使うと、アラートからキャンペーンにほかの情報と値を渡し、キャンペーンメッセージ内でその情報を使用できます。
+
+例えば、このアラートを追加しようとしているDataSetに、 **名** と **姓** のフィールドがあり、これらのフィールドをキャンペーンに含めたい場合は、DataSetから取得したこれらのフィールドを **フィールド** リストに含めることになります。次に、この **キー** を使ってこれらの値をキャンペーンに挿入できます。
+
+<Frame><img alt="Fields_Example.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKV.png"/></Frame>
+それから、自分のキャンペーンに移動し、アラートフィールドを表示したいキャンペーン内の任意の場所に次のタグを追加します。
+
+```json
+{{domo-alert-［フィールドキーはここに挿入］}}
+```
+
+**名** を表示したい任意の場所にタグを追加し、
+
+```json
+ {{domo-alert-first name}}
+```
+
+**姓** を表示したい任意の場所にタグを追加します。
+
+```json
+{{domo-alert-last name}}
+```
+
+キャンペーン内では以下のように表示されます。
+
+<Frame><img alt="In_Campaigns.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKT.png"/></Frame>
+<Warning>
+  **注記：** 障害や問題を避けるには、DataSetアラートでキーの名前がキャンペーンタグの名前と正確に一致していることを確認してください 。
+
+  <Frame><img alt="Match.png" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKO.png"/></Frame>
+</Warning>
+
+#### Webhookの本文メッセージの例
+
+完成したWebhookの本文メッセージの例は以下のようになります。
+
+<Frame><img alt="Example.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKQ.png"/></Frame>
+### テストとエラー
+
+#### テスト
+
+Webhookの本文メッセージを設定したら、 **［テストを送信］** ボタンをクリックしてテストを実行できます。
+
+<Frame><img alt="Send_Test.PNG" src="/images/kb/ka05w00000123UJ-00N5w00000Ri7BU-0EM5w000005vOKI.png"/></Frame>
+これは、カスタムWebhookの本文メッセージで、キャンペーンのエンドポイントをコールし、コールが成功したか失敗したかを通知します。
+
+<Note>
+  **注記：** このキャンペーンを誤ってすべての受信者に送信しないように、必ず **isTest** フラグを **true** に設定し、 **emailAddresses** フィールドに少なくとも1つのメールアドレスを含めてください。
+
+</Note>
+
+#### エラー
+
+テストが成功しなかった場合、確認すべきことが多数あります。その一部は次の通りです。
+
+1. キャンペーンIDが正しいかどうかを確認します。
+2. **domoAccessToken** フィールドで指定した有効なDomoアクセストークンがあることを確認します。
+3. Domoアクセストークンを所有しているDomoユーザーがキャンペーンおよびキャンペーンの配布リストDataSetにアクセスできることを確認します。
+4. **domoAccessTokenOwnerEmailAddress** フィールドで指定されたメールアドレスが、Domoアクセストークンを所有しているDomo内のユーザーのメールアドレスと一致していることを確認します。
+5. **isTest** フラグが **true** に設定されている場合、 **emailAddresses** フィールドに少なくとも1つのメールアドレスが含まれることを確認します。
+6. Webhookの本文メッセージが正しい形式のJSONオブジェクトであることを確認します。オンラインで利用可能な様々なJSON検証ツールを、確認に使用できます。
+
+日本語

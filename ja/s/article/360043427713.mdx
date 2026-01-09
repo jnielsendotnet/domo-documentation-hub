@@ -1,0 +1,92 @@
+---
+title: "古いMagic ETLのタイル：DataSet"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+<Note>
+  **注記：** この記事は古いMagic ETLを対象としています。新しいMagic ETLの詳細については、「 [Magic ETL](/s/topic/0TO5w000000ZanvGAC) 」を参照してください。
+
+</Note>
+
+Magic ETLのすべての変換フローで、入力DataSetと出力DataSetが必要です。少なくとも1つの入力DataSetが必要ですが、必要な数だけ含めることができます。変換フローの最後には1つの出力DataSetが必要です。これはDomoカードとAppを起動するために使用できるDataSetです。
+
+Magic ETL DataFlowの作成については、「 Magic ETL DataFlowを作成する 」を参照してください。
+
+Data Centerについては、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+<Warning>
+  **重要：** DataFlowの入力DataSetは、PDPポリシーで制限することはできません。利用可能なすべての行はDataFlowを経由する *必要があります* 。このため、PDPポリシーは、DataFlowが生成する出力DataSetに適用する必要があります。
+
+  PDPポリシーが適用されている入力DataSetを使ってDataFlowを作成する際は、以下の条件が少なくとも1つ満たされていないと、DataFlowに不具合が発生します。
+
+  * 「管理者」セキュリティプロフィール、または「DataFlowを管理」が有効なカスタイズされた権限がある。
+  * あなたはDataSetの所有者である。
+  * 「All Rows」ポリシーに自分のユーザーアカウントが追加されている。これにより、DataSetのすべての行にアクセスできます。
+
+  DataFlowでPDPを使用する方法の詳細については、「 PDPとDataFusion/DataFlow 」を参照してください。
+
+</Warning>
+
+## 入力DataSet
+
+入力DataSetタイルを使用することで、DataSetを変換フローに追加することができます。
+
+変換フローには最低1つの入力DataSetが必要です。
+
+<Note>
+  **注記：** Magic ETLで使用できる最大列数は1,500です。
+
+</Note>
+
+### 設定
+
+**入力DataSetタイルを設定するには：**
+
+1. 変換するデータが、DomoにDataSetとして既に存在していることを確認します。
+2. **［入力DataSet］** タイルをクリックし、変換するDataSetを選択します。
+
+### 詳細
+
+入力タイルの **［詳細］** タブで、DataSetの以下に項目について表示することができます。
+
+* 名前
+* 所有者
+* 行数
+* 最終更新
+* 列名とタイプ
+
+### データ
+
+**［データ］** タブを選択して、入力データのテーブルをプレビューします。
+
+## 出力DataSet
+
+［出力DataSet］タイルを使用して、変換データをDataSetとして出力することができます。この新しいDataSetを使用して、カード（またはほかのDataFlow）に情報を追加することができます。
+
+変換フローには出力DataSetが *必要です* 。
+
+<Note>
+  **注記：** スケジュールされた実行設定にもとづいて、トリガーがアクティブになった時にDataFlowを実行するように設定できます。Magic ETL DataFlowのスケジュール設定の詳細については、「 [Advanced DataFlow Triggering](/s/article/000005216) 」を参照してください。
+
+</Note>
+
+### 設定
+
+**出力DataSetタイルを設定するには：**
+
+1. タイルが **［出力DataSet］** タイルに接続されていて、またすべてのタイルが変換フローに接続および設定されていることを確認します。
+2. **［出力DataSet］** タイルをクリックし、 <InlineImage src="/images/kb/ja/ka0Vq0000000KbT-00N5w00000Ri7BU-0EM5w000005vNgD.png" /> をクリックして名前と説明を入力して、出力するDataSetの名前を指定します。
+
+   <Tip>
+     **ヒント：** 出力DataSetにあるデータをプレビューするには、プレビューを実行し **［出力DataSet］** タイルをクリックしてから **［プレビュー］** タブをクリックします。
+
+   </Tip>
+
+### 詳細
+
+DataFlowがまだ実行されていない場合、使用可能な詳細は所有者、列名、列タイプです。正常に実行されると、入力タイルについて上記と同じ詳細をすべて表示できます。
+
+日本語

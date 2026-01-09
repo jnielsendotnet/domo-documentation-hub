@@ -1,0 +1,189 @@
+---
+title: "Upsert対応のSalesforceコネクター"
+---
+
+## はじめに
+
+Domo SalesforceコネクターはDomoとSalesforceを統合し、APIが有効なSalesforceのバージョン（現在はEnterpriseとUnlimited）からデータを抽出します。DomoとSalesforceの間で接続を確立するには、APIが有効になっているユーザーが、まずSalesforceで認証し、それからDomoにデータへのアクセスを許可する必要があります。その後、Salesforceのデータにもとづいたレポートを編集できるようになります。SalesforceのUpsertコネクターは、DataSetのスケジュールを設定するためにUpsertモードとAppend/Replaceモードをサポートします。Salesforce APIの詳細については、以下のいずれかを参照してください。
+
+* https://www.salesforce.com/developer/docs/api/
+* [http://resources.docs.salesforce.com...\_reference.pdf](http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf "http://resources.docs.salesforce.com/200/9/en-us/sfdc/pdf/salesforce_field_names_reference.pdf")
+* [https://developer.salesforce.com/doc...data\_model.htm](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm "https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/data_model.htm")
+
+Upsert対応のSalesforceコネクターは「クラウドApp」コネクターです。つまり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Salesforceのアカウントには、Data Centerから接続します。このトピックでは、Upsert対応のSalesforceコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 主な使用事例 </b></td><td colspan="1" rowspan="1"><p> このコネクターはSalesforceのAPI対応版からのリード、パイプラインのアクティビティといったデータの取り込みに適しています。 </p></td></tr><tr><td colspan="1" rowspan="1"><b> 主なメトリクス </b></td><td colspan="1" rowspan="1"><ul><li><p> リードの数 </p></li><li><p> パイプラインの量 </p></li><li><p> 予約 </p></li><li><p> ケース </p></li><li><p> ミーティング </p></li><li><p> ポートフォリオのアクティビティ </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 社内における主な権限 </b></td><td colspan="1" rowspan="1"><p><span> Salesforceには幅広い機能があり、営業、マーケティング、人事、事務、財務、ITをはじめとする多くの部門、そして、アナリスト、営業担当、マネージャー、VPなどといった多様な職務で活用できます。すべてSalesforceの実装方法、作成するオブジェクトやモジュールによって異なります。 </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 平均導入時間 </b></td><td class="mt-noheading" colspan="1" rowspan="1"><span> オブジェクト、レポート、データサイズによって異なりますが、Salesforceの導入は非常に迅速に完了します。必要な項目を特定したら、数分でデータを取り込むことができます。数百万行もあるような非常に大規模なデータの取り込みには、約1時間かかります。 </span></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></td><td colspan="1" rowspan="1"><span> 4 </span></td></tr></tbody></table>
+
+## ベストプラクティス
+
+［Object Browser］モードでは、Salesforceが関連オブジェクト（オポチュニティー、取引先など）を含むため、各関連オブジェクトのフィールドを同じDataSetに持ち込むことができます。この結果、事あるごとに様々なオブジェクト（オポチュニティーオブジェクトと取引先オブジェクトという別々のオブジェクト）を個別に取り込み、DataFlowに結合するという必要がなくなります。
+
+## 必要条件
+
+Salesforceアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Salesforceアカウントのユーザー名とパスワード
+* Salesforce AppExchangeからインストールしたDomoコネクターパッケージ（2018年8月1日以降は必須。インストール手順については次のセクションを参照）
+
+### Domoコネクターパッケージをインストールする
+
+Salesforce AppExchangeにある「Domoコネクターパッケージ」を使用して、Salesforceユーザーは、SalesforceのデータをDomoにインポートできます。この手順に沿ってAppExchangeからコネクターパッケージをダウンロードし、インストールします。
+
+**DomoのSalesforce管理パッケージをインストールするには：**
+
+1. Salesforceにログインします。
+2. Salesforce AppExchange（ [https://appexchange.salesforce.com](https://appexchange.salesforce.com "https://appexchange.salesforce.com") ）に移動し、「Domo Connector Package」を検索してクリックします。
+
+   <Frame><img alt="sfmp_1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyZ.png"/></Frame>
+
+3. お客様は、次のリンクを使用して直接パッケージにアクセスできます。
+
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "フォローリンク")
+4. サンドボックス組織にインストールする場合は、URLの最初の部分を [http://test.salesforce.com](http://test.salesforce.com/ "フォローリンク") に置き換える必要があります。または、 [https://appexchange.salesforce.com/a...A00000EcrsyUAB](https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB "https://appexchange.salesforce.com/appxListingDetail?listingId=a0N3A00000EcrsyUAB") に直接移動することもできます。
+5. **［Get It Now］** をクリックします。
+
+   <Frame><img alt="sfmp_2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyV.png"/></Frame>
+
+6. インストール先として実稼働環境かサンドボックスを選択します。
+
+   <Frame><img alt="sfmp_3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyK.png"/></Frame>
+
+7. 「I have read and agree to the terms and conditions.」というチェックボックスをオンにします。
+8. **［Confirm and Install］** をクリックします。
+
+   <Frame><img alt="sfmp_4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyW.png"/></Frame>
+
+9. **［Install for All Users］** タイルをクリックします。
+
+   <Frame><img alt="sfmp_5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyP.png"/></Frame>
+
+詳細については、Salesforceのドキュメント（ [https://help.salesforce.com/articleV...ges.htm&type=5](https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5 "https://help.salesforce.com/articleView?id=distribution_installing_packages.htm&type=5") ）を参照してください。
+
+### インストールを確認する
+
+DomoのSalesforce管理パッケージ検証ツールを使い、Salesforce管理パッケージが正しくインストールされていることを確認します。
+
+**インストールを確認するには：**
+
+1. DomoのData CenterまたはAppstoreのコネクターページで「Salesforce Managed Package」を検索し、アイコンをダブルクリックします。
+2. お客様は、次のリンクを使用して直接パッケージにアクセスできます。
+   [https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t1I000001ymKN "フォローリンク")
+3. サンドボックス組織にインストールする場合は、URLの最初の部分を [http://test.salesforce.com](http://test.salesforce.com/) に置き換える必要があります。
+
+   <Frame><img alt="sfmp_v1.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyJ.png"/></Frame>
+
+4. **［Get the Data］** をクリックします。
+
+   <Frame><img alt="sfmp_v2.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyQ.png"/></Frame>
+
+5. **［認証情報］** でSalesforceのアカウント名を選択し、 **［Next］** をクリックします。
+
+   <Frame><img alt="sfmp_v3.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyT.png"/></Frame>
+
+6. **［詳細］** で **［Next］** をクリックします。
+
+   <Frame><img alt="sfmp_v4.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyL.png"/></Frame>
+
+7. **［Update］** メニューで **［Manually］** を選択し、 **［Next］** をクリックします。
+
+   <Frame><img alt="sfmp_v5.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyN.png"/></Frame>
+
+8. DataSetに名前をつけて、**［Save］** をクリックします。
+
+   <Frame><img alt="sfmp_v6.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyb.png"/></Frame>
+
+これでDataSetが実行されます。すべて正しく設定できていれば、このまま正常に実行でき、「Validation Success: You have set up your Salesforce Managed Package correctly.」というメッセージが表示されます。
+
+<Frame><img alt="sfmp_v7.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyM.png"/></Frame>
+
+セットアップに *不備* があった場合はDataSetが失敗し、本記事へのヘルプリンクとともに、「You have not installed Salesforce's Domo Connector Package」というメッセージが表示されます。
+
+<Frame><img alt="sfmp_v8.png" src="/images/kb/ka05w000001235y-00N5w00000Ri7BU-0EM5w000005vNyO.png"/></Frame>
+
+## Salesforceアカウントに接続する
+
+このセクションではUpsert対応のSalesforceコネクターページの［認証情報］と［Data Selection］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Upsert対応のDomo Salesforceコネクターは、接続にOAuthを使用しており、Domo内で認証情報を入力する必要はありません。［Salesforce環境］メニューで環境を選択し、［接続］をクリックしてSalesforceのログイン画面を開きます。ここで、Salesforceのユーザー名とパスワードを入力できます。有効なSalesforceの認証情報を一度入力しておくと、随時同じアカウントを利用して新しいSalesforce Upsert DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［Data Selection］ペイン
+
+このペインには、メインメニュー **［How Do You Want to Select Your Salesforce Data］** のほかにも様々なメニューがあり、選択したレポートタイプに応じて表示されたりされなかったりします。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> How Do You Want to Select Your Salesforce Data? </p></td><td colspan="1" rowspan="1"><p> Salesforceからデータを引き出すとき使う方法を選択します。以下の方法があります。 </p><ul><li> ［Browse Objects and Fields］ - 関連するフィールドやリレーションシップごとにSalesforceのオブジェクトを選択できます。 </li><li> ［Query］ - SOQLクエリを入力してデータを取得できます。 </li><li> ［Tabular Reports］ - Salesforce内にある表形式レポートを取得できます。 </li><li> ［Sharing Rules Settings］ - Salesforceから共有ルールを取得できます。 </li></ul></td></tr><tr><td colspan="1" rowspan="1"> Type of Records to Retrieve </td><td colspan="1" rowspan="1"> 検索対象をアクティブなレコードのみに絞るか、削除済みレコードも含めるかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Unique Field to Retrieve More Than 2000 Rows </td><td colspan="1" rowspan="1"> レポートの各行にユニーク値を含むフィールドを選択します。2,000行を超えるデータを取得するために使用されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Query Option </p></td><td colspan="1" rowspan="1"><p> 定義済みクエリ（ <b> ［Sales Performance］ </b> または <b> ［User Images］ </b> ）を選択するか、自分自身のクエリを作成します（ <b> ［Custom］ </b> ）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> ここにはSalesforceのSOQLクエリを入力します。例： </p><p><span class="mt-font-courier-new"> SELECT <em> Account </em> FROM Account </span></p><p> SOQLクエリ記述の詳細については、 <a href="http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm" target="_blank"> http://www.salesforce.com/us/developer/docs/officetoolkit/Content/sforce_api_calls_soql.htm </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"> Reset Schema </td><td colspan="1" rowspan="1"><p> データ内の列をリセットするオプションを選択します。一般的には、選択したフィールドまたはカスタムクエリを変更するときは、2番目のオプションを選択することになります。その後、DataSetを実行し、最初のオプションに切り替えて、以後の実行時にはスキーマを維持し、データタイプで問題が生じないようにすることになります。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+Salesforceは全体的には非常に安定したコネクターで、Salesforceに特有の問題はほぼありません。問題の大半は権限不足（オブジェクトとフィールドの両方）が原因です。Salesforceの管理者は、特定のオブジェクトとフィールドをアップグレードできる必要があります。
+
+よくあるエラーとしてもう1つ、「クエリロケーターエラー」というものがあります。Salesforceでは、1人のユーザーに対して同時に維持するクエリロケーターは最大10個であり、最長で15分間しか維持しません。同時に実行するDataSetが多すぎると、一部が失敗します。この問題を防ぐ最善の方法は、DataSetを適量ずつ分散させて実行することです。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターでは、どのバージョンのSalesforce APIが使用されますか？">
+
+
+このコネクターは、Salesforce APIのバージョン46.0（ https://\&#123;customer instance&#125;.[salesforce.com/services/data/v46.0](http://salesforce.com/services/data/v46.0) ）を使用しています。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> オブジェクトとフィールドを参照 </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> /query </td></tr><tr><td colspan="1" rowspan="1"> 表形式のレポート </td><td colspan="1" rowspan="1"> /analytics/reports/&#123;reportId&#125;/describe </td></tr><tr><td colspan="1" rowspan="1"> 共有ルールと設定 </td><td colspan="1" rowspan="1"> /knowledgeManagement/settings </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+認証するSalesforce環境とSalesforceアカウントに関連付けられたメールアドレスとパスワードを選択する必要があります。
+
+
+</Accordion>
+<Accordion title="Salesforceアカウントの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってSalesforceの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="「INVALID\_QUERY\_LOCATOR」エラーが継続的に発生します。どのように修正すればよいですか？">
+
+
+Salesforceでは、ユーザーは一度に最大10個のクエリを実行できます。DataSetの実行が拡大されていることを確認してください。
+
+
+</Accordion>
+<Accordion title="「QUERY\_TIMEOUT」エラーが継続的に発生します。どのように修正すればよいですか？">
+
+
+SOQLクエリが2万字の文字数制限を超えているか、スクリプトフィールドが多すぎる場合、このエラーが発生します。この問題を解決するには、クエリを簡略化する必要があります。
+
+
+</Accordion>
+<Accordion title="レポートのドロップダウンメニューにレポートが表示されないのはなぜですか？">
+
+
+レポートをコネクターに表示させ、データを取り込む前に、レポートを表フォーマットにして公開する必要があります。
+
+
+</Accordion>
+<Accordion title="SalesforceコネクターとUpsert対応のSalesforceコネクターの違いは何ですか？">
+
+
+Upsert対応のSalesforceコネクターでは、更新された行をすべて置き換えるMergeモードや、新しい行を追加してDataSetをスケジュールするReplace/Appendモードを使用することができます。
+
+
+
+</Accordion>
+</AccordionGroup>

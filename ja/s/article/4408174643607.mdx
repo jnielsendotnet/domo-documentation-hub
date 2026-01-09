@@ -1,0 +1,160 @@
+---
+title: "Beast ModeのFIXED関数"
+---
+
+## はじめに
+
+Beast ModeでFIXED関数を使用すると、詳細レベルの式を実行できます。これらの式により、Beast Mode計算で行われる標準的な行ごとの比較ではなく、DataSet
+
+にもとづいて値を計算することができます。また、アナリストがより柔軟なデータグループ化、結合、比較のために強力なサブクエリ計算を作成できるようになります。
+
+集計された式の上に集計を適用しているので、Beast Modeには2つの集計を使用する必要があります。最小、最大、合計、平均のいずれかの標準の集計を使用できます。また、フィルターロジックをこれらの関数に追加して、可視化に適用されたフィルターが計算にどのような影響を与えるかを指定することもできます。
+
+## FIXED関数の使用
+
+以下のFIXED関数の使用例では、異なる関数で記述されています。
+
+#### 使用例1：FIXED
+
+以下の構文により、DataSetの合計値を確認できます。
+
+```
+SUM(SUM(`Total Sales`) FIXED ())
+```
+
+<Frame><img alt="Use_Case__1_FIXED.png" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vOE3.png"/></Frame>
+#### 使用例2：FIXED BY
+
+以下の構文により、特定のカテゴリーの合計値を確認できます。
+
+```
+SUM(SUM(`Total Sales`) FIXED (BY `Region`))
+```
+
+<Note>
+  **注記：** カンマで区切って複数の列をFIXED関数に追加できます。
+
+</Note>
+
+<Frame><img alt="Use_Case__2_FIXED_BY.png" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vOE2.png"/></Frame>
+#### 使用例3：FIXED ADD
+
+FIXED ADDは集計値を返し、計算で指定されたディメンションを追加します。下のグラフは、西部地域の州と各州の都市の最大売上を表示しています。FIXED ADD関数を使用しているため、可視化することなく計算に「City」のディメンションを追加できます。
+
+以下の構文により、可視化で各州の都市の最大売上を確認できます。
+
+```
+MAX(SUM(`Total Sales`) FIXED (ADD `City`))
+```
+
+<Note>
+  **注記：** カンマで区切って複数の列をFIXED関数に追加できます。
+
+</Note>
+
+<Frame><img alt="FIXED_ADD.png" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vOE1.png"/></Frame>
+#### 使用例4：FIXED REMOVE
+
+FIXED REMOVEは集計値を返し、計算で指定されたディメンション
+
+を削除します。下のグラフは、全カテゴリーのすべての平均単価に製品カテゴリー別の平均単価を並べて表示しています。FIXED REMOVE関数を使用しているため、製品カテゴリーの平均と同時に全体の平均を可視化で表示するために、計算から「Product Category」のディメンションを削除できます。
+
+以下の構文を使用すると、可視化で製品カテゴリー別の平均単価を表示しながら全体の平均単価を確認できます。
+
+```
+AVG(AVG(`Unit Price`) FIXED (REMOVE `Product Category`))
+```
+
+<Note>
+  **注記：** カンマで区切って複数の列をFIXED関数に追加できます。
+
+</Note>
+
+<Frame><img alt="Use_Case__4_FIXED_REMOVE.png" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vODw.png"/></Frame>
+#### 使用例5：構成率
+
+以下の構文を使用すると、カード内の値の構成率（%）を、DataSetのカテゴリーの合計と比較できます。
+
+```
+SUM(`Total Sales`)  
+/  
+SUM(SUM(`Total Sales`) FIXED (BY `Region`))
+```
+
+<Frame><img alt="Use_Case__5_Percent_of_Total.png" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vODy.png"/></Frame>
+## フィルターロジックの適用
+
+以下の使用例では、可視化に適用されたフィルターが計算にどのような影響を与えるかを指定しています。
+
+<Note>
+  **注記：** フィルターロジックを設定していない場合、すべてのフィルターが適用されます。
+
+</Note>
+
+#### 使用例1：FILTER NONE
+
+FILTER NONE引数を使用すると、どのフィルターも計算に適用されません。
+
+```
+SUM(SUM(`Total Sales`) FIXED (BY `Region` FILTER NONE))
+```
+
+以下のGIFは西部地域の様々な州に関する、州、地域、国別の売上を表示します。左のチャートの地域売上と米国売上は固定ではありません。右のチャートの地域売上と米国売上は固定です。
+
+1つの州にフィルターをかけるとどのように可視化されるかを示すために、［California］を選択します。
+
+左のチャートでは、カリフォルニアの売上のみフィルターされ、カリフォルニアの地域売上と米国売上のみが表示されますが、正確ではありません。右側のチャートは地域売上と米国売上を表示するためにFIXED計算を使用しているため、カリフォルニアのフィルターの影響を受けず正確です。
+
+<Frame><img alt="Filter_None.gif" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vODz.gif"/></Frame>
+#### 使用例2：FILTER ALLOW
+
+FILTER ALLOW引数を使用すると、指定のフィールドや式を除き、どのフィルターも計算に適用されません。
+
+```
+SUM(SUM(`Total Sales`) FIXED (BY `Region` FILTER ALLOW `Product Category`))
+```
+
+以下のGIFは西部地域の様々な州に関する、州、地域、国別の売上を表示します。左のチャートの地域売上と米国売上は固定ではありません。右のチャートの地域売上と米国売上は固定です。
+
+州とカテゴリーのフィルターを同時に使用するとどのように可視化されるかを示すために、［California］と［Apparel］の両方を選択します。左のチャートでは、地域売上と米国売上は、アパレルのカテゴリーフィルターによって変更されません。右のチャートでは、地域売上と米国売上は、カテゴリーフィルターを許可するフィルター許可引数を使用したFIXED計算を使用しており、地理的地域ごとのアパレル売上のみを表示しています。
+
+<Frame><img alt="Filter_Allow.gif" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vODx.gif"/></Frame>
+#### 使用例3：FILTER DENY
+
+FILTER DENY引数を使用すると、フィルター許可引数とは反対に、指定のフィールドや式を除き、どのフィルターも計算に適用されます。
+
+```
+SUM(SUM(`Total Sales`) FIXED (BY `Region` FILTER DENY `State`))
+```
+
+以下のGIFは西部地域の様々な州に関する、州、地域、国別の売上を表示します。左のチャートでは、地域売上と米国売上は固定されていますが、フィルターを適用しないようにフィルターなし引数を使用しています。右側のチャートでは、地域売上と米国売上は、地域または州フィルターが計算に適用されないように、フィルター拒否引数を使用しています。
+
+州とカテゴリーのフィルターを同時に使用するとどのように可視化されるかを示すために、［California］と［Apparel］の両方を選択します。左のチャートでは、地域売上と米国売上は、アパレルのカテゴリーフィルターによって変更されません。右のチャートでは、地域売上と米国売上は、どの州フィルターも適用されないようにフィルター拒否引数を使用したFIXED計算を使用しており、カテゴリーフィルターを許可して地理的地域ごとにアパレル売上を表示しています。
+
+<Frame><img alt="Filter_Deny.gif" src="/images/kb/ka05w00000123Rt-00N5w00000Ri7BU-0EM5w000005vOE0.gif"/></Frame>
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="SnowflakeやBigQueryなどのフェデレーテッドDataSetでは、FIXED関数を使用できますか？">
+
+  
+現在、FIXED関数は非フェデレーテッドDataSetでのみ使用できます。
+
+
+</Accordion>
+<Accordion title="ウィンドウ関数でFIXED関数を使用できますか？">
+
+  
+現在、同じ計算ではFIXED関数はウィンドウ関数と互換性がありません。
+
+
+</Accordion>
+<Accordion title="FIXED関数を含む計算を自分のカードでフィルターとして使用できますか？">
+
+  
+現在、FIXED関数を含む計算はカードまたはダッシュボードフィルターと互換性がありません。
+
+日本語
+
+</Accordion>
+</AccordionGroup>

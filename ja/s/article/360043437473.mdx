@@ -1,0 +1,63 @@
+---
+title: "Workbench 5で列にカスタマイズされた日付の形式を設定する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Workbench 5では、DataSetジョブの指定した列にカスタム日付形式を設定できます。これを行うには、まずDataSetジョブに **カスタマイズされた日付の形式** 変換を追加し、次に列を選択して日付の形式を指定します。
+
+<Frame><img alt="wb5_transforms_custom_date_format.png" src="/images/kb/ka05w00000123t0-00N5w00000Ri7BU-0EM5w000005vPOw.png"/></Frame>
+
+**動画 - カスタマイズされた日付の形式変換（Workbench 5）**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/CknkqhZbliY" width="560"></iframe>
+
+**Workbench 5の列にカスタマイズされた日付の形式を設定するには：**
+
+1. Workbenchで、左側のアイコンバーにある <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> をクリックします。
+2. ジョブリストで、日付形式を変更する列を持つDataSetジョブをダブルクリックします。
+3. **［変換］** をクリックして、ペインのセクションを展開します。
+4. **［変換を追加］** メニューで、 **［カスタマイズされた日付の形式］** を選択します。
+5. <InlineImage src="/images/kb/ka05w00000123sv-00N5w00000Ri7BU-0EM5w000005vPOn.png" /> ボタンをクリックします。
+
+   **カスタマイズされた日付の形式変換エディター** が表示されます。
+6. **［列］** で、日付の形式をカスタマイズしたい列を選択します。
+7. **［日付形式］** フィールドに、日付の形式を入力します。
+
+   サポートされている日付の形式に関しては、次のセクションを参照してください。
+8. **［適用］** をクリックします。
+9. ペインの上部にある <InlineImage src="/images/kb/ka05w00000123sv-00N5w00000Ri7BU-0EM5w000005vPOl.png" /> をクリックして、変換を保存します。
+
+### 日付の形式指定子
+
+日付の形式は、Workbenchに自動的に解析させるか、日時データを含む列に対して日付の形式を指定することができます。
+
+* 日付の形式を指定しない場合、Workbenchは現在使用されているロケール設定を使って日付文字列の解析を行います。この自動モードでは、ロケールにもとづき様々な形式がサポートされています。
+
+  例えば、米国のロケールでは、次の形式がサポートされています：
+
+  2013-04-17 12:34:56
+
+  4/17/2013 12:34:56
+
+  April 17, 2013
+
+  April 17, 2013 12:34 PM
+
+  2013-04-17 12:34:56.123456
+* 日付の形式を指定した場合、Workbenchは指定した日付の形式を使用して日付文字列の解析を行います。
+
+  例えば、現在のロケール設定がオーストラリアであり、データ内の日付が「/」ではなく「:」で日、月、年を区切った形式を使用している場合を想定します（例えば「 10:10:2013 」）。オーストラリア向け「自動」モードでは、区切り記号としての「:」の使用がサポートされていないため、日付の適切な解析のためには、日付形式文字列を d:M:yyyy と指定します。
+
+  <Note>
+   **注記：** データ内の日付は、指定した形式と *完全に* 一致する必要があります。
+
+  </Note>
+
+カスタマイズされた形式文字列は、カスタマイズされた日時の形式指定子1つ以上から構成されます。
+
+Workbench 5で利用できる日付の形式については、以下の表を参照してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> 指定子 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><code> d </code></p></td><td colspan="1" rowspan="1"><p> 日付、数字表記（1～31） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> dd </code></p></td><td colspan="1" rowspan="1"><p> 日付、数字表記（01～31） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> ddd </code></p></td><td colspan="1" rowspan="1"><p> 週の英略語名（Sun～Sat） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> dddd </code></p></td><td colspan="1" rowspan="1"><p> 週の英語名（Sunday～Saturday） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> f </code></p></td><td colspan="1" rowspan="1"><p> 10分の1秒（0～9） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> ff </code></p></td><td colspan="1" rowspan="1"><p> 100分の1秒（00～99） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> fff </code></p></td><td colspan="1" rowspan="1"><p> 1000分の1秒（000～999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> ffff </code></p></td><td colspan="1" rowspan="1"><p> 10000分の1秒（0000～9999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> fffff </code></p></td><td colspan="1" rowspan="1"><p> 100000分の1秒（00000～99999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> ffffff </code></p></td><td colspan="1" rowspan="1"><p> 1000000分の1秒（000000～999999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> fffffff </code></p></td><td colspan="1" rowspan="1"><p> 10000000分の1秒（0000000～9999999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> F </code></p></td><td colspan="1" rowspan="1"><p> 10分の1秒、0以外（-9） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FF </code></p></td><td colspan="1" rowspan="1"><p> 100分の1秒、0以外（-99） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FFF </code></p></td><td colspan="1" rowspan="1"><p> 1000分の1秒、0以外（-999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FFFF </code></p></td><td colspan="1" rowspan="1"><p> 10000分の1秒、0以外（-9999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FFFFF </code></p></td><td colspan="1" rowspan="1"><p> 100000分の1秒、0以外（-99999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FFFFFF </code></p></td><td colspan="1" rowspan="1"><p> 1000000分の1秒、0以外（-999999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FFFFFFF </code></p></td><td colspan="1" rowspan="1"><p> 10000000分の1秒、0以外（-9999999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> g </code>, <code> gg </code></p></td><td colspan="1" rowspan="1"><p> 時代や年代（A.D.など） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> h </code></p></td><td colspan="1" rowspan="1"><p> 時（1～12） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> hh </code></p></td><td colspan="1" rowspan="1"><p> 時（01～12） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> H </code></p></td><td colspan="1" rowspan="1"><p> 時（0～23） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> HH </code></p></td><td colspan="1" rowspan="1"><p> 時（00～23） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> K </code></p></td><td colspan="1" rowspan="1"><p> タイムゾーン情報 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> m </code></p></td><td colspan="1" rowspan="1"><p> 分、数字表記（0～59） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> mm </code></p></td><td colspan="1" rowspan="1"><p> 分、数字表記（00～59） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> M </code></p></td><td colspan="1" rowspan="1"><p> 月、数字表記（1～12） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> MM </code></p></td><td colspan="1" rowspan="1"><p> 月、数字表記（01～12） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> MMM </code></p></td><td colspan="1" rowspan="1"><p> 月の英略語名（Jan～Dec） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> MMMM </code></p></td><td colspan="1" rowspan="1"><p> 月の英語名（January～December） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> s </code></p></td><td colspan="1" rowspan="1"><p> 秒（0～59） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> ss </code></p></td><td colspan="1" rowspan="1"><p> 秒（00～59） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> t </code></p></td><td colspan="1" rowspan="1"><p> AMまたはPMの頭文字（AまたはP） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> tt </code></p></td><td colspan="1" rowspan="1"><p> AMまたはPM </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> y </code></p></td><td colspan="1" rowspan="1"><p> 年、最小1桁（0～99） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> yy </code></p></td><td colspan="1" rowspan="1"><p> 年、2桁（00～99） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> yyy </code></p></td><td colspan="1" rowspan="1"><p> 年、最小3桁（000～9999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> yyyy </code></p></td><td colspan="1" rowspan="1"><p> 年、最小4桁（0000～99999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> yyyyy </code></p></td><td colspan="1" rowspan="1"><p> 年、5桁（00000～99999） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> z </code></p></td><td colspan="1" rowspan="1"><p> 協定世界時との時差による現地タイムゾーン時間（-7など） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> zz </code></p></td><td colspan="1" rowspan="1"><p> 協定世界時との時差による現地タイムゾーン時間（-07など） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> zzz </code></p></td><td colspan="1" rowspan="1"><p> 協定世界時との時差による現地タイムゾーン時間と分（-07:00など） </p></td></tr><tr><td colspan="1" rowspan="1"><p><code>: </code></p></td><td colspan="1" rowspan="1"><p> 時間の区切り記号 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> / </code></p></td><td colspan="1" rowspan="1"><p> 日付の区切り記号 </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> " <em> string </em> " </code><br/><code> ' <em> string </em> ' </code></p></td><td colspan="1" rowspan="1"><p> 単一引用符または二重引用符で囲まれた、リテラル文字列の区切り記号 </p></td></tr><tr><td colspan="1" rowspan="1"><p> % </p></td><td colspan="1" rowspan="1"><p> ユーザー設定の書式指定文字列の前に置かれる </p></td></tr><tr><td colspan="1" rowspan="1"><p> \ </p></td><td colspan="1" rowspan="1"><p> 指定文字列の前に置かれ、結果に現れる </p></td></tr><tr><td colspan="1" rowspan="1"><p> 指定子以外の文字 </p></td><td colspan="1" rowspan="1"><p> 結果に現れる </p></td></tr></tbody></table>

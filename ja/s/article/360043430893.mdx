@@ -1,0 +1,188 @@
+---
+title: "Bing Adsコネクター"
+---
+
+## はじめに
+
+Bing Adsとは、BingとYahoo!検索エンジンでPPC広告を提供しているサービスです。DomoのBing Adsコネクターを使用することで、マーケティング、セールス、運営、財務関連のBing Adsデータを引き出し、真のクローズドループのレポートを作成することができます。このサービスは、Bing Adsウェブアプリケーションレポートのサブセットをサポートしています。
+
+リクエスト可能なレポートは、以下のカテゴリーに分類されています。
+
+* **Delivery**
+
+  特定期間における広告とキーワードの総合的有効性とコストを表示します。クリック数、コンバージョン、支出などの詳細情報をレポートに含めることで、パフォーマンスの良い広告とキーワード、および調整の必要がある広告とキーワードを特定することができます。
+* **Budget**
+
+  毎月の予算と現時点までの支出、毎月の予算に応じて使用しているかなどを表示します。
+* **Targeting**
+
+  意図するオーディエンスに広告が届いているかを判断します。
+* **Campaign Analytics**
+
+  アカウントの広告キャンペーンの有効性を主に投資効果の観点から測定します。また、このレポートを使用することで、訪問者がウェブサイトのどのページで最も出て行くかを確認し、その情報をもとにサイトのデザインを変更しコンバージョンを改善させることができます。
+
+Bing Ads APIの詳細については、Bing Adsのサイト（ [https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN](https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN "https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN") ）を参照してください。
+
+Bing Adsコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Bing Adsアカウントには、Data Centerから接続します。このトピックでは、Bing Adsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 広告のコンバージョン </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 広告のクリックスルーレート </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Webマーケティング権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+バックフィルを使用して、履歴データを取得します。レポートを初めて実行するときに、履歴データが取得されます。その後の実行では、指定された日付範囲でのみデータを取得します。
+
+## 必要条件
+
+Bing Adsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Bing Adsデベロッパートークン。デベロッパートークンの入手方法については、Bing Adsのサイト（
+  [https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN](https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN "https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13&redirectedfrom=MSDN") ）を参照してください。
+* Microsoft Azure Appに関連付けられているシークレットIDと値
+* 次のリダイレクトURIも設定する必要があります。
+  **https://oauth.domo.com/api/data/v1/oauth/providers/bingads/exchange**
+
+### デベロッパートークンを取得する
+
+デベロッパートークンを見つけるには：
+
+1. [https://developers.ads.microsoft.com/Account](https://developers.ads.microsoft.com/Account "https://developers.ads.microsoft.com/Account")
+   にアクセスします。
+2. スーパー管理者アカウントであること、トークンがユニバーサルトークンであることを確認し、Azureポータルアプリを作成しているのと同じアカウントであることを確認します。
+
+<Frame><img alt="clipboard_e16d8414c35f3cdea9ef73fd020d591d2.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3P.png"/></Frame>
+
+### Azureアプリを設定してシークレットIDと値を取得する
+
+1. [Azureポータル](https://portal.azure.com/#home "https://portal.azure.com/#home") にログインします。
+2. ****［Azure Active Directory］>［App Registrations］>［New Registration］**** の順に選択します。
+
+<Frame><img alt="New_registration.png" src="/images/kb/ka05w00000127Jz-00N5w00000Ri7BU-0EM5w000005vO99.png"/></Frame>
+
+3. 登録フォームに次の通りに入力します。
+
+* ［Name］：アプリのユーザーに表示する、意味のあるアプリケーション名を入力します（例：「DomoConnector」）。
+* ［Supported account types］：**［Accounts in any organizational directory (Any Azure AD directory – Multitenant) and personal Microsoft accounts］** を選択します。
+* ［Redirect URI］：**https://oauth.domo.com/api/data/v1/oauth/providers/bingads/exchange** を追加して保存します。 認証応答は、ユーザーの認証に成功した後にこのURIに送信されます。この段階でURIを指定することは任意で、後で変更することもできますが、ほとんどの認証シナリオでは値が必要です。
+
+4. **［Register］** をクリックしてアプリケーションを作成します。登録したアプリの概要が表示されます。
+
+<Frame><img alt="clipboard_e182d798536c1739a92a68e5460154f73.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3Q.png"/></Frame>
+
+5. ここに表示される ****［Application ID］**** が、Domoの ****［認証情報］**** ペインに入力する ****クライアントID**** になります。
+
+<Frame><img alt="clipboard_ed4d398399f9f9430f75bd609d6bdbc83.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO2h.png"/></Frame>
+
+6. ［Manage］の下で **［Authentication］** を選択します。 **［Implicit Grant］** で、チェックボックスを選択してアクセストークンとIDトークンの両方を有効にします。変更を保存するには、ページ上部の **［Save］** を選択します。
+
+<Frame><img alt="clipboard_eaa283cf721974a3f4aba17d1cc195efa.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3S.png"/></Frame>
+
+7. ［Manage］の下で **［API Permissions］** を選択します。 **User.Rea** **d** と **User.ReadBasic.All** の権限が必要になります。
+
+8. 権限を追加するには、**［Add a Permission］** を選択します。［Microsoft Graph API］を選択し、［Delegated Permissions］を選択します。「 **User.ReadBasic.All** 」と入力するか、User.ReadBasic.All権限に移動し、チェックボックスを選択して **［Add Permissions］** をクリックします。
+
+<Frame><img alt="clipboard_e647c7731599144cdd8772f2f24584978.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3O.png"/></Frame>
+
+9. ［Manage］の下で **［Certificates & Secrets］** を選択します。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。これは、パブリックキーと呼ばれることもあります。
+
+10. **［+New client secret］** ボタンを選択します。
+
+<Frame><img alt="clipboard_ed1a25153bb6f42452f69844e51a34d99.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3L.png"/></Frame>
+
+11. ［Description］に値を入力し、［Expires］に適したオプションを選択し、**［Add］** をクリックします。
+
+<Frame><img alt="Add_client_secret.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3T.png"/></Frame>
+
+<Warning>
+**重要：** ページを終了する前に、クライアントのシークレット値（シークレットIDではありません）をコピー してください。このページから離れると、再び表示されません。
+
+</Warning>
+
+<Frame><img alt="Secret_Value_selection.png" src="/images/kb/ka05w00000123QC-00N5w00000Ri7BU-0EM5w000005vO9g.png"/></Frame>
+
+これがDomo内のクライアントシークレットになります。
+
+12. ここで、DomoのBing Adsコネクターの［認証情報］セクションで **［Developer Token］** 、 **［Client ID］** 、 **［Client Secret］** を入力し、［接続］をクリックします。Microsoftにログインするためのポップアップが表示されます。スーパー管理者アカウントを使ってログインし、接続を完了するプロンプトに従います。
+
+### AzureポータルアプリとBingAdsアカウントを デバッグ する
+
+アカウントの作成中に、「アカウントの作成に問題がありました。もう一度お試しください。」というエラーが表示された場合、以下の設定を確認してAzureポータルアプリとBingAdsアカウントをデバッグします。
+
+1. Azureポータルアプリでは、以下を確認してください。
+
+* ［Authentication］>［Supported account types］で、［Accounts in any organizational directory (Any Azure AD directory – Multitenant) and personal Microsoft accounts］を選択します。
+
+<Frame><img alt="clipboard_ec16519b5018b601429a348c3d1d0b086.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3N.png"/></Frame>
+
+* リダイレクトURIが **https://oauth.domo.com/api/data/v1/oauth/providers/bingads/exchange** であることを確認します。
+* ［Authentication］>［Implicit Grant］で、アクセストークンとIDトークンをチェックします。
+
+<Frame><img alt="clipboard_e7d684428067470d26a41cec3dce46759.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3M.png"/></Frame>
+
+* ［API permissions］の下で、［User.Read］と［User.ReadBasic.All］を選択します。
+
+<Frame><img alt="clipboard_e5745d4f728b4e7e3f1200218556f2ed1.png" src="/images/kb/ka0Vq000000703J-00N5w00000Ri7BU-0EM5w000005vO3R.png"/></Frame>
+
+2. [https://developers.ads.microsoft.com/Account](https://developers.ads.microsoft.com/Account "https://developers.ads.microsoft.com/Account") にあるデベロッパートークンで、スーパー管理者アカウントであること、トークンがユニバーサルトークンであることを確認し、Azureポータルアプリを作成しているのと同じアカウントであることを確認します。
+
+3. 以前に作成したアプリで新しいクライアントシークレットを作成し、そのシークレットの値をコピーし、その値を使ってDomoでBing Adsアカウントを作成する必要があります。うまくいかない場合は、新しいアプリを作成してその認証情報を使用します。
+
+## Bing Adsアカウントに接続する
+
+このセクションでは、Bing Adsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Developer Token </td><td colspan="1" rowspan="1"> デベロッパートークンを入力します。デベロッパートークンを取得するには、スーパー管理者ユーザーとしてBing Adsにログインし、［Request Token］をクリックします。詳細については、「 <a href="https://learn.microsoft.com/ja-jp/advertising/guides/get-started?view=bingads-13#get-developer-token" target="_blank" title="Bing Ads"> Bing Ads </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a> &gt;［Azure Active Directory］&gt;［App Registrations］の順に進みます。ウェブアプリを検索して選択します。ウェブアプリのアプリケーションIDがクライアントIDです。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret Value </td><td colspan="1" rowspan="1"><a href="http://portal.azure.com" rel="noopener" target="_blank"> portal.azure.com </a> &gt;［Azure Active Directory］&gt;［App Registrations］の順に進みます。ウェブアプリを検索して選択します。［Settings］&gt;［Keys］の順に進みます。クライアントシークレットを作成します。 </td></tr></tbody></table>
+
+このペインには、Bing Adsデベロッパートークンを入力する3つのフィールド（［Bing Ads developer token］、［Client ID］、［Client Secret Value］）があります。そこからMicrosoft OAuthページに導かれるので、Microsoftのユーザー名とパスワードを入力する必要があります。一度有効なMicrosoft認証情報を入力しておくと、同じアカウントを使用して随時、新しいBing Ads DataSetを作成することができます。コネクターのアカウントは **Data Center** の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span class="s1"> 実行するBing Adsレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b><span class="s1"> レポート名 </span></b></p></td><td colspan="1" rowspan="1"><p><b><span class="s1"> 説明 </span></b></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Account Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> アカウントの長期的なパフォーマンスとトレンドを表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Dynamic Text Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どのダイナミックテキスト文字列のパフォーマンスが良く、どの文字列を変更すべきかを特定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Extension by Ads Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 各広告で、異なるバージョンの広告エクステンションのパフォーマンスを比較するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Extension by Keyword Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 各キーワードで、異なるバージョンの広告エクステンションのパフォーマンスを比較するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Extension Detail Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> サイトリンク表示の各リンクなど、個別の広告エクステンション項目の有効性を検証するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Group Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> キーワードレベルではなく、広告グループ、キャンペーン、アカウント属性別のデリバリーパフォーマンス統計を比較するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Ad Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どの広告がクリック数とコンバージョン数の増加に結びつき、どの広告のパフォーマンスが悪いかを判断するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Age Gender Audience Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 様々な年齢層と性別のオーディエンスに対して、キャンペーンと広告グループがどのような反響があるか発見するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Audience Performance Report </p><p><span class="s1"></span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> オーディエンス、広告グループ、キャンペーン、アカウント属性別のデリバリーパフォーマンス統計を比較します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Budget Summary Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> その月における予算の成績を検証するために使用されます。このレポートは、毎月の予算、現時点までに費やした費用、毎月の予算が適切かどうかを表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Call Detail Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どのアカウント、キャンペーン、広告グループが最も多くの電話による問い合わせに結びついているかを調べるために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Campaign Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 個々のキャンペーンまたはアカウントについて高レベルのパフォーマンス統計と品質属性を表示するために使用されます。これは、キャンペーンまたはアカウントでの主な問題点をすばやく特定する方法でもあります。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Conversion Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どのキャンペーンとキーワードが、オーディエンスの購入やその他のコンバージョン操作に結びついているのか調べるために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Destination URL Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> オーディエンスの期待を満たし、高いクリックスルー率またはコンバージョン率に結びつく可能性があるランディングページを特定するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> DSA Auto Target Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> このレポートには、動的検索広告（DSA）自動ターゲットのパフォーマンスデータが含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> DSA Category Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> このレポートでは、様々な製品またはサービスカテゴリーで動的検索広告（DSA）がどのように表示されるかに関するインサイトを得ることができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> DSA Search Query Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> このレポートでは、動的検索広告（DSA）の表示をトリガーした特定の検索語に関する価値のあるインサイトを得ることができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Geographic Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> このレポートでは、様々な地域で広告がどのように表示されるかに関するインサイトを得ることができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Goals and Funnels Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> オーディエンスがウェブサイトのランディング、ブラウズ、プロスペクト、コンバージョンページの各ステップを終了したかどうかを調べるために使用されます。例えば、このレポートを使うことにより、ユーザーがコンバージョンファンネルを離脱したステップを特定し、そのステップを改善または削除することでユーザーが次のステップに進む確率を高めることができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Hotel Dimension Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> ホテル広告キャンペーンのパフォーマンスに関する詳細な情報が含まれます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Hotel Group Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> キャンペーン内の様々なホテルグループのパフォーマンスに焦点を当てた、ホテル広告キャンペーンのパフォーマンスに関するインサイトを得ることができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Keyword Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どのキーワードのパフォーマンスが良く、どのキーワードのパフォーマンスが悪いか確認するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Negative Keyword Conflict Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> どのキーワードと除外キーワードが衝突していて、その衝突がキャンペーンまたは広告グループレベルでおきているかを調べるために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Publisher Usage Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> キャンペーンまたは広告グループのターゲット設定に対して、ウェブサイトURLのパフォーマンスが十分ではないかを確認するために使用されます。例えば、そのURLでは広告インプレッションが低いクリックスルー率しかもたらさなかった場合、キャンペーンからそのウェブサイトを除外することができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Search Campaign Change History Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> アカウントに対する変更がいつ行われたか、どのユーザーが変更したかを確認するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Search Query Performance Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 広告が表示されているときにオーディエンスが何を検索しているか確認するために使用されます。この情報を使用して、キーワードと除外キーワードのリストの追加、削除、編集を行うことができます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Share of Voice Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 各キーワードにおける成功入札のインプレッションシェア（％）を表示し、インプレッションシェアを向上させるチャンスを把握するために使用されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> User Location Performance Report </td><td colspan="1" rowspan="1"> トラフィックの発生元を、物理的な位置とユーザーの検索対象を場所別に示すために使用されます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Aggregate By </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> レポート内のデータを分類する方法を選択します。例えば、 <b> ［Weekly］ </b> を選択するとデータを週ごとに分類します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Backfill </td><td colspan="1" rowspan="1"> バックフィルを必要とする開始日の前の日数を入力します。このアクションは、データソースを初めて実行するときに <em> のみ </em> 実行されます。その後の実行では、指定された <b> ［Start Date］ </b> から <b> ［End Date］ </b> までの日付範囲が使用されます。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+* APIキーを再確認してください。
+* APIから直接データにアクセスしてみてください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="データはどれぐらいの頻度で更新されますか？">
+
+
+必要に応じて更新されます。
+
+
+</Accordion>
+<Accordion title="Bing Ads DataSetを作成するときに、どのタイプの入力パラメーターを考慮する必要がありますか？">
+
+
+新しいBing Ads DataSetを作成するときには、レポートタイプ、集計別（日次/週次/月次など）、PastDaysの値（バックフィル）を提供する必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="このBing Adsコネクターはバックフィルをサポートしていますか？">
+
+
+バックフィルは、最初の実行の時にのみBing Adsコネクターでサポートされます。バックフィル値を設定すると、Bing Adsコネクターは、指定された開始日と終了日の間のデータとともに、開始日より前の指定日数分のデータを取得します。
+
+
+
+</Accordion>
+</AccordionGroup>

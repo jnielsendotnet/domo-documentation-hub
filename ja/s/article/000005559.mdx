@@ -1,0 +1,140 @@
+---
+title: "集計Beast Modeで非集計列を使用する"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### はじめに
+
+このガイドでは、集計Beast Modeで非集計列を使用する方法を紹介します。 集計Beast Modeに非集計列を適用する場合は、SQLについて基本レベルから中級レベルの知識と [Domoサポート](https://domo-support.domo.com/minasan/s/) <InlineImage src="/images/kb/ja/ka0Vq00000074Jp-00N5w00000Ri7BU-0EMVq000002tuV5.jpg" /> へのアクセス権を持っていることが理想的です。
+
+---
+
+* [GROUP\_BY関数を使用する](#use_group_by)
+* [非集計列を使用する集計](#aggregation_using_non)
+* [総計行と小計行](#grand_total_subtotal)
+
+---
+
+### GROUP BY関数を使用する
+
+`SELECT` ステートメントで、集計された関数と非集計列を使用するSQLクエリを作成する場合、すべての非集計列をクエリの `GROUP BY` ステートメントに含めるする必要があります。
+
+以下のDataSetには、顧客による個々の売上のレコードが含まれています。「Customer ID」列には顧客ごとに一意の識別子が含まれ、「Ship Mode」列には「Second Class」と「Standard Class」の2つの値が含まれます。「Sales」列には、注文時に各顧客に販売された金額が含まれます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> Order ID </p></th><th colspan="1" rowspan="1"><p> Customer ID </p></th><th colspan="1" rowspan="1"><p> Ship Mode </p></th><th colspan="1" rowspan="1"><p> Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 261.98 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 2 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 731.94 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 3 </p></td><td colspan="1" rowspan="1"><p> DV-13045 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 14.62 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 4 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p></p><p> Standard Class </p><p></p></td><td colspan="1" rowspan="1"><p> 957.5775 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 22.368 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 6 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 48.86 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 7 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 7.28 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 8 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 907.152 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 9 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 18.504 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 10 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 114.9 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 11 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 1706.184 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 12 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 911.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 13 </p></td><td colspan="1" rowspan="1"><p> AA-10480 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 15.552 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 14 </p></td><td colspan="1" rowspan="1"><p> IM-15070 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 407.976 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 15 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 68.81 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 16 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 2.544 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 17 </p></td><td colspan="1" rowspan="1"><p> PK-19075 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 665.88 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 18 </p></td><td colspan="1" rowspan="1"><p> AG-10270 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 5.55 </p></td></tr></tbody></table>
+
+この表を使用し、Beast Modeの結果のみを示す単一値チャートを作成できます（「Sales」列を合計した「Total Sales」列）。
+
+このチャートを求めるクエリの形式は、以下のようになります。
+
+```sql
+SELECT SUM(`Sales`) AS `Total Sales` FROM DataSet
+```
+
+この例では、 `SELECT` ステートメントの値のみが、集計Beast Modeの「Total Sales」です。非集計列はないため、 `GROUP BY` ステートメントは不要です。
+
+「Ship Mode」別の「Total Sales」Beast Modeの棒グラフを作成する場合、「Ship Mode」ごとに「Total Sales」を取得する必要があります。それが以下のクエリになります。
+
+```sql
+SELECT `Ship Mode`, SUM(`Sales`) AS `Total Sales` FROM Dataset GROUP BY `Ship Mode`
+```
+
+`SELECT` ステートメントには、集計Beast Mode、「Total Sales」、および非集計列「Ship Mode」が含まれます。したがって、非集計列「Ship Mode」は `GROUP BY` ステートメントに含まれている必要があります。
+
+<Frame><img alt="" src="/images/kb/ka0Vq0000003ruD-00N5w00000Ri7BU-0EMVq0000038OZi.jpg" style={{width: 894, height: 417}}/></Frame>
+[このページのトップへ](#intro)
+
+### 非集計列を使用する集計
+
+非集計列を使用する集計Beast Modeの操作は難しくなりますが、以下のヒントをもとに実行することができます。
+
+この例では、以下のBeast Mode関数を使用して、顧客別の総売上を表示するピボット表を用意しています。
+
+```
+Total Sales  
+-----------  
+SUM (`Sales`)
+```
+
+これは次のクエリになります。
+
+```sql
+SELECT `Customer ID,` SUM(`Sales`) AS `Total Sales` FROM DataSet GROUP BY `Customer ID`
+```
+
+クエリには、 `SELECT` ステートメントおよび非集計列「Customer ID」の集計であるBeast Modeが含まれています。このクエリを正しく機能させるには、「Customer ID」を `GROUP BY` ステートメントに含める必要があります。
+
+この例では、「Standard Class」を使用して出荷された注文は、「Second Class」を使用して出荷された注文よりも10%高くなります。チャートを作成するときは、「Standard Class」を使用した総売上を10%削減する必要があります。これを行うには、「Total Sales」Beast Modeを変更して、この出荷モードを使用して売上を10%削減します。
+
+更新されたBeast Modeは、以下のようになります。
+
+```
+Total Sales  
+-----------  
+CASE  
+  WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+  WHEN 'Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END
+```
+
+このBeast Modeは、集計と見なされます。なぜなら、 `WHEN` 節ごとの `THEN` ステートメントでは、集計関数 `SUM` を使用するためです。「Ship Mode」関数は非集計であるため、クエリを再構築する場合、ピボットテーブルは次のようになります。
+
+```sql
+SELECT `Customer ID`  
+CASE  
+ WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+ WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Customer ID,` `Ship Mode`
+```
+
+「Ship Mode」列は、 `SELECT` ステートメントでは直接使用されませんが、非集計フォームでは、Beast Modeの「Total Sales」を通じて `SELECT` ステートメントで使用されます。このクエリを機能させるには、「Ship Mode」列を `GROUP BY` ステートメントに含める必要があります。
+
+ピボットテーブルは次のようになります。
+
+<Frame><img alt="線を含む白いシート、説明は自動生成" src="/images/kb/ka0Vq0000003ruD-00N5w00000Ri7BU-0EMVq000002ti8v.jpg" style={{width: 706, height: 259}}/></Frame>
+ピボットテーブルのデータには、「Customer ID」BH-11710が「Total Sales」列のエラーとともに表示されます。このエラーは、顧客が2つの異なる「Ship Mode」値を注文で使用しているために発生したものです。「Standard Class」と「Second Class」の両方の値があるため、結果の出力には2行が含まれています。これがエラーの原因になります。なぜなら、ピボットテーブルでは2行ではなく1行が想定されているためです。
+
+「Ship Mode」列は、 `SELECT` ステートメントに含まれていないため、表示されません。テーブルを表示している他のユーザーは、「Ship Mode」に入る値を把握していません。また、顧客ごとの実際の「Total Sales」を確認することもできません。
+
+[このページのトップへ](#intro)
+
+### 表の総計行と小計行
+
+ピボットテーブルの「Grand Total」行には、すべての顧客の実際の「Total Sales」値を取得できる2番目のクエリが含まれている必要があります。通常、「合計」行を計算する場合、クエリから特定の列を削除しますが、この場合はメインクエリを使用して「Customer ID」を削除します。Beast Modeは非集計列を使用するため、 `GROUP BY` ステートメントに追加する必要があります。
+
+「Customer ID」列を削除する場合、次のクエリを使用できます。
+
+```sql
+SELECT  
+CASE  
+  WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+  WHEN `Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Ship Mode`
+```
+
+このクエリでは、すべての顧客の「Total Sales」を取得します。ただし、このBeast Modeは非集計列を使用するため、 `GROUP BY` ステートメントにその列を含める必要があります。
+
+このクエリでは、次の2行のデータが生成されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> Total Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1197.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5721.6075 </p></td></tr></tbody></table>
+
+2つの行には、「Ship Mode」の値ごとに合計が1つずつ含まれています。合計行の値には、両方の値を合計した行が必要です。この値を取得して行を合計するには、元のクエリをサブクエリに入れる必要があります
+
+```sql
+SELECT SUM(subquery. `Total Sales`) FROM  
+(SELECT `Customer ID`,  
+CASE  
+  WHEN `Ship Mode` = `Standard Class` THEN SUM(`Sales` *.9)  
+  WHEN `Ship Mode` = `Second Class` THEN SUM(`Sales`)  
+END AS `Total Sales`  
+FROM DataSet GROUP BY `Customer ID,` `Ship Mode`) AS subquery
+```
+
+このクエリは、「Customer ID」および「Ship Mode」ごとに複数の行が存在する可能性に備えた形式になっているため、テーブル全体のクエリを実行し、サブクエリに配置して、サブクエリに基づいて `SUM` を計算する必要があります。
+
+[このページのトップへ](#intro)
+
+日本語

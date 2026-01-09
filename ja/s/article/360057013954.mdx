@@ -1,0 +1,46 @@
+---
+title: "Sybaseパーティションコネクター"
+---
+
+## はじめに
+
+SAP ASE（Adaptive Server Enterprise）は、ビジネス向けリレーショナルデータベースサーバー製品です。以前はSybase SQLサーバーと呼ばれていました。Sybaseパーティションコネクターを使用すると、SAP Adaptive Server Enterpriseのデータを他のシステムのデータと一緒にすべてDomoで見ることができます。パーティショニングを使用して、大きな表とインデックスをより小さな管理可能な断片に分割して管理します。DomoのSybaseパーティションコネクターを使用して、過去の日数にもとづいてSave ASEデータをDomoに取り込むことができます。SAP Adaptive Server Enterpriseの詳細については、SAP社のウェブサイトをご覧ください（ [https://www.sap.com/products/sybase-ase.html](https://www.sap.com/products/sybase-ase.html# "https://www.sap.com/products/sybase-ase.html#") ）。
+
+SAP Adaptive Server Enterpriseアカウントには、Data Centerから接続します。このトピックでは、Sybaseパーティションのコネクターユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360057013754 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Sap ASEアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* SAP Adaptive Server Enterpriseアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名
+* CA証明書テキストまたはURLパスは、
+  ****［証明書タイプ］**** メニューで ****［証明書テキスト］**** または ****［URLパス］**** をそれぞれ選択した場合 **のみ** 、必要になります。
+
+SAPデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリスト化する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+## Sap ASEアカウントに接続する
+
+このセクションでは、 Sybaseパーティション コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、SAP ASEアカウントに接続するための認証情報を入力するためのフィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> SAP Adaptive Server Enterpriseアカウントのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> SAP Adaptive Server Enterpriseアカウントのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> SAPデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース </td><td colspan="1" rowspan="1"> データベースの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書タイプ </td><td colspan="1" rowspan="1"> 証明書のタイプを選択します。証明書を含めない場合は、 <b><b> ［証明書なし］ </b></b> を選択します。［証明書テキスト］を選択する場合は、 <b><b> ［証明書］ </b></b> フィールドに証明書のテキストを貼り付ける必要があります。 <b><b> ［URLパス］ </b></b> を選択する場合は、証明書が保存されている場所のURLを <b><b> ［証明書］ </b></b> フィールドに入力する必要があります。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書 </td><td colspan="1" rowspan="1"> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b><b> ［証明書タイプ］ </b></b> メニューで <b><b> ［証明書なし］ </b></b> を選択します。 </td></tr></tbody></table>
+
+有効なSAP ASE認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Sybaseパーティション DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。例： <span class="mt-font-courier-new"> 従業員から日付を選択 </span></td></tr><tr><td colspan="1" rowspan="1"> データベース表 </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、 この場合Xはプラスの整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

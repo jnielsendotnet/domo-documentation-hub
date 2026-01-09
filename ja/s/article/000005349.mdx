@@ -1,0 +1,44 @@
+---
+title: "Connect And Sellコネクター"
+---
+
+## はじめに
+
+Connect And Sellコネクターを使用すると、アウトバウンドプロスペクティング、マーケティングリードの選別、チャネル市場の開拓などの重要なビジネス機能の効率性と有効性を高めることができます。Connect And SellコネクターはAPIフレームワークを使用して、ConnectAndSellシステムからコールアクティビティ情報を取得します。
+
+Connect and Sellアカウントには、Data Centerから接続できます。この記事では、Connect and Sellコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行う方法については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Connect and Sellアカウントに接続してDataSetを作成するには、Connect and Sellアカウントに関連付けられている以下の項目を用意する必要があります。
+
+* ユーザー名
+* パスワード
+* APIキー
+* シークレットキー
+
+## Connect and Sellアカウントに接続する
+
+このセクションでは、Connect and Sellコネクターページの **［認証情報］** ペインおよび **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+DomoのConnect and Sellコネクターは、基本認証を使用します。
+
+このペインには、Connect and Sellアカウントに接続するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"> Connect and Sellのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"> Connect and Sellのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"> Connect and SellのAPIキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Secret Key </p></td><td colspan="1" rowspan="1"> Connect and Sellのシークレットキーを入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、同じアカウントを使用して新しいConnect and Sell DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="6"> レポート </td><td colspan="1" rowspan="1"> Attempt History </td><td colspan="1" rowspan="1"> APIエンドポイントを使用することで、試行履歴データを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Conversation History </p></td><td colspan="1" rowspan="1"> APIエンドポイントを使用することで、会話履歴データを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Cumulative Attempt History </p></td><td colspan="1" rowspan="1"> APIエンドポイントを使用することで、累積的な試行履歴データを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Cumulative Conversation History </p></td><td colspan="1" rowspan="1"> APIエンドポイントを使用することで、累積的な会話履歴データを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> User Lists </p></td><td colspan="1" rowspan="1"> 社内の特定のユーザーに割り当てられたリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"> APIエンドポイントを使用することで、会社に定義されているユーザーのリストを取得できます。 </td></tr><tr><td colspan="1" rowspan="1"> Users Selection </td><td colspan="2" rowspan="1"><p> すべてのユーザーのデータを取得するか、特定のユーザーのみのデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> User Lists Selection </td><td colspan="2" rowspan="1"><p> すべてのリストのデータを取得するか、特定のリストのみのデータを取得するかを選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Retrieve data for all lists </td><td colspan="1" rowspan="1"><p><b> ［Retrieve data for all lists］ </b> を選択した場合、すべてのレポートタイプのフィールドが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Retrieve Data for Specific Lists </td><td colspan="1" rowspan="1"><p><b> ［Retrieve Data for Specific Lists］ </b> を選択した場合、選択したレポートタイプにもとづいて特定のフィールドが表示されます。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Session Types </td><td colspan="2" rowspan="1"> リストからセッションタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Get Session Type as Field </td><td colspan="2" rowspan="1"> これはチェックボックスです。 </td></tr><tr><td colspan="1" rowspan="1"> Data Update Type </td><td colspan="2" rowspan="1"><p> データの取得方法および保存方法を選択します。リストから選択できる3つのオプションが用意されており、選択したオプションにもとづいて、該当するフィールドが表示されます。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Rolling window (last x days) </td><td colspan="1" rowspan="1"><p> ［Rolling window (last x days)］オプションを選択した場合、 <b> ［Number Of Days In Rolling Window］ </b> オプションが表示されます。 </p><div></div></td></tr><tr><td colspan="1" rowspan="1"> Append Data </td><td colspan="1" rowspan="1"> ［Append Data］オプションを選択した場合、 <b> ［Historical Data Start Date］ </b> オプションが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Specific date range (not recommended) </td><td colspan="1" rowspan="1"> ［Specific date range (not recommended)］オプションを選択した場合、 <b> ［Start Date］ </b> オプションと <b> ［End Date］ </b> オプションが表示されます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Number Of Days In Rolling Window </td><td colspan="2" rowspan="1"><p> 遡ってDataSetに保持する日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Historical Data Start Date </td><td colspan="2" rowspan="1"><p> 履歴データの開始日を選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Start Date </td><td colspan="2" rowspan="1"><p> 開始日を選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date </td><td colspan="2" rowspan="1"><p> 終了日を選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="2" rowspan="1"> 1人または複数のユーザーを選択できます。 </td></tr><tr><td colspan="1" rowspan="1"> List and User ID's </td><td colspan="2" rowspan="1"> 単一または複数のオプションを選択できます。 </td></tr><tr><td colspan="1" rowspan="1"> Dispositions </td><td colspan="2" rowspan="1"> 会話の傾向を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Call Reviews </td><td colspan="2" rowspan="1"> リストからコールレビューを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Call Type </td><td colspan="2" rowspan="1"> リストからコールタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="2" rowspan="1"><p> レポートのデータが、1日分か日付期間を対象にしたものかを指定します。 </p><p> 次の3つのオプションから選択できます。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> サブフィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="3"><p> Single Date </p><p></p><p></p></td><td colspan="1" rowspan="1"><p> Date Type </p></td><td colspan="1" rowspan="1"> 特定の日付の場合は <b> ［Specific］ </b> 、相対的な日付の場合は <b> ［Relative］ </b> を選択します。［Relative］を選択すると <b> ［Days Back］ </b> オプションが表示され、遡る日数を選択または入力できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"> 日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"> データを受信する日を、今日の日付から数えて相対的な数字を入力して選択します。例えば、今日のデータを取得する場合は「0」、昨日のデータを取得する場合は「1」、7日前のデータを取得する場合は「7」を入力します。 </td></tr><tr><td colspan="1" rowspan="3"><p> Date range </p><p></p><p></p></td><td colspan="1" rowspan="1"><p> Date Type </p></td><td colspan="1" rowspan="1"><b> ［Specific］ </b> （具体的な）または <b> ［Relative］ </b> （相対的な）のいずれかの方法で <b></b> 開始日と終了日の範囲を選択できます。［Relative］を選択すると <b> ［Days Back］ </b> オプションが表示され、遡る日数を選択または入力できます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Date </p></td><td colspan="1" rowspan="1"> 開始日または終了日を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p><b> Start Date - Days Back </b> - データの受信を開始する日を、今日の日付から数えて相対的な数字を入力して選択します。例：開始日が昨日の場合は「1」、開始日が1週間前の場合は「7」、開始日が1ヶ月前の場合は「30」を入力します。 </p><p><b> End Date - Days Back </b> - データの受信を停止する日を、今日の日付から数えて相対的な数字を入力して選択します。たとえば、終了日が今日の場合は「0」、終了日が昨日の場合は「1」を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Time Period </p></td><td colspan="2" rowspan="1"><p> データを受信する期間を選択します。 </p><p> ドロップダウンリストから <b> ［This Week］ </b> または <b> ［Previous Week］ </b> を選択した場合、 <b> ［Starting Day of the Week］ </b> オプションが表示され、 <b> ［Monday］ </b> と <b> ［Sunday］ </b> のいずれかを選択できます。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Users Selection </td><td colspan="2" rowspan="1"> すべてのユーザーのデータを取得するか、特定のユーザーのみのデータを取得するかを選択します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

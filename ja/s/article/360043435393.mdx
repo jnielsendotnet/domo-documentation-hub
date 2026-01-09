@@ -1,0 +1,29 @@
+---
+title: "Google Directionsコネクター"
+---
+
+## はじめに
+
+Google Directions APIは、HTTPリクエストを使って場所と場所の間のルートを計算するサービスです。交通機関、自動車、徒歩、自転車を含む、複数の移動手段によるルートを検出できます。道順では、出発点、目的地、中継地をテキスト文字列（例： イリノイ州シカゴ または オーストラリア北部特別地域ダーウィン ）または緯度と経度の座標で示すことができます。Directions APIは、一連の中継地を使用して複数の経路を含んだルートを返すことができます。
+
+Google Directionsアカウントには、Data Centerから接続します。このトピックでは、Google Directionsコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+なし
+
+## Google Directionsへの接続
+
+このセクションではGoogle Directionsコネクターページの **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細につきましては「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### 詳細ペイン
+
+このペインには、Domoから取得したいデータを指定するための多数のオプションが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 出発点 </p></td><td colspan="1" rowspan="1"><p> 出発点を入力します。地名または緯度と経度の座標を指定できます。緯度と経度の値の間にスペースを入れないようにしてください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 目的地 </p></td><td colspan="1" rowspan="1"><p> 目的地を入力します。地名または緯度と経度の座標を指定できます。緯度と経度の値の間にスペースを入れないようにしてください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> センサー </p></td><td colspan="1" rowspan="1"><p> デバイスに場所センサーがある場合は <b> はい </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> モード </p></td><td colspan="1" rowspan="1"><p> データを取得したい移動モードを選択します。 <b> ［交通機関］ </b> を選択する場合は、 <b> ［出発時刻］ </b> または <b> ［到着時刻］ </b> フィールドに時刻を入力してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 代替案 </p></td><td colspan="1" rowspan="1"><p> 経路に代替経路も含めるかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 中継点（オプション） </p></td><td colspan="1" rowspan="1"><p> パイプ「|」文字で区切って、経路に表示したい中継点を入力します（例： <span class="mt-font-courier-new"> マサチューセッツ州チャールズタウン|マサチューセッツ州レキシントン </span> ）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 回避 </p></td><td colspan="1" rowspan="1"><p> 経路で、フェリー、高速道路、または通行料金を回避するかどうかを選択します。また、 <b> ［すべて］ </b> または <b> ［なし］ </b> も選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 単位 </p></td><td colspan="1" rowspan="1"><p> レポートをメートル法で表示するかヤード・ポンド単位で表示するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 出発時刻（オプション） </p></td><td colspan="1" rowspan="1"><p> 推定出発時刻を入力します。使用できる書式は、 <span class="mt-font-courier-new"> dd/MM/YYYY hh:mm AM/PMです。 </span> 例： <span class="mt-font-courier-new"> 01/09/2014 6:55 PM </span> 。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 到着時刻（オプション） </p></td><td colspan="1" rowspan="1"><p> 推定到着時刻を入力します。使用できる書式は、 <span class="mt-font-courier-new"> dd/MM/YYYY hh:mm AM/PMです。 </span> 例： <span class="mt-font-courier-new"> 01/09/2014 6:55 PM </span> 。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

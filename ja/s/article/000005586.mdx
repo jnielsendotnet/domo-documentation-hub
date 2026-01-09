@@ -1,0 +1,107 @@
+---
+title: "Domo on Oracle Cloud（ベータ版―推奨）"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+### はじめに
+
+Cloud Amplifierのネイティブ統合を使用して、Oracle CloudからDomoにデータを接続できます。接続パラメーターを指定し、Domo DataSetとして表示するテーブルを選択します。
+
+[Cloud Amplifier](/ja/s/article/4412849158167) を使用してOracleとDomoの読み取り/書き込み接続を設定するには、この記事の手順に従います。
+
+### 構造的な概要
+
+<Frame><img alt="Oracle architecture diagram.png" src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq000003DgCb.jpg" style={{width: 897, height: 769}}/></Frame>
+
+[このページのトップへ](#intro)
+
+### Oracle Cloudへの読み取り専用接続を設定する
+
+1. Domo Data Centerに移動します。
+2. （条件付き）Data Warehouseページが表示されていない場合は、サイドバーを使用して <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uR3y.jpg" /> **［Data Warehouse］** （キューブアイコン）に進みます。
+3. <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uSeO.jpg" /> **［新しいクラウドアカウントを追加］** を選択し、 **［既存のクラウドウェアハウスを拡大する］** モーダルを表示します。
+
+   **<InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uRaE.jpg" />**
+4. モーダルの **［ネイティブ統合］** セクションで、 **［詳細を見る］** を選択してその他の統合オプションを表示します。
+
+   <Frame><img alt="see more.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uTIf.jpg" style={{width: 514, height: 349}}/></Frame>
+
+5. **［Oracle］** を選択します。
+
+   <Frame><img alt="Screenshot 2024-10-09 at 8.04.46 AM.png" src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039Cuf.jpg" style={{width: 514, height: 343}}/></Frame>
+
+6. **［+新しい統合を追加］** を選択します。
+
+   <Frame><img alt="Screenshot 2024-10-09 at 8.10.04 AM.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000039DNh.jpg" style={{width: 520, height: 363}}/></Frame>
+
+   <Frame><img alt="Screenshot 2024-10-09 at 8.08.33 AM.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000039DSX.jpg" style={{width: 521, height: 363}}/></Frame>
+
+7. 接続パラメーターへのパラメーターを適切なフィールドに入力します。
+   * **［統合名］ — ** 将来統合を更新する必要が出てきた場合に、統合のリストで検索する名前です。
+   * **［統合の説明（オプション）］ — ** 統合に関する追加情報を入力します。
+   * **［Oracle接続URL］— ** TNSフォーマットのOracleデータベースのJDBC接続文字列詳細については、 [Oracle Databaseのドキュメント](https://docs.oracle.com/en/database/oracle/oracle-database/21/jajdb/index.html) <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" /> を参照してください。
+   * **［Oracleユーザー名］— ** 接続先のデータを含むインスタンスのOracleユーザー名。
+   * **［Oracleパスワード］— ** 接続先のデータを含むインスタンスのOracleパスワード。
+
+   <Frame><img alt="Screenshot 2024-10-09 at 8.23.27 AM.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000039DnW.jpg" style={{width: 545, height: 330}}/></Frame>
+
+8. キャッシュオプションを設定します。データの更新を自動的にチェックするかどうかやどの間隔でチェックするかを選択できます。Cloud Amplifierのキャッシュのルールについては、[こちら](/ja/s/article/4412849158167#caching_rules) を参照してください。
+
+   <Frame><img alt="Screenshot 2024-10-08 at 12.58.45 PM.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000038LWz.jpg" style={{width: 400, height: 155}}/></Frame>
+
+9. **［次へ］を選択します。** 成功メッセージが表示されます。
+10. （オプション）**［Choose Tables to Connect］** を選択して、テーブルピッカーを開きます。
+
+    <Frame><img src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000039EoP.jpg" style={{width: 879, height: 399}}/></Frame>
+
+11. スキーマとテーブルから選択します。準備ができたら、**［DataSetを作成］** を選択します。
+
+    <Frame><img alt="Picture1.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq00000398mF.jpg" style={{width: 884, height: 402}}/></Frame>
+
+12. （オプション）確認モーダルでは、DataSetをほかのDomoユーザーとシェアできます。
+
+    <Frame><img alt="share modal.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uXZB.jpg" style={{width: 447, height: 255}}/></Frame>
+
+    DomoでOracle DataSetとやり取りできるようになりました。
+
+    <Frame><img alt="Screenshot 2024-10-09 at 8.33.45 AM.png" src="/images/kb/ja/ka0Vq000000HBVJ-00N5w00000Ri7BU-0EMVq0000039Fir.jpg" style={{width: 894, height: 377}}/></Frame>
+
+[このページのトップへ](#intro)
+
+### Oracle Cloudのライトバックサポートを設定する
+
+Cloud Amplifier統合を設定して、DomoからOracleテーブルに出力を書き込むことができます。
+
+読み取り専用のOracle統合にライトバック機能を追加するには、次の手順に従います。
+
+1. Domo Data Centerに移動します。
+2. （条件付き）Data Warehouseページが表示されていない場合は、サイドバーを使用して <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uR3y.jpg" /> **［Data Warehouse］** （キューブアイコン）に進みます。
+3. **［クラウド接続を管理］** を選択します。
+
+   **<InlineImage src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq00000393oA.jpg" />**
+4. **［ネイティブ統合］** セクションの **［詳細を見る］** を選択して残りのオプションを表示します。
+
+   <Frame><img alt="see more.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uTIf.jpg" style={{width: 514, height: 349}}/></Frame>
+
+5. **［Oracle］** を選択して、既存のOracle-Cloud Amplifier統合を表示します。
+
+   **<InlineImage src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039Cuf.jpg" />**
+6. 読み取り専用権限を持つ既存の統合にカーソルを合わせて、<InlineImage src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039IOz.jpg" /> （スパナアイコン）> **［書き込みアクセスを設定］** を選択します。 既存の統合がない場合は、「 [Oracle Cloudへの読み取り専用接続を設定する](#configure_read_only) 」の手順に従ってください。
+
+   <Frame><img alt="Screenshot 2024-10-09 at 8.57.32 AM.png" src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039IaH.jpg" style={{width: 555, height: 390}}/></Frame>
+
+7. Oracleで統合のために作成する資格証明名を入力し、**［SQLを生成］** を選択します。
+8. 次の手順に従います。Oracleで実行する必要があるステートメントのセットは2つあります。
+   * ACCOUNTADMIN権限を持つユーザーは、最初の命令セットを実行してOracleインスタンスで資格証明を付与します。
+   * アカウントユーザー（ [読み込み統合](#configure_read_only) を設定するときに設定されます）は、書き込み資格証明を作成するために、2つ目の命令セットを実行する必要があります。
+
+   <Frame><img src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039Jsv.jpg" style={{width: 896, height: 405}}/></Frame>
+
+9. Oracleインスタンスで両方の命令セットを正常に実行したら、IDとARNの値をコピーして **［次へ］** を選択します。
+
+   <Frame><img alt="2.png" src="/images/kb/ka0Vq000000HBS5-00N5w00000Ri7BU-0EMVq0000039Kk9.jpg" style={{width: 902, height: 410}}/></Frame>
+
+10. 次の手順で、DomoがOracle環境に変更を加えられることを理解していることを確認し、**［次へ］を選択します。** 書き込み統合が正常に設定されたことを確認するメッセージが表示されます。
+
+[このページのトップへ](#intro)

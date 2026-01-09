@@ -1,0 +1,132 @@
+---
+title: "Workbench 4 で OLAP キューブに接続する"
+---
+
+Workbench 4 では、OLAP DataSetジョブを作成することができます。 データソースタイプにOLAPを選択したら、接続の詳細を指定し、そしてクエリを設定します。
+
+**Workbench 4 で OLAP DataSetジョブを作成するには、**
+
+1. Workbenchウィンドウ上部、ボタンツールバーの **DataSet ジョブ** グループで **新規に追加** をクリックします。
+     
+   **Workbench DataSet ジョブ作成ウィザード** が開きます。
+2. （条件付） 要求されたら、Domo サーバーを選択します。 （この画面は、Workbench に 1 つ以上のサーバーがあった場合のみ表示されます。）
+3. **DataSet ジョブ名** フィールドに、DataSet ジョブの名前を入力します。 これは、Workbench で表示されるジョブ名です。Domo にアップロードされた DataSet 名では *ありません* 。
+4. **DataSet 名** フィールドに、DataSet 名を入力します。 これは、Domo にアップロードされた DataSet 名です。
+5. **更新方法** メニューで、更新する方法を選択します：
+
+   * 更新時に、DataSet を完全に入れ替えたい場合は、**DataSet を置換** を選択します。
+   * 更新データを既存のデータに追加したい場合は、**DataSet に追加** を選択します。
+6. **トランスポート方法** メニューで、 **OLEDB 接続プロバイダー** を選択します。
+7. **次へ** をクリックします。
+8. **DataSet タイプ** フィールドに、ドロップダウンから DataSet のタイプを選択するか、あるいはカスタマイズされた名前を入力します。
+     
+   ここで選択または入力する DataSet のタイプは、ジョブ実行後の Domo の Connector タイプに反映されます。
+
+   <Tip>
+   **ヒント：** DataSet タイプを選択する際は、データを提示するのに使っているデータリーダーでは *なく* 、何を表しているのかユーザーがわかるようなものにすることを推奨します。 例えば、ツイッターのデータを含んでいるOLAP キューブファイルに接続するとします。 この場合は、 **OLEDB** ではなく「ツイッター」を選択するのがベストです。Domo で表すのは、ツイッターから来ているデータだからです。
+
+   </Tip>
+
+9. （オプション）**DataSet の説明** フィールドに説明を入力します。
+
+   <Note>
+   **注記：** これらの設定は、ウィザードで全てのステップを完了した後でも、トランスポート方法 *以外* は、DataSet ジョブの **ソース** パネルで変更することができます。
+
+   </Note>
+
+10. **次へ** をクリックします。
+      
+    **アカウント** ペインの現在認証されているサーバーのジョブリストに、OLAP DataSet ジョブが新規に追加されます。
+11. 今ジョブリストに追加されたばかりの OLAP DataSet ジョブで、**ソース** を選択します。
+      
+    OLAP 接続を設定し、クエリを定義するためのパネルが開きます。
+12. **OLAP 接続** フィールドで、以下のいずれかを行います：
+
+    * プロバイダー（MSOLAPまたはEssbase）とデータソース、Initial Catalogそしてユーザー ID とパスワードが入ったOLAP接続文字列を入力します。
+    * **接続ビルダー** のフィールドに記入して、接続文字列を作成します。 **接続ビルダー** を開くには、 **OLAP 接続** フィールドの矢印をクリックします。
+        
+      以下の表は、 **接続ビルダー** の全パラメーターについて説明しています：
+
+      <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> データソース </p></td><td colspan="1" rowspan="1"><p> データベースが格納されているサーバーを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロバイダー </p></td><td colspan="1" rowspan="1"><p> MSOLAP または Essbase のどちらかのプロバイダーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カタログ </p></td><td colspan="1" rowspan="1"><p> OLAP接続の初期カタログを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> このOLAP接続のユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> OLAP接続のパスワードを指定します。 </p></td></tr></tbody></table>
+
+13. **変更を適用** をクリックします。
+14. **データソースのプロパティ** ペインで、取得したいデータのクエリを入力します。 例：
+      
+    ```
+    with member [Measures].[PCT Discount] AS '[Measures].[Discount Amount]/[Measures].[Sales Amount]', FORMAT_STRING = 'Percent'
+      
+    set Top10SellingProducts as 'topcount([Product].[Model Name].children, 10, [Measures].[Sales Amount])'
+      
+    set Preferred10Products as '
+      
+    \{[Product].[Model Name].&[Mountain-200],
+      
+    [Product].[Model Name].&[Road-250],
+      
+    [Product].[Model Name].&[Mountain-100],
+      
+    [Product].[Model Name].&[Road-650],
+      
+    [Product].[Model Name].&[Touring-1000],
+      
+    [Product].[Model Name].&[Road-550-W],
+      
+    [Product].[Model Name].&[Road-350-W],
+      
+    [Product].[Model Name].&[HL Mountain Frame],
+      
+    [Product].[Model Name].&[Road-150],
+      
+    [Product].[Model Name].&[Touring-3000]
+      
+    }'
+      
+    select \{[Measures].[Sales Amount], [Measures].[Discount Amount], [Measures].[PCT Discount]} on 0,
+      
+    Preferred10Products on 1
+      
+    from [Analysis Services Tutorial]
+    ```
+15. (オプション）**置換変数** タブで、DataSet の列の置き換え変数を定義します。 それぞれの置換変数に対して...
+
+    1. **列ドロップダウン** から該当する列を選択します。
+
+       <Note>
+       **注記：** **トランスポート方法** ペインで有効な OLAP 接続を作成するまで、 **列** のドロップダウンに内容は追加されません。
+
+       </Note>
+
+    2. 選択した列の置換変数を、**値** ドロップダウンで定義します。
+
+       <table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1">
+       <p> 変数タイプ </p>
+       </th>
+       <th colspan="1" rowspan="1"><p> 説明 </p></th>
+       </tr>
+       <tr>
+       <td colspan="1" rowspan="1">
+       <p><span class="mt-font-courier-new"> lastvalue </span></p>
+       </td>
+       <td colspan="1" rowspan="1">
+       <p><span class="mt-font-courier-new"> lastvalue </span> 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータ行の最終列について、関連するフィールドの変化を追跡します。 構文は </p><p><code>!\{lastvalue:_name_}! </code></p><p><span class="mt-font-courier-new"> lastvalue </span> 変数の値は、アップロード終了後に Workbench によって更新されます。 <span class="mt-font-courier-new"> lastvalue </span> 変数はジョブの（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存されます。 この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。 例えば、新しい行が増えるに従って増えていく行の「ID」を持つ列がデータに存在する場合、 </p><p><code>!\{lastvalue:id}! </code></p><p> 以下と同じようになります： </p><p><code> select id, name, type, sales from tablename where id &gt;!\{lastvalue:id}! order by id </code></p><p> この例では、列 「id」 はSELECT、WHERE と ORDER BY 節に <em> 必ず </em> ないと、変数を使用して更新することができません。 </p><p> このジョブをアップロードする時は、Workbench は </p><p><code>!\{lastvalue:id}! </code></p><p> 変数を現在の「id」値と置き換えます。 アップロード終了後、Workbench は最後にアップロードされた「id」の値をジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存します。 </p> 
+       <Note>
+         <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> SELECT、WHERE および ORDER BY 節の中で lastvalue 変数を使って参照した列は <em> 必ず </em> 含めないと、データのアップロード後に変数を使用して更新することはできません。 </div></div></div> 
+       </Note>
+
+         </td>
+         </tr>
+         <tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> previewonly </span></p></td><td colspan="1" rowspan="1"><p> Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。 例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。 構文は </p><p><code>!\{previewonly:Statement}! </code></p></td></tr>
+         </tbody></table>
+
+これで Domo にOLAP DataSet が作成され、DataSet ジョブを実行する準備ができました。 しかし、Domo に送信する前に DataSet ジョブでできる操作はたくさんあります。 これには以下のものが含まれます：
+
+* [Workbench 4 で Excel データに接続する](/ja/s/article/360047499333 "Workbench 4 で Excel データに接続する")
+* [Workbench 4 で CSV データに接続する](/ja/s/article/360047496473 "Workbench 4 で CSV データに接続する")
+* [Workbench 4 で JIRA データに接続する](/ja/s/article/360046860074 "Workbench 4 で JIRA データに接続する")
+* [Workbench 4 で ODBC データに接続する](/ja/s/article/360047499793 "Workbench 4 で ODBC データに接続する")
+* [Workbench 4 で OLAP キューブに接続する](/ja/s/article/360047496273 "Workbench 4 で OLAP キューブに接続する")
+* [Workbench 4 で XML データに接続する](/ja/s/article/360046860474 "Workbench 4 で XML データに接続する")
+* [Workbench 4 で QuickBooks データに接続する](/ja/s/article/360046860414 "Workbench 4 で QuickBooks データに接続する")
+* [Workbench 4 で JSON データに接続する](/ja/s/article/360046860134 "Workbench 4 で JSON データに接続する")
+
+

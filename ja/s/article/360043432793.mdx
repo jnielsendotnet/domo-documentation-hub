@@ -1,0 +1,62 @@
+---
+title: "Coupaコネクター"
+---
+
+## はじめに
+
+Coupaは、組織全体のビジネスプロセスを統合するクラウドベースの支出管理プラットフォームです。Coupa APIについての詳細は、CoupaのWebサイト（ [https://coupadocs.atlassian.net/wiki...4478/Coupa+API](https://coupadocs.atlassian.net/wiki/spaces/integrate/pages/524478/Coupa+API "https://coupadocs.atlassian.net/wiki/spaces/integrate/pages/524478/Coupa+API") ）を参照してください。
+
+Coupaアカウントには、Data Centerから接続します。このトピックでは、Coupaコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+Coupaアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Coupa APIキー。APIキーは、Coupaの
+  **[Adminstration]** タブの **[API Keys]** セクションで作成できます。作成するには、管理者ユーザーである必要があります。
+* Coupaインスタンス。これは、Coupa URLの
+  https:// のすぐ後ろの部分になります。たとえば、インスタンスURLが [https://domo.coupahost.com](https://domo.coupahost.com "https://domo.coupahost.com") であれば、インスタンスには domo を入力します。
+
+## Coupaアカウントに接続する
+
+このセクションでは、Coupaコネクターページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。このページの他のペインの項目にある **[スケジュール設定]** や **[DataSetに名前を付け、説明を入力]** に関しては、コネクタータイプのほとんどで共通です。詳細につきましては「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### 認証情報ペイン
+
+このペインには、Coupaアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Coupa APIキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Instance </p></td><td colspan="1" rowspan="1"><p> Coupaインスタンス名を入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なCoupa認証情報を一度入力しておくと、随時同じアカウントを使用して新しいCoupa DataSetを作成できます。コネクターアカウントは、Data Centerの **[アカウント]** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他さまざまなメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するCoupaレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Invoices </td><td colspan="1" rowspan="1"> Coupaインボイスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoice Lines </td><td colspan="1" rowspan="1"> 適用可能な各Coupaインボイスの請求書明細を返します。請求書IDによるインボイスに関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoice Payments </td><td colspan="1" rowspan="1"> 適用可能な各Coupaインボイスの請求書支払いを返します。請求書IDによるインボイスに関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoice Tax Lines </td><td colspan="1" rowspan="1"> 適用可能な各Coupaインボイスの請求書課税明細を返します。請求書IDによるインボイスに関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Invoice Approvals </td><td colspan="1" rowspan="1"> 適用可能な各Coupaインボイスの請求書承認を返します。請求書IDによるインボイスに関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Order Changes </td><td colspan="1" rowspan="1"> 注文の変更があった注文書を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Order Changes Approvals </td><td colspan="1" rowspan="1"> 注文の変更があった注文書の承認を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Order Changes Order Lines </td><td colspan="1" rowspan="1"> 注文の変更があった注文書の注文明細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Orders </td><td colspan="1" rowspan="1"> Coupaの注文書を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Purchase Order Lines </td><td colspan="1" rowspan="1"> 該当する各注文の注文明細を返します。注文IDによる注文に関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Requisitions </td><td colspan="1" rowspan="1"> Coupa要求を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Requisition Approvals </td><td colspan="1" rowspan="1"> Coupa要求承認を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Requisition Lines </td><td colspan="1" rowspan="1"> 適用可能な各要求の要求明細を返します。要求IDによる要求と関連します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> Coupaアカウントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Addresses </td><td colspan="1" rowspan="1"> Coupaの住所のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Content Groups </td><td colspan="1" rowspan="1"> Coupaコンテンツグループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Currencies </td><td colspan="1" rowspan="1"> Coupaの通貨のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Contracts </td><td colspan="1" rowspan="1"> Coupaの契約のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Departments </td><td colspan="1" rowspan="1"> Coupaの部署のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Exchange Rates </td><td colspan="1" rowspan="1"> 為替レートのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Suppliers </td><td colspan="1" rowspan="1"> Coupaサプライヤーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> Coupaユーザーのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付に対して、または日付範囲に対してデータを取得するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付か相対的な日付かを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付か、相対的な日付かを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を作成できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示される日の範囲を作成できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days to Retrieve </p></td><td colspan="1" rowspan="1"><p> 遡ってデータを取得する日数を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは、1時間に1回更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+CoupaのAPIには制限は設けられていません。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,613 @@
+openapi: 3.0.3
+info:
+  title: Domo Task Center API
+  description: |
+    Task Center allows you to organize manual tasks into different queues of work and control who can access them. They are often used in concert with Workflows.
+    
+    For more background on Task Center, please see the Knowledge Base.
+  version: 1.0.0
+  contact:
+    name: Domo Support
+    url: https://www.domo.com
+
+servers:
+  - url: https://{instance}.domo.com
+    description: Domo Task Center API
+    variables:
+      instance:
+        default: your-instance
+        description: Your Domo instance name
+
+security:
+  - DeveloperToken: []
+
+paths:
+  /api/queues/v1:
+    get:
+      tags:
+        - Task Center API (Product)
+      summary: Get Queues
+      description: Returns all queues the user has access to
+      operationId: getQueues
+      parameters:
+        - name: combineAttributes
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: true
+        - name: archived
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: List of all queue objects the user has access to
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Queue'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+
+  /api/queues/v1/{queueId}:
+    get:
+      tags:
+        - Task Center API (Product)
+      summary: Get Queue by ID
+      description: Returns a queue by ID
+      operationId: getQueueById
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "168ecd84-4a15-45f6-89d9-021fbbce0481"
+      responses:
+        '200':
+          description: Queue object based on the queueId specified
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Queue'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Queue not found
+
+  /api/queues/v1/tasks/list:
+    post:
+      tags:
+        - Task Center API (Product)
+      summary: Get Tasks
+      description: Returns tasks based on the filters provided in the body. If the body is an empty object, it returns all tasks the user has access to
+      operationId: getTasks
+      parameters:
+        - name: render
+          in: query
+          required: false
+          schema:
+            type: boolean
+        - name: renderParts
+          in: query
+          required: false
+          description: Comma-separated list of parts to render
+          schema:
+            type: string
+          example: "NAME,DESCRIPTION,MAPPING,METADATA,VERSIONS"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskListFilters'
+            example:
+              queueId: ["168ecd84-4a15-45f6-89d9-021fbbce0481"]
+              displayType: ["ENIGMA_FORM", "EMAIL", "UNKNOWN"]
+              status: ["OPEN", "COMPLETED", "VOIDED"]
+              createdOn: [["2023-10-04T12:22:54.239Z", "2024-01-02T13:22:54.239Z"]]
+      responses:
+        '200':
+          description: List of tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+
+  /api/queues/v1/{queueId}/tasks/{taskId}:
+    get:
+      tags:
+        - Task Center API (Product)
+      summary: Get Task by ID
+      description: Returns a task by its id
+      operationId: getTaskById
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "168ecd84-4a15-45f6-89d9-021fbbce0481"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "18OCT23_1JUTZM"
+        - name: render
+          in: query
+          required: false
+          schema:
+            type: boolean
+      responses:
+        '200':
+          description: Task object requested
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task not found
+
+  /api/queues/v1/{queueId}/tasks/{taskId}/outputs:
+    put:
+      tags:
+        - Task Center API (Product)
+      summary: Save Task Progress
+      description: Saves current task values given in the body, which contains the key value pairs for each input property of the task in question
+      operationId: saveTaskProgress
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "168ecd84-4a15-45f6-89d9-021fbbce0481"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "18OCT23_1JUTZM"
+      requestBody:
+        required: true
+        description: The request body accepts an object containing key value pairs for each input property of the task in question.
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+            example:
+              Suggested_Action_Items: "1. Investigate assembly line for misalignment issues near the hinge area\n2. Inspect and replace seals in the actuator's main chamber to prevent hydraulic leaks\n3. Address the issue of missing or loose fasteners with the supplier\n"
+              Send_to_QA_Team: true
+      responses:
+        '200':
+          description: The current saved state of the task
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task not found
+
+  /api/queues/v1/{queueId}/tasks/{taskId}/complete:
+    post:
+      tags:
+        - Task Center API (Product)
+      summary: Complete Task
+      description: Completes the task with the values given in the body
+      operationId: completeTask
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "168ecd84-4a15-45f6-89d9-021fbbce0481"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "24OCT23_CI27D1"
+        - name: version
+          in: query
+          required: false
+          description: Task version number
+          schema:
+            type: string
+          example: "1"
+      requestBody:
+        required: true
+        description: The request body accepts an object containing key value pairs for each input property of the task in question.
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+            example:
+              Suggested_Action_Items: "1. Investigate assembly line for misalignment issues near the hinge area\n2. Inspect and replace seals in the actuator's main chamber to prevent hydraulic leaks\n3. Address the issue of missing or loose fasteners with the supplier\n"
+              Send_to_QA_Team: true
+      responses:
+        '200':
+          description: The completed task
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task not found
+
+  /api/queues/v1/{currentQueueId}/tasks/{taskId}/move:
+    put:
+      tags:
+        - Task Center API (Product)
+      summary: Transfer Task
+      description: Transfer a task to another queue
+      operationId: transferTask
+      parameters:
+        - name: currentQueueId
+          in: path
+          required: true
+          description: The current queue ID
+          schema:
+            type: string
+          example: "bca21fad-e06b-4905-b43a-ea0929850e47"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "13AUG24_RZY4WA"
+        - name: targetQueueId
+          in: query
+          required: true
+          description: The target queue ID to move the task to
+          schema:
+            type: string
+          example: "23890539-9543-4507-b68b-12e08094ca09"
+      responses:
+        '200':
+          description: The transferred task
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task or queue not found
+
+  /api/queues/v1/{queueId}/tasks/{taskId}/assign:
+    put:
+      tags:
+        - Task Center API (Product)
+      summary: Transfer Task to Another User
+      description: Transfer a task to another User
+      operationId: transferTaskToUser
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "bca21fad-e06b-4905-b43a-ea0929850e47"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "13AUG24_RZY4WA"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssignTaskRequest'
+            example:
+              tasksId: []
+              type: "USER"
+              userId: "700632941"
+      responses:
+        '200':
+          description: The transferred task
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task not found
+
+  /api/queues/v1/{queueId}/tasks/{taskId}/void:
+    post:
+      tags:
+        - Task Center API (Product)
+      summary: Void a Task
+      description: Void a task
+      operationId: voidTask
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "bca21fad-e06b-4905-b43a-ea0929850e47"
+        - name: taskId
+          in: path
+          required: true
+          description: The ID of the task
+          schema:
+            type: string
+          example: "13AUG24_RZY4WA"
+      responses:
+        '200':
+          description: The voided task
+          content:
+            application/json:
+              schema:
+                type: object
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Task not found
+
+  /api/queues/v1/{queueId}/permissions:
+    post:
+      tags:
+        - Task Center API (Product)
+      summary: Update Permissions
+      description: Update a queue's user/group permissions
+      operationId: updateQueuePermissions
+      parameters:
+        - name: queueId
+          in: path
+          required: true
+          description: The ID of the queue
+          schema:
+            type: string
+          example: "bca21fad-e06b-4905-b43a-ea0929850e47"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PermissionEntry'
+            example:
+              - id: "337992616"
+                permissions: ["ADMIN", "SHARE", "DELETE", "WRITE", "READ", "CREATE_CONTENT", "READ_CONTENT", "UPDATE_CONTENT", "DELETE_CONTENT", "EXPORT", "EXECUTE"]
+                name: "Daniel Bateman"
+                type: "USER"
+              - id: "700632923"
+                permissions: ["ADMIN"]
+                name: "Daniel's Test User"
+                type: "USER"
+              - id: "519150798"
+                permissions: []
+                name: "Jordan Tiller"
+                type: "USER"
+      responses:
+        '200':
+          description: Permissions updated successfully
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: Queue not found
+
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+
+  schemas:
+    Queue:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the queue
+          example: "168ecd84-4a15-45f6-89d9-021fbbce0481"
+        name:
+          type: string
+          description: Name of the queue
+          example: "Review Airplane Part Action Items"
+        description:
+          type: string
+          description: Description of the queue
+          example: "Human review of AI generated recommendations for QA process improvements based on product defects in manufacturing QA."
+        active:
+          type: boolean
+          description: Whether the queue is active
+          example: true
+        taskLevelFiltersEnabled:
+          type: boolean
+          description: Whether task level filters are enabled
+          example: true
+        taskLevelFilters:
+          nullable: true
+          description: Task level filters configuration
+        owner:
+          type: string
+          description: User ID of the queue owner
+          example: "8811501"
+        createdBy:
+          type: string
+          description: User ID who created the queue
+          example: "8811501"
+        createdOn:
+          type: string
+          format: date-time
+          description: Timestamp when the queue was created
+          example: "2023-10-18T14:48:23.314Z"
+        updatedBy:
+          type: string
+          description: User ID who last updated the queue
+          example: "8811501"
+        updatedOn:
+          type: string
+          format: date-time
+          description: Timestamp when the queue was last updated
+          example: "2023-10-18T14:48:23.314Z"
+
+    TaskListFilters:
+      type: object
+      description: Filters to apply when retrieving tasks. All properties are optional
+      properties:
+        queueId:
+          type: array
+          items:
+            type: string
+          description: An array of queue ids.
+        displayType:
+          type: array
+          items:
+            type: string
+          description: An array of display types for tasks. Options are `ENIGMA_FORM`, `EMAIL`, `UNKNOWN`.
+        status:
+          type: array
+          items:
+            type: string
+          description: An array of statuses. Options are `OPEN`, `COMPLETED`, `VOIDED`.
+        assignedBy:
+          type: array
+          items:
+            type: string
+          description: An array of user ids corresponding to the user that assigned the task to.
+        assignedTo:
+          type: array
+          items:
+            type: string
+          description: An array of user ids corresponding to the user that the task was assigned to.
+        createdOn:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: date-time
+          description: Array containing date range [start, end] for createdOn
+          example: [["2023-10-04T12:22:54.239Z", "2024-01-02T13:22:54.239Z"]]
+        createdBy:
+          type: array
+          items:
+            type: string
+          description: An array of user ids corresponding to the user that created the task.
+        assignedOn:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: date-time
+          description: An array containing an array with two elements a start datetime and and end datetime, which define the assigedOn date range.
+        updatedOn:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: date-time
+          description: An array containing an array with two elements a start datetime and and end datetime, which define the updatedOn date range.
+        completedOn:
+          type: array
+          items:
+            type: array
+            items:
+              type: string
+              format: date-time
+          description: An array containing an array with two elements a start datetime and and end datetime, which define the completedOn date range.
+        completedBy:
+          type: array
+          items:
+            type: string
+          description: An array of user ids corresponding to the user that completed the task.
+        orderByString:
+          type: array
+          items:
+            type: string
+          description: An array of strings corresponding to the properties from this body that the list of tasks should be ordered by.
+        version:
+          type: array
+          items:
+            type: string
+          description: Array of version numbers to filter by
+
+    AssignTaskRequest:
+      type: object
+      required:
+        - type
+        - userId
+      properties:
+        tasksId:
+          type: array
+          items:
+            type: string
+          description: Array of task IDs
+          example: []
+        type:
+          type: string
+          enum: [USER, GROUP]
+          description: Type of entity to assign to
+          example: "USER"
+        userId:
+          type: string
+          description: User or group ID to assign the task to
+          example: "700632941"
+
+    PermissionEntry:
+      type: object
+      required:
+        - id
+        - permissions
+        - name
+        - type
+      properties:
+        id:
+          type: string
+          description: The user or group id.
+        permissions:
+          type: array
+          items:
+            type: string
+            enum: [ADMIN, SHARE, DELETE, WRITE, READ, CREATE_CONTENT, READ_CONTENT, UPDATE_CONTENT, DELETE_CONTENT, EXPORT, EXECUTE]
+          description: An array of permissions. The array can be empty (Removes an permissions). Options are
+          example: ["ADMIN", "READ", "EXECUTE"]
+        name:
+          type: string
+          description: Display name of the user or group
+        type:
+          type: string
+          enum: [USER, GROUP]
+          description: Type of entity

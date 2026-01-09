@@ -1,0 +1,39 @@
+---
+title: "DHL Writebackコネクター"
+---
+
+## はじめに
+
+DHLは、ロジスティックス業界の世界的マーケットリーダーです。DHLは、国際的な高速配送、航空、海洋、道路、鉄道経由のグローバル運送、梱包から修復、保管までの倉庫ソリューション、世界中での郵便配達、その他のカスタマイズされたロジスティックサービスなどの分野でその専門技術を発揮しています。DomoのDHL Writebackコネクターを使用して、トラッキング番号の詳細な追跡ステータス情報を確認します。DHL APIの詳細は、DHLのページ（https://www.dhl.com/global-en/home/our-divisions/ecommerce/integration/api.html ）を参照してください。
+
+DHL Writebackアカウントには、Data Centerから接続します。このトピックでは、DHL Writebackコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+DHL Writebackアカウントに接続してトラッキング番号の詳細な追跡ステータス情報を確認するには、次の情報が必要です。
+
+* DHL APIキー（コンシューマーキー）
+
+## DHL Writebackアカウントに接続する
+
+このセクションでは、 DHL Writeback コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 DHL Writeback アカウントへの接続に必要な認証情報が表示されます。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［DHL API Key］ </td><td colspan="1" rowspan="1"> コンシューマーキーを入力します。 </td></tr></tbody></table>
+
+コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、トラッキング番号の詳細な追跡ステータス情報を取得するための入力フィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Input DataSet ID］ </td><td colspan="1" rowspan="1"> DataSetのURLにあるDomo DataSet ID（GUID）を入力します。例： <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a><b><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b></b> /details/settings </td></tr><tr><td colspan="1" rowspan="1"> ［Tracking Number Column Name］ </td><td colspan="1" rowspan="1"> トラッキング番号の列名を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

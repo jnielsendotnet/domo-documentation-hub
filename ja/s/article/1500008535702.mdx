@@ -1,0 +1,185 @@
+---
+title: "On-Premise SharePoint Data Providerプラグイン（ベータ）"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+# はじめに
+
+Domo SharePointプラグインを使うと、Workbench 5にジョブを作成して、SharePointのデータをDomoに取り込むことができます。Domo Workbenchは、オンプレミスのデータをDomoにアップロードするための安全なクライアントサイドのソリューションを提供します。Domo SharePoint Data Providerは、Domo Workbenchを使用可能なSharePointデータに接続します。WorkbenchでSharePointデータからDataSetを構築し、DomoサービスでSharePointデータをリアルタイムで視覚化することができます。このチュートリアルでは、Domo SharePointプラグインを使用してSharePointデータに接続する方法を説明します。
+
+#### 利用を開始する
+
+* Windows 10 64ビットオペレーティングシステム
+* Domo Workbench
+* SharePointプラグイン： https://app.domo.com/workbench/plugins/stable/DomoSharePointDataProvider.dwp
+
+# Domo WorkbenchにSharePointプラグインをインストールする
+
+Workbenchのプラグインは、すべてダイナミックリンクライブラリ（DLL）に格納されています。Workbenchには、自分のマシンまたはネットワークから目的のDLLを選択することで、プラグインを追加することができます。
+
+#### WorkbenchにSharePointプラグインを追加する
+
+<Note>
+**注記：** SharePointプラグインは、選択するディレクトリのサブディレクトリに入れておく必要があります。
+
+</Note>
+
+1. Domo Workbenchで、左側のアイコンバーにある <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSr.png" /> をクリックします。
+2. **［その他］** ペインで **［プラグイン］** をクリックします（このペインが表示されていない場合、 <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTF.png" /> をクリックして展開します）。**プラグインマネージャー** が表示されます。
+3. **［新規プラグインを登録］** の下の **［検索パス］** フィールドの横にある省略記号（ **...** ）をクリックします。
+     
+   <Frame><img alt="3.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTB.png"/></Frame>
+
+4. マシンまたはネットワーク上で、SharePointプラグインのすべてのDLLを含むフォルダーを探して開きます。
+5. DLLを選択したら、**［追加］** をクリックします。
+
+# SharePointデータに接続する
+
+#### Workbench 5でSharePoint DataSetジョブを作成する
+
+1. 左側のアイコンバーにある <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSx.png" /> アイコンをクリックします。
+2. ジョブリストペインの右上にある **［+］** ボタンをクリックします。
+3. 新規ジョブの **［概要］** タブが表示されます。
+4. **［ジョブの詳細］** セクションで以下の詳細を入力します。
+
+   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><b> フィールド </b></th><th colspan="1" rowspan="1"><b> 説明 </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domoドメイン </td><td colspan="1" rowspan="1"><p><b> ［Domoドメイン］ </b> ドロップダウンメニューで、必要なアカウント（Domoインスタンス）を選択します。 </p><p> アカウントが1つしか設定されていない場合は、そのアカウントが既に選択されているため、メニューは使用できません。 </p></td></tr><tr><td colspan="1" rowspan="1"> ジョブ名 </td><td colspan="1" rowspan="1"><p> DataSetジョブ名を入力します。 </p><p> これは、Workbenchで表示されるジョブ名です。DomoにアップロードされたDataSet名ではありません。 </p></td></tr><tr><td colspan="1" rowspan="1"> トランスポートタイプ </td><td colspan="1" rowspan="1"><b> ［Domo SharePoint Data Provider］ </b> を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 読み取りタイプ </td><td colspan="1" rowspan="1"> WorkbenchでSharePointから読み取るファイルの種類を選択します。 </td></tr></tbody></table>
+
+   <Frame><img alt="5.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT7.png"/></Frame>
+
+5. **［Domoの詳細］** セクションで、DataSetの情報を入力します。
+
+   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><b> フィールド </b></th><th colspan="1" rowspan="1"><b> 説明 </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> DataSet名 </td><td colspan="1" rowspan="1"> DataSetの名前を入力します。これは、DomoにアップロードされたDataSet名です。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetタイプ </td><td colspan="1" rowspan="1"> ドロップダウンからDataSetタイプを選択します。ここで選択または入力するDataSetのタイプは、ジョブ実行後のDomoのコネクタータイプに反映されます。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetの説明 </td><td colspan="1" rowspan="1"><p> 必要に応じてDataSetの説明を入力します。 </p><p> Domoに表示されるDataSetの説明です。 </p></td></tr></tbody></table>
+
+6. **［作成］** をクリックします。
+     
+   現在認証されているアカウントのジョブリストに、新しいSharePoint DataSetジョブが作成され、追加されます。
+
+   <Note>
+   **注記：** ジョブを作成した後は、DataSet名以外の設定は編集できません。ほかの設定を変更する場合は、新しいジョブを別途作成する必要があります。
+
+   </Note>
+
+#### ジョブを設定する
+
+ジョブが作成されたら、そのジョブの設定に関する詳細を入力する必要があります。
+
+#### ソースを設定する
+
+1. **［ソース］** メニューでSharePointデータの詳細を入力します。
+2. **［編集］** をクリックします。
+3. **［Domo SharePoint Data Provider Editor］** ウィンドウが開きます。ここでは、SharePointデータに接続するために必要な認証情報とレポートの詳細を入力する必要があります。
+
+   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p><b> フィールド </b></p></th><th colspan="1" rowspan="1"><b> 説明 </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 接続タイプ </td><td colspan="1" rowspan="1"> 接続タイプを <b> ［SharePoint On-Premise］ </b> として選択します。 </td></tr><tr><td colspan="1" rowspan="1"> SharePoint URL </td><td colspan="1" rowspan="1"> SharePointサイトのURLを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> SharePointユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> SharePointパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ドメイン </td><td colspan="1" rowspan="1"><p> SharePoint Windowsドメイン名を入力します。 </p><p> 例えば、ご使用のSharePointサイトが <a href="https://sample.sharepoint.com" target="_blank" title="https://sample.sharepoint.com"> https://sample.sharepoint.com </a> にある場合、ドメイン名は「sample」です。 </p></td></tr><tr><td colspan="1" rowspan="1"> レポート </td><td colspan="1" rowspan="1"> ドロップダウンからレポートを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> サーバー相対URL </td><td colspan="1" rowspan="1"> SharePointでこのDataSetに接続するデータファイルの名前を入力します。 </td></tr></tbody></table>
+
+4. **［適用する］** をクリックします。
+     
+   <Frame><img alt="6.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT9.png"/></Frame>
+
+#### データ処理を設定する
+
+1. **［処理］** メニューで、SharePointデータのデータ処理に関する詳細を入力します。
+2. **［編集］** をクリックします。
+3. 選択した読み取りタイプの **エディター** ウィンドウが表示されます。ここで、データのプロパティと詳細を指定して、DataSetにおけるデータの処理方法を定義できます。
+4. **［適用する］** をクリックします。
+
+#### データ更新方法を設定する
+
+1. 新たにアップロードしたデータでDataSet内の既存のデータを置き換える場合は、**［置き換え］** を選択します。
+2. 新たに追加したデータを既存のデータに付け加える（追加する）場合は、**［追加］** を選択します。
+3. データにパーティションを適用する場合は、**［パーティション］** を選択します。パーティション分割では、粒度（日や週など）を使用してデータにグループを作成します。データはグループとして処理され、変更に応じて追加されるか置き換えられます。
+4. データのそれぞれのドロップダウンで **［パーティション列］** と **［日付単位］** を選択します。
+
+#### データに変換を適用する
+
+変換を使用すると、Domoにアップロードする前に、データをローカルで変更できます。データはコンピューターまたはサーバー上で高速に処理されます。キューに待機することはありません。データの変換には様々なオプションが選択でき、いつでもDomoで処理できるように準備できます。
+
+1. ドロップダウンから目的の変換を選択し、その横にある **［+］** ボタンをクリックします。
+2. 選択した変換のプロパティをメンションし、**［適用する］** をクリックします。
+3. データには複数の変換を追加できます。
+4. 特定の変換のプロパティを更新するには、<InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSu.png" /> をクリックします。
+5. 特定の変換を削除するには、<InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSt.png" /> をクリックします。
+6. 変換の位置を交換するには、<InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT5.png" /> （上・下向きの矢印）をクリックします。
+
+#### ジョブを偽装する
+
+偽装を使用すると、Domo Workbenchで特定のActive Directoryユーザーとしてジョブを実行できます。
+
+<Note>
+**注：** ジョブ偽装のユーザープロファイルは、ジョブの実行に必要なソースデータにアクセスできる権限を持っている必要があります。
+
+</Note>
+
+1. **［偽装が必要］** チェックボックスを選択します。
+2. Active Directoryのドメイン名とユーザー名が表示されます。
+3. Active Directoryのパスワードを入力し、**［検証］** をクリックします。
+
+#### ジョブに関する追加設定
+
+**［追加設定］** で、ジョブからDomoへのデータのアップロード方法に関する高度なオプションを設定できます。ここでは、エラーの処理方法、ジョブの実行時間と実行条件を指定できます。
+
+#### ジョブをスケジュールする
+
+DataSetジョブでは、定期的に外部DataSetからDomoへデータをアップロードするなどのスケジュールを設定することができます。この頻度については、［スケジュール］タブで指定します。
+
+##### 基本スケジュール
+
+**［基本スケジュール］** セクションでは、データの手動更新、ファイルの変更時の更新、スケジュールに従った更新ができます。
+
+スケジュールに従った更新を選択する場合は、時間間隔や特定の時間枠を指定してジョブを実行できます。
+
+##### スケジュールの詳細設定
+
+**［スケジュールの詳細設定］** セクションでは、ジョブの実行頻度を、1日1回、1日複数回、毎日、特定の曜日/月、毎月、複数月から選択できます。
+
+変更を保存するには <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" /> （ **保存** ）ボタンをクリックします。
+
+#### ジョブのスキーマ保護
+
+Domo Workbench 5は、3つの異なるスキーマ保護タイプを提供します。スキーマの変更を安全に許可するか、保護されていないスキーマの変更を許可するか、あるいはすべてのスキーマの変更を完全にブロックすることにより、スキーマの変更を制御できます。Domo Workbenchでは、これらのスキーマの変更を任意の方法で制御できる保護機能がサポートされています。この機能は、［安全なスキーマの変更を許可］ビューおよび［保護されていないスキーマの変更を許可］ビューで利用できます。
+
+##### 列の保護
+
+列の保護は、スキーマの変更をジョブに適用する際に列（データフィールド）が保護されているかどうかを示します。
+
+* **［保護］** チェックボックスが選択されている場合、列は保護され、スキーマの変更はできません。安全なスキーマの変更または保護されていないスキーマの変更のいずれかを許可しているときに、任意の列の保護を解除しようとすると（チェックを外すと）Domo Workbenchでは次の警告が表示されます。
+    
+  **警告：** 保護されていない列は変更や削除をすることができますが、Domoのコンテンツが破損する可能性があります。
+    
+  <Frame><img alt="11.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT1.png"/></Frame>
+
+* 列の保護では、すべての列をシングルクリックで保護または保護解除することができます。列ヘッダー（保護）の横のチェックボックスを選択して、すべての列を一度に保護します。同様に、このチェックボックスの選択を解除すると、同時に列の保護を解除できます。
+    
+  <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSq.png" /> <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSk.png" />
+* 列ヘッダーをシングルクリックすると、保護されているエントリー、保護されていないエントリー、またはそれら両方のエントリーを、フィルタリングして表示できます。
+
+  + 通常の選択ビューを選択してクリックすると <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT3.png" /> 、保護されているすべてのエントリーが列の保護に表示されます。
+  + チェックされていないビューを選択してクリックすると <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTD.png" /> 、保護されていないすべてのエントリーが列の保護に表示されます。
+  + 混合ビューを選択してクリックすると <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSl.png" /> 、保護されているエントリーと保護されていないエントリーが一緒に列の保護に表示されます。
+* 保護されたソース列の名前を変更することはできません。Domo Workbenchでは、保護されたソース列の名前は編集できない仕様になっています。ただし、ほかの列の名前またはプロパティは変更できます。
+    
+  <Frame><img alt="17.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSs.png"/></Frame>
+
+* 同様に、保護された列は削除できません。
+* スキーマの変更を許可する場合は、列のチェックを外してジョブを再実行します。
+
+#### 安全なスキーマの変更を許可
+
+このオプションを選択すると、保護されていない列は次回の実行時に変更を受け入れ、その後自動的に保護されます。新しい列が追加され、今後の実行で自動的に保護されます。新しいジョブでは、 **［安全なスキーマの変更を許可］** オプションがデフォルトで有効になります。
+
+#### 保護されていないスキーマの変更を許可
+
+保護されていないスキーマの変更の許可を選択した場合は、保護されていない列の変更や削除ができます。列は保護されていない状態のままになります。
+
+#### 全てのスキーマの変更をブロック
+
+すべてのスキーマ変更をブロックすると、列の保護オプションが表示されません。任意の列に変更を加えてジョブを実行すると、強制的な変更に関するエラーメッセージが発生します。
+
+#### ジョブに通知を設定する
+
+各列の下の名前の前にあるそれぞれのチェックボックスを選択するだけで、ジョブの成功または失敗時にほかのユーザーに通知するように設定できます。
+
+1. ジョブの仕様設定が完了したら、<InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" /> （ **保存** ）ボタンをクリックして変更を保存します。
+2. <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSz.png" />（ **実行** ）ボタンをクリックして、ジョブを実行します。
+
+

@@ -1,0 +1,59 @@
+---
+title: "MongoDB V2コネクター"
+---
+
+## はじめに
+
+MongoDBは、構造的データをJSONのような動的スキーマを持ったドキュメントとして保管するオープンソースのドキュメント指向データベースシステムです。Domoが提供するコネクターを使用すると、MongoDBコレクションからデータを取得し、カスタマイズされたレポートを作成することができます。
+
+* MongoDBコネクターは、Javaドライバーバージョン3.2.1を使用し、検索と集計のクエリ方法をサポートします。MongoDBコネクターでコレクション名を手入力する必要があります。
+* MongoDB AdvancedコネクターはJavaドライバーのバージョン3.2.1を使用し、プレーンJSONクエリをサポートします。MongoDB Advancedコネクターでコレクション名を手入力する必要があります。
+* MongoDB SSHコネクターはJavaドライバーのバージョン3.12.1を使用し、検索と集計のクエリ方法をサポートします。ドロップダウンからコレクション名を選択することも、MongoDB SSHコネクターに手入力することもできます。MongoDBコレクションからSSHトンネルを介してデータを取得するには、SSH認証情報（ホスト、ポート、ユーザー名、パスワード）が必要です。
+* MongoDB V2コネクターはJavaドライバーのバージョン3.12.1を使用し、検索と集計のクエリ方法をサポートします。ドロップダウンからコレクション名を選択することも、MongoDB V2コネクターに手入力することもできます。
+
+この記事では **MongoDB V2コネクター** について説明します。DomoのMongoDB V2コネクターを使用すると、MongoDBコレクションからデータを取得し、カスタマイズされたレポートを作成することができます。JSONクエリフィルターを入力して、データを指定します。MongoDB APIの詳細については、http://api.mongodb.org/ を参照してください。
+
+MongoDB V2コネクターは「データベース」コネクターです。クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで ****［データベース］**** をクリックすることで、このコネクターやほかのデータベースコネクターのページにアクセスできます。
+
+このトピックでは、MongoDB V2コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Warning>
+**重要：** このコネクターが機能するためにはSSL接続が必要です。
+
+</Warning>
+
+## 必要条件
+
+MongoDBコレクションに接続しDataSetを作成するには、以下が必要です。
+
+* MongoDBデータベースのログインに使用するユーザー名とパスワード
+* データベースサーバーのホスト名（例：[db.company.com](http://db.company.com) ）
+* データベースのポート番号
+* データベース名
+* （オプション）CA証明書
+
+また、MongoDBデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストについては、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## MongoDBコレクションに接続する
+
+このセクションでは、 MongoDB V2 コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 MongoDB V2データベース内のコレクション に接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> MongoDBデータベースのホスト名を入力します。例： <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> MongoDBデータベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> MongoDBデータベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> MongoDBのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> MongoDBのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Certificate Format </td><td colspan="1" rowspan="1"><span> 証明書書式を選択します。これは、［Certificate］フィールドに入力した内容と一致している必要があります。特別な証明書が分からない場合、［No Certificate］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Certificate </td><td colspan="1" rowspan="1"><span> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。デフォルトでは、証明書は必要ありません。 </span></td></tr></tbody></table>
+
+有効なMongoDB V2認証情報を入力すると、新しいMongoDB V2 DataSetを作成するときにいつでも同じアカウントを使うことができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、JSONクエリを作成して、MongoDBコレクションからデータを取得します。また、任意のWHERE、SELECT、GROUP、SORTの節を作成し、クエリフィルターを適用してコレクション内の文書を、JSON形式でも検索することもできます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> How would you like to select your collection name? </td><td colspan="1" rowspan="1"><p> コレクションを選択するか、手動で入力するかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><span> Which database would you like to use to get the data? </span></td><td colspan="1" rowspan="1"><p><span> 認証が行われるデータベース以外のデータベースに接続するか、同じデータベースを使用するかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Enter database name </span></td><td colspan="1" rowspan="1"><p><span> 接続するMongoDBデータベースの名前を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Select collection name </span></td><td colspan="1" rowspan="1"><p><span> MongoDBコレクションの名前を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Enter collection name </span></td><td colspan="1" rowspan="1"><p><span> MongoDBコレクションの名前を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Query Method </td><td colspan="1" rowspan="1"> MongoDBコレクションからデータを取得するクエリ方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Find </td><td colspan="1" rowspan="1"> JSONクエリは「検索方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> Aggregate </td><td colspan="1" rowspan="1"> JSONクエリは「集計方法」で実行されます。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Query Filter </td><td colspan="1" rowspan="1"> コレクションに文書を集計するクエリフィルターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Limit Row </td><td colspan="1" rowspan="1"> 返す行数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Batch Size </td><td colspan="1" rowspan="1"> バッチサイズは、コネクターの内部で使用されるバッチごとに返される文書数です。2以上のバッチサイズを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> コレクションの文書を集計するために使用するクエリフィルターを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter Query Filter </td><td colspan="1" rowspan="1"> JSON集計クエリフィルターを手入力するには［Enter Query Filter］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Aggregate Query Filter </td><td colspan="1" rowspan="1"> コレクションに文書を集計するクエリフィルターを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Query Clause </td><td colspan="1" rowspan="1"><span class="mt-font-courier-new"> where </span> 節、 <span class="mt-font-courier-new"> select </span> 節、 <span class="mt-font-courier-new"> group </span> 節、 <span class="mt-font-courier-new"> sort </span> 節などのカスタム節を適用するには［Custom Query Clause］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Where Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットで <span class="mt-font-courier-new"> WHERE </span> 節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットで <span class="mt-font-courier-new"> SELECT </span> 節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Group Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットで <span class="mt-font-courier-new"> GROUP </span> 節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sort Clause JSON </td><td colspan="1" rowspan="1"> JSONフォーマットで <span class="mt-font-courier-new"> SORT </span> 節を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Use MongoDB Collection Schema </span></td><td colspan="1" rowspan="1"><span> DataSetにMongoDBコレクションスキーマを使用するには、このチェックボックスを選択します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

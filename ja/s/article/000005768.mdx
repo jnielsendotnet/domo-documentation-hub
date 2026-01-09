@@ -1,0 +1,35 @@
+---
+title: "DANS DBFコネクター"
+---
+
+## はじめに
+
+DANS DBF Libraryは、xBaseデータベースファイルの読み取りと書き込みを行うJavaライブラリです。xBaseという名前はdBaseやそのダイアレクトによく使用されます。これらのデータベース内の中央ファイルは、DBFファイルまたはデータベースファイルであるため、このライブラリの名前になります。詳細については、APIのドキュメント（ [http://dans-dbf-lib.sourceforge.net/](http://dans-dbf-lib.sourceforge.net/ "http://dans-dbf-lib.sourceforge.net/") ）を参照してください。
+
+DANS DBFアカウントには、Data Centerから接続できます。このトピックでは、DANS DBFコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+DANS DBFアカウントに接続してDataSetを作成するには、ユーザー名とパスワードが必要です。また、DBFファイルのSFTPホスト名を入力する必要があります。
+
+## DANS DBFアカウントに接続する
+
+このセクションでは、DANS DBFコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、DANS DBFアカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> ユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> パスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> DBFファイルのSFTPホストを入力します。 </td></tr></tbody></table>
+
+有効なDANS DBF認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDANS DBF DataSetを作成することができます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Enter the path to your DBF file here </td><td colspan="1" rowspan="1"> DBFファイルのパスを入力します。たとえば、ファイルが/home/testにあるSFTPサーバでホストされている場合は、パスに/home/test/*.dbfと入力します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

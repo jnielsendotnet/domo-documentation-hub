@@ -1,0 +1,242 @@
+---
+title: "Notes de version de juillet 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nouvelles fonctionnalités et optimisations
+
+Cette version comprend notamment les fonctionnalités et optimisations suivantes:
+
+## Vues DataSet
+
+Des améliorations et des nouveautés ont été ajoutées à la fonctionnalité Vues DataSet.
+
+#### Unions dans les vues
+
+Outre les jointures, les vues DataSet permettent désormais de réaliser des unions de données. Dans une interface simple, l'exploration, la résolution et la combinaison de vos données sont simplifiées. Pour plus d'informations, consultez la rubrique [Vues DataSet](/s/article/360046074774).
+
+<Frame><img alt="Union.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7S.png"/></Frame>
+
+#### Vues dans Analyzer
+
+Les vues de DataSets ont été intégrées dans Analyzer, ce qui permet d'apporter des modifications mineures aux données ETL lors de leur visualisation. Vous pouvez désormais effectuer les opérations suivantes sans quitter Analyzer:
+
+* Rejoindre un autre DataSet.
+* Nettoyer les données en renommant et en supprimant des colonnes, et en changeant le type de données.
+* Créer des Beast Modes imbriqués.
+
+Pour plus d'informations, consultez la rubrique [Intégration des vues Analyzer et DataSet](/s/article/4402058407191).
+
+<Frame><img alt="Visualize_Tab.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt8.png"/></Frame>
+
+### Centre de lancement des outils avancés
+
+Grâce au centre de lancement des outils avancés, vous pouvez désormais explorer tous les outils de données que propose Domo dans un emplacement centralisé. Chaque outil comporte un lien qui permet d'accéder à des informations supplémentaires et indique où commencer à utiliser le produit. Pour plus d'informations, consultez la rubrique [Centre de lancement des outils avancés](/s/article/4403501587607).
+
+<Frame><img alt="Advanced_Tools.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7w.png"/></Frame>
+
+## Améliorations apportées à Workbench 5.1
+
+De nouvelles fonctionnalités très utiles ont été ajoutées à Workbench 5.1.
+
+#### Prise en charge des partitions Workbench
+
+Workbench 5.1 prend désormais en charge les partitions. Les partitions identifient de manière exclusive des sections de données qui peuvent être remplacées indépendamment par une nouvelle version. La mise à jour des données est ainsi plus rapide et plus efficace. Pour plus d'informations, consultez la rubrique [Prise en charge des partitions dans Workbench 5.1](/s/article/360062446514).
+
+<Frame><img alt="Partition_Support.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6j.png"/></Frame>
+
+#### Protection améliorée des schémas dans Workbench
+
+Nous avons ajouté dans Workbench 5.1 des protections de schémas améliorées: cette nouvelle option permet de choisir le moment où vous souhaitez autoriser les modifications de schémas ou les bloquer complètement, et également d'indiquer les colonnes concernées. Grâce à ces nouveautés, vous gagnez en confiance et en tranquillité d'esprit, car les schémas ne seront modifiés que lorsque vous le souhaiterez. Pour plus d'informations, consultez la section [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schema_Protection.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6v.png"/></Frame>
+
+#### Actions en masse dans Workbench
+
+Workbench 5.1 permet désormais d'effectuer des actions en masse qui facilitent les opérations simultanées sur plusieurs tâches. Voici quelques exemples:
+
+* Exécution de plusieurs tâches.
+* Exportation en masse de tâches.
+* Mise à jour des informations d'identification sur plusieurs tâches liées à la même base de données.
+* Enregistrement de modifications lorsque vous avez modifié simultanément plusieurs tâches.
+
+Pour plus d'informations, consultez la section [Workbench 5.1](/s/article/360056669354).
+
+#### Prise en charge des DataSets de connecteurs avec Workbench
+
+Workbench 5.1 prend en charge et met à jour les DataSets créés à l'origine par un connecteur. Pour plus d'informations, consultez la section [Workbench 5.1](/s/article/360056669354).
+
+#### Planification Workbench locale
+
+Dans Workbench 5.1, vous pouvez planifier la tâche Workbench à déclencher en fonction de l'heure locale de votre serveur/machine Workbench. Lorsque l'heure locale de votre machine change en fonction de l'heure d'été, la planification des tâches Workbench se synchronise automatiquement avec cette heure. Pour plus d'informations, consultez la section [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schedule_Workbench.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6w.png"/></Frame>
+
+#### Plug-ins spécifiques de base de données dans Workbench
+
+Dans Workbench 5.1, les types de données sont lus directement depuis le système source pour des bases de données spécifiques. Vous n'avez plus d'incohérences entre deux types et, après la configuration du schéma, aucun type de données n'est modifié dans Workbench, sauf en cas de modification dans le système source. Pour plus d'informations, consultez la section [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Database_Plugins.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7l.png"/></Frame>
+
+### Améliorations des SDK Python et R
+
+Les SDK R et Python ont été mis à jour afin qu'ils utilisent la même fonction de dénomination dans les deux langages et disposent des mêmes fonctions. Pour plus d'informations, consultez la page [https://developer.domo.com/docs/domo-sdks/sdks](https://developer.domo.com/docs/domo-sdks/sdks "https://developer.domo.com/docs/domo-sdks/sdks").
+
+### Filtrer les vues
+
+L'option Filtrer les vues permet de personnaliser un tableau de bord afin qu'il réponde aux besoins de toutes les audiences.
+
+Cette option vous permet:
+
+* D'enregistrer des vues personnalisées que vous êtes la seule personne à voir.
+* De sélectionner et de partager des vues importantes afin de créer un alignement sur une perspective spécifique.
+* De fournir un certain nombre de stories de données personnalisées pour une personne spécifique dans un rôle défini.
+* De définir une vue filtrée enregistrée comme étant la vue par défaut d'un tableau de bord.
+
+Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page (avec vues de filtre)](/s/article/360042923914 "Application de filtres au niveau de la page (avec vues de filtre) (version bêta)").
+
+<Frame><img alt="Filter_Views.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7P.png"/></Frame>
+
+## Améliorations des filtres de tableau de bord
+
+De nouvelles fonctionnalités ont été ajoutées pour vous aider à contrôler le mode d'affichage des utilisateurs.
+
+#### Exclusions de filtres dans les stories
+
+Grâce aux exclusions de filtres, vous pouvez désormais exclure certains filtres et empêcher qu'ils aient une incidence sur une carte en particulier. Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page avec vues de filtre](/s/article/360042923914).
+  
+<Frame><img alt="Filter_Exclusions.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL73.png"/></Frame>
+
+#### Agrégations dans les filtres
+
+Grâce à l'ajout de filtres agrégés, vous pouvez désormais utiliser comme filtre la valeur d'une colonne agrégée. Les filtres agrégés sont disponibles et peuvent être utilisés dans tous les emplacements où des filtres sont appliqués: dans Analyzer, en tant que filtre rapide, dans la page des détails de la carte et sur un tableau de bord. Pour plus d'informations, consultez la rubrique [Filtres agrégés](/s/article/4403489663127).
+
+<Frame><img alt="Aggregations_in_Filters.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgv.png"/></Frame>
+
+#### Filtres dynamiques de tableau de bord de dates
+
+Les filtres dynamiques de plage de dates permettent d'ajuster la fenêtre de la plage de dates de toutes les cartes d'une page. Les filtres dynamiques de plage de dates permettent de gagner un temps considérable, car les utilisateurs n'ont pas besoin d'appliquer des filtres manuellement pour afficher les données d'une plage donnée de dates ou d'heures. Par ailleurs, grâce aux filtres dynamiques de plage de dates, les données des plages de date de vos cartes sont prolongées automatiquement à la fin de la période en cours. Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page avec vues de filtre](/s/article/360042923914).
+
+<Frame><img alt="dynamic_date_range_filters.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7V.png"/></Frame>
+
+#### Paramètres de filtre de page
+
+Grâce aux paramètres de filtre de page, vous pouvez désormais personnaliser les modes d'interaction des utilisateurs avec les cartes de votre tableau de bord. Vous pouvez désactiver l'option **Autoriser l'ajout de nouveaux filtres** afin que les utilisateurs ne puissent utiliser les interactions de carte que pour le filtrage. Vous pouvez également désactiver les filtres de date si votre tableau de bord est conçu pour une durée spécifique. Pour plus d'informations, consultez la rubrique [Application de filtres au niveau de la page (avec vues de filtre)](/s/article/360042923914 "Application de filtres au niveau de la page (avec vues de filtre) (version bêta)").
+  
+<Frame><img alt="Filter_Options.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL77.png"/></Frame>
+
+### Segments
+
+La fonctionnalité Segments permet d'améliorer la qualité des comparaisons d'un segment à un autre groupe. Vous pouvez également comparer les deux résultats en filtrant un élément de manière dynamique sans aucun impact sur le segment. Vous pouvez ajouter un segment à un graphique multisérie ou multivaleur, ou un graphique d'une période à l'autre. Vous pouvez également ajouter des segments à la vue de détail d'une carte et à des tableaux de bord. Pour plus d'informations, consultez la rubrique [Création de segments dans Analyzer](/s/article/4403089503383).
+
+<Frame><img alt="Segments_Window.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6x.png"/></Frame>
+
+### Prise en charge du portugais et du néerlandais
+
+Cette instance de Domo prend en charge le portugais et le néerlandais. Ces deux langues sont disponibles dans les paramètres de l'entreprise et de chaque utilisateur. Pour plus d'informations sur la configuration de cette fonctionnalité au niveau de l'entreprise, consultez la rubrique [Configuration des paramètres régionaux et de fuseau horaire](/s/article/360042934394).
+
+<Frame><img alt="Available_Languages.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6u.png"/></Frame>
+
+### Prise en charge des pfilters mobiles dans l'application
+
+Les pfilters sont désormais pris en charge dans l'application Domo Mobile. Voici quelques exemples de pfilters pris en charge:
+
+* Applications personnalisées comportant des pfilters.
+* Beast Modes CONCAT avec des liens.
+* Interactions de cartes personnalisées avec des liens.
+* Les liens issus de l'extérieur de l'application Domo ouvriront désormais l'application Domo avec les filtres appliqués.
+
+Pour plus d'informations, consultez la rubrique [Exemples de calculs de Beast Mode: transformations diverses](/s/article/360043430113).
+
+## Nouvelles propriétés des graphiques
+
+Nous avons ajouté de nouvelles propriétés de graphique afin que les visualisations soient encore plus dynamiques.
+
+#### Arborescences multidimensions
+
+Les arborescences disposent désormais d'un plus grand nombre de dimensions pour analyser votre activité. Au lieu d'avoir un élément et une valeur, vous disposez d'arborescences imbriquées dans une autre arborescence. Par exemple, vous pouvez désormais afficher non seulement les produits et les ventes associées dans une arborescence, mais également visualiser les ventes de produits par catégorie et par division dans une arborescence imbriquée à trois niveaux. Pour plus d'informations, consultez la rubrique [Arborescence](/s/article/360042925054).
+  
+<Frame><img alt="Tree_Map.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL79.png"/></Frame>
+
+#### Règles de couleurs dans les graphiques en courbes
+
+Vous pouvez désormais créer des graphiques en courbes qui appliquent des règles de couleurs à chaque point de la ligne. Vous pouvez les configurer de manière à ce que la couleur change au-dessus ou en dessous de certains seuils, ou entre certains d'entre eux. L'affichage des données est simplifié et les performances sont parfaitement claires en un clin d'œil. Pour plus d'informations, consultez la rubrique [Graphique en courbes](/s/article/360043429233).
+
+<Note>
+**Remarque:** les symboles doivent être activés sur votre graphique pour que les règles de couleurs s'appliquent.
+
+</Note>
+
+<Frame><img alt="Line_Chart_Color_Rules.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6z.png"/></Frame>
+
+#### Graphiques à barres de droite à gauche
+
+Dans les graphiques à barres horizontales, vous pouvez désormais placer les barres sur le côté droit du graphique. La sélection de l'orientation sur le côté droit aligne les libellés, les barres et les annotations sur le côté droit du graphique. Si vous souhaitez disposer votre story personnalisée en alignant certains graphiques sur le côté droit, vous pouvez associer ces graphiques à d'autres graphiques orientés vers la gauche afin d'obtenir de nouvelles perspectives visuelles. Pour plus d'informations, consultez la rubrique [Graphique à barres](/s/article/360043428493).
+
+<Frame><img alt="Right_Side_Bar_Chart.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7n.png"/></Frame>
+
+### Nouvelle conception de la bibliothèque de ressources
+
+La page Bibliothèque de ressources a été améliorée et bénéficie désormais de nouvelles fonctionnalités de navigation qui permettent aux utilisateurs de trouver les applications et d'afficher des informations de manière plus efficace. Pour plus d'informations, consultez la rubrique [Bibliothèque de ressources](/s/article/4403442101143).
+  
+<Frame><img alt="Asset_Library.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7X.png"/></Frame>
+
+### Propriété de groupe de cartes et de pages
+
+Grâce à la propriété de groupe de cartes et de pages, vous pouvez désormais créer un groupe d'utilisateurs que vous souhaitez autoriser à modifier une carte/page, puis ajouter ce groupe en tant que propriétaire de la carte/page. Ensuite, lorsque vous verrouillerez la carte/page, seuls les utilisateurs du groupe pourront la modifier. Pour plus d'informations sur la propriété de groupe de cartes, consultez la rubrique [Gestion de pages](/s/article/360043428253).
+
+<Frame><img alt="Ownership_Pendo.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7R.png"/></Frame>
+
+### Gestion du personnel d'entreprise
+
+Grâce à la gestion du personnel d'entreprise, vous pouvez désormais afficher tous les utilisateurs et leurs informations de profil sur une seule page. Vous pouvez également mettre à jour en masse les attributs de tous les utilisateurs. Pour plus d'informations, consultez la rubrique [Topologie des paramètres d'administration](/s/article/360042934234).
+  
+<Frame><img alt="People_Management.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL71.png"/></Frame>
+
+## Fonctionnalités Premium
+
+Ces fonctionnalités sont disponibles à la demande et sont payantes. Pour que ces fonctionnalités soient activées, adressez-vous à votre responsable du Succès Client Domo, à votre consultant technique ou au responsable de votre compte. Si vous n'avez pas leurs coordonnées, adressez-vous à l'assistance technique. Pour plus d'informations sur l'assistance et les méthodes permettant de la contacter, consultez la section [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide"). Selon la fonctionnalité demandée, vous pouvez être invité à suivre une formation avant de l'utiliser.
+
+### Navigation à gauche dans les groupes de publication
+
+Les groupes de publication affichent désormais la même navigation que l'instance classique de Domo. Ils disposent désormais d'un menu réductible qui donne la priorité au contenu des tableaux de bord et d'une interface utilisateur améliorée qui permet de naviguer d'un tableau de bord à l'autre plus rapidement. Où que vous vous trouviez dans Domo, la navigation dans l'interface utilisateur est désormais plus cohérente. Pour plus d'informations, consultez la rubrique Annonce relative à la nouvelle navigation.
+  
+<Frame><img alt="Left_Nav_Pub_Groups.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL75.png"/></Frame>
+
+## Domo Everywhere
+
+Nous avons ajouté de nouvelles fonctionnalités à l'expérience Domo Everywhere.
+
+#### Filtres de page dans les tableaux de bord Embed
+
+Grâce aux filtres de page dans les tableaux de bord Embed, vous êtes désormais en mesure d'ajouter dans votre tableau de bord imbriqué les mêmes filtres que ceux que vous utilisez dans votre instance Domo. Pour plus d'informations, consultez la rubrique Filtres de page dans les tableaux de bord Embed.
+
+<Frame><img alt="Page_Filters_in_Embed.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgq.png"/></Frame>
+
+#### Centre de lancement Domo Everywhere
+
+Grâce au centre de lancement Domo Everywhere, vous pouvez savoir rapidement comment les principaux clients utilisent chaque version de Domo Everywhere. De cette manière, vous pouvez choisir le produit Domo Everywhere adapté à vos besoins. Pour plus d'informations, consultez la rubrique Centre de lancement Domo Everywhere.
+
+<Frame><img alt="Tab_1.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7M.png"/></Frame>
+
+## Obtenir de l'aide
+
+Vous pouvez afficher les dernières notes de publication dans le centre d'aide qui est accessible depuis Domo en cliquant sur <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> dans la barre de navigation supérieure.
+
+En cas de questions sur Domo,
+
+* recherchez une rubrique dans le Centre d'aide
+* suivez une formation dans Domo University à l'adresse
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* recherchez des applications de formation dans l'Appstore
+* obtenez des réponses dans la communauté Domo à l'adresse
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* contactez le support technique en créant un ticket d'aide dans le portail de support Domo
+* contactez votre Responsable du Succès Client Domo ou votre Consultant technique
+
+Envoyez-nous vos commentaires depuis Domo (**Plus** ****> Commentaires****). Ou envoyez un e-mail à [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Pour plus d'informations sur la façon d'obtenir de l'aide, consultez [Obtenir de l'aide](/s/article/360042922874 "Obtenir de l'aide").
+
+Français

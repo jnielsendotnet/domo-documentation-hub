@@ -1,0 +1,403 @@
+---
+title: "data.worldコネクター"
+---
+
+## はじめに
+
+data.worldは、データと分析のための様々な最新テクノロジーを提供しています。企業内の隠されたデータワークフォースを有効活用し、データの価値を何倍にも増やし、データ駆動型のよりスピーディな企業文化を創り出します。最新の直感的なユーザーエクスペリエンスを駆使して、あらゆる権限、経歴、スキルを持つ社員を集めて共同作業を行い、ユーザーが検索、理解、使用するために必要なすべてのデータに接続された状態を維持します。その結果、データ、分析、専門知識がさらに 発見しやすくなり、信頼性が向上し、 再利用可能になります。Domoのdata.worldコネクターを使用してデータを取得すると、ビジネス上の質問に対する明確で正確な回答を迅速に得ることができます。data.world APIの詳細については、 [https://apidocs.data.world/](https://apidocs.data.world/ "https://apidocs.data.world/") を参照してください。
+
+data.worldアカウントには、Data Centerから接続します。このトピックでは、data.worldコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+data.worldアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* APIトークンがdata.worldアカウントに関連付けられている必要があります。これは
+  ****［User Setting］>［Advanced］タブ**** で確認できます。
+* data.worldのユーザーID。画面右上のユーザー名の下にあるプロフィールアイコンの下にユーザーIDがあります。
+
+
+<Note>
+
+**注記：** 「@」記号は、ユーザーIDの一部ではありません。ユーザーIDを入力する際は、「@」を含めないでください。
+
+
+</Note>
+
+
+## data.worldアカウントに接続する
+
+このセクションでは、 data.world コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 data.world アカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ フィールド 
+</span>
+
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+
+<span class="s1">
+ 説明 
+</span>
+
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ API Key 
+</td>
+
+<td colspan="1" rowspan="1">
+ APIトークンがdata.worldアカウントに関連付けられている必要があります。これは 
+<b>
+
+<b>
+ ［User Setting］&gt;［Advanced］タブ 
+</b>
+
+</b>
+ で確認できます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ User ID 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ data.worldのユーザーID。画面右上のユーザー名の下にあるプロフィールアイコンの下にユーザーIDがあります。 
+</p>
+
+<p>
+
+<b>
+ 注記： 
+</b>
+
+<em>
+ 「@」記号は、ユーザーIDの一部ではありません。ユーザーIDを入力する際は、「@」を含めないでください。 
+</em>
+
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Branded/single-tenant instance URL 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ ブランド/シングルテナントインスタンスURLを入力してください（例： 
+</span>
+
+<span class="error">
+ ［お客様名］ 
+</span>
+
+<span>
+ .date.world）。このURLは、ブランド/シングルテナントインスタンスがある場合に必要です。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+有効な data.world 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい data.world DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、クエリを入力したり、取得するデータの場所を指定する多数のフィールドとメニューがあります。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ メニュー 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query Language 
+</td>
+
+<td colspan="1" rowspan="1">
+ クエリ言語にSQLを使うかSPARQLを使うかを指定します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Select the DataSet Type 
+</td>
+
+<td colspan="1" rowspan="1">
+ DataSetからデータを取得するかパブリックDataSetからデータを取得するかを指定します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Enter the User ID 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ データを取得するユーザーのIDを入力します。 
+</p>
+ 
+
+<Note>
+
+ 
+<div class="info-box-wrapper">
+
+<div class="info-box-icon-container">
+
+</div>
+
+<div class="info-box-content-container">
+
+<div class="info-box-content">
+
+<span>
+
+<b>
+ 注記： 
+</b>
+
+</span>
+ ユーザーIDは、DataSetタイプでパブリックDataSetオプションを選択した場合にのみ表示されます。ここに入力されたユーザーIDは、取得したいパブリックDataSetの作成者であることに注意してください。 
+</div>
+
+<div class="info-box-content">
+
+<b>
+ 例 
+</b>
+ ：ユーザーXYZによって作成されたパブリックなDataSetを発見するには、ユーザーIDとして「XYZ」を入力する必要があります。 
+</div>
+
+</div>
+
+</div>
+ 
+
+</Note>
+
+
+ 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ DataSet 
+</td>
+
+<td colspan="1" rowspan="1">
+ データの取得元になるDataSetを選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query Type 
+</td>
+
+<td colspan="1" rowspan="1">
+ カスタマイズされたクエリを作成するか、クエリビルダーを使って自動生成されたクエリを作成するかを指定します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Custom Query 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 選択したDataSetにもとづいて実行するSQLクエリを入力します。テーブルにスペースやハイフンが含まれている場合は、アンダースコアに置き換えます。 
+</p>
+
+<p>
+ 例：テーブルの名前が 
+<b>
+ Sample-Data Info 
+</b>
+ の場合は、 
+<b>
+ Sample_Data_Info 
+</b>
+ となります。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query Builder 
+</td>
+
+<td colspan="1" rowspan="1">
+ クエリを自動生成するテーブルとフィールドを選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Query 
+</td>
+
+<td colspan="1" rowspan="1">
+ 実行するクエリを入力します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Database Tables 
+</td>
+
+<td colspan="1" rowspan="1">
+ データの取得元になるデータベーステーブルを選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Table Columns 
+</td>
+
+<td colspan="1" rowspan="1">
+ データの取得元になるテーブルの列を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Data Model Type 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ DataSetまたはプロジェクトファイルからデータを取得するかどうかを指定します。 
+</span>
+
+<span>
+
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

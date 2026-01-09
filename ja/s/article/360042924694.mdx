@@ -1,0 +1,47 @@
+---
+title: "散布図"
+---
+
+## はじめに
+
+散布図には、縦軸（Y軸）に1つ、横軸（X軸）に1つの、2つの値の目盛りがあります。これらの数値は座標として扱われ、XとYの数値のペアごとに、1つの点がチャートに描画されます。このタイプのチャートは、 [カテゴリ散布図](/s/article/360042924394 "カテゴリ散布図") と [バブルチャート](http://wiki.domo.com/confluence/display/DHCS/Building+a+Bubble+graph "バブルチャート") の両方に似ています。カテゴリ散布図との違いは、散布図は2つの値の目盛りがあるのに対してカテゴリ散布図は1つの値の目盛りと1つのカテゴリーの目盛りがあるということです。また、4列必要とするバブルチャートとも、3列のみ必要としているため異なっています。
+
+X軸上に値データではなくタイムラインデータを含んだ、散布図時間チャートを作成することもできます。その場合、すべての点が該当する日時の座標上に描画されます。ただし、特定の日時の座標における点の位置は、依然としてY座標の値によって決まります。
+
+**動画 - 散布図を作成する**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/fDJxsqFpgWc" width="560"></iframe>
+
+## 散布図を作成する
+
+散布図は、DataSetから2列のデータを必要とします。2列の値データ、または値データのある1列と日時データのある1列です。また、オプションとして系列の列を追加することもできます。
+
+<Note>
+  **注記：** Domoでは、通常、散布図の行数の上限が 25,000行に設定されています（つまり、1つの列を集計する際には最大25,000行までレンダリングできます）。ただし、系列を追加した場合、この上限は10,000行に減ります。
+
+</Note>
+
+値、カテゴリー、系列データについては、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+<Note>
+  **注記：** 2017年7月のリリースで散布図の機能が更新され、データは集計されなくなりました（2017年7月リリースより古いバージョンでは、系列の全データを1つの点にまとめていました）。以前のバージョンの散布図を使用したい方は、レガシータイプの散布図を使用してください。
+
+</Note>
+
+Analyzerで、散布図で使用するデータを含む列を選択します。詳細については、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については、「 [KPIカード作成パート2：Analyzer](/s/article/360043428673 "KPIカード作成パート2：Card Builder") 」を参照してください。
+
+以下の図は、標準的な列ベースのスプレッドシートの値の列のデータがどのように散布図に変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP86.png" style={{width: 727, height: 734}}/></Frame>
+以下の図は、標準的な列ベースのスプレッドシートの日時と値の列のデータがどのように散布時間図に変換されるかを示しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7x.png" style={{width: 733, height: 664}}/></Frame>
+## 散布図をカスタマイズする
+
+散布図の外観は、チャートのプロパティを編集することでカスタマイズできます。すべてのチャートのプロパティについては「 [チャートのプロパティ](/s/article/360042925394 "チャートのプロパティ") 」を参照してください。散布図に固有のプロパティには、以下があります。サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Yのゼロ（0）線の色］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の横軸の「ゼロ線」の色を決定します。この属性はゼロ線がチャート内の底線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、色は赤に設定されています。 </p></td><td colspan="1" rowspan="1"><p><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7p.png"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Yのゼロ（0）線の幅］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の横軸の「ゼロ線」の幅を決定します。この属性はゼロ線がチャート内の底線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、このプロパティは <code> ［5］ </code> に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1335/y_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7z.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Xのゼロ（0）線の色］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の縦軸の「ゼロ線」の色を決定します。この属性は縦軸のゼロ線がチャート内の最左線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、色は青に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1337/x_zero_line_color.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP81.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［グリッド線］&gt;［Xのゼロ（0）線の幅］ </p></td><td colspan="1" rowspan="1"><p> バブルチャートと散布図の縦軸の「ゼロ線」の幅を決定します。この属性はゼロ線がチャート内の最左線となっていると機能しません（チャートにマイナスの値が含まれている必要があります）。例では、このプロパティは <code> ［5］ </code> に設定されています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1334/x_zero_line_width.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7r.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［回帰直線］&gt;［線形回帰線を表示］ </p></td><td colspan="1" rowspan="1"><p> 散布図またはバブルチャートの各系列に、回帰直線を追加できます。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1352/scatter_with_regression_line.png"><img alt="" src="/images/kb/ka05w00000123nS-00N5w00000Ri7BU-0EM5w000005vP7v.png"/></a></p></td></tr></tbody></table>
+
+日本語

@@ -1,0 +1,33 @@
+---
+title: "Workbench 5でアカウントを追加する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+お使いのマシンにWorkbench 5を初めてインストールするときに、インストールプロセスの一環としてDomoのサーバーに接続します。このサーバーアカウントがWorkbench 5でのプライマリアカウントになり、作成するDataSetジョブもこのアカウントに含まれるようになります。ただし、必要に応じて、ほかのDomoサーバーのアカウントをWorkbenchに追加することもできます。
+
+Workbenchにアカウントをまだ追加していない場合は、アプリケーションを開くときに次のダイアログが表示されます。
+
+<Frame><img alt="wb5_zero_state.png" src="/images/kb/ka0Vq000000EQHB-00N5w00000Ri7BU-0EM5w000005vPOE.png"/></Frame>
+
+最初のアカウントを追加すると、Workbenchを開くときにこのダイアログは表示されなくなります。
+
+**動画 - Workbench 5でジョブを作成する**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/ktSJ7BTCpWw" width="560"></iframe>
+
+**Workbench 5でアカウントを追加するには**
+
+1. 左側のアイコンバーにある <InlineImage src="/images/kb/ka05w00000123tU-00N5w00000Ri7BU-0EM5w000005vPQ5.png" /> アイコンをクリックします。
+2. 左側のアカウントリストの上にある「+」アイコンをクリックします（このアイコンが表示されない場合は、<InlineImage src="/images/kb/ka05w00000123tU-00N5w00000Ri7BU-0EM5w000005vPQj.png" /> をクリックしてアカウントリストペインを展開します）。
+3. **［Domo** ドメイン］フィールドで、接続先のDomoサーバーのドメインを入力します。
+
+   Domoインスタンスが *company*. [domo.com](http://domo.com) の場合は、フィールドに *company* を入力します。その場合は *https://*
+
+   を入力しないでください。 *https://* をフィールドに入力するとエラーが発生します。
+4. **［許可］** をクリックします。
+5. Domoサーバーに接続するためのユーザー名とパスワードを入力し、**［サインイン］** をクリックします。
+6. プロンプトが表示されたらブラウザーウィンドウを閉じます。
+7. <InlineImage src="/images/kb/ka05w00000123sv-00N5w00000Ri7BU-0EM5w000005vPOl.png" /> アイコンをクリックして新しいアカウントを保存します。
+
+これで、新しいアカウントがアクティブになり、DataSetジョブの追加ができるようになります。

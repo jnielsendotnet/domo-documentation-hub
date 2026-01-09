@@ -1,0 +1,33 @@
+---
+title: "Bitly Connector"
+---
+
+## ﻿はじめに
+
+Bitly は、URL 短縮とブックマーキングのサービス、そしてリンク共有のプラットフォームです。Domo の Bitly Connector を使用すると、リンク統計に関するレポートを作成することができます。Bitly API に関する詳細は、ウェブサイト（ [https://dev.bitly.com/](http://developers.marketo.com/documentation/rest/ "http://developers.marketo.com/documentation/rest/") ）を参照してください。
+
+Bitly Connector は「クラウド App」です。つまり、クラウドに保管されたデータを取得します。Data Center では、ウィンドウ上部のツールバーで **クラウド App** をクリックすることで、これを含む他のクラウド App Connector のページにアクセスできます。
+
+Bitly アカウントには、 Data Center から接続します。このトピックでは、Bitly Connector ユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Bitly アカウントに接続して DataSet を作成するには、Bitly、Facebook、または Twitter の認証情報が必要です。
+
+## Bitly アカウントに接続する
+
+このセクションでは、Bitly Connector ページの **認証情報** および **詳細** ペインのオプションについて説明します。このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo の Bitly Connector は、接続に OAuth を使用します。そのため、Domo 内での認証情報の入力は必要ありません。 **接続** をクリック（Domo に既存の Bitly アカウントがある場合は **アカウントを追加** を選択）すると、Bitly OAuth 画面が開き、Bitly、Facebook、または Twitter の認証情報を使って、Bitly に接続することができます。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Bitly DataSet を作成することができます。Connector アカウントは Data Center の **アカウント** タブで管理することができます。このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+一度有効な Bitly の認証情報を入力しておくと、いつでも同じアカウントを使用して新しい Bitly DataSet を作成することができます。Connector アカウントは Data Center の **アカウント** タブで管理することができます。このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニューと、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行したい Bitly レポートを選択します。以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> リンクのクリック </p></td><td colspan="1" rowspan="1"> 特定の Bitlink に対するクリック数を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> リンクしている国 </p></td><td colspan="1" rowspan="1"> 特定の Bitlink にクリックトラフィックをリファラーしている国に関するメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> リンクのエンコーダー </p></td><td colspan="1" rowspan="1"> 特定の Bitlink をエンコードしたユーザーを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> カウント別のリンクのエンコーダー </p></td><td colspan="1" rowspan="1"> この Bitlink をエンコードしたユーザーを、エンコードした各ユーザーのリンクのクリック数でソートして返します。 </td></tr><tr><td colspan="1" rowspan="1"> リンクエンコーダーのカウント </td><td colspan="1" rowspan="1"> 特定の Bitlink を短縮（エンコード）したユーザーの数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> リンク情報 </td><td colspan="1" rowspan="1"> 特定の Bitlink に関するメタデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> リンクリファラー </td><td colspan="1" rowspan="1"> 特定の Bitlink にクリックトラフィックをリファラーしているページに関するメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ドメイン別のリンクのリファラー </td><td colspan="1" rowspan="1"> 特定の Bitlink にクリックトラフィックをリファラーしているページに関するメトリクスを、リファラーのドメイン別のグループにして返します。 </td></tr><tr><td colspan="1" rowspan="1"> リンクリファラーのドメイン </td><td colspan="1" rowspan="1"> 特定の Bitlink にクリックトラフィックをリファラーしているドメインに関するメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> 人気のリンク </td><td colspan="1" rowspan="1"> 特定期間において、認証ユーザーの最もクリックされた Bitlink を（クリック数順で）返します。 </td></tr><tr><td colspan="1" rowspan="1"> クリック別の人気の所有 </td><td colspan="1" rowspan="1"> 自分のアカウントに関連付けられていないユーザーにより作成されたトラッキングドメイン（または複数のドメイン）への上位リンクを、クリック順に返します。 </td></tr><tr><td colspan="1" rowspan="1"> 短縮別の人気の所有 </td><td colspan="1" rowspan="1"> 自分のアカウントに関連付けられていないユーザーにより作成されたトラッキングドメイン（または複数のドメイン）への上位リンクを、短縮別に返します。 </td></tr><tr><td colspan="1" rowspan="1"> リファラー </td><td colspan="1" rowspan="1"> 全ての認証ユーザーの Bitlink にクリックトラフィックをリファラーしているページに関するメトリクスの集計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> リファラーのドメイン </td><td colspan="1" rowspan="1"> 全ての認証ユーザーの Bitlink にクリックトラフィックをリファラーしているドメインに関するメトリクスの集計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> 短縮された数 </td><td colspan="1" rowspan="1"> 認証ユーザーが特定の期間に作成した Bitlinks の数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザークリック </td><td colspan="1" rowspan="1"> 全ての認証ユーザーの Bitlink に対するクリックの集計数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザーの国 </td><td colspan="1" rowspan="1"> 全ての認証ユーザの Bitlink にクリックトラフィックをリファラーしている国に関するメトリクスの集計を返します。 </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Bitly リンク </p></td><td colspan="1" rowspan="1"> 情報を取得したい Bitlink のリンクを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 単位 </p></td><td colspan="1" rowspan="1"> データを日別、時間別、週別で分類するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 単位数 </td><td colspan="1" rowspan="1"> 選択した時間単位において返されるべき単位数を入力します。例えば、 <b> 単位 </b> に <b> 月 </b> を選択し、 <b> 単位数 </b> に <span class="mt-font-courier-new"> 3 </span> と入力すると、過去 3 か月のデータが返されます。 <span class="mt-font-courier-new"> -1 </span> と入力すると、全ての時間単位が返されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> タイムゾーン </p></td><td colspan="1" rowspan="1"> 目的のタイムゾーンを入力します。これは、UTC からオフセットする時間（ <span class="mt-font-courier-new"> -14 </span> から <span class="mt-font-courier-new"> 14 </span> の整数）、または実際のタイムゾーンの名前で指定できます。デフォルトは米国東部標準時に設定されています。 </td></tr><tr><td colspan="1" rowspan="1"><p> まとめる </p></td><td colspan="1" rowspan="1"> 複数単位のデータを、各期間ごとに個別の値ではなく、単一の結果にまとめて返すかを選択します。 </td></tr></tbody></table>
+
+

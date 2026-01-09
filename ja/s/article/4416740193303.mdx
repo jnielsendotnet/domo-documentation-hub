@@ -1,0 +1,89 @@
+---
+title: "MYOBコネクター"
+---
+
+## はじめに
+
+MYOBは、大企業から中堅中小企業まで、様々な規模のビジネスに最適な、簿記、税務、会計のソフトウェアを提供する企業です。金融取引を評価するための、信頼性の高い効率的な方法を提供します。
+
+MYOBコネクターを使用することで、金融取引や予算の詳細に関する情報が瞬時に取得でき、それに応じた将来の事業計画を管理できます。このコネクターは、組織の会計および支出の詳細を安全に可視化します。MYOBのデータとDomoを組み合わせることで、金融活動を包括的に把握し、予算や金銭取引を完全に最適化することができます。MYOB APIの詳細については、MYOBのウェブサイト（https://developer.myob.com/ ）を参照してください。
+
+MYOBコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+MYOBアカウントには、Data Centerから接続します。このトピックでは、MYOBコネクターのユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+MYOBアカウントに接続してDataSetを作成するには、MYOBアカウントに関連付けられたクライアントIDとクライアントシークレットが必要です。
+
+クライアントIDとクライアントシークレットは https://my.myob.com.au/au/bd/DevAppList.aspx に登録されています。
+
+## MYOBアカウントに接続する
+
+このセクションでは、MYOBコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、MYOBアカウントにアクセスするための認証情報の入力フィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"><a href="https://my.myob.com.au/au/bd/DevAppList.aspx" target="_blank"> https://my.myob.com.au/au/bd/DevAppList.aspx </a> で登録したMYOBのクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"><a href="https://my.myob.com.au/au/bd/DevAppList.aspx" target="_blank"> https://my.myob.com.au/au/bd/DevAppList.aspx </a> で登録したMYOBのクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+MYOBの有効な認証情報を一度入力しておくと、新しいMYOB DataSetを作成する際に、いつでも同じアカウントを使用できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについての詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMYOBレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Account Budget </td><td colspan="1" rowspan="1"> 総勘定元帳の勘定科目予算を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの会計情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Customer Payment </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの顧客支払情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Customers </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの顧客連絡先情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Employee Payment Details </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けに、従業員連絡先カード上にある従業員支払明細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Employee Payroll Details </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けに、従業員連絡先カード上にある従業員給与明細情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Employees </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの従業員連絡先情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Payroll Superannuation </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの老齢退職年金に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Payroll Superannuation Fund </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの老齢退職年金基金に関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Receive Money Transactions </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの現金取引情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Sale Invoice </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けに、すべての形式の売上請求書情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Sale Invoice Item </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの売上請求項目情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Spend Money Transactions </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの現金取引情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Transfer Money Transactions </td><td colspan="1" rowspan="1"> AccountRightの会社ファイル向けの現金転送取引情報を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Company File </td><td colspan="1" rowspan="1"><span> データを取得する会社のファイルを選択します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:206;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL </th></tr><tr><td colspan="1" rowspan="1"> Account Budget </td><td colspan="1" rowspan="1"> /GeneralLedger/AccountBudget </td></tr><tr><td colspan="1" rowspan="1"> Accounts </td><td colspan="1" rowspan="1"> /GeneralLedger/Account </td></tr><tr><td colspan="1" rowspan="1"> Customer Payment </td><td colspan="1" rowspan="1"> /Sale/CustomerPayment </td></tr><tr><td colspan="1" rowspan="1"> Customers </td><td colspan="1" rowspan="1"> /Contact/Customer </td></tr><tr><td colspan="1" rowspan="1"> Employee Payment Details </td><td colspan="1" rowspan="1"> /Contact/EmployeePaymentDetails </td></tr><tr><td colspan="1" rowspan="1"> Employee Payroll Details </td><td colspan="1" rowspan="1"> /Contact/EmployeePayrollDetails </td></tr><tr><td colspan="1" rowspan="1"> Employees </td><td colspan="1" rowspan="1"> /Contact/Employee </td></tr><tr><td colspan="1" rowspan="1"> Payroll Superannuation </td><td colspan="1" rowspan="1"> /Payroll/PayrollCategory/Superannuation </td></tr><tr><td colspan="1" rowspan="1"> Payroll Superannuation Fund </td><td colspan="1" rowspan="1"> /Payroll/SuperannuationFund </td></tr><tr><td colspan="1" rowspan="1"> Receive Money Transactions </td><td colspan="1" rowspan="1"> /Banking/ReceiveMoneyTxn </td></tr><tr><td colspan="1" rowspan="1"> Sale Invoice </td><td colspan="1" rowspan="1"> /Sale/Invoice </td></tr><tr><td colspan="1" rowspan="1"> Sale Invoice Item </td><td colspan="1" rowspan="1"> /Sale/Invoice/Item </td></tr><tr><td colspan="1" rowspan="1"> Spend Money Transactions </td><td colspan="1" rowspan="1"> /Banking/SpendMoneyTxn </td></tr><tr><td colspan="1" rowspan="1"> Transfer Money Transactions </td><td colspan="1" rowspan="1"> /Banking/TransferMoneyTxn </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+MYOBアカウント（https://my.myob.com.au/au/bd/DevAppList.aspxで 登録したもの）に関連付けられているクライアントIDとクライアントシークレットが必要です。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+必要に応じた頻度で行われます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

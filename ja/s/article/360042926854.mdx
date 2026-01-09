@@ -1,0 +1,42 @@
+---
+title: "Integrate Cloudコネクター"
+---
+
+## はじめに
+
+Integrate Cloudは、デマンドオーケストレーションソフトウェアを提供し、制御力と拡張性を備えたデマンドマーケティングを実現します。Integrate Cloud APIの詳細については、ウェブサイト（ [http://Integrate Cloud.com/apis/1.0/Documentation](http://integrate.com/apis/1.0/Documentation "http://integrate.com/apis/1.0/Documentation") ）を参照してください。
+
+Integrate Cloudアカウントには、Data Centerから接続します。このトピックでは、Integrate Cloudコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Integrate Cloudアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Integrate Cloud APIキー
+* Integrate CloudユーザーID
+
+認証情報を取得する場合は、Integrate Cloudのアカウント担当者にお問い合わせください。
+
+## Integrate Cloudアカウントに接続する
+
+このセクションでは、Integrate Cloudコネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Integrate Cloudアカウントに接続する認証情報の入力フィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p> Integrate Cloud APIキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User ID </p></td><td colspan="1" rowspan="1"><p> Integrate CloudユーザーIDを入力します。 </p></td></tr></tbody></table>
+
+有効なIntegrate Cloud認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいIntegrate Cloud DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するIntegrate Cloudレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> レポート名 </b></p></td><td colspan="1" rowspan="1"><p><b> 説明 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Get Lists </p></td><td colspan="1" rowspan="1"> このレポートは、組織のすべてのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Get Report Data </p></td><td colspan="1" rowspan="1"> レポートをトリガーし、生成されたデータをダウンロードします。 <b> 注記： </b> データがダウンロードされるまでに遅延が生じることがあります。 </td></tr><tr><td colspan="1" rowspan="1"><p> Get Reports </p></td><td colspan="1" rowspan="1"> このレポートは、レポートタイプにもとづいて組織のすべてのレポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Get Sources </p></td><td colspan="1" rowspan="1"> このエンドポイントは、組織のすべてのソースを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Demand Base Name </p></td><td colspan="1" rowspan="1"><p> データを取得するデマンドベースを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

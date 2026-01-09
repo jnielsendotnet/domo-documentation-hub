@@ -1,0 +1,37 @@
+---
+title: "TrustYouコネクター"
+---
+
+## はじめに
+
+TrustYouでは、宿泊客の体験を向上させ、ホテルのオンラインの可視性を高め、業務を改善してより多くの予約を獲得するために、ホテル宿泊客からのフィードバックを活用しています。TrustYouのパートナーは、Analyzer APIを使用して、自社のKPIダッシュボードに表示されるホテル関連数値を照会できます。DomoのTrustYouコネクターを使用して、グループ、ソース、ホテルデータなどに関する詳細を取得します。TrustYou APIの詳細は、 [https://www.programmableweb.com/api/trustyou-connect](https://www.programmableweb.com/api/trustyou-connect "https://www.programmableweb.com/api/trustyou-connect") を参照してください。
+
+TrustYouアカウントには、Data Centerから接続します。このトピックでは、TrustYouコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+TrustYouアカウントに接続してDataSetを作成するには、TrustYouアカウントに関連付けられたAPIキーが必要です。
+
+## TrustYouアカウントに接続する
+
+このセクションでは、 TrustYou コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 TrustYou アカウントへの接続に使用する認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［API Key］ </td><td colspan="1" rowspan="1"> TrustYouアカウントに関連付けられたAPIキーを入力します。 </td></tr></tbody></table>
+
+有効なTrustYou認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいTrustYou DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行する <span class="s1"> TrustYou </span> レポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［Categories］ </td><td colspan="1" rowspan="1"> 利用可能なカテゴリーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Data］ </td><td colspan="1" rowspan="1"> 選択されたホテルまたはグループに関する分析データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Groups］ </td><td colspan="1" rowspan="1"> 利用可能なグループのリストを返します。このレポートでは、各グループに属する個別のホテルのリストを表示することもできます。 </td></tr><tr><td colspan="1" rowspan="1"> ［Impact Scores］ </td><td colspan="1" rowspan="1"> 各ホテルの業績データポイントに対して、肯定的または否定的なコメントがどのような影響を与えるかを予測するスコアを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Sources］ </td><td colspan="1" rowspan="1"> レビュー元となるソースのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［Query Type］ </td><td colspan="1" rowspan="1"> 結果をホテル別のリストにするか、またはグループ別に集計するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Include Hotels］ </td><td colspan="1" rowspan="1"> グループに属するホテルのリストを含めるには、［True］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Group Selection Criteria］ </td><td colspan="1" rowspan="1"> すべてのグループを取得するか、または選択したグループのみを取得するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Groups］ </td><td colspan="1" rowspan="1"> レポートに表示するグループを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Hotels Selection Criteria］ </td><td colspan="1" rowspan="1"> すべてのホテルのデータを取得するか、または選択したホテルのデータのみを取得するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Hotels］ </td><td colspan="1" rowspan="1"> レポートに表示するホテルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Stars］ </td><td colspan="1" rowspan="1"> 選択したスター（星）の数が付与されたホテルのみが含まれるように、結果がフィルターされます。 </td></tr><tr><td colspan="1" rowspan="1"> ［Category ID］ </td><td colspan="1" rowspan="1"> レポートの対象にするカテゴリーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Sentiment］ </td><td colspan="1" rowspan="1"> 結果をフィルターするために使用するセンチメント（［All］、［Positive］、［Neutral」、または［Negative］）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Sources］ </td><td colspan="1" rowspan="1"> 興味のあるレビューのソースを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Duration］ </td><td colspan="1" rowspan="1"> レポートの期間（［Single Date］または［Date Range］）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Single Date］ </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Specific Date］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Relative Date］ </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Date Range］ </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

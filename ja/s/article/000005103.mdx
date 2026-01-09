@@ -1,0 +1,77 @@
+---
+title: "Workbench 5.2にアップグレードする"
+---
+
+## はじめに
+
+最高のパフォーマンスと最新の機能を体験するには、最新バージョンのWorkbenchが必要です。Domoサポートは、レガシーバージョンに関する問題をトラブルシューティングするよう常に務めていますが、最新バージョンを実行しているお客様にも、最善のサポートを提供しています。定期的に最新バージョンがないか確認し、必要に応じて最新バージョンにアップグレードすることを強く推奨します。
+
+<Note>
+**注記：** 更新または移行を行う前に、ジョブを必ずバックアップしてください。アップグレード中に問題やエラーが起きた場合に、バックアップが必要になることがあります。可能であれば、アップグレードを実行する前に、VM、サーバー、PCのフルスナップショットまたはバックアップを取得するようIT部門に依頼してください。
+
+</Note>
+
+この記事では、Workbench 5.2へのアップグレードについて以下のトピックで説明します。
+
+* [現在のバージョンを確認](#IdentifyingYourCurrentVersion)
+* [Workbench 5.2をダウンロード](#DownloadingWorkbench5.2)
+* [自動更新を無効化](#TurningOffAutomaticUpdates)
+* [アップグレードエラー](#UpgradingError)
+
+## 現在のバージョンを確認
+
+現在実行しているWorkbenchのバージョンを確認するには、Workbenchを起動し、以下に示すようにSplash画面でバージョンを確認します。
+
+<Frame><img alt="wb splash.png" src="/images/kb/ka05w00000126aL-00N5w00000Ri7BU-0EM5w000005wrnL.jpg" style={{width: 453.991, height: 253.999}}/></Frame>
+
+Domoサポートに連絡すると、カスタマイズされたサポートを受けるために実行しているWorkbenchのバージョンを尋ねられる場合があります。
+
+## Workbench 5.2をダウンロード
+
+最新バージョンのWorkbenchをダウンロードするには、次のステップに従います。
+
+1. ナビゲーションヘッダーで、**［その他］** > **［管理者］** を選択します。
+
+   管理者ページが表示されます。
+2. **［もっと見る］** セクションを見つけ、 **［ツールダウンロード］** を選択します。
+3. **［ツールダウンロード］** で **［Workbench 5.2］** セクションを見つけます。
+4. **［DOMO WORKBENCHをダウンロード］** を選択します。
+
+   インストーラーファイルがダウンロードされます。
+
+## 自動更新を無効化
+
+デフォルトでは、自動更新が有効になっており、最新のメジャー製品バージョンに適用されます。
+
+自動更新では、Workbenchサービスの再起動が行われます。コントロールの変更と定期メンテナンスを希望するユーザーは、自動更新機能をオフにすることができます。この手順は、以下で説明します。
+
+1. Workbenchアプリケーションを開きます。
+2. **［その他］** を選択します。
+3. **［設定］** セクションで、 **［更新］** を見つけます。
+4. **［自動で更新］** のチェックを外します。
+
+   <Frame><img alt="updates.png" src="/images/kb/ka05w00000126aL-00N5w00000Ri7BU-0EM5w000005wrp7.jpg" style={{width: 701.996, height: 395.994}}/></Frame>
+
+自動更新をオフにする場合は、Workbenchアプリケーションのパフォーマンスを最大限に引き出すために、定期的な手動メンテナンスとアップデートをプランニングすることを強く推奨します。
+
+## アップグレードエラー
+
+Workbenchアプリケーションのアップグレード時に以下のエラーがWorkbenchのログに表示される場合は、Workbenchをアップグレードする際にプロキシによってブロックされているため、Microsoft.NET 4.8 Frameworkインストーラーがインターネットに接続できないことが原因です。
+
+これを回避するには、 [https://support.microsoft.com/en-us/topic/microsoft-net-framework-4-8-offline-installer-for-windows-9d23f658-3b97-68ab-d013-aa3c3e7495e0](http://support.microsoft.com/en-us/topic/microsoft-net-framework-4-8-offline-installer-for-windows-9d23f658-3b97-68ab-d013-aa3c3e7495e0) に進み、オフラインインストーラーをダウンロードしてからインストールします。
+
+###### ログエラー
+
+---------
+
+[1A00:0123][2023-01-10T12:34:56]i123: Detect begin, 5 packages
+
+[1A00:0123][2023-01-10T12:34:56]i123: Setting string variable 'NETFRAMEWORK45' to value '394802'
+
+[1A00:0123][2023-01-10T12:34:56]i123: Setting string variable 'QBFC16INSTALLED' to value ''
+
+[1A00:0123][2023-01-10T12:34:56]i123: Registry value not found. Key = 'SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\{42A7A870-C6A9-4EEE-8755-2755E3C60EE4}', Value = '(null)'
+
+[1A00:0123][2023-01-10T12:34:56]i125: Condition 'NETFRAMEWORK45 >= 528040' evaluates to false.
+
+-----------------

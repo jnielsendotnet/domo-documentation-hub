@@ -1,0 +1,87 @@
+---
+title: "Salesforce PardotからSalesforce Pardot SSOコネクターへの移行"
+---
+
+## はじめに
+
+2021年2月15日以降、Pardotのユーザー認証システムが終了し、すべてのユーザーがSalesforceシングルサインオン（SSO）を使用する必要があります。2021年2月15日までにSalesforce SSOで有効化されていないユーザーは、Salesforceユーザーに接続されるまでPardotにログインできなくなります。これは、ユーザーがPardotに対して認証する方法にのみ影響します。
+
+Salesforceは強制的にSSOを使用するため、Pardot DataSetを使用しているDomoユーザーはSalesforce Pardot SSOコネクターに移行する必要があります。
+
+#### *最新情報*
+
+Salesforceでは、2021年2月15日以降、SalesforceシングルサインオンでPardotにアクセスする必要があります。詳細については、「 [Pardot User Migration Overview](https://help.salesforce.com/articleView?id=000353746&language=en_US&mode=1&type=1) 」を参照してください。
+
+#### *この変更による影響は？*
+
+* 2021年2月15日以降、Pardot用の新しいDataSetを作成するには、シングルサインオンに対応するDomoのSalesforce Pardotコネクター（com.domo.connector.pardot.oauth）を使用する必要があります。
+* サービスの混乱を防ぐために、DomoのSalesforce Pardotコネクター（com.domo.connector.pardot）を使用している現在のDataSetは、2021年2月15日までにシングルサインオンバージョンに移行する必要があります。
+
+#### *何をする必要がありますか？*
+
+Pardot DataSetが不要になった場合、ユーザー側からの操作は不要です。
+
+Salesforce Pardotコネクター（com.domo.connector.pardot）の非SSOバージョンを使用していて、Pardot DataSetを引き続き使用する必要がある場合は、以下を行う必要があります。
+
+* Domoサポートに問い合わせて、DataSetの移行をリクエストします。DataSetのDataSet IDを含めてください。DataSetの移行が完了すると、Domoサポートから連絡があります。
+* Pardot OAuthアカウントを作成します。このアカウントはいつでも作成できます。
+* DataSetを移行し、Pardot OAuthアカウントを作成したら、移行したDataSetに新しいアカウントを関連付けます。
+* DataSetを実行します。
+
+#### *移行中にPardot DataSetが停止しますか？*
+
+Pardot DataSetは、新しいコネクターバージョンに移行されてから、新しいOAuthアカウントに関連付けられるまで実行されません。
+
+#### *2021年2月15日までにDataSetを移行しないとどうなりますか？*
+
+2021年2月15日までにDataSetを移行しない場合、6月にSalesforceのハードカットオーバーが完了するまで、DataSetは引き続き実行されます。ただしSalesforceは、2021年2月からハードカットオーバーまで、ローリング停止時間を実装します。詳細については、「 [Pardot User Migration Overview](https://help.salesforce.com/articleView?id=000353746&language=en_US&mode=1&type=1) 」を参照してください。
+
+#### *問題が発生した場合はどうすればよいですか？*
+
+ご質問がある場合、または移行されたDataSetに問題がある場合は、Domoサポートにお問い合わせください。
+
+#### *Salesforce Pardot OAuthアカウントを作成するには、どうすればよいですか？*
+
+Salesforce Pardot OAuthアカウントを作成する *：*
+
+1. Data Centerの左側パネルで
+**［アカウント］** アイコンをクリックします。
+
+<Frame><img alt="mceclip0.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNyr.png"/></Frame>
+
+2.［アカウント］セクションが表示されます。
+
+3. **［アカウントを追加］** をクリックします。
+
+<Frame><img alt="mceclip1.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNys.png"/></Frame>
+
+4. **Salesforce Pardot OAuthアカウント** を選択します。
+
+<Frame><img alt="mceclip2.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNyq.png"/></Frame>
+
+5. Salesforce Pardotのログインウィンドウが表示されます。ビジネスユニットと同時実行ユニットを入力します。
+**［接続］** をクリックします。
+
+<Frame><img alt="mceclip3.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNyp.png"/></Frame>
+
+6. Salesforceのユーザー名とパスワードを別のOAuthウィンドウに入力するように求められます。
+
+<Frame><img alt="mceclip6.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNyo.png"/></Frame>
+
+7. Salesforceの認証情報を入力し、
+**［ログイン］** をクリックして、アカウントの作成を終了します。
+
+#### *新しいアカウントをDataSetに関連付けるにはどうすればよいですか？*
+
+新しいOAuthアカウントをPardot DataSetに関連付ける：
+
+1. Data Centerの左側パネルで
+**［DataSet］** アイコンをクリックします。
+
+<Frame><img alt="mceclip5.png" src="/images/kb/ka05w0000012365-00N5w00000Ri7BU-0EM5w000005vNyt.png"/></Frame>
+
+2. 新しいSalesforce Pardot OAuthアカウントに関連付ける既存のDataSetを見つけます。
+
+3. DataSetの詳細が表示されます。
+
+4. **［設定］** で **［認証情報］** を探します。これで、以前に作成したSalesforce Pardot OAuthアカウントを選択できるようになります。

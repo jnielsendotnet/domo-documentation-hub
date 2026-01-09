@@ -1,0 +1,711 @@
+openapi: 3.0.0
+info:
+  title: Domo FileSet API (BETA)
+  version: v1
+  description: |
+    API for managing FileSets and Files in Domo from within a Domo app.
+    
+    **BETA**: This API is currently in BETA and is subject to change. Endpoints, request/response formats, 
+    and functionality may change without notice.
+    
+    **Note**: Use domo.* methods for all API calls except File upload/download, which require fetch for 
+    binary or FormData support.
+
+servers:
+  - url: 'https://{instance}.domo.com'
+    description: Domo Instance
+    variables:
+      instance:
+        default: example
+        description: Your Domo instance name
+
+tags:
+  - name: Files
+    description: Operations on files within FileSets
+  - name: FileSets
+    description: Manage FileSets
+  - name: Search
+    description: Search and query operations
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+
+    File:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the file
+        path:
+          type: string
+          description: Full path to the file within the FileSet
+        name:
+          type: string
+          description: Name of the file
+        fileType:
+          type: string
+          enum: [TEXT, FILE, IMAGE, VIDEO, AUDIO]
+          description: Type of the file
+        contentType:
+          type: string
+          description: MIME type of the file
+          example: "text/plain"
+        size:
+          type: integer
+          format: int64
+          description: Size of the file in bytes
+        hash:
+          type: string
+          description: Hash of the file content
+        hashAlgorithm:
+          type: string
+          enum: [SHA_256_HEX]
+          description: Algorithm used for file hash
+        downloadUrl:
+          type: string
+          nullable: true
+          description: URL to download the file
+        created:
+          type: string
+          format: date-time
+          description: Timestamp when the file was created
+        createdBy:
+          type: integer
+          format: int64
+          description: User ID who created the file
+        connectorKey:
+          type: string
+          nullable: true
+        indexStatus:
+          type: string
+          nullable: true
+        indexReason:
+          type: string
+          nullable: true
+
+    FileSet:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the FileSet
+        name:
+          type: string
+          description: Name of the FileSet
+        description:
+          type: string
+          description: Description of the FileSet
+        created:
+          type: string
+          format: date-time
+          description: Timestamp when the FileSet was created
+        createdBy:
+          type: integer
+          format: int64
+          description: User ID who created the FileSet
+
+    FileSetCreate:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Name of the FileSet
+        accountId:
+          type: integer
+          format: int64
+          nullable: true
+          description: The account ID to associate (nullable)
+        connectorContext:
+          $ref: '#/components/schemas/ConnectorContext'
+        description:
+          type: string
+          description: Description for the FileSet
+
+    ConnectorContext:
+      type: object
+      required:
+        - connector
+      properties:
+        connector:
+          type: string
+          description: The connector key
+        relativePath:
+          type: string
+          nullable: true
+          description: Relative path for the connector
+
+    QueryFilesRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: Text to search for in files
+        directoryPath:
+          type: string
+          description: Limit search to a specific directory
+        topK:
+          type: integer
+          description: Maximum number of results to return
+
+    SearchRequest:
+      type: object
+      properties:
+        fieldSort:
+          type: array
+          items:
+            $ref: '#/components/schemas/FieldSort'
+          description: Sort options for results
+        filters:
+          type: array
+          items:
+            $ref: '#/components/schemas/Filter'
+          description: Filter criteria for the search
+        dateFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/DateFilter'
+          description: Date-based filter criteria
+
+    FieldSort:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Field name to sort by
+          example: "name"
+        order:
+          type: string
+          enum: [ASC, DESC]
+          description: Sort direction
+
+    Filter:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Field name to filter on
+          example: "name"
+        value:
+          type: array
+          items:
+            type: string
+          description: Values to match against
+        not:
+          type: boolean
+          description: If true, inverts the filter match
+        operator:
+          type: string
+          enum: [EQUALS, GREATER_THAN, LESS_THAN, IN, LIKE, NOT_EQUALS, GREATER_THAN_OR_EQUALS, LESS_THAN_OR_EQUALS]
+          description: Operation type
+
+    DateFilter:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Field name for date filter
+          example: "created"
+        start:
+          type: string
+          format: date-time
+          description: Start timestamp as ISO string
+        end:
+          type: string
+          format: date-time
+          description: End timestamp as ISO string
+        not:
+          type: boolean
+          description: If true, inverts the date filter match
+
+    FileSearchResponse:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            $ref: '#/components/schemas/File'
+        pageContext:
+          type: object
+          properties:
+            next:
+              type: string
+              description: Pagination token for next page
+
+    FileSetSearchResponse:
+      type: object
+      properties:
+        fileSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileSet'
+
+    SuccessResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          example: "success"
+        message:
+          type: string
+
+paths:
+  /domo/files/v1/filesets/{filesetId}/path:
+    get:
+      summary: Get File by Path
+      description: Retrieves file metadata by its path within the FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: path
+          in: query
+          required: true
+          description: The path to the file within the FileSet
+          schema:
+            type: string
+          example: "rules.txt"
+      responses:
+        '200':
+          description: File metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+        '404':
+          description: File not found
+
+    delete:
+      summary: Delete File by Path
+      description: Deletes a file by its path within the FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: path
+          in: query
+          required: true
+          description: The path to the file within the FileSet
+          schema:
+            type: string
+      responses:
+        '200':
+          description: File deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /domo/files/v1/filesets/{filesetId}/files/{fileId}:
+    get:
+      summary: Get File by Id
+      description: Retrieves file metadata by its ID
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: fileId
+          in: path
+          required: true
+          description: The ID of the File
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: File metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+        '404':
+          description: File not found
+
+    delete:
+      summary: Delete File by Id
+      description: Deletes a file by its ID
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: fileId
+          in: path
+          required: true
+          description: The ID of the File
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: File deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+
+  /domo/files/v1/filesets/{filesetId}/files/{fileId}/download:
+    get:
+      summary: Download File by Id
+      description: Downloads the file contents as binary/text stream
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: fileId
+          in: path
+          required: true
+          description: The ID of the File
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: File contents
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+            text/plain:
+              schema:
+                type: string
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+
+  /domo/files/v1/filesets/{filesetId}/query:
+    post:
+      summary: Query Files
+      description: Search for text within files in the FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryFilesRequest'
+            example:
+              query: "search for text in documents"
+              directoryPath: "reports/quarterly"
+              topK: 5
+      responses:
+        '200':
+          description: Array of matching files
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/File'
+
+  /domo/files/v1/filesets/{filesetId}/files:
+    post:
+      summary: Upload File
+      description: Uploads a file to the FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: The file to upload
+                createFileRequest:
+                  type: string
+                  description: JSON string with file metadata
+                  example: '{"directoryPath": ""}'
+      responses:
+        '200':
+          description: File uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/File'
+
+  /domo/files/v1/filesets/{filesetId}/files/search:
+    post:
+      summary: Search Files in FileSet
+      description: Search and filter files within a FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+        - name: directoryPath
+          in: query
+          description: Filter files by specific directory path
+          schema:
+            type: string
+        - name: immediateChildren
+          in: query
+          description: If true, returns only immediate children of directory
+          schema:
+            type: boolean
+            default: false
+        - name: limit
+          in: query
+          description: Maximum number of results
+          schema:
+            type: integer
+            default: 100
+        - name: next
+          in: query
+          description: Pagination token for next page
+          schema:
+            type: string
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              listAll:
+                summary: List all files
+                value: {}
+              advancedSearch:
+                summary: Advanced search with filters
+                value:
+                  fieldSort:
+                    - field: "name"
+                      order: "ASC"
+                  filters:
+                    - field: "name"
+                      value: [".pdf"]
+                      operator: "LIKE"
+                  dateFilters:
+                    - field: "created"
+                      start: "2025-05-01T00:00:00.000Z"
+                      end: "2025-05-31T23:59:59.999Z"
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSearchResponse'
+
+  /domo/files/v1/filesets/search:
+    post:
+      summary: Search FileSets
+      description: Search and filter FileSets
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: limit
+          in: query
+          description: Maximum number of results (default 100)
+          schema:
+            type: integer
+            default: 100
+        - name: offset
+          in: query
+          description: Pagination offset (default 0)
+          schema:
+            type: integer
+            default: 0
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            examples:
+              listAll:
+                summary: List all FileSets
+                value: {}
+              advancedSearch:
+                summary: Search with filters
+                value:
+                  fieldSort:
+                    - field: "name"
+                      order: "ASC"
+                  filters:
+                    - field: "name"
+                      value: ["Marketing"]
+                      operator: "LIKE"
+                  dateFilters:
+                    - field: "created"
+                      start: "2025-06-01T00:00:00.000Z"
+                      end: "2025-06-30T23:59:59.999Z"
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSetSearchResponse'
+
+  /domo/files/v1/filesets:
+    post:
+      summary: Create FileSet
+      description: Creates a new FileSet
+      tags: 
+        - FileSet API (BETA)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileSetCreate'
+            example:
+              name: "Sample FileSet"
+              description: "A sample FileSet for demonstration purposes."
+      responses:
+        '200':
+          description: FileSet created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+
+  /domo/files/v1/filesets/{filesetId}:
+    get:
+      summary: Get FileSet by Id
+      description: Retrieves FileSet metadata by its ID
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: FileSet metadata retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+        '404':
+          description: FileSet not found
+
+    post:
+      summary: Update FileSet by Id
+      description: Updates an existing FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: The new name for the FileSet
+                description:
+                  type: string
+                  description: The new description for the FileSet
+            example:
+              name: "Updated FileSet Name"
+              description: "Updated description."
+      responses:
+        '200':
+          description: FileSet updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+
+    delete:
+      summary: Delete FileSet by Id
+      description: Permanently deletes a FileSet
+      tags: 
+        - FileSet API (BETA)
+      parameters:
+        - name: filesetId
+          in: path
+          required: true
+          description: The ID of the FileSet
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: FileSet deleted successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'

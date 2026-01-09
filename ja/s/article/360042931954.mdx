@@ -1,0 +1,115 @@
+---
+title: "メールによるDataSetコネクター"
+---
+
+## はじめに
+
+メールによるDataSetコネクターを使用すると、メールメッセージの添付ファイルとして送信された.xlsファイル、.xlsxファイル、.csvファイルを取得して処理し、そのデータをすばやく簡単にDomoに取り込めるようになります。さらにメールによるDataSetコネクターには、GzipファイルやZipファイルを解析して.csvファイルや.xlsxファイルの形式で返す機能があります。このコネクターを設定すると、DomoのDataSetに使用する固有のメールアドレスが生成されます。メールアドレスが作成されると、そのメールアドレス宛てに添付ファイルとしてスプレッドシートを送信できるようになります。その後、コネクターがメールを処理し、その内容に沿ってデータを更新します。
+
+現在、このコネクターで取り込むことができる添付ファイルデータは1件だけです。メールメッセージに複数の添付ファイルが含まれている場合は、添付ファイルリストの先頭のファイルからデータが取り込まれます。
+
+このコネクターの設定を行うたびに、一連の固定特質を持つ添付ファイルの設定を行う必要があります。例えば、特定のパラメーターを含むCSVファイルの設定を作成すると、コネクターのインターフェースに戻ってファイルタイプをXLSに切り替えない限り、作成したメールアドレスにXLSのスプレッドシートを送信できません。添付ファイルのタイプを変更する場合は、専用のメールアドレスで新しい接続を作成することを強く推奨します。
+
+Data CenterでメールによるDataSet接続を設定します。このトピックでは、メールによるDataSetコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加とDataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** Domoに取り込むことができるメールの最大サイズは25MBです。
+
+</Note>
+
+---
+
+<Note>
+**動画 - メールによるDataSetコネクター**
+
+</Note>
+
+<iframe allowfullscreen="allowfullscreen" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/NHci6153QNc" width="560"></iframe>
+
+## 必要条件
+
+なし。認証情報は不要です。
+
+## メールによるDataSet接続を設定する
+
+このセクションでは、メールによるDataSetコネクターページの **［詳細］** ペインのオプションについて説明します。このページ内にある
+
+もう1つのペイン、 **［DataSetに名前を付け、説明を入力］** は、ほとんどのタイプのコネクターで共通しています。 詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メールによるDataSet接続の設定に関する様々なオプションが表示されます。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody>
+<tr>
+<th colspan="1" rowspan="1"><p><span> メニュー </span></p></th><th colspan="1" rowspan="1"><p><span> 説明 </span></p></th>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> メール </td><td colspan="1" rowspan="1"> 添付ファイルの送付先となるメールアドレスを自動的に作成します。 <b> ［メールをコピー］ </b> をクリックして、このメールアドレスをクリップボードにコピーします。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> ファイルの場所 </td>
+<td colspan="1" rowspan="1">
+<p> ファイルを取得する場所のオプションを以下から選択します。 </p>
+<ul>
+<li>
+<p><b> ［メールの添付ファイル］ </b> ：接続先のメールまたはそのメールの本文内にDataSetファイルが添付されます。 </p>
+</li>
+<li>
+<p><b> ［メールのリンクから直接ダウンロードする］ </b> ：DataSetファイルを直接ダウンロードするためのリンクがメール内に挿入されます。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> メッセージに複数のリンクが含まれている場合、コネクターではメッセージに表示される最初のリンクが使用されます。 </div></div></div> 
+</Note>
+
+ </li>
+ <li>
+ <p><b> ［ページへのリンクからダウンロード］ </b> ：DataSetファイルへのダウンロードリンクが存在するページにアクセスするためのURLがメール内に挿入されます。 </p> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b><span> ダウンロードページを探すには、URLまたはリンクラベルにファイルタイプが含まれている最初のリンクを探します。ファイルタイプを含むリンクが見つからなかった場合、コネクターは「report」または「download」を含むリンクを探します。 </span><p> ダウンロードページを取得すると、コネクターはファイルタイプと同じ方法で実際のデータリンクを探します。ダウンロードページのURLはJavaScriptでは生成できないことに注意してください。 </p></div></div></div> 
+ </Note>
+
+ </li>
+ </ul>
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1">
+ <span> ファイルタイプ </span>
+ </td>
+ <td colspan="1" rowspan="1">
+ <p> 送信するファイルタイプを選択します。GZipとZ <span> ip圧縮ファイルがサポートされています。圧縮ファイルは解凍され、選択したファイルタイプとして解析されます。 </span></p><p> 添付ファイルのファイルタイプを以下から選択します。 </p><ul><li><p><b> ［1つの行としてのメール本文］ </b> ：このオプションは、インポートするデータが添付ファイル内ではなくメール本文内に存在し、DataSet内の1行のデータとしてDomoにインポートする必要がある場合に使用します。 </p></li><li><p><b> ［HTMLとしてのメール本文］ </b> ：このオプションは、インポートするデータが添付ファイル内ではなくメール本文内に存在し、HTML形式でDomoにインポートする必要がある場合に使用します。このオプションを使用するときは <em> 必ず </em><b> ［ファイルの場所］ </b> を <b> ［メールの添付ファイル］ </b> に設定する必要があります。 </p></li><li><p><b> ［CSV］ </b> ：このオプションは、添付されたCSVファイル内にDataSetが含まれている場合に使用します。 </p></li><li><p><b> ［xls］ </b> ：このオプションは、添付されたXLSファイル内にDataSetが含まれている場合に使用します。 </p></li><li><b> ［xlsb］ </b> ：このオプションは、添付されたXLSBファイル内にDataSetが含まれている場合に使用します。 </li><li><p><b> ［xlsx］ </b> ：このオプションは、添付されたXLSXファイル内にDataSetが含まれている場合に使用します。 </p></li><li><b> ［xml］ </b> ：このオプションは、添付されたXMLファイル内にDataSetが含まれている場合に使用します。 </li><li><b> ［Excel XML］ </b> ：このオプションは、添付されたExcel XMLファイル内にDataSetが含まれている場合に使用します。 </li><li><span><b> ［標準（使用しないでください、まもなく削除されます）］ </b></span></li></ul> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-content-container"><div class="info-box-content"><p><span><b> 注記： </b></span></p><ul><li><p><span> このコネクターのファイルサイズ制限は、選択したメールプロバイダーのファイルサイズ制限によって決まります。 </span></p></li><li><p> メールでTLS 1.2以上が使用されていない場合、コネクターは拡張子ファイルのタイプを判別できません。 </p></li></ul></div></div></div> 
+ </Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1"> 送信元メールアドレス </td>
+ <td colspan="1" rowspan="1">
+ <p> このコネクターがファイルを受信する送信元のフルメールアドレス、またはメールドメイン（例：@ <a href="http://domo.com" rel="noopener" target="_blank"> domo.com </a> ）を入力します。その他のアドレスからのメールは拒否されます。どんなメールアドレスからのメールでも許可する場合は「NONE」と入力します。 </p> 
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><span><b> 注記： </b> 設定内のメールアドレスが、ファイルの送信先メールアドレスと一致していることを確認してください。 </span></div></div></div> 
+ </Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"> メール件名の表現 </td><td colspan="1" rowspan="1"><p> 送信するメールの件名を検証するための正規表現を入力します。件名がこの表現と一致しないメールは拒否されます。どんなメールの件名でも許可する場合は「NONE」と入力します。 </p><p> 次は完全一致の例です。 </p><p><span class="mt-font-courier-new"> 件名 = 1900 Audit Report for Domo <br/> 正規表現 =.*Audit_Report.* </span></p></td></tr><tr><td colspan="1" rowspan="1"> メール本文の表現 </td><td colspan="1" rowspan="1"><p> 送信メールの本文を検証するための正規表現を入力します。本文がこの表現と完全に一致しないメールは拒否されます。すべての本文を許可する場合は「 <span class="mt-font-courier-new"> NONE </span> 」と入力します。 </p><p> 次は完全一致の例です。 </p><p><span class="mt-font-courier-new"> 本文 = DomoにアップロードするAudit Reportファイルを添付しました。 <br/> 正規表現 =.*Audit\sReport.* </span></p></td></tr><tr><td colspan="1" rowspan="1"> 添付ファイル名の表現 </td><td colspan="1" rowspan="1"><p> 添付ファイル名を検証するための正規表現を入力します。この表現と完全に一致しない添付ファイルは拒否されます。すべてのファイル名を許可する場合は「NONE」と入力します。 </p><p> 次は完全一致の例です。 </p><p><span class="mt-font-courier-new"> 添付ファイル = 1.audit_report_1.1.1900.1.00AM.xlsx <br/> 正規表現 =.*audit_report.* </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> 高度なオプションを表示（チェックボックス） </p></td><td colspan="1" rowspan="1"><p> このチェックボックスをオンにすると、高度な設定オプションが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Include HTML Body（チェックボックス） </p></td><td colspan="1" rowspan="1"><p> このチェックボックスをオンにすると、データにメッセージのHTML本文を含めます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データにはヘッダー行が含まれています（オプション） </p></td><td colspan="1" rowspan="1"><p> データが列ヘッダーを含む行を含んでいる場合はこのフィールドを「true」に設定します。データがヘッダー行を含まない場合は「false」に設定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ヘッダー行（オプション） </p></td><td colspan="1" rowspan="1"><p> ヘッダー行番号を入力します。番号を入力しなかった場合、最初の行がヘッダー行とみなされます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フッター行をスキップ（オプション） </p></td><td colspan="1" rowspan="1"><p> インポートから除外する行がファイルの終わりに1行以上ある場合は、スキップする行数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 開始データ行（オプション） </p></td><td colspan="1" rowspan="1"><p> デフォルトでは、 <b> ヘッダー行 </b> に続く行は <b> 開始データ行 </b> とみなされます。データが別の行から開始する場合は、その行番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><span> デリミター（オプション） </span></td><td colspan="1" rowspan="1"> CSVファイルを解析するのに使用する区切り文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> エスケープ文字（オプション） </span></td><td colspan="1" rowspan="1"> ファイルを解析するのに使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> 引用文字（オプション） </span></td><td colspan="1" rowspan="1"> CSVファイルを解析するのに使用する引用文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> エンコードを検出（チェックボックス） </span></td><td colspan="1" rowspan="1"> Domoでエンコーディングのタイプを自動的に検出する場合は、このチェックボックスをオンにします。常にUTF-8エンコーディングを使用する場合は、オフのままにしておきます。 </td></tr><tr><td colspan="1" rowspan="1"><span> Encoding Options（オプション） </span></td><td colspan="1" rowspan="1"> デフォルトでは、コネクターは信頼度の値にもとづいてエンコードを検出しますが、値は50％より大きくなければなりません。検出されたエンコーディングの最高値が50％未満であったとしても、 <b> ［Consider Highest Encoding］ </b> オプションを使えば、そのエンコーディングを考慮することができます。 <b> ［Specify Encoding］ </b> オプションを使用すると、以下の <b> ［Enter Encoding］ </b> テキストフィールドに任意のエンコードを入力できます。 </td></tr><tr><td colspan="1" rowspan="1"><span> Enter Encoding </span></td><td colspan="1" rowspan="1"> エンコーディングを指定します。 </td></tr><tr><td colspan="1" rowspan="1"><span> 生のヘッダー <span> （オプション） </span></span></td><td colspan="1" rowspan="1"><p><b> ［はい］ </b> を選択すると、コネクターは送信したファイルのヘッダーを使用します。 <b> ［いいえ］ </b> を選択すると、コネクターはヘッダーテキストに含まれる特殊文字を変更します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 日付形式（オプション） </p></td><td colspan="1" rowspan="1"><p> 送信ファイルに使用される日付形式を選択します。 </p></td></tr><tr><td class="confluenceTd" colspan="1" rowspan="1"><span> 文字列としての数値の列（オプション） </span></td><td class="confluenceTd" colspan="1" rowspan="1"> ［はい］を選択すると、数値であるすべての列に対して列を追加して、それらを文字列としてフォーマットし、先頭のゼロ（0）を含む元のフォーマットを保持します。 </td></tr><tr><td colspan="1" rowspan="1"><span> 文字列としての先頭のゼロ（0）（オプション） </span></td><td colspan="1" rowspan="1"> ［はい］を選択すると、先頭にゼロ（0）がある数値（例：「01234」）を文字列として解釈します。これで先頭のゼロ（0）は残ります。 </td></tr><tr><td class="confluenceTd" colspan="1" rowspan="1"><span> デコードエラーを無視する（オプション） </span></td><td class="confluenceTd" colspan="1" rowspan="1"> ［はい］を選択すると、デコードエラーを無視します。 <br/> デコードエラーの前に処理されたデータのみが取得されます。 <br/> これは、メールファイルの末尾に不要な文字があり、その文字が破損している場合に推奨されます。 </td></tr><tr><td class="confluenceTd" colspan="1" rowspan="1"> 列名の先頭文字が数字であることを許可する（チェックボックス） </td><td class="confluenceTd" colspan="1" rowspan="1"> 列名の先頭に数字を使用することを許可するかどうかを選択します。許可しない場合、数字で始まる列名には必ず「C」という接頭辞がつきます（例：「C123」）。 </td></tr><tr><td class="confluenceTd" colspan="1" rowspan="1"><span><span> 空白行をスキップする <span> （オプション） </span></span></span></td><td class="confluenceTd" colspan="1" rowspan="1"> このチェックボックスをオンにすると、DataSetに空白行が追加されないようにすることができます。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 件名の正規表現 <span> （オプション） </span></span></span></td><td colspan="1" rowspan="1"> グループ化して正規表現を入力すると、件名にある各グループは列として追加されます。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 本文の正規表現 <span> （オプション） </span></span></span></td><td colspan="1" rowspan="1"> グループ化して正規表現を入力すると、件名にある各グループは列として追加されます。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> HTML表番号 <span><span><span> （オプション） </span></span></span></span></span></td><td colspan="1" rowspan="1"> 表の番号を選択します。デフォルトでは最初に見つかった表が使われます。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> HTML表のタグ <span><span><span> （オプション） </span></span></span></span></span></td><td colspan="1" rowspan="1"> 表の表タグを選択します。デフォルトでは「table」が使われています。これは有効なHTML要素である必要があります。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> HTML行のタグ <span><span><span> （オプション） </span></span></span></span></span></td><td colspan="1" rowspan="1"> 表の行のタグを選択します。デフォルトでは「tr」が使われています。これは有効なHTML要素である必要があります。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> HTMLセルのタグ <span><span><span> （オプション） </span></span></span></span></span></td><td colspan="1" rowspan="1"> 表のセルのタグを選択します。デフォルトでは「td」が使われています。これは有効なHTML要素である必要があります。または「nbsp」が列を区切るために使われている場合はセルのタグとして［スペース］を指定します。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> Excelシート名 <span><span><span> （オプション） </span></span></span></span></span></td><td colspan="1" rowspan="1"> 解析したいExcelシート名を入力してください。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> ファイルのパスワード <span><span><span><span><span> （オプション） </span></span></span></span></span></span></span></td><td colspan="1" rowspan="1"> ファイルがパスワードで保護されている場合は、パスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> Excelシートのタブ番号 <span><span><span><span><span><span><span> （オプション </span></span></span></span></span></span></span> ） </span></span></td><td colspan="1" rowspan="1"> 解析したいExcelシートのタブ番号を入力してください。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> Use Raw Numbers <span><span><span><span><span><span><span><span><span> （オプション </span></span></span></span></span></span></span> ） </span></span></span></span></td><td colspan="1" rowspan="1"> 値をそのまま数値として取得するには、このボックスをオンにします。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> Columns As String <span><span><span><span><span><span><span><span><span><span><span> （オプション </span></span></span></span></span></span></span> ） </span></span></span></span></span></span></td><td colspan="1" rowspan="1"> 文字列列として追加する列のカンマ区切りリストを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 属性を含める（チェックボックス） </span></span></td><td colspan="1" rowspan="1"> データにXML属性を含めることを確認します。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 一致するリンク（オプション） </span></span></td><td colspan="1" rowspan="1"> リンクを設定してファイルをダウンロードします。［ファイルタイプ］が選択されている場合、 <span> リンクに選択したファイルタイプの拡張子が必要です </span> 。別の文字列を選択した場合は、一致する文字列を入力します。最初に一致するリンクが使用されます。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 待機 <span><span> （オプション） </span></span></span></span></td><td colspan="1" rowspan="1"> メールのリンクからファイルをダウンロードするまでにかかる秒数です。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 一致する添付ファイル </span></span></td><td colspan="1" rowspan="1"> ダウンロードリンクに含まれているテキストを指定して、ファイルのダウンロードリンクを固有識別します。 </td></tr><tr><td colspan="1" rowspan="1"><span><span> 一致する添付ファイルの正規表現 </span></span></td><td colspan="1" rowspan="1"> ダウンロードリンクに含まれているテキストを指定して、ファイルのダウンロードリンクを固有識別します。 </td></tr>
+ </tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、
+
+「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+#### 行数や列数が予想以上に多くなるなど、データが正しく解析されません。
+
+フィールドのデータ内の引用文字がフィールドを囲む引用符の1つとして解析されないように、引用文字がエスケープされていることを確認してください。引用文字は、以下の方法でエスケープすることができます。
+
+1. バックスラッシュ（\）を使用します："dimensions", "two-by-four: 2\" x 4\""
+2. 引用文字を2回入力します："dimensions", "two-by-four: 2"" x 4"""
+
+

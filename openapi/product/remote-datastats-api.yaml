@@ -1,0 +1,410 @@
+openapi: 3.0.3
+info:
+  title: Domo Remote Domostats API
+  description: |
+    This API provides access to retrieve information about applications and jobs within the Domo environment. It includes methods to fetch a list of applications, view job details for specific applications, and update job configurations.
+  version: 1.0.0
+  contact:
+    name: Domo Support
+    url: https://www.domo.com
+
+servers:
+  - url: https://{instance}.domo.com/api/executor
+    description: Domo Remote Domostats API
+    variables:
+      instance:
+        default: your-instance
+        description: Your Domo instance name
+
+security:
+  - DeveloperToken: []
+
+paths:
+  /v1/applications:
+    get:
+      tags:
+        - Remote Domostats API
+      summary: Get Applications
+      description: Retrieve a list of applications in the Domo environment
+      operationId: getApplications
+      parameters:
+        - name: session_token
+          in: query
+          required: true
+          schema:
+            type: string
+          description: Authentication token to access the API
+      responses:
+        '200':
+          description: Application details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+
+  /v2/applications/{applicationId}/jobs:
+    get:
+      tags:
+        - Remote Domostats API
+      summary: Get List of Jobs
+      description: Retrieve a list of jobs for a specific application
+      operationId: getJobsList
+      parameters:
+        - name: Application_Id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the application
+          example: "50e7230f-d2f2-42e2-a208-d94c8ae9f64c"
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            default: 0
+          description: The results offset. The default is 0.
+      responses:
+        '200':
+          description: Job details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JobDetails'
+
+  /v1/applications/{applicationId}/jobs/{jobId}:
+    put:
+      tags:
+        - Remote Domostats API
+      summary: Update the Job
+      description: Update job configuration for a specific application
+      operationId: updateJob
+      parameters:
+        - name: Application_Id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the application
+          example: "50e7230f-d2f2-42e2-a208-d94c8ae9f64c"
+        - name: Job_Id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: ID of the job to update
+          example: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JobUpdateRequest'
+            example:
+              jobId: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
+              jobName: "domo-labs-dev2.dev.domo.com"
+              executionTimeout: 720
+              executionPayload:
+                remoteInstance: "domo-labs-dev.dev.domo.com"
+                subscriberJobId: "b8ff1dc6-4426-4256-8176-1cb9482e79c0"
+                policies:
+                  AccessTokens: "85f65936-e0c3-4e74-8398-13096df9bdb3"
+                  DomainWhitelist: "cd473383-9589-4d44-a85a-ffd58c0b1d55"
+                  IPWhitelist: "6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2"
+                  OIDC: "d26a1d1e-a6c0-4367-b929-70a6e01e5b46"
+                  SAML: "081d8320-c6df-4d0b-8802-97875989236d"
+                  DirectSignOn: "7b1f43e1-165d-4eed-b195-491a6bedcef0"
+                metricsDatasetId: "2644b5d0-344b-4bc0-b379-d3854923a29c"
+              executionResponse: {}
+              accounts: [479]
+              resources:
+                requests:
+                  memory: "256M"
+                limits:
+                  memory: "256M"
+              triggers: []
+      responses:
+        '200':
+          description: Job updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UpdateResponse'
+
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+
+  schemas:
+    Application:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Application ID
+          example: "94a4edfa-5926-4f0c-ad1e-a341f53f6113"
+        displayType:
+          type: string
+          description: Display type of the application
+          example: "DataFlow"
+        type:
+          type: string
+          description: Type of the application
+          example: "DataFlow"
+        name:
+          type: string
+          description: Name of the application
+          example: "DomoStats People with Activity Log"
+        owner:
+          $ref: '#/components/schemas/Owner'
+        status:
+          type: string
+          description: Status of the application
+          example: "SUCCESS"
+        created:
+          type: integer
+          format: int64
+          description: Creation timestamp
+          example: 1624432428000
+        lastTouched:
+          type: integer
+          format: int64
+          description: Last touched timestamp
+          example: 1651769881000
+        rowCount:
+          type: integer
+          description: Number of rows
+          example: 833556
+        columnCount:
+          type: integer
+          description: Number of columns
+          example: 18
+        cardInfo:
+          $ref: '#/components/schemas/CardInfo'
+        properties:
+          $ref: '#/components/schemas/Properties'
+
+    JobDetails:
+      allOf:
+        - $ref: '#/components/schemas/Application'
+        - type: object
+          properties:
+            lastUpdated:
+              type: integer
+              format: int64
+              description: Last updated timestamp
+              example: 1651769880787
+            validConfiguration:
+              type: boolean
+              description: Whether configuration is valid
+              example: true
+            validAccount:
+              type: boolean
+              description: Whether account is valid
+              example: true
+            adc:
+              type: boolean
+              description: ADC flag
+              example: true
+            cloudId:
+              type: string
+              description: Cloud ID
+              example: "domo"
+            permissions:
+              type: string
+              description: Permissions
+              example: "READ_WRITE_DELETE_SHARE_ADMIN"
+            tags:
+              type: string
+              description: Tags in JSON string format
+              example: "[\"domoStats\",\"domostats\",\"c_people\"]"
+
+    JobUpdateRequest:
+      type: object
+      required:
+        - jobId
+        - jobName
+      properties:
+        jobId:
+          type: string
+          description: Job ID
+          example: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
+        jobName:
+          type: string
+          description: Job name
+          example: "domo-labs-dev2.dev.domo.com"
+        executionTimeout:
+          type: integer
+          description: Execution timeout in seconds
+          example: 720
+        executionPayload:
+          $ref: '#/components/schemas/ExecutionPayload'
+        executionResponse:
+          type: object
+          description: Execution response
+          additionalProperties: true
+        accounts:
+          type: array
+          items:
+            type: integer
+          description: List of account IDs
+          example: [479]
+        resources:
+          $ref: '#/components/schemas/Resources'
+        triggers:
+          type: array
+          items:
+            type: object
+          description: List of triggers
+          example: []
+
+    Owner:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Owner ID
+          example: ""
+        name:
+          type: string
+          description: Owner name
+          example: ""
+        type:
+          type: string
+          description: Owner type
+          example: "USER"
+        group:
+          type: boolean
+          description: Whether owner is a group
+          example: false
+
+    CardInfo:
+      type: object
+      properties:
+        cardCount:
+          type: integer
+          description: Number of cards
+          example: 9
+        cardViewCount:
+          type: integer
+          description: Number of card views
+          example: 0
+
+    Properties:
+      type: object
+      properties:
+        formulas:
+          type: object
+          description: Formula definitions
+          additionalProperties:
+            $ref: '#/components/schemas/Formula'
+
+    Formula:
+      type: object
+      properties:
+        templateId:
+          type: integer
+          description: Template ID
+          example: 1109
+        id:
+          type: string
+          description: Formula ID
+          example: "calculation_534c74ab-37aa-48dc-8322-34bb5784a9f0"
+        name:
+          type: string
+          description: Formula name
+          example: "Content Creation Filter"
+        formula:
+          type: string
+          description: Formula expression
+          example: "(CASE WHEN ((`Object_Type` = 'CARD') AND `Action` IN ('CREATED', 'UPDATED', 'ADDED', 'DUPLICATED', 'SHARED')) THEN 1 ELSE 0 END)"
+        status:
+          type: string
+          description: Formula status
+          example: "VALID"
+        persistedOnDataSource:
+          type: boolean
+          description: Whether formula is persisted on data source
+          example: true
+
+    ExecutionPayload:
+      type: object
+      properties:
+        remoteInstance:
+          type: string
+          description: Remote instance URL
+          example: "domo-labs-dev.dev.domo.com"
+        subscriberJobId:
+          type: string
+          description: Subscriber job ID
+          example: "b8ff1dc6-4426-4256-8176-1cb9482e79c0"
+        policies:
+          $ref: '#/components/schemas/Policies'
+        metricsDatasetId:
+          type: string
+          description: Metrics dataset ID
+          example: "2644b5d0-344b-4bc0-b379-d3854923a29c"
+
+    Policies:
+      type: object
+      properties:
+        AccessTokens:
+          type: string
+          description: Access tokens policy ID
+          example: "85f65936-e0c3-4e74-8398-13096df9bdb3"
+        DomainWhitelist:
+          type: string
+          description: Domain whitelist policy ID
+          example: "cd473383-9589-4d44-a85a-ffd58c0b1d55"
+        IPWhitelist:
+          type: string
+          description: IP whitelist policy ID
+          example: "6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2"
+        OIDC:
+          type: string
+          description: OIDC policy ID
+          example: "d26a1d1e-a6c0-4367-b929-70a6e01e5b46"
+        SAML:
+          type: string
+          description: SAML policy ID
+          example: "081d8320-c6df-4d0b-8802-97875989236d"
+        DirectSignOn:
+          type: string
+          description: Direct sign-on policy ID
+          example: "7b1f43e1-165d-4eed-b195-491a6bedcef0"
+
+    Resources:
+      type: object
+      properties:
+        requests:
+          $ref: '#/components/schemas/ResourceAllocation'
+        limits:
+          $ref: '#/components/schemas/ResourceAllocation'
+
+    ResourceAllocation:
+      type: object
+      properties:
+        memory:
+          type: string
+          description: Memory allocation
+          example: "256M"
+
+    UpdateResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Response status
+          example: "OK"
+        code:
+          type: integer
+          description: HTTP status code
+          example: 200
+        message:
+          type: string
+          description: Response message
+          example: "Job updated successfully"

@@ -1,0 +1,87 @@
+---
+title: "Oracle Sales Cloudコネクター"
+---
+
+## はじめに
+
+Oracle Sales Cloudは、販売の加速、顧客エンゲージメントの向上などを通じて、企業が大幅に成長できるようにする機能を提供する顧客関係管理ソリューションです。導入と使用が簡単であり、完全にモバイルで、強力な分析機能を備え、共同販売と収益創出のために構築されたツールを使用して、現代的な販売を可能にします。このコネクターを使用すると、チームのオポチュニティー、担当地域のオポチュニティー、下位のオポチュニティーなど、自分のオポチュニティーに関するデータを取得できます。
+
+Oracle Sales Cloudアカウントには、Data Centerから接続します。このトピックでは、Oracle Sales Cloudコネクターのユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Oracle Sales Cloudアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Oracle Sales Cloudのユーザー名とパスワード。
+* Oracle Sales Cloud RESTサーバーURL。Oracle CloudサービスのURLです。例：https://servername.fa.us2.oraclecloud.com
+
+## Oracle Sales Cloud アカウントに接続する
+
+このセクションでは、Oracle Sales Cloudコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Oracle Sales Cloudアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Oracle Sales Cloudのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Oracle Sales Cloudのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> API URL </td><td colspan="1" rowspan="1"> Oracle Sales Cloud RESTサーバーURLを入力します。Oracle CloudサービスのURLです。例： <span></span><span class="mt-font-courier-new"><a href="https://servername.fa.us2.oraclecloud.com" rel="noopener" target="_blank"> https://servername.fa.us2.oraclecloud.com </a></span></td></tr></tbody></table>
+
+有効なOracle Sales Cloud認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOracle Sales Cloud DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:199;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するOracle Sales Cloudレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Opportunities </td><td colspan="1" rowspan="1"> すべての製品の売り上げ、収益など、すべてのオポチュニティーを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Record Set </td><td colspan="1" rowspan="1"> オポチュニティーデータの取得元となるレコードセットを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Status Code </td><td colspan="1" rowspan="1"> ステータスコードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:199;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> レポート名 </th><th colspan="1" rowspan="1" width="70%"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="1" rowspan="1"> Opportunities </td><td colspan="1" rowspan="1"> /crmRestApi/resources/11.13.18.05/opportunities </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Oracle Sales Cloudアカウントに関連付けられたユーザー名とパスワード、Oracle CloudサービスのURL（例：
+https://｛サーバー名｝. [fa.us2.oraclecloud.com](http://fa.us2.oraclecloud.com) ）が必要です。
+
+
+</Accordion>
+<Accordion title="同一のOracle Sales Cloudアカウントを複数のDataSetの作成に使えますか？">
+
+
+はい。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="データはどのくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

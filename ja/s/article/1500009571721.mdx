@@ -1,0 +1,97 @@
+---
+title: "Amazon Advertisingコネクター"
+---
+
+## はじめに
+
+Amazon Advertisingは、顧客がデバイスを使用しオンラインで共有する、読む、聞く、購入する、調査する、ダウンロードする場所を問わず、ブランドをAmazonの顧客に結び付けます。DomoのAmazon Advertisingコネクターを使用すると、エンティティレポート、パフォーマンスレポート、ポートフォリオ一覧を取得できます。Amazon Advertising APIの詳細については、Webサイト（
+https://advertising.amazon.com/about-api
+）を参照してください。
+
+Data CenterでAmazon Advertisingアカウントに接続します。このトピックでは、Amazon Advertisingコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon Advertisingアカウントに接続してDataSetを作成するには、Amazonの認証情報が必要です（例：メールアドレスまたは電話番号と、パスワード）。
+
+#### 新しいAmazon Advertisingアカウントを作成するには？
+
+**アカウントビューからDomoにAmazon Advertisingアカウントを追加する**
+
+1. Data Centerの左ペインでアカウントアイコンをクリックし、**Data Center** の **［アカウント］** セクションに移動します。
+
+<Frame><img alt="Accounts_Section.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxh.png"/></Frame>
+
+2. **［アカウント］** で **［アカウントを追加］** をクリックします。
+
+<Frame><img alt="Add_Account.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxe.png"/></Frame>
+
+3. 必要なAmazon Advertisingコネクターを選択し、**［接続］** をクリックします。
+
+<Frame><img alt="Select_Account.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxg.png"/></Frame>
+
+4. アクセスするAmazonマーケットプレイスを選択し、**［接続］** をクリックします。
+
+<Frame><img alt="Select_Marketplace.png" src="/images/kb/ja/ka0Vq000000Bzsz-00N5w00000Ri7BU-0EM5w000005wLtC.png"/></Frame>
+
+5. Amazonのログインウィンドウが開きます。Amazonの認証情報を入力し、Amazonアカウントにログインします。
+
+6. 新しいAmazon Advertisingアカウントに入力した内容が、**アカウント** ビューの項目に表示されます。
+
+**Amazon Advertising アカウントをDomoに追加するには、DataSetを追加して新しいアカウント情報を入力します。**
+
+1. 新しいAmazon Advertisingアカウントを作成中に、アクセスしたいAmazonマーケットプレイスの地域を選択して **［接続］** をクリックする必要があります。
+
+<Frame><img alt="Select_Marketplace-though_connector.png" src="/images/kb/ja/ka0Vq000000Bzsz-00N5w00000Ri7BU-0EM5w000005wLtE.png"/></Frame>
+
+2. Amazonのログインウィンドウが開きます。Amazonの認証情報を入力し、Amazonアカウントにログインします。
+
+3. Amazon Advertisingアカウントをコネクター経由で追加すると、新しいアカウントに入力した内容が
+**アカウント** ビューに自動的に表示されます。
+
+#### 新しく作成したAmazon Advertisingアカウントを既存のDataSetに関連付ける方法は？
+
+新しく作成したAmazon Advertisingアカウントを既存のDataSetに関連付けるには、以下の手順を実行します。
+
+1. Data Centerの **DataSets** ページにアクセスします。
+
+<Frame><img alt="DataSets.png" src="/images/kb/ka0Vq000000Bzub-00N5w00000Ri7BU-0EM5w000005vNxf.png"/></Frame>
+
+2. 新しいAmazon Advertisingアカウントに関連付ける既存のDataSetを見つけます。
+
+3. DataSetの詳細が表示されます。
+
+4. **［設定］** タブをクリックします。コネクターの［認証情報］セクションにリダイレクトされます。
+
+5. ここでは新しいAmazon Advertisingアカウントを選択できます（既に作成されている場合）。または、新しいアカウントを作成して、選択したDataSetに関連付けることもできます。
+
+6. **［保存］** をクリックします。
+
+## Amazon Advertising アカウントに接続する
+
+このセクションでは、 Amazon Advertising コネクターページの［認証情報］ペインおよび［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo のAmazon Advertising コネクターは接続にOAuthを使用します。このため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のAmazon Advertisingアカウントがある場合は **［アカウントを追加］** を選択）すると、Amazon OAuth画面が開き、Amazonのメールアドレスとパスワードを入力できます。有効なAmazon Advertising認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Amazon Advertising DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にAmazonにログインしている場合は、**［アカウントを追加］** をクリックすると自動的に認証されます。ログインしたアカウントとは異なるアカウントに接続したい場合は、まず現在のAmazonアカウントからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> プロフィール </p></td><td colspan="1" rowspan="1"><p> データを取得するプロフィールを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p><span> 実行するAmazon Advertisingレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> エンティティレポート </p></td><td colspan="1" rowspan="1"><p> 指定された広告タイプの広告グループ、キャンペーン、ネガティブキーワードなど、様々なエンティティのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パフォーマンスレポート </p></td><td colspan="1" rowspan="1"><p> 指定された広告タイプの広告グループ、キャンペーン、製品広告などのパフォーマンスに関する詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポートフォリオのリスト </p></td><td colspan="1" rowspan="1"><p> ポートフォリオのリストを取得します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 広告タイプ </p></td><td colspan="1" rowspan="1"><p> ブランドキャンペーン、製品キャンペーン、ディスプレイキャンペーン、DSPキャンペーンのいずれのデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> レコードタイプ </p></td><td colspan="1" rowspan="1"><p> 取得するレコードタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><span> 状態フィルター </span></td><td colspan="1" rowspan="1"><span> 希望する状態フィルターを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> 指定された広告フィルターの戦術 </p></td><td colspan="1" rowspan="1"><p> データにフィルターを適用する広告戦術を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索語別のセグメント </p></td><td colspan="1" rowspan="1"><p> レポートを検索語ごとに分類するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 配置別のセグメント </p></td><td colspan="1" rowspan="1"><p> レポートを配置ごとに分類するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> メトリクス </p></td><td colspan="1" rowspan="1"><p> データを取得するメトリクスを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> ディメンション </td><td colspan="1" rowspan="1"> データを取得するディメンションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> DSPレポートタイプ </td><td colspan="1" rowspan="1"> データを取得するDSPレポートタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> DSPメトリクス </td><td colspan="1" rowspan="1"> データを取得するDSPメトリクスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> インポートタイプ </p></td><td colspan="1" rowspan="1"><p> データのインポートタイプを選択します。インポートタイプは次の通りです。 </p><ul><li><p><b> デルタ </b> 。このインポートタイプは、実行するたびに過去14日間の <span> データを更新します。選択した日付は最初の実行時にのみ使用されます。更新モードに［Append］を選択します。 </span> 更新モードについて詳しくは、「 <a href="/s/article/360042926274" target="_blank"> データコネクターを使用してDataSetを追加する </a> 」を参照してください。 </p></li><li><p><b> ローリング </b> 。このインポートタイプでは、指定された日数のデータがローリングウィンドウに表示されます。特定の期間を選択することも、相対日付を使用することもできます。このインポートタイプを使用する場合は必ず、更新モードに［Replace］を選択してください。更新モードについて詳しくは、「 <a href="/s/article/360042926274" target="_blank"> データコネクターを使用してDataSetを追加する </a> 」を参照してください。 </p></li><li><p><b> 特定 </b> このインポートタイプは、実行するたびに特定の日付に対するデータを取得します。このインポートタイプは推奨されません。 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> 日付の選択 </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 単一の日付 </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 特定の日付 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 相対日付 </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［遡る日数］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 日付範囲 </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日 - 特定 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の 最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 終了日 - 特定 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日 - 相対 </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 終了日 - 相対 </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"> データの受信を希望する期間を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+#### Amazonアカウントを認証する際に「不明のスコープが要求されました」というエラーが発生しました。または、アカウントを作成しようとするとOAuthウィンドウが開いて閉じ、「アカウントの作成に問題が発生しました。もう一度お試しください。」というメッセージが表示され、うまく行きません。何を試してみればいいですか？
+
+AppがAmazonにホワイトリスト登録されていることを確認してください。「Amazon Advertising APIの利用を開始する」メールを見つけて、Amazon Advertising APIライセンス契約に同意したことを確認してください。

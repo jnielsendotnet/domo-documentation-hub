@@ -1,0 +1,40 @@
+---
+title: "Google Analytics Managementコネクター"
+---
+
+## はじめに
+
+Analytics Management APIを使用すると、Googleアナリティクス設定データにプログラムでアクセスすることができます。DomoのGoogle Analytics Managementコネクターを使用して、ユーザーのためにすべてのアカウント、プロパティ、ビュー（プロフィール）情報を一覧表示するためのレポートを生成したり、どの目標をアクティブにするかを決定したり、設定された名前にアクセスしたりできます。Googleアナリティクスアカウントは複数のレベルで構成され、Management APIコネクターは各レベルでエンティティと情報をやり取りする方法を提供します。Google Analytics Management APIについて詳しくはGoogleのWebサイト、
+https://developers.google.com/analytics/devguides/config/mgmt/v3
+を参照してください。
+
+Googleアカウントには、Data Centerから接続します。このトピックでは、Google Analytics Managementコネクターのユーザーインターフェースに特有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Googleアカウントに接続して、Google Analytics Management DataSetを作成するには、Googleの認証情報が必要です。
+
+## Googleアカウントに接続する
+
+このセクションでは、Google Analytics Managementコネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目にある ****［スケジュール設定］**** や ****［DataSetの名前を付け、説明を入力］**** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoogle Analytics Managementコネクターは接続にOAuthを使用しています。このため、Domo内での認証情報の入力は必要ありません。 ****［接続］**** をクリック（または、Domoに既存のGoogleアカウントがある場合は ****［アカウントを追加］**** を選択）すると、Google OAuth画面が開き、Googleの認証情報を入力できます。有効なGoogle認証情報を入力した後は、新しいGoogle Analytics Management DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる ****［レポート］**** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Analytics Managementレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> アクセス権のあるすべてのアカウントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウントのサマリー </td><td colspan="1" rowspan="1"> ユーザーがアクセスできるアカウントのサマリー（アカウント、プロパティ、プロフィールで構成される軽量でフラットなツリー）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウントのユーザーリンク </td><td colspan="1" rowspan="1"> 特定のアカウントに対するアカウントユーザーのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 広告ワードリンク </td><td colspan="1" rowspan="1"> 所定のWebプロパティに対するWebプロパティとGoogle Adsのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムデータソース </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムデータソースを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムディメンション </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムディメンションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムメトリクス </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムメトリクスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 実験 </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のある実験を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> フィルター </td><td colspan="1" rowspan="1"> アカウントに対するすべてのフィルターを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 目標 </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のある目標を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィールフィルターリンク </td><td colspan="1" rowspan="1"> 所定のプロフィールに対するすべてのプロフィールフィルターリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィールユーザーリンク </td><td colspan="1" rowspan="1"> 所定のビュー（プロフィール）に対するプロフィールユーザーリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィール </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるビュー（プロフィール）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> リマーケティングオーディエンス </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるリマーケティングオーディエンスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> セグメント </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるセグメントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アップロード </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるアップロードを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるプロパティを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティユーザーリンク </td><td colspan="1" rowspan="1"> 所定のWebプロパティに対するWebプロパティユーザーリンクを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> データをクエリするアカウントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ </td><td colspan="1" rowspan="1"> データをクエリするWebプロパティを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィール </td><td colspan="1" rowspan="1"> データをクエリするプロフィールを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ選択タイプ </td><td colspan="1" rowspan="1"><b> すべてのWebプロパティ </b> を選択すると、ユーザーがアクセス権のあるすべてのWebプロパティのデータが取得されます。 <b> 特定のWebプロパティ </b> を選択すると、選択したWebプロパティのデータが取得されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムデータソース </td><td colspan="1" rowspan="1"> データをクエリするカスタムデータソースを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウント選択タイプ </td><td colspan="1" rowspan="1"><b> すべてのアカウント </b> を選択すると、ユーザーがアクセス権のあるすべてのアカウントのデータが取得されます。 <b> 特定の </b><b> アカウント </b> を選択すると、選択したアカウントのすべてのデータが取得されます。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用して DataSet を追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

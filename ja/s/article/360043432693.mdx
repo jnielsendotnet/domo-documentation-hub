@@ -1,0 +1,82 @@
+---
+title: "Amazon Web Services Billingコネクター"
+---
+
+## はじめに
+
+Amazon Web Services（AWS）は、 [Amazon.com](http://Amazon.com) のクラウドコンピューティングプラットフォームを構成するウェブサービスのコレクションです。AWS APIに関する詳細は、ウェブサイト（ [http://docs.aws.amazon.com/AmazonS3/...tication2.html](http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_Authentication2.html "http://docs.aws.amazon.com/AmazonS3/latest/dev/S3_Authentication2.html") ）を参照してください。
+
+AWSアカウントには、Data Centerから接続します。このトピックでは、AWSコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+AWSアカウントに接続してDataSetを作成するには、以下が必要です。
+
+コネクターを操作するためのアクセス権限
+
+* AWSアクセスキー
+* AWSシークレットキー
+* コネクターにアクセスするために必要な権限
+
+これらのキーの取得方法については、こちらの記事（ [http://docs.aws.amazon.com/AWSSimple...edentials.html](http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html "http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSGettingStartedGuide/AWSCredentials.html") ）を参照してください。
+
+さらに、このコネクターを使用するには、ZIPファイルをプッシュするようにスケジュール設定されたS3バケットを設定する必要があります。詳細は、Amazonのドキュメント（ http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-reports.html ）を参照してください。
+
+## AWSアカウントに接続する
+
+このセクションでは、AWSコネクターページの［ **認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある［ **スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、AWSアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> AWS Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> AWS Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。 </td></tr></tbody></table>
+
+特殊文字、スラッシュ、その他の非URL準拠文字は、有効なバケット名として許可されていません。バケット名パスには、ダッシュとアンダースコアを使用できます。AWS Billing S3バケットの設定についての詳細は、 [APIドキュメント](https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html "https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/billing-getting-started.html") を参照してください。
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なAWS認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAWS DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAWSレポートを選択します。現在、使用できるレポートタイプは1つのみです。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Cost and Usage </p></td><td colspan="1" rowspan="1"><p> Amazon Web Services Billingのコストと利用状況に関するデータを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> レポートデータのフィルターを選択します。次のフィルターを使用できます。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> All </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 請求済み請求レポートと見積もり請求レポートの両方のデータを受け取ります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Invoiced </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 請求済み請求レポートのデータを受け取ります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Estimated </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 見積もり請求レポートのデータを受け取ります。このフィルターを使用する場合、2か月前に戻って <b> ［Relative］ </b> モードを使用する必要があります。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket Name </p></td><td colspan="1" rowspan="1"><p> 請求レコードのリダイレクト先のバケットの名前を入力します。例： <span class="mt-font-courier-new"> aws-billing-yourcompany </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Prefix </p></td><td colspan="1" rowspan="1"><p> Cost and Usageレポートのプレフィックスを入力します。詳細は、AWS Billingにお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Name </p></td><td colspan="1" rowspan="1"><p> AWS Billing Cost and Usageレポート名を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付のものか、今日から何日か前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+##### コネクターに接続しようとすると「Failed to authenticate. 99Verify the credentials and try again. Domo is ready, but the credentials you entered are invalid. Verify your account credentials and try again.（認証に失敗しました。認証情報を確認し、もう一度お試しください。Domo は利用できますが、入力した認証情報が不正です。アカウントの認証情報を確認して、もう一度お試しください）」というエラーメッセージが表示されます。
+
+この問題は認証に関連しています。このコネクターを使用するために必要な権限を持っている必要があります。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# AWS DataSetで「Domo is ready, but Redshift returned: ERROR: current transaction is aborted, commands ignored until end of transaction block（Domoは利用できますが、Redshiftが次のエラーを返します：現在のトランザクションは中止され、コマンドはトランザクションブロックの終わりまで無視されます）」というエラーが返されます。どうすればいいですか？">
+
+
+このエラーは、AWSサーバーとDomoサーバー間の接続の問題が原因です。これは断続的なエラーであり、通常は自動的に解決されます。解決しない場合は、コネクターで自動コミットを有効にする必要があるかどうかを判断するためにバグレポートを送信する必要があります。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+このコネクターは、Cost and Usageレポートのみをサポートします。Amazon AWSは、今後、ほかのすべてのレポートのサポートを終了します。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+Amazon AWSから大量のAPIが返されるため、データの更新は1日に1回のみにしてください。
+
+
+
+</Accordion>
+</AccordionGroup>

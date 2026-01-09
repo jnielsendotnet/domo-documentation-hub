@@ -1,0 +1,160 @@
+openapi: 3.0.0
+info:
+  title: Certified Content API
+  version: v3
+  description: API for managing the certification status of Cards and Datasets.
+servers:
+  - url: https://{instance}.domo.com
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'your-instance'
+        description: 'Your specific Domo instance name'
+tags:
+  - name: Certified Content
+    description: Manage content certification state.
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication.
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+
+    CertificationStatus:
+      type: object
+      description: The certification status of an entity.
+      properties:
+        tag:
+          type: string
+          example: "CERTIFIED"
+        state:
+          type: string
+          nullable: true
+          description: "The state of the tag (e.g., 'ACTIVE' or null)."
+        metadata:
+          type: object
+          nullable: true
+        updated:
+          type: string
+          format: date-time
+          nullable: true
+
+  parameters:
+    EntityType:
+      name: entityType
+      in: path
+      required: true
+      description: "The entityType can either be CARD or DATA_SOURCE (Dataset)."
+      schema:
+        type: string
+        enum: [CARD, DATA_SOURCE]
+    EntityId:
+      name: entityId
+      in: path
+      required: true
+      description: "Id of the card or dataset you are requesting certification status for."
+      schema:
+        type: string
+
+  responses:
+    Unauthorized:
+      description: "Unauthorized (invalid developer token)."
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    NotFound:
+      description: The requested entity was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+
+security:
+  - DeveloperToken: []
+
+paths:
+  /api/tags/v3/{entityType}/{entityId}/system/CERTIFIED/state:
+    parameters:
+      - $ref: '#/components/parameters/EntityType'
+      - $ref: '#/components/parameters/EntityId'
+    get:
+      summary: Get Certification Status
+      description: Get the certification status of your card or dataset. The entityType can either be CARD or DATA_SOURCE (Dataset).
+      operationId: get-certification-status
+      tags:
+        - Certified Content
+      responses:
+        '200':
+          description: SUCCESS. Returns the certification status.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CertificationStatus'
+              example:
+                tag: "CERTIFIED"
+                state: null
+                metadata: null
+                updated: null
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET https://{instance}.domo.com/api/tags/v3/{entityType}/{entityId}/system/CERTIFIED/state
+            HTTP/1.1
+            Accept: application/json
+
+    delete:
+      summary: Delete a Certification
+      description: Removes certification on a Card or Dataset.
+      operationId: delete-certification
+      tags:
+        - Certified Content
+      responses:
+        '204':
+          description: No Content. Certification removed successfully.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE https://{instance}.domo.com/api/tags/v3/{entityType}/{entityId}/system/CERTIFIED/state
+            HTTP/1.1
+            Accept: application/json
+
+  /api/tags/v3/{entityType}/{entityId}/system/CERTIFIED/state/ACTIVE:
+    parameters:
+      - $ref: '#/components/parameters/EntityType'
+      - $ref: '#/components/parameters/EntityId'
+    put:
+      summary: Certify Content
+      description: Certify a Card or a Dataset.
+      operationId: certify-content
+      tags:
+        - Certified Content
+      responses:
+        '200':
+          description: SUCCESS. The content is now certified.
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            PUT https://{instance}.domo.com/api/tags/v3/{entityType}/{entityId}/system/CERTIFIED/state/ACTIVE
+            HTTP/1.1
+            Accept: application/json

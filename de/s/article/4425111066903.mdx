@@ -1,0 +1,110 @@
+---
+title: "Versionshinweise Oktober 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Neue Merkmale und Verbesserungen
+
+In dieser Version gibt es folgende Funktionen und Verbesserungen:
+
+### Neue Magic ETL
+
+Neue Magic ETL weist zahlreiche Backend- und Kachelverbesserungen sowie neue Kacheln auf. In der Bearbeitungsansicht von Magic ETL DataFlow wird nun eine Umschaltfläche zum Aktivieren von neue Magic ETL angezeigt. Bitte beachten Sie, dass die Funktion mancher Kacheln geändert wurde. Weitere Informationen finden Sie unter [Neuigkeiten in neue Magic ETL](/s/article/4408794063639).
+
+<Frame><img alt="ETL_Toggle.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6N.png"/></Frame>
+<Warning>
+  **Wichtig:** Sie MÜSSEN den folgenden Artikel lesen, bevor Sie einen bestehenden neue Magic ETL DataFlow zu ändern, oder Sie riskieren, dass Ihr DataFlow nicht mehr funktioniert, da mehrere Kacheln ihre Funktionalität geändert haben: [Upgrade auf Neue Magic ETL](/s/article/360047787514).
+
+</Warning>
+
+**Im Folgenden werden die Funktionen von neue Magic ETL aufgelistet:**
+
+* Schnellere Laufzeiten.
+* Neue Kachelorganisation.
+* Durchsuchbare Kurzinfo-Texte.
+* Farbkodierte und kurvenförmige Linien.
+* Unterstützung von Ausdrücken (Formel hinzufügen, Zeilen filtern und Gruppieren nach Kacheln).
+* Ansichten als Eingaben.
+* Verbesserungen der Datentypklassifizierung.
+* Verbesserungen der Fehlerbehandlung.
+* Aktualisierung der Kachel „Beitreten“.
+* Optimierung der Kachel „Anfügen“.
+* Aktualisierung der Kachel „Wert-Mapper“.
+* Kacheln „Pivotieren“ und „Entpivotieren“ (Umbenennung von „Spalten reduzieren“ und „Reduzierung der Spalten aufheben“).
+* Neue Kachel „Dynamisches Entpivotieren“.
+* Verbesserungen der Kacheln „Python Script“ und „R-Skript“ (Registerkarte „Schema“ nicht mehr erforderlich).
+* Auswählbarer Text in der Datenvorschau.
+
+### Erweitere DataFlow-Planungsfunktionen
+
+Mit den erweiterten DataFlow-Planungsoptionen können Sie einen DataFlow jetzt so planen, dass er zu einem bestimmten Zeitplan ausgeführt wird, wie beispielsweise:
+
+* Bestimmte Kalendertage (am 1., 15. und 28. des Monats)
+* Bestimmte Wochentage (letzter Freitag)
+* Nur zwischen aktiven Stunden (alle 2 Stunden zwischen 8–17 Uhr)
+* Jährlich oder vierteljährlich.
+
+Sie können die Zeit auch so festlegen, dass der DataFlow in Ihrer Zeitzone ausgeführt wird (anstatt in der Standardeinstellung UTC). Weitere Informationen finden Sie unter Planung von DataFlows.
+  
+<Frame><img alt="DataFlow_Scheduling.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6H.png"/></Frame>
+### Neuer Konnektor-Assistent im Data Center
+
+Mit dem neuen Konnektor-Assistenten im Data Center können Sie problemlos die Art des Konnektors auswählen, die Sie benötigen, mit gefilterten Registerkarten für spezifische Konnektortypen. Die bevorzugten Konnektoren werden als Erste ausgeführt – für den einfachen Zugriff auf die beliebtesten oder empfohlenen Konnektoren. Der Assistent enthält eine Inline-Konfiguration für die einfache Konnektor-Einrichtung. Weitere Informationen finden Sie unter [Hinzufügen eines DataSets mit einem Konnektor](/s/article/360042926274).
+  
+<Frame><img alt="Connector_Wizard_.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6I.png"/></Frame>
+### Neue Ressourcenbibliothek
+
+Das Anleitungszentrum wurde aktualisiert auf die Ressourcenbibliothek. Mit der neuen Ressourcenbibliothek können Sie **Anleitungen und geführte Touren** ansehen, zusätzliche **Ressourcen** finden und **Produktankündigungen** prüfen. Weitere Informationen finden Sie unter Ressourcenbibliothek.
+  
+<Frame><img alt="Resource_Library.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6O.png"/></Frame>
+### Benutzerspezifische Landing Pages
+
+Mit benutzerspezifischen Landing Pages können sowohl Administratoren als auch Endbenutzer eine bestimmte Seite oder Karte festlegen, die geöffnet werden soll, wenn sie sich bei Domo anmelden. Auf diese Weise können Sie die Ansicht für Benutzer in einer bestimmten Abteilung anpassen oder die Seite/Karte einblenden, die Sie am häufigsten verwenden – ohne zusätzliche Klicks in der Navigation. Weitere Informationen finden Sie unter [Festlegen benutzerspezifischer Landing Pages](/s/article/4409575159191).
+
+<Frame><img alt="Your_Landing_Page.png" src="/images/kb/ka05w00000123Zh-00N5w00000Ri7BU-0EM5w000005vOYm.png"/></Frame>
+### Neue DomoStats-Berichte
+
+Im Rahmen des DomoStats-Konnektors können jetzt vier neue Berichte ausgewählt werden:
+
+* **Konten:** zeigt die Konten in einer Instanz an.
+* **Konten mit Berechtigungen:** zeigt die Konten in einer Instanz an sowie die Benutzer, die Zugriff auf diese Konten haben und auf welchem Berechtigungsniveau.
+* **DataSet-Zugriff:** Zeigt, welche Benutzer oder Gruppen Zugriff auf welche DataSets haben und über welches Berechtigungsniveau sie verfügen.
+* **DataSet-Tags -** Zeigt, welche Tags welchen DataSets zugewiesen sind.
+
+Weitere Informationen finden Sie unter [DomoStats-Konnektor](/s/article/360043433813).
+  
+<Frame><img alt="DomoStats_Reports.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6K.png"/></Frame>
+## Premium-Funktionen
+
+Diese Funktionen sind auf Anfrage verfügbar und kostenpflichtig. Wenn Sie möchten, dass diese Funktionen aktiviert werden, kontaktieren Sie Ihren Kundenerfolgsmanager (CSM), technischen Berater (TC) oder Kundenbetreuer (AE) von Domo. Wenn Sie die Kontaktinformationen Ihres CSM, TC oder AE nicht kennen, wenden Sie sich an den technischen Support. Lesen Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern") nach, wie Sie den Support kontaktieren können. Je nach Funktion müssen Sie eventuell eine Schulung abschließen, bevor Sie die Funktion verwenden können.
+
+### Kartendetails-Maximierungsmodal in Dashboard Embed
+
+Mit dem Kartendetails-Maximierungsmodal in Dashboard Embed können Sie jetzt auf das Symbol „Details maximieren“ klicken, um die Ansicht „Kartendetails“ auf der Karte anzuzeigen. In dieser Ansicht können Sie jetzt die visuellen Objekte in PDF oder PowerPoint exportieren, und es werden alle Filter und Interaktionen, die auf die Karte angewendet werden, berücksichtigt. Weitere Informationen erhalten Sie unter [Freigabe von Karten und Dashboards außerhalb von Domo unter Verwendung von Domo Embed](/s/article/360043437993).
+  
+<Frame><img alt="Detail_Maximization.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6L.png"/></Frame>
+### Benutzerdefinierter Anmeldebildschirm
+
+Mit „Benutzerdefinierter Anmeldebildschirm“ haben Administratoren die Möglichkeit, den Anmeldebildschirm auf das gewünschte Hintergrundbild oder die gewünschte Hintergrundfarbe zu ändern. Auf diese Weise können Sie Ihre Marke anzeigen und profitieren von einem konsistenteren Benutzererlebnis. Dies ist Teil unserer Marken-Kit-Funktionen. Weitere Informationen finden Sie unter Benutzerdefinierter Anmeldebildschirm.
+  
+<Frame><img alt="Custom_Image_edit.png" src="/images/kb/ka05w00000129sz-00N5w00000Ri7BU-0EM5w000005wL6J.png"/></Frame>
+## Hilfe anfordern
+
+Sie können die neuesten Versionshinweise im Hilfecenter aufrufen. Auf das Hilfecenter können Sie von Domo aus zugreifen, wenn Sie in der Navigationsleiste oben auf <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> klicken.
+
+Bei Fragen zu Domo
+
+* suchen Sie im Hilfecenter nach einem Thema
+* das Training finden Sie in der Domo University unter
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* suchen Sie im AppStore nach Schulungs-Apps
+* erhalten Sie Antworten in der Domo-Community unter
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im Domo-Supportportal einreichen
+* wenden Sie sich an Ihren Domo-Customer Success Manager oder technischen Berater
+
+Ihr Feedback können Sie über Domo übermitteln (**Mehr** > ****Feedback****). Alternativ können Sie eine E-Mail an [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") senden.
+
+Weitere Informationen dazu, wie Sie Hilfe erhalten können, finden Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern").
+

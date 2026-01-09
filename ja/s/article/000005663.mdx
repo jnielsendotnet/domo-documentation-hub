@@ -1,0 +1,41 @@
+---
+title: "Microsoft Fabricコネクター"
+---
+
+## はじめに
+
+Microsoft Fabricは、統合ソリューションを必要とする企業向けに設計されたエンドツーエンドの分析およびデータプラットフォームです。これには、データの移動、処理、取り込み、変換、リアルタイムイベントルーティング、レポート作成が含まれます。データエンジニアリング、Data Factory、データサイエンス、リアルタイム分析、Data Warehouse、データベースなどの包括的なサービススイートです。Domoにデータを取り込むには、DomoのMicrosoft Fabricコネクターを使用します。
+
+Microsoft Fabricアカウントには、Data Centerから接続します。このトピックでは、Microsoft Fabricコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft Fabricアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* サーバー名
+* ポート番号
+* データベース名
+* サーバーのユーザー名とパスワード
+* 証明書のホスト名
+
+## Microsoft Fabricアカウントに接続する
+
+このセクションでは、Microsoft Fabricコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Microsoft Fabricアカウントに接続する認証情報の入力フィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Server Name </td><td colspan="1" rowspan="1"> サーバー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> ポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> サーバーのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> サーバーのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Hostname in Certificate </td><td colspan="1" rowspan="1"> ［show database connection strings］から取得したhostNameInCertificateを入力します。 </td></tr></tbody></table>
+
+一度有効なMicrosoft Fabric認証情報を入力したら、新しいMicrosoft Fabric DataSetを作成する際はいつでも同じアカウントを使用できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Query Type </td><td colspan="1" rowspan="1"> 説明 </td></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> 実行するクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> クエリを自動生成するテーブルとフィールドを選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Schemas </td><td colspan="1" rowspan="1"> スキーマを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> テーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> 列を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Helper </td><td colspan="1" rowspan="1"> このフィールドは、上記で選択したフィールドを使用して自動的に生成されます。自動生成されたクエリを更新しても、上記のフィールド表での選択は更新されません。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

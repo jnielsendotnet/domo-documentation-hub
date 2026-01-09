@@ -1,0 +1,39 @@
+---
+title: "Adobe Customer Journey Analyticsコネクター"
+---
+
+## はじめに
+
+Adobe Customer Journey Analyticsからデータを取得し、ほかのデータソースと結合して、顧客の行動に関するインサイトを取得し、マーケティング戦略を最適化します。
+
+Adobe Customer Journey Analyticsアカウントには、Data Centerから接続します。このトピックでは、Adobe Customer Journey Analyticsコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Adobe Customer Journey Analyticsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* クライアントID
+* クライアントシークレット
+* 組織ID
+
+## Adobe Customer Journey Analyticsアカウントに接続する
+
+このセクションでは、Adobe Customer Journey Analyticsコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Adobe Customer Journey Analyticsアカウントに接続するための認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> サーバー間統合を作成するときにAdobeによって生成されるクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> サーバー間統合を作成するときにAdobeによって生成されるクライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Organization ID </td><td colspan="1" rowspan="1"> CJA APIクライアント統合からコピーできる組織ID。 </td></tr></tbody></table>
+
+有効なAdobe Customer Journey Analyticsの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAdobe Customer Journey Analytics DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Report Type </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Include Type </td><td colspan="1" rowspan="1"> ユーザーが所有していない追加の計算メトリクスを含めます。 <b> ［All］ </b> オプションは <b> ［Shared］ </b> よりも優先されます。 </td></tr><tr><td colspan="1" rowspan="1"> Exclude Formula Definition（チェックボックス） </td><td colspan="1" rowspan="1"> DataSetから計算式定義列を除外するには、このチェックボックスをオンにします。 </td></tr><tr><td colspan="1" rowspan="1"> Dataviews Selection </td><td colspan="1" rowspan="1"> すべてのデータビューまたは特定のデータビューのみのデータを取得する場合に選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Update Mode </td><td colspan="1" rowspan="1"> 更新モードとして［Append］または［Replace］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> 日付、日付範囲、またはデータを受信する期間のいずれかを選択できます。 </td></tr></tbody></table><div><b> ［Replace］ </b> を選択すると、選択した日付がすべての実行に使用されます。 </div><div><b> ［Append］ </b> を選択すると、選択した日付が最初の実行にのみ使用されます。後続の実行では、最後に正常に実行されてから追加されたデータのみが取得されます。 </div></td></tr><tr><td colspan="1" rowspan="1"> Advanced Settings </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Replace Schema </td><td colspan="1" rowspan="1"><p> スキーマをリセットする場合は、これを選択します。 </p><p> 警告：Adobe AnalyticsのAPIから一部のフィールドが一時的に返されない場合、データが失われたり、データタイプが変更されたりする可能性があります。 </p></td></tr><tr><td colspan="1" rowspan="1"> Reset Data </td><td colspan="1" rowspan="1"><p> データをリセットする場合は、これを選択します。 </p><p> 警告：データの追加を選択した場合は、データが失われる可能性があります。 </p></td></tr></tbody></table></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

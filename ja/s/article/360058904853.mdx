@@ -1,0 +1,64 @@
+---
+title: "Accellionコネクター"
+---
+
+## はじめに
+
+Accellion, Inc.は、セキュアなファイル共有とコラボレーションに重点を置いたプライベートクラウドソリューション企業で、生産性、エンタープライズコンテンツ、ファイル共有、同期を提供しています。Accellionの製品を使用すると、コンプライアンスとセキュリティを維持しながら、あらゆるデバイスからエンタープライズコンテンツにアクセス、これを編集、共有できます。DomoのAccellionコネクターを使用すると、的確な検索で重要なファイルを取得することができます。Accellion APIの詳細については、https://www.accellion.com/sites/default/files/resources/ds_enterprise-api-overview-guide.pdf を参照してください。
+
+Accellionアカウントには、Data Centerから接続します。このトピックでは、Accellionコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Accellionアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Accellionホスト名
+* Accellionアクセストークン
+
+<Note>
+**注記：** Accellion APIトークンは60日後に期限切れになります。そのため、APIトークンが60日後に期限切れになると、再認証が必要になります。
+
+</Note>
+
+## Accellionアカウントに接続する
+
+このセクションでは、 Accellion コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Accellion アカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead><tr><th colspan="1" rowspan="1">
+<p><span class="s1"> フィールド </span></p>
+</th>
+<th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"> Hostname </td><td colspan="1" rowspan="1"> Accellionホスト名を入力します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> Access Token </td>
+<td colspan="1" rowspan="1">
+<p> Accellion <span class="s1"> アカウント </span> に関連付けられているアクセストークンを入力します。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> Accellion APIトークンは60日後に期限切れになります。そのため、APIトークンが60日後に期限切れになると、再認証が必要になります。 </div></div></div> 
+</Note>
+
+ </td></tr></tbody></table>
+
+有効な Accellion 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Accellion DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、ファイルを見つけるのに使用できるファイル検索方法と、選択した検索方法に応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> File Search Method </p></td><td colspan="1" rowspan="1"><p> ファイルの検索に使用する検索方法を選択します。次のファイル検索方法を使用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Discovery Search </td><td colspan="1" rowspan="1"> ディスカバリー検索メソッドで、特定のフォルダ内のファイルを検索します。 </td></tr><tr><td colspan="1" rowspan="1"> Wild Card Search </td><td colspan="1" rowspan="1"> ワイルドカード検索メソッドで、ワイルドカードを使用してすべてのフォルダとサブフォルダのファイルを検索します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Select Folders to Search </td><td colspan="1" rowspan="1"><p> すべてのフォルダとサブフォルダを検索するか、特定のフォルダを検索するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Select an Option to Search the File(s) </td><td colspan="1" rowspan="1"> 指定されたファイル名を含むファイルを取得するか、含まないファイルを取得するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"><p> データを取得するファイル名を入力します。また、%をワイルドカード文字としてファイル名に使用することもできます。 </p><p> 例：ファイル名がCC_WKLY_LOG_2020.zipのような場合、指定されたファイル名条件に一致するすべてのファイルを取得するには、ワイルドカードを使用したファイル名は%_WKLY_%になります。 </p></td></tr><tr><td colspan="1" rowspan="1"> Number of Days Back </td><td colspan="1" rowspan="1"> 日数を入力すると、この日数の経過後に更新されたファイルのデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Folder IDs </td><td colspan="1" rowspan="1"> ファイルを検索するフォルダIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Folder Name </td><td colspan="1" rowspan="1"> フォルダを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> ファイルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select the Delimiting Character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Delimiter </td><td colspan="1" rowspan="1"> ファイルのデータを区切る文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> 希望する引用文字を選択します（CSVの標準のデフォルトの引用符は二重引用符です）。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> 希望する引用文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> 希望するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するエスケープ文字を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

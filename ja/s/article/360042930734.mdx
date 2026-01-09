@@ -1,0 +1,46 @@
+---
+title: "Qualtricsコネクター"
+---
+
+## はじめに
+
+Qualtricsは、ユーザーがオンラインでデータ収集と分析を実行できるソフトウェアです。DomoのQualtricsコネクターを使用すると、実施したすべてのアンケートに関するデータや、特定アンケートへの回答に関するデータを取得することができます。Qualtrics APIに関する詳細は、ウェブサイト（ [https://api.qualtrics.com](https://api.qualtrics.com "https://api.qualtrics.com") ）を参照してください。
+
+Qualtricsコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Qualtricsアカウントには、 Data Center から接続します。このトピックでは、Qualtricsコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは以下の場合に適しています。 </p><ul><li><p> 作成したアンケートでトレンドを確認する </p></li><li><p> 現在アクティブなアンケートの数を確認する </p></li><li><p> アンケートの回答でトレンドを特定する </p></li><li><p> アンケートの回答率とアンケート当たりの質問数の相関関係を特定する </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> アンケート当たりの回答数 </p></li><li><p> アクティブなアンケートの数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> マーケティング権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 15分以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Qualtricsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Qualtrics APIトークン。このトークンはQualtricsアカウントにログインし、
+  **［Account Settings］>［Qualtrics IDs］** に移動すると見つかります。APIトークンがない場合は、 **［Generate API Token］** をクリックします。
+* Qualtrics APIホスト名。
+* Qualtricsアカウントのユーザー名（2017年4月より前に作成された360度評価アンケートとDataSetにのみ必要）。
+
+## Qualtricsアカウントに接続する
+
+このセクションでは、Qualtricsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Qualtricsアカウントに接続する認証情報を入力し、アンケートタイプを選択するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Token </p></td><td colspan="1" rowspan="1"><p> Qualtrics APIトークンを入力します。詳細については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Hostname </p></td><td colspan="1" rowspan="1"><p> Qualtricsホスト名を入力します。フォーマットは「https:// <em> mycompany </em>. <a href="http://qualtrics.com" rel="noopener" target="_blank"> qualtrics.com </a> 」に従う必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Type </p></td><td colspan="1" rowspan="1"><p> データを取得したいアンケートが、標準的なアンケートか360度評価アンケートかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Qualtricsユーザー名を入力します（2017年4月より前に作成された360度評価アンケートとDataSetに <em> のみ </em> 必要）。 </p></td></tr></tbody></table>
+
+有効なQualtricsの認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいQualtrics DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、レポートを選択できるメインメニューのほか、選択したレポートタイプに応じてその他のメニューやフィールドが表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Qualtricsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Contacts </p></td><td colspan="1" rowspan="1"><p> 選択したメーリングリストの連絡先リストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Distributions </p></td><td colspan="1" rowspan="1"><p> 選択したアンケートの分布リストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Questions </p></td><td colspan="1" rowspan="1"><p> 特定アンケートの質問を返します（［Append］モードまたは［Replace］モードで実行できます）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Response Choices </p></td><td colspan="1" rowspan="1"><p> 各アンケート質問に対する可能な回答をすべて返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Responses </p></td><td colspan="1" rowspan="1"><p> 特定アンケートの回答を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Surveys </p></td><td colspan="1" rowspan="1"><p> アカウントのすべてのアンケートに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> Qualtricsアカウント内のユーザーをリストにして返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><span> XM Directory Contacts </span></td><td colspan="1" rowspan="1"><p><span> 選択されたメーリングリストの連絡先リストをXM Directoryから返します（XM Directoryアカウントでのみサポートされます）。 </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailing List </p></td><td colspan="1" rowspan="1"><p> データを取得したいメーリングリストを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Selection </p></td><td colspan="1" rowspan="1"><p> アカウント内のすべてのアンケートのデータを取得するか、または指定したアンケートのデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey </p></td><td colspan="1" rowspan="1"><p> データを取得する回収アンケートを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

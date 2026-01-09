@@ -1,0 +1,69 @@
+---
+title: "Amazon Kendra Writebackコネクター"
+---
+
+## はじめに
+
+Amazon Kendraは、機械学習を活用した高精度で使いやすいエンタープライズ検索サービスです。ウェブサイトやアプリケーションに強力な自然言語検索機能を提供することで、エンドユーザーは、会社全体にわたる広範なコンテンツの中から必要な情報を簡単に見つけられるようになります。DomoのAmazon Kendra Writebackコネクターを使用すると、ジョブを同期したり、Amazon S3バケットからインデックスにファイルをアップロードしたりすることができます。
+
+Amazon S3バケットまたはインデックスへのDomoデータのエクスポートはData Centerで行います。このトピックでは、Amazon Kendra Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、およびDataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<Note>
+**注記：** Writeback DataSetの所有者は、入力DataSetの所有者または共同所有者である必要があります。
+
+</Note>
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* DomoクライアントIDとクライアントシークレット
+* AWSアクセスキーとシークレットキー
+
+#### DomoクライアントIDとクライアントシークレットを取得するには：
+
+1. [Domoデベロッパーアカウント](https://developer.domo.com/login "https://developer.domo.com/login") にログインします。
+2. 右上の ****［My Accounts］**** 、 ****［New Client］**** の順にクリックします。
+3. アプリケーション名と説明を入力します。
+4. ********［Data］******** と ********［User］******** のチェックボックスを選択して、アプリケーションのスコープを指定します。
+5. ****［Create］**** をクリックします。
+
+クライアントを作成し終わったら、 ****［Manage Client］**** をクリックすることでクライアントを管理できます。 ****［Client Secret］**** が ****［Manage Client］**** セクションに表示されます。
+
+#### AWSキーを取得するには：
+
+1. IAMコンソール（ https://console.aws.amazon.com/iam/ ）を開きます。
+2. ナビゲーションメニューで ********［Users］******** を選択します。
+3. IAMユーザー名を選択し、詳細を表示します。
+4. ********［Security Credentials］******** タブで、 ********［Create access key］******** を選択します。
+5. 新しいアクセスキーを表示するには ********［Show］******** を選択します。アクセスキーとシークレットキーが表示されます。
+6. キーペアをダウンロードするには ********［Download.csv file］******** を選択します。キーを安全な場所に保存します。
+
+   <Warning>
+   **重要** ：Amazon S3への書き込み（s3:PutObject）権限が必要です。
+
+   </Warning>
+
+## 接続を設定する
+
+このセクションでは、Amazon Kendra Writebackコネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、DomoデベロッパーアカウントとAWSキーに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"> DomoクライアントIDを入力します。詳細については、「 <a href="#h_01ES6W2BW858QC667MXWK5P1AN" target="_self" title="Amazon Kendra Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"> Domoクライアントシークレットを入力します。詳細は、「 <a href="#h_01ES6W2BW858QC667MXWK5P1AN" target="_self" title="Amazon Kendra Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> Amazon Web Servicesのアクセスキーを入力します。詳細は、「 <a href="#h_01ES6W2BW858QC667MXWK5P1AN" target="_self" title="Amazon Kendra Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> Amazon Web Servicesのシークレットキーを入力します。詳細は、「 <a href="#h_01ES6W2BW858QC667MXWK5P1AN" target="_self" title="Amazon Kendra Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> Amazon Kendraのリージョンを選択します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon Kendra Writeback DataSetを作成することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる ****［Report］**** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAmazon Kendra Writebackレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Store in Amazon S3 </td><td colspan="1" rowspan="1"> ファイルはS3バケットにアップロードされます。 </td></tr><tr><td colspan="1" rowspan="1"> Store in Index </td><td colspan="1" rowspan="1"> ファイルはS3バケットからインデックスにアップロードされます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Input DataSet ID </td><td colspan="1" rowspan="1"> DataSet URLにあるDomo DataSet ID（GUID）を入力します。例： <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b> /details/settings </td></tr><tr><td colspan="1" rowspan="1"> Bucket Name </td><td colspan="1" rowspan="1"> ファイルを取得する場所のバケット名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Folder Path </td><td colspan="1" rowspan="1"> インデックスにファイルをアップロードするフォルダのパスを入力します。特定のフォルダを入力すると、サブフォルダのファイルを含むすべてのファイルがインデックスにアップロードされます。&lt;br&gt;例：folder1/ </td></tr><tr><td colspan="1" rowspan="1"> List indexes </td><td colspan="1" rowspan="1"> インデックスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> List Data sources </td><td colspan="1" rowspan="1"> データソースを選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

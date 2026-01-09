@@ -1,0 +1,53 @@
+---
+title: "Vimeoコネクター"
+---
+
+## はじめに
+
+Vimeoとは、ユーザーが動画をアップロード、共有、閲覧できる動画共有サイトです。Vimeoコネクターを使用すると、動画、ユーザー、アルバムなどに関するデータを取得することができます。Vimeo APIの詳細については、 [https://developer.domo.com/api/start](https://developer.domo.com/api/start "https://developer.domo.com/api/start") を参照してください。
+
+Vimeoコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含む他のクラウドAppコネクターのページにアクセスできます。
+
+このトピックでは、Vimeoコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 動画のパフォーマンス、効果、完了、および視聴者の一般的な情報に関するデータにアクセスする </p></li><li><p> 製品マーケティングの観点からキャンペーンの有効性に対してインサイトを提供する </p></li><li><p> マーケティング担当者がオーディエンスをより良く理解できるようにする </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 動画閲覧数 </p></li><li><p> 動画コメント数 </p></li><li><p> 視聴イベントの地理位置情報 </p></li><li><p> 動画完了数 </p></li><li><p> 動画フォールアウト </p></li><li><p> デバイスタイプ別のソース </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 製品マーケティング権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1時間未満 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Vimeoアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Vimeoアカウント登録時に入力したメールアドレス
+* Vimeoのパスワード
+
+## Vimeoアカウントに接続する
+
+このセクションでは、Vimeoコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+Domo Vimeoコネクターは接続にOAuthを使用しています。 **［接続］** をクリック（またはDomoにVimeoアカウントがある場合は **［アカウントの追加］** を選択）
+
+して、VimeoのOAuth画面を開き、Vimeoアカウントに関連付けられたメールアドレスとパスワードを入力するか、Facebook認証情報を入力します。有効なVimeo認証情報を入力してDomoがVimeoにアクセスする許可を与えた後は、いつでもDomoで同じアカウントを使用して、Vimeo DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054?language=en_US "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にVimeoにログインしている場合は、 **［アカウントの追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずVimeoからログアウトする必要があります。
+
+</Note>
+
+## ［詳細］ペイン
+
+このペインには、Vimeoレポートを選択するメニューが含まれています。以下の表に、 Domo Vimeoコネクターを使用して作成できるレポートすべてを記載します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> レポート名 </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Albums </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーのアルバムのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Categories </p></td><td colspan="1" rowspan="1"><p> Vimeoカテゴリーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channels </p></td><td colspan="1" rowspan="1"><p> パブリックチャンネルのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーのメンバーグループのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> People I Follow </p></td><td colspan="1" rowspan="1"> 認証済みユーザーがフォローしているすべてのユーザーのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> My Appearances </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーが映っている動画のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Channels </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーがフォローしているチャンネルのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Groups </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーが参加しているグループのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Feed </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーのフィードにある動画のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Followers </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーのフォロワーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Likes </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーが「いいね！」とマークした動画のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My OnDemand </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーの［On Demand］ページのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Portfolios </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーによって作成されたポートフォリオのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Presets </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーによって作成されたプリセットのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> My Videos </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーによってアップロードされた動画のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> 検索クエリに関連するユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Videos </p></td><td colspan="1" rowspan="1"><p> 検索クエリに関連する動画のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Watch Later </p></td><td colspan="1" rowspan="1"><p> 認証済みユーザーの［Watch Later］キューにある動画のリストを返します。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+* 認証情報が、動画がホストされているアカウントに対応していることを確認してください。
+* 必要な頻度でデータが更新されていることを確認してください。
+* Vimeoサイトから手動で抽出して、Vimeoチャンネルデータと比較します。
+
+

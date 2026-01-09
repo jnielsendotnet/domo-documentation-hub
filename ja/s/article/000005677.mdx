@@ -1,0 +1,81 @@
+---
+title: "SharePoint Online Writebackコネクター"
+---
+
+## はじめに
+
+SharePoint Online Writebackコネクターを使用すると、組織は、チームとプロジェクトに焦点を合わせたカスタムのコラボレーションサイトを作成および管理できます。DomoのSharePoint Online Writebackコネクターを使用すると、データをDomoのDataSetからSharePointにプッシュできます。SharePoint APIの詳細については、ウェブサイト（ [https://learn.microsoft.com/ja-jp/pre.../jj860569(v=office.15)?redirectedfrom=MSDN](https://learn.microsoft.com/ja-jp/previous-versions/office/developer/sharepoint-rest-reference/jj860569(v=office.15)?redirectedfrom=MSDN "https://learn.microsoft.com/ja-jp/previous-versions/office/developer/sharepoint-rest-reference/jj860569(v=office.15)?redirectedfrom=MSDN") ）を参照してください。
+
+Data CenterでDomo-SharePoint接続を設定します。このトピックでは、SharePoint Online Writebackコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターの設定には、 DomoクライアントIDとクライアントシークレット が必要です。
+
+#### DomoクライアントIDとクライアントシークレットを取得するには：
+
+1. [Domoデベロッパーアカウント](https://developer.domo.com/login "Domoデベロッパーアカウント")
+   にログインします。
+2. 右上隅の
+   **［My Account］** の下にある **［New Client］** をクリックします。
+3. アプリケーション名と説明を入力します。
+4. **［Data］**
+   と **［User］** のチェックボックスを選択して、アプリケーションのスコープを指定します。
+5. **［Create］**
+   をクリックします。クライアントの作成が完了したら、 **［Manage Client］** をクリックすることによってクライアントを管理できるようになります。
+6. **値**
+
+   が **［Manage Client］**
+
+   セクションに表示されます。
+
+#### SharePointシークレットIDを取得するには：
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com")
+   に移動します。
+2. **［Azure Active Directory］>［App registrations］**
+   の順に選択します。
+3. Web Appを見つけて、クリックします。
+4. 「application ID」が
+   **シークレットID** です。
+
+#### SharePointの値を取得するには：
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com")
+   に移動します。
+2. **［Azure Active Directory］>［App registrations］**
+   の順に選択します。
+3. Web Appを見つけて、クリックします。
+4. **［Certificates and secrets］**
+   を開きます。
+5. **［+New secret］**
+   をクリックします。
+6. 値の説明とシークレットの有効期限を入力します。
+7. **［Add］**
+   をクリックします。
+
+新しい値が表示されます。コピーして、DomoコネクターのSharePointクライアントシークレットフィールドに貼り付けます。
+
+## 接続を設定する
+
+このセクションでは、SharePoint Onlineコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、SharePoint Onlineアカウントに接続する認証情報のフィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Client ID </td><td colspan="1" rowspan="1"><ol><li><a href="https://developer.domo.com/login" target="_blank" title="デベロッパーアカウント"> デベロッパーアカウント </a> にログインします。 </li><li><a href="https://developer.domo.com/new-client" target="_blank" title="新しいクライアント。"> 新しいクライアント </a> を作成します。 </li><li> データとユーザーアプリケーションのスコープを選択します。 </li><li> ［create］をクリックします。 </li></ol></td></tr><tr><td colspan="1" rowspan="1"> Domo Client Secret </td><td colspan="1" rowspan="1"><ol><li><a href="https://developer.domo.com/login" target="_blank" title="デベロッパーアカウント"> デベロッパーアカウントにログインします。 </a></li><li><a href="https://developer.domo.com/new-client" target="_blank" title="新しいクライアント。"> 新しいクライアント </a> を作成します。 </li><li> データとユーザーアプリケーションのスコープを選択します。 </li><li> ［create］をクリックします。 </li></ol></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいSharePoint Online Writeback DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには接続を設定するオプションが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Input DataSet Id </td><td colspan="1" rowspan="1"> DataSet URLにあるDomo DataSet ID（GUID） を入力します。例： <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings </b> 。 </td></tr><tr><td colspan="1" rowspan="1"> Select filename </td><td colspan="1" rowspan="1"> ファイル名を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> FileName </td><td colspan="1" rowspan="1"> 出力ファイル名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> How would you like to select the site? </td><td colspan="1" rowspan="1"> サイトの選択方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Sites Discovery </td><td colspan="1" rowspan="1"> 使用するサイトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Site Search Query </td><td colspan="1" rowspan="1"> 検索クエリを入力してサイトを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Site Search Query Discovery </td><td colspan="1" rowspan="1"> 使用するサイトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select How would you like to choose the folder to store the file? </td><td colspan="1" rowspan="1"> ファイルを保存するフォルダの選択方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Folder Path </td><td colspan="1" rowspan="1"> ファイルを保存するフォルダのパスを区切り文字「 <b> / </b> 」で区切って入力します。 <br/><b> 例：testFolder/TestNestedFolder </b><br/><b> 注記：フォルダのパスでは大文字と小文字が区別されます。それを考慮して入力します。 </b></td></tr><tr><td colspan="1" rowspan="1"> Where to Store the File? </td><td colspan="1" rowspan="1"> ファイルを保存するフォルダの名前を選択します。ファイルを選択したサイトのルートレベルに保存する場合は［Root］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Mode </td><td colspan="1" rowspan="1"> 必要なオプションを選択します。［Rename］モードでは、ファイル名が既に存在する場合は、ファイル名1、ファイル名2などと付加語を付けて名前を変更します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

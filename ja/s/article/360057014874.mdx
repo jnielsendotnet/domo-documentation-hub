@@ -1,0 +1,40 @@
+---
+title: "LiveChat V3コネクター"
+---
+
+## はじめに
+
+LiveChatは、オンラインチャット、ヘルプデスクソフトウェア、ウェブアナリティクス機能を備えたオンラインカスタマーサービスソフトウェアです。DomoのLiveChatコネクターを使用して、顧客満足度を高めて売上を伸ばします。LiveChat V3 APIの詳細は、https://developers.livechat.com/updates/release-stable-livechat-api-v3-2 を参照してください。
+
+LiveChatアカウントには、Data Centerから接続します。このトピックでは、LiveChatコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360058892613 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+LiveChatアカウントに接続してDataSetを作成するには、以下の情報が必要です。
+
+* LiveChatアカウントID
+* LiveChat個人用アクセストークン
+
+## LiveChatアカウントに接続する
+
+このセクションでは、 LiveChat コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360058892613 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 LiveChat アカウントへの接続に使用する認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Account ID］ </td><td colspan="1" rowspan="1"> LiveChaアカウントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Personal Access Token］ </td><td colspan="1" rowspan="1"> LiveChat個人用アクセストークンを入力します。 </td></tr></tbody></table>
+
+有効な LiveChat 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい LiveChat DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行するLiveChatレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［Availability］ </td><td colspan="1" rowspan="1"> 利用可能状況に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Chatting Time］ </td><td colspan="1" rowspan="1"> チャットに費やした時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Engagement］ </td><td colspan="1" rowspan="1"> チャットのエンゲージメントに関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - First Response Time］ </td><td colspan="1" rowspan="1"> チャットでの最初の応答までの時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Goals］ </td><td colspan="1" rowspan="1"> チャットの目標に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Greetings］ </td><td colspan="1" rowspan="1"> チャットの挨拶に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Not Replied Chats］ </td><td colspan="1" rowspan="1"> 返信されていないチャットの統計を返す </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Queued Visitors］ </td><td colspan="1" rowspan="1"> 待機中の訪問者数に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Queued Visitors Waiting Times］ </td><td colspan="1" rowspan="1"> 待機中の訪問者の待機時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Rankings］ </td><td colspan="1" rowspan="1"> チャットのランキングデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Ratings］ </td><td colspan="1" rowspan="1"> チャットの評価データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Response Time］ </td><td colspan="1" rowspan="1"> チャットの応答時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Chats - Total Chats］ </td><td colspan="1" rowspan="1"> チャットの合計数に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - First Response Time］ </td><td colspan="1" rowspan="1"> チケットに対する最初の応答までの時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - New Tickets］ </td><td colspan="1" rowspan="1"> 新しいチケットに関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - Rankings］ </td><td colspan="1" rowspan="1"> チケットのランキングに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - Ratings］ </td><td colspan="1" rowspan="1"> チケットの評価に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - Resolution Time］ </td><td colspan="1" rowspan="1"> チケットの解決時間に関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - Solved Tickets］ </td><td colspan="1" rowspan="1"> 解決済みのチケットに関する統計を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Tickets - Ticket Sources］ </td><td colspan="1" rowspan="1"> チケットのソースに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Management API］ </td><td colspan="1" rowspan="1"></td></tr><tr><td colspan="1" rowspan="1"> ［Agents］ </td><td colspan="1" rowspan="1"> エージェントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Bot Agents］ </td><td colspan="1" rowspan="1"> Botエージェントのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Groups］ </td><td colspan="1" rowspan="1"> グループのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［License Properties］ </td><td colspan="1" rowspan="1"> ライセンスのプロパティのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Registered Properties］ </td><td colspan="1" rowspan="1"> 登録されたプロパティのリストを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［Date Selection］ </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Single Date］ </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Single Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［5Single Date - Relative］ </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［Days Back］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Date Range］ </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Specific］ </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Start Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> ［End Date - Relative］ </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> ［Time Period］ </td><td colspan="1" rowspan="1"> データの受信を希望する期間を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Starting Day of the Week］ </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926054 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,113 @@
+---
+title: "Microsoft Teams Webhookコネクター"
+---
+
+## はじめに
+
+Microsoft Teamsは、持続的なワークプレイスチャット、ビデオミーティング、ファイルストレージ（ファイルのコラボレーションを含む）、およびアプリケーションの統合を組み合わせたコミュニケーションとコラボレーションのプラットフォームです。Webhookは、Webアプリケーションが相互に通信する方法の1つです。Microsoft Teams Webhookを使用すると、WebサービスをMicrosoft Teams内のチャンネルとチームに簡単に接続できます。DomoのMicrosoft Team Webhookコネクターを使用して、WebサービスからリアルタイムのデータをMicrosoft Teamsのチャンネルとチームに送信します。Microsoft Teams APIの詳細については、https://docs.microsoft.com/en-us/graph/teams-concept-overview にアクセスしてください。
+
+Microsoft Teamsアカウントには、Data Centerから接続します。このトピックでは、Microsoft Teamesコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Microsoft Teamsアカウントに接続してDataSetを作成するには以下が必要です。
+
+* Microsoft Azure Appのインストール。
+* Azure AppのクライアントIDとクライアントシークレット
+* Azure AppのテナントID。これは、Azure Appを作成するときに生成されます。
+
+##### クライアントIDを探すには、
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com")
+   にアクセスし、お使いのMicrosoft認証情報を使用してサインインします。
+2. ****************［Azure Active Directory］、［アプリの登録］**************** の順に選択します。
+3. お使いのAppを探し、クリックします。
+4. Web Appの **［アプリケーションID］** を確認します。これが **クライアントID** です。
+
+##### 新しいクライアントシークレットを生成するには、
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") にアクセスし、お使いのMicrosoft認証情報を使用してサインインします。
+2. ****************［Azure Active Directory］、［アプリの登録］**************** の順に選択します。
+3. お使いのAppを探し、クリックします。
+4. ****************［証明書とシークレット］**************** を開きます。
+5. 「クライアントシークレット」セクションで ****［+新規クライアントシークレット］**** をクリックします。
+
+##### テナントIDを取得するには
+
+1. Azure Portal（ [https://protal.azure.com](https://protal.azure.com "https://protal.azure.com") ）にログインします。
+2. **［Azure Active Directory］、［プロパティ］** の順に選択します。
+3. **ディレクトリID** を コピーします。ディレクトリID はお使いの **テナントID** です。
+
+### エンタープライズOAuth用Azure Appを作成する
+
+Microsoft Azure Appを作成するには、次の手順を実行してください。
+
+1. [https://portal.azure.com](https://portal.azure.com/ "https://portal.azure.com") にログインします。
+
+2. ****************［アプリの登録］**************** をクリックします。
+
+<Frame><img alt="Capture1.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz7.png"/></Frame>
+
+3. ****************［新規登録］**************** をクリックします。
+
+4. アプリケーション名を入力し、サポートされているアカウントタイプを選択します。ここでは、サポートされているアカウントはマルチテナントでなければなりません。
+
+<Frame><img alt="clipboard_e8d3db60e765df8e633da903a7cea8b1b.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNzA.png"/></Frame>
+
+5. リダイレクト URI を [https://oauth.domo.com/api/data/v1/oauth/providers/sharepointonline-sdk-writeback/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/microsoft-teams-webhook/exchange) として入力します。
+
+<Frame><img alt="clipboard_e3b06387d464ef38f69ac4a13f96349ea.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz8.png"/></Frame>
+
+6. ****************［登録］**************** をクリックします。
+
+7.  アプリケーションが登録されたら、必要なAPIの権限をアプリケーションに割り当てます。
+
+8. ****［API権限］>［+権限を追加］**** の順に選択します。
+
+<Frame><img alt="API_Permission-Add_Permission.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyw.png"/></Frame>
+
+9. API権限要求ページが表示され、よく使われるMicrosoft APIが表示されます。
+
+<Frame><img alt="Request_API_permissions-2.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz1.png"/></Frame>
+
+10. 目的のAPIを選択し、必要に応じてユーザーに委任されたアプリケーションの権限を追加します。
+
+11. ****［管理者の同意を許可］**** をクリックし、 ****［はい］**** をクリックすると、権限に対する管理者の同意が得られます。 追加された権限は、詳細とともに ****「構成された権限」**** セクションに表示されます。
+
+<Frame><img alt="clipboard_ec6c96bd2b17abc3ab20de1279ea7646e.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyz.png"/></Frame>
+
+12. 次に、********［証明書とシークレット］******** をクリックします。証明書は、トークンを要求するときにアプリケーションの識別情報を証明するためのシークレットとして使用できます。また、パブリックキーと呼ばれることもあります。
+
+<Frame><img alt="Capture4.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNyu.png"/></Frame>
+
+13. ********［+新しいクライアントシークレット］******** ボタンをクリックします。
+
+<Frame><img alt="Capture5.PNG" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz3.png"/></Frame>
+
+14.  クライアントシークレットの説明と有効期限を指定し、****************［追加］**************** をクリックします。
+
+<Frame><img alt="clipboard_e338cb9818cfcdabcd4e92d8bf2645dd1.png" src="/images/kb/ka05w000001236O-00N5w00000Ri7BU-0EM5w000005vNz5.png"/></Frame>
+
+15. 値をコピーし、Domoの［コネクター認証］セクションの ****************［クライアントシークレット］**************** フィールドに貼り付けます。
+
+## Microsoft Teamsアカウントの アカウント に接続する
+
+このセクションでは、 Microsoft Teams Webhook コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、 Microsoft Teams アカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クライアントID </td><td colspan="1" rowspan="1"> Azure Web AppのクライアントIDを入力します。詳しくは、 <a href="#h_01ES6PA3RZ65YE7JF8YTRVPJC8" target="_self" title="Microsoft Teams Webhookコネクター"> 「必要条件」 </a> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> クライアントシークレット </td><td colspan="1" rowspan="1"> Appを作成したときに生成されるクライアントシークレットを入力します。詳しくは、 <a href="#h_01ES6PA3RZ65YE7JF8YTRVPJC8" target="_self" title="Microsoft Teams Webhookコネクター"> 「必要条件」 </a> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> テナントID </td><td colspan="1" rowspan="1"> テナントIDを入力します。詳細は、「 <a href="#h_01ES6PA3RZ65YE7JF8YTRVPJC8" target="_self" title="Microsoft Teams Webhookコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効な Microsoft Teams 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Microsoft Teams Webhook DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ ペイン
+
+このペインで、応答でリストを展開するかどうかを指定します。Microsoft Teams Appのデータが更新されると、デフォルトでは［追加］メソッドを使用してデータを更新します。 **［更新設定を変更］** をクリックして、データの更新モードを変更できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> フラット化を有効にする </td><td colspan="1" rowspan="1"> 応答のリストを展開するにはチェックボックスを選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。

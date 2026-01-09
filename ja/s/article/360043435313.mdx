@@ -1,0 +1,50 @@
+---
+title: "AP通信Connector"
+---
+
+## はじめに
+
+AP通信（AP）は、ニューヨークに本社を置くアメリカの多国籍非営利通信社です。DomoのAPコネクターを使って、最新のAPフィードコンテンツを使用したレポートを作成することができます。AP通信APIの詳細については、 [https://developer.ap.org/api-console](https://developer.ap.org/api-console "https://developer.ap.org/api-console") を参照してください。
+
+AP通信Connectorは「クラウドアプリ」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含む他のクラウドAppコネクターのページにアクセスできます。
+
+AP通信 DataSetの作成は、 **Data Center** で行います。このトピックでは、 AP 通信Connectorユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」で説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは現在のニュースの見出しをDomoのカードにプルする際に役立ちます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、カテゴリ別にニューストピックの定性的なリストを提供します。そのため、プルできるメトリクスはあまりありません。ただし、ユーザーによってはヘッドラインをカテゴリ別に数えたり、特定のトピックのメンションの結果を必要としたりする場合があります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> エグゼクティブ </p></li><li><p> ディレクタ </p></li><li><p> マネージャー </p></li><li><p> アナリスト </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 最大数分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## 必要条件
+
+なし。（AP通信のデータは公開されています）
+
+## AP通信DataSet を作成する
+
+このセクションでは、DomoのAP通信ConnectorページでAP通信DataSet 作成する方法を説明します。このページのほかのペインの項目である **スケジュール設定** や **DataSetの名前と説明** に関しては、ほとんどのコネクタータイプで共通しています。詳細については [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") を参照してください。
+
+### ［詳細］ ペイン
+
+このペインには、AP 通信レポートのタイプを選択する単一のメニューがあります。
+
+下表に、 Domo AP 通信Connectorを使用して作成できる所定のレポート全てを記載しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> ビジネス </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> ビジネスニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> エンターテインメント </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> エンターテイメントニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 健康 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 健康関連ニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 政治 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 政治関連ニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 科学 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 科学ニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> スポーツ </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> スポーツニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 変わったニュース </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 一風変わったニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> テクノロジー </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> テクノロジーニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> トップ見出し </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> トップの見出しを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 米国内 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 米国のニュースを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 国際 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 国際ニュースを返します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+これは認証情報が不要なオープン接続です。正しいレポートタイプとスケジュールが選択されていることを確認してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターはカスタムフィールドをプルしますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,1083 @@
+---
+title: "OfficeRnDコネクター"
+---
+
+## はじめに
+
+OfficeRnDのコワーキング＆フレックスプラットフォームは、お客様のオフィススペースのブッキング業務を支援するプラットフォームです。管理タスクの自動化、データドリブンな意思決定の要となる詳細情報の提供、優れたデジタル体験の提供により、業務プロセスを簡素化します。オフィススペースの管理者が業務に集中し、必要な知識を入手し、自分と同じ考えを持つプロフェッショナルとつながることができるため、ビジネスの持続的な成長が実現します。
+  
+Domo OfficeRnDコネクターを使用すると、ブッキング、クレジット、契約、オフィス、支出などの業務に関する詳細情報を取得することができます。OfficeRnDをDomoに接続することで、コスト管理や顧客管理とともに、ワークスペースを管理するために必要となる重要なデータを得ることができます。これらのデータにより、ビジネスがどのように機能しているか、どこに潜在的な問題があるのかを一元的に把握できるようになります。
+  
+ビジネスを継続させるために、OfficeRnDのソリューションが取得したすべてのデータを追跡し、パワフルに視覚化したレポートを作成することができます。OfficeRnDのデータをDomoのすべての情報と組み合わせて、ワークスペースが利益にどのように影響するかを把握することで、将来のビジネス需要に備えた事業計画が立てられます。
+
+OfficeRnD APIの詳細については、OfficeRnDのウェブサイト（ https://developer.officernd.com/docs ）を参照してください。
+
+OfficeRnD コネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+OfficeRnD アカウントには、Data Centerから接続します。このトピックでは、 OfficeRnD API コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+OfficeRnD アカウントに接続してDataSetを作成するには、以下の情報が必要です。
+
+* OfficeRnD API に関連付けられているクライアントIDおよびクライアントシークレット。
+* OfficeRnD環境の組織名この情報はAPI URLからわかります。例えば、API URLが「 https://app.officernd.com/api/v1/organizations/domo 」であれば、組織名は「domo」です。
+
+## OfficeRnD アカウントに接続する
+
+このセクションでは、 OfficeRnD コネクターページの［認証情報］および［詳細］ペインのオプションついて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 OfficeRnD アカウントにアクセスするための認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ フィールド 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Client ID 
+</td>
+
+<td colspan="1" rowspan="1">
+ OfficeRnD APIに関連付けられているクライアントIDを入力します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Client Secret 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+
+<span>
+ OfficeRnD API 
+</span>
+ に関連付けられているクライアントシークレットを入力します。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Organization 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ OfficeRnD環境の 
+<span>
+ 組織名を入力します。この情報はAPI URLからわかります。 
+</span>
+
+</p>
+
+<p>
+
+<span>
+ 例えば、API URLが「 
+<a href="https://app.officernd.com/api/v1/organizations/domo」" rel="noopener" target="_blank">
+ https://app.officernd.com/api/v1/organizations/domo」 
+</a>
+ であれば、組織名は「domo」です。 
+</span>
+
+</p>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+OfficeRnD の有効な認証情報を一度入力しておくと、 OfficeRnD DataSetを新規に作成する際に、いつでも同じアカウントを使用できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示・非表示となる様々なメニューが準備されています。
+
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+
+<thead>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ メニュー 
+</p>
+
+</th>
+
+<th colspan="1" rowspan="1">
+
+<p>
+ 説明 
+</p>
+
+</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ Report 
+</p>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ 実行する 
+<span>
+ OfficeRnD 
+</span>
+ レポートを選択します。以下のレポートが利用できます。 
+</p>
+
+<table border="1" cellpadding="1" cellspacing="1">
+
+<tbody>
+
+<tr>
+
+<th colspan="1" rowspan="1">
+ レポート 
+</th>
+
+<th colspan="1" rowspan="1">
+ 説明 
+</th>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Bookings 
+</td>
+
+<td colspan="1" rowspan="1">
+ リソースの予約に使用されているすべてのブッキング情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Booking Occurrences 
+</td>
+
+<td colspan="1" rowspan="1">
+ 指定した期間に発生したすべてのブッキングのリストを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Charges 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべての課金オブジェクトの情報を取得します。課金オブジェクトは、1つの請求書に関連付けられている1件の支払い情報を示します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Checkins 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのチェックイン情報を取得します。チェックインとは、オフィスが使用されていることを表します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Contracts 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべての契約情報を取得します。契約オブジェクトでは、契約データを企業に関連付けることができます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Credit Accounts 
+</td>
+
+<td colspan="1" rowspan="1">
+ 特定の月のチームまたはメンバーのコインクレジット残高の情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Fees 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべての料金オブジェクトの情報を取得します。料金オブジェクトは、1回限りの料金または1回限りの料金のグループを示します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Floors 
+</td>
+
+<td colspan="1" rowspan="1">
+ スペースにあるすべてのフロア情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Issues 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべての問題に関する情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Members 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのメンバーに関する情報を取得します。メンバーでは、メンバーシップ、請求書、料金など、メンバーのすべてのデータが単一の場所に保管されます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Memberships 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのメンバーシップ情報を取得します。メンバーシップオブジェクトでは、各メンバーまたはチームに定期的な料金（料金プラン）を割り当てることができます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Offices 
+</td>
+
+<td colspan="1" rowspan="1">
+ スペース内にある各スペースの情報すべてを取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Passes 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのパスの情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Payments 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべての支出オブジェクト（請求書/クレジットノート）の情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Plans 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのプランの情報を取得します。プランオブジェクトでは、1回限りのまたは定期的な課金を作成できます。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Rates 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのリソースレート情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Resources 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのタイプのリソース情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Resource Types 
+</td>
+
+<td colspan="1" rowspan="1">
+ 組織内のすべてのリソースタイプの情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Teams 
+</td>
+
+<td colspan="1" rowspan="1">
+ すべてのチームに関する情報を取得します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Visits 
+</td>
+
+<td colspan="1" rowspan="1">
+ 組織内のアクセス数を取得します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Field To Expand 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<span>
+ データ内で展開するフィールドを選択します。選択したフィールドで、複数の行にわたって各オブジェクトが表示されます。「None」が選択されていると、どのデータも展開できません。 
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Date Selection Criteria 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<span>
+ データのフィルタリングに使用する日付形式を選択します。データをフィルタリングしない場合、つまりすべてのデータを取得する場合は、「All Data」を選択します。 
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+
+<span>
+ Filter Data By Date 
+</span>
+
+</td>
+
+<td colspan="1" rowspan="1">
+
+<span>
+ 選択した期間でデータをフィルタリングする場合、このチェックボックスを選択します。 
+</span>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Date Selection 
+</td>
+
+<td colspan="1" rowspan="1">
+ データの日付形式を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Single Date 
+</td>
+
+<td colspan="1" rowspan="1">
+ レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Specific Date 
+</td>
+
+<td colspan="1" rowspan="1">
+ 日付セレクターを使用して特定の日付を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Relative Date 
+</td>
+
+<td colspan="1" rowspan="1">
+ 何日前に遡ってデータを取得したいか、 
+<span>
+
+</span>
+
+<b>
+ ［Days Back］ 
+</b>
+
+<span>
+
+</span>
+ フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Date Range 
+</td>
+
+<td colspan="1" rowspan="1">
+ 特定の日付範囲または相対日付範囲を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Start Date - Specific 
+</td>
+
+<td colspan="1" rowspan="1">
+ 日付セレクターを使用して、日付範囲の最初の日付を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ End Date - Specific 
+</td>
+
+<td colspan="1" rowspan="1">
+ 日付セレクターを使用して、日付範囲の最後の日付を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Start Date - Relative 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ データを取得したい過去の日数（開始日）を入力します。 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ ［End Date］ 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ と組み合わせて、表示する日付の範囲を作成します。 
+</p>
+
+<p>
+ 例えば、 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ ［Start Date］ 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ に「10」、 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ ［End Date］ 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ End Date - Relative 
+</td>
+
+<td colspan="1" rowspan="1">
+
+<p>
+ データを取得したい過去の日数（終了日）を入力します 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ ［Start Date］ 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ と組み合わせて、表示する日付の範囲を作成します。 
+</p>
+
+<p>
+ 例えば、 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ 開始日 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ に「10」、 
+<b>
+
+<b>
+
+<b>
+
+<b>
+ 終了日 
+</b>
+
+</b>
+
+</b>
+
+</b>
+ に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 
+</p>
+
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Time Period 
+</td>
+
+<td colspan="1" rowspan="1">
+ データの受信を希望する期間を選択します。 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Starting Day of the Week 
+</td>
+
+<td colspan="1" rowspan="1">
+ 週を開始する曜日を選択します。 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+OfficeRnDコネクターのベースURLは https://app.officernd.com/api/v1/organizations/{orgSlug}です。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+
+<table data-aura-rendered-by="33:195;a">
+
+<tbody>
+
+<tr>
+
+<th colspan="1" rowspan="1" width="30%">
+ レポート名 
+</th>
+
+<th colspan="1" rowspan="1" width="70%">
+ エンドポイントURL（1つまたは複数） 
+</th>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Bookings 
+</td>
+
+<td colspan="1" rowspan="1">
+ /bookings 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Booking Occurrences 
+</td>
+
+<td colspan="1" rowspan="1">
+ /bookings/occurrences 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Charges 
+</td>
+
+<td colspan="1" rowspan="1">
+ /charges 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Checkins 
+</td>
+
+<td colspan="1" rowspan="1">
+ /checkins 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Contracts 
+</td>
+
+<td colspan="1" rowspan="1">
+ /contracts 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Credit Accounts 
+</td>
+
+<td colspan="1" rowspan="1">
+ /credit-accounts/stats 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Fees 
+</td>
+
+<td colspan="1" rowspan="1">
+ /fees 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Floors 
+</td>
+
+<td colspan="1" rowspan="1">
+ /floors 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Issues 
+</td>
+
+<td colspan="1" rowspan="1">
+ /issues 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Members 
+</td>
+
+<td colspan="1" rowspan="1">
+ /members 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Memberships 
+</td>
+
+<td colspan="1" rowspan="1">
+ /memberships 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Offices 
+</td>
+
+<td colspan="1" rowspan="1">
+ /offices 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Passes 
+</td>
+
+<td colspan="1" rowspan="1">
+ /passes 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Payments 
+</td>
+
+<td colspan="1" rowspan="1">
+ /payments 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Plans 
+</td>
+
+<td colspan="1" rowspan="1">
+ /plans 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Rates 
+</td>
+
+<td colspan="1" rowspan="1">
+ /rates 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Resources 
+</td>
+
+<td colspan="1" rowspan="1">
+ /resources 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Resource Types 
+</td>
+
+<td colspan="1" rowspan="1">
+ /resource-types 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Teams 
+</td>
+
+<td colspan="1" rowspan="1">
+ /teams 
+</td>
+
+</tr>
+
+<tr>
+
+<td colspan="1" rowspan="1">
+ Visits 
+</td>
+
+<td colspan="1" rowspan="1">
+ /visits 
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+OfficeRnD APIに関連付けられているクライアントIDおよびクライアントシークレットが必要です。さらに、OfficeRnD環境の組織も必要です。
+
+
+</Accordion>
+<Accordion title="組織はどこにありますか？">
+
+
+組織は、API URLにあります。
+  
+例えば、API URLが「 https://app.officernd.com/api/v1/organizations/domo 」であれば、組織は「domo」です。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,63 @@
+---
+title: "Beast Mode計算例：基本変換"
+---
+
+## はじめに
+
+列名の変更、カスタムのソート順の作成、値のフィルター処理など、基本変換に使用するBeast Mode計算の記述方法については、この記事を参照してください。
+
+## 列名の変更
+
+計算を使ってデータ内の列の名前を変更することができます。例えば、列の名前を「daily\_total」から「Daily Total」へ変更するには、以下のコードで計算名「Daily Total」を作成します。
+
+`` `daily_total` ``
+
+列の合計を出したい場合は、以下のコードを使用します。
+
+`` sum(`daily_total`) ``
+
+計算を保存したら、新しい列名を **［列］** リストでクリックすると、自分のカードにその列が表示されます。
+
+## 列の値の変更
+
+列の指定された値は、計算を使ってほかの値と置き換えることができます。例えば、「Employee Last Name（社員の姓）」という列があり、その列の「Janssen」というインスタンスをすべて「Janssen-Soderquist」に置き換えたい場合、以下のコードを使って計算を作成します。
+
+`` case when `Employee Last Name` = 'Janssen' then 'Janssen-Soderquist' else `Employee Last Name` end ``
+
+## 列の値へのフィルターの適用
+
+列の値にフィルターをかけるには、計算を作成し、フィルターを設定して目的の値が入っているフィールドを含めるか除外するよう設定します。例えば、アメリカの州の列があるとして、 `State = TX` を除外したい場合は次のコードを使用します。
+
+`` case when `State` = 'TX' then 0 else 1 end ``
+
+その上で、列に0が含まれないものを選び出すフィルターを設定します。
+
+別の方法として、除外したい値が複数ある場合：
+
+`` case when `State` in ('NY', 'TX') then 0 else 1 end ``
+
+その上で、列に0を含まないものを選び出すフィルターを設定します。
+
+またはパターンを探している場合：
+
+`` case when `State` like '%TX%' then 0 when `State` like '%NY%' then 0 else 1 end ``
+
+その上で、列に0を含まないものを選び出すフィルターを設定します。
+
+## ソート順の強制
+
+Beast Modeは任意の方法でデータをソートすることができます。
+
+`` CASE WHEN `Development Status` = 'Requested' THEN 1 WHEN `Development Status` = 'In Development' THEN 2 WHEN `Development Status` = 'Code Complete' THEN 3 WHEN `Development Status` = 'Data Mapping' THEN 4 WHEN `Development Status` = 'Ready' THEN 5 WHEN `Development Status` = 'Deployer' THEN 6 WHEN `Development Status` = 'Forecasted' THEN 7 WHEN `Development Status` = 'Hold' THEN 8 ELSE 0 END ``
+
+数値で列をソートします。
+
+## テキストからの数字の削除
+
+テキストフィールドから数字を削除するには（例えば、フィールドに名前とID番号が含まれていて、名前だけが必要な場合）、次のようなBeast Mode計算を使用します。
+
+`` SUBSTRING(`text_Field`,INSTR(`text_Field`,' ')+1) ``
+
+`text_Field` テキストは、数字を削除する列の名前に置き換えます。これにより、最初のスペースから右端までの文字列を取得できます。
+
+日本語

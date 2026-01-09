@@ -1,0 +1,44 @@
+---
+title: "Google Adsコネクター（マネージャーアカウント用）"
+---
+
+## はじめに
+
+Google Ads（以前のGoogle AdWords）は、広告主が料金を支払ってWebユーザーに短い広告を表示するためのオンライン広告サービスです。Google Adsコネクターを使用すると、マネージャーアカウントを指定して、アカウント、広告、キャンペーン、予算などに関する様々なパフォーマンスレポートを取得できます。Ads APIの詳細については、 [https://developers.google.com/google-ads/api/docs/start](https://developers.google.com/google-ads/api/docs/start "https://developers.google.com/google-ads/api/docs/start") を参照してください。
+
+このトピックでは、Google Ads OAuthコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+このコネクターを使用してGoogle Adsデータに接続するには、以下が必要です。
+
+* データの取得元となるマネージャーアカウントのID
+* Googleの認証情報（メールアドレスとパスワード）
+
+## Google Ads アカウントに接続する
+
+このセクションでは、 Google Ads コネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Google Ads アカウントにアクセスするための認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Manager Account Customer ID </td><td colspan="1" rowspan="1"> データの取得元となるマネージャーアカウントのクライアント顧客IDを入力します。 <br/> クライアント顧客IDは、Ads APIで管理するGoogle Adsクライアントアカウントのアカウント番号です。通常は123-456-7890の形式です。 <br/><img alt="UI_Customer_ID.png" src="/images/kb/ja/1500011202222.png"/></td></tr></tbody></table>
+
+マネージャーアカウントの有効な顧客IDを入力し、
+
+**［接続］**
+
+をクリック（または、Domoに既存のGoogle Adsアカウントがある場合は **［アカウントを追加］**
+
+を選択）すると、Google OAuth画面が開き、接続するアカウントを選択できます。アカウントを選択した後で、そのアカウントのパスワードを入力します。有効なパスワードを入力した後は、Google AdsのDataSetを作成する際に常に同じDomoアカウントを使用できるようになります。 このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> 実行するGoogle Adsレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Customer </td><td colspan="1" rowspan="1"> 顧客の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad </td><td colspan="1" rowspan="1"> 広告の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Group </td><td colspan="1" rowspan="1"> 広告グループの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Age Range View </span></td><td colspan="1" rowspan="1"> 年齢範囲ビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Budget </td><td colspan="1" rowspan="1"> キャンペーン予算の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Keywords </td><td colspan="1" rowspan="1"> キーワードの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign </td><td colspan="1" rowspan="1"> キャンペーンの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Managed Placement View </td><td colspan="1" rowspan="1"> プレースメントビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Search Term View </td><td colspan="1" rowspan="1"> 検索語ビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Geographic View </td><td colspan="1" rowspan="1"> 地理ビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Gender View </span></td><td colspan="1" rowspan="1"> 性別ビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Dynamic Search Ads Search Term View </td><td colspan="1" rowspan="1"> 動的検索広告検索語の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Shopping Performance View </td><td colspan="1" rowspan="1"> ショッピングのパフォーマンスの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Product Group View </td><td colspan="1" rowspan="1"> 広告グループの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bidding Strategy </td><td colspan="1" rowspan="1"> 入札戦略の詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Audience View </td><td colspan="1" rowspan="1"> キャンペーンオーディエンスビューの詳細を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Group Audience View </td><td colspan="1" rowspan="1"> 広告グループのオーディエンスビューの詳細を返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Customer Selection </td><td colspan="1" rowspan="1"> 特定のクライアントのデータを取得するか、またはマネージャーアカウントで利用可能なすべてのクライアントのデータを取得するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Customer IDs </td><td colspan="1" rowspan="1"> データを取得する顧客IDのリストをカンマで区切って入力します。顧客IDは、マネージャーアカウントではなく、Google Adsの広告主アカウントのIDです。 </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> データを取得したいメトリクスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Segments </td><td colspan="1" rowspan="1"> データの内訳となるセグメントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Attributes </td><td colspan="1" rowspan="1"> 属性を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Type </td><td colspan="1" rowspan="1"> データの取得元となる特定の日付、または日付範囲を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b><b><b> ［Days Back］ </b></b></b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［Start Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> ［End Date］ </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。

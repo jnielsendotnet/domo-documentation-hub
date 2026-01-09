@@ -1,0 +1,57 @@
+---
+title: "Amazon Athena/Amazon Athena JDBC 2.0コネクター"
+---
+
+## はじめに
+
+Amazon Athenaは、Amazon S3内のビッグデータを標準的なSQLを使用して分析するための、サーバーを必要としないインタラクティブなクエリサービスです。DomoのAmazon Athena JDBC 2.0コネクターを使用して、Athenaインスタンスからクエリを実行します。DomoのAmazon Athena JDBC 2.0コネクターでJDBC 2.0を使用することにより、Amazon Athenaのデータを視覚化することができます。Amazon Athena APIの詳細については、Amazon社のウェブサイト（ [https://aws.amazon.com/documentation/athena/](https://aws.amazon.com/documentation/athena/ "https://aws.amazon.com/documentation/athena/") ）をご覧ください。
+
+Amazon Athenaのアカウントには、Data Centerから接続します。このトピックでは、Amazon Athena JDBC 2.0コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon Athenaアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。
+* AWSシークレットキー。
+* クエリの出力が書き込まれるAmazon S3の場所（例：
+  s3://aws-athena-query-results-1234-us-west-2/ ）これは、Athena Webコンソールの ****［Settings］**** で参照できます。
+* AWSリージョン。
+
+AWSの認証情報を取得する方法については、 [http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html") を参照してください。
+
+#### 必要な権限ポリシー
+
+AthenaやAmazon S3バケットなどのAWSサービスやリソースへのアクセス権を得るには、アプリケーションにJDBCドライバーの認証情報を指定します。JDBCドライバーを使用している場合は、 ****AmazonAthenaFullAccess管理ポリシー**** に記載されているすべてのアクションがIAMアクセス許可ポリシーに含まれていることを確認します。
+
+****`AmazonAthenaFullAccess`**** 管理ポリシーはAthenaへのフルアクセスを許可します。
+
+管理ポリシーの内容は変更されるため、ここに表示されるポリシーは古くなる可能性があります。最新のポリシーについてはIAMコンソールを確認してください。
+
+```json
+ { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "athena:*" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "glue:CreateDatabase", "glue:DeleteDatabase", "glue:GetDatabase", "glue:GetDatabases", "glue:UpdateDatabase", "glue:CreateTable", "glue:DeleteTable", "glue:BatchDeleteTable", "glue:UpdateTable", "glue:GetTable", "glue:GetTables", "glue:BatchCreatePartition", "glue:CreatePartition", "glue:DeletePartition", "glue:BatchDeletePartition", "glue:UpdatePartition", "glue:GetPartition", "glue:GetPartitions", "glue:BatchGetPartition" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:ListMultipartUploadParts", "s3:AbortMultipartUpload", "s3:CreateBucket", "s3:PutObject" ], "Resource": [ "arn:aws:s3:::aws-athena-query-results-*" ] }, { "Effect": "Allow", "Action": [ "s3:GetObject", "s3:ListBucket" ], "Resource": [ "arn:aws:s3:::athena-examples*" ] }, { "Effect": "Allow", "Action": [ "s3:ListBucket", "s3:GetBucketLocation", "s3:ListAllMyBuckets" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "sns:ListTopics", "sns:GetTopicAttributes" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "cloudwatch:PutMetricAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:DeleteAlarms" ], "Resource": [ "*" ] } ] } 
+```
+
+## Amazon Athenaアカウントに接続する
+
+このセクションでは、Amazon Athena JDBC 2.0コネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon Athenaアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> S3 Staging Directory </td><td colspan="1" rowspan="1"> クエリ出力を書き込むAmazon S3の場所を入力します。この場所は、Athena Webコンソールの <b><b> ［Setting］ </b></b> で確認することができます。例： <a href="" target="_blank" title="s3://aws-athena-query-results-1234-us-west-2/"> s3://aws-athena-query-results-1234-us-west-2/ </a></td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> AWSリージョンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Workgroup </td><td colspan="1" rowspan="1"> ワークグループを入力します。 </td></tr></tbody></table>
+
+Amazon Athenaの正しい認証情報をすると、同じアカウントを使用して新しいAmazon Athena JDBC 2.0 DataSetをいつでも作成できるようになります。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、クエリの入力やレポートの設定のためのオプションが多数含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAmazon Athena JDBC 2.0レポートを選択します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 指定したS3データベースとテーブルに対してクエリを実行することができます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Query Parameter </td><td colspan="1" rowspan="1"> パラメーターのあるSQLクエリを入力します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Catalog Name / Data Source </p></td><td colspan="1" rowspan="1"><p> クエリを実行する特定のカタログまたはデータソースをドロップダウンから選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> クエリを実行するデータベースを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> クエリを実行するデータベース内のテーブルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns </p></td><td colspan="1" rowspan="1"><p> クエリを実行する列をすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper </p></td><td colspan="1" rowspan="1"><p> クエリヘルパーは、選択されたデータベース名、テーブル名、および列名にもとづいて、サンプルのクエリを作成します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 実行するSQLクエリを入力します（例：select * from table_name）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Parameter </p></td><td colspan="1" rowspan="1"><p><span> クエリパラメーターの値を入力します。この値は、クエリパラメーターの初期値となります。最終実行日はオプションです。指定されていない場合は、デフォルトで「02/01/1700」になります。 </span></p><p><span> 例： </span><tt>!\{lastvalue:_id\}!=1,!\{lastvalue:gender\}!='male',!\{lastrundate:start_date\}!=02/01/1944 </tt></p></td></tr><tr><td colspan="1" rowspan="1"><p> Connection Timeout </p></td><td colspan="1" rowspan="1"><p> Athenaへの接続確立を目的とした試行が終了するまでの最長時間を、ミリ秒単位で入力します。デフォルト値は1万ミリ秒です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Socket Timeout </p></td><td colspan="1" rowspan="1"><p> Athenaにデータを送信するため、ソケットを待機する最長時間を、ミリ秒単位で入力します。デフォルト値は1万ミリ秒です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maximum Error Retries </p></td><td colspan="1" rowspan="1"><p> JDBCクライアントがAthenaへのリクエストを実行する再試行回数の上限値を入力します。デフォルト値は10回です。 </p></td></tr><tr><td colspan="1" rowspan="1"> BIGINTをIntegerに変換します </td><td colspan="1" rowspan="1"> BIGINTカラムを整数に変換する場合は、このチェックボックスをオンにします。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

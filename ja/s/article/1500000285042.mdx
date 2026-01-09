@@ -1,0 +1,203 @@
+---
+title: "Workbench 5でSAP HANAデータに接続する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Domo SAP HANAプラグインを使うと、Workbench 5にジョブを作成して、DomoのSAP HANAデータベースからデータを取得できます。SAP HANAプラグインは、データベースへの接続にSAP HANA ODBCドライバーを使用します。そのため、このプラグインを使用するには、SAP HANA ODBCドライバーをインストールする必要があります。
+
+SAP HANAプラグインはエンドツーエンドトレースにも対応しています。詳細については、 [エンドツーエンドトレース](#h_01ES70X2XWTZ3T9P2BPEC7S0VT "Workbench 5でSAP HANAデータに接続する") セクションを参照してください。
+
+このチュートリアルでは、Domo SAP HANA ODBCプラグインを使用してSAP HANAデータに接続する方法を説明します。
+
+## 必要条件
+
+* Windows 10 64ビットオペレーティングシステム
+* Domo Workbench
+* SAP HANA ODBCドライバー
+* SAP HANAプラグイン
+
+## SAP HANA ODBCドライバーをインストールする
+
+SAPサポートパッケージスタックからSAP HANA ODBCドライバーをダウンロードできます。
+
+1.  HDB\_CLIENT\_WINDOWS\_X86\_64にあるhdbsetup.exeを起動します。
+**［新規SAP HANAデータベースクライアントのインストール］** オプションが自動的に選択されます。
+
+<Frame><img alt="clipboard_e52f242b7f83114904a870a4ceb08ca85.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPKx.png"/></Frame>
+
+2. **［インストール］** をクリックして、インストールが完了するのを待ちます。
+
+<Frame><img alt="clipboard_e43201196b8dddebc921ba9e81e9ed7ae.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPKy.png"/></Frame>
+
+3. **［終了］** をクリックします。
+
+## Domo WorkbenchにSAP HANAデータプロバイダープラグインをインストールする
+
+Workbenchのプラグインは、すべてダイナミックリンクライブラリ（DLL）に格納されています。Workbenchには、自分のマシンまたはネットワークから目的のDLLを選択することで、プラグインを追加することができます。
+
+### WorkbenchにSAP HANAプラグインを追加する
+
+<Note>
+**注記：** SAP HANAプラグインは、選択するディレクトリのサブディレクトリーに入れておく必要があります。
+
+</Note>
+
+1. 左側のアイコンバーにある
+   <InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLz.png" /> をクリックします。
+2. **［その他］**
+   ペインで **［プラグイン］** をクリックします（このペインが表示されていない場合は、 <InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLv.png" /> をクリックして展開します）。 **プラグインマネージャー** が開きます。
+3. **「新規プラグインを登録」**
+   の下の **［検索パス］** フィールドの横にある省略記号（ **...** ）をクリックします。
+
+   <Frame><img alt="clipboard_e4efaf33bb01785ea914d5012fba1ea4e.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLx.png"/></Frame>
+
+4. マシンまたはネットワーク上で、SAP HANAプラグインのすべてのDLLを含むフォルダを探して開きます。
+5. ディレクトリを選択したら、
+   **［追加］** をクリックします。
+
+## SAP HANAデータに接続する
+
+### Workbench 5でSAP HANA DataSetジョブを作成する
+
+1. 左側のアイコンバーにある
+<InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPM0.png" /> アイコンをクリックします。
+
+2. ジョブリストペインの右上にある
+**［+］** ボタンをクリックします。
+
+3. **［Domoドメイン］** ドロップダウンメニューで、必要なアカウント（Domoインスタンス）を選択します。アカウントが1つしか設定されていない場合は、そのアカウントが既に選択されているため、メニューは使用できません。
+
+4. **［名前］** フィールドに、DataSetジョブの名前を入力します。
+
+これはWorkbenchで表示されるジョブ名です。DomoにアップロードされたDataSet名では *ありません* 。
+
+5. **［トランスポートタイプ］** メニューから、 **［SAP HANAデータプロバイダー］** を選択します。
+
+6. **［読み取りタイプ］** メニューで、 **［データベースクエリ］** を選択します。
+
+7. **［DataSet名］** フィールドに、DataSet名を入力します。これは、DomoにアップロードされたDataSet名です。新しいジョブを保存した後に変更できるのは、この設定 *のみ* です。
+
+8. **［DataSetタイプ］** フィールドに、ドロップダウンからDataSetのタイプを選択します。
+
+ここで選択または入力するDataSetのタイプは、ジョブ実行後のDomoのコネクタータイプに反映されます。
+
+9. 必要に応じてDataSetの説明を入力します。
+
+これは、Domoに表示されるDataSetの説明です。
+
+10. **［作成］** をクリックします。
+
+現在認証されているアカウントのジョブリストに、SAP HANA DataSetジョブが新規に追加されます。ジョブを作成した後は、DataSet名以外の設定は編集できません。他の設定を変更する場合は、新しいジョブを作成する必要があります。
+
+11. **［設定］** サブタブをクリックします。
+
+12. 「ソース」の下の
+**［編集］** をクリックします。SAP HANA接続を設定し、クエリを定義するためのパネルが開きます。
+
+13. **［接続タイプ］** フィールドで、接続オプションを選択します。
+
+以下の表に、利用可能なオプションを説明しています。
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1" valign="top" width="204"><b> オプション </b></td><td colspan="1" rowspan="1" valign="top" width="397"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> システムDSN </td><td colspan="1" rowspan="1" valign="top" width="397"> SAP HANNA DSNを選択します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> 接続ビルダー </td><td colspan="1" rowspan="1" valign="top" width="397"> ログイン認証情報、サーバーURL、データベース名、ポートなど、SAP HANA接続の詳細を入力します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> 接続文字列 </td><td colspan="1" rowspan="1" valign="top" width="397"> 接続のための文字列を1つ入力します。 </td></tr></tbody></table>
+
+14. （条件付き）以下のいずれかを行ってください。
+
+* **［接続タイプ］**
+  に **［システムDSN］** を選択した場合は...
+  1. **［システムDSN］**
+     メニューで、利用可能なDSNから目的のシステムDSNを選択します。このオプションには、SAP HANA ODBCドライバー用に作成されたDSNのみが表示されることに注意してください。
+  2. （条件付き）このDSN接続が接続に認証を必要とする場合は、
+     **［認証が必要］** を **オン** にし、ユーザー名とパスワードを該当フィールドに入力します。それ以外の場合は、 **［認証が必要］** は **オフ** にします。
+* **［接続タイプ］**
+  に **［接続ビルダー］** を選択した場合は...
+
+i. フィールドに適切な情報を入力します。接続によっては、パラメーターは必要または不要になります。
+
+以下の表を参考にしてください。
+
+<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a"><tbody><tr><td colspan="1" rowspan="1" valign="top" width="196"><b> フィールド </b></td><td colspan="1" rowspan="1" valign="top" width="405"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> サーバー </td><td colspan="1" rowspan="1" valign="top" width="405"> データベースのサーバー名またはURLを指定します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> データベース </td><td colspan="1" rowspan="1" valign="top" width="405"> アクセスするデータベースの名前を指定します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> ポート </td><td colspan="1" rowspan="1" valign="top" width="405"> データベースのポート番号を入力します。SAP HANAプラグインのデフォルトのポートは30015です。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> ユーザー名 </td><td colspan="1" rowspan="1" valign="top" width="405"> データベースの接続に使用するユーザー名を指定します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> パスワード </td><td colspan="1" rowspan="1" valign="top" width="405"> データベースに接続するために使用するパスワードを指定します。 </td></tr><tr><td colspan="1" rowspan="1" valign="top"> 32ビット実行が必要 </td><td colspan="1" rowspan="1" valign="top"> 接続に32ビットSAP HANAドライバーを使用する場合、このチェックボックスを選択します。32ビットのSAP HANAドライバーが既にシステムにインストールされている必要があります。 </td></tr></tbody></table>
+
+* **［接続タイプ］**
+  に **［接続文字列］** を選択した場合は...
+
+i. データソースに接続するのに使用する接続文字列を入力します。
+
+ii. 接続に32ビットSAP HANAドライバーを使用する場合、 **［32ビット実行が必要］** チェックボックスを選択します。
+
+15. **［適用］** をクリックします。
+
+## エンドツーエンドのトレース
+
+SAP HANAプラグインは、SAP HANAデータベースのエンドツーエンドトレース機能をサポートしています。SAP HANAデータベースとのプラグインを使用して行われたすべての接続は、2つのセッション変数を持っています。APPLICATIONとAPPLICATIONUSERです。デフォルトでは、SAP HANAプラグインは **APPLICATION** セッション変数を **DOMO** 、 **APPLICATIONUSER** セッション変数を以下のように設定します。
+
+a.  Workbenchジョブが偽装を使用するように設定されている場合、 **Windowsユーザー**
+
+b. または **Domoユーザー**
+
+セッション変数（APPLICATIONとAPPLICATIONUSERセッション変数）の値を明示的に指定する場合、以下のいずれかの方法を使用できます。
+
+* ### 接続文字列にセッション変数を追加する
+
+接続文字列として接続タイプを選択し、必要なセッション変数を接続文字列に追加できます。HANA接続文字列でセッション変数を設定する方法の詳細は、SAPヘルプポータルの「 [セッション固有のクライアント情報を設定する](https://help.sap.com/viewer/0eec0d68141541d1b07893a39944924e/2.0.04/en-US/e90fa1f0e06e4840aa3ee2278afae16b.html) 」を参照してください。
+
+接続文字列の例：
+
+DSN=HANADataSource;UID=myUser;PWD=myPassword;sessionVariable:APPLICATION=myapp;sessionVariable:APPLICATIONUSER=user1
+
+* ### セッション変数でDSNを設定する
+
+DOMO Workbenchは、データベースに接続する際にODBCデータソース名（DSN）に依存します。データソースはODBC管理者でエンドユーザーが定義し、そのエンドユーザーがSAP HANA ODBCドライバーを呼び出します。
+
+1. Windows 10デスクトップで
+**［開始］** ボタンをクリックし、ODBCデータソースを検索します。ODBCデータソース（64ビット）をクリックします。
+
+<Note>
+**注記：** ODBCデータソースは、Domo DataSetとは異なります。
+
+</Note>
+
+2. **ODBCソース管理者** ウィンドウで **HANAサービス** を選択し、 **［追加...］** をクリックします。
+
+<Frame><img alt="clipboard_ec65dd5c45eb58621e40f2fa69002dda3.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLw.png"/></Frame>
+
+3. SAP HANA ODBCドライバー
+**（HDODBC）** を選択し、 **［終了］** をクリックします。
+
+<Frame><img alt="clipboard_e8c62705a464c3bad59f705c39136ad91.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLt.png"/></Frame>
+
+4. SAP HANAデータベースのデータソース、ホスト IP、インスタンス番号、またはポート番号の名前を入力します。
+
+<Frame><img alt="clipboard_e143f0b24469f94e0e03e55ee383d2922.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPM1.png"/></Frame>
+
+5. **［テスト接続］** ボタンをクリックして、設定が正しいかどうかを確認します。DSNが正しく設定されている場合、以下のように成功メッセージが表示されます。
+
+<Frame><img alt="clipboard_ece3c74911b01da5bfab2af08502a2cae.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLs.png"/></Frame>
+
+6. 設定したら、
+**［詳細］** をクリックします。
+
+7. **［追加］** をクリックします。
+
+8. **［接続の追加／変更］** ウィンドウで、 **SessionVariable:APPLICATION** の接続プロパティを入力します。
+
+<Note>
+**注記：** SessionVariableは大文字小文字を区別しません。
+
+</Note>
+
+<Frame><img alt="clipboard_ea56a76340c29b89d55907e6734e8820e.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLy.png"/></Frame>
+
+9. 同様に、
+**SessionVariable:APPLICATIONUSER** の接続プロパティを追加します。
+
+<Note>
+**注記：** APPLICATIONUSERはログインしているDomoユーザーです。データベースユーザーである必要はありません。
+
+</Note>
+
+10. セッション変数は以下のように表示されます。
+
+<Frame><img alt="clipboard_e19747a8ad88f3a58d97d3f5467219f15.png" src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLu.png"/></Frame>

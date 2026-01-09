@@ -1,0 +1,259 @@
+openapi: 3.0.0
+info:
+  title: Workflows API
+  version: v1
+  description: |
+    API for starting and monitoring Domo Workflows.
+    Domo Workflows allows you to graphically model a business process 
+    into an executable workflow using BPM notations and flows.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo API
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: "Access token obtained via Domo's authentication flow."
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+          
+    WorkflowStatus:
+      type: string
+      nullable: true
+      description: "The current status of the workflow. A null status might be valid if the workflow hasn't reported back as started yet."
+      enum: [IN_PROGRESS, CANCELED, COMPLETED, FAILED, null]
+
+    WorkflowStartParameters:
+      type: object
+      description: "Object containing the start parameters required to run the workflow. Properties should correspond to the 'aliasName' in the manifest."
+      additionalProperties: true
+      example:
+        parameter1: "value1"
+        parameter2: 123
+        
+    WorkflowInstance:
+      type: object
+      description: Information about an instance of a Workflow.
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: ID of the workflow instance.
+        modelId:
+          type: string
+          format: uuid
+          description: ID of the workflow model.
+        modelName:
+          type: string
+          description: Name of the workflow.
+        modelVersion:
+          type: string
+          description: Workflow version number.
+        createdBy:
+          type: string
+          description: User ID of the workflow creator.
+        createdOn:
+          type: string
+          format: date-time
+        updatedBy:
+          type: string
+        updatedOn:
+          type: string
+          format: date-time
+        status:
+          $ref: '#/components/schemas/WorkflowStatus'
+
+    WorkflowInstanceMetric:
+      type: object
+      description: Metric details for a single workflow instance.
+      properties:
+        instanceId:
+          type: string
+          format: uuid
+        modelId:
+          type: string
+          format: uuid
+        version:
+          type: string
+        creatorId:
+          type: string
+        workflowStartTime:
+          type: string
+          format: date-time
+        workflowEndTime:
+          type: string
+          format: date-time
+          nullable: true
+        workflowCancelTime:
+          type: string
+          format: date-time
+          nullable: true
+        workflowCycleTime:
+          type: integer
+        status:
+          $ref: '#/components/schemas/WorkflowStatus'
+          
+    WorkflowMetrics:
+      type: object
+      description: Key metric information about a Workflow.
+      properties:
+        modelId:
+          type: string
+          format: uuid
+        version:
+          type: string
+        completedWorkflows:
+          type: integer
+        inProgressWorkflows:
+          type: integer
+        failedWorkflows:
+          type: integer
+        canceledWorkflows:
+          type: integer
+        averageCycleTime:
+          type: integer
+        instanceMetric:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkflowInstanceMetric'
+
+security:
+  - bearerAuth: []
+
+paths:
+  /domo/workflow/v1/models/{workflowAlias}/start:
+    post:
+      summary: Start a Workflow
+      description: Starts a Workflow and returns details about the Workflow Instance.
+      tags: 
+        - Workflows API
+      parameters:
+        - name: workflowAlias
+          in: path
+          required: true
+          description: The name given to the Workflow in the manifest.
+          schema:
+            type: string
+      requestBody:
+        description: An object containing the start parameters required to run the workflow.
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WorkflowStartParameters'
+      responses:
+        '200':
+          description: Information about the instance of the Workflow that was just started.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowInstance'
+        '400':
+          description: Bad Request (e.g., invalid parameters).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Workflow alias not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/workflow/v1/models/{workflowAliasedName}/overall:
+    get:
+      summary: Get Metrics for a Workflow
+      description: Returns key metric information about a Workflow.
+      tags: 
+        - Workflows API
+      parameters:
+        - name: workflowAliasedName
+          in: path
+          required: true
+          description: The alias name of the Workflow.
+          schema:
+            type: string
+        - name: limit
+          in: query
+          description: Limit of instance metrics returned.
+          schema:
+            type: integer
+            format: int64
+        - name: offset
+          in: query
+          description: Offset for pagination.
+          schema:
+            type: integer
+            format: int64
+        - name: after
+          in: query
+          description: After a certain time (timestamp).
+          schema:
+            type: integer
+            format: int64
+        - name: until
+          in: query
+          description: Before a certain time (timestamp).
+          schema:
+            type: integer
+            format: int64
+        - name: status
+          in: query
+          description: "Filter instances by status (e.g., IN_PROGRESS,CANCELED,COMPLETED)."
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Metric information for the workflow.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowMetrics'
+        '404':
+          description: Workflow alias not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/workflow/v1/models/{workflowAlias}/instance/{workflowInstanceId}:
+    get:
+      summary: Get Workflow Instance
+      description: Retrieves the status and details of an existing Workflow instance.
+      tags: 
+        - Workflows API
+      parameters:
+        - name: workflowAlias
+          in: path
+          required: true
+          description: The name given to the Workflow in the manifest.
+          schema:
+            type: string
+        - name: workflowInstanceId
+          in: path
+          required: true
+          description: The UUID of the Workflow instance.
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Information about the requested Workflow instance.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorkflowInstance'
+        '404':
+          description: Workflow alias or instance not found.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

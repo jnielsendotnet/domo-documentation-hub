@@ -1,0 +1,68 @@
+---
+title: "Google Analytics Management Service Accountコネクター"
+---
+
+## はじめに
+
+このコネクターを使ってGoogle Analytics Management Serviceのアカウントデータに接続します。Google Analytics Management APIを使用すると、Google Analytics設定データにプログラムでアクセスすることができます。DomoのGoogle Analytics Management Service Accountコネクターを使用して、ユーザーのためにすべてのアカウント、プロパティ、ビュー（プロフィール）情報を一覧表示するためのレポートを生成したり、どの目標をアクティブにするかを決定したり、設定された名前にアクセスしたりできます。Google Analyticsアカウントはいくつかのレベルで構成され、Management APIコネクターは各レベルでエンティティと相互作用する方法を提供します。
+
+Google Analytics Management APIについて詳しくは、Webサイト（https://developers.google.com/analytics/devguides/config/mgmt/v3 ）を参照してください。
+
+Google Analytics Serviceアカウントには、Data Centerから接続します。このトピックでは、 Google Analytics Management Service Account コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Google Analytics Serviceアカウントに接続してDataSetを作成するには、GoogleサービスアカウントのJSONキーが必要です。
+
+GoogleサービスアカウントのJSONキーを生成するには、次の手順を実行します。
+
+1. Google Cloud Platform Consoleで、**［IAMと管理］** ページを開きます。
+2. **［サービスアカウント］** をクリックします。
+
+   <Frame><img alt="GCP_screen.png" src="/images/kb/ka0Vq0000001Job-00N5w00000Ri7BU-0EM5w000005vNxW.png"/></Frame>
+
+3. プロジェクトを選択し、**［サービスアカウントを作成］** をクリックします。
+
+   <Frame><img alt="Create_Service_Account.png" src="/images/kb/ka0Vq0000001Job-00N5w00000Ri7BU-0EM5w000005vNxa.png"/></Frame>
+
+4. **サービスアカウントの詳細** セクションで、サービスアカウントの名前と説明を入力します。
+5. **［作成］** をクリックします。
+6. **このサービスアカウントのプロジェクトへのアクセスを許可するには**、 **［権限を選択］** ドロップダウンをクリックします。
+7. **［プロジェクト］>［所有者］** の順に選択します。
+
+   <Frame><img alt="Project-Owner.png" src="/images/kb/ka0Vq0000001Job-00N5w00000Ri7BU-0EM5w000005vNxV.png"/></Frame>
+
+8. **［次に進む］** をクリックします。
+9. **［終了］** をクリックします。サービスアカウントの概要が表示されます。
+10. **アクション** 列で3つの点が並んだメニューをクリックして展開します。 **［キーを管理］** をクリックします。
+
+    <Frame><img alt="Actions-Manage_Keys.png" src="/images/kb/ka0Vq0000001Job-00N5w00000Ri7BU-0EM5w000005vNxX.png"/></Frame>
+
+11. **［キーを追加］** をクリックします。 **［新しいキーを作成］** を選択します。
+
+    <Frame><img alt="Add_Key-Create_new_key.png" src="/images/kb/ka0Vq0000001Job-00N5w00000Ri7BU-0EM5w000005vNxb.png"/></Frame>
+
+12. **［シークレットキーを作成］** ウィンドウが表示されます。シークレットキーのタイプに **［JSON］** を選択し、 **［作成］** をクリックします。
+13. シークレットキーがコンピューターに保存されます。
+
+## Googleサービスアカウントに接続する
+
+このセクションでは、 Google Analytics Management Service Account コネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Google Analytics Management Service Account にアクセスするための認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> サービスアカウントのJSONキー </td><td colspan="1" rowspan="1"><span> GoogleサービスアカウントのJSONキーをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </span></td></tr><tr><td colspan="1" rowspan="1"> クォータ制限 </td><td colspan="1" rowspan="1"><span> Google AnalyticsプロジェクトのQPS制限を選択します。デフォルト設定では20 QPSです。 </span></td></tr></tbody></table>
+
+有効なキー を入力した後は、新しい Google Analytics Management Service Account DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じ表示・非表示となる様々なメニューが準備されています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行する <span> Google Analytics Management Service </span> Accountレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> アクセス権のあるすべてのアカウントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウントのサマリー </td><td colspan="1" rowspan="1"> ユーザーがアクセスできるアカウントのサマリー（アカウント、プロパティ、プロフィールで構成される軽量でフラットなツリー）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウントのユーザーリンク </td><td colspan="1" rowspan="1"> 特定のアカウントに対するアカウントユーザーのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Wordsリンク </td><td colspan="1" rowspan="1"> 所定のWebプロパティに対するWebプロパティとGoogle Adsのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムデータソース </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムデータソースを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムディメンション </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムディメンションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムメトリクス </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるカスタムディメンションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 実験 </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のある実験を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> フィルター </td><td colspan="1" rowspan="1"> アカウントに対するすべてのフィルターを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> 目標 </td><td colspan="1" rowspan="1"> アクセス権のある目標を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィールとフィルターのリンク </td><td colspan="1" rowspan="1"> 所定のプロフィールに対するすべてのプロフィールとフィルターのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィールとユーザーのリンク </td><td colspan="1" rowspan="1"> 所定のビュー（プロフィール）に対するプロフィールとユーザーのリンクを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィール </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるビュー（プロフィール）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> リマーケティングオーディエンス </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるリマーケティングオーディエンスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> セグメント </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるセグメントを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> アップロード </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるアップロードを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ </td><td colspan="1" rowspan="1"> ユーザーがアクセス権のあるプロパティを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティユーザーリンク </td><td colspan="1" rowspan="1"> 所定のWebプロパティに対するWebプロパティとユーザーのリンクを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> データをクエリするアカウントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ </td><td colspan="1" rowspan="1"> データをクエリするWebプロパティを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> プロフィール </td><td colspan="1" rowspan="1"> データをクエリするプロフィールを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Webプロパティ選択タイプ </td><td colspan="1" rowspan="1"><b> ［すべてのWebプロパティ］ </b> を選択すると、ユーザーがアクセス権のあるすべてのWebプロパティのデータが取得されます。 <b> ［特定のWebプロパティ］ </b><span> を選択すると、選択したWebプロパティのデータが取得 </span> されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムデータソース </td><td colspan="1" rowspan="1"> データをクエリするカスタムデータソースを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> アカウント選択タイプ </td><td colspan="1" rowspan="1"><b> ［すべてのアカウント］ </b> を選択すると、ユーザーがアクセス権のあるすべてのアカウントのデータが取得されます。 <b> ［特定の </b><b> アカウント］ </b> を選択すると、選択したアカウントのすべてのデータが取得されます。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。

@@ -1,0 +1,135 @@
+---
+title: "Sprinklr Advancedコネクター"
+---
+
+## はじめに
+
+Sprinklr社は、大企業向けにソーシャルメディアマーケティング、ソーシャル広告、コンテンツ管理、コラボレーション、アドボカシー、ソーシャルメディアモニタリングを提供する、ソーシャルソフトウェアプラットフォーム（Sprinklrという名称で呼ばれる）の開発および販売を行う企業です。DomoのSprinklr Advancedコネクターを使用して、投稿インサイト、ブートストラップ情報、プロフィールなどに関する情報を取得するとともに、カスタムクエリを作成します。Sprinklr APIの詳細については、同社ウェブサイト（ [https://developers.sprinklr.com/](https://developers.sprinklr.com/ "https://developers.sprinklr.com/") ）を参照してください。
+
+Sprinklr Advancedコネクターは、「Custom Query」というレポートタイプが追加されていることを除けば、 [標準のSprinklrコネクター](/ja/s/article/360043431993 "Sprinklrコネクター") とまったく同じです。このレポートでは、Sprinklr UIのクエリ定義を入力してSprinklrでレポートの動作を再現することができます。
+
+Sprinklr Advancedコネクターは「クラウドApp」であるため、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、このコネクターのほか様々なクラウドAppコネクターのページにアクセスできます。
+
+Sprinklrアカウントには、Data Centerから接続します。このトピックでは、Sprinklr Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Sprinklrでは、組織が様々なソーシャルプラットフォームアカウントを1ヶ所に集約し、各種ソーシャルメディアのKPI追跡を行うことが可能です。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> エンゲージメント数（Facebookのいいね、Twitterのいいね、LinkedInのシェア） </p></li><li><p> リーチ </p></li><li><p> インプレッション数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ソーシャルマーケティング担当者 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> APIにアクセスする申請プロセスに2週間を要します。認証後、実際導入にかかる時間は5時間ほどです。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+レポートオプションの多くは、手動での設定が必要です。これらオプションの詳細は、APIのドキュメントに記載されています。例えば、「Account Insights」、「Post Insights」、「Paid Ad Stats Insights」のレポートでは、 groupby フィールドへの入力が必要です。このフィールドに入力した内容すべてが、レポートのディメンションとなります。APIのドキュメントには、 groupby で使用可能な列の一覧があります。コネクターツールのヒントは、それぞれの設定手順に必要となる適切なフォーマットを示したものです。
+
+## 必要条件
+
+Sprinklrアカウントに接続してDataSetを作成するには、SprinklrクライアントIDとクライアントシークレットが必要です。
+
+APIへのアクセスには、申請書を提出した上でSprinklrによる承認が必要です。 [https://developers.sprinklr.com/page/Create\_an\_APP](https://developers.sprinklr.com/page/Create_an_APP "https://developers.sprinklr.com/page/Create_an_APP") に申請プロセス完了までのすべてのステップが掲載されています。
+
+また、APIキー作成の際は、
+
+https://oauth.domo.com/api/data/v1/oauth/providers/sprinklr/exchange
+へのredirect\_uri設定が必要です。
+
+アクセス確認後、クライアントIDとクライアントシークレットでの認証が可能になります。
+
+## Sprinklrアカウントに接続する
+
+このセクションでは、Sprinklrコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、Sprinklrアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Environment </p></td><td colspan="1" rowspan="1"><p> 接続先のSprinklr環境として、［Sandbox］または［Production］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> SprinklrクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Sprinklrクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+認証の詳細については、上記「必要条件」をご覧ください。
+
+有効なSprinklr認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSprinklr DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054?language=en_US "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、レポートタイプを選択するメインの **［Report］** メニューをはじめ、選択したレポートタイプに応じて表示されるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><b> メニュー </b></p></th><th colspan="1" rowspan="1"><p><b> 説明 </b></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Sprinklrレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account Insights </p></td><td colspan="1" rowspan="1"><p> アカウントレベルの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Bootstrap Info </p></td><td colspan="1" rowspan="1"><p> 様々なリソースの静的データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Metric Information </p></td><td colspan="1" rowspan="1"><p> ユーザーが定義したカスタムメトリクス情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Query </p></td><td colspan="1" rowspan="1"><p> Sprinklrでレポートの動作を再現するための、Sprinklr UIのクエリ定義を入力します。 </p><p><a href="https://developer.sprinklr.com/docs/read/api_20/reporting_api/Custom_Query" target="_blank" title="https://developer.sprinklr.com/docs/read/api_20/reporting_api/Custom_Query"> https://developer.sprinklr.com/docs/read/api_20/reporting_api/Custom_Query </a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Dashboard Column </p></td><td colspan="1" rowspan="1"><p> 要求されたモニタリングダッシュボード列の詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Listening Stream </td><td colspan="1" rowspan="1"> 各メッセージに関連付けられたメッセージストリーム（必要な情報を含む）を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Listening Topic Configuration </td><td colspan="1" rowspan="1"> 利用可能な構成済みトピックグループおよびトピックすべてのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Listening Widget </td><td colspan="1" rowspan="1"> 単一のウィジェットを返します。ウィジェットは、リスニングデータと分析結果を視覚的に訴える形式で表示するために作成されたグラフまたはチャートの名前です。 </td></tr><tr><td colspan="1" rowspan="1"> Paid Ad Stat Insights </td><td colspan="1" rowspan="1"> 有料広告に関する統計値を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Post Insights </p></td><td colspan="1" rowspan="1"><p> 公開のブランド投稿に関するインサイトを返します。 </p><p> このレポートで受入れ可能な列の一覧については、 <br/><a href="https://developer.sprinklr.com/docs/read/api_tutorials/Reporting_Blueprint" target="_blank" title="https://developer.sprinklr.com/docs/read/api_tutorials/Reporting_Blueprint"> https://developer.sprinklr.com/docs/read/api_tutorials/Reporting_Blueprint </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Profile Conversion Data </p></td><td colspan="1" rowspan="1"><p> 指定されたユーザーIDの会話内にあるメッセージを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Profile Details </p></td><td colspan="1" rowspan="1"><p> 要求されたソーシャルプロフィールのプロフィール詳細を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Stream Feed </p></td><td colspan="1" rowspan="1"><p> 要求された <b> ストリームID </b> のメッセージを返します。列は様々なフィルターオプションで定義できるため、列がフィルターで構成されている場合、APIが返すのはフィルターされたメッセージのみになります。ストリームフィードAPIは汎用的に利用できるため、受信トレイ、ワークフロー、送信メッセージといった様々なタイプのフィードを列にすることができます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Aggregate Function </p></td><td colspan="1" rowspan="1"> レポート内のデータ集計方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Measurement Names </td><td colspan="1" rowspan="1"> データを取得する測定値をすべて選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Group By Options </td><td colspan="1" rowspan="1"><p> 希望する <span class="mt-font-courier-new"> groupby </span> オプションを <span class="mt-font-courier-new"> (columnName,dimensionName,groupType,detail=value) </span> のフォーマットで入力します。 </p><p> 例： <span class="mt-font-courier-new"> ("MyAccountId",ACCOUNT_ID,FIELD),(date,DATE_HISTOGRAM,interval=1w) </span></p></td></tr><tr><td colspan="1" rowspan="1"> Filter Options </td><td colspan="1" rowspan="1"><p> 希望するフィルターオプションを <span class="mt-font-courier-new"> (dimensionName,filterType,[value1,value2],detail=value) </span> のフォーマットで入力します。 </p><p> 例： <span class="mt-font-courier-new"> (SN_TYPE,IN,[FACEBOOK]),(CLIENT_ID,IN,[62]),(ACCOUNT_ID,IN,[3051,553,565]) </span></p></td></tr><tr><td colspan="1" rowspan="1"> Measurement Options </td><td colspan="1" rowspan="1"> 追加で行う結果計算の測定オプションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Select Resources </td><td colspan="1" rowspan="1"> データを取得するリソースをすべて選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Reports </td><td colspan="1" rowspan="1"> 情報を取得するカスタムメトリクスをすべて選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Dashboard Name </td><td colspan="1" rowspan="1"> ダッシュボード名を入力します（例： <span class="mt-font-courier-new"> AutoDashboard </span> ）。 </td></tr><tr><td colspan="1" rowspan="1"> Column Name </td><td colspan="1" rowspan="1"> 列名を入力します（例： <span class="mt-font-courier-new"> fbinbox </span> ）。 </td></tr><tr><td colspan="1" rowspan="1"> Channel Type for the Profile </td><td colspan="1" rowspan="1"> プロフィールのチャネルタイプを入力します（例： <span class="mt-font-courier-new"> FACEBOOK </span> ）。 </td></tr><tr><td colspan="1" rowspan="1"> Profile ID of Social Channel </td><td colspan="1" rowspan="1"> ソーシャルチャネルの一意のプロフィールIDを入力します（例： <span class="mt-font-courier-new"> 215244391952058 </span> ）。 </td></tr><tr><td colspan="1" rowspan="1"> Stream </td><td colspan="1" rowspan="1"> データを取得するストリームのIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Widget Type </td><td colspan="1" rowspan="1"> データを取得するリスニングウィジェットタイプ（分布、トレンドなど）を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Columns to Expand（オプション） </td><td colspan="1" rowspan="1"> 複数列に展開する列のカンマ区切りリストを入力します。通常は、「リスト」または「オブジェクト」として返される列です。 </td></tr><tr><td colspan="1" rowspan="1"> Dimension </td><td colspan="1" rowspan="1"> 「Listening Widget」レポートに表示する最初のディメンションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Field Name </td><td colspan="1" rowspan="1"> 選択したディメンションのカスタムフィールド名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Other Dimension </td><td colspan="1" rowspan="1"> 「Listening Widget」レポートに表示する2番目のディメンションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Subtype </td><td colspan="1" rowspan="1"> 「Listening Widget」レポートでデータを取得するユーザーのサブタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Expand Lists </p></td><td colspan="1" rowspan="1"><p> リストを含む列を展開するか否かを選択します。このオプションを選択すると、DataSetで単一の投稿に対し複数行が含まれる場合があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> SprinklrレポートをDomoに取得するためのカスタムクエリを入力します。 </p></td></tr></tbody></table>
+
+以下のスクリーンショットは、「Post Insights」レポートの構成例を示したものです。
+
+<Frame><img alt="" src="/images/kb/ka0Vq00000074Rt-00N5w00000Ri7BU-0EM5w000005vO2V.png" style={{width: 510, height: 984}}/></Frame>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+このコネクターで最も多いのが、フィルターに関連した問題です。Sprinklrでは、各レポートをフィルター処理した上で、Sprinklrウェブサイトのレポートに表示されるSprinklrデータを消去する個別のクエリで実行します。コネクターの設定時には、これらと同じフィルターの使用が *必須* で、それらが使用されていない場合、データが複製されるまたは失われるといったトラブルが発生します。これを行うためには、SprinklrレポートのバックエンドにあるAPIコールの使用が必要となります。
+
+このコードにアクセスする、またはコネクターから取得するフィルターとバックエンドレポートを見つけるには、次の手順を実行します。
+
+1. Chromeブラウザーを開きます。
+2. ブラウザーを右クリックして、
+   **［検証］** を選択します。
+3. デベロッパー用画面で
+   **［Network］** タブに移動します。
+4. Sprinklrレポートページで画面を再読み込みします。
+     
+   再読み込みすると **［Name］** 列の下に要素が複数表示されます。
+5. クエリを検索し、対応するレポートまたは複製するデータを見つけます。
+6. クエリを選択し、
+   **［requests］** の下を対象に検索を行い、Domoコネクターへの入力が必要なデータをすべて特定します。
+     
+   <Frame><img alt="sprinklr1__1_.png" src="/images/kb/ka0Vq00000074Rt-00N5w00000Ri7BU-0EM5w000005vO2W.png"/></Frame>
+
+7. 認証情報を使いDomoのSprinklrコネクターに接続します。
+8. Sprinklrレポートに使用されるレポートを選択します。
+     
+   Sprinklrでは、 **［requests］>** **［parameter］** の下にこのレポートがあります。この例では、「Post Insights」という名称です。
+9. **［Aggregation Function］**
+   には、Sprinklrレポートに使用される関数を選択します。
+     
+   Sprinklrでは、 **［groupBys］>**
+
+   **［projections］** の下にこの関数があります。この例では、「 **SUM** 」となっています。
+10. **［Measurement Name］**
+    には、Sprinklrレポートに使用される関数を選択します。
+      
+    Sprinklrでは、 **［groupbys］>［projections］>［measurement］** の下にこの関数があります。この例では、「 **TOTAL\_ENGAGEMENT** 」がこれに当たります。
+11. **［Group By Options］**
+    には、構文 (columnName,dimensionName,groupType,detail=value) を使い **［Network］** タブの **［Requests］** ドロップダウンメニューの下のSprinklrレポートで、 **［groupby］** フィールドを入力します。
+      
+    例えば、グループに［Client\_ID］フィールドがリストされている場合であれば、 **［Group By Options］** には、 (Client\_ID,Client\_ID, field) の構文を使用します。
+      
+    また、Domoカードで必要なフォーマットでのデータレンダリングを行えるよう、Sprinklrレポートに含まれていなくとも、日付グループの使用を推奨します。例： (date,DATE\_HISTOGRAM,interval=1h) または (POST\_PUBLISHED\_DATE,FIELD)
+12. **［Filters］**
+    には、Sprinklrレポートに使用されるフィルターを入力します。
+      
+    Sprinklrでは、 **［requests］>［filters］** の下にこれに当たるフィルターがあります。 **［Filters］** ボックスにある「?」の下の構文を使用します。
+13. （条件付き）Sprinklrレポートのクエリコードで、
+    **［Columns to Expand］** と **［Measurement** **Options］** の適用が示されている場合は、「request」データに含まれる情報を入力します。
+14. 期間の設定時は、実際のSprinklrレポート/グラフに記載の期間、またはカードの可視化に必要な期間を使用します。DomoのSprinklrレポートの大半で、実際には期間がありません。
+    **［Time］**
+
+    フィルターで指定の時間が、データベースに非対応であるか、また日付として認識不可能なフォーマットであるかは、バックエンドで確認可能です。
+
+## ドリルダウンの構築
+
+Sprinklrデータにドリルダウンを作成するには、カードに表示するドリルダウンの種類を設計または検索し、そのデータを表示するSprinklrのDataSetを新規作成します。ドリルダウンを使うには、最上位のSprinklrデータソースに対応するDataFlowの同じフィールド名を取得するか、名前の変更を行う必要があります。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは、1日に1回の更新がかかる設定にする必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+Sprinklrでは、実稼働環境インスタンスへの呼び出しに、5回/秒、500回/時の制限があります。サンドボックスインスタンスへの呼び出しは、2回/秒、100回/時の制限となります。1回のDataSet実行に複数の呼び出しが必要になる場合があるので注意してください。
+
+
+
+</Accordion>
+</AccordionGroup>

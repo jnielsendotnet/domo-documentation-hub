@@ -1,0 +1,95 @@
+---
+title: "Google Drive Enterprise Writebackコネクター"
+---
+
+## はじめに
+
+Googleドライブは、Googleが開発したファイル保存および同期サービスです。Googleドライブを使用するとユーザーはファイルをクラウドに保存したり、デバイス間でファイルを同期したり、ファイルを共有したりできます。このコネクターを使用すると、Domo DataSetからGoogleドライブにデータをエクスポートできます。Google Drive APIの詳細については、ウェブサイト（ [https://developers.google.com/drive/](https://developers.google.com/drive/ "https://developers.google.com/drive/") ）を参照してください。
+
+GoogleドライブへのデータのエクスポートはData Centerで行います。このトピックでは、Google Drive Enterprise Writebackコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターを設定するには、次の情報が必要です。
+
+* GoogleドライブとGoogle People APIを有効にしてGoogle Developers Console中で作成されたプロジェクト（Google People APIの詳細については、
+  https://developers.google.com/people/?hl=en_US
+  を参照してください）
+* DomoクライアントIDとクライアントシークレット
+* Google developerクライアントIDとクライアントシークレット
+
+Google developerクライアントIDとクライアントシークレットの取得については、以下を参照してください。
+https://developers.google.com/identity/protocols/OAuth2#basicsteps
+
+以下のステップは、プロジェクトの作成方法について詳しく説明します。
+
+### ステップ1：Google Developers Consoleでプロジェクトを作成する
+
+Google Developers Consoleでプロジェクトを作成するには、次の手順を実行します。
+
+1. [https://console.developers.google.com](https://console.developers.google.com "https://console.developers.google.com")
+   に移動します。
+2. **［プロジェクトの選択］** の横のドロップダウン矢印をクリックします。
+
+   <Frame><img alt="googlesheets_writeback_1.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5e.png"/></Frame>
+
+3. **［新しいプロジェクト］** をクリックします。
+
+   <Frame><img alt="googlesheets_writeback_2.png" src="/images/kb/ka05w00000123L9-00N5w00000Ri7BU-0EM5w000005vO5Z.png"/></Frame>
+
+4. プロジェクトに名前を付けて、親フォルダを選択します。
+5. **［作成］** をクリックします。
+
+   <Note>
+   **注記：** 必要に応じて既存のプロジェクトを使用することもできます。
+
+   </Note>
+
+### ステップ2：Google Drive APIを有効にする
+
+Google Drive APIをプロジェクトで有効にするには、次の手順を実行します。
+
+1. Google Developers Consoleでプロジェクトを選択し、**［ライブラリ］** をクリックします。
+
+   <Frame><img alt="googlesheets_writeback_3.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOA9.png"/></Frame>
+
+2. Google Drive APIを検索します。
+3. **［有効化］** をクリックします。
+
+   <Frame><img alt="googledrive_writeback_1.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOAK.png"/></Frame>
+
+### ステップ3：DomoクライアントIDとクライアントシークレットを作成する
+
+DomoクライアントIDとクライアントシークレットを作成するには、次の手順を実行します。
+
+1. [https://developer.domo.com](https://developer.domo.com "https://developer.domo.com")
+   に移動してログインします。
+2. **［新規クライアント］** をクリックします（右上の ［マイアカウント］から）。
+3. **［データ］** と **［ユーザー］** のアプリケーション範囲を持つ新しいクライアントを作成します。
+
+   <Frame><img alt="googledrive_writeback_6.png" src="/images/kb/ka05w00000123QW-00N5w00000Ri7BU-0EM5w000005vOA8.png"/></Frame>
+
+   **［作成］** をクリックすると、クライアントIDとクライアントトシークレットにリダイレクトされます。
+4. すぐに必要になるため、クライアントIDとクライアントシークレットをコピーします。
+
+## 接続を設定する
+
+このセクションでは、［Google Drive Enterprise Writebackコネクター］ページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Google developerアカウントとDomo開発者アカウントに接続するための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> クライアントID </p></td><td colspan="1" rowspan="1"><p> Google developerクライアントIDを入力します。詳細については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> クライアントシークレット </p></td><td colspan="1" rowspan="1"><p> Google developerクライアントシークレットを入力します。詳細については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> DomoクライアントID </p></td><td colspan="1" rowspan="1"><p> 上述の「必要条件」セクションの「ステップ3：DomoクライアントIDとクライアントシークレットを作成する」でコピーしたDomoクライアントIDを貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domoクライアントシークレット </p></td><td colspan="1" rowspan="1"> 上述の「必要条件」セクションの「ステップ3：DomoクライアントIDとクライアントシークレットを作成する」でコピーしたDomoクライアントシークレットを貼り付けます。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDomo-Googleドライブ接続を設定できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 入力DataSet ID </p></td><td colspan="1" rowspan="1"><p> GoogleドライブにコピーするDataSetのDataSet ID（GUID）を入力します。Data CenterでDataSetの詳細ビューを開き、URLの <span class="mt-font-courier-new"> datasources/ </span> に続く部分を見ると、IDを見つけることができます。例えば、URLが <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span> であれば、DataSet IDは <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span> になります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名を選択 </p></td><td colspan="1" rowspan="1"><p> DataSetの参照に <b><b> ［入力DataSet ID］ </b></b> を使用するか、出力ファイル名を使用するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ファイル名 </p></td><td colspan="1" rowspan="1"><p> データの出力ファイル名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MIMEタイプ </p></td><td colspan="1" rowspan="1"><p> データのMIMEタイプを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSet](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") を追加する」を参照してください。

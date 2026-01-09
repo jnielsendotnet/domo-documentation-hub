@@ -1,0 +1,95 @@
+---
+title: "Google Adsコネクター"
+---
+
+## はじめに
+
+<Warning>
+**重要：** GoogleはGoogle Ads APIを優先して、2022年4月27日にAdwords APIを廃止します。
+  
+そのため、DomoはAdwords APIに依存するGoogle Adsコネクター（com.domo.connector.adwords.oauth）を廃止します。詳細は、「 [Google Ads コネクターの廃止](https://domo-support.domo.com/ja/s/article/5005702805271) 」を参照してください。
+
+</Warning>
+
+Google Ads（以前のGoogle AdWords）は、広告主が料金を支払ってWebユーザーに短い広告を表示するためのオンライン広告サービスです。Google Adsコネクターを使って、アカウント、広告、キャンペーン、予算などに関するパフォーマンスレポートを取得できます。 Ads APIの詳細については、 [https://developers.google.com/adword...s/guides/start](https://developers.google.com/adwords/api/docs/guides/start "https://developers.google.com/adwords/api/docs/guides/start") を参照してください。
+
+このトピックでは、Google Ads OAuthコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な説明については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+このコネクターを使用してGoogle Adsデータに接続するには、 Googleの認証情報（メールアドレスとパスワード）が必要です。
+
+## Google Adsアカウントに接続する
+
+このセクションでは、Google Adsコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo Google Ads OAuthコネクターは、Googleへの接続にOAuthを使用しています。 **［接続］** をクリック（または、Domoに既存のGoogleアカウントがある場合は **［アカウントを追加］** を選択）すると、Google OAuth画面が開き、接続するアカウントを選択できます。アカウントを選択した後で、そのアカウントのパスワードを入力します。有効なパスワードを入力した後は、Google AdsO Auth DataSetを作成する際に常に同じDomoアカウントを使用できるようになります。 コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしたアカウントとは異なるアカウントに接続したい場合は、まず現在アクティブになっているGoogleアカウントからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ ペイン
+
+このペインには、レポートの設定に使用できるいくつかのフィールドとメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Ads OAuthレポートを選択します。以下のレポートが利用できます。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Account Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> アカウントレベルでデフォルトで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Ad Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 広告レベルで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Ad Group Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 広告グループレベルでデフォルトで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Budget Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 予算レベルでデフォルトで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Keywords Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> キーワードレベルで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Campaign Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> キャンペーンレベルでデフォルトで集計したすべての統計情報を返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Placement Performance </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> プレースメントレベルで集計したすべての統計情報を返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Customer ID </p></td><td colspan="1" rowspan="1"><p><span> データを取得する顧客IDのリストをカンマで区切って入力します。これらのIDは、マネージャーアカウントではなく、Google Adsの広告主アカウントのIDです。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Segments </p></td><td colspan="1" rowspan="1"><span> データの内訳となるセグメントを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Metrics </p></td><td colspan="1" rowspan="1"><span> データを取得したいメトリクスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Currency Display </p></td><td colspan="1" rowspan="1"><p><span> 通貨額を現地通貨のマイクロ単位（100.00〜100,000,000ドル）で表示するか、現地通貨で表示するかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Range </p></td><td colspan="1" rowspan="1"><p> レポートのデータの日付範囲を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Type </p></td><td colspan="1" rowspan="1"><p> データの取得元となる特定の日付、または日付範囲を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付なのか、それとも今日から何日前までの相対的なものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <span></span><b> ［Days Back］ </b><span></span> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b> ［End Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b> ［Start Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターが機能しません。AdWordsデータをDomoに取り込む方法はほかにありますか？">
+
+
+このコネクターがデータをDomoに取り込めない場合は、Google Ads via Google BigQuery Serviceコネクター、Google BigQuery Serviceコネクター、Google SheetsコネクターのいずれかのDomoコネクターを使用してみてください。
+  
+代替策として、
+  
+[Google Adsコネクター](https://domo-support.domo.com/ja/s/article/360042926814) の説明をご覧ください。
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Googleアカウントの認証情報が必要です。
+
+
+</Accordion>
+<Accordion title="ログイン認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、DomoによってGoogleの認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+
+</Accordion>
+</AccordionGroup>

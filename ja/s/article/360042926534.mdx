@@ -1,0 +1,37 @@
+---
+title: "Campaignerコネクター"
+---
+
+## はじめに
+
+Campaignerは、自動メールマーケティングプラットフォームです。Campaigner APIの詳細については、ウェブサイト（ [https://www.campaigner.com/email-fea.../api-elements/](https://www.campaigner.com/email-features/api-elements/ "https://www.campaigner.com/email-features/api-elements/") ）を参照してください。
+
+Campaignerアカウントには、Data Centerから接続します。このトピックでは、Campaignerコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Campaignerアカウントに接続してDataSetを作成するには、Campaignerのユーザー名とパスワードが必要です。
+
+## Campaignerアカウントに接続する
+
+このセクションでは、Campaignerコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Campaignerアカウントに接続するための認証情報を入力するフィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Campaignerユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Campaignerパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なCampaigner認証情報を一度入力しておくと、随時同じアカウントを使用して新しいCampaigner DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するCampaignerレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> GetCampaignRunsSummaryReport </p></td><td colspan="1" rowspan="1"><p> 指定したキャンペーンのサマリーデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> GetCampaignSummary </p></td><td colspan="1" rowspan="1"><p> 指定したキャンペーンのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> GetTrackedLinkSummaryReport </p></td><td colspan="1" rowspan="1"><p> キャンペーン内の追跡可能なリンクに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> GetUnsubscribeMessages </p></td><td colspan="1" rowspan="1"><p> サブスクライブ解除メッセージを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ListCampaigns </p></td><td colspan="1" rowspan="1"><p> アカウント上の既存のキャンペーンをすべて一覧表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ListFromEmails </p></td><td colspan="1" rowspan="1"><p> アカウントに関連付けられている検証済みおよびペンディング中のメールアドレスをすべて一覧表示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ListTrackedLinksByCampaign </p></td><td colspan="1" rowspan="1"><p> キャンペーンIDのリストに関連付けられたIDとLinkNameを持つすべての追跡リンクのリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Name </p></td><td colspan="1" rowspan="1"><p> データを取得したいキャンペーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Names </p></td><td colspan="1" rowspan="1"><p> データを取得するすべてのキャンペーンを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Status </p></td><td colspan="1" rowspan="1"><p> データをフィルターするキャンペーンステータスを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Campaign Type </p></td><td colspan="1" rowspan="1"><p> データをフィルターするキャンペーンタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group By Domain </p></td><td colspan="1" rowspan="1"><p> データをフィルターするドメイン別グループを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するのか、日付範囲のデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

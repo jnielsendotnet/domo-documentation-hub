@@ -1,0 +1,141 @@
+---
+title: "YouTube Reporting Enterpriseコネクター"
+---
+
+## はじめに
+
+DomoのYouTube Reporting Enterpriseコネクターを使用して、YouTubeのアセット、動画、チャンネルに関する情報を取得することができます。YouTube APIについての詳細は、ウェブサイト（ [https://developers.google.com/youtube/](https://developers.google.com/youtube/ "https://developers.google.com/youtube/") ）を参照してください。
+
+<Note>
+**注記：** Domoでは現在、5つのYouTubeコネクターを利用できます。これら5つのコネクターの違いを理解するのは難しい場合があるため、以下にそれぞれの説明を示します。
+
+* **YouTube Reportingコネクター -**
+  このコネクターは、エントリーレベルのYouTubeコネクターです。認証に必要なのは、Googleのユーザー名とパスワードのみです。ほとんどのDomoユーザーは、このコネクターを使用してYouTubeデータを取得するはずです。
+* **YouTube Reporting Enterpriseコネクター -**
+  YouTube Reportingコネクターのエンタープライズバージョンです。このレポートには、いくつかの追加レポートがあります。基本的なGoogleユーザー名とパスワードに加えて、GoogleクライアントIDとクライアントシークレットを入力する必要があります。
+* **YouTube Enterprise Advancedコネクター -**
+  Domoの最も高度なYouTubeコネクターです（これがYouTube Enterpriseコネクターの唯一のバージョンです。単に「YouTube Enterprise」と呼ばれるコネクターはありません）。GoogleクライアントIDとクライアントシークレット、およびGoogleユーザー名とパスワードが必要です。ほかのYouTubeコネクターよりも多くのレポートとオプションを提供しますが、設定が複雑で非常に困難です。このコネクターは、上級ユーザーにのみ推奨されます。
+* **YouTube Reporting Partitionコネクター**
+  **-** 提供するレポートはYouTube Reportingコネクターと同じですが、DataSetでパーティショニングを使用できます。
+* **YouTube Reporting Enterprise Partitionコネクター**
+  **-** 提供するレポートはYouTube Reporting Enterpriseコネクターと同じですが、DataSetでパーティショニングを使用できます。
+
+</Note>
+
+YouTube Reporting Enterpriseコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+YouTube Reporting Enterpriseアカウントには、Data Centerから接続します。このトピックでは、YouTube Reporting Enterpriseコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ベストプラクティス
+
+* このコネクターを最初に作成すると、「定義済みレポート」の取得を選択できます。これらのレポートは、提供されているYouTubeアカウントに関する分析データの取得に使用します。初めてレポートを選択したとき（つまり、このレポートを使用する最初のDataSetに対し）、DomoはYouTubeレポートジョブを作成します。その日以前のすべてのデータは「履歴データ」と見なされます。YouTubeは30日分の履歴データのみを返します。例えば、最初の「デバイスとOS」レポートのDataSetが8月31日に作成された場合、利用できるのは8月1日以降のデータのみです。この履歴データは通常、DataSetの作成から数日後に利用できます。毎日、2日前のデータが利用可能になります。上記の例では、8月31日のデータは9月2日に、9月1日のデータは9月3日に利用できることになります。9月末には、このDataSetには2ヶ月分のデータ（8月のデータと9月のデータ）が含まれることになります。ただし、履歴データを利用できるのは30日間のみです。つまり、10月頃になると8月のデータはYouTubeから利用できなくなります。一方、DataSet作成後（つまり8月31日以降）の全データはYouTubeで60日間利用できます。
+* データが更新されるのは1日に1回なので、DataSetは24時間に1回だけ実行します。
+
+## 必要条件
+
+YouTubeアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* GoogleクライアントID
+* Googleクライアントシークレット
+* Googleのユーザー名とパスワード
+
+クライアントIDとクライアントシークレットの取得に関する詳細な手順については、 [https://support.google.com/cloud/answer/6158849](https://support.google.com/cloud/answer/6158849 "https://developers.google.com/console/help/new/#generatingoauth2") を参照してください。
+
+<Note>
+****注記：****
+
+Domoに複数のYouTube Reporting Enterpriseアカウントがある場合、このコネクターを適切に構成するには、Google People APIを有効にする必要があります。Google People APIが有効になっていない場合は、
+
+Domoの新しいYouTube Reporting Enterpriseアカウントにより現在の認証情報が上書きされます。
+
+</Note>
+
+APIの詳細については、 [https://developers.google.com/people/?hl=ja](https://developers.google.com/people/?hl=en_US "フォローリンク") を参照してください。
+
+<Frame><img alt="google_people_api.png" src="/images/kb/ka05w000001238U-00N5w00000Ri7BU-0EM5w000005vNzE.png"/></Frame>
+
+## YouTube Reporting Enterpriseアカウントに接続する
+
+このセクションでは、YouTube Reporting Enterpriseコネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、YouTubeアカウントに接続するための認証情報の入力フィールドがあります。これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+以下の表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> Client ID </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> GoogleクライアントIDを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> Client Secret </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Googleクライアントシークレットを入力します。 </span></p></td></tr></tbody></table>
+
+有効な認証情報を入力すると、GoogleのOAuthページが表示され、Googleのユーザー名とパスワードの入力を求められます。正常に認証されると、新しいYouTube Reporting Enterprise DataSetを作成するときはいつでも同じアカウントを使用できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ ペイン
+
+このペインには、レポートを選択できるメインメニューのほか、選択したレポートを設定できるその他様々なメニューやフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p><span class="s1"> メニュー </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p><span class="s1"> Report </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 必要なYouTube Reporting Enterpriseレポートを選択します。選択するAPIのタイプに応じて、様々なレポートをご利用いただけます。 </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Asset Names </p></td><td colspan="1" rowspan="1"><p> すべてのアセットのリストを返します。 <br/><b> このレポートには、コンテンツ所有者IDが必要です。 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Available Reports </p></td><td colspan="1" rowspan="1"><p> レポートタイプにもとづいて、利用可能なレポートを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel Details and Statistics </p></td><td colspan="1" rowspan="1"><p> 認証されたチャンネルのコンテンツの詳細、スニペット、統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Jobs </p></td><td colspan="1" rowspan="1"><p> チャンネルまたはコンテンツ所有者にスケジュールされたレポートジョブのリストです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Other Video Details and Statistics </p></td><td colspan="1" rowspan="1"><p> 指定されたチャンネルIDのコンテンツ詳細、スニペット、統計データを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Predefined Report Types </p></td><td colspan="1" rowspan="1"><p> チャンネルまたはコンテンツ所有者が取得できる、定義済みレポートのタイプを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Public Channel Information </p></td><td colspan="1" rowspan="1"><p> 入力されたチャンネルの公開情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Video and Channel Names </p></td><td colspan="1" rowspan="1"><p> 動画とチャンネル名のリストを返します。 </p></td></tr></tbody></table></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p> Call on Behalf of Content Owner </p>
+</td>
+<td colspan="1" rowspan="1">
+<p> 別のユーザー（ <b> ［Content Owner ID］ </b> フィールドに入力するユーザーのID）の定義済みレポートを取得する場合は、 <b> ［Yes］ </b> を選択します。取得するレポートのコンテンツ所有者である場合は、 <b> ［No］ </b> を選択します。 </p>
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> これを実行するには、開発者コンソールアプリケーションでコンテンツ所有者のアクセス権とコンテンツID APIを有効にする必要があります。 </div></div></div>
+</Note>
+
+ </td>
+ </tr>
+ <tr>
+ <td colspan="1" rowspan="1">
+ <p> Content Owner ID </p>
+ </td>
+ <td colspan="1" rowspan="1">
+ <p> 取得対象のコンテンツを持つユーザーのコンテンツ所有者IDを入力します。パラメーターの値が指定されていない場合、APIサーバーではリクエストはユーザー自身のチャンネルのために実行されたものとみなします。 </p><p> コンテンツ所有者IDを確認するには、MCN（マルチチャンネルネットワーク）のメンバーである必要があります。詳細については、 <a href="https://support.google.com/youtube/answer/2737059?hl=en" target="_blank"> https://support.google.com/youtube/answer/2737059?hl=ja </a> を参照してください。 </p><p> コンテンツ所有者IDを確認するには、以下を実行してください。 </p><ol><li><p> YouTubeにログインします。 </p></li><li><p> 右上のプロフィール写真をクリックします。 </p></li><li><p> ドロップダウンメニューで <b> ［Studio］ </b> を選択します。 </p></li><li><p> ページのURLの <span class="mt-font-courier-new"> o= </span> に続く部分をコピーします。 </p></li></ol><p> 例えば、ページのURLが <span class="nowiki"><span class="mt-font-courier-new"><a href="https://www.youtube.com/dashboard?o=abc123_qrs_654" rel="noopener" target="_blank"> https://www.youtube.com/dashboard?o=abc123_qrs_654 </a></span></span> である場合は、コンテンツ所有者IDは「 <span class="mt-font-courier-new"> abc123_qrs_654 </span> 」になります。 </p>
+ <Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> これを実行するには、開発者コンソールアプリケーションでコンテンツ所有者のアクセス権とコンテンツID APIを有効にする必要があります。 </div></div></div>
+ </Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1"><p> Preserve Column Names </p></td><td colspan="1" rowspan="1"><p> レポートが変更された場合に、DataSetの列名を保持するかどうかを指定します。データが変更された場合でもカードが破損しないように、これを <b> ［True］ </b> に設定することを推奨します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve Video and Channel Names </p></td><td colspan="1" rowspan="1"><p> レポートに動画IDまたはチャンネルIDが存在する場合に、動画名とチャンネル名を取得するかどうかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Channel IDs </p></td><td colspan="1" rowspan="1"><p> データを取得するチャンネルIDを入力します。複数のチャンネルIDが存在する場合は、コンマで区切ってください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば 、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr>
+ </tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションの設定方法など、コネクターインターフェースのその他のセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="クライアントIDとクライアントシークレットはどのように作成できますか？">
+
+
+クライアントIDとクライアントシークレットを作成するには、以下の手順を実行してください。
+
+1. Googleアカウントを使用して、Google Developer Dashboardにログインします。
+2. 新しいアプリケーションを作成します。
+3. アプリケーションに **YouTube Reporting Enterpriseコネクション** などのわかりやすい名前を付けます。
+4. **［Library］** セクションを使用して、以下のAPIを有効にします。
+   * YouTube Reporting API
+   * Google People API
+5. **［認証情報］** セクションの **［OAuth Consent Screen］** タブで、製品名を、プロジェクトに指定したものと同じ名前に設定します。
+6. **［認証情報］** タブで **［+ CREATE CREDENTIALS］** をクリックして、OAuthクライアントIDを作成します。
+7. Webアプリケーションを作成します。
+8. 許可されたリダイレクトURI、
+
+  [https://oauth.domo.com/api/data/v1/oauth/providers/youtube-reporting-enterprise/exchange](https://oauth.domo.com/api/data/v1/oauth/providers/youtube-reporting-enterprise/exchange/)
+
+   を設定します。 これにより、クライアントIDとクライアントシークレットが表示されます。
+9. クライアントIDとクライアントシークレットをコピーして、Domoのアカウント作成画面に貼り付けます。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,77 @@
+---
+title: "DomoStats - Activity Log"
+---
+
+## はじめに
+
+DomoStatsでは、チームによるDomoの使用状況を詳細に確認できます。DomoStatsは設定なしのライブのDomo DataSetを使用しているため、表示するメトリクスのカード、アラート、ワークフローを簡単に作成したり、作成済みのダッシュボードを使用したりできます。
+
+DomoStats Activity Log Appを使用すると、組織におけるDomoの使用状況を詳細に把握できます。日々のログイン数、お気に入りに設定されている上位のカード、前の週に作成されたDataSetの数などのアクティビティを確認します。Domoインスタンスで発生しているすべてのアクティビティの最新情報を常に把握できます。
+
+<Note>
+  **注記：** Activity Log Appを使用してカードとDataSetの認証を追跡する際には、既知の制限事項があります。認証を追跡するDomoStatsレポートのベータ版を利用するには、カスタマーサクセスマネージャー（CSM）またはアカウントエグゼクティブ（AE）にお問い合わせください。
+
+</Note>
+
+## 必要条件
+
+AppstoreからDomoStats Activity Log Appをダウンロードするには、管理者レベルのアクセス権が必要です。
+
+## DomoStats Appを使用する
+
+作成済みのダッシュボードを使用することも、Data CenterのDomoStats DataSetを使用して、独自のコンテンツを作成することもできます。Appを初めてダウンロードすると、「DomoStats - Activity Log」というタイトルの新しいページが作成されます。次の手順に従って、ダッシュボードにデータを入力します。
+
+1. **［DomoStats
+     - Activity Log］**
+   ページに移動します。
+2. **［データを接続］** を選択します。
+
+   <Frame><img alt="DomoStats_-_Connect_Data.png" src="/images/kb/ka0Vq000000DpMT-00N5w00000Ri7BU-0EM5w000005vNq0.png"/></Frame>
+3. ドロップダウンで **［接続］** を選択してページをDomoStats DataSetに接続するか、別のDomoユーザーにデータの設定を割り当てる場合は **［割り当て］** を選択します。
+
+   <Frame><img alt="DomoStats_-_DataSet_Connect.png" src="/images/kb/ka05w000001230R-00N5w00000Ri7BU-0EM5w000005vNq5.png"/></Frame>
+4. 最後のウィンドウで、 **［接続］** を選択します。
+
+   <Frame><img alt="DomoStats_-_Connect_Data_Last_Step.png" src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq7.png"/></Frame>
+5. これで作成済みのダッシュボードにデータが入力され、使用する準備が整いました。
+
+## ダッシュボード
+
+### データ
+
+DomoStats - Activity Log Appのダウンロードには、次のデータが含まれており、Data Centerでは「DomoStats」タイプのDataSetとして表示されます。
+
+DataSetには、次のものが含まれます。
+
+* People
+* Activity Log
+
+DataFlowには、次のものが含まれます。
+
+* Activity Log - User Inactivity
+
+<Note>
+  **注記：** Appを作成するすべてのDataSetが1日に1回実行されます。実行時間は、Appが最初に導入された時間から24時間ごとになります。実行頻度は変更できませんが、DataSet設定で実行時間を編集できます。DataSetをスケジュールする方法についての詳細は、「 DataSetのスケジュール設定 」を参照してください。
+
+</Note>
+
+### カード
+
+<Note>
+  **カードビューとは何ですか？**
+
+  カードの詳細ビューを開くと、アクティビティログにカードビューイベントが記録されます。
+
+  詳細ビューでカードにフィルターをかけると、これもカードビューイベントとして記録されます。
+
+  カードの詳細ビューを開いたときにページフィルターが設定されている場合は、そのフィルターがカードに適用され、ログには2つのカードビューイベントが表示されます。1つはカードの詳細ビュー、もう1つはフィルターです。
+
+  ダッシュボードからカードをフルスクリーンモードで開く、カードのフィルター処理や操作をフルスクリーンで行う、ダッシュボードレベルでのフィルターインプレースの使用は、カードビューイベントとして記録されません。
+
+</Note>
+
+作成済みのダッシュボードには、次のカードが含まれています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><tbody><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"><b> コレクション </b></td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"><b> カード </b></td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="10"> Users </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Distinct User Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間における固有のユーザーログインです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Login Rate - Last 14 Days </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定期間中にDomoにログインしたユーザーの割合です。デフォルトの日付範囲は過去14日間に設定されていますが、調整可能です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Daily User Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 日別の合計ログイン数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Most Active Users </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 実行したアクションの数にもとづいた最もアクティブなユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> User Inactivity </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 最後にログインしてからの時間にもとづいてユーザーを並べ替えます。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Zero Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Domoに招待されているが、まだログインしていないユーザーを表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Failed Logins </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間において失敗したログインの数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Password Resets </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> パスワードをリセットした回数にもとづく上位ユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> User Action Log </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> Domoインスタンス内のすべてのユーザー操作を追跡します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Login Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間における合計ログイン数を追跡します。 </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="13"> Content </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Favorited Cards </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> お気に入りに追加された数が最も多かった上位10のカードのタイトルです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Card Detail Views Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間におけるカード詳細の閲覧数のトレンドを表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Card Detail Views by User </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> カードの詳細の閲覧数と、各カードを閲覧した固有のユーザー数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Most Viewed Card </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 最も閲覧数が多かった詳細を持つ上位10のカードと、それぞれの詳細の合計閲覧数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Card Viewers </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> カード詳細の合計閲覧数にもとづいた上位10人の閲覧者。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 25 Card Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> カードの作成数が最も多かった上位25人のユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Page Views Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間におけるページの閲覧数のトレンドです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Page Views by User </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各ページが閲覧された回数と、ページを閲覧した固有のユーザー数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Most Viewed Pages </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 閲覧数が最も多かった上位10のページと、それぞれの合計閲覧数です。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top 10 Page Viewers </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> ページの合計閲覧数にもとづいた上位10人の閲覧者。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Page Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> カードの作成数が最も多かった上位25人のユーザーを表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> App Deployment Trend </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間におけるAppの展開のトレンドを表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Apps Deployed </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 展開されたApp、Appを展開したユーザー、各Appが展開された回数を表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="9"> Data </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Creation </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間に作成されたデータソースの数を、作成者別に追跡します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> DataFlow Creation </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間に作成されたDataFlowの数を、作成者別に追跡します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Edits </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定した時間枠におけるデータソースの編集の量を、編集タイプごとにまとめて表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> DataFlow Edits </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定した時間枠におけるDataFlowの編集の量を、編集タイプごとにまとめて表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Beast Mode Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定した時間枠において最も多くの計算フィールドを作成したユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top Datasource Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定した時間枠において最も多くのデータソースを作成した上位15人のユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Top DataFlow Creators </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 指定した時間枠において最も多くのDataFlowを作成したユーザーです。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Time Since Last Update </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> データソースの数を、最終更新からの日数別に追跡します。 </td></tr><tr><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Datasource Creation Log </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 一定期間におけるデータソースおよびDataFlowの作成イベントを表示します。 </td></tr></tbody></table>
+
+日本語

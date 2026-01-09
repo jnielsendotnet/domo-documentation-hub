@@ -1,0 +1,145 @@
+---
+title: "DomoのBeast Modeでユーザーが最も経験する5つの問題"
+---
+
+この記事では、ユーザーがDomoにBeast Modeの計算を追加する際に発生する最も一般的な問題を挙げ、これらの問題を解決するための推奨事項を紹介します。
+
+1. *CASEステートメントの書式*
+     
+   CASEステートメントでは、いくつかのキーワードを特定の順番に配置する必要があります。
+
+
+```
+ CASE
+  
+WHEN `State` = 'California'
+  
+THEN 'CA'
+  
+ELSE `State`
+  
+END 
+```
+
+  
+CASEステートメントにこれらの要素が含まれていない場合や、正しく記述されていない場合は、エラーになります。
+  
+`WHEN` 条件は必要なだけ含めることができますが、それぞれの `WHEN` には `THEN` が必要です。
+  
+
+```
+ CASE
+  
+WHEN `State` = 'California'
+  
+THEN 'CA'
+  
+WHEN `State` = 'Washington'
+  
+THEN 'WA'
+  
+ELSE `State`
+  
+END 
+```
+
+
+2. *DATEの書式*
+     
+   使用できる関数は、 `DATE_FORMAT()` と `STR_TO_DATE()` です。 `STR` `_TO_DATE()` 関数を使用する場合は、関数が日付タイプに適切に変換できるように、文字列の列と同じ書式を使用する必要があります。
+     
+   日付タイプに変換する必要のある文字列型の列`Date`があります。値の書式は、MM-DD-YYYYです。
+     
+   
+   ```
+    STR_TO_DATE(`Date`,'%m-%d-%Y') 
+    ```
+
+     
+   値の書式がYY/DD/MMとなっている場合は、
+     
+   
+   ```
+    STR_TO-DATE(`Date`,'%y/%d/%m')を使用します。 
+    ```
+
+     
+   日付タイプの列があり、書式を変更する場合は、 `date_format()` 関数を使用します。この関数では、必要に応じて任意の日付形式で生成できます。
+     
+   「Date」列の書式はDD-MM-YYであるが、MM-DD-YYYYで表示する場合は、次の関数を使用します。
+     
+   
+   ```
+    DATE_FORMAT(`Date`,'%m-%d-%Y') 
+    ```
+
+     
+   使用する日付の形式指定子（ `%m` や `%y` など）についての詳細は、「 [Beast Modeでの日付の形式指定文字列](https://knowledge.domo.com/Visualize/Adding_Cards_to_Domo/KPI_Cards/Transforming_Data_Using_Beast_Mode/03Date_Format_Specifier_Characters_in_Beast_Mode#Date_format_specifiers "Beast Modeでの日付の形式指定文字列") 」を参照してください。
+3. *フィールド名（`）と文字列の値（‘）と数値。*
+     
+   Beast Modeでは、実際のフィールド名はバッククォート（`）を使って参照されます。ハード文字列値を入力する場合は単一引用符（‘）が必要ですが、数値の参照には引用符は不要です。
+     
+   
+   ```
+    CASE WHEN `Return Customer?` = 'Y' THEN 1
+     
+   WHEN `Return Customer?` = 'N' THEN 0
+     
+   END 
+   
+   ```
+
+
+   <Note>
+     **注記：** 数値の前後に単一引用符（'）を付けるとエラーには *ならず* 、文字列タイプの列として1と0で出力されます。
+
+   </Note>
+
+4. *文字列と日付の比較*
+     
+   `DATE_FORMAT()` 関数を使用すると、値が `varchar` データタイプ（文字列）に変換されます。これは、値を日付として比較などに使用できなくなるため、問題となります。 `DATE_FORMAT()` 関数を使用した後も、列を `date` 形式にする場合は、 `STR_TO_DATE()` を使用して日付タイプに変換し直す必要があります。
+     
+   次のBeast Modeを使用すると、出力は文字列タイプの列になります。
+     
+   
+   ```
+    DATE_FORMAT(`Date`,'%m-%d-%Y') 
+    ```
+
+     
+   文字列を日付に変換するには、Beast Mode全体を `STR_TO_DATE()` 関数にラップします。
+     
+   
+   ```
+    STR_TO_DATE(DATE_FORMAT(`Date`,'%m-%d-%Y'),'%m-%d-%Y') 
+    ```
+
+     
+   日付列に変換する文字列の列があり、別の書式を設定する場合は、
+     
+   
+   ```
+    STR_TO_DATE(DATE_FORMAT(STR_TO_DATE(`Date`,'%y-%m-%d'),'%m-%d-%Y'),'%m-%d-%Y') 
+    ```
+
+     
+   内側から処理されるため、YY-MM-DD形式の 
+   ```
+    `Date` 
+    ```
+    列が、最初に日付に変換されます。列をMM-DD-YYYY形式で表示するために、 `DATE_FORMAT()` を使用して変換します。ただし、ここではまだ文字列タイプの列のままです。最後に、 STR
+
+   \_TO\_DATE() 関数を使用して、日付タイプに戻します。
+5. *Trim関数の使用*
+     
+   値の前後に不要なスペースが残ることがよくあります。これは、正確な値を呼び出す数式を使用する場合に、問題となります。 `trim()` 関数では、不要な余白を削除できます。
+     
+   `Zipcode`列には、'12345   'のように余白を含む値が含まれます。 `COUNT()` 関数を使用する場合などは、値に余白があることを把握しておくことが非常に重要です。 `COUNT()` は、文字列内の文字数を余白を含めてカウントします。最初に `trim()` 関数を使用すれば、`Zipcode`値の実際の文字数だけを数えることができます。
+     
+   
+   ```
+    COUNT(TRIM(`Zipcode`)) 
+    ```
+
+
+日本語

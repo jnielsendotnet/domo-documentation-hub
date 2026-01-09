@@ -1,0 +1,39 @@
+---
+title: "SmartDBサードパーティコネクター"
+---
+
+## はじめに
+
+SmartDBはワークフローとWebデータベース機能を備えたノーコード・ローコード開発プラットフォームです。本コネクターを利用することで、DomoからSmartDB APIに接続して、SmartDB上の任意のバインダのビューからデータを取得できます。
+
+SmartDBアカウントには、Data Centerから接続します。このトピックでは、SmartDBコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+SmartDBアカウントに接続してDataSetを作成するには、バインダトークンが必要です。バインダトークンの取得方法については、 [SmartDB](https://doc.support-dreamarts.com/SmartDB/Document/SmartDB_%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E7%AE%A1%E7%90%86%E3%82%AC%E3%82%A4%E3%83%89/security/114000/index.html "SmartDB") のウェブサイトを参照してください。
+
+## SmartDBアカウントに接続する
+
+このセクションでは、［SmartDB Connector］ページの **［認証情報］** と **［詳細］** ペインのオプションについて説明します。このページのその他のペインである **［スケジュール設定］** と **［DataSet に名前を付け、説明を入力］** の項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのSmartDBコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のSmartDBアカウントがある場合は **［アカウントを追加］** を選択）すると、SmartDB OAuth画面が開き、SmartDBの認証情報を入力できます。有効なSmartDB認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSmartDB DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<table border="1" data-aura-rendered-by="33:195;a"><thead><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"> SmartDBアカウントのドメインを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Binder Token </td><td colspan="1" rowspan="1"> バインダトークンを入力します。 </td></tr></tbody></table>
+
+これらの認証情報の取得方法については上記 **［必要条件］** を参照してください。
+
+有効なSmartDB認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSmartDB DataSetを作成できます。コネクターアカウントは、Data Centerの［アカウント］タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](https://domohelp.domo.com/hc/en-us/articles/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。現在は「ビューの文書一覧」にのみ対応しています。 </p></td></tr><tr><td colspan="1" rowspan="1"> Binder ID </td><td colspan="1" rowspan="1"> 取得対象のバインダIDまたはバインダキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> View ID </td><td colspan="1" rowspan="1"> 取得対象のビューIDまたはビューキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Type </td><td colspan="1" rowspan="1"> データ取得時の選択期間となる日付データを選択します。「最終更新日」と「登録日」が選択できます。 </td></tr><tr><td colspan="1" rowspan="1"> Date </td><td colspan="1" rowspan="1"><p> レポートを取得する範囲を指定します。 <b> ［日付の選択］ </b> で日付の指定方法を選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> 単一の日付 </td><td colspan="1" rowspan="1"> 特定の単一の日付、または相対的な単一の日付を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 日付範囲 </td><td colspan="1" rowspan="1"> 特定の日付範囲、または、相対的な日付範囲を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"> ［期間］ドロップダウンから期間を選択します。 </td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"> Date – 日付 </td><td colspan="1" rowspan="1"><p><b> 日付タイプ </b> を以下から選択し、単一の日付を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"><b> ［遡る日数］ </b> に、遡ってデータを取得する日数を入力してください。今日の場合は0、昨日の場合は1、今日から過去に遡って7日分のデータを取得したい場合は、7と指定してください。 </td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"><b> ［日付］ </b> フィールドの日付セレクターで特定の日付を選択してください。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – 開始日 </td><td colspan="1" rowspan="1"><p><b> 日付タイプ </b> を以下から選択し、日付範囲の開始日を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［終了日］ </b> と組み合わせることによって、表示日数の範囲を作成できます。 </p><p> 例えば、 <b> ［開始日］ </b> に10、 <b> ［終了日］ </b> を相対に設定して5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – 終了日 </td><td colspan="1" rowspan="1"><p><b> 日付タイプ </b> を以下から選択し、日付範囲の終了日を特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> 相対 </td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［開始日］ </b> と組み合わせることによって、表示される日の範囲を作成できます。 </p><p> 例えば、 <b> ［開始日］ </b> に10、 <b> ［終了日］ </b> を相対にして5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"> 日付範囲の2番目の日付を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date – 期間 </td><td colspan="1" rowspan="1" valign="top"><p> 特定の日付か、または日付範囲に対してデータを取得するかどうか選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,55 @@
+---
+title: "10,000ftコネクター"
+---
+
+## はじめに
+
+10,000ftは、リソースの使用を計画およびスケジュールするためのオンラインコラボレーション、プロジェクト管理、およびリソース管理ツールです。10,000ft APIの詳細については、Githubのウェブサイト（ [https://github.com/10Kft/10kft-api](https://github.com/10Kft/10kft-api "https://github.com/10Kft/10kft-api") ）を参照してください。
+
+10,000ftアカウントには、Data Centerから接続します。このトピックでは、10,000ftコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+10,000ftアカウントに接続してDataSetを作成するには、10,000ft APIトークンが必要です。10,000ftのアカウント管理者は、アプリケーション内の **［Settings］>［Account Settings］>［Developer API］** からAPIトークンを取得できます。
+
+## 10,000ftアカウントに接続する
+
+このセクションでは、10,000ftコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、10,000ftアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> 10,000ft APIトークンを入力します。トークンを取得する方法については、上述の「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効な10,000ft認証情報を一度入力しておくと、随時同じアカウントを使用して新しい10,000ft DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する10,000ftレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><b> レポート名 </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"><p> All Assignments By Projects </p></td><td colspan="1" rowspan="1"> すべてのプロジェクトに関連するすべての依頼のリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべての依頼を取得します。 </td></tr><tr><td colspan="1" rowspan="1"><p> All Assignments By Users </p></td><td colspan="1" rowspan="1"> すべてのユーザーによるすべての依頼のリストを取得します。選択した日付範囲が日付フィールドに適用されます。 </td></tr><tr><td colspan="1" rowspan="1"> All Time Entries </td><td colspan="1" rowspan="1"> すべての時間エントリーのリストを取得します。選択した日付範囲が日付フィールドに適用されます。 </td></tr><tr><td colspan="1" rowspan="1"> All Time Entries by Projects </td><td colspan="1" rowspan="1"> プロジェクトごとのすべての時間エントリーのリストを取得します。選択した日付範囲が、プロジェクトの開始日と終了日に適用されます。 </td></tr><tr><td colspan="1" rowspan="1"> All Time Entries by Users </td><td colspan="1" rowspan="1"> ユーザーごとのすべての時間エントリーのリストを取得します。選択した日付範囲が、プロジェクトの開始日と終了日に適用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Assignment </td><td colspan="1" rowspan="1"> 依頼のリストを取得します。選択した日付範囲が、依頼の開始日と終了日に適用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Bill Rates </td><td colspan="1" rowspan="1"> プロジェクトごとの請求料金のリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべての請求料金を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Holidays </td><td colspan="1" rowspan="1"> 休日のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Leave Types </p></td><td colspan="1" rowspan="1"> 休暇タイプのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Phases </td><td colspan="1" rowspan="1"> プロジェクトのフェーズのリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべてのフェーズを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Project Budgets </td><td colspan="1" rowspan="1"> プロジェクト予算のリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべてのプロジェクト予算を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Project Tags </td><td colspan="1" rowspan="1"> プロジェクトタグのリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべてのプロジェクトタグを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Projects </td><td colspan="1" rowspan="1"> プロジェクトのリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Roles </td><td colspan="1" rowspan="1"> 権限のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Time Entries </td><td colspan="1" rowspan="1"> ユーザーまたはプロジェクトごとの時間エントリーのリストを取得します。選択した日付範囲が日付フィールドに適用されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Time Expense Approvals </p></td><td colspan="1" rowspan="1"> 時間経費の承認のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> User Tags </td><td colspan="1" rowspan="1"> ユーザーごとのタグのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Users </td><td colspan="1" rowspan="1"> ユーザーのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Users by Project </td><td colspan="1" rowspan="1"> プロジェクトごとのユーザーのリストを取得します。選択した日付範囲は、指定した日付の範囲内（期間中）に開かれたプロジェクトを返し、関連するすべてのユーザーを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Include Suggestions </td><td colspan="1" rowspan="1"> レポートに候補を含める場合は、このボックスをオンにします。 </td></tr><tr><td colspan="1" rowspan="1"> Assignments By </td><td colspan="1" rowspan="1"> レポートの依頼をプロジェクトまたはユーザーのどちらでフィルターするかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Project </td><td colspan="1" rowspan="1"> 情報を取得するプロジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> User </td><td colspan="1" rowspan="1"> 情報を取得するユーザーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Project State </td><td colspan="1" rowspan="1"> すべてのプロジェクトのデータを取得するか、特定の状態（確認済み、内部、暫定）でフィルターするかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Include Archived </td><td colspan="1" rowspan="1"> レポートでアーカイブまたは削除されたプロジェクト/ユーザーのデータを取得する場合は、このボックスをオンにします。 </td></tr><tr><td colspan="1" rowspan="1"> Time Entries </td><td colspan="1" rowspan="1"> レポートの時間エントリーをプロジェクトまたはユーザーのどちらでフィルターするかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から指定した日数を遡った相対的な日付かを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の開始日を、特定日付とするか相対日付とするかを指定します。範囲の最後の日付は <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を、特定日付とするか相対日付とするかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="データはどれくらいの頻度で更新する必要がありますか？">
+
+
+DataSetを1日に1回更新する設定にする必要があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+レート制限はありますが、エンドポイントごとに異なり、変更される場合があります。コネクターはレート制限を自動的に処理する必要がありますが、レート制限によってデータの戻りは遅くなる可能性があります。
+
+
+
+</Accordion>
+</AccordionGroup>

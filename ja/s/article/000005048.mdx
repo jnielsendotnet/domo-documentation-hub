@@ -1,0 +1,359 @@
+---
+title: "Flex Map v2ユーザーガイド"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+Flex Map v2はAppstoreで利用できるプレミアムAppです。その主な目的は、データを様々な方法でマップに表示して、データから地理的インサイトや関係インサイトを得ることです。このAppは、様々な場所のセットとその場所の関連データをマップし、マップされた場所の境界を示す地理的地域を作成して表示したり、ヒートマップを表示して場所と主要なメトリクスや人口統計の相関関係を示したりすることができます。
+
+このAppの使用を開始する前に、必要なすべての設定が完了していることを確認してください。詳細については、「 [Flex Map v2実装ガイド](/ja/s/article/000005073) 」を参照してください。
+
+<Warning>
+  **重要：** Flex Map v2は、Flex Map v1と同一ではありません。Flex Map v1の使用方法については、「 Flex Map v1ユーザーガイド 」を参照してください。
+
+</Warning>
+
+<Frame><img alt="rtaImage-2.jpg" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2V.jpg" style={{width: 646.974, height: 460}}/></Frame>
+このガイドでは、Flex Map v2の使用方法について以下のトピックで説明します。
+
+* [Appナビゲーション](#navigation_tools)
+* [ピンレイヤー](#pin_layers)
+* [マップレイヤー](#map_layers)
+* [お気に入り](#favorites)
+* [保存したマップ](#saved_maps)
+* [ヒートマップ](#heatmaps)
+* [マップ設定](#map_settings)
+* [データ設定](#data_settings)
+* [ユーザー権限と機能](#user_permissions)
+* [マップの操作](#map_interactions)
+* [デモについての注記](#demo_notes)
+
+## Appナビゲーション
+
+画面の右側に、マップコントロールが表示されます。
+
+<Frame><img alt="rtaImage-3.jpg" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2a.jpg" style={{width: 654.986, height: 465}}/></Frame>
+以下の表では、各マップコントロールについて説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> アイコン </p></th><th colspan="1" rowspan="1"><p> ツールの説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2f.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Zoom in </b> / <b> out］ — </b> マップのズームレベルを調整できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG0L.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Reset bearing to north］ — </b> マップの方向をリセットして、北が上に表示されるようにします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2k.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Undo </b> / <b> Redo］ — </b> マップの変更の取り消し/やり直しをします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2H.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Export］ — </b> マップを画像、PowerPointファイル、またはPDFとしてエクスポートできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2p.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Return to default］ — </b> マップをデフォルト設定に戻します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2u.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Clear Map］ — </b> すべてのレイヤーのマップをクリアします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG2z.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Save Map］ — </b> 現在のマップ設定を保存します。 </p></td></tr></tbody></table>
+
+画面上部には、メインメニューと検索バーがあります。
+
+<Frame><img alt="rtaImage-4.jpg" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG34.jpg" style={{width: 635, height: 450.98}}/></Frame>
+ハンバーガーメニューを開くと、メインメニューからAppのほとんどの機能にアクセスできます。各機能については、このガイドで後述します。
+
+<Frame><img alt="rtaImage-63.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3E.jpg" style={{width: 274.986, height: 272.997}}/></Frame>
+* メインメニューを開いた後、これを
+  <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3J.jpg" /> **閉じて** 、デフォルト画面に戻ることができます。
+* 任意の機能を開いた後、機能インターフェースを
+  <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3O.jpg" /> **展開する** / <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3T.jpg" /> **折りたたむ** ことも、これを <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3Y.jpg" /> **閉じて** デフォルト画面に戻ることもできます。
+* 検索バーを使用して、接続されているデータから場所を検索し、一時的にマップに表示してお気に入りに追加できます。詳細については、以下の「
+  [お気に入り](#favorites) 」を参照してください。
+
+## ピンレイヤー
+
+メインメニューで、 **［Pin Layers］** を選択して検索インターフェースを開きます。
+
+<Frame><img alt="rtaImage-68.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG22.jpg" style={{width: 483.991, height: 266.974}}/></Frame>
+ここでは、Appに接続された場所データのサブセットであるレイヤーを作成できます。
+
+以下の表では、 **［Pin Layers］** メニューのツールについて説明しています。
+
+<Frame><img alt="rtaImage-69.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3d.jpg" style={{width: 420, height: 56.9886}}/></Frame>
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> アイコン </p></th><th colspan="1" rowspan="1"><p> ツールの説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG35.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Group］ — </b> 新しいグループを作成します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3i.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Item］ — </b> 新しいアイテムを作成します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3n.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［Clone］ — </b> 現在選択されているピンレイヤーをコピーします。コピーされたレイヤーは、ピンレイヤーリストの下部に「 <em> ピンレイヤー </em><em> の名前 </em> - copy」という名前で表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wFyZ.jpg" /></p></td><td colspan="1" rowspan="1"><p><b> ［List］ — </b> 現在表示されている個々の場所のリストが表示されます。 </p></td></tr></tbody></table>
+
+### ピンレイヤーを作成する
+
+1. 新しいピンレイヤーを作成するには、
+   <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3s.jpg" /> **［Item］** を選択します。
+
+   **［New Pin Layers Search］** インターフェースが表示されます。
+2. リストを選択してデータから列を選択し、接続されている場所データにフィルターをかけて、マップに表示するデータのサブセットまで絞り込みます。データが接続されていない場合は、「
+   [Flex Map v2実装ガイド](/ja/s/article/000005073) 」の手順に従って、必要な設定を行います。
+
+   <Frame><img alt="rtaImage-75.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG3x.jpg" style={{width: 320, height: 380.98}}/></Frame>
+3. 選択した列の下で、列から選択した値にある場所を含めるのか（ **［In］** ）、ない場所を含めるのか（ **［Not In］** ）を選択します。
+
+   <Frame><img alt="rtaImage-76.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG42.jpg" style={{width: 313.991, height: 510.98}}/></Frame>
+4. （オプション）さらにフィルター条件を適用するには、 **［Item］** を再度選択し、現在のレイヤーに別のピンレイヤーを追加します。
+   * まず、ピンレイヤーに **［And］** と **［Or］** のどちらのフィルターを使用するかを選択します。
+
+     *［And］* フィルターは、現在のピンレイヤーと以前のピンレイヤーを組み合わせて、すべての *［And］* 条件を満たす場所のみを表示します。
+
+     *［Or］* フィルターを使用すると、設定されているほかのフィルターに加えて、そのフィルターに一致するすべての場所が追加されます。
+   * 次に、追加レイヤーのカテゴリー（ **［Parent Id］** 、 **［Latitude］** 、 **［Longitude］** 、 **［Location Name］** 、または **［City］** ）を選択します。
+
+   ほかの2つのオプション（ **［Channel Type］** および **［Channel Group］** ）は、複数のピンレイヤーが固定されている場合にのみ表示されます。
+
+   ピンレイヤーを <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG47.jpg" /> **削除** すると、そのフィルターを外すことができます。
+5. **［List］** を選択すると、検索条件にもとづく結果が表示されます。
+
+   <Frame><img alt="rtaImage-78.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4C.jpg" style={{width: 606.989, height: 325}}/></Frame>
+6. （オプション）結果の横にある星のアイコンを選択すると、Appの **［Favorites］** セクションに追加できます。
+
+   <Frame><img alt="rtaImage-79.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4H.jpg" style={{width: 296.989, height: 236.989}}/></Frame>
+7. すべてのフィルターを追加すると、 **［Pin Layers］** メニューに3つのボタン（ **［Select Icon］** 、 **［Select Color］** 、 **［Save］** ）が追加されることに注意してください。
+
+   <Frame><img alt="rtaImage-80.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4M.jpg" style={{width: 161.989, height: 78.9915}}/></Frame>
+#### アイコンと色を追加する
+
+アイコン選択パレットを使用して、マップに特定の場所またはランドマークを表示するように選択できます。使用できるアイコンはピンレイヤーごとに1つのみです。別のアイコンを追加する場合は、新しいピンレイヤーを作成します。
+
+1. **［Pin Layers］** メニューで **［Select Icon］** を選択します。
+
+   アイコンパレットが開きます。
+
+   <Frame><img alt="rtaImage-81.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4R.jpg" style={{width: 449.986, height: 331.989}}/></Frame>
+2. ピンレイヤーに追加するアイコンを選択します。
+3. （オプション）パレットの **［Size］** タブに移動し、アイコンのサイズを調整します。
+
+   アイコンを静的または動的にすることも選択できます。アイコンが動的な場合、サイズはマップのズームレベルに応じて変化します。
+
+   アイコンはマップに表示されます。表示されない場合は、ズームレベルを調整します。
+
+   <Frame><img alt="rtaImage-82.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4W.jpg" style={{width: 400.994, height: 160.98}}/></Frame>
+4. **［Pin Layers］** メニューで、 **［Select Color］** を選択し、検索の表示色を選択します。
+
+   <Frame><img alt="rtaImage-83.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4b.jpg" style={{width: 318.991, height: 225.994}}/></Frame>
+5. **［Pin Layers］** メニューで **［Save］** を選択して、検索を保存します。
+
+   **［Save Pin Layers Search］** モーダルが表示されます。
+6. **名前** を入力して、検索を保存する **フォルダー** または **グループ** を選択するか作成します。
+7. **［Save］** を選択します。
+
+   <Frame><img alt="rtaImage-84.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4g.jpg" style={{width: 343.977, height: 181.989}}/></Frame>
+**［Pin Layers］** メニューの <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4c-1.jpg" /> **［Group］** アイコンにある、作成された検索とグループのリストで、検索にアクセスできるようになりました。メインメニューの **［Saved Maps］** セクションから、保存したすべてのアイテムにアクセスすることもできます。
+
+### グループとアイテム
+
+Flex Map v2では、グループは作成したアイテムを保持して整理するためのフォルダーです。
+
+**［Pin Layers］** メニューで <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4l.jpg" /> **［Group］** を選択する場合は、グループリストに表示されるフォルダーを作成します。次に、グループに名前を付けてグループを開き、任意のアイテムをそのグループにドラッグします。グループを別のグループにドラッグして、フォルダーをネストすることもできます。
+
+アイテムを保存するか、フォルダーまたはグループ内で検索した後、アイテムを操作できます。
+
+検索で <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4q.jpg" /> **［View］** / **［Hide］** を選択すると、検索のオン/オフが切り替わります。検索がオンの場合、検索の場所がマップに表示されます。 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wFzD.jpg" /> **［Delete］** を選択して、アイテムまたはグループを削除します。
+
+<Warning>
+  **重要：** グループを削除すると、グループ内のすべてのアイテム（ネストされたアイテムを含む）も削除されます。
+
+</Warning>
+
+**［Pin Layers］** では、いつでもアイテムを編集したり、検索したりすることができます。
+
+<Note>
+  **注記：** App管理者には、アイテムとグループの追加オプション（ **［Share］** ボタン）が表示されます。管理者は、ほかのAppユーザーとアイテムやグループをシェアできます。管理機能の詳細については、「 [ユーザー権限と機能](#user_permissions) 」を参照してください。
+
+</Note>
+
+  ## マップレイヤー
+
+  Flex Map v2 Appのマップレイヤーは、KMLまたはGeoJSONに保存されている値によるデータドリブン型であるため、App内のほかのアイテムよりも操作が制限されます。マップレイヤーの目的は、アップロードされたレイヤーファイルから直接読み取られ、絶えず更新される線や図形を、関連するメトリクスとともにマップに表示することです。例えば、出荷ルートとその属性を外部システムから表示できます。
+
+  まず、レイヤーのデータを正しく準備する必要があります。この方法については、「 [Flex Map v2実装ガイド](/ja/s/article/000005073) 」を参照してください。
+
+  ### マップレイヤーを作成する
+
+  1. メインメニューで
+  **［Map Layers］** を選択します。
+  2. <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG4v.jpg" /> **［Item］** を選択します。
+
+  新しいレイヤーインターフェースが表示されます。
+  3. **［Map Layers］**
+  メニューの左側には、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG50.jpg" /> **［Circle］** 、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG55.jpg" /> **［Polygon］** 、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5A.jpg" /> **［Polyline］** の3つのアイコンがあります。
+
+  <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5F.jpg" /> **［Circle］** を選択すると、指定した領域と半径で、マップ上に色付きの円を作成できます。円の境界にあるオレンジ色の点をクリックしてドラッグし、円のサイズを調整します。図形全体をクリックしてドラッグすることもできます。 **［Select Color］** アイコンを使用して、円の色を変更します。最初からやり直す場合は、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5K.jpg" /> **［Circle］** を再度選択して削除します。
+
+  <Frame><img alt="rtaImage-93.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5P.jpg" style={{width: 571.989, height: 320}}/></Frame>
+  3つのアイコンの2つ目は <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5U.jpg" /> **［Polygon］** で、多数の側面を持つ図形を作成できます。このツールを使用するには、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG0a.jpg" /> **［Polygon］** を選択し、図形を開始するポイントをマップ上で選択します。必要な図形になるまで、マップにポイントを追加し続けます。図形を終了するには、配置した最後のオレンジ色の点を選択します。図形全体を移動するには、図形の内側をクリックしてドラッグします。図形を調整するには、オレンジ色の点をクリックしてドラッグします。色を変更するには、 **［Select Color］** アイコンを使用します。図形を削除するには、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5Z.jpg" /> **［Polygon］** を再度選択します。
+
+  <Frame><img alt="rtaImage-96.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5e.jpg" style={{width: 571.974, height: 320}}/></Frame>
+  最後のアイコンは <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5o.jpg" /> **［Polyline］** で、パスに沿った総移動距離を決定できます。このパスを作成するには、マップをクリックします。配置するすべてのマーカーにオレンジ色の点の跡が残ります。完了したら、最後に配置したオレンジ色のマーカーを選択します。ポリラインの総距離が表示されます。最初からやり直すには、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5j.jpg" /> **［Polyline］** を再度選択します。
+
+  <Frame><img alt="rtaImage-5.jpg" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5t.jpg" style={{width: 563.991, height: 402.997}}/></Frame>
+  ## お気に入り
+
+  **［Favorites］** には、Appでお気に入りに追加された場所が表示されます。これにより、ユーザーはAppに戻ったときに重要な場所をすばやく見つけることができます。 **［Favorites］** に場所を追加する方法はいくつかあります。
+
+  Appのメインの検索バーに用語を入力すると、一致する場所のリストが返されます。場所の横にある星のアイコンを選択すると、お気に入りに追加できます。
+
+  **［Pin Layers］** セクションの **［List］** 画面で、現在表示されている場所をお気に入りにすることもできます。
+
+  **［Favorites］** を表示しているときに、検索やヒートマップの場合と同様、お気に入りのアイテムを追加するグループを作成できます。場所で <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5y.jpg" /> **［Delete］** を選択すると、 **［Favorites］** から場所を削除できます。
+
+  <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG63.jpg" /> **［View］** / **［Hide］** を選択すると、お気に入りの場所のオン/オフが切り替わります。
+
+  <Frame><img alt="rtaImage-100.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG68.jpg" style={{width: 347.983, height: 278.991}}/></Frame>
+  管理者ユーザーは、場所で **［Share］** を選択して、お気に入りの場所をシェアできます。
+
+  ## 保存したマップ
+
+  どのユーザーも、マップコントロールで <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6D.jpg" /> **［Save Map］** を選択して、いつでも地域と検索の現在の設定を保存できます。マップを保存すると、マップの名前を入力するように求められます。
+
+  すべてのマップを表示するには、メインメニューの **［Saved Maps］** に進みます。ここでは、保存したマップをグループに追加したり、App内のほかのアイテムと同様に削除したりできます。
+
+  管理者ユーザーは、保存したマップで **［Share］** を選択して、保存したマップをシェアすることもできます。
+
+  <Frame><img alt="rtaImage-102.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wFxc.jpg" style={{width: 565.966, height: 420}}/></Frame>
+  ## ヒートマップ
+
+  メインメニューには **［Heatmaps］** があります。以下の手順で新しいヒートマップを作成します。
+
+  <Note>
+
+  **注記：** ヒートマップは、保存した後にのみ有効になることに注意してください。
+
+</Note>
+
+1. **［Create a New Heatmap］** を選択します。
+2. **［Heatmap Layer］** を選択します。
+3. **［Heatmap Metric］** を選択します。
+4. **［Color Range］** で <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6I.jpg" /> **［Edit Range］** を選択します。
+   * 色付きの長方形を選択して、特定の範囲に色を適用します。
+
+     範囲の数字を手動で入力します。
+
+     **［Delete］** を選択して、各範囲を削除します。
+   * 範囲の上では、
+     <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6N.jpg" /> **［Reset to default］** 、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6S.jpg" /> **［Clear all］** 、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5L.jpg" /> **［Add new］** を選択できます。
+   * 必ず **［Apply Range］** を選択して、変更を保存します。
+5. ヒートマップを有効にするには、 **［Save］** を選択します。
+
+次にヒートマップに名前を付けて、新規または既存のフォルダーまたはグループに保存できます。
+
+<InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG5k-1.jpg" /> **［View］** / **［Hide］** を選択すると、マップ上に新しいヒートマップが表示されます。
+
+ヒートマップ用に選択した列に応じて、マップの凡例に異なる数値範囲が表示されます。
+
+<Note>
+  **注記：** 一度に多くを表示できる検索とは異なり、一度に表示できるヒートマップは1つのみです。
+
+</Note>
+
+<Frame><img alt="rtaImage-108.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6c.jpg" style={{width: 618.991, height: 385.994}}/></Frame>
+## マップ設定
+
+**［Map Settings］** は、メインメニューの最後のオプションです。
+
+カードの所有者またはApp管理者は、特定のマップ動作のレンダリングオプションを決定できます。これには、標準クラスターモードでのピンレイヤーのレンダリングや、マップ上にすべてのピンを個別にレンダリングすることの許可などが含まれます。また、 **［Base Layer］** メニューで新しいマップレイヤーにアクセスすることもできます。
+
+<Frame><img alt="rtaImage-109.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6h.jpg" style={{width: 545.994, height: 388.977}}/></Frame>
+## データ設定
+
+<Note>
+  **注記：** このセクションは、カードの所有者とApp管理者のメインメニューにのみ表示されます。
+
+</Note>
+
+カードの所有者またはApp管理者は、場所とヒートマップメトリクスのマップで使用できるデータを総合的に管理できます。
+
+メインメニューから **［Data Settings］** を選択すると、以下の2つのオプションが表示されます。
+
+* **［Search and Display Preferences］** では、マップに表示する内容をカスタマイズできます。
+* **［Heatmap Metric Mapping］** では、ヒートマップレイヤーのメトリクスを定義し、それらをマップ上のカラースケールに関連付けることができます。
+
+<Frame><img alt="rtaImage-110.png" src="/images/kb/ka05w0000012Aef-00N5w00000Ri7BU-0EM5w000005wHEo.jpg" style={{width: 555, height: 335.98}}/></Frame>
+### 検索および表示設定
+
+**［Search and Display Preferences］** を選択すると、設定グリッドが表示されます。設定には、 **［Schema］** 、 **［Display Order］** 、 **［Tooltip Order］** の3つのセクションがあります。
+
+<Frame><img alt="rtaImage-111.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG6w.jpg" style={{width: 635, height: 450.952}}/></Frame>
+**［Schema］** セクションでは、コアとなる場所DataSetから、マップ内やマップ上の表示内容を設定できます。スキーマ設定には、次の5つの編集可能な要素があります。
+
+* **［SearchInclude］** は、 **ピンレイヤー** 検索ビルダーで使用できるようにするフィールドのリストです。含めるフィールドのボックスにチェックマークを入れます。
+* **［Static Label］** では、マップ上のピンのすぐ下に表示するフィールドを1つ選択できます。
+* **［DisplayInclude］** で選択したフィールドは、選択したピンの詳細ビューに表示されます。
+* **［TooltipInclude］** で選択したフィールドの値は、マップ上のピンの上にマウスポインターを合わせたときに、ツールチップに表示されます。
+* **［DisplayType］** では、フィールドに含めるデータのタイプをFlex Mapに指示して、リンクや画像などの特殊な例外を処理できるようにします。
+
+設定を更新したら、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG76.jpg" /> **［Expand］** を選択した後、 **［Save & Close］** を選択して、更新が行われているAppに戻ります。
+
+**［Display Order］** セクションでは、表示フィールドをドラッグ＆ドロップして、表示フィールドの順序を設定できます。
+
+**［Save & Close］** を選択します。
+
+<Frame><img alt="rtaImage-111.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG7B.jpg" style={{width: 635, height: 450.952}}/></Frame>
+**［Tooltip Order］** セクションでは、フィールドを目的の順序にドラッグ＆ドロップすることもできます。
+
+**［Save & Close］** を選択します。
+
+<Frame><img alt="rtaImage-113.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG7L.jpg" style={{width: 635, height: 450.952}}/></Frame>
+### ヒートマップメトリクスマッピング
+
+**ヒートマップメトリクスマッピング** 設定を使用すると、Flex Map v2の **［Heatmaps］** セクションでAppユーザーに作成を許可するメトリクスフィールドを定義および選択できます。 **ヒートマップメトリクスマッピング** には、 **検索および表示設定** と同様に **［Schema］** 、 **［Display Order］** 、 **［Tooltip Order］** の3つのセクションがあります。
+
+<Frame><img alt="rtaImage-114.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG7Q.jpg" style={{width: 635, height: 450.952}}/></Frame>
+**［Schema］** セクションでは、ヒートマップDataSetから、マップ内やマップ上の表示内容を設定できます。 **スキーマ** 設定には、次の5つの編集可能な要素があります。
+
+* **［Use as Metric］** は、 **［Heatmaps］** でメトリクスとして使用するフィールドのリストです。含めるフィールドのボックスにチェックマークを入れます。
+* **［DisplayInclude］** で選択したフィールドは、選択したピンの詳細ビューに表示されます。
+* **［TooltipInclude］** で選択したフィールドの値は、マップ上のピンの上にマウスポインターを合わせたときに、ツールチップに表示されます。
+* **［Label］** では、ビルダーの候補リストでより適切な選択が行えるように、メトリクスフィールドの名前を変更できます。
+* **［Aggregation］** では、集計方法を選択できます。
+
+設定を更新したら、 <InlineImage src="/images/kb/ja/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wFyo.jpg" /> **［Expand］** を選択した後、 **［Save & Close］** を選択して、更新が行われているAppに戻ります。
+
+**［Display Order］** セクションでは、表示フィールドをドラッグ＆ドロップして、表示フィールドの順序を設定できます。
+
+**［Save & Close］** を選択します。
+
+<Frame><img alt="rtaImage-116.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG1x.jpg" style={{width: 635, height: 450.952}}/></Frame>
+**［Tooltip Order］** セクションでは、フィールドを目的の順序にドラッグ＆ドロップすることもできます。
+
+**［Save & Close］** を選択します。
+
+<Frame><img alt="rtaImage-117.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG7V.jpg" style={{width: 635, height: 450.952}}/></Frame>
+## ユーザー権限と機能
+
+このAppは、管理者、標準、閲覧のみの3つのユーザーレベルをサポートしています。
+
+* 管理者ユーザーは、Appでアイテムを作成、編集、削除したり、Appで作成したアイテムをDomoグループのメンバーとシェアしたり、カスタムマップレイヤーを作成したり、デフォルトマップとデフォルトセンターを設定したりできます。上記の「
+  [マップ設定](#map_settings) 」を参照してください。
+* 標準ユーザーは、自分のアイテムを作成、編集、削除したり、管理者がシェアしているアイテムを表示したりできます。アイテムのシェア、マップレイヤーの作成、デフォルトの設定はできません。
+* 閲覧のみのユーザーは、管理者がシェアしているアイテムを表示できます。アイテムを作成、編集、削除することはできません。また、アイテムをシェアしたり、デフォルトを設定したりすることもできません。
+
+詳細については、「 [Flex Map v2実装ガイド](/ja/s/article/000005073) 」を参照してください。
+
+## マップの操作
+
+検索、マップレイヤー、ヒートマップを作成したら、マップ上でこれらの3つのアイテムを操作できます。
+
+検索結果は、ピンと呼ばれる色付きのドットでマップ上に表示されます。ピンが個々の場所を表す場合は、中央に数字がない小さなドットです。場所のクラスターを表す場合、ドットは大きくなり、グループ化された場所の数を表す数字が中央にあります。
+
+<Frame><img alt="rtaImage-118.png" src="/images/kb/ka05w0000012A9e-00N5w00000Ri7BU-0EM5w000006wG7a.jpg" style={{width: 551.989, height: 355.994}}/></Frame>
+* クラスター化されたピンを拡大すると、個別の場所が表示されます。
+* クラスター化されたピンを選択すると、その場所が1レベル拡大されます。
+* 個々のピンを選択すると、その場所の追加情報を表示する詳細パネルが開きます。追加情報にURLが含まれている場合、URLはオレンジ色で表示され、クリック可能です。追加情報に画像へのリンクが含まれている場合は、画像が詳細パネルに表示されます。
+* 個々のピンにマウスポインターを合わせると、その場所のツールチップが表示されます。このツールチップは、カードの所有者と管理者が「
+  [**データ設定**](#data_settings) 」で設定できます。
+
+マップレイヤーは、マップ上で地理的な領域の周囲の塗りつぶされた境界線として表示されます。
+
+* 地域にマウスポインターを合わせると、マウスポインターを合わせた場所の名前が表示されます。ヒートマップは、ヒートマップメトリクスの値を表す複数の色で塗りつぶされた領域として表示されます。
+* ヒートマップにマウスポインターを合わせると、ツールチップが表示され、その領域の色を表すメトリクスが示されます。
+* ヒートマップ領域を選択すると、ツールチップが表示され、その領域に関連するすべてのヒートマップメトリクスが示されます。
+* マップの左下隅には、ヒートマップの各色が表す内容の凡例が表示されます。
+
+画面上部の検索バーに用語を入力すると、検索エントリに一致するすべてのピンが表示されます。
+
+これを使用すると、1つの場所や場所のグループをすばやく検索したり、検索結果内の場所の横にある星を選択してお気に入りを作成したりできます。
+
+<Note>
+  **注記：** 管理者には、Appの下部に **デフォルトとして設定** するオプションや、 **中心に設定** するオプションが表示されます。
+
+  * **［Set as Default］**
+  を選択すると、表示されている検索、マップレイヤー、ヒートマップがマップのデフォルトとして保存されます。つまり、アイテムがシェアされている限り、そのAppがロードされたときに、Appをロードするすべてのユーザーにこれらのデフォルトのアイテムが表示されます。
+  * **［Set as Center］**
+  を選択すると、マップの現在のビューがデフォルトの中心として設定されます。例えば、管理者は、米国をデフォルトビューとして設定し、拡大してから保存することで、ほかのユーザーがAppを開いたときに拡大されたビューが表示されるようにすることができます。
+
+</Note>
+
+## デモについての注記
+
+Appのデモを行う1つの方法は、DataSetをアップロードして、緯度/経度とヒートマップのメトリクスにもとづいて、ピンの場所を作成することです。
+
+次に、地域を作成して検索とヒートマップを保存する方法を説明します。
+
+日本語

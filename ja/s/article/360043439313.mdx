@@ -1,0 +1,63 @@
+---
+title: "DomoStats - プロジェクトとタスク"
+---
+
+## はじめに
+
+DomoStatsでは、チームによるDomoの使用状況を詳細に確認できます。DomoStatsは設定なしのライブのDomo DataSetを使用しているため、表示するメトリックのカード、アラート、ワークフローを簡単に作成したり、作成済みのダッシュボードを使用したりできます。
+
+DomoStats Appは、貴社のDomoのプロジェクトとタスクに対する重要なインサイトをもたらします。対応中の全てのプロジェクトとタスクを1つのダッシュボードで監視することで、プロジェクトを予定どおりに実施します。担当者の生産性と効率性を追跡することで、リスクのあるプロジェクトの特定、期日の過ぎたタスクの対処、およびチームのワークロードの管理を行います。
+
+## 要件
+
+AppStoreからのダウンロードには、管理者レベルのアクセス権が必要です。
+
+## DomoStats Appを使用する
+
+作成済みのダッシュボードを使用することも、Data CenterのDomoStats DataSetを使用して、独自のコンテンツを作成することもできます。アプリを初めてダウンロードするときには、「DomoStats - プロジェクトとタスク」というタイトルの新しいページが作成されます。次のステップに従って、ダッシュボードにデータを入力します。
+
+1. **[DomoStats
+     - プロジェクトとタスク]**
+   ページに移動します。
+2. **[データを接続]** を選択します。
+     
+   <Frame><img alt="DomoStats - Project and Tasks - Connect Data.png" src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq6.png"/></Frame>
+3. ドロップダウンで **[接続]** を選択してページをDomoStats DataSetに接続するか、別のDomoユーザーにデータの設定を割り当てる場合は **[割り当て]** を選択します。
+     
+   ![]()
+4. 最後のウィンドウで、 **[接続]** を選択します。
+     
+   <Frame><img alt="DomoStats - Connect Data Last Step.png" src="/images/kb/ka05w000001230Q-00N5w00000Ri7BU-0EM5w000005vNq7.png"/></Frame>
+## ダッシュボード
+
+### データ
+
+次のデータが「DomoStats - プロジェクトとタスク」Appのダウンロードに含まれ、「DomoStats」タイプのDataSetとしてData Centerに存在します。
+
+DataSetには、次のものが含まれます。
+
+* プロジェクト
+* タスク
+* タスク所有者
+
+DataFlowには、次のものが含まれます。
+
+* プロジェクトとタスク
+* タスクとタスク所有者
+
+<Note>
+  **注記：** Appを作成する全てのDataSetが1日に1回実行されます。実行時間は、Appが最初に導入された時間から24時間ごとになります。実行頻度は変更できませんが、DataSet設定で実行時間を編集できます。DataSetをスケジュールする方法についての詳細は、「DataSetスケジュール」を参照してください。
+
+</Note>
+
+### カード
+
+作成済みダッシュボードには、次のカードが含まれています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><tbody><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="1"><b> コレクション </b></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><b> カード </b></td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="9"> プロジェクト </td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクトトラッカー </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各プロジェクトの開始日と期日を表示し、累計タスク数に対して、完了タスクの数を測定して、各プロジェクトの推定進捗率を算出します。<div class="mdx-embed"><Note><p><b> 注記： </b> 最良の結果を得るために、Domoプロジェクトとタスクに必ず各プロジェクトのプロジェクト期日を含めてください。プロジェクト期日が定義されていないときは、このカードの期日として現在の日付が表示されます。 </p></Note></div></td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト進捗 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> プロジェクトごとのTo-Do、作業中、および完了したタスクの数を表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト期日 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> カレンダーの日付ごとにプロジェクトの期日を表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 今後10日以内のプロジェクト期日 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 今後10日以内に期日が訪れるプロジェクト。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト期日経過 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 期日が過ぎたプロジェクトと経過した日数。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 最新のプロジェクト </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 最近作成された15のプロジェクトのプロジェクト名、作成日、作成者名、およびプロジェクトの説明。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト作成の動向 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 作成されたプロジェクト数（時系列）。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 上位のプロジェクト作成者 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> ユーザーが作成したプロジェクトの数。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 最大のプロジェクト </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 全てのアクティブなプロジェクトで作成されたタスクの数。 </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="6"> タスク </td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト内完了タスク </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> アクティブな各プロジェクト内のタスクの累計数に対して完了したタスクの数を測定します。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> プロジェクト別完了タスク </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各プロジェクトの完了タスク数（時系列）。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 完了タスク（30日間） </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 過去30日間に完了したタスクの動向。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> タスク期日カレンダー </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 期日が到来するタスク（日別）。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 期日が過ぎたタスク </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 期日が過ぎたタスク、これらのタスクが属するプロジェクト、およびタスクの期日の経過日数を示しています。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> タスクの内訳 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> アクティブな全てのプロジェクトにわたって、To-Do、作業中、および完了としてリストされたタスクの数を表示します。 </td></tr><tr><td class="mt-noheading mt-column-width-20" colspan="1" rowspan="9"> 担当者 </td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者の生産性 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーに割り当てられたタスクの数と各メンバーが完了したタスクの数。バブルサイズは、割り当て済みの完了タスクの割合を表しています。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者のワークロード </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各プロジェクト内で各メンバーに割り当てられたタスクの数。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 上位10人の担当者のワークロード </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーに割り当てられたタスクの数と、各メンバーが完了したタスクの数。タスクの数による上位10人の担当者。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 上位25人の担当者 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーに割り当てられたタスクの数。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 最も軽いワークロード </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 割り当てられている「To-Do」または「作業中」のタスクが最も少ない5人の担当者。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者の効率性 </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各担当者のタスクが「To-Do」または「作業中」のステータスになっている平均日数を示しています。各担当者が完了したタスクに費やした平均日数も示しています。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者タスク（To-Do） </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーに割り当てられているTo-Doタスクの数と、これらのタスクのステータスが「To-Do」になっていた平均日数を示しています。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者タスク（作業中） </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーが作業中のタスクの数と、これらのタスクのステータスが「作業中」になっていた平均日数を示しています。 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 担当者タスク（完了） </td><td class="mt-noheading mt-column-width-50" colspan="1" rowspan="1"> 各メンバーが完了したタスクの数と、これらのタスクに費やされた平均日数。 </td></tr></tbody></table>
+
+---
+
+DomoStats Appは、Domoの使用状況に関する情報を提供するカードからなるダッシュボードです。プロジェクトとタスクを使用して、リスクのあるプロジェクトの特定、期日の過ぎたタスクの対処、チームのワークロードの管理を行います。
+
+日本語

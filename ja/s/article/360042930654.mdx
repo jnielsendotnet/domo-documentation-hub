@@ -1,0 +1,77 @@
+---
+title: "WordPressコネクター"
+---
+
+## はじめに
+
+WordPressは、40%以上のインターネットブロガーに利用されているブログウェブホスティングサービスプロバイダーです。DomoのWordPressコネクターを使用すると、ブログ投稿、コメント、いいね、フォロワーなどに関するデータを取得できます。WordPress APIの詳細については、ウェブサイト（
+https://developer.wordpress.com/docs/api/
+）を参照してください。
+
+<Note>
+**注記：** このコネクターは、 [WordPress.org](http://WordPress.org) *ではなく* [WordPress.com](http://WordPress.com) からデータを取得するために使用されます。その本質的な違いは、 [WordPress.org](http://WordPress.org) では、ユーザー自身のサイトをホストするのに対し、 [WordPress.com](http://WordPress.com) では、ユーザーに対してホスティングが行われることです。これらの違いのさらに詳細な説明は、 [https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/](https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/ "https://ithemes.com/tutorials/wordpress-com-vs-wordpress-org/") にアクセスしてください。
+
+</Note>
+
+WordPressアカウントには、Data Centerから接続します。このトピックでは、WordPressコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+WordPressアカウントにアクセスしてDataSetを作成するには、WordPressのアカウントへのログイン時に使用するユーザー名とパスワードが必要です。または、GoogleやAppleの認証情報を使用してログインすることも可能です。
+
+## WordPressアカウントに接続する
+
+このセクションでは、［WordPressコネクター］ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのWordPressコネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のWordPressアカウントがある場合は **［アカウントを追加］** を選択）すると、WordPress OAuth画面が開き、WordPressの認証情報を入力できます。有効なWordPress認証情報を一度入力しておくと、随時同じアカウントを使用して新しいWordPress DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にWordPressにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずWordPressからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインの **［メトリクス］** メニューの他、選択したメトリクスタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するWordPress <span> メトリクス </span> を選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Blog Following Status </p></td><td colspan="1" rowspan="1"><p> 指定したWordPressブログがユーザーのブログをフォローしているかどうかを示します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Freshly Pressed Posts </p></td><td colspan="1" rowspan="1"><p> 新しく押された投稿のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Information on a Single Category </p></td><td colspan="1" rowspan="1"><p> 指定されたブログ内で特定のカテゴリのスラッグに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Information on a Single Tag </p></td><td colspan="1" rowspan="1"><p> 指定されたブログ内で特定のタグのスラッグに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Likes for a Post </p></td><td colspan="1" rowspan="1"><p> 特定のブログの特定の投稿に対するいいねの数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List of a Site's Categories </p></td><td colspan="1" rowspan="1"><p> 特定のブログのカテゴリのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Matching Posts </p></td><td colspan="1" rowspan="1"><p> 特定のブログの一致する投稿のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Notification </p></td><td colspan="1" rowspan="1"><p> 最近のお知らせのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Posts from a Tag </p></td><td colspan="1" rowspan="1"><p> 特定のタグのスラッグに関する投稿を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reblog Status for a Post </p></td><td colspan="1" rowspan="1"><p> 特定のブログ内の投稿に対するリブログステータスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Comments </p></td><td colspan="1" rowspan="1"><p> 特定のブログの一致する最近のコメントのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Recent Comments for a Post </p></td><td colspan="1" rowspan="1"><p> 特定のブログ内の投稿に対する最近のコメントのリストを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Blog Address </p></td><td colspan="1" rowspan="1"><p> 情報を取得するブログのURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Slug Name </p></td><td colspan="1" rowspan="1"><p> 情報を取得したいカテゴリーまたはタグのスラッグの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Post Title </p></td><td colspan="1" rowspan="1"><p> 情報を取得したい投稿のタイトルを入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターを使用するにはどのような認証情報が必要ですか？">
+
+
+WordPressアカウントに関連付けられているユーザー名またはメールアドレスとパスワードが必要です。または、Googleの認証情報を使用してログインすることも可能です。
+
+
+</Accordion>
+<Accordion title="# ログイン認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、Domoによって認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# データはどのくらいの頻度で更新できますか？">
+
+
+DataSetは1日1回更新するように設定する必要があります。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+WordPressには呼び出しレート制限が適用される場合がありますが、この制限を気にする必要はありません。
+
+
+
+</Accordion>
+</AccordionGroup>

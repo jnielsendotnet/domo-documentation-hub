@@ -1,0 +1,49 @@
+---
+title: "Bazaarvoice Connector"
+---
+
+## はじめに
+
+Bazaarvoice は、ブランドと小売業者と消費者を結ぶネットワークで、商品レビューや分析、ターゲットメディアなどを通して ROI を提供しています。Domo の Bazaarvoice Connectorを使用すると、製品やレビュー、質問と回答などに関するレポートを作成することができます。Bazaarvoice API に関する詳細は、ウェブサイトを参照してください： (https://developer.bazaarvoice.com/docs/read/conversations
+)
+
+Bazaarvoice のアカウントは、Data Center で接続します。このトピックでは、Bazaarvoice Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+Bazaarvoice アカウントに接続して DataSet を作成するには、以下が必要です。
+
+* Bazaarvoice インスタンスのベース URL。一般的にこれは、製作用は
+
+  [http://api.bazaarvoice.com](http://api.bazaarvoice.com "http://api.bazaarvoice.com")
+
+  、そしてステージング用は
+
+  [http://stg.api.bazaarvoice.com](http://stg.api.bazaarvoice.com "http://stg.api.bazaarvoice.com")
+
+  になります。
+* Bazaarvoice API キー。API キーを取得する方法については、
+  https://developer.bazaarvoice.com/apis/conversations/key_request_process
+  を参照してください。
+
+## Bazaarvoice アカウントに接続する
+
+このセクションでは、Bazaarvoice Connector ページの **認証情報** および **詳細** ペインについて説明します。このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、Bazaarvoice アカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> フィールド </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> ベース URL </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Bazaarvoice のベース URL を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> API キー (Passkey) </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Bazaarvoice API キーを入力します。 </span></p></td></tr></tbody></table>
+
+上記認証情報の取得方法については、前述の「必要条件」を参照してください。
+
+有効な Bazaarvoice 認証情報を一度入力しておくと、同じアカウントを使用して随時、新しい Bazaarvoice DataSet を作成することができます。Connector アカウントは、Data Center の **アカウント** タブで管理することができます。このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニュー、および選択したレポートタイプに応じて表示／非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> レポート </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> Bazaarvoice レポートを選択します。以下のレポートが利用できます： </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><span class="s1"> 回答 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 特定の製品に対して寄せられた質問の回答を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 基本メトリック </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 特定の製品に対するレビューと質問数を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 製品メトリック </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 総コメント数、評価、良いフィードバックの数、悪いフィードバックの数など、製品のメトリックを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 製品 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> ブランド名や ID、製品名、説明、商品番号などの製品の詳細を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 質問 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 特定の製品に対して寄せられたユーザーからの質問と、回答数、質問者ニックネーム、フィードバック数などを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> レビュー </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 特定の製品のユーザーレビューを返します。 </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 製品・カテゴリ名 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> データを取得したい製品またはカテゴリの名前を入力します。ここを空白にすると、全ての製品とカテゴリに関するデータが取得されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 投稿の過去日数 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 現在から遡って何日分の投稿レビューを取得するか指定します。例えば、ここで </span><span class="s3"> 30 </span><span class="s1"> と入力すると、レポートには過去 30 日間に投稿されたレビューが掲載されます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="s1"> 改訂レビューの過去日数 </span></p></td><td colspan="1" rowspan="1"><p><span class="s1"> 投稿されたレビューで改訂があったものを対象に、現在から遡って何日分を取得するか指定します。例えば、ここで </span><span class="s3"> 30 </span><span class="s1"> と入力すると、レポートには過去 30 日間に改訂されたレビューが掲載されます。 </span></p></td></tr></tbody></table>
+
+

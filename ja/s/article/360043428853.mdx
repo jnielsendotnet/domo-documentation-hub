@@ -1,0 +1,34 @@
+---
+title: "AnalyzerでDataSetの系統を表示する"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+可視化カードのAnalyzerビューでは、カードに情報を追加しているDataSetの系統を確認できます。「系統」とは、このDataSetを生成するためにDataFlowまたはDataFusionを使用して結合または変換されたDataSetを意味します。次のスクリーンショットは、系統の範囲が広いDataSetの例を示しています。
+
+<Frame><img alt="Lineage.png" src="/images/kb/ka05w00000124TX-00N5w00000Ri7BU-0EM5w000005vOyP.png"/></Frame>
+この例では、DataFlowまたはDataFusionを使用して「人口統計詳細」と「売上データ」の2つのDataSetを結合し、「調整後収益データ」というDataSetを生成しています。次に、このDataSetを「代理店入力」と「広告キャンペーン」と組み合わせて、「収益 - すべて結合」という新しいDataSetを生成しました。最後に、このDataSetを何らかの方法で変換して、このカードの基となる「売上データ - 最終」DataSetを作成しました。
+
+系統内でいずれかのDataSet名をクリックすると、対応するDataSetの情報パネルが展開されます。このパネルには、所有者、コネクター、最終更新日時、列が表示されます。DataSet名をもう一度クリックすると、DataSetの詳細ビューが表示されます。詳細は、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+DataSetの系統を表示し、DataSetの先祖情報について詳しく確認できるこの機能は、データが最新であり、予定通りに実行されていることを示すのに役立ちます。系統内の特定のステップから別のステップへの移行で問題が生じた場合は、対象のステップを示す線が、青ではなく、赤またはオレンジで表示されます。オレンジは、そのDataSetが破損しているものの、破損した後は実行されていない（おそらく最近の問題である）ことを示します。赤は、破損後にDataSetが少なくとも1回は実行が試みられたことを示します。この色分けにより、問題の発生箇所を把握し、接続を確認したり修正したりできます。
+
+**動画 - データの系統の使用**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/kkvNS4BCB1w" width="560"></iframe>
+
+**AnalyzerでDataSetの系統を表示するには：**
+
+1. 系統を表示するカードのAnalyzerを開きます。
+     
+   これを行うには、カードのページビューまたは詳細ビューで **［Analyzerで編集］** を選択します。
+2. （オプション）ウィンドウの上部にAnalyzerツールバーが展開されない場合は、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000kqw-00N5w00000Ri7BU-0EM5w000005vOyN.png" /> をクリックして展開します。
+3. ツールバーの **［系統］** ボタンをクリックします。
+     
+   <Frame><img alt="Lineage.png" src="/images/kb/ka05w00000124TX-00N5w00000Ri7BU-0EM5w000005vOyP.png"/></Frame>
+その後、カードの系統ビューが独立したウィンドウで開きます。
+
+DataSetを結合または変換して新しいDataSetを作成する方法の詳細については、「 Magic変換 」を参照してください。
+
+日本語

@@ -1,0 +1,71 @@
+---
+title: "Google Analytics 4 Real Timeコネクター"
+---
+
+## はじめに
+
+Real Timeでは、サイトやAppで発生したアクティビティを即座にモニターできます。レポートは常に更新され、各ヒットは発生から数秒後に報告されます。GoogleアナリティクスAPIについての詳細は、Googleのウェブサイト（ [https://developers.google.com/analytics/devguides/reporting](https://developers.google.com/analytics/devguides/reporting "https://developers.google.com/analytics/devguides/reporting") ）を参照してください。
+
+Googleアカウントには、Data Centerから接続します。このトピックでは、Google Analytics Real Timeコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Google Analytics 4 Real Time APIにアクセスし、DataSetを作成するには、Googleのメールアドレスとパスワードが必要です。
+
+## Googleアカウントに接続する
+
+このセクションでは、Googleコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoogle Analytics 4 Real Timeコネクターは、接続にOAuthを使用します。このため、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（またはDomoに既存のGoogleアカウントがある場合は **［アカウントを追加］** を選択）すると、Google OAuth画面が開き、Googleのメールアドレスとパスワードを入力できます。有効なGoogleの認証情報を入力した後は、新しいGoogle Analytics 4 Real Time DataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには3つのメニューがあり、プロフィール、メトリクス、ディメンションが選択できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Properties Selection </td><td colspan="1" rowspan="1"> すべてのプロパティのデータを取得するか、特定のプロパティのみのデータを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Metrics </td><td colspan="1" rowspan="1"> レポートのメトリクスを少なくとも1つ選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Dimensions </td><td colspan="1" rowspan="1"> レポートのディメンションを最大9つ選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターで何ができますか？">
+
+
+* ページの現在の閲覧者数を表示し、在庫数に限りがあるアイテムを見ているユーザーに切迫感を与えることができます。
+* リアルタイムダッシュボードの作成、表示ができます。
+
+
+</Accordion>
+<Accordion title="# データが正しくないようですがなぜでしょうか？">
+
+
+データが正しくないようであれば、どのフィルターが **［ビュー］** フィールドに適用されているかを確認します。トラッキングコード実装をデバッグしているときには、フィルターを適用していないビューの使用を推奨します。ビューに加えた変更が、Google Analytics Real Timeコネクターに反映されるまで最大2時間かかることがあります。
+
+
+</Accordion>
+<Accordion title="# 9つのディメンションに制限されるのはなぜですか？">
+
+
+これはGoogleアナリティクスAPIの制限です。9つを超えるディメンションをレポートに追加することはできません。
+
+
+</Accordion>
+<Accordion title="# このコネクターとGoogle Analyticsコネクターの違いは何ですか？">
+
+
+Google Analytics 4 Real Timeコネクターは、リアルタイムレポートAPIを使用し、リアルタイムのデータを返します。Google Analyticsコネクターは、レポートAPIを使用し、履歴データを返します。
+
+
+
+</Accordion>
+</AccordionGroup>

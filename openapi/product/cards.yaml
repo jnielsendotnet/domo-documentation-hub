@@ -1,0 +1,110 @@
+openapi: 3.0.0
+info:
+  title: Card Content API
+  version: v1
+  description: API for updating card content, such as titles and descriptions.
+servers:
+  - url: 'https://example.com/v1'
+    description: Domo Instance
+    variables:
+      instance:
+        default: 'api'
+        description: 'Your specific Domo instance name (e.g., mycompany)'
+tags:
+  - name: Cards
+    description: Manage card content.
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication.
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+          
+    DynamicTextItem:
+      type: object
+      description: A single text block for a dynamic title or description.
+      properties:
+        type:
+          type: string
+          example: "TEXT"
+        text:
+          type: string
+          
+    DynamicTextContainer:
+      type: object
+      description: Container for dynamic text blocks.
+      properties:
+        text:
+          type: array
+          items:
+            $ref: '#/components/schemas/DynamicTextItem'
+            
+    UpdateCardTitleRequest:
+      type: object
+      description: The request body for updating a card's title and description.
+      properties:
+        dynamicTitle:
+          $ref: '#/components/schemas/DynamicTextContainer'
+        dynamicDescription:
+          $ref: '#/components/schemas/DynamicTextContainer'
+
+security:
+  - developerToken: []
+
+paths:
+  /api/content/v1/cards/{CARD_ID}/title:
+    put:
+      summary: Update Card Title
+      description: Updates the dynamic title and/or description of a specific card.
+      tags: [Cards API]
+      parameters:
+        - name: CARD_ID
+          in: path
+          required: true
+          description: The ID of the card to update.
+          schema:
+            type: integer # Assumindo que o ID do cartão é um inteiro
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateCardTitleRequest'
+            example:
+              dynamicTitle:
+                text:
+                  - type: "TEXT"
+                    text: "Pivot Table - Change 22 the quick brown fox"
+              dynamicDescription:
+                text:
+                  - type: "TEXT"
+                    text: "Pivot Table - Change 22 the quick brown fox"
+      responses:
+        '200':
+          description: OK. The card was updated successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                description: Returns an empty object.
+              example: {}
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '404':
+          description: Card Not Found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

@@ -1,0 +1,783 @@
+openapi: 3.0.0
+info:
+  title: Domo AppDB API
+  version: v1
+  description: |
+    AppDB API for storing arbitrary JSON documents similar to a NoSQL database. This enables storing state within your DomoApp 
+    with optional syncing to Domo DataSets.
+    
+    Three layers provide data storage:
+    - **Datastores**: Analogous to a database. A CustomApp has a single datastore created automatically.
+    - **Collections**: Analogous to a collection in NoSQL or table in relational databases.
+    - **Documents**: Analogous to documents in NoSQL or table rows in relational databases.
+
+servers:
+  - url: 'https://{instance}.domo.com'
+    description: Domo Instance
+    variables:
+      instance:
+        default: example
+        description: Your Domo instance name
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          description: Unique identifier for the document
+        customer:
+          type: string
+        owner:
+          type: integer
+          format: int64
+        datastoreId:
+          type: string
+          format: uuid
+        collectionId:
+          type: string
+          format: uuid
+        createdOn:
+          type: string
+          format: date-time
+        updatedOn:
+          type: string
+          format: date-time
+        updatedBy:
+          type: integer
+          format: int64
+        content:
+          type: object
+          additionalProperties: true
+          description: The actual document content
+        syncRequired:
+          type: boolean
+
+    DocumentCreate:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: object
+          additionalProperties: true
+          description: The document content matching collection schema
+
+    DocumentUpdate:
+      type: object
+      required:
+        - content
+      properties:
+        content:
+          type: object
+          additionalProperties: true
+          description: Updated document content
+
+    Collection:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        customer:
+          type: string
+        owner:
+          type: integer
+          format: int64
+        datastoreId:
+          type: string
+          format: uuid
+        name:
+          type: string
+        datasourceId:
+          type: string
+          format: uuid
+        schemaJson:
+          type: string
+        syncRequired:
+          type: boolean
+        fullReplaceRequired:
+          type: boolean
+        lastSync:
+          type: string
+          format: date-time
+        updatedBy:
+          type: integer
+          format: int64
+        schema:
+          $ref: '#/components/schemas/Schema'
+        createdOn:
+          type: string
+          format: date-time
+        updatedOn:
+          type: string
+          format: date-time
+        exportable:
+          type: boolean
+        syncEnabled:
+          type: boolean
+
+    CollectionCreate:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Name of the collection
+        schema:
+          $ref: '#/components/schemas/Schema'
+        syncEnabled:
+          type: boolean
+          default: false
+
+    Schema:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              type:
+                type: string
+                enum: [STRING, LONG, DECIMAL, DOUBLE, DATE, DATETIME]
+              visible:
+                type: boolean
+                default: true
+
+    MongoQuery:
+      type: object
+      additionalProperties: true
+      description: MongoDB query object
+      example:
+        $or:
+          - content.comments:
+              $regex: "happy"
+          - content.username:
+              $ne: "Eeyore"
+
+    PartialUpdateRequest:
+      type: object
+      required:
+        - query
+        - operation
+      properties:
+        query:
+          type: object
+          additionalProperties: true
+          description: MongoDB query to match documents
+        operation:
+          type: object
+          additionalProperties: true
+          description: MongoDB update operation
+
+    BulkCreateResponse:
+      type: object
+      properties:
+        Created:
+          type: integer
+
+    BulkUpsertResponse:
+      type: object
+      properties:
+        Updated:
+          type: integer
+        Created:
+          type: integer
+
+    BulkDeleteResponse:
+      type: object
+      properties:
+        Deleted:
+          type: integer
+
+paths:
+  /domo/datastores/v1/collections/{collectionName}/documents:
+    post:
+      summary: Create Document
+      description: Creates a single document in a collection
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          description: The name given to the collection in the manifest
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreate'
+            example:
+              content:
+                username: "Bill S. Preston, Esquire"
+      responses:
+        '200':
+          description: Document created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+    get:
+      summary: List Documents
+      description: Lists all documents from a given collection
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          description: The name given to the collection in the manifest
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Array of documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Document'
+
+  /domo/datastores/v1/collections/{collectionName}/documents/{documentId}:
+    get:
+      summary: Get Document
+      description: Retrieves a single document from a collection
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          description: The UUID of the document
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Document retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          description: Document not found
+
+    put:
+      summary: Update Document
+      description: Updates an existing document in a collection
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentUpdate'
+            example:
+              content:
+                username: "Bill S. Preston, Esquire"
+                Band: "Wyld Stallyns"
+      responses:
+        '200':
+          description: Document updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+
+    delete:
+      summary: Delete Document
+      description: Permanently deletes a document from the collection
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+      responses:
+        '200':
+          description: Document deleted successfully
+
+  /domo/datastores/v1/collections/{collectionName}/documents/query:
+    post:
+      summary: Query Documents
+      description: Query documents using MongoDB query syntax
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name given to the collection in the manifest
+        - name: groupby
+          in: query
+          description: Comma-separated list of properties to group by
+          schema:
+            type: string
+          example: "content.campaignName,content.month"
+        - name: count
+          in: query
+          description: Alias for count aggregation
+          schema:
+            type: string
+        - name: avg
+          in: query
+          description: Comma-separated list of properties for average aggregation
+          schema:
+            type: string
+          example: "content.clicks avgClicks,content.impressions avgImps"
+        - name: min
+          in: query
+          description: Comma-separated list of properties for minimum aggregation
+          schema:
+            type: string
+        - name: max
+          in: query
+          description: Comma-separated list of properties for maximum aggregation
+          schema:
+            type: string
+        - name: sum
+          in: query
+          description: Comma-separated list of properties for sum aggregation
+          schema:
+            type: string
+        - name: unwind
+          in: query
+          description: Comma-separated list of properties to unwind (flatten nested arrays)
+          schema:
+            type: string
+        - name: orderby
+          in: query
+          description: Alias of aggregation to order by (ascending or descending)
+          schema:
+            type: string
+          example: "sumClicks descending"
+        - name: limit
+          in: query
+          description: Maximum number of documents to return
+          schema:
+            type: integer
+            default: 10000
+        - name: offset
+          in: query
+          description: Number of documents to skip
+          schema:
+            type: integer
+            default: 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MongoQuery'
+            examples:
+              simpleQuery:
+                summary: Simple query example
+                value:
+                  $or:
+                    - content.comments:
+                        $regex: "happy"
+                    - content.username:
+                        $ne: "Eeyore"
+              dateQuery:
+                summary: Query with date filter
+                value:
+                  createdOn:
+                    $lte:
+                      $date: "2020-05-12T00:00:00.000Z"
+      responses:
+        '200':
+          description: Array of matching documents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Document'
+
+  /domo/datastores/v1/collections/{collectionName}/documents/update:
+    put:
+      summary: Partially Update Documents
+      description: Update documents using MongoDB query and update operations
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartialUpdateRequest'
+            example:
+              query:
+                content.username: "Bill S. Preston, Esquire"
+              operation:
+                $set:
+                  content.comment: "Excellent!"
+      responses:
+        '200':
+          description: Number of updated objects
+          content:
+            application/json:
+              schema:
+                type: integer
+
+  /domo/datastores/v1/collections/{collectionName}/documents/bulk:
+    post:
+      summary: Create Documents in Bulk
+      description: Create multiple documents in a given collection in a single HTTP request.
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name given to the collection in the manifest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/DocumentCreate'
+            example:
+              - content:
+                  username: "Bill S. Preston, Esquire"
+              - content:
+                  username: "Ted Theodore Logan"
+      responses:
+        '200':
+          description: Bulk creation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkCreateResponse'
+
+    put:
+      summary: Upsert Documents in Bulk
+      description: Update existing documents or create new ones in bulk.
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name given to the collection in the manifest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                  content:
+                    type: object
+                    additionalProperties: true
+            example:
+              - id: "b3ea3d2d-86c5-44e6-a2f4-985136bbbce1"
+                content:
+                  username: "Bill S. Preston, Esquire"
+                  Band: "Wyld Stallyns"
+              - id: "1e61d99d-9885-419a-a33e-3be3941ee720"
+                content:
+                  username: "Ted Theodore Logan"
+                  Band: "Wyld Stallyns"
+              - content:
+                  username: "Rufus"
+      responses:
+        '200':
+          description: Bulk upsert result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkUpsertResponse'
+
+    delete:
+      summary: Delete Documents in Bulk
+      description: "\n\n<Danger>\n**Warning**\n\n This is destructive and cannot be reversed. Deleting documents in an AppDB collection may have performance implications with regard to syncing to its corresponding DataSet in Domo if the syncEnabled property is set to true for the Collection.\n</Danger>"
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name given to the collection in the manifest
+        - name: ids
+          in: query
+          required: true
+          description: Comma-separated list of document IDs to delete
+          schema:
+            type: string
+          example: "2bdd6370-85af-4e06-aadb-380839e4de8c,c78ba737-5f84-49c9-8ac9-58615a0f8aa8"
+      responses:
+        '200':
+          description: Bulk deletion result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BulkDeleteResponse'
+
+  /domo/datastores/v1/collections:
+    post:
+      summary: Create Collection
+      description: To create a Collection programmatically, send a POST request to the below endpoint and provide as the body of the request the same JSON value that you would have provided in your manifest for a Collection. Once created, the Collection can be retrieved by the name you provided as usual.
+      tags:
+      - AppDB API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CollectionCreate'
+            example:
+              name: "Users"
+              schema:
+                columns:
+                  - name: "username"
+                    type: "STRING"
+                  - name: "band"
+                    type: "STRING"
+              syncEnabled: true
+      responses:
+        '200':
+          description: Collection created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+
+    get:
+      summary: List Collections
+      description: Retrieves a list of the existing Collections for your application.
+      tags:
+      - AppDB API
+      responses:
+        '200':
+          description: Array of collections
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Collection'
+
+  /domo/datastores/v1/collections/{collectionName}:
+    put:
+      summary: Update Collection
+      description: "\n\n<Danger>\n**Warning**\n\n If you manually override the properties of a Collection that exists in your manifest, then any time an app Card is saved, the Card will revert back to the manifest definition of that Collection. It is best practice to only update Collections that you have created manually. Otherwise, to update a Collection, simply update the manifest.\n</Danger>"
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                  format: uuid
+                schema:
+                  $ref: '#/components/schemas/Schema'
+                syncEnabled:
+                  type: boolean
+            example:
+              id: "6de8034e-0aa3-4fd9-ac1d-9a1ffeccb759"
+              schema:
+                columns:
+                  - type: "STRING"
+                    name: "username"
+                    visible: true
+                  - type: "STRING"
+                    name: "band"
+                    visible: true
+                  - type: "STRING"
+                    name: "favorite color"
+                    visible: true
+              syncEnabled: true
+      responses:
+        '200':
+          description: Collection updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Collection'
+
+    delete:
+      summary: Delete Collection
+      description: "Programmatically deletes a Collection.\n\n<Danger>\n**Warning**\n\nThis is destructive and cannot be reversed.\n</Danger>"
+
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+            description: The name of the collection provided when the collection was created
+      responses:
+        '200':
+          description: Collection deleted successfully
+
+  /domo/datastores/v1/export:
+    post:
+      summary: Manually Export Collections
+      description: Manually trigger export of collections to Domo instance
+      tags:
+      - AppDB API
+      parameters:
+        - name: includeRelatedCollections
+          in: query
+          description: Export all collections wired to app instance
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+            example: {}
+      responses:
+        '200':
+          description: Export request received successfully
+        '423':
+          description: Export already in progress (LOCKED)
+
+  /domo/datastores/v1/collections/{collectionName}/permission/{entity}/{entityId}:
+    put:
+      summary: Modify Collection Permissions
+      description: Assuming you already have permission to modify the Collection, you can change the permissions of a Collection by hitting the following endpoint
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entity
+          in: path
+          required: true
+          description: Type of entity
+          schema:
+            type: string
+            enum: [USER, GROUP, RYUU_APP]
+        - name: entityId
+          in: path
+          required: true
+          description: ID of the user, group, or app instance
+          schema:
+            type: string
+        - name: permissions
+          in: query
+          required: true
+          description: Comma-separated list of permissions
+          schema:
+            type: string
+          example: "read,create_content,update_content,read_content"
+      responses:
+        '200':
+          description: Permissions updated successfully
+
+    delete:
+      summary: Delete Permissions
+      description: You can remove all permissions for an entity using the endpoint below. If all entities’ permissions are removed, then only users with the Manage AppDB grant will still have access.
+      tags:
+      - AppDB API
+      parameters:
+        - name: collectionName
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: entity
+          in: path
+          required: true
+          schema:
+            type: string
+            enum: [USER, GROUP, RYUU_APP]
+        - name: entityId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Permissions removed successfully

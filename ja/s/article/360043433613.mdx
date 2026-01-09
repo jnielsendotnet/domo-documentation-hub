@@ -1,0 +1,42 @@
+---
+title: "Adobe Analytics Datafeedコネクター"
+---
+
+## はじめに
+
+Webサイトやモバイルアプリから収集されたデータ、WebサービスAPIやデータソースを使用してアップロードされたデータは、AdobeのData Warehouseで処理、保存されます。この未加工のクリックストリームデータは、Adobe Analyticsが使用するデータセットを形成します。Adobe Analytics APIについて詳しくは、Webサイト（ [https://marketing.adobe.com/develope...c-introduction](https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction "https://marketing.adobe.com/developer/en_US/get-started/introduction/c-introduction") ）を参照してください。
+
+データのあるAmazon Web Services（AWS）S3バケットに接続して、Adobe Analytics Datafeedデータをインポートします。この操作はDomoのData Centerで行います。このトピックでは、Adobe Analytics Datafeedコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+AWS S3バケットに接続してAdobe Analytics Datafeedデータをインポートするには、次のものが必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  ****［セキュリティ認証情報］**** セクションで確認できます。または、IAMを使用している場合は、 ****［ユーザー］**** から確認できます。
+* AWSシークレットキー。これはアクセスキーを作成したときに提供されたものです。新しいシークレットキーは、AWS Consoleで生成することができます。
+* ファイルを取得したいAWS S3バケットの名前。
+
+## AWS S3バケットに接続してAdobe Analyticsデータを取得する
+
+このセクションでは、Adobe Analytics Datafeedコネクターのページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### 認証情報ペイン
+
+このペインには、Adobe Analyticsアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アクセスキー </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シークレットキー </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><br/> バケット </p></td><td colspan="1" rowspan="1"><p><br/> Adobe Analyticsデータを引き込みたいAmazon S3バケットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リージョン </p></td><td colspan="1" rowspan="1"><p> ファイルがあるS3バケットのリージョンを選択します。 </p></td></tr></tbody></table>
+
+有効なAWS認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAdobe Analytics Datafeed DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するAdobe Analyticsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> 毎日 </p></td><td colspan="1" rowspan="1"><p> 最新の1日あたりのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 毎時 </p></td><td colspan="1" rowspan="1"><p> 最新の1時間あたりのデータを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> プレフィックス（オプション） </p></td><td colspan="1" rowspan="1"><p> プレフィックスを入力して、このプレフィックスで始まるキーのみに結果を制限します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 引用文字 </p></td><td colspan="1" rowspan="1"><p> データで使用されている引用文字を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 追加の列 </p></td><td colspan="1" rowspan="1"><p> レポートに追加の列（［ブラウザーの詳細］、［イベントリスト］、［ユニークID］、［ユニーク訪問者ID］）が必要かどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 複数ファイル </p></td><td colspan="1" rowspan="1"><p> 複数のファイルをサポートするかどうかを選択します。 <b> ［True］ </b> を選択すると、最初の実行時に複数のファイルが処理されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

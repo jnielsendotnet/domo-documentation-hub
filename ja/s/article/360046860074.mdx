@@ -1,0 +1,83 @@
+---
+title: "Workbench 4 で JIRA データに接続する"
+---
+
+Workbench 4 では、JIRA DataSetジョブを作成することができます。 JIRA を DataSet タイプに選択したら、JIRA の認証情報と JQL クエリを入力して、JIRA データを Workbench に取り込むことができます。
+
+**Workbench 4 でJIRA DataSet ジョブを作成するには、**
+
+1. Workbenchウィンドウ上部、ボタンツールバーの **DataSet ジョブ** グループで **新規に追加** をクリックします。
+     
+   **Workbench DataSet ジョブ作成ウィザード** が開きます。
+2. （条件付） 要求されたら、Domo サーバーを選択します。 （この画面は、Workbench に 1 つ以上のサーバーがあった場合のみ表示されます。）
+3. **DataSet ジョブ名** フィールドに、DataSet ジョブの名前を入力します。 これは、Workbench で表示されるジョブ名です。Domo にアップロードされた DataSet 名では *ありません* 。
+4. **DataSet 名** フィールドに、DataSet 名を入力します。 これは、Domo にアップロードされた DataSet 名です。
+5. **更新方法** メニューで、更新する方法を選択します：
+
+   * 更新時に、DataSet を完全に入れ替えたい場合は、**DataSet を置換** を選択します。
+   * 更新データを既存のデータに追加したい場合は、**DataSet に追加** を選択します。
+6. **トランスポート方法** メニューで、 **JIRA 接続プロバイダー** を選択します。
+7. **次へ** をクリックします。
+8. （オプション）**DataSet の説明フィールド** に説明を入力します。
+
+<Note>
+**注記：** これらの設定は、ウィザードで全てのステップを完了した後でも、トランスポート方法 *以外* は、DataSet ジョブの **ソース** パネルで変更することができます。
+</Note>
+
+* **次へ**をクリックします。
+    
+  **アカウント** ペインの現在認証されているサーバーのジョブリストに、JIRA DataSet ジョブが新規に追加されます。
+* 今ジョブリストに追加されたばかりの JIRA DataSet ジョブで、**ソース** を選択します。
+    
+  JIRAデータソースに接続するためのオプションが掲載されたパネルが開きます。
+* 「JIRA接続」の右にある + ボタンをクリックします。
+* 該当するフィールドに、会社のJIRAインスタンスに接続するのに使用するユーザー名とパスワードを入力します。
+    
+
+
+
+<Note>
+   
+**注記：** 間違った認証情報で JIRA ジョブを実行しようすると、JIRA アカウントはロックされます。 これは、正しい認証情報を入れることでは修復することはできません。手動でJIRAにログインし、CAPTCHA認証を行行う必要があります。
+</Note>
+* **サーバー URL** フィールドに、会社の JIRA サーバーの URL を入力します。
+* **JIRA クエリ** フィールドで、DataSet に引き込みたい JIRA データのクエリを入力します。
+
+<Tip>
+
+**ヒント：** JQL クエリは、JIRA で作成して、Workbench でコピー・ペーストすることができます。
+
+</Tip>
+
+**JQL クエリ例**
+  
+`project not in (ARCHIVE, CPD, DC, DCV, DP, QA, ODD) AND issuetype in (Epic) AND fixVersion in (2015-02-17) ORDER BY status DESC, resolved DESC, issuetype DESC, key ASC`
+
+<Warning>
+
+**重要：** JIRA クエリを特定の順番付けをせずに設定すると、Domo へのアップロード時にエラーの原因になる場合があります。 大抵の場合、クエリで created ASC を使って結果を順序付けすることでこの問題を回避することができます。
+
+</Warning>
+
+例：
+  
+`Reporter is not null order by created ASC`
+
+* **変更を適用** をクリックします。
+    
+  認証情報とクエリが有効なら、 **データソースプロパティ** パネルに JIRA データソースの属性リストが表示されます。
+* （オプション）属性は、**含まれている属性を追加** フィールドに入力することでリストに追加することができます。
+* （オプション）リストから属性を削除するには、チェックボックスからはずし、**はい** をクリックして確認します。
+
+これで Domo にJIRA DataSet が作成され、DataSet ジョブを実行する準備ができました。 しかし、Domo に送信する前に DataSet ジョブでできる操作はたくさんあります。 これには以下のものが含まれます：
+
++ [Workbench 4 で Excel データに接続する](/ja/s/article/360047499333 "Workbench 4 で Excel データに接続する")
++ [Workbench 4 で CSV データに接続する](/ja/s/article/360047496473 "Workbench 4 で CSV データに接続する")
++ [Workbench 4 で JIRA データに接続する](/ja/s/article/360046860074 "Workbench 4 で JIRA データに接続する")
++ [Workbench 4 で ODBC データに接続する](/ja/s/article/360047499793 "Workbench 4 で ODBC データに接続する")
++ [Workbench 4 で OLAP キューブに接続する](/ja/s/article/360047496273 "Workbench 4 で OLAP キューブに接続する")
++ [Workbench 4 で XML データに接続する](/ja/s/article/360046860474 "Workbench 4 で XML データに接続する")
++ [Workbench 4 で QuickBooks データに接続する](/ja/s/article/360046860414 "Workbench 4 で QuickBooks データに接続する")
++ [Workbench 4 で JSON データに接続する](/ja/s/article/360046860134 "Workbench 4 で JSON データに接続する")
+
+

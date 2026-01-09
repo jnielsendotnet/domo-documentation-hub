@@ -1,0 +1,73 @@
+---
+title: "Dropbox Fileコネクター"
+---
+
+## はじめに
+
+Dropboxは、ファイル共有やコラボレーションによく使用されるパーソナルクラウドストレージサービスです。DomoのDropbox Fileコネクターを使用すると、選択したDropboxアカウントからCSV、XLS、XLSXファイルを取得できます。Dropbox APIの詳細は、 [https://www.dropbox.com/developers](https://www.dropbox.com/developers "https://www.dropbox.com/developers") を参照してください。
+
+Dropboxアカウントには、Data Centerから接続します。このトピックでは、Dropbox Fileコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Dropboxアカウントに接続してDropbox File DataSetを作成するには、以下が必要です。
+
+* Dropboxアカウントにアクセスするために入力するメールアドレス。
+* Dropboxパスワード。
+
+## Dropboxアカウントに接続する
+
+このセクションでは、Dropbox Fileコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付けて説明を入力］** については、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのDropbox Fileコネクターは、接続にOAuthを使用しています。 **［接続］** をクリック（またはDomoに既存のDropbox Fileアカウントがある場合は **［アカウントを追加］** を選択）して、DropboxのOAuth画面を開き、Dropboxアカウントに紐付いたメールアドレスとDropboxのパスワードを入力します。有効なDropbox認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいDropbox File DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にDropboxにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずDropboxからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインでは、DomoにインポートするDropboxファイルの名前とファイルタイプを指定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ファイルタイプ </td><td colspan="1" rowspan="1"> インポートするファイルのファイルタイプを選択します。標準バージョンのコネクターでは、CSV、XLS、XLSXファイルのみインポートできます。JSON、XML、ZIPファイルなど他のファイルタイプをインポートするには、 <a href="/s/article/360043436553" target="_blank" title="Dropbox File Advanced Connector"> Dropbox File Advanced </a> コネクターを使用します。 </td></tr><tr><td colspan="1" rowspan="1"> ファイル名 </td><td colspan="1" rowspan="1"> DropboxからDomoにインポートするファイルの名前を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# Dropbox認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスにはOAuthプロセスが使用されるため、DomoによりDropboxの認証情報が表示または保存されることはありません。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# このコネクターと高度なバージョンとの違いは何ですか？">
+
+
+Dropbox Fileコネクターでは、CSV、XLS、XLSXファイルのみインポートできますが、Dropbox File Advancedコネクターでは、JSON、XML、ZIPもインポートできます。Dropbox File Advancedコネクターでは、ファイルからデータをインポートするための高度なフィルターも使用できます。
+
+
+
+</Accordion>
+</AccordionGroup>

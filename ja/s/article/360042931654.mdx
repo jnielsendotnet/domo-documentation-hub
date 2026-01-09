@@ -1,0 +1,57 @@
+---
+title: "Amazon Redshift Upsertコネクター"
+---
+
+## はじめに
+
+Amazon Redshiftは、ホスト型Data Warehouseプロジェクトで、大型クラウドコンピューティングプラットフォームであるAmazon Web Servicesの一部です。Redshiftは、列型DBMS原理で保存された大規模なDataSet上の解析ワークロードを取り扱うことができます。Amazon Redshift Upsertコネクターで、マージ（アップサート）オプションを使用することにより、データを表に反映できます。
+
+Amazon Redshift Upsertのアカウントには、Data Centerから接続します。このトピックでは、Amazon Redshift Upsertコネクターのインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加とDataSet情報の編集に関する一般的な情報については、「 [データコネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Amazon Redshift Upsert DataSetの作成を開始できるように、Amazon Redshiftに接続するには、以下が必要です。
+
+* JDBCドライバー
+* Redshiftデータベースのホスト名
+* Redshiftデータベースのデータベース名
+* Redshiftのユーザー名とパスワード
+* Redshiftデータベースのポート番号
+* 証明書の形式これは、［証明書］フィールドに入力した内容と一致している必要があります。
+* CA証明書用テキスト、または証明書がある場所のURLを入力します。デフォルトでは、証明書は必要ありません。
+
+### ホワイトリスト化
+
+Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリスト化する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+## Amazon Redshift Upsertアカウントに接続する
+
+このセクションでは、Amazon Redshift Upsertコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon Redshift Upsertアカウントに接続する認証情報の入力フィールドが含まれています。下表は、各フィールドに必要な内容を説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> JDBCドライバー </p></td><td colspan="1" rowspan="1"><p> 使用するJDBCドライバーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> SQLデータベースのホスト名を入力します。ホスト名が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース </p></td><td colspan="1" rowspan="1"><p> SQLデータベース名を入力します。データベース名が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Redshiftユーザー名を入力します。ユーザー名が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Redshiftパスワードを入力します。ユーザー名が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベースポート </p></td><td colspan="1" rowspan="1"><p> Redshiftデータベースのポート番号を入力します。ポート番号が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書書式 </p></td><td colspan="1" rowspan="1"><p> 証明書書式を選択します。これは、 <b> ［証明書］ </b> フィールドに入力した内容と一致している必要があります。特別な証明書が分からない場合、［証明書なし］を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書 </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。デフォルトでは、証明書は必要ありません。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon Redshift Upsert DataSetを作成することができます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoにロードするデータを指定するための、様々なオプションが含まれています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリタイプ </td><td colspan="1" rowspan="1"><p> クエリタイプを選択します。 </p><p><b> クエリ </b> ：パラメーターなしの通常SQLクエリ </p><p><b> クエリパラメーター </b> ：パラメーターを伴うSQLクエリ </p></td></tr><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 必要なデータの選択に使用するSQLクエリを入力します。例： <code> SELECT * FROM Employee </code></td></tr><tr><td colspan="1" rowspan="1"> フェッチサイズ </td><td colspan="1" rowspan="1"> メモリのパフォーマンスのフェッチサイズを入力します。空白の場合、デフォルト値は1000です。値に対してメモリー不足の例外が発生した場合、フェッチサイズを縮小します。 </td></tr><tr><td colspan="1" rowspan="1"> クエリパラメーター </td><td colspan="1" rowspan="1"> クエリパラメーターの値を入力します。この値は、クエリパラメーターの初期値となります。最終実行日はオプションです。指定しない場合はデフォルトで「1700年2月1日」となります。例：!\{lastvalue:_id}!=1,\{lastrundate:start_date}!=02/01/1944 <code></code></td></tr><tr><td colspan="1" rowspan="1"> 検証タイプ </td><td colspan="1" rowspan="1"><p> 検証タイプを選択します。 </p><p><b> 検証なし </b> ：検証を実行しません。 </p><p><b> 検証スキーマ </b> ：現在のスキーマと直前のスキーマを検証し、スキーマが同じではない場合、ジョブの実行が失敗します。 </p></td></tr><tr><td colspan="1" rowspan="1"> 検証手段 </td><td colspan="1" rowspan="1"><p> 検証するケースを選択します。 </p><p><b> 列名の大文字と小文字を区別 </b> ：現在の列名と直前の列名が同じで大文字・小文字のみが異なる場合、列名が一致するとはみなしません。 </p><p><b> 列の順序 </b> ：現在の列と直前の列が同じ順序ではない場合、列名が一致するとはみなしません。 </p></td></tr><tr><td colspan="1" rowspan="1"> Booleanの形式 </td><td colspan="1" rowspan="1"><p> 返されるデータにおけるBooleanの形式を選択します。 </p><p><b> 1 = true、0 = false </b> ：すべてのBoolean型のデータ列で、真の場合は1を返し、その他の場合は0を返します。 </p><p><b> t = true、f = false </b> ：すべてのBoolean型のデータ列で、真の場合はtを返し、その他の場合はfを返します。 </p><p><b> T = true、F = false </b> ：すべてのBoolean型のデータ列で、真の場合はTを返し、その他の場合はFを返します。 </p><p><b> true = true、false = false </b> ：すべてのBoolean型のデータ列で、真の場合はtrueを返し、その他の場合はfalseを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> タイムアウトクエリ（オプション） </td><td colspan="1" rowspan="1"> 使用されるクエリタイムアウト値を入力します。 </td></tr></tbody></table>
+
+### スケジュール設定
+
+このコネクター特有のスケジュール設定機能により、データのマージ（アップサート）を実現します。この方法では、更新された行はすべて置き換えられ、新しい行は追加されます。
+
+<Frame><img alt="Merge Gif.gif" src="/images/kb/ka05w00000123Lt-00N5w00000Ri7BU-0EM5w000005vO6I.gif"/></Frame>
+
+更新されたデータを正確に結合するには、データ中の「結合キー」を特定する必要があります。結合キーは、プライマリーキーまたはDataSetに固有の列の組み合わせとすることができます。バージョンが異なるDataSetの行を比較するのに用いられます。 SELECT 文で CONCAT() 機能を使用して、複雑な結合キーを作成できます。このDataSetの結合キーがはっきりわからない場合は、データベースを所有するDBA、またはDomo管理者に問い合わせてください。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

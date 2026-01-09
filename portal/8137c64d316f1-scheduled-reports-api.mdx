@@ -1,0 +1,1716 @@
+---
+title: "Scheduled Reports API"
+permalink: "8137c64d316f1-scheduled-reports-api"
+sidebarTitle: "Overview"
+---
+## List Report Schedules
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/list-report-schedules"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description | Enum Values |
+| --- | --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type for the schedules | - |
+| title | string | false | "" | Filter by title | - |
+| limit | integer | false | 0 | Number of items to return | - |
+| skip | integer | false | 0 | Number of items to skip | - |
+| orderBy | string | false | "startDate" | Field to sort by | startDate, nextRunDate, title |
+| isAscending | boolean | false | false | Sort in ascending order | - |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "reportViewId": 789012,
+    "pageId": 345678,
+    "title": "Monthly Sales Report",
+    "viewName": "Sales Dashboard",
+    "type": "RECURRING",
+    "ownerId": 901234,
+    "embedViewId": 567890,
+    "owner": true,
+    "cardCount": 5,
+    "recipientCount": 10,
+    "cardId": 234567,
+    "schedule": {
+      "frequency": "MONTHLY",
+      "daysToRun": "1",
+      "hourOfDay": 9,
+      "minOfHour": 0,
+      "timezone": "America/New_York",
+      "enabled": true
+    }
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+
+## Create Report Schedule
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/create-report-schedule"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules`
+
+**Request Body**: ReportScheduleInfo object
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '{
+  "title": "Weekly Performance Report",
+  "pageId": 345678,
+  "viewId": 789012,
+  "schedule": {
+    "frequency": "WEEKLY",
+    "daysToRun": "MON",
+    "hourOfDay": 8,
+    "minOfHour": 0,
+    "timezone": "America/New_York",
+    "enabled": true,
+    "additionalRecipients": [
+      {
+        "type": "EMAIL",
+        "value": "user@example.com"
+      }
+    ]
+  },
+  "attachmentInclude": true
+}'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "id": 123457,
+  "reportViewId": 789012,
+  "pageId": 345678,
+  "title": "Weekly Performance Report",
+  "schedule": {
+    "frequency": "WEEKLY",
+    "daysToRun": "MON",
+    "hourOfDay": 8,
+    "minOfHour": 0,
+    "enabled": true,
+    "nextRunDate": 1700481600000
+  }
+}
+```
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Delete Report Schedule by Page ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/delete-report-schedule-by-page-id"
+/>
+
+**Method**: `DELETE`  
+**Endpoint**: `/api/content/v1/reportschedules`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| pageId | integer | true | - | ID of the page to delete schedule for |
+
+**Example**:
+
+```sh
+curl --request DELETE \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report Schedule by ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-schedule-by-id"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule to retrieve |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "id": 123456,
+  "reportViewId": 789012,
+  "pageId": 345678,
+  "title": "Monthly Sales Report",
+  "schedule": {
+    "frequency": "MONTHLY",
+    "daysToRun": "1",
+    "hourOfDay": 9,
+    "minOfHour": 0,
+    "timezone": "America/New_York",
+    "enabled": true
+  }
+}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+
+## Update Report Schedule
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/update-report-schedule"
+/>
+
+**Method**: `PUT`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule to update |
+
+**Request Body**: ReportScheduleInfo object
+
+**Example**:
+
+```sh
+curl --request PUT \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '{
+  "title": "Updated Monthly Sales Report",
+  "schedule": {
+    "frequency": "MONTHLY",
+    "daysToRun": "15",
+    "hourOfDay": 10,
+    "minOfHour": 30,
+    "timezone": "America/New_York",
+    "enabled": true
+  }
+}'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "id": 123456,
+  "title": "Updated Monthly Sales Report",
+  "schedule": {
+    "frequency": "MONTHLY",
+    "daysToRun": "15",
+    "hourOfDay": 10,
+    "minOfHour": 30,
+    "timezone": "America/New_York",
+    "enabled": true,
+    "nextRunDate": 1701864600000
+  }
+}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+
+## Delete Report Schedule
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/delete-report-schedule"
+/>
+
+**Method**: `DELETE`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule to delete |
+
+**Example**:
+
+```sh
+curl --request DELETE \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Enable/Disable Report Schedule
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/enabledisable-report-schedule"
+/>
+
+**Method**: `PUT`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/enabled`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: boolean
+
+**Example**:
+
+```sh
+curl --request PUT \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/enabled' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data true
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report History by Schedule ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-history-by-schedule-id"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/history`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| limit | integer | false | 100 | Number of items to return |
+| skip | integer | false | 0 | Number of items to skip |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/history' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 789012,
+    "reportId": 123456,
+    "reportTitle": "Monthly Sales Report",
+    "reportSubject": "Sales Report for November 2024",
+    "startTime": "2024-11-01T09:00:00Z",
+    "endTime": "2024-11-01T09:05:00Z",
+    "automated": true,
+    "cardCount": 5,
+    "attachmentCount": 2,
+    "attachmentSize": 1024000,
+    "emailSize": 1536000,
+    "status": "success",
+    "recipients": [
+      {
+        "userId": 901234,
+        "displayName": "John Doe",
+        "emailAddress": "john.doe@example.com"
+      }
+    ]
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Build and Email Report
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/build-and-email-report"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/notifications`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: Array of ReportRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/notifications' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "userId": 901234,
+    "displayName": "John Doe",
+    "emailAddress": "john.doe@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Queue Build and Email Report
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/queue-build-and-email-report"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/notifications/queue`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: Array of ReportRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/notifications/queue' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "userId": 901234,
+    "displayName": "John Doe",
+    "emailAddress": "john.doe@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Queue Report Now
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/queue-report-now"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/queue`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: Array of ReportScheduleRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/queue' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "type": "EMAIL",
+    "value": "john.doe@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Resubscribe to Report
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/resubscribe-to-report"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/resubscribe`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Query Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| userId | integer | false | User ID |
+| emailId | string | false | Email ID |
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/resubscribe' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Send Report Now
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/send-report-now"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/sendnow`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: Array of ReportScheduleRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/sendnow' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "type": "EMAIL",
+    "value": "john.doe@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Send Resubscribe Email
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/send-resubscribe-email"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/sendResubscribe`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Request Body**: Array of ReportScheduleRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/sendResubscribe' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "type": "EMAIL",
+    "value": "john.doe@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Unsubscribe from Report
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/unsubscribe-from-report"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/unsubscribe`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/unsubscribe' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Delete Unsubscribed Recipient
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/delete-unsubscribed-recipient"
+/>
+
+**Method**: `DELETE`  
+**Endpoint**: `/api/content/v1/reportschedules/{scheduleId}/unsubscribe/recipient`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| scheduleId | integer | true | ID of the schedule |
+
+**Query Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| userId | integer | false | User ID |
+| emailId | string | false | Email ID |
+
+**Example**:
+
+```sh
+curl --request DELETE \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/123456/unsubscribe/recipient' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Render Card for Email
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/render-card-for-email"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/card-email-data`
+
+**Request Body**: Array of integers (card IDs)
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/card-email-data' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  123,
+  456,
+  789
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "additionalProperties": {
+    "title": "Sample Card",
+    "encodedImage": "base64string",
+    "encodedImageId": "img123",
+    "timeframeLabel": "Last 30 Days",
+    "summaryNumberValue": "10,000",
+    "summaryNumberLabel": "Total Sales",
+    "htmlContent": "<div>Card content</div>",
+    "cardType": "kpi",
+    "cardLink": "https://instance.domo.com/cards/123",
+    "pdpEnabled": true,
+    "certified": true,
+    "companyCertified": false
+  }
+}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+
+## Get Created Report History
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-created-report-history"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/created`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type |
+| days | integer | false | 10 | Number of days to look back |
+| isAscending | boolean | false | false | Sort order |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/created' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "reportId": 123456,
+    "reportTitle": "New Report",
+    "ownerId": 789,
+    "created": "2024-11-14T10:00:00Z",
+    "resourceType": "PAGE",
+    "resourceId": 456,
+    "resourceName": "Dashboard"
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+
+## Enable/Disable Scheduled Report Emails
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/enabledisable-scheduled-report-emails"
+/>
+
+**Method**: `PUT`  
+**Endpoint**: `/api/content/v1/reportschedules/emails/enabled`
+
+**Request Body**: boolean
+
+**Example**:
+
+```sh
+curl --request PUT \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/emails/enabled' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data true
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Extended Report History
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-extended-report-history"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/extendedHistory`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description | Enum Values |
+| --- | --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type | - |
+| days | integer | false | 10 | Number of days to look back | - |
+| orderBy | string | false | "startTime" | Field to sort by | reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize |
+| isAscending | boolean | false | false | Sort order | - |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/extendedHistory' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "reportId": 789012,
+    "reportTitle": "Extended Report",
+    "reportSubject": "Extended Report Details",
+    "startTime": "2024-11-14T10:00:00Z",
+    "endTime": "2024-11-14T10:05:00Z",
+    "automated": true,
+    "cardCount": 5,
+    "attachmentCount": 2,
+    "attachmentSize": 1024000,
+    "emailSize": 1536000,
+    "status": "success",
+    "ownerId": 901234,
+    "recipientCount": 10,
+    "resourceType": "PAGE",
+    "resourceId": 345678,
+    "resourceName": "Sales Dashboard"
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Rerun Failed Scheduled Reports
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/rerun-failed-scheduled-reports"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/failures/rerun`
+
+**Query Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| start | integer | true | Start timestamp |
+| end | integer | true | End timestamp |
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/failures/rerun' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{}
+```
+```json 403 Forbidden
+{}
+```
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report History
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-history"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/history`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description | Enum Values |
+| --- | --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type | - |
+| limit | integer | false | 100 | Number of items to return | - |
+| skip | integer | false | 0 | Number of items to skip | - |
+| orderBy | string | false | "startTime" | Field to sort by | reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize |
+| isAscending | boolean | false | false | Sort order | - |
+| includeRecipientInfo | boolean | false | false | Include recipient information | - |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/history' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "reportId": 789012,
+    "reportTitle": "History Report",
+    "startTime": "2024-11-14T10:00:00Z",
+    "endTime": "2024-11-14T10:05:00Z",
+    "automated": true,
+    "cardCount": 5,
+    "status": "success",
+    "recipients": [
+      {
+        "userId": 901234,
+        "displayName": "John Doe",
+        "emailAddress": "john.doe@example.com"
+      }
+    ]
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report History by ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-history-by-id"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/history/{id}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| id | integer | true | History entry ID |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/history/123456' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "id": 123456,
+  "reportTitle": "Specific History Report",
+  "startTime": "2024-11-14T10:00:00Z",
+  "endTime": "2024-11-14T10:05:00Z",
+  "status": "success"
+}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Search Report History
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/search-report-history"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/history/search`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description | Enum Values |
+| --- | --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type | - |
+| limit | integer | false | 100 | Number of items to return | - |
+| skip | integer | false | 0 | Number of items to skip | - |
+| orderBy | string | false | "startTime" | Field to sort by | reportTitle, startTime, endTime, automated, cardCount, attachmentCount, attachmentSize, emailSize |
+| isAscending | boolean | false | false | Sort order | - |
+
+**Request Body**: ReportLogSearchCriteria object
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/history/search' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '{
+  "includeTitleClause": true,
+  "titleSearchText": "Sales",
+  "includeStatusClause": true,
+  "status": "success",
+  "includeTypeClause": true,
+  "isAutomated": true,
+  "includeScheduleIdClause": false
+}'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "reportTitle": "Sales Report",
+    "startTime": "2024-11-14T10:00:00Z",
+    "endTime": "2024-11-14T10:05:00Z",
+    "automated": true,
+    "status": "success"
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Misconfigured Reports
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-misconfigured-reports"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/misconfigured`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| limit | integer | false | 100 | Number of items to return |
+| skip | integer | false | 0 | Number of items to skip |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/misconfigured' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "title": "Misconfigured Report",
+    "schedule": {
+      "frequency": "MONTHLY",
+      "enabled": false
+    },
+    "active": false
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Resources with Reports
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-resources-with-reports"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/resources`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| limit | integer | false | 100 | Number of items to return |
+| skip | integer | false | 0 | Number of items to skip |
+| title | string | false | "" | Filter by title |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/resources' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "resourceId": 123456,
+    "title": "Sales Dashboard",
+    "type": "PAGE"
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report Schedules by Resource ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-schedules-by-resource-id"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/resources/{resourceType}/{resourceId}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description | Enum Values |
+| --- | --- | --- | --- | --- |
+| resourceType | string | true | Type of resource | OPEN, PAGE, CARD, REPORT |
+| resourceId | integer | true | ID of the resource | - |
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description |
+| --- | --- | --- | --- | --- |
+| showAll | boolean | false | false | Show all schedules |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/resources/PAGE/123456' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "title": "Resource Report",
+    "schedule": {
+      "frequency": "WEEKLY",
+      "enabled": true
+    }
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report Schedules Map
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-schedules-map"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/sortby`
+
+**Query Parameters**:
+
+| Name | Type | Required | Default | Description | Enum Values |
+| --- | --- | --- | --- | --- | --- |
+| filter | string | false | "USER" | Filter type | - |
+| title | string | false | "" | Filter by title | - |
+| limit | integer | false | 0 | Number of items to return | - |
+| skip | integer | false | 0 | Number of items to skip | - |
+| orderBy | string | false | "startDate" | Field to sort by | startDate, nextRunDate, title |
+| isAscending | boolean | false | false | Sort order | - |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/sortby' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+[
+  {
+    "id": 123456,
+    "title": "Sales Report",
+    "schedule": {
+      "frequency": "WEEKLY",
+      "enabled": true
+    }
+  }
+]
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Get Report Schedule by View ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/get-report-schedule-by-view-id"
+/>
+
+**Method**: `GET`  
+**Endpoint**: `/api/content/v1/reportschedules/views/{viewId}`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| viewId | integer | true | ID of the view |
+
+**Example**:
+
+```sh
+curl --request GET \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/views/123456' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 200 OK
+{
+  "id": 123456,
+  "title": "View Report",
+  "schedule": {
+    "frequency": "WEEKLY",
+    "enabled": true
+  }
+}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Send Report Now by View ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/send-report-now-by-view-id"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/views/{viewId}/sendNow`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| viewId | integer | true | ID of the view |
+
+**Query Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| attachmentInclude | boolean | false | Include attachments |
+
+**Request Body**: Array of ReportScheduleRecipient objects
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/views/123456/sendNow' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '[
+  {
+    "type": "EMAIL",
+    "value": "user@example.com"
+  }
+]'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>
+
+## Send Report Now with Parameters by View ID
+
+<Card
+  horizontal
+  arrow
+  title="Playground"
+  icon="code"
+  href="/api-reference/scheduled-reports-api/send-report-now-with-parameters-by-view-id"
+/>
+
+**Method**: `POST`  
+**Endpoint**: `/api/content/v1/reportschedules/views/{viewId}/sendNowWithParams`
+
+**Path Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| viewId | integer | true | ID of the view |
+
+**Query Parameters**:
+
+| Name | Type | Required | Description |
+| --- | --- | --- | --- |
+| attachmentInclude | boolean | false | Include attachments |
+
+**Request Body**: ResourceSendNowInfo object
+
+**Example**:
+
+```sh
+curl --request POST \
+  --url 'https://{instance}.domo.com/api/content/v1/reportschedules/views/123456/sendNowWithParams' \
+  --header 'Content-Type: application/json' \
+  --header 'X-DOMO-Developer-Token: Bearer <token>' \
+  --data '{
+  "recipients": [
+    {
+      "type": "EMAIL",
+      "value": "user@example.com"
+    }
+  ],
+  "alertActionId": 789012,
+  "emailParams": {
+    "param1": "value1"
+  }
+}'
+```
+
+**Responses**:
+
+<CodeGroup>
+```json 202 Accepted
+{}
+```
+
+```json 403 Forbidden
+{}
+```
+
+```json 409 Conflict
+{}
+```
+</CodeGroup>

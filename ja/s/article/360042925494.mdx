@@ -1,0 +1,349 @@
+---
+title: "Beast Mode計算例：日付変換"
+---
+
+## はじめに
+
+Beast Modeで日付変換を作成する場合は、この記事の計算を参照してください。タイムゾーンの変換、週の番号の日付への変換、日付形式の変更、ダイナミック夏時間の有効化など、多数のサンプル計算が利用可能です。
+
+## GMTとタイムゾーン
+
+`CASE WHEN HOUR(CURRENT_TIMESTAMP()) < 8 THEN ADDDATE(CURRENT_DATE(), -1) ELSE CURRENT_DATE() END`
+
+`8` を、GMT時間との時差の数値に置き換えます。
+
+## 日付や認識されない日付の変換
+
+Beast Modeを使用すると、列の日付形式をほかの列に変換できます。次の例では、YYYY-MM-DDの形式に日付形式を再設定します。
+
+```
+STR_TO_DATE(CONCAT (YEAR (`Date`), ‘ – ‘
+
+, DAY (`Date`), ‘ – ‘
+
+, MONTH (`Date`)
+
+)
+
+, ‘ %Y-%m-%d ’
+
+)
+```
+
+詳細については、「 [Beast Modeでの日付の形式指定文字列](/s/article/360043430153) 」を参照してください。
+
+## 週の番号を日付に
+
+Domoのデフォルトの「管理者」セキュリティ権限、または「全てのカンパニー設定を管理」が有効なカスタマイズされた権限がある場合は、「 [週の表示フォーマットを変更する](/s/article/360043429633 "チャートの日付形式を変更する") 」の説明に従って、管理者設定からすべてのカードの週の番号を日付に変換できます。「管理者」ではない場合、「全てのカンパニー設定を管理」が有効なカスタマイズされた権限を持っていない場合、またはこの変更を全般的に行わない場合は、次のような方法で、Beast Modeを使用してカード単位で週の番号を日付に変換します。
+
+**オプション1**
+
+`` SUBDATE(`Date`,WEEKDAY(`Date`)-1) ``
+
+これは最もシンプルなバージョンであり、指定した週の日曜日の完全な日付を返します。そのため、週の番号が2015年の第1週の場合、計算によって「2015-01-04」が返されます（日曜日はこの年の1月4日であるため）。これは日付のように見えますが、Domoはそれを文字値と見なします。このBeast Modeを使用するすべてのカードは常に「毎週」にロックされるため、この値に日付単位セレクターを使用することはできません。
+
+**オプション2**
+
+`` DATE_FORMAT(SUBDATE(`Date`,WEEKDAY(`Date`)-1),'%m/%d/%Y') ``
+
+これは前のオプションと同じものですが、日付形式が異なります（「2015-01-04」の代わりに「01/04/2015」が返されます）。
+
+**オプション3**
+
+`` CONCAT('Week beg: ',DATE_FORMAT(SUBDATE(`Date`,WEEKDAY(`Date`)-1),'%b-%d')) ``
+
+このバージョンでは、「Week beg:」というテキストが表示され、その週の日曜日の月と日のみが表示されます。例えば、「Week beg: Jan 04」のようになります。
+
+**オプション4**
+
+`` CONCAT(DATE_FORMAT(SUBDATE(`Date`,WEEKDAY(`Date`)-1),'%b %d'),' - ',DATE_FORMAT(SUBDATE(`Date`,WEEKDAY(`Date`)-7),'%b %d %Y')) ``
+
+このバージョンでは、月と年の両方が値の対象になります。このバージョンでは、「Jan 01 - Jan 07 2015」が返されます。年は常に週末に関連付けられます。2014年の最後の週の場合、「Dec 28 - Jan 03 2015」と表示されます。
+
+## 日付からタイムスタンプを削除する
+
+月、日、年、時、分、秒を含む日付形式がある場合（例えば、 `21-Apr-16 1:53:46` ）、Beast Modeを使用して形式を変更できます。
+
+次のスクリプトは、必要に応じて日付のデータタイプを維持します。これにはDomoのデータタイプが日付タイプである必要があります。
+
+`` DATE (`DateField`) ``
+
+Domoデータタイプが文字列の場合は、変換できます。次の例は、その方法を示しています。
+
+`str_to_date('21-APR-16 1:53:46','%d-%b-%y’)`
+
+未加工文字列フォーマットによっては、未加工値を正しく解釈するために、このBeast Modeの調整が必要になる場合があります。
+
+## ダイナミック夏時間
+
+以下のダイナミックBeast Mode計算では、日付列を夏時間の日付と比較することができます。夏時間の特定範囲内に入っているかどうかによって、「yes」か「no」が返されます。
+
+**Beast Modeサンプル**
+
+「Date」は日付列です。
+
+```
+CASE
+
+WHEN `date`>= CASE
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-08'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-08'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-09'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-09'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-10'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-10'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-11'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-11'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-12'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-12'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-13'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-13'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-14'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-03-14'),'%Y-%m-%d')
+
+END
+
+AND  `date`< CASE
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-01'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-01'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-02'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-02'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-03'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-03'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-04'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-14'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-05'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-05'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-06'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-06'),'%Y-%m-%d')
+
+WHEN DAYOFWEEK(STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-07'),'%Y-%m-%d')) = 0 THEN STR_TO_DATE(CONCAT(YEAR(curdate()), '-11-07'),'%Y-%m-%d')
+
+END
+
+THEN 'yes'
+
+ELSE 'no'
+
+END
+```
+
+## 営業日による日付の差
+
+2つの日付を平日/営業日の差として計算したい場合は、Beast ModeまたはSQL DataFlowでクエリを使って行うことができます。詳細については、「 [営業日による日付の差](/s/article/360043428153 "営業日による日付の差") 」を参照してください。
+
+## 暦月・日
+
+`` Date_Format(`MyDateColumn`,'%m/%d') ``
+
+## 暦年
+
+`` Year(`MyDateColumn`) ``
+
+## 今年
+
+`` case when Year(`MyDateColumn`) = year(current_date()) then 'True' else 'False' end ``
+
+## 過去12ヶ月
+
+```
+case
+
+when
+
+year(`MyDateColumn`) = year(current_date()) - 1
+
+and month(current_date()) <= month(`MyDateColumn`)
+
+then
+
+'Yes'
+
+when
+
+month(`MyDateColumn`) <= month(current_date())
+
+and year(`MyDateColumn`) = year(current_date())
+
+then
+
+'Yes'
+
+else 'No'
+
+end
+```
+
+## 過去12ヶ月のフィルター
+
+以下のコードを使って、今日の日付を基準にして、対応する日付値が前年の同じ月の最初の日の日付値以上（≧）の場合は「Yes」の文字列を含む列を、そしてそうでない場合は「No」の文字列を含む列を作成する計算を作成します。
+
+```
+CASE WHEN `MyDateColumn` >= STR_TO_DATE(CONCAT((YEAR(CURRENT_DATE())) - 1, MONTH(CURRENT_DATE()), '01'), '%Y%m%d') THEN 'Yes' ELSE 'No' END 
+```
+
+今月を除外する場合は、次のコードを追加します。 `` AND `MyDateColumn` < DATE_FORMAT(CURRENT_DATE(), '%Y%m01') ``
+  
+```
+CASE WHEN `MyDateColumn` >= STR_TO_DATE(CONCAT((YEAR(CURRENT_DATE())) - 1, MONTH(CURRENT_DATE()), '01'), '%Y%m%d')
+  
+AND `MyDateColumn` < DATE_FORMAT(CURRENT_DATE(), '%Y%m01')
+  
+THEN 'Yes' ELSE 'No' END 
+```
+
+## 前年のフィルター
+
+以下のコードを使い、今日の日付を基準にして、対応する日付値が前年の同じ日の日付値以上（≧）の場合は「Yes」の文字列を含む列を、そうでない場合は「No」の文字列を含む列を作成する計算を作成します。
+
+```
+CASE WHEN `MyDateColumn` >= STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE() - 1), MONTH(CURRENT_DATE()), DAY(CURRENT_DATE())), '%Y%m%d') THEN 'Yes' ELSE 'No' END 
+```
+
+今日の日付を除外する場合は、次のコードを追加します。 
+```
+ AND `MyDateColumn` < CURRENT_DATE() 
+```
+
+```
+CASE WHEN `MyDateColumn` >= STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE() - 1), MONTH(CURRENT_DATE()), DAY(CURRENT_DATE())), '%Y%m%d')
+
+AND `MyDateColumn` < CURRENT_DATE()
+
+THEN 'Yes' ELSE 'No' END
+```
+
+## 別の前年のフィルター
+
+以下のコードを使って、月の数字の前に「0」を付けて2桁の月にするか決める計算を作成します。これは日付を設定するのに役立ちます。
+
+```
+CASE WHEN MONTH(CURRENT_DATE()) < 10 THEN CASE WHEN `MyDateColumn` >= STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE())-1, '0', MONTH(CURRENT_DATE()), '01'), '%Y%m%d') THEN 'Yes' ELSE 'No' END 
+```
+
+## 連続した過去13ヶ月
+
+```
+CASE WHEN PERIOD_DIFF(DATE_FORMAT(STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE()), MONTH(CURRENT_DATE())), '%Y%m%d'), '%Y%m'), DATE_FORMAT (`Month`, '%Y%m')) > 14
+
+THEN 'No'
+
+ELSE 'Yes'
+
+END
+```
+
+## 今会計四半期
+
+以下のコードを使い、今会計四半期で数値が下落するかどうかによって「Yes」か「No」を返す計算を作成します。
+
+```
+CASE WHEN `FiscalQuarter` = (CASE WHEN MONTH(CURRENT_DATE()) >= 2 AND MONTH(CURRENT_DATE()) <=4 then 1
+
+ELSE CASE WHEN MONTH(CURRENT_DATE()) >= 5 AND MONTH(CURRENT_DATE()) <=7 then 2
+
+ELSE CASE WHEN MONTH(CURRENT_DATE()) >= 8 AND MONTH(CURRENT_DATE()) <=10 then 3
+
+ELSE 4 END
+
+END
+
+END)
+
+THEN 'Yes' ELSE 'No'
+
+END
+```
+
+## 今会計年度
+
+以下のコードを使い、今会計年度中に数値が下落するかどうかによって「Yes」か「No」を返す計算を作成します。
+
+```
+CASE WHEN `FiscalYear` = (CASE WHEN MONTH(CURRENT_DATE())<2 THEN YEAR(CURRENT_DATE())-1 ELSE YEAR(CURRENT_DATE()) END) THEN 'Yes' ELSE 'No' END 
+```
+
+## 会計カレンダー
+
+以下のコードを使い、今年の日付と昨年の日付を同じ数値に位置づける「Adjusted Date」列を作成する計算を作成します。
+
+```
+ Date_Format(`Adjusted Date`, '%b %d') 
+```
+
+その上で、日付にフィルターをかける計算を作成します。
+
+```
+CASE WHEN DateDiff(AddDate(Current_Date(), -1), `Adjusted Date`) < 30 AND DateDiff(Current_Date(), `Adjusted Date`) > 0 THEN 'Y' ELSE 'N' END 
+```
+
+## x日開始の週
+
+以下のコードを使い、週ごとのデータの集計を出す計算を作成します。週の始めの日を変更するには、ｘの場所に1～6の数値を追加します。Beast Modeでは、 `WEEKDAY()` 関数はサポートされていません。この関数を使用すると、 `DAYOFWEEK()` の機能に置き換えられます。 `DATE_FORMAT()` を使って、その他のフォーマットを指定することができます。
+
+`` SUBDATE(`Date`, DAYOFWEEK(`Date`)+X) ``
+
+## 曜日ごとのグラフを作成する
+
+次のビデオを見て、曜日ごとにデータを表示する方法を学んでください。
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/XjgQuj2-MsY" width="560"></iframe>
+
+## 売掛金/買掛金エイジングバケット
+
+以下のコードを使い、売掛金の計算を作成します。
+
+```
+CASE
+
+when DATEDIFF(CURRENT_DATE(),`TxnDate`) < 31 then ' 30 Days'
+
+when DATEDIFF(CURRENT_DATE(),`TxnDate`) < 61 then ' 60 Days'
+
+when DATEDIFF(CURRENT_DATE(),`TxnDate`) < 91 then ' 90 Days'
+
+when DATEDIFF(CURRENT_DATE(),`TxnDate`) < 121 then '120 Days'
+
+when DATEDIFF(CURRENT_DATE(),`TxnDate`) > 120 then 'Over 120'
+
+end
+```
+
+## 月の言語を変更する
+
+`CONCAT` Beast Mode関数を使用して、月の名前の表記言語を変更することができます。例えば、日付形式が `%Y-%M` （例えば、 `2019-January` ）の場合、 `` CONCAT(year(`Date`),'-', `` の後に、各月の訳語を指定するネストされた `CASE` ステートメントを指定することができます。
+
+例えば、月の言語をスペイン語に変更する場合、Beast Mode計算は以下のようになります。
+  
+```
+CONCAT(year(`Date`),'-',
+  
+(CASE when month(`Date`) = 1 then 'Enero'
+  
+when month (`Date`) = 2 then 'Febrero'
+  
+when month (`Date`) = 3 then 'Marzo'
+  
+when month (`Date`) = 4 then 'Abril'
+  
+when month (`Date`) = 5 then 'Mayo'
+  
+when month (`Date`) = 6 then 'Junio'
+  
+when month (`Date`) = 7 then 'Julio'
+  
+when month (`Date`) = 8 then 'Agosto'
+  
+when month (`Date`) = 9 then 'Septiembre'
+  
+when month (`Date`) = 10 then 'Octubre'
+  
+when month (`Date`) = 11 then 'Noviembre'
+  
+when month (`Date`) = 12 then 'Diciembre'
+  
+end) 
+```
+
+<Frame><img alt="beastmode_spanish_dates.png" src="/images/kb/ka05w00000128gf-00N5w00000Ri7BU-0EM5w000005vOEC.png"/></Frame>
+日本語

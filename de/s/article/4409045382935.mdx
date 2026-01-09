@@ -1,0 +1,218 @@
+---
+title: "Versionshinweise für Juli 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Neue Merkmale und Verbesserungen
+
+In dieser Version gibt es folgende Funktionen und Verbesserungen:
+
+## DataSet-Ansichten
+
+Der DataSet-Ansichten-Funktion wurden Verbesserungen und neue Erweiterungen hinzugefügt.
+
+#### Unions in Ansichten
+
+DataSet-Ansichten verfügt jetzt über die Option, eine Union mit Ihren Daten durchzuführen, nicht bloß einen Join. Dies macht es einfach, Ihre Daten in einer einfachen Oberfläche zu erkunden, aufzuarbeiten und zu kombinieren. Weitere Informationen finden Sie unter [DataSet-Ansichten](/s/article/360046074774).
+
+<Frame><img alt="Union.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7S.png"/></Frame>
+#### Ansichten in Analyzer
+
+DataSet-Ansichten wurden in Analyzer integriert, was leichte ETL-Datenänderungen ermöglicht, während die Daten visualisiert werden. Sie können jetzt Folgendes durchführen, ohne dafür Analyzer zu verlassen:
+
+* Einem anderen DataSet beitreten.
+* Daten bereinigen, indem Spalten umbenannt, Spalten verschoben und der Datentyp geändert wird.
+* Verschachtelte Beast Modes erstellen.
+
+Weitere Informationen finden Sie unter [Analyzer und Integration von DataSet-Ansichten](/s/article/4402058407191).
+
+<Frame><img alt="Visualize_Tab.png" src="/images/kb/ka05w00000123i0-00N5w00000Ri7BU-0EM5w000005vOt8.png"/></Frame>
+### Erweiterte Tools – Launch-Center
+
+Mit dem Erweiterte Tools – Launch-Center können Sie jetzt alle Daten-Tools erkunden, die Domo bereitstellt – ganz zentral an einem Ort. Jedes Tool verfügt über einen Link zu weiteren Informationen und zum Einstiegspunkt für das Produkt. Weitere Informationen finden Sie unter [Erweiterte Tools – Launch-Center](/s/article/4403501587607).
+
+<Frame><img alt="Advanced_Tools.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7w.png"/></Frame>
+## Workbench 5.1 – Verbesserungen
+
+Workbench 5.1 wurden neue und aufregende Funktionen hinzugefügt.
+
+#### Workbench-Partitionsunterstützung
+
+Workbench 5.1 bietet jetzt Partitionsunterstützung. Mit Partitionen werden Abschnitte von Daten eindeutig identifiziert, und jeder Abschnitt kann durch eine neue Version ersetzt werden. Auf diese Weise werden Daten schneller und sauberer aktualisiert. Weitere Informationen finden Sie unter [Workbench 5.1 – Partitionsunterstützung](/s/article/360062446514).
+
+<Frame><img alt="Partition_Support.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6j.png"/></Frame>
+#### Erweiterter Schemaschutz in Workbench
+
+Workbench 5.1 wurde ein erweiterter Schemaschutz mit flexibleren Optionen hinzugefügt, mit denen Sie auswählen können, wann und für welche Spalten Sie Schemaänderungen zulassen möchten oder ob alle Schemaänderungen vollständig blockiert werden sollen. Mit diesen Aktualisierungen können Sie beruhigt und unbesorgt sein, dass Schemaänderungen nur dann durchgeführt werden, wenn Sie es möchten. Weitere Informationen finden Sie unter [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schema_Protection.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6v.png"/></Frame>
+#### Massenaktionen in Workbench
+
+Mit Workbench 5.1 können Sie jetzt Massenaktionen durchführen, sodass Sie Aktionen für mehrere Aufträge gleichzeitig ausführen können. Nachfolgend sind einige Beispiele aufgeführt:
+
+* Ausführung mehrerer Aufträge.
+* Exportieren von Aufträgen in großen Mengen.
+* Aktualisieren von Anmeldedaten für mehrere Aufträge, die mit derselben Datenbank verbunden sind.
+* Speichern von Änderungen, wenn Sie mehrere Aufträge gleichzeitig bearbeiten.
+
+Weitere Informationen finden Sie unter [Workbench 5.1](/s/article/360056669354).
+
+#### Übernehmen von Konrektor-DataSets mit Workbench
+
+Mit Workbench 5.1 kann Workbench DataSets, die ursprünglich von einem Konnektor erstellt wurden, übernehmen und mit deren Aktualisierung beginnen. Weitere Informationen finden Sie unter [Workbench 5.1](/s/article/360056669354).
+
+#### Lokale Workbench-Planung
+
+In Workbench 5.1 können Sie Ihren Workbench-Auftrag jetzt so planen, dass er basierend auf der lokalen Uhrzeit Ihres Servers/Ihres Workbench-Computers ausgelöst wird. Wenn sich die lokale Uhrzeit Ihres Computers aufgrund der Sommerzeit ändert, wird der Workbench-Auftragsplan automatisch mit der Uhrzeit Ihres Computers synchronisiert. Weitere Informationen finden Sie unter [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Schedule_Workbench.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6w.png"/></Frame>
+#### Datenbankspezifische Plug-ins in Workbench
+
+In Workbench 5.1 liest Workbench Datentypen direkt aus dem Quellsystem für bestimmte Datenbanken. Dadurch werden alle Inkonsistenzen zwischen den beiden beseitigt sowie die Möglichkeit, dass sich der Datentyp in Workbench ändert, nachdem das Schema festgelegt wurde, es sei denn, der Typ ändert sich im Quellsystem. Weitere Informationen finden Sie unter [Workbench 5.1](/s/article/360056669354).
+
+<Frame><img alt="Database_Plugins.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7l.png"/></Frame>
+### Python- und R-SDK-Verbesserungen
+
+Die R- und Python-SDKs wurden aktualisiert und verwenden nun in beiden Sprachen dieselben Funktionsnamen und verfügen jeweils über dieselben Funktionen. Weitere Informationen finden Sie unter [https://developer.domo.com/docs/domo-sdks/sdks](https://developer.domo.com/docs/domo-sdks/sdks "https://developer.domo.com/docs/domo-sdks/sdks").
+
+### Filteransichten
+
+Filteransichten ermöglichen Ihnen, durch Anpassung ein einzelnes Dashboards die Anforderungen aller Zielgruppen zu erfüllen.
+
+Mit Filteransichten können Sie:
+
+* personalisierte Ansichten speichern, die nur Sie sehen können.
+* wichtige Ansichten prüfen und freigeben, um den Blick auf eine bestimmte Perspektive auszurichten.
+* eine beliebige Anzahl personalisierter Datengeschichten für jede Person mit beliebiger Rolle bereitstellen.
+* festlegen, welche gespeicherte Filteransicht als „Standard“ für ein Dashboard verwendet werden soll.
+
+Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene und Filteransichten](/s/article/360042923914 "Anwenden von Filtern auf Seitenebene (mit Filteransichten) (BETA)").
+
+<Frame><img alt="Filter_Views.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7P.png"/></Frame>
+## Verbesserungen der Dashboard-Filter
+
+Es wurden neue Funktionen hinzugefügt, damit Sie steuern können, wie Ihre Benutzer die Daten anzeigen.
+
+#### Filterausschlüsse bei Geschichten
+
+Mit Filterausschlüssen haben Sie nun die Möglichkeit, bestimmte Filter von der Auswirkung auf eine bestimmte Karte auszuschließen. Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene mit Filteransichten](/s/article/360042923914).
+  
+<Frame><img alt="Filter_Exclusions.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL73.png"/></Frame>
+#### Aggregationen in Filtern
+
+Mit den neuen aggregierten Filtern haben Sie jetzt die Möglichkeit, auf einen aggregierten Spaltenwert zu filtern. Aggregierte Filter stehen überall dort zur Verwendung bereit, wo Filter angewendet werden: innerhalb von Analyzer, als Quick Filter, auf der Seite mit den Kartendetails und in einem Dashboard. Weitere Informationen finden Sie unter [Aggregierte Filter](/s/article/4403489663127).
+
+<Frame><img alt="Aggregations_in_Filters.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgv.png"/></Frame>
+#### Dashboard-Filter für dynamische Daten
+
+Mit Filtern für dynamische Datumsbereiche können Sie jetzt das Datumsbereichsfenster für alle Karten auf einer Seite anpassen. Benutzer können mit ihnen sehr viel Zeit einsparen, da sie Filter nicht mehr manuell anwenden müssen, um Daten für ein bestimmtes Datum oder einen bestimmten Zeitbereich anzuzeigen. Außerdem werden mit den Filtern für dynamische Datumsbereiche die Datumsbereichsdaten für Ihre Karten automatisch verlängert (Rollover), wenn der aktuelle Zeitraum endet. Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene mit Filteransichten](/s/article/360042923914).
+
+<Frame><img alt="dynamic_date_range_filters.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7V.png"/></Frame>
+#### Einstellungen für Seitenfilter
+
+Mit den Einstellungen für Seitefilter können Sie nun festlegen, wie Ihre Benutzer mit Karten in Ihrem Dashboard interagieren können. Sie können **Hinzufügen neuer Filter zulassen** deaktivieren, sodass Benutzer nur Karteninteraktionen zum Filtern verwenden können. Sie können die Datenfilter auch deaktivieren, wenn Ihr Dashboard auf einen bestimmten Zeitrahmen ausgelegt ist.Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene und Filteransichten](/s/article/360042923914 "Anwenden von Filtern auf Seitenebene (mit Filteransichten) (BETA)").
+  
+<Frame><img alt="Filter_Options.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL77.png"/></Frame>
+### Segmente
+
+Mit der Funktion „Segmente“ können Sie einen besseren Vergleich zwischen einem Segment und einer anderen Gruppe erstellen. Sie haben mit dieser Funktion auch die Möglichkeit, ein Element dynamisch zu filtern und zu vermeiden, dass sich der Filter auf das Segment auswirkt, sodass Sie die beiden Ergebnisse vergleichen können. Sie können ein Segment zu einem Mehrfachserien-Diagramm, einem Diagramm gegenüber dem Vergleichszeitraum oder einem Mehrwert-Diagramm hinzufügen. Sie können auch Segmente zu der Kartendetailansicht einer Karte oder zu Dashboards hinzufügen. Weitere Informationen finden Sie unter [Erstellen von Segmenten in Analyzer](/s/article/4403089503383).
+
+<Frame><img alt="Segments_Window.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6x.png"/></Frame>
+### Sprachunterstützung für Portugiesisch und Niederländisch
+
+Domo hat die Sprachunterstützung für Portugiesisch und Niederländisch für Ihre Instanz hinzugefügt. Dies kann sowohl in den Unternehmenseinstellungen als auch in den Einstellungen für einzelne Benutzer vorgenommen werden. Weitere Informationen zum Festlegen dieser Funktion auf Unternehmensebene finden Sie unter [Festlegen der Zeitzone und regionalen Formatierung](/s/article/360042934394).
+
+<Frame><img alt="Available_Languages.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6u.png"/></Frame>
+### Mobile PFilter-Unterstützung innerhalb der App
+
+PFilter werden jetzt innerhalb der Domo Mobile-App unterstützt. Unterstützte PFilter-Beispiele sind:
+
+* Benutzerdefinierte Apps mit PFiltern.
+* CONCAT-Beast Modes mit Links.
+* Interaktionen mit benutzerdefinierten Karten mit Links.
+* Links, die von außerhalb der Domo-App stammen, öffnen nun die Domo-App mit den angewendeten Filtern.
+
+Weitere Informationen finden Sie unter [BeastMode-Beispielberechnungen: sonstige Transformationen](/s/article/360043430113).
+
+## Neue Diagrammeigenschaften
+
+Wir haben neue Diagrammeigenschaften hinzugefügt, um Ihre Visualisierungen noch dynamischer zu gestalten.
+
+#### Mehrdimensionale Strukturkarten
+
+Strukturkarten weisen nun mehrere Dimensionen auf, um Ihr Geschäft zu analysieren. In einer Strukturkarte können verschachtelte Strukturkarten anstatt nur einem Element und einem Wert enthalten sein. Zum Beispiel werden jetzt nicht nur Produkte und ihre zugehörigen Umsätze in einer Strukturkarte angezeigt, sondern es werden auch die Produktumsätze nach Kategorie und nach Geschäftsbereich in einer dreistufigen verschachtelten Strukturkarte visualisiert. Weitere Informationen finden Sie unter [Strukturkarte](/s/article/360042925054).
+  
+<Frame><img alt="Tree_Map.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL79.png"/></Frame>
+#### Farbregeln in Liniendiagrammen
+
+Sie können jetzt Liniendiagramme erstellen, die Farbregeln für jeden Punkt in der Linie einzeln anwenden. Sie können die Option so festlegen, dass sich die Farbe ändert, wenn sie über, unter oder zwischen bestimmten Schwellenwerten liegt. So ist es ganz einfach, die Daten anzuzeigen und die Leistung auf einen Blick zu verstehen. Weitere Informationen finden Sie unter [Liniendiagramm](/s/article/360043429233).
+
+<Note>
+  **Hinweis:** In Ihrem Diagramm müssen Symbole aktiviert sein, damit die Farbregeln angewendet werden können.
+
+</Note>
+
+<Frame><img alt="Line_Chart_Color_Rules.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL6z.png"/></Frame>
+#### Rechts-nach-links-Balkendiagramme
+
+In horizontalen Balkendiagrammen können Sie jetzt die Balken auf der rechten Seite des Diagramms positionieren. Wenn Sie die Ausrichtung an der rechten Seite auswählen, werden die Beschriftungen, Balken und Anmerkungen so angepasst, dass sie an der rechten Seite des Diagramms ausgerichtet sind. So erhalten Sie eine leistungsstarke Kombination, wenn Sie Ihre benutzerdefinierte Geschichte mit einigen auf die rechte Seite ausgerichteten Diagrammen gestalten möchten, die leicht mit links ausgerichteten Diagrammen für neue visuelle Einblicke gekoppelt werden können. Weitere Informationen finden Sie unter [Balkendiagramm](/s/article/360043428493).
+
+<Frame><img alt="Right_Side_Bar_Chart.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7n.png"/></Frame>
+### Neugestaltung der Asset Library
+
+Die Asset Library-Seite wurde mit neuen Navigationsfunktionen erweitert, sodass Benutzer Anwendungen schneller finden und Informationen effizienter anzeigen können. Weitere Informationen finden Sie unter [Asset Library](/s/article/4403442101143).
+  
+<Frame><img alt="Asset_Library.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7X.png"/></Frame>
+### Gruppenbesitz von Karten und Seiten
+
+Mit dem Gruppenbesitz von Karten und Seiten können Sie jetzt eine Gruppe von Benutzern erstellen, die eine Karte/Seite bearbeiten können, und die Gruppe als Besitzer der Karte/Seite hinzufügen. Wenn Sie dann die Karte/Seite sperren, kann sie nur durch die Benutzer in der Gruppe bearbeitet werden. Weitere Informationen über Kartenbesitz finden Sie unter [Verwalten von Seiten](/s/article/360043428253).
+
+<Frame><img alt="Ownership_Pendo.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7R.png"/></Frame>
+### Enterprise-Personenverwaltung
+
+Mit Enterprise-Personenverwaltung können Sie jetzt alle Benutzer und ihre Profilinformationen auf einer einzigen Seite anzeigen. Sie können auch Attribute in großen Mengen für alle Benutzer aktualisieren. Weitere Informationen finden Sie unter [Layout der Administratoreinstellungen](/s/article/360042934234).
+  
+<Frame><img alt="People_Management.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL71.png"/></Frame>
+## Premium-Funktionen
+
+Diese Funktionen sind auf Anfrage verfügbar und kostenpflichtig. Wenn Sie möchten, dass diese Funktionen aktiviert werden, kontaktieren Sie Ihren Kundenerfolgsmanager (CSM), technischen Berater (TC) oder Kundenbetreuer (AE) von Domo. Wenn Sie die Kontaktinformationen Ihres CSM, TC oder AE nicht kennen, wenden Sie sich an den technischen Support. Lesen Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern") nach, wie Sie den Support kontaktieren können. Je nach Funktion müssen Sie eventuell eine Schulung abschließen, bevor Sie die Funktion verwenden können.
+
+### Linke Navigation in Publikationsgruppen
+
+In den Publikationsgruppen wird jetzt dieselbe Navigation eingesetzt, die derzeit in der normalen Domo-Instanz angezeigt wird. Sie verfügen jetzt über das aufklappbare Menü, das Dashboard-Inhalte priorisiert, sowie eine verbesserte Benutzeroberfläche, um eine schnellere Navigation zwischen Dashboards zu gewährleisten. Dies ermöglicht eine einheitliche Navigation in der Benutzeroberfläche, unabhängig davon, wo Sie Domo einsetzen. Weitere Informationen finden Sie unter Ankündigung zu neuer Navigation.
+  
+<Frame><img alt="Left_Nav_Pub_Groups.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL75.png"/></Frame>
+## Domo Everywhere
+
+Wir haben neue Funktionen zu Domo Everywhere hinzugefügt.
+
+#### Seitenfilter in Dashboard Embed
+
+Mit Seitenfiltern in Dashboard Embed können Sie jetzt dieselben Filter hinzufügen, die Sie in Ihrer Domo-Instanz innerhalb Ihres eingebetteten Dashboards verwenden. Weitere Informationen finden Sie unter Seitenfilter in Dashboard Embed.
+
+<Frame><img alt="Page_Filters_in_Embed.png" src="/images/kb/ka05w00000129tW-00N5w00000Ri7BU-0EM5w000005vOgq.png"/></Frame>
+#### Domo Everywhere – Launch-Center
+
+Mit dem Domo Everywhere – Launch-Center erfahren Sie, wie führende Kunden jede Version von Domo Everywhere nutzen. So können Sie das richtige Domo Everywhere-Produkt für Ihre Bedürfnisse auswählen. Weitere Informationen finden Sie unter Domo Everywhere – Launch-Center.
+
+<Frame><img alt="Tab_1.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7M.png"/></Frame>
+## Hilfe anfordern
+
+Sie können die neuesten Versionshinweise im Hilfecenter aufrufen. Auf das Hilfecenter können Sie von Domo aus zugreifen, wenn Sie in der Navigationsleiste oben auf <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> klicken.
+
+Bei Fragen zu Domo
+
+* suchen Sie im Hilfecenter nach einem Thema
+* das Training finden Sie in der Domo University unter
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* suchen Sie im AppStore nach Schulungs-Apps
+* erhalten Sie Antworten in der Domo-Community unter
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im Domo-Supportportal einreichen
+* wenden Sie sich an Ihren Domo-Customer Success Manager oder technischen Berater
+
+Ihr Feedback können Sie über Domo übermitteln (**Mehr** > ****Feedback****). Alternativ können Sie eine E-Mail an [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") senden.
+
+Weitere Informationen dazu, wie Sie Hilfe erhalten können, finden Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern").
+

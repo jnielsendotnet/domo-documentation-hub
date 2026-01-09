@@ -1,0 +1,104 @@
+---
+title: "JSON No Codeコネクター"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+ウィザードを使用すると、JSONファイルとしてデータに接続してそれをDomoに簡単に取り込めます。このコネクターは、Domoエンゲージメントを経験せずにカスタムデータの接続を作成しようとしている、DomoのAPIまたはコネクターIDEを使用してコネクターを構築するコーディングが未経験の方に最適です。
+
+カスタムJSONデータは、Data Centerから接続します。このトピックでは、JSON No Codeコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+カスタムJSONデータに接続してDataSetを作成するには、以下が必要です。
+
+* JSONアカウントに使用するユーザー名とパスワード
+* JSONファイルにアクセスするためのURL
+
+また、このコネクターのリダイレクトURLは、https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange です。
+
+## カスタムデータに接続する
+
+このセクションでは、JSON No Codeコネクターページの **［Credentials］** 、 **［Data Selection］** 、および **［Parsing］** の各ペインのオプションについて説明します。このページのほかのペインの項目にある **［Scheduling］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［Credentials］ペイン
+
+このペインには、カスタムデータに接続するための認証情報の入力フィールドが含まれています。以下の表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> JSONアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> JSONアカウントのパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいJSONノーコードDataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［Data Selection］ペイン
+
+このペインでは、接続に使用するHTTPメソッド、JSONファイルのURL、および構成の設定を指定します。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"> HTTPリクエスト、SFTPファイル転送、またはファイルを直接アップロードするのいずれかの方法で、JSONデータに接続する方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Choose the HTTP Method to use </td><td colspan="1" rowspan="1"><b> ［Connection Type］ </b> としてHTTPリクエストが選択されている場合、HTTPメソッドとしてGETまたはPOSTを選択してください。 </td></tr><tr><td colspan="1" rowspan="1"> Enter the URL to your JSON file </td><td colspan="1" rowspan="1"><b> ［Connection Type］ </b> としてHTTPリクエストまたはファイル転送が選択されている場合は、JSONファイルのURLを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> How will you provide the certificate </td><td colspan="1" rowspan="1"><p><b> ［Connection Type］ </b> としてHTTPリクエストが選択されている場合、証明書の提供方法を選択してください。 </p><ul><li><p> No certificate </p></li><li><p> URL Path to the Certificate </p></li><li><p> Certificate Content </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Upload file containing JSON data </td><td colspan="1" rowspan="1"><b> ［Upload file containing JSON data］ </b> が <b> ［Connection Type］ </b> として選択されている場合は、目的のJSONファイルをフィールドにドラッグアンドドロップするか、コンピューター上のファイルを参照して選択してアップロードします。 </td></tr></tbody></table>
+
+#### 高度な設定
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> HTTPS Headers </td><td colspan="1" rowspan="1"> HTTPSヘッダーのキーと値を入力します。このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> クエリパラメーターのキーと値を入力します。このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </td></tr><tr><td colspan="1" rowspan="1"> Date Query Parameters </td><td colspan="1" rowspan="1"><p> 日付クエリのパラメーターとして、 <b> ［No Date Filter］ </b> 、 <b> ［Single Date］ </b> 、または <b> ［Date Range］ </b> を選択します。 <b> ［Single Date］ </b> を選択する場合、特定の日付を選択するか、過去の相対的な日数を入力できます。 <b> ［Date Range］ </b> を選択する場合、日付範囲の開始日と終了日を選択するように求められます。相対的な日数のデータを取得する場合は、開始日と終了日の両方の過去の日数を入力します。 </p><p> このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"> JSON Settings </td><td colspan="1" rowspan="1"><p> JSONテキストでラインリーダーが必要かどうかと、バックスラッシュ文字をエスケープするかどうかを指定します。 </p><p> また、バックスラッシュをエスケープするかどうかも指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><div class="Selection-module_leftColumn__wu3en db-text-display-5"> Check This Box to Reset Your Datasets Schema </div></td><td colspan="1" rowspan="1"><p><span> スキーマをリセットする場合は、これを選択します。 </span></p><p><span><b> 警告 </b> ：APIからフィールドが一時的に返されない場合、データの損失やデータタイプの変更が発生する可能性があります。このスイッチを選択すると、Datasetが実行されるたびにスキーマがリセットされます。 </span></p></td></tr></tbody></table>
+
+<Frame><img alt="image.png" src="/images/kb/ja/ka0Vq0000001Ltd-00N5w00000Ri7BU-0EM5w000005wLSs.png" /></Frame>
+
+#### ページ設定
+
+データをページ設定する方法を選択します。
+
+* 改ページなし
+* 結果から次のURLを取得する
+* 結果から次のページトークンを取得する
+* レコード別にオフセット
+* ページ別にオフセット
+
+#### 解析
+
+データプレビューを使用することで、列をクリックして解析用にデータの書式を設定することができます。列データタイプに応じて、様々な解析アクションを利用できます。アクションの上にマウスを移動すると、DataSetが更新されて適用される変更が反映されます。右側の **［History］** ペインでそのアクションをクリックすると、前のアクションに戻ることができます。
+
+以下のアクションを利用できます。
+
+* **［Split date］**。日付を年、月、日などの個別の列に分割します。
+* **［Drop］**。選択した列をDataSetから削除します。
+* **［Duplicate］**。選択した列をコピーします。
+* **［Rename column］**。選択した列の名前を変更します。
+* **［Format timestamp as a date］**。ミリ秒、秒などのタイムスタンプを日付に変換できます。
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+SFTPファイルの場合、ユーザー名とパスワードが必要です。HTTPを使用してデータをインポートする場合は、URLが基本認証をサポートしていると、ユーザー名とパスワードの入力が必要となる場合があります。必要な場合は、パラメーターまたはヘッダーで認証を渡すことができます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは15分ごとに実行できます。
+
+
+</Accordion>
+<Accordion title="# このコネクターは改ページをサポートしていますか？">
+
+
+はい。改ページを有効にするには、APIでサポートされている改ページタイプを選択して、必要な詳細を入力します。
+
+
+</Accordion>
+<Accordion title="# データを解析する手順を教えてください。">
+
+
+［Parsing ］ペインの［Parsing］タブで、拡張または変更するデータが格納されている列を選択します。おすすめのアクションにカーソルを置いて効果を確認し、目的のアクションをクリックして選択します。希望する状態でデータが表示されるまで繰り返します。必要に応じて、右側にある［History］セクションを使用してアクションを取り消します。
+
+
+
+</Accordion>
+</AccordionGroup>

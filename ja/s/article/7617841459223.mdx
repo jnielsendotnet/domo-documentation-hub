@@ -1,0 +1,128 @@
+---
+title: "Google Analytics 4コネクター"
+---
+
+## はじめに
+
+Google Analytics 4 Betaコネクターは、ウェブサイトの詳細なトラフィック統計情報を生成し、売り上げやコンバージョンの測定を支援します。このコネクターを使用することで、キャンペーン、デバイス、場所、ソーシャルネットワーク、トラフィックメトリクスに関するレポートを効率的に作成し、今見えている顧客の行動が将来的に売り上げと収益につながることが確認できます。
+
+GoogleアナリティクスデータAPI（GA4）により、Googleアナリティクス4（GA4）のレポートデータにプログラムからアクセスできるようになります。
+
+Google Analytics 4 Betaコネクターは、ウェブサイトの詳細なトラフィック統計情報を生成し、売り上げやコンバージョンの測定を支援します。このコネクターを使用することで、キャンペーン、デバイス、場所、ソーシャルネットワーク、トラフィックメトリクスに関するレポートを効率的に作成し、今見えている顧客の行動が将来的に売り上げと収益につながることが確認できます。
+
+Googleアナリティクスのデータを接続し、ほかの主要なデータソースと組み合わせることで、売り上げとコンバージョンを向上させることができます。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ウェブサイトの訪問者トラフィックパターンを把握する </p></li><li><p> ウェブサイトの訪問者行動パターンを把握する </p></li><li><p> ウェブサイトにおける地理とユーザー行動の関係を把握する </p></li><li><p> モバイルデバイスとデスクトップブラウザーでのユーザー行動の違いを把握する </p></li><li><p> ソーシャルメディアがウェブサイトにどのようにトラフィックを送り込むかを把握する </p></li><li><p> ユーザーがウェブサイトの製品にどうかかわるかを把握する </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ページ閲覧数 </p></li><li><p> ユニーク訪問者数 </p></li><li><p> リピーター数 </p></li><li><p> 製品売上数 </p></li><li><p> 地理的パターン </p></li><li><p> 参照元のドメイン </p></li><li><p> コンバージョンメトリクス </p></li><li><p> バウンス率 </p></li><li><p> 出口ページ </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> データ分析 </p></li><li><p> デジタルマーケター </p></li><li><p> 編集チーム </p></li><li><p> マーケティングリード </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> ベーシックレポート機能を選択した場合は、出力するレポート数に応じて1時間程度かかることが見込まれます。ただし、カスタムルートを選択した場合には、最大2時間かかる可能性があります。また、引き出すデータの量によっては、Domoでデータが使用できるようになるまで数時間かかることもあります。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 7 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* 最初は、
+
+  Googleアナリティクスダッシュボード を導入することを推奨します。基本メトリクスレポートには、Googleアナリティクスダッシュボードにとって重要な多くの基本的メトリクスがあります。
+
+## 必要条件
+
+GoogleアナリティクスAPIにアクセスし、DataSetを作成するには、Googleのメールアドレスとパスワードが必要です。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> パラメーター名 </b></td><td colspan="1" rowspan="1"><b> 場所 </b></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td class="confluenceTd" colspan="1" rowspan="1"><span></span><a class="external-link" href="http://google.com/" target="_blank" title="google.com"> google.com </a> にログインする際に使用するメールアドレス/ユーザー名 </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><span> 上記のユーザー名/メールアドレスに関連付けられたパスワード </span></td></tr></tbody></table>
+
+### ［認証情報］ペイン
+
+Google Analytics 4コネクターは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（またはDomoに既存のGoogleアカウントがある場合は **［アカウントを追加］** を選択）すると、Google OAuth画面が開き、Googleのメールアドレスとパスワードを入力できます。有効なGoogle認証情報を一度入力しておくと、随時同じアカウントを使用して新しいGoogle Analytics Advanced DataSetを作成できます。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054?language=ja "コネクターアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、
+
+**［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ ペイン
+
+このペインには多くのサブペインが含まれており、レポートの選択、日付範囲の設定、セグメントの選択などができます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Properties </td><td colspan="1" rowspan="1"> 複数のプロパティのデータからDataSetを作成します。 </td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Custom Report </td><td colspan="1" rowspan="1"> 最大で10のメトリクスと9のディメンションを組み合わせてカスタムレポートを作成します。ベースレポートを選択してそれを基に作るか、または最初から自分で作ります。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"><div> レポートの日付と更新モードを選択します。 </div><div><table border="1"><tbody><tr><td colspan="1" rowspan="1"> フィールド </td><td colspan="1" rowspan="1"> 説明 </td></tr><tr><td colspan="1" rowspan="1"> Replace </td><td colspan="1" rowspan="1"><b> ［Replace］ </b> を選択すると、すべての実行に選択した日付が使用されます。 <b> ［Replace］ </b> を選択すると <b> ［Date Selection］ </b> ドロップダウンリストが表示されます。 <b> ［Single Date］ </b> 、 <b> ［Date Range］ </b> 、または <b> ［Time Period］ </b> のいずれかを選択できます。選択したオプションに応じて、様々なパラメータが設定されます。 </td></tr><tr><td colspan="1" rowspan="1"> Append </td><td colspan="1" rowspan="1"><b> ［Append］ </b> を選択すると、選択した日付は最初の実行にのみ使用されます。後続の実行では、最後に正常に実行されてから追加されたデータのみが取得されます。 <b> ［Append］ </b> を選択すると <b> ［Date Selection］ </b> ドロップダウンリストが表示されます。 <b> ［Single Date］ </b> 、 <b> ［Date Range］ </b> 、または <b> ［Time Period］ </b> のいずれかを選択できます。選択したオプションに応じて、様々なパラメータが設定されます。 </td></tr><tr><td colspan="1" rowspan="1"> Append Data </td><td colspan="1" rowspan="1"><div> データのインポート方法を選択します。日付範囲としてドロップダウンリストから <b> ［Append Data］ </b> を選択した場合、 <b> ［Start Date for Historical Data］ </b> フィールドが表示されます。最初の実行時にデータの取得を開始する日付を選択します。 <b> 注記： </b> 最初の実行後にこの日付を変更すると、DataSetに保持されるデータの量に影響が及びます。 </div></td></tr><tr><td colspan="1" rowspan="1"> Rolling Window </td><td colspan="1" rowspan="1"><div><div> データのインポート方法を選択します。データ範囲としてドロップダウンリストから <b> ［Rolling Window］ </b> を選択した場合、 <b> ［Last Days］ </b> フィールドが表示されます。DataSetを保持する日数を選択できます。例えば、過去30日などです。 </div></div></td></tr><tr><td colspan="1" rowspan="1"> Specific Date Range (not recommended) </td><td colspan="1" rowspan="1"><div><div><div> データのインポート方法を選択します。データ範囲としてドロップダウンリストから <b> ［Specific Date Range (not recommended)］ </b> を選択した場合、 <b> ［Start Date］ </b> フィールドと <b> ［End Date］ </b> フィールドが表示されます。 </div><div> 特定の開始日と終了日を選択します。 </div></div></div></td></tr></tbody></table></div><div></div></td></tr><tr><td colspan="1" rowspan="1"> Metrics Filter </td><td colspan="1" rowspan="1"><b> ［USE FILTERS］ </b> トグルボタンを有効にすると、メトリクスフィルターが有効になります。 </td></tr><tr><td colspan="1" rowspan="1"> Dimensions Filter </td><td colspan="1" rowspan="1"><b> ［USE FILTERS］ </b> トグルボタンを有効にすると、ディメンションフィルターが有効になります。 </td></tr><tr><td colspan="1" rowspan="1"> Advanced Settings </td><td colspan="1" rowspan="1"><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Allow Sampled Data </td><td colspan="1" rowspan="1"> デフォルトでは、Domoはデータをサンプリングしないよう、Googleがサンプリングされていないデータに応答するまで、リクエストをより短い日付間隔に分割します。サンプリングされたデータを許可すると、Domoはクエリをより短い日付間隔に分割せず、クエリされたデータをそのまま返します。日付ディメンションのないユーザーメトリクスのクエリを実行する場合には、サンプリングされたデータを許可することを推奨します。 </td></tr><tr><td colspan="1" rowspan="1"> Replace Schema </td><td colspan="1" rowspan="1"> スキーマをリセットする場合は、これを選択します。警告：GoogleアナリティクスのAPIから一部のフィールドが一時的に返されない場合、データが消失したり、データタイプが変更される可能性があります。このスイッチが選択されている間、DataSetは実行されるたびにスキーマをリセットします。 </td></tr><tr><td colspan="1" rowspan="1"> Reset Data </td><td colspan="1" rowspan="1"> データをリセットする場合は、これを選択します。警告：特にデータの追加を選択した場合は、データが失われる可能性があります。このスイッチが選択されている間、DataSetは実行されるたびに選択した日付を使用します。 </td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="Domo Google Analytics 4コネクターは、いつ正式なバージョンとしてリリースされる予定ですか？">
+
+詳細については、 [https://developers.google.com/analytics/devguides/reporting/data/v1?hl=ja https://support.google.com/analytics/answer/9305587](https://developers.google.com/analytics/devguides/reporting/data/v1?hl=ja https://support.google.com/analytics/answer/9305587 "https://developers.google.com/analytics/devguides/reporting/data/v1?hl=ja https://support.google.com/analytics/answer/9305587") を参照してください。
+</Accordion>
+
+<Accordion title="このコネクターではどのバージョンのGoogleアナリティクスAPIを使用しますか？">
+
+このコネクターは、GoogleアナリティクスAPIのベータバージョン（ [https://developers.google.com/analytics/devguides/reporting/data/v1](https://developers.google.com/analytics/devguides/reporting/data/v1 "https://developers.google.com/analytics/devguides/reporting/data/v1") ）を使用します。
+</Accordion>
+
+<Accordion title="データが正しくないように見えるのはなぜでしょうか？">
+
+Googleには24～48時間のデータ処理遅延時間があります。前日のデータでクエリを実行した場合は、一部データが表示されない可能性があります。Googleでの最新データの処理が終了しておらず、不完全なデータが表示される場合があります。
+  
+Google 360アカウントの処理時間ははるかに短くなります。通常、拡張データの更新には、いくつかの要因によって15～20分かかります。拡張データの更新は、ほかの製品（AdWordsやDoubleClick製品など）との統合によって生じたデータには適用されません。その他の制限を確認するには、「
+
+[データの更新速度（エンハンスト）の制限事項](https://support.google.com/analytics/answer/7084038?hl=ja&ref_topic=2430414#limits "https://support.google.com/analytics/answer/7084038?hl=ja&ref_topic=2430414#limits")
+
+」を参照してください。
+  
+360アカウントでは、最大24時間のデータ遅延が発生する可能性があります。
+  
+360アカウントでは、最小15〜20分のデータ遅延が発生する可能性があります。
+  
+[このページ](https://support.google.com/analytics/answer/7084038?hl=ja&ref_topic=2430414 "https://support.google.com/analytics/answer/7084038?hl=ja&ref_topic=2430414")
+
+のチャートでは、アカウントとクエリにもとづき、起こりうるデータ遅延のすべてを分類しています。データ遅延時間はクエリによって異なります。
+</Accordion>
+
+<Accordion title="クエリ作成に関するヘルプはどこにありますか？">
+
+Googleの
+
+[Query Explorer](https://ga-dev-tools.appspot.com/query-explorer/ "https://ga-dev-tools.appspot.com/query-explorer/")
+
+を使用すると、クエリのテストと作成ができます。また、Query Explorerを使用して、クエリが機能しない理由を詳しく調べることができます。
+</Accordion>
+
+<Accordion title="「Selected dimensions and metrics cannot be queried together」というエラーが常に発生します。">
+
+すべての組み合わせが有効であるとは限らないため、「
+
+[Dimensions and Metrics Explorer](https://ga-dev-tools.google/ga4/dimensions-metrics-explorer/ "https://ga-dev-tools.google/ga4/dimensions-metrics-explorer/")
+
+」を参照して、実際にどのディメンション/メトリクスを同時にクエリできるかを確認してください。
+</Accordion>
+
+<Accordion title="カスタムのメトリクスとディメンションは何でしょうか？">
+
+カスタムのメトリクスとディメンションは、ウェブプロパティレベルで定義されています。1つのウェブプロパティが選択されている場合のみ、カスタムのメトリクス/ディメンションが表示されます。そのカスタムのメトリクス/ディメンションを使用できるのは、ウェブプロパティ内のビューのみです。同じウェブプロパティに属している限り、いくつでもビューを選択できます。カスタムメトリクスとカスタムディメンションがある場合には、カスタムレポートの「Custom Variables or Columns」セクションに表示されます。
+</Accordion>
+
+<Accordion title="セグメントはどのように機能しますか？">
+
+セグメントは、アナリティクスデータのサブセットです。例えば、ユーザー全体における特定の国や都市のユーザーを表すセグメントなどが考えられます。Domoでは複数のセグメントを選択すると、選択したセグメントごとにレポートがクエリされます。カスタムセグメントを使用できます。セグメントの詳細については、
+
+[こちら](https://support.google.com/analytics/answer/3123951?hl=ja#using "https://support.google.com/analytics/answer/3123951?hl=ja#using") を参照してください。
+</Accordion>
+
+<Accordion title="10のメトリクスと9つのディメンションに制限されるのはなぜですか？">
+
+これはGoogleアナリティクスAPIの制限です。11以上のメトリクスと10以上のディメンションをレポートに追加することはできません。
+</Accordion>
+
+<Accordion title="特定のプロパティのデータを取得することを選択したときに、プロパティのデータを取得する制限はありますか？">
+
+制限はありません。
+
+## トラブルシューティング
+
+* データへのアクセスに問題が発生した場合は、ユーザー権限設定を確認してください。
+* 正しい認証情報を使用しているか確認してください。
+* APIデータとフロントエンドのレポート作成ツールとでデータを検証する際には、データがサンプリングされているかどうかを常に確認します。
+</Accordion>
+</AccordionGroup>
+

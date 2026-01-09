@@ -1,0 +1,134 @@
+---
+title: "営業日による日付の差"
+---
+
+## はじめに
+
+2つの日付を平日/営業日の差として計算したい場合は、Beast ModeまたはSQL DataFlowでクエリを使って行うことができます。
+
+## SQLクエリ
+
+次のSQLクエリをコピーして、Beast ModeまたはDataFlowに貼り付けます。「Start Date」と「End Date」は対応するデータ列に置き換えます。
+
+```
+CASE WHEN
+
+`Start Date` = `End Date` THEN 0
+
+ELSE
+
+DATEDIFF(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END
+
+,
+
+CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END
+
+)
+
+-
+
+((CASE WHEN WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) = WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) THEN 0 ELSE WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) END
+
+-
+
+CASE WHEN WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) = WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) THEN 0 ELSE WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) END) * 2)
+
+END
+```
+
+## 解決策の詳細とステップ
+
+1. 開始日と終了日が同じ場合は0を返します。
+
+```
+CASE WHEN
+
+`Start Date` = `End Date` THEN 0
+```
+
+2. 開始日と終了日が異なるとき、いずれかの日付が週末にあたる場合は、終了日を金曜日に、開始日を月曜日に移動します。次に、減算を行って日付の差を特定します。これにより、開始日と終了日から週末の日付が除外されます。
+
+```
+ELSE
+
+DATEDIFF(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END
+
+,
+
+CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END
+
+)
+```
+
+3. 開始日の週の番号が終了日の週の番号と等しい場合は0を返します。等しくない場合は終了日の週の番号を返します。
+
+```
+-
+
+((CASE WHEN WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) = WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) THEN 0 ELSE WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) END
+```
+
+4. 開始日の週の番号が終了日の週の番号と等しい場合は0を返します。等しくない場合は開始日の週の番号を返します。この週の番号はステップ3で計算された終了日の週の番号から減算されます。次に2で乗算します。これは開始日と終了日の範囲内に含まれる週末の日数の合計になります。
+
+```
+-
+
+CASE WHEN WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) = WEEK(CASE WHEN DAYOFWEEK(`End Date`) = 7 THEN SUBDATE(`End Date`, INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`End Date`) = 1 THEN SUBDATE(`End Date`, INTERVAL 2 DAY) ELSE `End Date` END) THEN 0 ELSE WEEK(CASE WHEN DAYOFWEEK(`Start Date`) = 1 THEN ADDDATE(`Start Date`,INTERVAL 1 DAY)
+
+WHEN DAYOFWEEK(`Start Date`) = 7 THEN ADDDATE(`Start Date`,INTERVAL 2 DAY) ELSE `Start Date` END) END) * 2)
+
+END
+```
+
+5. 最後に、上記のステップ2で計算された日付の差から週末の日数の合計が減算されます。
+
+<Note>
+  **注記：** SQLクエリは日付が同じ年内である場合にのみ動作します。異なる年の日付を比較する必要がある場合は、代わりにMagic ETLメソッドを使用してください。
+
+</Note>
+
+## Magic ETL
+
+1. 入力DatSetタイルを日付演算タイルに接続します。
+2. 以下に示すようにタイルを設定します。
+     
+   <Frame><img alt="Date_Operations_Tile.png" src="/images/kb/ka05w00000123jH-00N5w00000Ri7BU-0EM5w000005vOvm.png"/></Frame>
+   <Note>
+     **注記：** ステップ4では、この関数は日付を減算するので、最初に終了日を、次に開始日を必ず選択します。最初に開始日を入力するとマイナスになります。
+
+   </Note>
+
+結果は以下のようになります。
+  
+<Frame><img alt="Results.png" src="/images/kb/ka05w00000123jH-00N5w00000Ri7BU-0EM5w000005vOvn.png"/></Frame>
+日本語

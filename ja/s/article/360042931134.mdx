@@ -1,0 +1,68 @@
+---
+title: "Nielsen Music Connectコネクター"
+---
+
+## はじめに
+
+Nielson Music Connectは、アーティスト、アルバム、楽曲に使用する多数の測定メトリクス向けに詳細な最新データを提供することで、演奏やトレンドの全体像を示します。Nielsen Music Connect APIの詳細については、Nielsenのページ（ [https://portal.developer.nielsen.com/home](https://portal.developer.nielsen.com/home "https://portal.developer.nielsen.com/home") ）を参照してください。
+
+Nielsen Music Connectアカウントには、Data Centerから接続します。このトピックでは、Nielsen Music Connectコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Nielsen Music Connectアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Nielsen Music Connectアカウントの認証情報（ユーザー名とパスワード）
+* Nielsen Music ConnectのクライアントID
+* Nielsen Music Connectのパスワード
+
+認証情報を見つける際にサポートが必要な場合は、Nielsen担当者にお問い合わせください。
+
+## Nielsen Music Connectアカウントに接続する
+
+このセクションでは、Nielsen Music Connect Connectorページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Nielsen Music Connectアカウントに接続するための認証情報を入力するフィールドが含まれています。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Nielsen Music Connectアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Nielsen Music Connectアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> Nielsen Music ConnectのクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Nielsen Music Connectのクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+Nielsen Music Connectの有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいNielsen Music Connect DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するNielsen Music Connectレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Barcode Data </p></td><td colspan="1" rowspan="1"><p> 指定されたバーコードのメトリクスデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Data </p></td><td colspan="1" rowspan="1"><p> 特定のチャートのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart List </p></td><td colspan="1" rowspan="1"><p> チャートのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Options </p></td><td colspan="1" rowspan="1"><p> 利用可能な市場とメトリクスの詳細なリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Feed </p></td><td colspan="1" rowspan="1"><p> データフィードの結果を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ISRC Data </p></td><td colspan="1" rowspan="1"><p> 指定されたISRCのメトリクスを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Barcode </p></td><td colspan="1" rowspan="1"><p> データを取得したいバーコードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ISRC </p></td><td colspan="1" rowspan="1"><p> データを取得したいISRCを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Week Number (Optional) </p></td><td colspan="1" rowspan="1"><p> データを取得したい週の番号を <span class="mt-font-courier-new"> YYYYWW </span> 形式で入力します。 <span class="mt-font-courier-new"> YYYY </span> は年、 <span class="mt-font-courier-new"> WW </span> は週の番号です。例えば、「 <span class="mt-font-courier-new"> 201801 </span> 」と入力すると、2018年の第1週目のデータが取得されます。空白のままにすると、現在の週のデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Country </p></td><td colspan="1" rowspan="1"><p> データを取得したい国を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Name </p></td><td colspan="1" rowspan="1"><p> データを取得したいチャートの名前を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filters </p></td><td colspan="1" rowspan="1"><p> チャートに適用するすべてのフィルターを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Market Code </p></td><td colspan="1" rowspan="1"><p> データを取得したい市場コードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Genre Code </p></td><td colspan="1" rowspan="1"><p> データを取得したいジャンルコードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Metric Cide </p></td><td colspan="1" rowspan="1"><p> データを取得したいメトリクスコードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Request Type </p></td><td colspan="1" rowspan="1"><p> 目的のレポートタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Chart Filter Key </p></td><td colspan="1" rowspan="1"><p> 目的のチャートフィルターキーを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# 同一のアカウントを複数のDataSetを作成するのに使えますか？">
+
+
+使えます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じた頻度で更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+いいえ。
+
+
+
+</Accordion>
+</AccordionGroup>

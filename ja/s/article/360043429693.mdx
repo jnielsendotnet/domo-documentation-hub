@@ -1,0 +1,231 @@
+---
+title: "チャートのデータラベルとホバーテキストをフォーマットする"
+---
+
+## はじめに
+
+チャートのデータラベルとホバーテキストには、バーやバブルなどのチャートの要素の値を示すという同じ目的があります。ただし、情報を表示する方法は違います。データラベルは、オンになっている場合、グラフの各要素すべてで常に表示されます。これにより、閲覧者は情報を素早く確認できるようになりますが、グラフが雑然として見える場合があります。それに対して、ホバーテキストは、閲覧者がグラフ要素にマウスポインターを合わせたときにのみ表示されます。データラベルの代わりにホバーテキストを使用すると、正確な値を確認するのに時間がかかりますが、グラフの見た目がすっきりとしてプロフェッショナルに見えます。
+
+ほとんどのチャートでは、各チャート要素の最も重要な情報を示すのにデフォルトではデータラベルではなく、ホバーテキストを使用しています。しかし、以下のいずれかの操作によって、このデフォルトの動作を変更できます。
+
+* **［チャートの設定］** で **［データラベルの設定］>［テキスト］** の順に進み、ラベルテキストを入力することでデータラベルをオンにする。これにより、データラベルが常に表示されるようになります。閲覧者がグラフ要素にマウスポインターを合わせると、デフォルトのホバーテキストも表示されます。
+* **［チャートの設定］** の **［吹き出しテキストの設定］>［テキスト］** プロパティに自分のテキストを入力し、デフォルトのホバーテキストを変更する。
+* **［チャートの設定］** でデータラベルとホバーテキストを両方指定することで、データラベルに *加えて* カスタマイズしたホバーテキストを含める。
+
+チャートの種類によっては、上記の説明とは異なる動作になる場合があります。これらの違いについては、次で詳細に説明します。
+
+**ビデオ - データラベルとホバーラベルを適用する**
+
+<iframe allowfullscreen="" frameborder="0" height="315" src="//www.youtube-nocookie.com/embed/Y5keIWudAw4" width="560"></iframe>
+
+## データラベルをオンにしてカスタマイズする
+
+データラベルが使える大部分のグラフタイプでは、［チャートの設定］で **［データラベルの設定］>［テキスト］** の順に進み、データラベルテキストを入力することでデータラベルをオンにします。
+
+データラベルのカスタマイズには、様々なオプションがあります。これらは、 **［チャートの設定］>［データラベルの設定］** からでもアクセスできます。これらのオプションは、 **［データラベルの設定］>［テキスト］** でテキストを入力しない限り、機能 *しません* （ただし、サンキーチャートは例外で、非表示にしない限り、データラベルがデフォルトでオンになっています）。
+
+**ほとんどのグラフタイプでデータラベルをオンにしてカスタマイズをするには：**
+
+1. 編集するチャートのAnalyzerを開きます。
+2. **［チャートの設定］** で **［データラベルの設定］** をクリックします。
+3. （オプション） **［テキスト］** フィールドにテキストを入力します。
+     
+   ［+］ボタンをクリックして目的のマクロを選択すると、ここにマクロを挿入できます。マクロの詳細は、「 [データラベルマクロ](#h_01FD06TAGBP4VWWH76J0ZWJXJW "チャートのデータラベルとホバーテキストをフォーマットする") 」を参照してください。
+4. （オプション）必要に応じて **［データラベルの設定］** でその他のオプションを設定します。これらのオプションは、以下で説明します。
+
+### グラフのデータラベルオプション
+
+以下の表に、グラフで利用できる、 **［チャートの設定］>［データラベルの設定］** のオプションのリストと説明を示します。サムネイル画像をクリックすると、拡大画像が表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> テキスト </td><td colspan="1" rowspan="1"><p> データラベルに使用するテキストを指定します。このプロパティは通常、データラベルの「オンスイッチ」であり、表示するにはテキストを指定する必要があります。サンキーチャートの場合、 <b> ［非表示］ </b> オプションを使用しない限り、データラベルはデフォルトでオンになっています </p><p> ［+］ボタンをクリックして目的のマクロを選択すると、ここにマクロを挿入できます。マクロの詳細は、「 <a class="confluence-link" href="#h_01FD06TAGBP4VWWH76J0ZWJXJW" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> データラベルマクロ </a> 」を参照してください。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"> — </td></tr><tr><td colspan="1" rowspan="1"> 非表示 </td><td colspan="1" rowspan="1"> サンキーチャートのデータラベルを非表示/表示にします。 </td><td class="mt-align-center" colspan="1" rowspan="1"> - </td></tr><tr><td colspan="1" rowspan="1"><p> 単一ラベル表示 </p></td><td colspan="1" rowspan="1"><p> 積上げ縦棒グラフの積上げ全体に単一のラベルを表示するかどうかを決定します。デフォルトでは、この単一のラベルは積上げ内の一番上のデータアイテムを表しますが、 <b> ［テキスト］ </b> フィールドに希望するマクロを入力することによって、表すデータアイテムを変更できます。例えば、積上げの合計値を表す単一のラベルにするには、 <b> ［テキスト］ </b> フィールドに「 <code> %_CATEGORY_TOTAL </code> 」と入力します。これは右の例に表されているデータラベルです。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/1340/show_one_label.png"><img alt="" src="/images/kb/ka05w00000123ph-00N5w00000Ri7BU-0EM5w000005vPHv.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 表示 </p></td><td colspan="1" rowspan="1"><p> パレート図で利用できます。このプロパティは、データラベルをチャートのバーに平行に表示するか、90°回転させて表示するかを決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 位置 </p></td><td colspan="1" rowspan="1"><p> 対応するデータアイテムに関連付けて、データラベルを表示する位置を決定します。例では、縦棒グラフのデータラベル位置を <b> ［内側上部］ </b> に設定したグラフを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/654/inside_top_labels.png"><img alt="" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7T.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶし </p></td><td colspan="1" rowspan="1"><p> データラベルに色の塗りつぶしを追加します。右の例は、透明度45％の赤の塗りつぶしが追加されたチャートを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5249/data_labels_fill.png"><img alt="data_labels_fill.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7S.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶしの色 </p></td><td colspan="1" rowspan="1"><p> データラベルの塗りつぶしの色を指定します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶしの透明度の割合 </p></td><td colspan="1" rowspan="1"><p> データラベルの塗りつぶしの透明度を指定します。0～100の任意の数を指定できます。0は完全に不透明であることを示し、100は完全に透明であることを示します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 回転 </p></td><td colspan="1" rowspan="1"><p> データラベルを90度回転します。右の例は、これが設定されたチャートを示しています。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5250/data_labels_rotated.png"><img alt="data_labels_rotated.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7E.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 位置調整 </p></td><td colspan="1" rowspan="1"><p> 複数折れ線データラベルの位置調整（ <code> ［左］ </code> 、 <code> ［中心］ </code> 、 <code> ［右］ </code> ）を決定します。例のグラフでは、複数折れ線データラベルは左揃えになっています（ <b> ［位置調整］ </b> プロパティで <code> ［左］ </code> を選択）。 </p></td><td colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/718/left_justified.png"><img alt="" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7B.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> ゼロの時に表示 </p></td><td colspan="1" rowspan="1"><p> 値が0のグラフ要素にデータラベルを表示するかどうかを決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 目盛りの書式を使用 </p></td><td colspan="1" rowspan="1"><p> データラベルに、数値の目盛りに設定したのと同じ書式を使用するかどうかを決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 目盛りの略称を使用 </p></td><td colspan="1" rowspan="1"><p> データラベルに、数値の目盛りに設定したのと同じ目盛りの略称を使用するかどうかを決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> %値（小数位） </p></td><td colspan="1" rowspan="1"><p> データラベルのパーセント値で使用する小数点以下の桁数を決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 重なりを許可 </p></td><td colspan="1" rowspan="1"><p> データラベルが重なり合った場合でも表示するかどうかを決定します。ほとんどのグラフタイプでは、このオプションを選択しない限り、データラベルは重なりません。シリーズ数が少ないチャートにのみ使用することを推奨します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> データラベルを表示 </p></td><td colspan="1" rowspan="1"><p> 線とバーを組み合わせたグラフで、データラベルの表示を線のみ、バーのみ、また線とバーの両方のいずれにするかを決定します。 </p></td><td colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"> フォントサイズ </td><td colspan="1" rowspan="1"> サンキーチャートのデータラベルのフォントサイズを設定します。デフォルトのサイズは、 <b> ［中］ </b> です。 </td><td colspan="1" rowspan="1"> - </td></tr><tr><td colspan="1" rowspan="1"> テキストの色 </td><td colspan="1" rowspan="1"> データラベルのテキストの色を決定します。デフォルトは <b> ［黒］ </b> です。 <b> ［補色］ </b> （右側の例を参照）を選択すると、色はノードの色に基づいて自動的に決定されます。 </td><td colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/7953/sankey_data_labels_complementary_colors.png"><img alt="sankey_data_labels_complementary_colors.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7I.png"/></a></td></tr></tbody></table>
+
+### マップのデータラベルオプション
+
+以下の表に、マップに利用できる、 **［チャートの設定］>［データラベルの設定］** の全オプションのリストと説明を示します（経度緯度マップなど、一部のマップタイプにはデータラベルがありません）。サムネイル画像をクリックすると、大きな画像を見ることができます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> テキスト </p></td><td colspan="1" rowspan="1"><p> データラベルに使用するテキストを指定します。このプロパティはデータラベルの「オンスイッチ」であり、表示するにはテキストを指定する必要があります。 </p><p> ［+］ボタンをクリックして目的のマクロを選択すると、ここにマクロを挿入できます。マクロの詳細は、「 <a class="confluence-link" href="#h_01FD06TAGBP4VWWH76J0ZWJXJW" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> データラベルマクロ </a> 」を参照してください。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"> フォントサイズ </td><td colspan="1" rowspan="1"><p> データラベルのフォントサイズを増減します。［デフォルト］フォントサイズは、最大フォントサイズと2番目に小さいフォントサイズの間になります。詳細については、「 <a href="/s/article/360042925214" target="_blank" title="チャートのフォントサイズを変更する"> チャートのフォントサイズを変更する </a> 」を参照してください。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"> — </td></tr><tr><td colspan="1" rowspan="1"> テキストの色 </td><td colspan="1" rowspan="1"> マップデータラベルのテキストの色を決定します。［デフォルト］を選択すると、背景色にもとづいて自動的に色が決定されます。右の例では、暗い背景のデータラベルが白く表示され、明るい背景のデータラベルが暗い赤色で表示されています。 </td><td class="mt-align-center" colspan="1" rowspan="1"><a target="_blank" title="/@api/deki/files/5254/map_data_labels_text_color.png"><img alt="map_data_labels_text_color.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1o.png"/></a></td></tr><tr><td colspan="1" rowspan="1"> 値の略称 </td><td colspan="1" rowspan="1"> データラベル値を短縮するかどうかを指定します（デフォルトは有効桁数3桁です）。 </td><td class="mt-align-center" colspan="1" rowspan="1"> - </td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶし </p></td><td colspan="1" rowspan="1"><p> マップデータラベルに色の塗りつぶしを追加します。右の例は、透明度60％の淡い青色の塗りつぶしが追加されたチャートを示しています。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"><p><a target="_blank" title="/@api/deki/files/5253/map_data_labels_fill.png"><img alt="map_data_labels_fill.png" src="/images/kb/ka05w00000123lV-00N5w00000Ri7BU-0EM5w000005vP1l.png"/></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶしの色 </p></td><td colspan="1" rowspan="1"><p> マップデータラベルの塗りつぶしの色を指定します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"><p> - </p></td></tr><tr><td colspan="1" rowspan="1"><p> 塗りつぶしの透明度の割合 </p></td><td colspan="1" rowspan="1"><p> マップデータラベルの塗りつぶしの透明度を指定します。0～100の任意の数を指定できます。0は完全に不透明であることを示し、100は完全に透明であることを示します。このプロパティは、 <b> ［塗りつぶし］ </b> ボックスをオンにした場合のみ使用できます。 </p></td><td class="mt-align-center" colspan="1" rowspan="1"><p> - </p></td></tr></tbody></table>
+
+## データラベルマクロ
+
+Domoでは、異なるデータアイテムを参照するためのマクロをデータラベルに追加できます。様々なマクロが利用可能です。 **［テキスト］** フィールドの［+］ボタンをクリックすると、選択可能なマクロの一覧を開くことができます。
+
+例えば、縦棒グラフのすべてのデータラベルにカテゴリー名、コロンとスペース、データアイテムの値の順に表示する場合は、1）ドロップダウンから **［カテゴリー名］** マクロを選択し、2）フィールドの「 `%_CATEGORY_NAME` 」テキストの後にコロンとスペースを追加し、3）ドロップダウンから **［値］** マクロを選択します。すると、データラベルは以下のグラフのようになります。
+
+<Frame><img alt="data_label_macros_newer.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7V.png"/></Frame>
+利用可能なマクロは、選択したグラフタイプによって異なります。
+
+#### 大部分のグラフのデータラベルマクロ
+
+棒グラフや折れ線グラフ、面グラフなど、ほとんどの種類のグラフのデータラベルには、以下のマクロを含めることができます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリーの平均 </p></td><td colspan="1" rowspan="1"><p> 積上げ縦棒グラフの各カテゴリーの全系列の平均。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリー名 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリー名。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの数 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリーの数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの合計 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリー内のすべてのデータ値の合計。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> グラフの合計 </p></td><td colspan="1" rowspan="1"><p> グラフ内のすべての値の合計。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの割合 </p></td><td colspan="1" rowspan="1"><p> カテゴリー内の全データ値の合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 全体の割合 </p></td><td colspan="1" rowspan="1"><p> グラフ内の全データ値の合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 前の値に対する割合 </p></td><td colspan="1" rowspan="1"><p> ファネルチャート内の前のカテゴリーの合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 系列名 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するデータ系列の名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 系列の数 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するデータ系列の数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツールチップのフィールド1～3 </p></td><td colspan="1" rowspan="1"><p> グラフの上の <b> ［ツールチップ］ </b> フィールドにドラッグした列を参照することにより、グラフに追加データを含めることができます（Analyzerウィンドウの上部にあるアイコンバーの <b> ［ツールチップ］ </b> をクリックすると、オンとオフを切り替えることができます）。詳細については、「 <a href="#h_01FF3GKJBJ85B75PWWE4Y88V48" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ［ツールチップ］フィールドを参照する </a> 」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> データアイテムの値。 </p></td></tr></tbody></table>
+
+値、カテゴリー、系列データの詳細については、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+#### 円グラフとドーナツグラフのデータラベルマクロ
+
+円グラフとドーナツグラフのスライスに表示されるラベルテキストはカスタマイズできます。カスタマイズは、［チャートの設定］の **［データラベルの設定］>［テキスト］** プロパティで行います。次のいずれかのマクロを使用できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> 特定のスライスのデータアイテムの名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> データアイテムの値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 全体の割合 </p></td><td colspan="1" rowspan="1"><p> グラフ内の全データ値の合計における割合を表すデータ値。 </p></td></tr></tbody></table>
+
+以下のスクリーンショットの例では、ユーザーはこのプロパティに「 `%NAME: %_PERCENT_OF_TOTAL` 」と入力しています。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123l4-00N5w00000Ri7BU-0EM5w000005vP1t.png" style={{width: 597, height: 340}}/></Frame>
+#### マップのデータラベルマクロ
+
+ほとんどの種類のマップでは、スライスに表示されるラベルテキストをカスタマイズできます（ただし、経度緯度マップなど、いくつかの種類を除く）。カスタマイズは、［チャートの設定］の **［データラベルの設定］>［テキスト］** プロパティで行います。次のいずれかのマクロを使用できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> 長い表記名 </p></td><td colspan="1" rowspan="1"><p> 短縮しない地域名（デフォルト使用される名称）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> 地域の略称。通常は2文字の州または国の略語（例：マサチューセッツ州の場合は「MA」）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 範囲の名前 </p></td><td colspan="1" rowspan="1"><p> 範囲の名前（範囲名が <b> ［範囲］ </b> グラフプロパティを使用して指定されている場合）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツールチップのフィールド1～3 </p></td><td colspan="1" rowspan="1"><p> グラフの上の <b> ［ツールチップ］ </b> フィールドにドラッグした列を参照することにより、グラフに追加データを含めることができます（Analyzerウィンドウの上部にあるアイコンバーの <b> ［ツールチップ］ </b> をクリックすると、オンとオフを切り替えることができます）。詳細については、「 <a href="#h_01FF3GKJBJ85B75PWWE4Y88V48" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ［ツールチップ］フィールドを参照する </a> 」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> 関連する地域の値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> コード </p></td><td colspan="1" rowspan="1"><p> （日本のマップのみ）日本語での都道府県名。 </p></td></tr></thead></table>
+
+#### ツリーマップのデータラベルマクロ
+
+ツリーマップのデータラベルは、デフォルトでは各データアイテムのカテゴリー名のみを表示します。このデータラベルをカスタマイズして、必要な情報を表示させることができます。カスタマイズは、 **［ラベルの設定］** **>［テキスト］** フィールドで行います。
+
+以下の任意のマクロを使用して、ツリーマップのデフォルトのラベルテキストを変更することができます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリーの数 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するカテゴリーの数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> グラフの合計 </p></td><td colspan="1" rowspan="1"><p> ツリーマップの全データ値の合計。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> データアイテムのカテゴリー名。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 全体の割合 </p></td><td colspan="1" rowspan="1"><p> ツリーマップ内の全データ値の合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 系列の数 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するデータ系列の数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> データアイテムの値。 </p></td></tr></tbody></table>
+
+例えば、ツリーマップ内のそれぞれの四角形にデータアイテム名、ツリーマップ内の全アイテムに対するそのアイテムの割合の順に表示するには、1） **［ラベルの設定］>［テキスト］** のドロップダウンから **［名前］** マクロを選択し、2）そのフィールドの「 `%_NAME` 」テキストの後にコロンとスペースを追加し、3）ドロップダウンから **［全体の割合］** マクロを選択します。以下のスクリーンショットは、米国における各州の人口の割合を図で示したツリーマップの例です。
+
+<Frame><img alt="Tree_Map.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7R.png"/></Frame>
+#### ガントチャートのデータラベルマクロ
+
+ガントチャートおよび進捗率ガントチャートのデータラベルは、デフォルトではカテゴリー名、アイテム名、日付範囲をこの順番で表示します。例：Sprint 1: Write PRD: 2013年2月5日 - 2013年2月16日デフォルトのテキストを自分でカスタマイズしたテキストに変更できます。
+
+以下の任意のマクロを使用して、ガントチャートのデフォルトのラベルテキストを変更できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリー </p></td><td colspan="1" rowspan="1"><p> データアイテムのカテゴリー。チャートの上の <b> ［カテゴリー］ </b> フィールドに列をドロップしてチャートデータを分割した場合にのみ使用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日 </p></td><td colspan="1" rowspan="1"><p> データアイテムの終了日。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アイテム </p></td><td colspan="1" rowspan="1"><p> データアイテムの名前。 </p></td></tr><tr><td colspan="1" rowspan="1"> 進捗率 </td><td colspan="1" rowspan="1"> データアイテムの進捗率（進捗率ガントチャートのみで利用可能）。 </td></tr><tr><td colspan="1" rowspan="1"><p> 開始日 </p></td><td colspan="1" rowspan="1"><p> データアイテムの開始日。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツールチップのフィールド1～3 </p></td><td colspan="1" rowspan="1"><p> チャートの上の <b> ［ツールチップ］ </b> フィールドにドラッグした列を参照することにより、ガントチャートに追加データを含めることができます（Analyzerウィンドウの上部にあるアイコンバーの <b> ［ツールチップ］ </b> をクリックすると、オンとオフを切り替えることができます）。詳細については、「 <a href="#h_01FF3GKJBJ85B75PWWE4Y88V48" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ［ツールチップ］フィールドを参照する </a> 」を参照してください。 </p></td></tr></tbody></table>
+
+#### サンキーチャートのデータラベルマクロ
+
+デフォルトでは、サンキーチャートのデータラベルにはノード名が表示されます。デフォルトのテキストを自分でカスタマイズしたテキストに変更できます。
+
+以下の任意のマクロを使用して、サンキーチャートのデフォルトのラベルテキストを変更できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> ノードの名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> %値 </p></td><td colspan="1" rowspan="1"><p> 同じ縦軸上にあるすべてのノードの合計に対する、このノードの割合を表す値。（そのため、ノードがチャートの左側の入力ノードである場合、割合の値はチャートの左側にあるすべてのノードの合計に対する割合になります）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> ノードの実際の値。 </p></td></tr></tbody></table>
+
+## 吹き出しテキストをカスタマイズする
+
+大部分のタイプのグラフでは、グラフ要素にマウスポインタを合わせるとホバーテキストが常に表示されます。この表示をオフにすることはできません。ただし、テキストの表示方法はカスタマイズすることが可能です。 **［チャートの設定］>［ホバーテキストの設定］** から、様々なホバーテキストのカスタマイズオプションが利用できます。
+
+一部のタイプのグラフでは、ホバーテキストに別のオプションがあります。例えば、マップでは、ホバーラベルは詳細ビューではなくカードビューのみに表示されます。また、マップには、ツリーマップおよびガントチャートと同様にホバーテキストを指定するための別のセットのマクロがあります。このようなタイプのグラフについては、後ほど説明します。
+
+**大部分のグラフタイプでホバーテキストをカスタマイズするには：**
+
+1. 編集するチャートのAnalyzerを開きます。
+2. **［チャートの設定］** で、 **［ホバーテキストの設定］** をクリックします。
+3. **［テキスト］** フィールドにテキストを入力します。
+     
+   ［+］ボタンをクリックして目的のマクロを選択すると、ここにマクロを挿入できます。マクロの詳細は、「 [ホバーテキストマクロ](/s/article/360043429693 "チャートのデータラベルとホバーテキストをフォーマットする") 」を参照してください。
+4. （オプション）必要に応じて **［ホバーテキストの設定］** でその他のオプションを設定します。これらのオプションは、以下で説明します。
+
+### ホバーテキストのオプション
+
+#### グラフのホバーテキストのオプション
+
+以下の表に、ほとんどのグラフタイプに利用できる、 **［チャートの設定］>［ホバーテキストの設定］** のすべてのオプションのリストと説明を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> テキスト </p></td><td colspan="1" rowspan="1"><p> チャートホバーで表示するテキストを設定します。［+］ボタンをクリックして目的のマクロを選択すると、ここにマクロを挿入できます。マクロの詳細は、「 <a class="confluence-link" href="/s/article/360043429693" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ホバーテキストマクロ </a> 」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 目盛りの書式を使用 </p></td><td colspan="1" rowspan="1"><p> ホバーテキストに、数値の目盛りに設定されたのと同じ書式を使用するかどうかを決定します。このプロパティは、 <b> ［ホバーテキストの書式］ </b> 、 <b> ［値を以下で分割］ </b> 、 <b> ［小数位］ </b> 、 <b> ［マイナスの数値］ </b> の各プロパティより優先されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 目盛りの略称を使用 </p></td><td colspan="1" rowspan="1"><p> ホバーテキストに、数値の目盛りに設定したのと同じ目盛りの略称を使用するかどうかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ホバーテキストの書式 </p></td><td colspan="1" rowspan="1"><p> ホバーテキスト内の数値に、通貨記号または割合記号を付加するかどうかを決定します。このプロパティよりも、 <b> ［目盛りの書式を使用］ </b> プロパティのほうが優先されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値を以下で分割 </p></td><td colspan="1" rowspan="1"><p> これを設定すると、ホバーテキスト内の値を指定された因数で割ります。このオプションは、チャート内の値が非常に大きい場合に通数で割って省略する際に役立ちます。例えば、チャートの値が百万ドル単位で示されている場合、百万で分割するよう選択できます。これにより、ホバーテキスト内の値を管理しやすい1桁の数にできます。 <b> ［割合（%）］ </b> で割ることを選択すると、目盛りの値には100が掛けられます。このプロパティよりも、 <b> ［目盛りの書式を使用］ </b> プロパティのほうが優先されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 小数位 </p></td><td colspan="1" rowspan="1"><p> ホバーテキスト内の小数位の桁数を決定します。このプロパティよりも、 <b> ［目盛りの書式を使用］ </b> プロパティのほうが優先されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> マイナスの数値 </p></td><td colspan="1" rowspan="1"><p> マイナスの数値のフォーマットを決定します。 <b> ［−100］ </b> を選択した場合、すべてのマイナスの数値にはマイナス記号が付加されます。 <b> (100) </b> を選択した場合、すべてのマイナスの数値はカッコ（）表記になります。このプロパティよりも、 <b> ［目盛りの書式を使用］ </b> プロパティのほうが優先されます。 </p></td></tr></tbody></table>
+
+#### マップのホバーテキストのオプション
+
+次の表のプロパティは、マップの［チャートの設定］の **［ホバーテキスト］** カテゴリーにあります。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th class="mt-column-width-15" colspan="1" rowspan="1"><p> オプション </p></th><th class="mt-column-width-35" colspan="1" rowspan="1"><p> 説明 </p></th><th class="mt-column-width-20" colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td class="mt-column-width-15" colspan="1" rowspan="1"><p> 吹き出しテキスト </p></td><td class="mt-column-width-35" colspan="1" rowspan="1"><p> マップの吹き出しで表示するテキストを設定します。マップの数値をホバーに表示する様々なマクロが利用可能です。 </p></td><td class="mt-column-width-20" colspan="1" rowspan="1"><p> - </p></td></tr><tr><td class="mt-column-width-15" colspan="1" rowspan="1"> 常時マップ上に表示 </td><td class="mt-column-width-35" colspan="1" rowspan="1"><b> ［ホバーテキスト］ </b> オプションを使用して指定したホバーテキストをグラフでオンにするかどうかを指定します。 </td><td class="mt-column-width-20" colspan="1" rowspan="1"> - </td></tr></tbody></table>
+
+## 吹き出しテキストのマクロ
+
+Domoは、吹き出しテキストで異なるデータアイテムを参照するのに使用できるマクロに対応しています。利用できるマクロは、グラフタイプによって異なります。
+
+#### ほとんどのグラフタイプのホバーテキストのマクロ
+
+ほとんどのグラフタイプでは、以下のようなホバーテキストのマクロを使用できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリー名 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリー名。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの数 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリーの数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの合計 </p></td><td colspan="1" rowspan="1"><p> データアイテムが属するカテゴリー内のすべてのデータ値の合計。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> グラフの合計 </p></td><td colspan="1" rowspan="1"><p> グラフ内のすべての値の合計。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カテゴリーの割合 </p></td><td colspan="1" rowspan="1"><p> カテゴリー内の全データ値の合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 全体の割合 </p></td><td colspan="1" rowspan="1"><p> グラフ内の全データ値の合計における割合を表すデータ値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 系列名 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するデータ系列の名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 系列の数 </p></td><td colspan="1" rowspan="1"><p> アイテムが属するデータ系列の数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツールチップのフィールド1～3 </p></td><td colspan="1" rowspan="1"><p> グラフの上の <b> ［ツールチップ］ </b> フィールドにドラッグした列を参照することにより、グラフに追加データを含めることができます（Analyzerウィンドウの上部にあるアイコンバーの <b> ［ツールチップ］ </b> をクリックすると、オンとオフを切り替えることができます）。詳細については、「 <a href="#h_01FARDTG1PPD557W7KSJ7D09FQ" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ［ツールチップ］フィールドを参照する </a> 」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> データアイテムの値。 </p></td></tr></tbody></table>
+
+例えば、縦棒グラフのすべてのホバーにカテゴリー名、コロン、データアイテムの値の順に表示する場合は、1）ドロップダウンから **［カテゴリー名］** マクロを選択し、2）フィールドの「 `%_CATEGORY_NAME` 」テキストの後にコロンとスペースを追加し、3）ドロップダウンから **［値］** マクロを選択します。
+
+#### ガントチャートのホバーテキストのマクロ
+
+ガントチャートおよび進捗率ガントチャートの吹き出しラベルは、デフォルトではカテゴリ名、アイテム名および期日範囲をその順番で表示します。例：Sprint 1: Write PRD: 2013年2月5日 - 2013年2月16日デフォルトのホバーテキストを自身のカスタマイズされたテキストに変更できます。
+
+以下の任意のマクロを使用して、ガントチャートのデフォルトのホバーテキストを変更できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カテゴリー </p></td><td colspan="1" rowspan="1"><p> データアイテムのカテゴリー。チャートの上の <b> ［カテゴリー］ </b> フィールドに列をドロップしてチャートデータを分割した場合にのみ使用できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 終了日 </p></td><td colspan="1" rowspan="1"><p> データアイテムの終了日。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アイテム </p></td><td colspan="1" rowspan="1"><p> データアイテムの名前。 </p></td></tr><tr><td colspan="1" rowspan="1"> 進捗率 </td><td colspan="1" rowspan="1"> データアイテムの進捗率（進捗率ガントチャートのみで利用可能）。 </td></tr><tr><td colspan="1" rowspan="1"><p> 開始日 </p></td><td colspan="1" rowspan="1"><p> データアイテムの開始日。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ツールチップのフィールド1～3 </p></td><td colspan="1" rowspan="1"><p> チャートの上の <b> ［ツールチップ］ </b> フィールドにドラッグした列を参照することにより、ガントチャートに追加データを含めることができます（Analyzerウィンドウの上部にあるアイコンバーの <b> ［ツールチップ］ </b> をクリックすると、オンとオフを切り替えることができます）。詳細については、「 <a href="#h_01FARDTG1PPD557W7KSJ7D09FQ" target="_self" title="チャートのデータラベルとホバーテキストをフォーマットする"> ［ツールチップ］フィールドを参照する </a> 」を参照してください。 </p></td></tr></tbody></table>
+
+例えば、進捗率ガントチャートの各バーに「 `X％完了` 」という文字（「X」は進捗率）を表示させるには、1）ドロップダウンメニューから **［進捗率］** マクロを選択し、2）「 `%_PERCENT_COMPLETE%` 」テキストの後に「完了」という語を追加します。以下のスクリーンショットはこの交換テキストが使用されているガントチャート例を示します。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123nu-00N5w00000Ri7BU-0EM5w000005vP9e.png" style={{width: 708, height: 320}}/></Frame>
+#### サンキーチャートのホバーテキストのマクロ
+
+サンキーチャートでは、ノード、接続線、エントリ/終了インジケーターに対してホバーテキストを個別にカスタマイズできます。これらのコンポーネントに関する詳細は、「 [サンキーチャート](/s/article/360043429273 "サンキーチャート - ベータ版") 」を参照してください。
+
+##### ノードのホバーテキスト
+
+デフォルトでは、サンキーチャートのノードのホバーテキストは次のように表示されます。
+
+`[Node name] Value: [Node value]`
+
+このデフォルトテキストは、次のいずれかのマクロを使用してカスタマイズできます。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> カウント内 </p></td><td colspan="1" rowspan="1"><p> このノードに入っていく入力線の数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値内 </p></td><td colspan="1" rowspan="1"><p> このノードに入っていくすべての入力線の合計値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最大値 </p></td><td colspan="1" rowspan="1"><p> このノードに入っていくすべての入力線の単一の最高値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 名前 </p></td><td colspan="1" rowspan="1"><p> ノードの名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カウント外 </p></td><td colspan="1" rowspan="1"><p> このノードから出ていく出力線の数。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値外 </p></td><td colspan="1" rowspan="1"><p> このノードから出ていくすべての出力線の合計値。 </p></td></tr></tbody></table>
+
+##### フローのホバーテキスト
+
+デフォルトでは、サンキーチャートの接続線のホバーテキストは次のように表示されます。
+
+`["From" node name] -> ["To" node name]: [connector line value]`
+
+このデフォルトテキストは、次のいずれかのマクロを使用してカスタマイズできます。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> 送信元の名前 </p></td><td colspan="1" rowspan="1"><p> この線の「From」ノード（線の左側のノード）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 送信元の割合 </p></td><td colspan="1" rowspan="1"><p> この線を同じ「From」ノードから出るすべての線に対する割合で表した値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 送信先の割合 </p></td><td colspan="1" rowspan="1"><p> この線を同じ「To」ノードに流れ込むすべての線に対する割合で表した値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 送信先の名前 </p></td><td colspan="1" rowspan="1"><p> この線の「To」ノード（線が流れ込む右側のノード）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> この線の実際の値。 </p></td></tr></thead></table>
+
+##### エントリインジケーターと終了インジケーターのホバーテキスト
+
+デフォルトでは、サンキーチャートのエントリインジケーターと終了インジケーターのホバーテキストには、入力値と出力値の実際の差が表示されます。例えば、ノードに\$500が入り、\$800が出た場合、エントリインジケーターのホバーテキストに `300ドル` と表示されます。
+
+このデフォルトテキストは、次のいずれかのマクロを使用してカスタマイズできます。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> 全体の割合 </p></td><td colspan="1" rowspan="1"><p> 入力値と出力値の差をノードの合計出力値に対する割合で表した値。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値 </p></td><td colspan="1" rowspan="1"><p> ノードの入力値と出力値の差の実際の値。 </p></td></tr></thead></table>
+
+## 複数折れ線ラベルを作成する
+
+データや凡例ラベルに改行を挿入するには、そのフィールドに「 `\\n` 」を指定します。
+
+**ラベルに改行を入力するには：**
+
+1. Analyzerで編集するチャートを開きます。
+2. **［チャートの設定］>［データラベルの設定］>［テキスト］** で、フォーマットするラベルのテキストに「 `\\n` 」を付加します。
+
+例えば、上記のスクリーンショットのデータラベルを以下のように書式設定したい場合
+
+<Frame><img alt="" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7L.png" style={{width: 700, height: 338}}/></Frame>
+**［チャートの設定］>［データラベルの設定］>［テキスト］** に「 `%_CATEGORY_NAME:\\n%_VALUE` 」と入力します。
+
+複数行のデータラベルは、デフォルトでは中央揃えになります。位置調整は、 **［チャートの設定］>［データラベルの設定］** をクリックしてから、設定する **［位置調整］** オプションを選択して変更できます。
+
+## ［ツールチップ］フィールドを参照する
+
+データラベルやホバーにマクロを使用すると、チャートプレビュー上の **［ツールチップ］** フィールドにドロップした列を参照できます。このようなフィールドは3つまで使用できます。チャートの作成に使用されない列のデータを表示できるため、非常に便利です。次の例では、チャート作成者は注文日別の売上を示す標準の棒グラフを作成しました。さらに、利益、割引率、送料のデータを表示したいと考えました。1つの方法としては、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」で説明した、列を系列として追加する方法があります。しかし、ここでは、チャート作成者は、チャートをできるだけ見やすくしたいと考えています。そこで、列を **［ツールチップ］** フィールドに追加してから、 **［チャートの設定］>［吹き出しテキストの設定］>［テキスト］** のドロップダウンで使用できる **［ツールチップ1～3］** マクロを使用してそれらを参照することにしました。その場合、 **［テキスト］** フィールドのテキストは次のようになります。
+  
+`SALES: %_VALUE \\n PROFIT: %_TOOLTIP1 \\n DISCOUNT: %_TOOLTIP2 \\n SHIPPING COST: %_TOOLTIP3`
+
+さらに、 **［チャートの設定］>［吹き出しテキストの設定］** の「Sales」値のフォーマットと小数点以下の桁数と、チャートプレビュー上のそれぞれのフィールドの **［フォーマット］** ドロップダウンのその他の値のフォーマットと小数点以下の桁数を設定しようと考えました（ **［吹き出しテキストの設定］** の変更が、チャートの作成に使用されているメインの値列 *のみ* に影響するように）。
+
+これで、ユーザーがグラフ内のバーにカーソルを合わせると、必要な情報がすべて表示されたホバーラベルが表示されるようになりました（スクリーンショットを参照）。
+  
+<Frame><img alt="Tooltip_1.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7W.png"/></Frame>
+**ツールチップフィールドを参照するデータラベルまたはホバーラベルを作成するには：**
+
+1. Analyzerで編集するチャートを開きます。
+2. （条件付き） **［ツールチップ］** フィールドがチャートプレビュー上に表示されない場合は、アイコンバーの **［ツールチップ］** でオンに切り替えます。
+     
+   <Frame><img alt="Tooltip_2.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7a.png"/></Frame>
+3. 参照する列を、チャートプレビュー上の **［ツールチップフィールド1］** にドラッグします。
+     
+   <Frame><img alt="Tooltip_3.png" src="/images/kb/ka05w0000012431-00N5w00000Ri7BU-0EM5w000005vZ7U.png"/></Frame>
+4. （オプション）複数のツールチップフィールドを参照する場合は、目的の列を **［ツールチップフィールド2］** および **［ツールチップフィールド3］** にドラッグします。
+5. **［チャートの設定］>［データラベルの設定］** または **［チャートの設定］>［吹き出しテキストの設定］** を開きます。
+6. **［テキスト］** フィールドで、ドロップダウンメニューの **［ツールチップ1～3］** マクロやその他の該当するマクロを使用して、データラベルやホバーラベルに表示するテキストを作成します。
+
+日本語

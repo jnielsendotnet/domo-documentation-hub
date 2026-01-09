@@ -1,0 +1,72 @@
+---
+title: "> Domo on PostgreSQL (RECOMMENDED)"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### Intro
+
+PostgreSQL users can now connect their data to Domo through Cloud Amplifier integrations. Integrating PostgreSQL with Domo is now as simple as providing connection parameters and selecting tables that you want to see as Domo DataSets.
+
+---
+
+### Create a PostgreSQL Integration
+
+1. In Domo, go to the
+   <InlineImage src="/images/kb/ka0Vq000000BENp-00N5w00000Ri7BU-0EMVq000004mhMv.jpg" /> **Data Warehouse** and select <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uSeO.jpg" /> **Add New Cloud Account** to open the connection modal.
+2. Under
+   **Native integration**, choose **See More**
+   >
+   **PostgreSQL**.
+3. Select
+   **Add New Integration**. (If there are existing integrations, this option displays at the bottom of the list.)
+4. Enter the information listed in the table below and select
+   **Next**.
+   
+   <table cellspacing="1" cellpadding="1" border="1"><thead><tr><th rowspan="1" colspan="1">
+   <p>Parameter</p>
+   </th><th rowspan="1" colspan="1">
+   <p>Description</p>
+   </th></tr></thead><tbody><tr><td rowspan="1" colspan="1">
+   <p>Integration name</p>
+   </td><td rowspan="1" colspan="1">
+   <p>This is how you can find your integration in the PostgreSQL integrations list for future updates.</p>
+   </td></tr><tr><td rowspan="1" colspan="1">
+   <p>(Optional) Description</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter any additional information about the integration.</p>
+   </td></tr><tr><td rowspan="1" colspan="1">
+   <p>PostgreSQL connection URL</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter the host and port that represents the PostgreSQL instance you want to connect to.&nbsp;<em>Example:</em> &lt;&lt;<em><a rel="noopener" target="_blank" href="http://myhost.com">myhost.com</a></em>&gt;&gt;</p>
+   </td></tr><tr><td rowspan="1" colspan="1">
+   <p>PostgreSQL connection port</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter the port where your PostgreSQL instance is running.&nbsp;<em>Example:&nbsp;</em>&lt;&lt;<em>5432</em>&gt;&gt;</p>
+   </td></tr><tr ><td rowspan="1" colspan="1">
+   <p>PostgreSQL database name</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter the name of the database you want to connect to.&nbsp;<em>Example:&nbsp;</em>&lt;&lt;<em>defaultdb</em>&gt;&gt;</p>
+   </td></tr><tr ><td rowspan="1" colspan="1">
+   <p>PostgreSQL username</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter the name of your PostgreSQL username.</p>
+   </td></tr><tr ><td rowspan="1" colspan="1">
+   <p>PostgreSQL password</p>
+   </td><td rowspan="1" colspan="1">
+   <p>Enter the password for the user in the previous field.</p>
+   </td></tr></tbody></table>
+5. Configure the caching options and select
+   **Next**. Learn about Cloud Amplifier's [caching rules](https://domo-support.domo.com/s/article/4412849158167?language=en_US#caching_rules).
+     
+   A success message displays.
+     
+   <Frame><img alt="Screenshot 2024-12-19 at 8.50.24 PM.png" src="/images/kb/ka0Vq000000G1sz-00N5w00000Ri7BU-0EMVq000004SdXC.jpg" style={{width: 899, height: 419}}/></Frame>
+
+6. Use the table picker to choose the PostgreSQL schemas and tables to connect to Domo.
+7. Select
+   **Create DataSets** to open the sharing modal. You have the option to share the data with individuals and groups in Domo and choose their access level.
+
+You can now access your PostgreSQL DataSets in the Domo **DataSets** feature.
+
+<Frame><img alt="postgresql last.jpg" src="/images/kb/ka0Vq000000G1sz-00N5w00000Ri7BU-0EMVq000004mhRm.jpg" style={{width: 900, height: 336}}/></Frame>

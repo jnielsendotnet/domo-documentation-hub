@@ -1,0 +1,65 @@
+---
+title: "Oracle CRM on Demandコネクター"
+---
+
+## はじめに
+
+Oracle社のCRM On Demandソリューションは、他のOracle製品およびサービスと統合するCRMにより、販売、マーケティング、ロイヤリティ、およびサービスの有効性を高めます。
+
+Oracle CRM On Demandアカウントには、Data Centerから接続します。このトピックでは、Oracle CRM On Demandコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」で説明しています。
+
+## 必要条件
+
+Oracle CRM On Demandアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Oracle CRM On Demandアカウントが配置されているユーザーホスト
+* Oracle CRM On Demandのユーザー名とパスワード
+
+## Oracle CRM On Demandアカウントに接続する
+
+このセクションでは、[Oracle CRM On Demandコネクター] ページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。 このページのほかのペインの項目にある **[スケジュール設定]** や **[DataSetの名前を付け、説明を入力]** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### [認証情報] ペイン
+
+このペインには、Oracle CRM On Demandアカウントに接続するための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> Oracle CRM On Demandアカウントが設定されているホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Oracle CRM On Demandアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Oracle CRM On Demandアカウントのユーザー名を入力します。 </p></td></tr></tbody></table>
+
+有効なOracle CRM On Demandの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOracle On Demand DataSetを作成することができます。コネクターアカウントは、Data Centerの **[アカウント]** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### [詳細] ペイン
+
+このペインには、リソースと、DataSetで表示させるリソースの属性（カラム）を選択できる、2つの主なメニューが含まれています。リソースをフィルタリングするためのクエリ式もオプションで追加できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> リソース </p></td><td colspan="1" rowspan="1"><p> DomoにDataSetとしてロードするOracle CRM On Demandリソース（レコード）を選択します。 </p><p></p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 属性 </td><td colspan="1" rowspan="1"> DataSetで表示させる、選択されたリソースのすべての属性（カラム）を選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> 高度なオプション </td><td colspan="1" rowspan="1"> オプションの <b> [クエリ式] </b> フィールドを表示するには、このチェックボックスをオンにします。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> クエリ式（オプション） </td>
+<td colspan="1" rowspan="1">
+<p> クエリ式を入力して、コレクションのリソースにフィルタリングすることもできます。クエリ式は、1つ以上の「フィールド式」で構成されます。サポートされるクエリ式の最大長は4096文字です。 </p><p> 次に、クエリ式の構文を示します： <br/><br/><code> QUERY EXPRESSION = FIELD EXPRESSION [; FIELD EXPRESSION] <br/><br/> [FIELD EXPRESSION] = [ANDOR CLAUSE] <br/><br/> [ANDOR CLAUSE] = [ ANDOR CLAUSE] </code><br/><br/> 次の例に、セミコロンで分割された、2つのフィールド式を持つクエリ式を示します： <br/><br/><code> AccountName='PSKDemo02' OR = 'A. C. Networks'; Reference = false </code></p> 
+<Tip>
+ **ヒント：**
+
+    * 値はシングルクォーテーションで囲みます。
+    * 式の作成対象であるフィールドと、同じデータ形式を使用します。
+</Tip>
+
+ </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

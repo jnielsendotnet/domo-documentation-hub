@@ -1,0 +1,99 @@
+---
+title: "Neo4jコネクター"
+---
+
+## はじめに
+
+Neo4jは、ノード、関係、およびそれぞれのプロパティを格納するグラフデータベースです。Neo4jを使用するビジネス使用事例には、レコメンデーションエンジン、金融詐欺の検出、希少疾患の調査などがありますが、これらに限定されません。
+
+Neo4jでは、Cypher言語を使用してクエリを使用できます。Cypherは、ノードと関係を照合するための視覚的で論理的な方法を提供する宣言型クエリ言語です。Cypherとその構文の詳細については、https://neo4j.com/developer/cypher/ を参照してください。
+
+このトピックでは、Neo4j コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Neo4jグラフに接続するには、データベースに以下の条件が必要です。
+
+* インターネットでの利用が可能
+* HTTPSでSSLが有効になっている
+* インスタンス構成ファイル（dbms.connector.http.enabled=true）でHTTP設定を有効にする
+* DomoのIPアドレスをホワイトリストに登録する（「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093) 」を参照）
+* 最小読み取りアクセス権を持つサービスアカウント
+
+## Neo4jグラフに接続する
+
+このセクションでは、Neo4jコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Neo4jグラフに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1" width="226">
+<p> Neo4j Instance URL </p>
+</td>
+<td colspan="1" rowspan="1" width="226">
+<p> インスタンスのURLを入力します。 </p><p> 例：neo4j.database.urlまたは <a href="http://graph.site.com" rel="noopener" target="_blank"> graph.site.com </a>:7473。 </p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> 必要に応じてポート番号を含めます。Neo4jのデフォルトポートは7473です。 </div></div></div> 
+</Note>
+
+ </td>
+ </tr>
+ <tr><td colspan="1" rowspan="1" width="226"><p> Neo4j Database Name </p></td><td colspan="1" rowspan="1" width="226"><p> データベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Username </p></td><td colspan="1" rowspan="1" width="226"><p> データベースのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Password </p></td><td colspan="1" rowspan="1" width="226"><p> データベースのパスワードを入力します。 </p></td></tr>
+ </tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいNeo4j DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+ここにCypherクエリを挿入します。このクエリは、ノードではなくプロパティを返す必要があります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span> Query </span></p></td><td colspan="1" rowspan="1"><p> Cypherクエリを入力します。 </p><p><b> 例 </b> ： </p><ul><li> MATCH (p:Person)-[:BUYS]-&gt;(i:Item) </li></ul><p><a href="http://p.name" rel="noopener" target="_blank"> p.name </a> をNameとして、i.typeをItemTypeとして返します。 </p><ul><li> MATCH (a:Actor)-[:PRODUCES]-&gt;(m:Movie)&lt;-[:DIRECTS]-(d:Director) </li></ul><p><a href="http://a.name" rel="noopener" target="_blank"> a.name </a> をActorName、a.DOBをDOB、m.titleをMovieTitle、 <a href="http://d.name" rel="noopener" target="_blank"> d.name </a> をDirectorNameとして返します </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="Neo4jコネクターからはどんなデータが入手できますか？">
+
+
+Neo4jグラフデータベースデータには、このコネクターを使用してアクセスでき、このデータはテーブルとして表されます。
+
+
+</Accordion>
+<Accordion title="Neo4jコネクターにアクセスするには、どの認証情報が必要ですか？">
+
+
+このコネクターはNeo4j Bolt REST APIハイパーリンクを利用し、関連するユーザー名とパスワードを必要とします。
+
+
+</Accordion>
+<Accordion title="Neo4jデータはどのくらいの頻度で更新されますか？">
+
+
+Neo4jデータは、DomoコネクターUIで利用可能なオプションにもとづいて、必要に応じて何度でも更新できます。
+
+
+</Accordion>
+<Accordion title="グラフデータからテーブルを返すために必要なCypher構文の例を確認できますか？">
+
+
+Cypherクエリは、以下のようにノードではなくプロパティを返す必要があります。
+
+MATCH (p:Person)-[r:IS\_IN\_CHARGE\_OF]->(c:Project)
+
+[p.name](http://p.name) をPersonとして、 [c.name](http://c.name) をProjectとして返します。
+
+
+
+</Accordion>
+</AccordionGroup>

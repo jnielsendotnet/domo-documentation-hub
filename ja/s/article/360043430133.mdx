@@ -1,0 +1,277 @@
+---
+title: "Beast Mode計算例：前期比変換"
+---
+
+## はじめに
+
+この記事では、Beast Modeで実行できる、前期比計算をいくつか紹介します。これらの同じ計算の多くは、 [前期比チャート作成機能](/s/article/360042924834 "前期比チャート") を使用して実行することもできます。
+
+## 前期比グラフを作成する
+
+Domoで前期比グラフを作成するには、x軸（日付）に1つのBeast Mode計算を使い、系列に別のBeast Mode計算を使います。また、Beast Mode計算を作成して、カードに表示する日付の範囲を制限することもできます。
+
+以下の例を使って、自分用の前期比Beast Mode計算を作成してみましょう。以下の例は、前年比グラフを作成する方法を示しています。
+
+**ステップ1：x軸（日付）計算を作成（必須）**
+
+このステップでは、年など前期の日付を現在の期間の日付に算定します。これで、異なる期間のデータがx軸で同じ範囲内に表示されます。このBeast Mode計算は、日付の値の年の部分を現在の年に置き換えます。
+
+`` STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE()), '-', DATE_FORMAT(`Date_Field`, '%m-%d') ), '%Y-%m-%d') ``
+
+**ステップ2：系列（年）計算を作成（必須）**
+
+次に、各期間のデータを表す系列を作成します。このBeast Mode計算は、各年のデータを表す系列を作成します。
+
+`` YEAR(`Date_Field`) ``
+
+**ステップ3：フィルターのための計算を作成（オプション）**
+
+1年間以外の期間（前四半期比、前月比など）を見たい場合は、その日付範囲または期間のみのフィルターを作成することもできます。
+
+フィルター用のBeast Mode計算を作成するには、2つの方法があります。最初の方法では、特定の日付範囲内のフィルターを作成します。2つ目の方法では、過去の日数や月数などを指定したフィルターを作成します。
+
+*特定の日付範囲*
+
+特定の日付範囲のフィルターを作成するには、以下のBeast Mode計算を使います。
+
+```
+CASE
+
+WHEN CONCAT(YEAR(CURRENT_DATE()), '-', DATE_FORMAT(`Date_Field `, '%m-%d') ) >= '2015-07-01' AND CONCAT(YEAR(CURRENT_DATE()), '-', DATE_FORMAT(`Date_Field `, '%m-%d') ) <= '2015-11-30' THEN 'TRUE'
+
+ELSE 'FALSE'
+
+END
+```
+
+*過去X日や月など*
+
+特定の期間過去のフィルターを作成するには、以下のBeast Mode計算を使います。「3 MONTH」を、必要な期間に置き換えてください。例えば「1 DAY」、「4 WEEK」など。その場合、数値と、単位（単数形）を使用します。
+
+```
+CASE
+
+WHEN STR_TO_DATE(CONCAT(YEAR(CURRENT_DATE()), '-', DATE_FORMAT(`Date_Field `, '%m-%d') ), '%Y-%m-%d') >= DATE_SUB(CURRENT_DATE(), INTERVAL 3 MONTH)  THEN 'TRUE'
+
+ELSE 'FALSE'
+
+END
+```
+
+必要な期間に応じて上記のフィルターに変更を加えて使用してください。
+
+## 前週比の変化を計算する
+
+以下のコードを使い、前週比の変化を示す計算を作成します。以下の例は、4週間前（曜日で並べられた）のものと52週間前（曜日で並べられた）のものを含んでいます。数値を目的の期間に変更します。
+
+X軸が日付 - 「共通の日付」でなくてはなりません。
+
+```
+case
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 and DateDiff(Current_Date(), `MyDateColumn`) > 0 then Date_Format(`MyDateColumn`, '%b %e')
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < (28 + 28) and DateDiff(Current_Date(), `MyDateColumn`) > 28 then Date_Format(AddDate(`MyDateColumn`,28), '%b %e')
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 + (52 * 7) and DateDiff(Current_Date(), `MyDateColumn`) > (52 * 7) then Date_Format(AddDate(`MyDateColumn`,52 * 7), '%b %e')
+
+end
+```
+
+「過去28日間」にフィルターをかけます。
+
+```
+case
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 and DateDiff(Current_Date(), `MyDateColumn`) > 0 then 'Yes'
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < (28 + 28) and DateDiff(Current_Date(), `MyDateColumn`) > 28 then 'Yes'
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 + (52 * 7) and DateDiff(Current_Date(), `MyDateColumn`) > (52 * 7) then 'Yes'
+
+else 'No'
+
+end
+```
+
+メトリクスを選び（「アクセス数」など）、「系列」という名前の列を作成します。
+
+```
+case
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 and DateDiff(Current_Date(), `MyDateColumn`) > 0 then 'Last 28 Days'
+
+when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < (28 + 28) and DateDiff(Current_Date(), `MyDateColumn`) > 28 then '4 Weeks Prior'
+
+when when DateDiff(AddDate(Current_Date(), -1), `MyDateColumn`) < 28 + (52 * 7) and DateDiff(Current_Date(), `MyDateColumn`) > (52 * 7) then '52 Weeks Prior'
+
+end
+```
+
+## 前年から今年までの変化の割合を計算する
+
+例えば、過去24ヶ月を月別にグループ化して表示するカードがあるとします。系列として、年が設定されています。前年の1月から現在の月と、今年の1月から現在の月とを比較し、まとめ数字にその変化の割合（％）を表示したいとします。これを行うには、以下のBeast Mode計算を作成します。
+
+```
+(SUM(CASE WHEN YEAR('Date') = YEAR('NOW') THEN 'Total Sales' ELSE 0 END)-SUM(CASE WHEN YEAR('Date')= YEAR(DATE_SUB('NOW', INTERVAL 1 YEAR))AND month('Date') <= month('NOW') THEN 'Total Sales' ELSE 0 END))/
+
+SUM(CASE WHEN YEAR('Date')= YEAR(DATE_SUB('NOW', INTERVAL 1 YEAR)) AND month('Date') <= month('NOW') THEN 'Total Sales' ELSE 0 END)
+```
+
+この計算は、カードのまとめ数字や、単一値パネルの値として役立ちます。時間の経過に沿って変化の割合（％）を示したい場合は、前のセクションに記載された高度な前期比の計算方法に従ってBeast Mode計算を作成し、以下の計算式に従って前年の値と現在の値のフィールドから変化の割合（％）を導きます。
+
+`（今年の値 - 昨年の値）/昨年の値`
+
+## 差異を計算する
+
+### 当年度・前年度差異
+
+以下のコードを使い、当年度と前年度の差異の計算を作成します。
+
+`` (SUM(CASE WHEN YEAR(`MyDateColumn`) = YEAR(CURRENT_DATE()) THEN `Amount` ELSE 0 END)
+- SUM(CASE WHEN YEAR(`MyDateColumn`) = YEAR(CURRENT_DATE()) - 1 THEN `Amount` ELSE 0 END)
+) ``
+
+### 差異％((CY - PY)/PY)
+
+以下のコードを使い、差異％((当年度 − 前年)/前年度)の計算を作成します。
+
+`` ((SUM(CASE WHEN YEAR(`MyDateColumn`) = YEAR(CURRENT_DATE()) THEN `Amount` ELSE 0 END)
+- SUM(CASE WHEN YEAR(`MyDateColumn`) = YEAR(CURRENT_DATE()) - 1 THEN `Amount` ELSE 0 END)
+) / NULLIF(SUM(CASE WHEN YEAR(`MyDateColumn`) = YEAR(CURRENT_DATE()) - 1 THEN `Amount` ELSE 0 END), 0) ) ``
+
+### 年初来差異
+
+月ごとの店舗別の従業員数を含むDataSetがあるとします。今月の従業員数と年末の数を比較するには、どうしたらよいでしょうか？
+
+カードが現在の年にフィルターされていると仮定した場合、次のBeast Mode計算を作成します。
+
+今月の従業員数：
+
+`` COUNT(DISTINCT CASE WHEN YEAR(DateColumn) = YEAR(CURRENT_DATE()) AND MONTH(DateColumn) = MONTH(CURRENT_DATE()) THEN `Employee ID` END) ``
+
+今年の従業員数：
+
+`COUNT(DISTINCT'Employee ID')`
+
+今年の従業員数 - 今月の従業員数（年初来差異）：
+
+`` COUNT(DISTINCT `Employee Id` - COUNT(DISTINCT CASE WHEN YEAR(DateColumn) = YEAR(CURRENT_DATE()) AND MONTH(DateColumn) = MONTH(CURRENT_DATE()) THEN `Employee ID` END) ``
+
+このデータのトレンドを時系列で確認する必要がある場合は、このソリューションで、毎月の年初来を参照し、月レベルで要約する作業をDataFlowで実行する必要があります。
+
+## 前年同期比（YOY）を比率で計算する
+
+このタイプの比較を行う場合、比率の計算はすべてDataFlow内で行う必要があります。
+
+### YOY：複数期間の比較
+
+複数期間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> 期間 </th><th colspan="1" rowspan="1"> 説明 </th><th colspan="1" rowspan="1"> 計算 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 年単位 </td><td colspan="1" rowspan="1"> 年間Beast Modeを作成し、カテゴリーとしてプロットします（ほとんどのチャートでx軸）。 </td><td colspan="1" rowspan="1"><code> year(`datefield`) </code></td></tr><tr><td colspan="1" rowspan="1"> 四半期単位 </td><td colspan="1" rowspan="1"> 四半期Beast Modeを作成してカテゴリーとしてプロットします（ほとんどのチャートでx軸）。複数年にまたがる場合は <code> year(</code><code> `datefield` </code><code> ) </code> を系列として使用します。 </td><td colspan="1" rowspan="1"><code> Quarter(`datefield`) </code></td></tr><tr><td colspan="1" rowspan="1"> 月単位 </td><td colspan="1" rowspan="1"> 月単位のBeast Modeを作成してカテゴリーとしてプロットします（ほとんどのチャートでx軸）。複数年にまたがる場合は <code> year(`datefield`) </code> を系列として使用します。 </td><td colspan="1" rowspan="1"><code> Month(`datefield`) </code></td></tr><tr><td colspan="1" rowspan="1"> 週単位 </td><td colspan="1" rowspan="1"> 月単位のBeast Modeを作成してカテゴリーとしてプロットします（ほとんどのチャートでx軸）。複数年にまたがる場合は <code> year(`datefield`) </code> を系列として使用します。 </td><td colspan="1" rowspan="1"><code> WeekofYear(`datefield`) </code></td></tr><tr><td colspan="1" rowspan="1"> 日単位 </td><td colspan="1" rowspan="1"> 日単位のBeast Modeを作成してカテゴリーとしてプロットします（ほとんどのチャートでx軸）。複数年にまたがる場合は <code> year(`datefield`) </code> を系列として使用します。 </td><td colspan="1" rowspan="1"><code> DayofYear(`datefield`) </code></td></tr></tbody></table>
+
+### YOY：2つの期間の比較
+
+`‘This Year’` と `‘Last Year’` は、ほかのテキストまたは金額フィールドと入れ替えることができます。比率を計算する際は、金額フィールドは必須です。
+
+「複数系列」に対して「同一系列」の利点は、「同一系列」ではコードを統合できることです。ただ、「今年/前年」を金額列と入れ替える場合は、それらを分離する必要があります。
+
+#### YOY：年間比較
+
+年間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when Year(`Datefield`) = Year(curdate()) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when Year(`Datefield`) = Year(curdate())-1 then 'Last Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case year(`Datefield`) when year(curdate()) then 'This Year' when year(curdate())-1 then 'Last Year’ End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when Year(`Datefield`) = Year(curdate()) then `Amountfield` end / Case when Year(`Datefield`) = Year(curdate())-1 then `Amountfield` end) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></tbody></table>
+
+#### YOY：1年間（YTD）の比較
+
+年初来の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> CASE WHEN year(`Datefield`)=year(curdate()) THEN 'This Year' END </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (dayofyear(curdate()) &gt;= dayofyear(`Datefield`))) THEN 'Last Year' END </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><p> CASE WHEN year(`Datefield`) = year(curdate()) AND curdate() &gt;= `Datefield` THEN 'This Year’ when ((year(`Datefield`)=(year(curdate()) - 1)) AND (dayofyear(curdate()) &gt;= dayofyear(`Datefield`))) THEN 'Last Year' END </p></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN year(`Datefield`)=year(curdate()) THEN `Amountfield` END / CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (dayofyear(curdate()) &gt;= dayofyear(`Datefield`))) THEN `Amountfield` END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></tbody></table>
+
+#### YOY：四半期比較
+
+四半期の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())-1) then 'Last Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (Quarter(`Datefield`) = Quarter(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' when (Quarter(`Datefield`) = Quarter(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())) then `Amountfield` end / Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())-1) then `Amountfield` end) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：四半期初来（QTD）の比較
+
+四半期初来の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate()) and dayofyear(`Datefield`) &lt;= dayofyear(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())-1 and dayofyear(`Datefield`) &lt;= dayofyear(curdate())) then 'Last Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (Quarter(`Datefield`) = Quarter(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' when (Quarter(`Datefield`) = Quarter(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate()) and dayofyear(`Datefield`) &lt;= dayofyear(curdate())) then `Amountfield` end / Case when (quarter(`Datefield`) = quarter(curdate()) and year(`Datefield`) = year(curdate())-1 and dayofyear(`Datefield`) &lt;= dayofyear(curdate())) then`Amountfield` end) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：月別比較
+
+月別の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate())-1) then 'Last Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate())) then `Amountfield` end / Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate())-1) then `Amountfield` end) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：1ヶ月間（MTD）の比較
+
+1ヶ月間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year)) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then 'Last Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then 'This Year' when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year)) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then `Amountfield` end / Case when (month(`Datefield`) = month(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year)) and DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate())) then `Amountfield` end) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：週別比較
+
+1ヶ月間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year’ end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year’ End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> ((Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then `Amountfield` end / Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then `Amountfield` End) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：1週間（WTD）の比較
+
+1週間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year)) and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then 'This Year' when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then 'Last Year’ End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(curdate()) and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then `Amountfield` end / Case when (WEEKOFYEAR(`Datefield`) = WEEKOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year)) and DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate())) then `Amountfield` End) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+#### YOY：日別比較
+
+1週間の前年同期比計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今年 </td><td colspan="1" rowspan="1"><code> Case when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' end </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前年 </td><td colspan="1" rowspan="1"><code> Case when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 同じ系列 </td><td colspan="1" rowspan="1"><code> Case when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then 'This Year' when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then 'Last Year' End </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (Case when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(curdate())) then `Amountfield` end / Case when (DAYOFYEAR(`Datefield`) = DAYOFYEAR(curdate()) and year(`Datefield`) = year(date_sub(curdate(), interval 1 year))) then `Amountfield` End) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+## 比率計算を使ったPOP計算（今期対前期）
+
+### POP：前四半期比（QOQ）の比較
+
+前四半期比の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今期 </td><td colspan="1" rowspan="1"><code> CASE WHEN ((year(`Datefield`)=year(curdate())) AND (quarter(`Datefield`)=quarter(CURDATE()))) THEN `Amountfield` END </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前期 </td><td colspan="1" rowspan="1"><code> CASE WHEN (quarter(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (quarter(`Datefield`)=4)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (quarter(`Datefield`)=(quarter(CURDATE()) -1))) THEN `Amountfield` END ) END </code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (quarter(`Datefield`)=quarter(CURDATE()))) THEN `Amountfield` END / CASE WHEN (quarter(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (quarter(`Datefield`)=4)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (quarter(`Datefield`)=(quarter(CURDATE()) -1))) THEN `Amountfield` END ) END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：QTD前四半期比の比較
+
+四半期初来の前四半期比の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 今期 </td><td colspan="1" rowspan="1"><code> CASE WHEN ((year(`Datefield`)=year(curdate())) AND (quarter(`Datefield`)=quarter(CURDATE()))) THEN `Amountfield` END </code></td></tr><tr><td colspan="1" rowspan="1"> 複数系列 - 前期 </td><td colspan="1" rowspan="1"><pre><code>MAX(CASE WHEN YEAR(curdate()) / 4 = ROUND((YEAR(curdate()) / 4),0) THEN CASE WHEN QUARTER(curdate())=1 THEN (DAYOFYEAR(curdate()) - 1) WHEN (QUARTER(curdate())=2) THEN (DAYOFYEAR(curdate()) - 91) WHEN (QUARTER(curdate())=3) THEN (DAYOFYEAR(curdate()) - 182) WHEN (QUARTER(curdate())=4) THEN (DAYOFYEAR(curdate()) - 273) ELSE 0 END ELSE CASE WHEN QUARTER(curdate())=1 THEN DAYOFYEAR(curdate()) - 1 WHEN QUARTER(curdate())=2 THEN DAYOFYEAR(curdate()) - 90 WHEN QUARTER(curdate())=3 THEN DAYOFYEAR(curdate()) - 181 WHEN QUARTER(curdate())=4 THEN DAYOFYEAR(curdate()) - 272 ELSE 0 END END) * MAX(CASE WHEN YEAR(curdate()) / 4=ROUND(YEAR(curdate()) / 4,0) THEN CASE WHEN (QUARTER(curdate())=1) THEN 91 WHEN (QUARTER(curdate())=2) THEN 91 WHEN (QUARTER(curdate())=3) THEN 92 WHEN (QUARTER(curdate())=4) THEN 92 ELSE 0 END ELSE CASE WHEN (QUARTER(curdate())=1) THEN 90 WHEN (QUARTER(curdate())=2) THEN 91 WHEN (QUARTER(curdate())=3) THEN 92 WHEN (QUARTER(curdate())=4) THEN 92 ELSE 0 END END) - MAX(CASE WHEN YEAR(curdate()) / 4=ROUND(YEAR(curdate()) / 4,0) THEN CASE WHEN QUARTER(curdate())=1 THEN DAYOFYEAR(curdate()) - 1 WHEN QUARTER(curdate())=2 THEN DAYOFYEAR(curdate()) - 91 WHEN QUARTER(curdate())=3 THEN DAYOFYEAR(curdate()) - 182 WHEN QUARTER(curdate())=4 THEN DAYOFYEAR(curdate()) - 273 ELSE 0 END ELSE CASE WHEN QUARTER(curdate())=1 THEN DAYOFYEAR(curdate()) - 1 WHEN QUARTER(curdate())=2 THEN DAYOFYEAR(curdate()) - 90 WHEN QUARTER(curdate())=3 THEN DAYOFYEAR(curdate()) - 181 WHEN QUARTER(curdate())=4 THEN DAYOFYEAR(curdate()) - 272 ELSE 0 END END) + SUM(CASE WHEN QUARTER(curdate())=QUARTER(`Datefield`) AND YEAR(`Datefield`)=YEAR(curdate()) THEN `Amountfield` ELSE 0 END) - SUM((CASE WHEN ((QUARTER(curdate())=QUARTER(`Datefield`)) AND (YEAR(`Datefield`)=YEAR(DATE_SUB(curdate(),INTERVAL 1 QUARTER)))) THEN `Amountfield` ELSE 0 END ))) / SUM((CASE WHEN QUARTER(DATE_SUB(curdate(),INTERVAL 1 QUARTER))=QUARTER(`Datefield`) AND YEAR(`Datefield`)=YEAR(DATE_SUB(curdate(),INTERVAL 1 QUARTER)) THEN `Amountfield` ELSE 0 END ))</code></pre></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p> 結果を得るには、上の計算式にその前の2つのセクションを挿入します。 </p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：前月比（MOM）の比較
+
+前月比の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 </td><td colspan="1" rowspan="1"><pre><code>CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=month(CURDATE()))) THEN `Amountfield` END CASE WHEN (month(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (month(`Datefield`)=12)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=(month(CURDATE()) -1))) THEN `Amountfield` END ) END</code></pre><code></code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=month(CURDATE()))) THEN `Amountfield` END / CASE WHEN (month(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (month(`Datefield`)=12)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=(month(CURDATE()) -1))) THEN `Amountfield` END ) END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：1ヶ月間MOMの比較
+
+1ヶ月間の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 </td><td colspan="1" rowspan="1"><pre><code>CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=month(CURDATE()))) THEN `Amountfield` END CASE WHEN month(curdate()) = 1 THEN CASE WHEN year(`Datefield`) = year(curdate()) - 1 AND month(`Datefield`) = 12 AND DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate()) THEN `Amountfield` END ELSE CASE WHEN year(`Datefield`) = year(curdate()) AND month(`Datefield`) = month(curdate())-1 AND DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate()) THEN `Amountfield` END END</code></pre><code></code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (month(`Datefield`)=month(CURDATE()))) THEN `Amountfield` END / CASE WHEN month(curdate()) = 1 THEN CASE WHEN year(`Datefield`) = year(curdate()) - 1 AND month(`Datefield`) = 12 AND DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate()) THEN `Amountfield` END ELSE CASE WHEN year(`Datefield`) = year(curdate()) AND month(`Datefield`) = month(curdate())-1 AND DAYOFMONTH(`Datefield`) &lt;= DAYOFMONTH(curdate()) THEN `Amountfield` END END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：前週比（WOW）の比較
+
+前週比の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 </td><td colspan="1" rowspan="1"><pre><code>CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=weekofyear(CURDATE()))) THEN `Amountfield` END CASE WHEN (weekofyear(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (weekofyear(`Datefield`)=52)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=(weekofyear(CURDATE()) -1))) THEN `Amountfield` END ) END</code></pre><code></code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=weekofyear(CURDATE()))) THEN `Amountfield` END / CASE WHEN (weekofyear(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (weekofyear(`Datefield`)=52)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=(weekofyear(CURDATE()) -1))) THEN `Amountfield` END ) END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：1週間のWOWの比較
+
+1週間の前週比の比較計算を作成するには、次の表をご覧ください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 </td><td colspan="1" rowspan="1"><pre><code>CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=weekofyear(CURDATE()))) THEN `Amountfield` END CASE WHEN weekofyear(curdate()) = 1 THEN CASE WHEN year(`Datefield`) = year(curdate()) - 1 AND weekofyear(`Datefield`) = 52 AND DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate()) THEN `Amountfield` END ELSE CASE WHEN year(`Datefield`) = year(curdate()) AND weekofyear(`Datefield`) = weekofyear(CURDATE()) -1 AND DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate()) THEN `Amountfield` END END</code></pre><code></code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (weekofyear(`Datefield`)=weekofyear(CURDATE()))) THEN `Amountfield` END / CASE WHEN weekofyear(curdate()) = 1 THEN CASE WHEN year(`Datefield`) = year(curdate()) - 1 AND weekofyear(`Datefield`) = 52 AND DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate()) THEN `Amountfield` END ELSE CASE WHEN year(`Datefield`) = year(curdate()) AND weekofyear(`Datefield`) = weekofyear(CURDATE()) -1 AND DAYOFWEEK(`Datefield`) &lt;= DAYOFWEEK(curdate()) THEN `Amountfield` END END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+### POP：前日比（DOD）の比較
+
+前日比の比較計算を作成するには、次の表を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> タイプ </th><th colspan="1" rowspan="1"> 計算 </th></tr><tr><td colspan="1" rowspan="1"> 複数系列 </td><td colspan="1" rowspan="1"><pre><code>CASE WHEN ((year(`Datefield`)=year(curdate())) AND (dayofyear(`Datefield`)=dayofyear(CURDATE()))) THEN `Amountfield` END CASE WHEN (dayofyear(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (dayofyear(`Datefield`)=365)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (dayofyear(`Datefield`)=(dayofyear(CURDATE()) -1))) THEN `Amountfield` END ) END</code></pre><code></code></td></tr><tr><td colspan="1" rowspan="1"> 比率：(C/P) - 1の計算式を用いた2つの間の変化の割合 </td><td colspan="1" rowspan="1"><p><code> (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (dayofyear(`Datefield`)=dayofyear(CURDATE()))) THEN `Amountfield` END / CASE WHEN (dayofyear(curdate())=1) THEN (CASE WHEN ((year(`Datefield`)=(year(curdate()) - 1)) AND (dayofyear(`Datefield`)=365)) THEN `Amountfield` END ) ELSE (CASE WHEN ((year(`Datefield`)=year(curdate())) AND (dayofyear(`Datefield`)=(dayofyear(CURDATE()) -1))) THEN `Amountfield` END ) END) -1 </code></p><div class="mdx-embed"><Note><p><b> 注記： </b> (C-P)/Pを使っても計算できますが、より多くのコードが必要となります。 </p></Note></div></td></tr></thead></table>
+
+日本語

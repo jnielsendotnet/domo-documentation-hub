@@ -1,0 +1,92 @@
+---
+title: "Google Admin SDK ReportsコネクターOAuth"
+---
+
+<Warning>
+**重要：** DomoコネクターでOAuth認証を使用する機能にGoogleによって変更が加えられたことにより、新しいデータ接続を作成する際に、すべてのユーザーがサービスアカウントキー認証を使用しなければならなくなりました。既存のDataSetはすべてこれまで通り正常に実行されます。Google OAuth認証に依存している現在のコネクターは、新しいDataSetを作成できなくなります。該当するコネクターは次の通りです。
+
+* [Google BigQuery](https://domo-support.domo.com/s/article/360042928734?language=ja "Google BigQuery")
+* [Google AdWords via Google BigQuery](https://domo-support.domo.com/s/article/360043431293 "Google AdWords via Google BigQuery")
+* [DoubleClick Campaign Manager via Google Cloud Storage（DTV2）](/ja/s/article/360042926694 "DoubleClick Campaign Manager via Google Cloud Storage（DTV2）")
+* [Google Cloud Storage](/ja/s/article/360043433313 "Google Cloud Storage")
+* [Google Contacts](/ja/s/article/360043435173 "Google Contacts")
+* [Google Drive](https://domo-support.domo.com/s/article/360043436613 "Google Drive")
+* [Google Gmail](/ja/s/article/360042930594 "Google Gmail")
+* [Google Admin SDK ReportsコネクターOAuth](/ja/s/article/360042928714 "Google Admin SDK ReportsコネクターOAuth")
+
+既存のGoogle OAuth DataSetを変更する必要がある場合は、対応するサービスアカウントコネクターを使用してください。現在、次のサービスアカウントコネクターが利用可能です。
+
+* [Google BigQuery Service](/ja/s/article/360043436593 "Google BigQuery Service")
+* [Google Ads（旧AdWords）via Google BigQuery Service](/ja/s/article/360043431253 "Google Ads（旧AdWords）via Google BigQuery Service")
+* [Google Drive Service](/ja/s/article/360042932014 "Google Drive Service")
+* [Google Cloud Storage Service](/ja/s/article/360042928774 "Google Cloud Storage Service")
+* [Google Contacts Service](/ja/s/article/360042930574 "Google Gmail Service")
+* [Google Gmail Service](/ja/s/article/360043435193 "Google Gmail Service")
+* [Google Admin SDK Reports Service](/ja/s/article/360043433273 "Google Admin SDK Reports Service")
+
+ほかのすべてのGoogleサービスアカウント対応コネクターは現在開発中です。これらのコネクターが利用可能になれば、Domoと通信できるようになります。Data CenterまたはAppstoreでサービスアカウント対応コネクターを探し、そのコネクターを使用してデータを取得する必要があります。
+
+
+Domoでは、コネクターが使用可能になったときに新しいサービスアカウントキーコネクターを利用して新しいDataSetを作成し、前もって既存のGoogle接続を再度有効にしておくことを推奨します。移行に関してほかの変更が発生した場合は、Domoから通知いたします。
+
+</Warning>
+
+## はじめに
+
+GoogleのレポートAPIの詳細については、Googleのページ（ [https://developers.google.com/admin-.../v1/reference/](https://developers.google.com/admin-sdk/reports/v1/reference/ "https://developers.google.com/admin-sdk/reports/v1/reference/") ）を参照してください。
+
+Google Admin SDK ReportsコネクターOAuthには、Data Centerから接続します。このトピックでは、Google Admin SDK ReportsコネクターOAuthのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集を行うには、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Googleに接続してGoogle Admin SDK ReportsコネクターOAuth DataSetを作成するには、Googleのユーザー名とパスワードが必要です。
+
+## Google Admin SDK ReportsコネクターOAuthアカウントに接続する
+
+このセクションでは、Google Admin SDK ReportsコネクターOAuthページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+Domo Google Admin SDK ReportsコネクターOAuthは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のGoogle Admin SDK ReportsコネクターOAuthアカウントがある場合は **［アカウントを追加］** を選択）すると、Google OAuth画面が開き、Googleのユーザー名とパスワードを入力できます。有効なGoogleの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいGoogle Admin SDK ReportsコネクターOAuth DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Admin SDK ReportsコネクターOAuthレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Customer Usage </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーのGoogle Appsサービスアクティビティを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Google Admin Activity </p></td><td colspan="1" rowspan="1"><p> アカウントのすべての管理者のAdmin Consoleアクティビティに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Google Drive Activity </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーによるGoogle Driveドキュメントの管理、変更、共有に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Usage </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーのGoogle Appsサービスアクティビティを返します（一部の日付のデータは、使用可能になるまで空白のままになる場合があります）。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="Googleの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+このコネクターはOAuthを使用します。OAuthは、Googleでアカウントを認証し、DomoがGoogleアカウントの認証情報にアクセスすることはありません。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+DataSetの更新は、15分に1回程度になるように設定してください。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+Googleには呼び出しレート制限が適用される場合がありますが、この制限を気にする必要はありません。
+
+
+
+</Accordion>
+</AccordionGroup>

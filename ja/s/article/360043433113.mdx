@@ -1,0 +1,37 @@
+---
+title: "Apache Kafka RESTコネクター"
+---
+
+## はじめに
+
+Apache Kafkaは、大量のデータを高速に処理するために構築されたストリームメッセージングプラットフォームです。DomoのApache Kafka RESTプロキシコネクターを使用すると、ブローカー、パーティション、トピック、トピックメタデータ、トピックレコードに関する情報を取得できるため、不要な情報を排除して最も重要な通信に集中できます。Kafka REST APIについて詳しくは、ウェブサイト（ [https://docs.confluent.io/current/ka...ocs/intro.html](https://docs.confluent.io/current/kafka-rest/docs/intro.html "https://docs.confluent.io/current/kafka-rest/docs/intro.html") ）を参照してください。
+
+KafkaサーバーにはData Centerから接続してアカウントを設定します。このトピックでは、Kafka RESTコネクターのユーザーインターフェース別のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Kafka RESTアカウントに接続してDataSetを作成するには、Kafkaサーバーの名前が必要です。接続先となるデータベースサーバーのポートで以下のIPアドレスをホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Kafka RESTサーバーに接続する
+
+このセクションでは、Kafka RESTコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Kafka RESTアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Kafka Server </p></td><td colspan="1" rowspan="1"><p> Kafkaサーバーのホスト/ポートのペアのリストを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいKafka REST DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するKafka RESTレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Brokers </p></td><td colspan="1" rowspan="1"><p> ブローカーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Partitions </p></td><td colspan="1" rowspan="1"><p> 選択したトピックのパーティションのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics </p></td><td colspan="1" rowspan="1"><p> Kafkaトピックのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics Metadata </p></td><td colspan="1" rowspan="1"><p> 選択したトピックのメタデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics Records </p></td><td colspan="1" rowspan="1"><p> サブスクライブ/割り当てAPIのいずれかを使用して選択したトピックまたはパーティションのデータを返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Topic Name </p></td><td colspan="1" rowspan="1"><p> データを取得するトピックを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Group Name </p></td><td colspan="1" rowspan="1"><p> データを取得するコンシューマーグループの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Name（オプション） </p></td><td colspan="1" rowspan="1"><p> データを取得するコンシューマーインスタンスの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Auto Offset Reset（オプション） </p></td><td colspan="1" rowspan="1"><p> コンシューマーにauto.offset.resetの値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Auto Commit Enable（オプション） </p></td><td colspan="1" rowspan="1"><p> コンシューマーにauto.commit.enableの値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Timeout（オプション） </p></td><td colspan="1" rowspan="1"><p> レコードを取得するための基盤となるクライアントライブラリのポーリング（タイムアウト）リクエストのミリ秒数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Max Bytes（オプション） </p></td><td colspan="1" rowspan="1"><p> 応答に含めるエンコードされていないキーと値の最大バイト数を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

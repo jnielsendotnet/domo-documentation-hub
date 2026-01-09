@@ -1,0 +1,340 @@
+---
+title: "Domo Campaign Markup Languageを使用する"
+---
+
+# はじめに
+
+Campaigns Appの高度な機能を使用すると、メールキャンペーンの詳細なカスタマイズができます。Domo Campaigns Markup Language（DCML）を使用すると、カードのまとめ数字やタイトルなどのDomoコンテンツを追加できるほか、カードのサイズを指定したり、表の行数を制限したりすることもできます。
+
+配信リストをキャンペーンに追加するときは、フィルターとして機能する列を指定する必要があります。フィルターはApp内ではPersonalized Data Permission（PDP）として使用されます。キャンペーンの受信者には、常にフィルターが適用されたデータのみが表示されることになります。
+
+また、メール本文とPDF添付ファイルにページ設定されたMega表とピボット表を追加することもできます。Mega表の詳細については、「 [表グラフ](/s/article/360043429573) 」を参照してください。ピボット表の詳細については、「 [ピボット表](/s/article/360043429473) 」を参照してください。
+
+---
+
+この記事では、Domo Campaign Markup Languageについて次のトピックで説明します。
+
+[カスタマイズされたDomoコンテンツを追加する](#add_customized_domo_content)
+
+* [幅、高さ、スケールを変更する](#change_width_height_scale)
+* [スケールオプション](#scale_options)
+* [レンダリングされたコンテンツのDPI解像度を上げる](#increase_dpi_resolution)
+* [表カード](#table_cards)
+* [制限事項](#limitations_and_restrictions)
+
+[配信リストのコンテンツ](#distribution_list_content)
+
+* [参照をコメントアウトする](#comment_out)
+
+[データフィルター](#data_filters)
+
+* [DataSetの列名](#dataset_column_name)
+* [複数のDataSet](#multiple_datasets)
+* [オペランド](#operands)
+* [値](#value)
+* [通常値](#normal_value)
+* [列参照](#column_reference)
+* [ワイルドカードフィルター](#wildcard_filter)
+* [複数のDataSet](#multiple_datasets)
+
+[HTMLを使用してPDF添付ファイルをフォーマットする](#use_html_to_format_pdf)
+
+* [ページサイズと方向](#page_size_and_orientation)
+* [改ページ](#page_breaks)
+* [レンダリングされないHTMLタグ](#html_tags_not_rendering)
+
+---
+
+# カスタマイズされたDomoコンテンツを追加する
+
+Appにはカードとカードのタイトルをネイティブに挿入できますが、Domo Campaign Markup Languageを使用してコンテンツを追加することもできます。Domoのカードからダイナミックコンテンツを追加するには、メールまたは添付ファイルの本文に次のテキストを追加します。
+
+`{{domo-content-[card id]-[content type]}}`
+
+1. *[card id]* は、取得元になるカードのIDに置き換えます。
+2. *[content type]* は、カードの参照する部分に置き換えます。
+
+   <Note>
+     **注記：** 有効なコンテンツタイプには、カードのタイトル、まとめ数字、説明などが含まれます。
+
+   </Note>
+
+**例1**
+
+カード1234567からタイトルを挿入する場合は、メールまたは添付ファイルの本文に次のテキストを挿入します。
+
+`{{ domo-content-1234567-title }}`
+
+**例2**
+
+次に、カード8868777からまとめ数字を挿入します。次のテキストを挿入します。
+
+`{{ domo-content-8868777-summarynumber }}`
+
+#### 幅、高さ、スケールを変更する
+
+Domoコンテンツには、特定の幅、高さ、スケールのカスタマイズを適用できます。メールまたは添付ファイルの本文に次のテキストを追加します。
+
+`{{domo-content-[card id]-chart width=[width] height=[height] scale=[scale]}}`
+
+1. *[card id]* は、取得元になるカードのIDに置き換えます。
+2. *[width]* と *[height]* では、テンプレートに挿入する画像のサイズを指定します。
+3. *[scale]* はオプションです。設定しない場合は常にデフォルトの1.0になります。この設定を使用すると、チャートを縮小して、より狭いスペースに詳細情報を挿入できます。
+
+#### スケールオプション
+
+次のチャートはすべて幅300x高さ400ですが、スケールが異なっています。スケールの数字が大きくなると、画像のサイズは同じままで、より詳細なコンテンツが表示されます。
+
+**様々なスケールのチャートの例**
+
+<Frame><img alt="scale 1.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3U.jpg" style={{width: 433, height: 325}}/></Frame>
+スケール = 1.0
+
+<Frame><img alt="scale 1.5.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3Z.jpg" style={{width: 433, height: 325}}/></Frame>
+スケール = 1.5
+
+<Frame><img alt="scale 2.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000006vn3e.jpg" style={{width: 433, height: 325}}/></Frame>
+スケール = 2.0
+
+**例1**
+
+カード8868777からチャートを挿入して幅800x高さ600でレンダリングするには、次のテキストを追加します。
+
+`{{domo-content-8868777-chart width=800 height=600}}`
+
+**例2**
+
+上の例と同じカードをスケール2.0で挿入する場合は、次のテキストを追加します。
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0}}`
+
+# レンダリングされたコンテンツのDPI解像度を上げる
+
+Campaigns Appメールエディターのdpi-multiplierパラメーターを使用すると、ピクセル密度のスケール係数を大きくして、メール本文と添付ファイルのレンダリングされた画像の解像度を向上させることができます。
+
+使用するスケール係数を選択するには、次の手順を実行します。
+
+1. Campaigns Appで、 **［Email Body］** または **［Email Attachment］** タブに進みます。
+2. **［Add Card］** を選択します。
+3. domo-contentタグでdpi-multiplierパラメーターを使用し、次の例のように1から3までのスケール係数を選択します。
+
+   \{\{domo-content-1726595141-chart width=800 height=600 scale=1.0 **dpi-multiplier=3** }}
+4. （オプション）メールをプレビューします。
+5. このメールを送信します。
+
+<Note>
+  **注記：** 画像の解像度を上げることで、メールと添付ファイルのサイズは大きくなります。キャンペーンがSMTPサーバーの制限を超えていないことを確認します。
+
+</Note>
+
+<Warning>
+  **重要：** このタグは、HTML表とSumo表では機能しません。
+
+</Warning>
+
+#### 表カード
+
+表カードを追加するには、メールまたは添付ファイルの本文に次のテキストを追加します。
+
+`{{domo-content-[card id]-table width=[width] height=[height] scale=[scale] max-pages=[maximum number of pages] max-rows=[maximum number of rows]}}`
+
+1. *[card id]* は、取得元になる表カードのIDに置き換えます。
+2. *[width]* と *[height]* では、テンプレートに挿入する画像のサイズを指定します。
+3. *[scale]* の設定はオプションです。デフォルトは常に1.0になります。
+4. *[maximum number of pages]* と *[maximum number of rows]* はオプションです。これらのオプションを使用すると、含めるページや行の最大数を定義できます。
+
+**例1**
+
+最大5ページのデータを含める場合は、次のように *[maximum number of pages]* 属性を5に設定します。
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0 max-pages=5 max-rows=0}}`
+
+**例2**
+
+必要なページ数（最大200ページ）に関係なく最大100行のデータを含める場合は、次のように *[maximum number of rows]* 属性を100に、 *[maximum number of pages]* を0に設定します。
+
+`{{domo-content-8868777-chart width=800 height=600 scale=2.0 max-pages=0 max-rows=100}}`
+
+### 制限事項
+
+1. サポートされているコンポーネントは、次の通りです。
+   * HTML表
+   * Mega表
+   * ピボット表
+2. Mega表とピボット表の最大ページ数は、PDFごとに200ページです。
+3. max-pagesタグまたはmax-rowsタグを使用する場合は、次の点に注意してください。 + max-pagesとmax-rowsの両方をゼロに設定すると、すべてのページが生成されます。
+   * ページ設定タグを1つのみ使用し、もう片方のタグはゼロに設定してください。両方のページ設定タグに値がある場合は、次のエラーが表示されます。
+
+     <Frame><img alt="Screen Shot 2022-12-14 at 11.36.16 AM.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005wNIf.jpg" style={{width: 399, height: 153}}/></Frame>
+   * Mega表とピボット表は、ユーザーが設定した列でソートされている必要があります。表がソートされていない場合は、次のエラーが表示されます。
+
+     <Frame><img alt="Screen Shot 2022-12-14 at 11.38.07 AM.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005wNIu.jpg" style={{width: 415, height: 163}}/></Frame>
+   * ページ数は、width、height、およびscaleの各プロパティによって異なります。
+   * プレビューモードに限り、ページ数が50を超える場合に大量のデータを含むMega表またはピボット表をロードすると、タイムアウト例外が発生します。
+
+# 配信リストのコンテンツ
+
+Domo Campaigns Markup Language（DCML）を使用すると、配信リストのフィールドをキャンペーンのメールまたは添付ファイルに挿入することもできます。フィールドを追加する場合は、メールまたは添付ファイルの本文に次のテキストを追加します。
+
+`{{domo-distribution-[field name]}}`
+
+*[field name]* は、取得元の配信リストの列の名前に置き換えます。
+
+**例1**
+
+例えば、配信リストの *［name］* フィールドを挿入するには、次のテキストを使用します。
+
+`{{domo-distribution-name}}`
+
+<Warning>
+  **重要：** 列は大文字と小文字を区別します（例：「Name」は「name」とは異なります）。
+
+</Warning>
+
+# 参照をコメントアウトする
+
+参照に問題がある場合や参照をコメントアウトする場合は、テキストの先頭に感嘆符 **（!）** を追加します。
+
+`{{!domo-distribution-name}}`
+
+コメントアウトされている参照は、 HTML やPDFをレンダリングする際に削除されます。
+
+#### データフィルター
+
+フィルターを使用すると、配信リスト内の列にカスタムフィルターを作成することによって、特定の受信者にデータのサブセットを送信することができます。1つ以上のフィルター列が必要ですが、Domoコンテンツをレンダリングする際にまとめて実行される複数のフィルターを含めることができます。各フィルターは、 *列名* 、 *オペランド* 、 *値* の3つの部分で構成されます。これらがすべてまとめられ、次の例のような1つのフィルター値になります。
+
+`State is equal to Washington`
+
+<Frame><img alt="DCML - Filter DL.png" src="/images/kb/ka0Vq0000000Fn3-00N5w00000Ri7BU-0EM5w000005vOQq.png"/></Frame>
+##### DataSetの列名
+
+*列名* は、フィルターが適用される列を指定します。ここに入力する値は、キャンペーンで参照されるカードを作成するDataSetの列名と一致する必要があります。
+
+**例1**
+
+`Order Date is greater than or equal to 01/01/2018 00:00:00`
+
+**例2**
+
+または、「Washington」の売上データのみを含めることもできます。
+
+`Name is equal to John Smith`
+
+##### 複数のDataSet
+
+複数のDataSetで作成される複数のカードをキャンペーンで参照する場合は、DataSet IDと列名を次のフォーマットで指定し、フィルターが適用されるDataSetを指定する *必要があります* 。
+
+`[ dataset id ].[ column ]`
+
+**例1**
+
+今年発注された注文の売上データのみを含めるフィルターを追加する場合は、次のようになります。
+
+`4bded6af-0556-4f24-b943-1858b6e84880.Order Date is greater than or equal to 01/01/2018 00:00:00`
+
+<Note>
+  **注記：** すべてのDomoコンテンツが1つのDataSetから作成される場合は、DataSet IDは暗黙的に指定されるため、必須ではありません。
+
+</Note>
+
+#### オペランド
+
+フィルターの作成には、次の11種類のオペランドを使用できます。
+
+* Is equal to（次の値に等しい（＝））
+* Does not equal（次の値と等しくない（≠））
+* Is greater than（次の値よりも大きい（>））
+* Is greater than or equal to（次の値以上（≧））
+* Is less than（次の値よりも小さい（\<））
+* Is less than or equal to（次の値以下（≦））
+* Is between（次の範囲内）
+* Is in（次を含みます）
+* Is not in（次を含みません）
+* Is null（nullである）
+* Is not null（nullではない）
+
+##### 値
+
+フィルターに指定できる値には、通常値と列参照の2種類があります。
+
+* **通常値 —** 通常値は、フィルターが適用される列内の実際の値と見なされます。例えば、［State］列が「CA」に等しいフィルターを追加する場合は、値として「CA」を追加します。 `State is equal to CA`
+* **列参照 —** 列参照は、配信リストの任意の列から値を取得し、その値をフィルターに追加します。そのため、州によるフィルターを適用する場合に、配信リストに［State］（州）が既に定義されているときは、列名を%で囲むだけで列を参照できます。
+
+**例1**
+
+配信リストの最初の行に「John Doe」の情報があり、その州が「CA」である場合、フィルターは「State is equal to CA」に設定されます。
+
+配信リストの2番目の行に「Jane Doe」の情報があり、その州が「UT」である場合、フィルターは「State is equal to UT」に設定され、以下同様になります。
+
+`State is equal to %State%`
+
+##### ワイルドカードフィルター
+
+フィルターを指定せず、代わりにフィルターが適用されないデータや情報をメールキャンペーンで送信する場合は、 **\*** を設定した「ワイルドカード」値でフィルター列を定義する必要があります。これにより、配信されるデータと情報にはフィルターを適用しないようにキャンペーンを設定できます。
+
+##### 複数のDataSet
+
+複数のDataSetで作成される複数のカードをキャンペーンで参照する場合は、DataSet IDを次のフォーマットで指定し、ワイルドカードフィルターが適用されるDataSetを指定する必要があります。
+
+`[dataset id]=*`
+
+<Tip>
+  **ヒント：** DomoのDataSetのURLを見ると、DataSet IDを確認できます。DataSet IDは、このURL https://instancename.domo.com/datasources/ **b936442-01cc-4ddc-836f-44457f123456** /details/overviewの太字部分です。
+
+</Tip>
+
+**例1**
+
+複数のDataSetを参照しており、このDataSetをワイルドカードとして指定する場合は、フィルター列は次のようになります。
+
+`4bded6af-0556-4f24-b943-1858b6e84880=*`
+
+# HTMLを使用してPDF添付ファイルをフォーマットする
+
+HTML を使用してPDF添付ファイルをフォーマットすることもできます。PDFをレンダリングする際のページサイズ、方向、カスタムの改ページを定義できます。
+
+#### ページサイズと方向
+
+DCMLは、「 [CSS# Paged Media module](https://www.w3.org/TR/css3-page/ "https://www.w3.org/TR/css3-page/") 」に記載があるように、@page注釈をサポートしています。これを使用すると、HTML定義にCSSを含めることによって、ページのサイズと方向を簡単に指定できます。例えば、PDF添付ファイルを横長の標準レターサイズ（8.5インチx11インチ）でレンダリングする場合は、次のコードをHTMLヘッダーに含めます。
+
+`<html> <head> <style type="text/css"> @page { size: letter landscape; } </style> <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head> <body>...`
+
+<Note>
+  **注記：** 標準の媒体サイズ（A5、A4、A3、B5、B4、letter、legal、ledger）と方向（portraitとlandscape）がサポートされています。
+
+</Note>
+
+@page注釈で任意のカスタムサイズを指定することもできます。例えば、5インチx7インチでPDFをレンダリングする場合は、HTMLヘッダーに次のコードを追加します。
+
+`<html> <head> <style type="text/css"> @page { size: 5in 7in; } </style> </head> <body>...`
+
+CSS3定義は、DCMLでもサポートされている、より洗練された広範なフォーマットもサポートしています。詳細については、 [CSS3仕様](https://www.w3.org/TR/css3-page "DCMLhttps://www.w3.org/TR/css3-page") を参照してください。
+
+#### 改ページ
+
+改ページ注釈を利用するには、 **@media all** と **@media print** のプロパティをCSS内に定義する必要があります。CSSを定義していない場合は、HTMLヘッダーに次のコードを含めます。
+
+`<html> <head> <style type="text/css"> @media all {.page-break { display: none; } } @media print {.page-break { display: block; page-break-before: always; } } </style> </head> <body>...`
+
+<Note>
+  **注記：** DCMLは、相対位置に配置されるインラインコンテンツや、通常のフローのコンテンツと同じようにページ割り付けされる/フローティングされるコンテンツを除き、すべてのCSS改ページプロパティ（ **page-break-before、page-break-after** 、 **page-break-inside** ）をサポートします。
+
+</Note>
+
+ドキュメントに改ページを手動で追加するには、HTMLに次のコードを追加します。
+
+`<div class="page-break"></div>`
+
+#### レンダリングされないHTMLタグ
+
+HTMLフォーマットを含むカードタイトルまたはまとめ数字がある場合、そのHTMLはPDF添付ファイルでは正しくレンダリングされない場合があります。これは、HTMLからPDFへの変換に必要なエンコード方式が原因です。この問題を解決するには、DCMLタグに次のフラグを追加します。
+
+`encoding=false`
+
+例：
+
+`{{ domo-content-8868777-summarynumber encoding=false }}`
+
+これにより、Domoコンテンツがエンコードされなくなり、HTMLフォーマットが正しくレンダリングされるようになります。
+
+日本語

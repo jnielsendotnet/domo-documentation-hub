@@ -1,0 +1,43 @@
+---
+title: "Jamfコネクター"
+---
+
+## はじめに
+
+Jamfは、Appleプラットフォーム向けの包括的なエンタープライズ管理ソフトウェアです。Mac、iPad、iPhone、Apple TVのIT管理を簡素化します。このコネクターを使用すると、管理対象のデバイスから情報を取得することができます。 Jamf APIの詳細については、Jamfのページ（
+https://developer.jamf.com/documentation
+）を参照してください。
+
+Jamfアカウントには、Data Centerから接続します。このトピックでは、Jamfコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Jamfアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Jamfのユーザー名とパスワード
+* JamfインスタンスのURL
+* Jamfアカウント名
+
+## Jamfアカウントに接続する
+
+このセクションでは、Jamfコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Jamfアカウントに接続するための認証情報の入力フィールドがあります。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Jamfユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Jamfパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> URL </p></td><td colspan="1" rowspan="1"><p> JamfインスタンスのURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Name </p></td><td colspan="1" rowspan="1"><p> Jamfアカウント名を入力します。 </p></td></tr></tbody></table>
+
+有効なJamf認証情報を一度入力しておくと、随時同じアカウントを使用して新しいJamf DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するJamfレポートを選択します。 </p><p> 未加工データが含まれた以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Accounts </p></td><td colspan="1" rowspan="1"><p> アカウントに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account Group Details </p></td><td colspan="1" rowspan="1"><p> アカウントグループに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account User Details </p></td><td colspan="1" rowspan="1"><p> アカウントユーザーに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Classes </p></td><td colspan="1" rowspan="1"><p> クラスに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Computers </p></td><td colspan="1" rowspan="1"><p> アカウントのコンピューターに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Computer Apps </p></td><td colspan="1" rowspan="1"><p> アカウントのAppに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Computer Details </p></td><td colspan="1" rowspan="1"><p> アカウントのコンピューターに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Computer Groups </p></td><td colspan="1" rowspan="1"><p> コンピューターグループに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Computer Group Details </p></td><td colspan="1" rowspan="1"><p> コンピューターグループに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mac Applications </p></td><td colspan="1" rowspan="1"><p> アカウントのすべてのMacアプリケーションに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Applications </p></td><td colspan="1" rowspan="1"><p> アカウントのモバイルデバイスアプリケーションに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Devices </p></td><td colspan="1" rowspan="1"><p> アカウントのモバイルデバイスに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Details </p></td><td colspan="1" rowspan="1"><p> アカウントのモバイルデバイスに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Groups </p></td><td colspan="1" rowspan="1"><p> モバイルデバイスグループに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mobile Device Group Details </p></td><td colspan="1" rowspan="1"><p> モバイルデバイスグループに関する詳細情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Packages </p></td><td colspan="1" rowspan="1"><p> パッケージデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Patches </p></td><td colspan="1" rowspan="1"><p> パッチに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Policies </p></td><td colspan="1" rowspan="1"><p> ポリシーに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーに関するデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Details </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーに関する詳細情報を返します。 </p></td></tr></tbody></table><p> 精選された以下のレポートも利用できます。これらのすべてのレポートは、ヘッダーが再フォーマットされて読みやすくなっています。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> All Devices </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コンピューターやモバイルデバイスの情報を、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Computer Applications </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> アプリケーションに関連付けられているコンピューターのリストを、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Computer Details </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コンピューターに関する詳細情報を、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Computer Extension Attributes </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コンピューターのリストを、拡張属性で分類し、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Computer Groups </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> コンピューターグループのリストを、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Mobile Applications </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> モバイルデバイスにインストールされているアプリケーションのリストを、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Mobile Details </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> モバイルデバイスに関する詳細情報を、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Mobile Extension Attributes </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> モバイルデバイスのリストを、拡張属性で分類し、ヘッダーの名前を変更して返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Mobile Groups </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> グループに関連付けられているモバイルデバイスのリストを、ヘッダーの名前を変更して返します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Expand Additional Data </p></td><td colspan="1" rowspan="1"><p> レポートに適用する追加のデータカテゴリーを選択できます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

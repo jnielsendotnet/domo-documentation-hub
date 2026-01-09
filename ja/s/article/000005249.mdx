@@ -1,0 +1,59 @@
+---
+title: "RMS Third Partyコネクター"
+---
+
+## はじめに
+
+Rakuten Merchant Server（以下RMS）とは円滑な店舗運営やユーザーとの接点づくりに不可欠な4つの機能（店舗構築、受注管理、メール配信、データ分析）を1つに統合したシステムです。DomoのRakuten Merchant Serverコネクターを使用することで、Domo上で受注情報を利用することができます。RMS APIの詳細については、RMSのウェブサイト（
+https://webservice.rms.rakuten.co.jp/merchant-portal/backToMenu
+）をご覧ください。
+  
+RMS APIの利用は、 [RMS API利用規約](https://webservice.rms.rakuten.co.jp/merchant-portal/applicationContract) が適用され、APIの利用は、API利用規約に同意したものとみなされます。
+  
+RMSアカウントにはData Centerから接続します。このトピックでは、Rakuten Merchant Serverコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+RMSアカウントに接続してDataSetを作成するには、以下が必要です。
+
+1. RMSアカウントのserviceSecretとlicenseKey。
+     
+   APIキーを確認するには、「 [RMS APIを利用する手順](https://webservice.rms.rakuten.co.jp/merchant-portal/view/ja/common/1-1_service_index/rmswebserviceauthentication/) 」を参照してください。
+2. RMS API（
+   https://webservice.rms.rakuten.co.jp/merchant-portal/configurationApi
+   ）上で、以下の各APIを **［in use］** ステータスにします。
+     
+   * API：LicenseManagementAPI：license.expiryDate.get 
+
+   * PurchaseItemAPI：purchaseitem.searchOrderItem、purchaseitem.getOrderItem
+
+   * RakutenPay_OrderAPI：rpay.order.searchOrder、rpay.order.getOrder
+
+
+## RMSアカウントに接続する
+
+このセクションでは、RMSコネクターページの **［認証情報］** と **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「[コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する")」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、RMSアカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> serviceSecret </p></td><td colspan="1" rowspan="1"><p> RMSアカウントのserviceSecretを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> licenseKey </p></td><td colspan="1" rowspan="1"><p> RMSアカウントのlicenseKeyを入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の取得方法については、上記「**必要条件**」を参照してください。
+
+有効なRMS認証情報を一度入力しておくと、随時同じアカウントを使用して新しいRMS DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「[コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054)」を参照してください。
+
+## ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> 実行するレポートを選択します。以下のレポートが利用できます。 </span></p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Purchase Item </td><td colspan="1" rowspan="1"> 指定したRMSアカウントでアクセス可能な購入されたオーダー情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Item Model </td><td colspan="1" rowspan="1"> 指定したRMSアカウントでアクセス可能な購入された商品情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order </td><td colspan="1" rowspan="1"> 指定したRMSアカウントでアクセス可能な、Rakuten Payで購入されたオーダー情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order without PII </td><td colspan="1" rowspan="1"> 指定したRMSアカウントでアクセス可能な、Rakuten Payで購入されたオーダー情報（個人識別情報以外）を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Rakuten Pay Order Item Model </td><td colspan="1" rowspan="1"> 指定したRMSアカウントでアクセス可能な、Rakuten Payで購入された商品情報を取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Updated </p></td><td colspan="1" rowspan="1"><p><b> ［Date selection］ </b> で、更新日時によってフィルターする際の日付の指定方法を選択します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> 単一の日付 </td><td colspan="1" rowspan="1"> 特定の単一の日付、または相対的な単一の日付を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 日付範囲 </td><td colspan="1" rowspan="1"> 特定の日付範囲、または、相対的な日付範囲を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"><b> ［Time period］ </b> ドロップダウンから期間を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Updated - Date </p></td><td colspan="1" rowspan="1"><p><b> ［Date Type］ </b> を以下から選択し、レポートのデータが特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"><b> ［Days Back］ </b> フィールドに、遡ってデータを取得する日数を入力してください。今日の場合は0、昨日の場合は1、今日から過去に遡って7日分のデータを取得したい場合は、7と指定してください。 </td></tr><tr><td colspan="1" rowspan="1"> 特定 </td><td colspan="1" rowspan="1"><b> ［Date］ </b> フィールドの日付セレクターで特定の日付を選択してください。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - Start Date </td><td colspan="1" rowspan="1"><b> ［Date Type］ </b> を以下から選択し、日付範囲の開始日が特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 <br/><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［End Date］ </b> と組み合わせることによって、表示日数の範囲を作成できます。 <br/> 例えば、 <b> ［Start Date］ </b> に「 <b> 10 </b> 」、 <b> ［End Date］ </b> に「 <b> 5 </b> 」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の開始日を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - End Date </td><td colspan="1" rowspan="1"><p><b> ［Date Type］ </b> を以下から選択し、日付範囲の終了日が特定の日付か、今日から指定した日数を遡った相対的な日付かを指定します。 </p><table border="1"><tbody><tr><td colspan="1" rowspan="1"> Relative </td><td colspan="1" rowspan="1"> 過去何日前までのデータを取得するか（終了日）を入力します。 <b> ［Start Date］ </b> と組み合わせることによって、表示される日の範囲を作成できます。 <br/> 例えば、 <b> ［Start Date］ </b> に「 <b> 10 </b> 」、 <b> ［End Date］ </b> に「 <b> 5 </b> 」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </td></tr><tr><td colspan="1" rowspan="1"> Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の終了日を選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Updated - Time period </td><td colspan="1" rowspan="1"> データを受信する期間を選択します。 </td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「
+[コネクターを使用してDataSetを追加する](/ja/s/article/360042926274)
+」を参照してください。
+
+

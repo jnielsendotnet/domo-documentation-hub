@@ -1,0 +1,73 @@
+---
+title: "NetSuite SuiteAnalyticsパーティションコネクター"
+---
+
+## はじめに
+
+NetSuiteは、エンタープライズリソースプラニングや財政管理、eコマースおよび顧客関係管理の製品を製作しています。DomoのNetSuite SuiteAnalytics Connectパーティションコネクターを使用すれば、カスタムSQLクエリを使って、NetSuite経由でアクセスできるテーブルからデータを取得できます。NetSuite SuiteAnalyticsについての詳細は、ウェブサイト（
+http://www.netsuite.com/portal/products/business-intelligence.shtml
+）を参照してください。
+
+NetSuite Suite Analyticsパーティションコネクターは「クラウドアプリ」コネクターであるため、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで ****［クラウドApp］**** をクリックすると、これを含む他のクラウドAppコネクターのページにアクセスできます。
+
+NetSuiteには、Data Centerから接続します。このトピックでは、NetSuite SuiteAnalytics Connectコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+<Note>
+**注記：** このコネクターでは、作成済みの保存済み検索は取得できません。 Domoでこれらの保存検索レポートによって提供される結果を確認する場合は、最終結果に含まれる各生のテーブルに対して新しいDataSetを作成し、DomoのETLツールを使用してこれらのDataSetを組み合わせる必要があります。
+
+</Note>
+
+## 必要条件
+
+NetSuiteに接続しDataSetを作成するには、以下が必要です。
+
+* SuiteAnalytics APIへのアクセス権。前もって購入しておく必要があります（NetSuiteインスタンスでNetSuiteヘルプセンターを開くと、アクセス権があるかどうかを確認できます）。
+* NetSuiteのユーザー名とパスワード
+* NetSuiteサービスのホスト名
+* NetSuiteサービスのポート番号
+* NetSuiteデータソース
+* NetSuite権限ID
+* NetSuiteアカウントID
+
+SuiteAnalytics Connectの設定手順は、 ****[Suite Analytics (Dashboards, Searches, & Reports)] > [SuiteAnalytics Connect] > [Introducing SuiteAnalytics Connect] > [Getting Started]**** を開いて確認できます。
+
+サービスホスト、サービスポート、DataSet、権限ID、アカウントIDは、NetSuiteの ［SuiteAnalytics Connect: JDBC Driver Setup］ 画面にあります。以下の指示に従ってこの画面にアクセスしてください。
+
+1. https://system.netsuite.com/pages/login.jsp
+   でNetsuiteにサインインします。
+2. ［
+   ****SuiteAnalytics Connectを設定**** ］ をクリックします。これは、画面左隅下の ****［設定］**** にあります。
+3. ****［JDBC］****
+   をクリックします。
+4. ****［デフォルト設定］****
+   をクリックします。
+5. すべての情報をDomoのフィールドにコピーします。
+
+## NetSuite SuiteAnalytics Connectにアクセスする
+
+このセクションでは、NetSuite SuiteAnalytics Connectコネクターページにある ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページ内の他のペインに含まれるコンポーネントである ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使ってDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、データベースに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> サービスホスト </td><td colspan="1" rowspan="1"> NetSuiteサービスホスト名を入力します。詳細は、上述の「 <a href="#h_01ES29C5R1TJYWN0AAXRPXJ0KS" target="_self" title="NetSuite SuiteAnalytics Connectパーティションコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> サービスポート </td><td colspan="1" rowspan="1"> NetSuiteサービスポート番号を入力します。詳細は、上述の「 <a href="#h_01ES29C5R1TJYWN0AAXRPXJ0KS" target="_self" title="NetSuite SuiteAnalytics Connectパーティションコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> サービスデータソース </td><td colspan="1" rowspan="1"> NetSuiteサービスデータソース名を入力します。詳細は、上述の「 <a href="#h_01ES29C5R1TJYWN0AAXRPXJ0KS" target="_self" title="NetSuite SuiteAnalytics Connectパーティションコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> NetSuiteユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> NetSuiteパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 権限ID </td><td colspan="1" rowspan="1"> NetSuite権限IDを入力します。詳細は、上述の「 <a href="#h_01ES29C5R1TJYWN0AAXRPXJ0KS" target="_self" title="NetSuite SuiteAnalytics Connectパーティションコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> アカウントID </td><td colspan="1" rowspan="1"> NetSuiteアカウントIDを入力します。詳細は、上述の「 <a href="#h_01ES29C5R1TJYWN0AAXRPXJ0KS" target="_self" title="NetSuite SuiteAnalytics Connectパーティションコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効なNetSuite認証情報を一度入力しておくと、同じアカウントを使用して随時、新しいNetSuite SuiteAnalytics ConnectパーティションDataSetを作成することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、NetSuiteデータベーステーブルからデータを取得します。特定のデータベース表とパーティション列名を選択できます。データを取得する過去の日数も指定できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。例： <span class="mt-font-courier-new"> 従業員から日付を選択 </span></td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、 この場合Xはプラスの整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* APIは、ユーザーがアクセス権のないデータを返しません。同様に、例えば、貸借対照表勘定ではなく損益計算書勘定のみを表示するようにユーザーが設定をフィルタリングした場合は、許可されたデータのみが返されます（DataSetでは貸借対照表勘定は取得されません）。データへのアクセスは、顧客組織内のNetSuite管理者によって管理されます。
+* NetSuiteインスタンス内の利用可能なすべてのデータにアクセスすることはできません。アクセス権のないデータを引き込もうとすると、エラーか不完全な結果を得ることになります。この場合は、特定のデータにアクセスできるようNetSuite管理者に問い合わせてください。
+
+

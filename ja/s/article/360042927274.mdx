@@ -1,0 +1,43 @@
+---
+title: "Silverpopコネクター"
+---
+
+## はじめに
+
+Silverpopは、メールマーケティングとリードマネージメントを提供するクラウドベースのマーケティングオートメーションプロバイダーです。Sillverpop APIの詳細については、Sillverpopのページ（ [https://www.programmableweb.com/api/silverpop](https://www.programmableweb.com/api/silverpop "https://www.programmableweb.com/api/silverpop") ）を参照してください。
+
+Silverpopアカウントには、Data Centerから接続します。このトピックでは、Silverpopコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Silverpopアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Silverpop Engageポッド番号（アプリケーションを作成したEngageインスタンスの番号）
+* SilverpopクライアントID
+* Silverpopクライアントシークレット
+* Silverpopリフレッシュトークン（Silverpopからメールで受信したもの）
+* FTPユーザー名とパスワード（Silverpopファイルサーバーからレポートをダウンロードするためにレポートの「エクスポート」を実行する場合にのみ必要）
+
+## Silverpopアカウントに接続する
+
+このセクションでは、Silverpopコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Silverpopアカウントに接続するための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Silverpop Engage Pod Number </td><td colspan="1" rowspan="1"> Silverpop Engageポッド番号（アプリケーションを作成したEngageインスタンスの番号）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> SilverpopクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> Silverpopクライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Refresh Token </td><td colspan="1" rowspan="1"> Silverpopリフレッシュトークン（Silverpopからメールで受信）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Unique Account Name (optional) </td><td colspan="1" rowspan="1"> アカウントの一意の名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> FTP Username </td><td colspan="1" rowspan="1"> FTPサーバーへの接続に使用するユーザー名を入力します（Silverpopファイルサーバーからレポートをダウンロードするためにレポートの「エクスポート」を実行する場合にのみ必要）。 </td></tr><tr><td colspan="1" rowspan="1"> FTP Password </td><td colspan="1" rowspan="1"> FTPサーバーへの接続に使用するパスワードを入力します（Silverpopファイルサーバーからレポートをダウンロードするためにレポートの「エクスポート」を実行する場合にのみ必要）。 </td></tr></tbody></table>
+
+有効なSilverpop認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSilverpop DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するSilverpopレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Export List </p></td><td colspan="1" rowspan="1"><p> データベース、クエリ、または連絡先リストから連絡先データをエクスポートします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Export Table </p></td><td colspan="1" rowspan="1"><p> EngageデータをCSVファイルからDomoにエクスポートします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Lists </p></td><td colspan="1" rowspan="1"><p> 組織のデータベースのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Metadata </p></td><td colspan="1" rowspan="1"><p> データベース、クエリ、またはリレーショナルテーブルのメタデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailing Metrix </p></td><td colspan="1" rowspan="1"><p> 選択したメールのメトリクスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailings Sent for List </p></td><td colspan="1" rowspan="1"><p> 特定のデータベースに対して送信されたメールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailings Sent for Organization </p></td><td colspan="1" rowspan="1"><p> 指定された日付範囲に組織に対して送信されたメールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailings Sent for User </p></td><td colspan="1" rowspan="1"><p> 指定された日付範囲に認証済みユーザーに対して送信されたメールのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Organization Mailing Metrix </p></td><td colspan="1" rowspan="1"><p> 指定された日付範囲に組織に対して送信されたメールのリストを返し、それらのメールのメトリクスを提供します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Programs </p></td><td colspan="1" rowspan="1"><p> 組織のプログラムのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Raw Recipient Data </p></td><td colspan="1" rowspan="1"><p> 受信者の未加工データをZIPファイルからDomoに送ります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Mailing Metrix </p></td><td colspan="1" rowspan="1"><p> 指定された日付範囲にユーザーによって送信されたメールのリストを返し、それらのメールのメトリクスを提供します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Web Tracking Data </td><td colspan="1" rowspan="1"> 固有のWebトラッキングイベントのレポートを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> List ID </p></td><td colspan="1" rowspan="1"><p> データを取得するリストのIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> エクスポートするテーブルの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Type </p></td><td colspan="1" rowspan="1"><p> データを取得するリストのタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Visibility </p></td><td colspan="1" rowspan="1"><p> 共有リストのデータを取得するか、プライベートリストのデータを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Mailing ID </p></td><td colspan="1" rowspan="1"><p> データを取得するメーリングリストのIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report ID </p></td><td colspan="1" rowspan="1"><p> データを取得するレポートのIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List </p></td><td colspan="1" rowspan="1"><p> データを取得するリストを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付の範囲について取得するか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <span class="mt-font-courier-new"> ［Days Back to Start From］ </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> ［Days Back to End At］ </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,93 @@
+---
+title: "カスタム解析を使用したJSONコネクター"
+---
+
+## はじめに
+
+JavaScript Object Notation（JSON）は、使いやすい軽量のデータ交換フォーマットです。DomoのJSONカスタムコネクターを使うと、SFTPサーバーにアップロードしたJSONファイルにアクセスすることができます。HTTPおよびHTTPSコールでファイルをインポートしたり、コンピュータから直接ファイルをアップロードしたりすることもできます。JSON APIに関する詳細は、ウェブサイト（ [http://jsonapi.org](http://jsonapi.org "カスタムJSON") ）を参照してください。
+
+JSONアカウントには、Data Centerから接続します。このトピックでは、JSONコネクターのユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ベストプラクティス
+
+コネクターを使用する前に、 [JSON検証ツール](http://jsonviewer.stack.hu/ "カスタムJSON") でJSONコードを確認します。
+
+## 必要条件
+
+JSONアカウントに接続してDataSetを作成するには、JSONファイルがあるサーバーの認証情報が必要です。
+
+## JSONアカウントに接続する
+
+このセクションでは、JSONコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページ内のその他のペインである **［スケジュール設定］** と **［DataSetに名前を付けて説明を入力］** の項目は、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、JSONアカウントにアクセスする認証情報の入力フィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> フィールド </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> SFTPまたは基本認証を使用している場合、ユーザー名を入力します。それ以外の場合は、空白のままにします。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> SFTPまたは基本認証を使用している場合、パスワードを入力します。それ以外の場合は、空白のままにします。 </td></tr></tbody></table>
+
+有効なJSON認証情報を一度入力しておくと、随時同じアカウントを使用して新しいカスタムJSON DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理することができます。このタブの詳細については「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、接続先のサーバー/SFTPサイト、JSONファイルの名前、およびその他の構成の設定を指定します。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 接続タイプ </td><td colspan="1" rowspan="1"><p> 作成する接続のタイプを選択します。含まれるオプション： </p><ul><li><p> HTTPリクエスト </p></li><li><p> ファイル転送（SFTP） </p></li><li><p> JSONデータを含むファイルのアップロード </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> 使用するHTTPメソッドを選択 </td><td colspan="1" rowspan="1"> HTTPリクエストが「 <b> 接続タイプ </b> 」として選択されている場合、HTTPメソッドとしてGETまたはPOSTを選択してください。 </td></tr><tr><td colspan="1" rowspan="1"> JSONファイルへのURLを入力 </td><td colspan="1" rowspan="1"> JSONファイルのURLを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書はどのように提供しますか </td><td colspan="1" rowspan="1"><p> HTTPリクエストが「 <b> 接続タイプ </b> 」として選択されている場合、証明書の提供方法を選択してください。 </p><ul><li><p> 証明書なし </p></li><li><p> 証明書へのURLパス </p></li><li><p> 証明書のコンテンツ </p></li></ul></td></tr></tbody></table>
+
+#### 詳細設定
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> HTTPSヘッダー </td><td colspan="1" rowspan="1"> HTTPSヘッダーのキーと値を入力します。このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </td></tr><tr><td colspan="1" rowspan="1"> クエリパラメーター </td><td colspan="1" rowspan="1"> クエリパラメーターのキーと値を入力します。このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </td></tr><tr><td colspan="1" rowspan="1"> 日付クエリのパラメーター </td><td colspan="1" rowspan="1"> 日付クエリのパラメーターとして、日付フィルターなし、単一の日付、または日付範囲を選択します。このオプションは、HTTPリクエスト接続タイプでのみ利用できます。 </td></tr><tr><td colspan="1" rowspan="1"> JSON設定 </td><td colspan="1" rowspan="1"> JSONテキストでラインリーダーが必要かどうかと、バックスラッシュ文字をエスケープするかどうかを指定します。 </td></tr></tbody></table>
+
+### 解析
+
+#### ページ設定
+
+データをページ設定する方法を選択します。
+
+* 改ページなし
+* 結果から次のURLを取得する
+* 結果から次のページトークンを取得する
+* レコード別にオフセット
+* ページ別にオフセット
+
+#### 解析
+
+データプレビューを使用することで、列をクリックして解析用にデータの書式を設定することができます。
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+SFTPファイルの場合、ユーザー名とパスワードが必要です。HTTPを使用してデータをインポートする場合は、URLが基本認証をサポートしていると、ユーザー名とパスワードの入力が必要となることがあります。必要な場合は、パラメータまたはヘッダーで認証を渡すことができます。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは15分ごとに実行できます。
+
+
+</Accordion>
+<Accordion title="このコネクターは改ページをサポートしていますか？">
+
+
+はい。改ページを有効にするには、APIでサポートされている改ページタイプを選択して、必要な詳細を入力します。
+
+
+</Accordion>
+<Accordion title="データを解析する手順を教えてください。">
+
+
+［解析］ペインの［解析］タブで、拡張または変更するデータが格納されている列を選択します。おすすめのアクションにカーソルを置いて効果を確認し、目的のアクションをクリックして選択します。希望する状態でデータが表示されるまで繰り返します。必要に応じて、右側にある履歴セクションを使用してアクションを取り消します。
+
+
+
+</Accordion>
+</AccordionGroup>

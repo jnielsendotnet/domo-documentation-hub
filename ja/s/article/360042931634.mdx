@@ -1,0 +1,92 @@
+---
+title: "Amazon Redshift Unload V2コネクター"
+---
+
+## はじめに
+
+Amazon Redshiftは、高速かつ強力、フルマネージド型でペタバイト規模のクラウドデータウェアハウスサービスです。DomoのAmazon Redshift Unload V2コネクターを使用し、Amazon S3サービスを利用して、Redshiftから、より大きなサイズの結果を取得します。
+
+Amazon Redshift Unloadのアカウントには、Data Centerから接続します。このトピックでは、Amazon Redshift Unloadコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon Redshift Unload DataSetの作成を開始できるように、Amazon Redshiftに接続するには、以下が必要です。
+
+* Redshiftデータベースのホスト名
+* クラスター用に作成したデータベース名
+* Redshiftのユーザー名とパスワード
+* クラスターを起動した際に指定したポート番号
+* AWSアクセスキー
+* AWSシークレットキー
+* データのアンロード先となるS3バケットの名前
+* AWS S3バケットのリージョン名
+
+CA証明書テキストまたはURLパスは、 ****［証明書書式］**** メニューでそれぞれ ****［証明書文字列］**** または ****［URLパス］**** を選択する場合 **のみ** 必要になります。
+
+Redshiftについての詳細が不明な場合は、Amazon Redshiftデータベース管理者にお問い合わせください。
+
+ファイアーウォールがある場合は、使用するポートが開いていることを確認します。
+
+AWSアクセスキーとシークレットアクセスキーを確認するには、以下の手順を実行します。
+
+1. AWS Management Consoleにログインします。
+2. ページの右上にあるユーザー名をクリックします。
+3. ドロップダウンメニューで
+   ****［Security Credentials］**** を選択します。
+4. ****［Access Credentials］****
+   で、最新のアクセスキーIDをコピーします。
+5. 同じ行の
+   ****［Show link］**** をクリックし、シークレットアクセスキーをコピーします。
+
+### ホワイトリスト登録
+
+Redshiftに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Amazon Redshift Unloadアカウントに接続する
+
+このセクションでは、Amazon Redshift Unload V2コネクターページの **［認証情報］** および **［詳細］ペイン** のオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon Redshift Unloadアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要とされる内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBCドライバーのバージョン </td><td colspan="1" rowspan="1"> お使いのRedshift JDBCドライバーを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> ホスト </p></td><td colspan="1" rowspan="1"><p> データの取得元であるRedshiftデータベースのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> クラスターを起動した際に指定したポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> データベース </p></td><td colspan="1" rowspan="1"><p> クラスター用に作成したデータベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Redshiftアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Redshiftアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書書式 </p></td><td colspan="1" rowspan="1"><p> 証明書書式を選択します。証明書を含めない場合は、デフォルトの <b><b> ［証明書なし］ </b></b> が選択されたままにします。 <b> ［証明書文字列］ </b> を選択する場合は、証明書用テキストを <b><b> ［証明書］ </b></b> に貼り付ける必要があります。 <b><b> ［URLパス］ </b></b> を選択する場合は、証明書が保存されている場所のURLを <b><b> ［証明書］ </b></b> に入力する必要があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 証明書 </p></td><td colspan="1" rowspan="1"><p> CA証明書用テキストを貼り付けるか、証明書がある場所のURLを入力します。これはオプションです。証明書を含めない場合は、 <b><b> ［証明書書式］ </b></b> メニューで <b><b> ［証明書なし］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アクセスキー </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。アクセスキーを取得する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> シークレットアクセスキー </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。アクセスキーを取得する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> S3バケット </p></td><td colspan="1" rowspan="1"><p> データの取得に際して使用するS3バケット名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> S3バケットリージョン </p></td><td colspan="1" rowspan="1"><p> 使用したいS3バケットを含むリージョンを選択します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon Redshift Unload V2 DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、Domoにロードするデータを指定するための、様々なオプションが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> クエリタイプ </p></td><td colspan="1" rowspan="1"><p> 使用したいクエリタイプを選択します。 <b> ［クエリ］ </b> を選択した場合、パラメーターを使用しない、通常のSQLクエリを入力するためのプロンプトが表示されます。 <b> ［クエリパラメーター］ </b> を選択した場合、パラメーターを伴うSQLクエリを入力するためのプロンプトが表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> データの取得に使用するSQLクエリを入力します。 </p><p> 例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p><b><b> ［生成されたクエリ］ </b></b> パラメーターを使用して、使用可能なSQLクエリを記述できます。 <b> ［生成されたクエリ］ </b> を使用するには、以下の手順を実行します。 </p><ol><li><p> データベース表と表の列を適切なメニューで選択します。 </p></li><li><p><b><b> ［生成されたクエリ］ </b></b> に表示されるSQLステートメントをコピーします。 </p></li><li><p> コピーしたSQLステートメントを <b><b> ［クエリ］ </b></b> に貼り付けます。 </p></li></ol><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> スキーマ名 </p></td><td colspan="1" rowspan="1"><p> データの取得元になるスキーマを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース表 </p></td><td colspan="1" rowspan="1"><p> Domoにロードするデータベース表を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 表の列 </p></td><td colspan="1" rowspan="1"><p> Domoにロードする表の列を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 生成されたクエリ（オプション） </p></td><td colspan="1" rowspan="1"><p> このフィールドのSQLステートメントをコピーして、 <b><b> ［クエリ］ </b></b> に貼り付けます。詳細については、上記の「 <b><b> クエリ </b></b> 」を参照してください。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+必要に応じて何回でも更新できます。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+制限は使用するサーバー構成によって異なります。
+
+
+</Accordion>
+<Accordion title="# Redshiftデータベースに接続できない理由は？IPアドレスのホワイトリスト登録が必要でしょうか？">
+
+
+Redshiftデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

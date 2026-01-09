@@ -1,0 +1,298 @@
+---
+title: "2025 | Notas de la versión de enero"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### Nuevas funciones y mejoras
+
+* [Actualizaciones del registro de actividad](#activity_log)
+* [Actualizaciones del chat con IA](#ai_chat_updates)
+* Actualizaciones de App Studio
+  + [Ajustes del editor de tamaño real](#actual_size_editor)
+  + [Importar páginas de aplicación](#import_app_pages)
+* Actualizaciones del Cloud Amplifier
+  + [Migración automática de federado a Cloud Amplifier](#automatic_migration_federated)
+  + [Soporte de reescritura AWS de Databricks](#databricks_aws)
+  + [Soporte de OAuth de Snowflake](#snowflake_oauth)
+* Actualizaciones de los conectores
+  + [Permisos de acceso de los conectores](#connector_access_permisionning)
+  + [MS Fabric](#ms_fabric)
+* [Informe de grupos de DomoStats](#domostats_groups)
+* [Actualizaciones de grupos](#groups_updates)
+* Magic - Extracción, transformación y carga
+  + [Iconos de ORDEN y LÍMITE](#order_limit_tiles)
+  + [Búsqueda de columnas](#column_search)
+* [Nuevos tipos de datos para alertas de la asignación de flujos de trabajo](#new_data_types_workflow)
+* [Iconos nuevos](#new_icons)
+* [Eliminación de la vista previa automática en Analyzer para los DataSets de Cloud Amplifier](#remove_of_auto_preview)
+* [Flujos de trabajo: inicializar variables](#workflows_initalize_variables)
+
+### Características beta
+
+* [Soporte de solo lectura de Amazon Athena y PostgreSQL](#athena_postgres)
+* [Conectores: conector multicuentas avanzado de Facebook Ads](#connectors_facebook)
+
+### Soporte y comentarios
+
+* [¿Necesita soporte?](#need_support)
+* [¿Tiene comentarios?](#feedback)
+
+---
+
+### Nuevas funciones y mejoras
+
+# Actualizaciones del registro de actividad
+
+Hemos convertido el registro de actividad a React. Con esta actualización se implementan las siguientes mejoras:
+
+* Filtros de evento más intuitivos con Evento y Tipo de evento desglosados en diferentes filtros de menús desplegables.
+* Los filtros de Fecha y Persona ahora son parte del encabezado de columna en lugar de estar separados en distintos elementos de filtro de menús desplegables.
+* La experiencia de usuario es más compacta y el espacio está más aprovechado.
+
+Vea el [registro de actividad](/s/article/360042934574) en la base de conocimiento.
+
+<Frame><img alt="Screenshot 2024-10-18 at 3.51.32 PM.png" src="/images/kb/ka0Vq00000072GP-00N5w00000Ri7BU-0EMVq000003TwLT.jpg" style={{width: 899, height: 345}}/></Frame>
+
+
+# Actualizaciones del chat con IA
+
+El chat con IA ahora está disponible en la aplicación móvil y Embed.
+
+Haga una pregunta sobre sus datos y el chat de IA le responderá con un desglose pormenorizado sobre cómo ha llegado a esta respuesta. También obtendrá visualizaciones, contexto de datos y sugerencias de más preguntas. Vaya más allá de las consultas de lenguaje natural y deje que el chat de IA le ayude a completar tareas como configurar una alerta y llamar a un modelo de IA, entre otras.
+
+<Frame><img alt="Untitled design (3).png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004ni5d.jpg" style={{width: 829, height: 447}}/></Frame>
+Aprenda más sobre el [chat con IA](/s/article/000005539).
+
+
+
+# Actualizaciones de App Studio
+
+#### Ajustes del editor de tamaño real
+
+El editor de tamaño real le permite editar su diseño en su salida real o estado de vista previa sin experimentar problemas del dimensionado del diseño al crear un nuevo diseño de aplicación.
+
+<Frame><img alt="Screenshot 2025-01-15 at 8.06.00 AM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004pBGs.jpg" style={{width: 898, height: 363}}/></Frame>
+
+
+Importar páginas de aplicación
+
+Ahora puede usar la función de importar páginas de aplicación en App Studio para copiar y duplicar varias páginas de una aplicación a otra.
+
+<Frame><img alt="Screenshot 2025-01-15 at 8.08.05 AM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004pD7N.jpg" style={{width: 901, height: 498}}/></Frame>
+Aprenda a crear en [App Studio](/s/article/000005295).
+
+
+
+# Actualizaciones del Cloud Amplifier
+
+#### Migración automática de federado a Cloud Amplifier
+
+Ahora puede migrar sus DataSets federados a Cloud Amplifier sin necesidad de colaborar con el soporte o los ingenieros de Domo.
+
+<Frame><img alt="03.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004N6SD.jpg" style={{width: 899, height: 407}}/></Frame>
+Aprenda más sobre la [migración automática de federado a Cloud Amplifier](https://domo-support.domo.com/s/article/000005675?language=en_US).
+
+
+
+#### Soporte de reescritura AWS de Databricks
+
+<Frame><img alt="Screenshot 2024-12-16 at 12.55.25 PM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004N7JR.jpg" style={{width: 121, height: 120}}/></Frame>
+Ahora puede escribir salidas de ETL directamente en Databricks. Esta habilidad permite menos restricciones de usuario y le ayuda a mantener una única fuente de verdad en sus datos.
+
+Aprenda cómo establecer integraciones de solo lectura y de reescritura para [Databricks con Cloud Amplifier](/s/article/000005289).
+
+<Frame><img alt="Databricks wirte - Configure write access.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004N789.jpg" style={{width: 899, height: 407}}/></Frame>
+
+
+#### Soporte de OAuth de Snowflake
+
+<Frame><img alt="Screenshot 2025-01-14 at 10.49.05 AM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004nwmv.jpg" style={{width: 121, height: 120}}/></Frame>
+Ahora Domo pide a los usuarios autenticarse en Snowflake antes de que puedan ver los datos. Esto proporciona otro nivel de seguridad y garantiza que Domo utilice los recursos al consultar datos.
+
+<Frame><img alt="Snowflake Cloud Amplifier - OAuth.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000003QOmX.jpg" style={{width: 664, height: 462}}/></Frame>
+Aprenda más sobre el [soporte de OAuth para Snowflake](https://domo-support.domo.com/s/article/4402322966807?language=en_US#oauth_configuration).
+
+
+
+# Actualizaciones de los conectores
+
+#### Permisos de acceso de los conectores
+
+Ahora puede establecer políticas y restringir o permitir acceso a conectores en la Appstore utilizando permisos de instancia. Esta función permite a los administradores de Domo eliminar o conceder acceso a conectores específicos del panel de administración para usuarios específicos o grupos.
+
+<Frame><img alt="ConnectorInstance permissionsScreen1.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004NFs5.jpg" style={{width: 836, height: 222}}/></Frame>
+Aprenda más sobre los [permisos de instancia](https://domo-support.domo.com/s/article/1500002094122?language=en_US).
+
+
+
+#### MS Fabric
+
+<Frame><img alt="Screenshot 2024-12-16 at 1.57.24 PM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004N9Bb.jpg" style={{width: 106, height: 103}}/></Frame>
+El nuevo conector de MS Fabric le permite conectar Domo a su instancia de MS Fabric con facilidad, simplificando su canalización de datos.
+
+<Frame><img alt="Screenshot 2024-12-06 at 4.25.23 PM (1).png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004nmCT.jpg" style={{width: 895, height: 581}}/></Frame>
+Aprenda más sobre el [conector de MS Fabric](https://domo-support.domo.com/s/article/000005663?language=en_US).
+
+
+
+# DomoStats: informe de grupos
+
+<Frame><img alt="rtaImage.jpeg" src="/images/kb/ka0Vq0000002hX7-00N5w00000Ri7BU-0EMVq000001VwNJ.jpg"/></Frame>
+El informe de grupos de DomoStats enumera grupos de Domo y atributos relevantes.
+
+Este informe incluye información valiosa como:
+
+* Nombre del grupo
+* Tipo del grupo
+* Fecha de creación
+* Id. del creador
+
+El informe de grupos puede unirse con otros informes relacionados con el grupo, como el informe de acceso al DataSet. Aprenda más sobre [DomoStats](/s/article/360043433813).
+
+<Note>
+  **Nota:** Un informe de DomoStats anterior proporcionó información sobre la pertenencia al grupo. Este informe se nombró "Grupos" erróneamente y se ha cambiado por "Miembros del grupo".
+
+</Note>
+
+
+
+# Actualizaciones de grupos
+
+La página de detalles del grupo se ha convertido a React. Ahora se puede editar el nombre, la descripción, el tipo y el propietario del grupo en una única experiencia modal.
+
+Aprenda más sobre los [grupos](/s/article/360042934294) en Domo.
+
+<Frame><img alt="Groups React 2.png" src="/images/kb/ka0Vq00000072GP-00N5w00000Ri7BU-0EMVq000003U9k6.jpg" style={{width: 896, height: 448}}/></Frame>
+
+
+# Magic - Extracción, transformación y carga
+
+#### Iconos de ORDEN y LÍMITE
+
+Los iconos de ORDEN y LÍMITE en Magic - Extracción, transformación y carga le permiten optimizar cómo se ejecutan las funciones en el DataFlow.
+
+* El icono de ORDEN le permite especificar cómo ordenar las columnas en su flujo de datos.
+    
+  <Frame><img alt="Order Tile (1).png" src="/images/kb/ka0Vq00000072GP-00N5w00000Ri7BU-0EMVq000003UFhR.jpg" style={{width: 392, height: 284}}/></Frame>
+* El icono de LÍMITE le permite elegir el número de filas en el DataSet de salida.
+    
+  <Frame><img alt="Limit Tile.png" src="/images/kb/ka0Vq00000072GP-00N5w00000Ri7BU-0EMVq000003UBQx.jpg" style={{width: 394, height: 224}}/></Frame>
+Aprenda sobre ORDEN, LÍMITE y los otros [iconos de utilidad de Magic - Extracción, transformación y carga](/s/article/360044876874).
+
+
+
+#### Búsqueda de columnas
+
+Búsqueda de columnas en Magic - Extracción, transformación y carga le permite buscar el nombre de una columna. Los iconos coincidentes cuando la columna está disponible en el esquema están destacados.
+
+<Frame><img alt="Column Search.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004fAab.jpg" style={{width: 601, height: 320}}/></Frame>
+Aprenda a [crear un DataFlow de Magic — Extracción, transformación y carga](/s/article/360055259234).
+
+
+
+# Nuevos tipos de datos para alertas de la asignación de flujos de trabajo
+
+Ahora las alertas y los flujos de trabajo tienen nuevos tipos de parámetros. Estos parámetros ricos soportan configuraciones de alertas y flujos de trabajo más sólidos.
+
+Entre los nuevos tipos de parámetros se encuentran:
+
+* Fecha
+* Fecha y hora
+* Usuario
+* Grupo
+* DataSet
+* Tipo de datos de cuenta
+
+<Frame><img alt="AdditionalAlertWorkflowIntegration3 (1).png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004MVNr.jpg" style={{width: 642, height: 430}}/></Frame>
+Obtenga más información sobre los [flujos de trabajo](https://domo-support.domo.com/s/article/000005108?language=en_US).
+
+Obtenga más información sobre las [alertas](https://domo-support.domo.com/s/article/360043430533?language=en_US).
+
+
+
+# Iconos nuevos
+
+Se han actualizado todos los iconos de producto de Domo para que sean más coherentes y haya menos inconsistencias. Estos iconos también tienen una apariencia más moderna y cumplen los estándares de accesibilidad.
+
+<Frame><img alt="Untitled (Facebook Post).png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004pEpp.jpg" style={{width: 802, height: 372}}/></Frame>
+
+
+# Eliminación de la vista previa automática en Analyzer para los DataSets de Cloud Amplifier
+
+Ahora la vista previa automática para los DataSets de Cloud Amplifier está deshabilitada por defecto al abrir Analyzer. Esta actualización reduce el número de consultas que se producen y reduce los costes. Todavía puede activar la vista previa automática en el menú de Analyzer.
+
+# Flujos de trabajo: inicializar variables
+
+Ahora puede asignar un valor inicial a una variable durante la experiencia de creación de la versión en los flujos de trabajo. Esta característica elimina la necesidad de usar parámetros de inicio o funciones del motor de código para rellenar variables que requieren el mismo valor con cada tiempo de inicio.
+
+Otros beneficios son los siguientes:
+
+* **Diseño del flujo de trabajo simplificado:** Asigne valores iniciales a variables directamente durante el proceso de creación.
+* **Consistencia:** Asegura que las variables siempre contengan el mismo valor inicial cuando un flujo de trabajo se inicia.
+* **Eficiencia mejorada:** Reduce los pasos innecesarios del flujo de trabajo.
+* **Experiencia de usuario mejorada:** Configure un valor inicial en tan solo unos clics.
+
+<Frame><img alt="Screenshot 2025-01-15 at 8.09.52 AM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004pCmQ.jpg" style={{width: 896, height: 393}}/></Frame>
+Aprenda a [añadir una variable a un flujo de trabajo](https://domo-support.domo.com/s/article/000005331?language=en_US#add_a_variable) y asignarle un valor inicial.
+
+
+
+### Características beta
+
+# Chat de IA en MS Teams
+
+La beta del chat de IA ya está disponible en MS Teams.
+
+Haga una pregunta sobre sus datos y el chat de IA le responderá con un desglose pormenorizado sobre cómo ha llegado a esta respuesta. También obtendrá visualizaciones, contexto de datos y sugerencias de más preguntas. Vaya más allá de las consultas de lenguaje natural y deje que el chat de IA le ayude a completar tareas como configurar una alerta y llamar a un modelo de IA, entre otras.
+
+# Soporte de solo lectura de Amazon Athena y PostgreSQL
+
+<Columns>
+  <Frame><img src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004OCvO.jpg" /></Frame>
+  <Frame><img alt="Screenshot 2024-12-17 at 9.05.31 AM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004O8YQ.jpg" style={{width: 100, height: 100}}/></Frame>
+</Columns>
+Ahora Cloud Amplifier incluye soporte solo de lectura para conexiones de Athena y PostgreSQL. Esto le permite utilizar sus datos sin copiarlos o moverlos.
+
+Aprenda más sobre [Athena](https://domo-support.domo.com/s/article/000005744?language=en_US) y [PostgreSQL](https://domo-support.domo.com/s/article/000005756?language=en_US) en Cloud Amplifier.
+
+
+
+# Conectores: conector multicuentas avanzado de Facebook Ads
+
+El nuevo conector multicuentas avanzado de Facebook Ads le permite obtener sus datos de cualquier número de cuentas en un DataSet. Esto simplifica su configuración de canalización de datos y obtiene todos sus datos de Facebook de manera automática.
+
+<Frame><img alt="Screenshot 2024-12-08 at 11.06.19 PM.png" src="/images/kb/ka0Vq0000009NGj-00N5w00000Ri7BU-0EMVq000004ns1l.jpg" style={{width: 852, height: 240}}/></Frame>
+Obtenga más información sobre el [conector multicuentas avanzado de Facebook Ads](https://domo-support.domo.com/s/article/000005710?language=en_US).
+
+
+
+### Soporte y comentarios
+
+# ¿Necesita soporte?
+
+Domo proporciona educación, respuestas de la comunidad y soporte técnico.
+
+* Busque un tema en el
+  [Centro de ayuda](https://www.domo.com/domo-central/help) <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />
+* Aprenda de
+  [Domo University](https://www.domo.com/domo-central/university) <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />
+* Busque aplicaciones de formación en la
+  [AppStore <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />](https://www.domo.com/appstore/)
+* Obtenga respuestas en los
+  [foros comunitarios <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />](https://community-forums.domo.com/main)
+* Envíe un ticket de ayuda por el
+  [Portal de asistencia de Domo <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />](https://www.domo.com/login/customer-community) para ponerse en contacto con el soporte técnico
+* Póngase en contacto con su equipo de cuentas de Domo
+
+# ¿Tiene comentarios?
+
+Si tiene comentarios, envíelos a través de Domo:
+
+En el encabezado de navegación, seleccione **Más** > <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Mcmc.jpg" /> **Comentarios.**
+
+En el menú **Ponerse en contacto con Domo** bajo **Comentarios sobre el producto**, seleccione **Ir ahora.**
+
+<Frame><img alt="rtaImage (1).jpeg" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Me3d.jpg" style={{width: 571, height: 408}}/></Frame>
+
+

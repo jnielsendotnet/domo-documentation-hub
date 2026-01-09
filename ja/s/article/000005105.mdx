@@ -1,0 +1,173 @@
+---
+title: "DataSetウォッチドッグ"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+DataSetウォッチドッグを使用すると、最も重要なDataSetとDataFlowを監視し、問題が発生した場合の影響を最小限に抑えることができます。
+
+上流を変更すると、意図しない結果が生じることがあります。データウォッチドッグを使用して、最も重要なDataSetとDataFlowのアラートを監視および受信します。
+  
+DataSetウォッチドッグは管理ツールキットの一部です。DataSetウォッチドッグを有効にするには、アカウントエグゼクティブ（AE）にお問い合わせください。
+
+この記事では、DataSetウォッチドッグについて以下のトピックで説明します。
+
+* [ツールキットにアクセスする](#access_toolkit)
+* [必要な許可](#grants)
+* [使用可能なウォッチドッグ監視タイプ](#watcher_types)
+* [通知設定](#notifications)
+* [レポート作成](#reporting)
+* [設定DataSet（オプション）](#configuration_dataset)
+* [リモートインスタンス設定](#remote_instance_monitoring)
+* [注記](#notes)
+
+## ツールキットにアクセスする
+
+管理ツールキットにアクセスするには、以下の手順に従ってください。
+
+1. ナビゲーションヘッダーで、 **［その他］** > **［管理者］** に進みます。
+2. **［ガバナンス］** メニューで **［ツールキット］** を選択します。
+
+   <Note>
+     **注記：** **［ツールキット］** オプションが **［ガバナンス］** メニューに表示されない場合は、必要な許可が自分のユーザー権限にあるか確認してください。アカウントエグゼクティブ（AE）に連絡してツールキットを有効にする必要がある場合があります。
+
+   </Note>
+
+## 必要な許可
+
+管理ツールキットにアクセスするには、「カスタムのパイプライン処理を作成する」または「カスタムのパイプライン処理を管理する」の2つの許可のうち1つが、そのユーザー権限で有効になっている必要があります。カスタムユーザー権限に、許可を付与することができます。デフォルトでは、「カスタムのパイプライン処理を管理する」の許可は管理者ユーザーに対して有効になっています。
+
+* **カスタムのパイプライン処理を作成する** ：ジョブの作成、更新、共有、削除をユーザーに許可します。これにより、ユーザーは、自分が作成したジョブまたは自分に共有されたジョブだけを閲覧できます。
+* **カスタムのパイプライン処理を管理する** ：ジョブの作成、更新、共有、削除をユーザーに許可します。これにより、パイプライン内のすべてのジョブを閲覧できます。
+* **DataFlowを編集**
+* **DataSetを編集**
+
+カスタマイズされた権限および許可の詳細については、「 [カスタマイズされた権限を管理する](/s/article/360043438973) 」を参照してください。
+
+## 使用可能なウォッチドッグ監視タイプ
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> 監視タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSetのエラー数 </p></td><td colspan="1" rowspan="1"> 選択したDataSetの最後の実行でエラーが発生したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"><p> DataFlowのエラー数 </p></td><td colspan="1" rowspan="1"> 選択したDataFlowの最後の実行でエラーが発生したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetの索引時間 </td><td colspan="1" rowspan="1"> 選択したDataSetのインデックス作成期間が、ユーザーが指定した制限時間を超えていないかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetの最終更新日 </td><td colspan="1" rowspan="1"> 選択したDataSetがユーザーが指定した期間内に実行されたかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 外れ値DataSetの実行回数 </td><td colspan="1" rowspan="1"> 選択したDataSetの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 外れ値DataFlowの実行回数 </td><td colspan="1" rowspan="1"> 選択したDataFlowの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 行数カウントの変更 </td><td colspan="1" rowspan="1"> 最後の実行と比較して、行数カウントが一定の割合（正または負）で変化したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムクエリ </td><td colspan="1" rowspan="1"> 選択したDataSetに対して、クエリで指定された条件を満たす行があるかどうかを確認します。 </td></tr></tbody></table>
+
+## 通知設定
+
+上記の監視のいずれかが予期しないものを見つけた場合、ユーザーに通知する方法は4つあります。
+
+1. [Webhook](#webhooks)
+2. ユーザーを選択
+3. グループを選択
+4. メールアドレスを手動で入力
+
+または、上記のいずれかまたはすべてを組み合わせて実行することもできます。
+
+ジョブで予期しないものが見つかった場合は、インパクトレポートと、問題のあるDataSet/DataFlowへのリンクを含むメールが送信されます。
+
+### Webhook
+
+Webhookを設定するには、以下の手順を実行します。
+
+1. 目的のメッセージングシステムのWebhook URLを入力します。各サービスは異なるため、サードパーティのドキュメントを参照する必要があります。例えば、SlackからWebhookを取得する場合は、SlackのオンラインドキュメントでWebhookを取得する方法を調べます。
+2. サードパーティからペイロードをコピーします。
+3. DataSetウォッチドッグの新規ジョブ設定画面の **［通知設定］** で **［+Webhookを追加］** を選択して2つのフィールドを表示します。
+
+   <Frame><img alt="+ add webhook.jpg" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uoOe.jpg" style={{width: 442, height: 113}}/></Frame>
+   サードパーティのペイロードを **［Webhookのペイロード］** フィールドに貼り付けます。
+
+   <Frame><img alt="webhook payload field.jpg" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uoMd.jpg" style={{width: 653, height: 100}}/></Frame>
+4. （オプション）DataSetウォッチドッグ生成アラートテキストに含めるカスタムメッセージテキストを入力します。このメッセージはオプションですが、ユーザーに役立つ情報を提供するためにテキストを追加することを推奨します。カスタムメッセージは、DataSetウォッチドッグ生成テキストにのみ表示されます。このテキストは、Webhookペイロード内で###MESSAGE###が配置されている場所に表示されます。
+   1. **［カスタムメッセージ］** フィールドにテキストを入力します。
+
+      <Frame><img alt="enter custom message.jpg" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uoOo.jpg" style={{width: 619, height: 158}}/></Frame>
+   2. Webhookペイロード内のカスタムメッセージを表示させたい場所に###MESSAGE###を貼り付けます。
+
+#### Webhookを削除する
+
+Webhookを削除するには、そのWebhookの <InlineImage src="/images/kb/ja/ka0Vq0000000XCA-00N5w00000Ri7BU-0EM5w000006uoNM.jpg" /> **［削除］** を選択します。
+
+<Frame><img alt="delete webhook.jpg" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uoNl.jpg" style={{width: 680, height: 105}}/></Frame>
+## レポート作成
+
+現在存在するウォッチドッグメトリクスDataSetを選択するか、名前を入力して新しいものを作成します。この新しいDataSetには、各エンティティ（DataSetまたはDataFlow）の行と、チェックの結果が含まれています。
+
+## 設定DataSet（オプション）
+
+オプションの設定DataSetで必要な列と列の順序は以下の通りです。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> 列名 </p></th><th colspan="1" rowspan="1"><p> 列の説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> entity_id </p></td><td colspan="1" rowspan="1"><p> 監視対象のエンティティのID。これは通常、DataSetの概要ページなど、エンティティの詳細ページを表示する際にブラウザーのURLに表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> entity_type </p></td><td colspan="1" rowspan="1"><p> サポートされている値は、「DATAFLOW」と「DATA_SOURCE」です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> watcher_type </p></td><td colspan="1" rowspan="1"><p> 以下のタイプがサポートされています。 </p><ul><li> error_detection </li><li> row_count_variance </li><li> execution_variance </li><li> custom_query </li><li> max_indexing_time </li><li> last_data_updated（説明については、監視タイプの段落を参照してください。） </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> value </p></td><td colspan="1" rowspan="1"><p> 特定の監視タイプに使用される値。 </p><p> 例： </p><pre class="ckeditor_codeblock"> custom_query </pre><p><br/> 監視タイプは、値としてクエリを取得します。 </p><div class="mdx-embed"><Warning><p><b> 重要： </b><pre class="ckeditor_codeblock">error_detection</pre><br/> タイプには値は必要ありません。 </p></Warning></div></td></tr></tbody></table>
+
+以下の画像は設定DataSetの例です。
+
+<Frame><img alt="config dataset.png" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uF9R.jpg" style={{width: 749, height: 134}}/></Frame>
+<Note>
+  **注記：** サポートされている行は、1つの設定DataSetにつき100行のみです。これは、DataSetウォッチドッグが可能な限り効率的に最も重要なデータを監視できるようにするためです。
+
+</Note>
+
+## リモートインスタンス設定
+
+DataSetウォッチドッグを使用すると、1つのDomoインスタンスから、アクセス可能なほかのインスタンスに保存されている重要なDataSetを監視できます。これにより、ユーザーが消費するデータの品質を確保できます。
+
+リモートインスタンス監視を実行するには、設定DataSetが必要です（「 [設定DataSet](#configuration_dataset) 」を参照してください）。また、Domoアクセストークンアカウントを、Domoアクセストークンまたは監視するインスタンスのユーザー名とパスワードのいずれかで設定する必要があります。 [Domoアクセストークンアカウントを設定する](#configure_domo_access_token_account) 手順は以下の通りです。
+
+### リモートインスタンスのDataSetウォッチドッグを設定する
+
+アクセス可能な外部インスタンスのDataSetウォッチドッグを設定するには、以下の手順を実行します。
+
+1. DataSetウォッチドッグのジョブを作成または編集する際は、ジョブ設定ページの **［設定］** セクションで **［リモートインスタンス］** を選択します。
+2. 上記の「
+   [設定DataSet](#config_dataset) 」セクションに従ってリモートインスタンスの有効な値が入力された設定DataSetを **［設定］** で選択します。
+3. **［インスタンスの設定］** の **［インスタンス：］** フィールドに、DataSetウォッチドッグを設定するリモートインスタンスのドメインを入力します。
+4. **［次のインスタンスのアカウントを選択します。］** リストから、有効なDomoアクセストークンアカウントを選択します。 [Domoアクセストークンアカウントを設定する](#configure_domo_access_token_account) 方法については、以下を参照してください。
+5. （オプション） **［通知］** セクションで通知を設定します。
+6. **［レポート作成］** セクションに詳細を入力します。
+   
+   <Note>
+     **注記：** 通知メールとメトリクスログは、ポリシーが実行されているインスタンスに書き込まれます。リモートインスタンスには書き込まれません。
+
+   </Note>
+
+7. **［送信］** を選択して変更をジョブに保存します。
+
+### Domoアクセストークンアカウントを設定する
+
+Domoアクセストークンアカウントを設定するには、以下の手順を実行します。
+
+1. Domoナビゲーションヘッダーで、 **［データ］** を選択します。
+     
+   **Data Center** が開きます。
+2. サイドバーで
+   <InlineImage src="/images/kb/ja/ka0Vq0000000XCA-00N5w00000Ri7BU-0EM5w000006uFA5.jpg" /> **［アカウント］** を選択します。
+3. **［+アカウントを追加］** > **［アカウント］** を選択します。
+     
+   **［アカウントを追加］** モーダルが表示されます。
+
+   <Frame><img alt="domo access token.png" src="/images/kb/ka05w00000129aT-00N5w00000Ri7BU-0EM5w000006uF9v.jpg" style={{width: 591, height: 641}}/></Frame>
+4. モーダルで、以下のいずれかのオプションを入力します。
+   * **アクセストークン** ： **［Remote Instance Access Token］** フィールドにアクセストークンを入力します。トークンの生成方法については、「 [アクセストークンを生成する](#generate_access_token) 」を参照してください。
+   * **ユーザー名とパスワード** ： **［Remote Instance Username］** と **［Remote Instance Password］** フィールドに認証情報を入力します。
+5. **［接続］** を選択します。
+
+### アクセストークンを生成する
+
+アクセストークンを生成するには、以下の手順に従います。
+
+1. Domoナビゲーションヘッダーで、 **［その他］** > **［管理者］** を選択します。
+     
+   管理者設定が表示されます。
+2. 管理者設定の **［認証］** メニューで **［アクセストークン］** を選択します。
+3. **［アクセストークン］** ページで、 **［+アクセストークンを生成］** を選択します。
+
+<InlineImage src="/images/kb/ja/ka0Vq0000000XCA-00N5w00000Ri7BU-0EM5w000006uFA0.jpg" /> 4. **［アクセストークンの説明］** フィールドに説明を入力します。
+5. アクセストークンを生成するユーザーを検索して選択します。
+6. **［有効期限：］** リストで有効期限を選択します。
+7. **［生成する］** を選択します。
+8. 使用するコードをコピーします。
+
+## 注記
+
+* 監視タイプはジョブごとに1つしか選択できませんが、選択した監視タイプに応じて、ジョブごとに複数のDataSetまたはDataFlowを選択できます。
+* **［カスタムクエリ］** オプションを使用している場合、選択したDataSetすべてに、クエリで使用されている列が含まれていることを確認します。含まれていない場合、そのDataSetでは実行できません。
+* ジョブを有効にすると、1時間に1回自動的に実行されます。ジョブが無効の場合、手動で実行しない限り実行されません。
+
+日本語

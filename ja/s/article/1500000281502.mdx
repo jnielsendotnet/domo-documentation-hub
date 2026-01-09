@@ -1,0 +1,57 @@
+---
+title: "Amazon Athena Unloadコネクター"
+---
+
+## はじめに
+
+Amazon AthenaはS3バケットからビッグデータを簡単にクエリできるサービスです。Amazon Athena Unloadコネクターを使用して、Domoインスタンスから常にデータにアクセスすることができます。このコネクターが使用するSDKは、ユニークオブジェクトIDを使用してクエリをS3バケットにアンロードし、S3オブジェクトを解析します。DomoのAmazon Athena Unloadコネクターを使用すると、即座に接続と可視化を行い、S3クエリ処理でビッグデータからインサイトが得られます。Amazon Athena APIについて詳しくは、製品ドキュメンテーション（ [https://aws.amazon.com/documentation/athena/](https://aws.amazon.com/documentation/athena/ "https://aws.amazon.com/documentation/athena/") ）を参照してください。
+
+Amazon Athenaのアカウントには、Data Centerから接続します。このトピックでは、Amazon Athena Unloadコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Amazon Athenaアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー
+* AWSシークレットキー
+* クエリ出力を書き込むAmazon S3の場所。この場所は、Athena Webコンソールの
+  **［設定］** で確認することができます。例： s3://aws-athena-query-results-1234-us-west-2/
+* AWSリージョン。
+
+AWSの認証情報を取得する方法については、Webサイト（ [http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html "http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html") ）を参照してください。
+
+#### 必要なPermissionポリシー
+
+AthenaやAmazon S3 bucketなどのAWSサービスやリソースへのアクセス権を得るには、アプリケーションにJDBCドライバーの認証情報を指定します。JDBCドライバーを使用している場合は、 ****AmazonAthenaFullAccess管理ポリシー**** に記載されているすべてのアクションがIAM Permissionポリシーに含まれていることを確認します。
+
+****`AmazonAthenaFullAccess`**** 管理ポリシーはAthenaへのフルアクセスを許可します。
+
+管理ポリシーの内容は変更されるため、ここに表示されるポリシーは古くなる可能性があります。最新のポリシーについてはIAMコンソールを確認してください。
+
+```json
+{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "athena:*" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "glue:CreateDatabase", "glue:DeleteDatabase", "glue:GetDatabase", "glue:GetDatabases", "glue:UpdateDatabase", "glue:CreateTable", "glue:DeleteTable", "glue:BatchDeleteTable", "glue:UpdateTable", "glue:GetTable", "glue:GetTables", "glue:BatchCreatePartition", "glue:CreatePartition", "glue:DeletePartition", "glue:BatchDeletePartition", "glue:UpdatePartition", "glue:GetPartition", "glue:GetPartitions", "glue:BatchGetPartition" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "s3:GetBucketLocation", "s3:GetObject", "s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:ListMultipartUploadParts", "s3:AbortMultipartUpload", "s3:CreateBucket", "s3:PutObject" ], "Resource": [ "arn:aws:s3:::aws-athena-query-results-*" ] }, { "Effect": "Allow", "Action": [ "s3:GetObject", "s3:ListBucket" ], "Resource": [ "arn:aws:s3:::athena-examples*" ] }, { "Effect": "Allow", "Action": [ "s3:ListBucket", "s3:GetBucketLocation", "s3:ListAllMyBuckets" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "sns:ListTopics", "sns:GetTopicAttributes" ], "Resource": [ "*" ] }, { "Effect": "Allow", "Action": [ "cloudwatch:PutMetricAlarm", "cloudwatch:DescribeAlarms", "cloudwatch:DeleteAlarms" ], "Resource": [ "*" ] } ] } 
+```
+
+## Amazon Athenaアカウントに接続する
+
+このセクションでは、Amazon Athena Unloadコネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目にある ****［スケジュール設定］**** や ****［DataSetの名前を付け説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon Athenaアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> アクセスキー </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> シークレットキー </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> S3 Staging Directory </td><td colspan="1" rowspan="1"> クエリ出力を書き込むAmazon S3の場所を入力します。この場所は、Athena Webコンソールの <b> ［設定］ </b> で確認することができます。例： <span class="nowiki"> s3://aws-athena-query-results-1234-us-west-2/ </span></td></tr><tr><td colspan="1" rowspan="1"> リージョン </td><td colspan="1" rowspan="1"> AWSリージョンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ワークグループ </td><td colspan="1" rowspan="1"> ワークグループを入力します。 </td></tr></tbody></table>
+
+有効なAmazon Athena認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon Athena DataSetを作成することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、クエリの入力やレポートの設定のためのオプションが多数含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するAmazon Athena Unloadレポートを選択します。現時点では、使用できるレポートタイプは1つだけです。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> 指定したS3データベースと表に対してクエリを実行することができます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> データベース名 </p></td><td colspan="1" rowspan="1"><p> クエリを実行するデータベースを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> 実行するSQLクエリを入力します（例：select * from table_name）。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

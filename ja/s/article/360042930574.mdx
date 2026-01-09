@@ -1,0 +1,68 @@
+---
+title: "Google Contacts Serviceコネクター"
+---
+
+## はじめに
+
+Google Contactsは、Gmail、Googleカレンダー、Googleドライブなどの他のGoogle製品と統合するオンラインのアドレス帳です。DomoのGoogle Contacts Serviceコネクターを使用すると、連絡先のリストと連絡先グループを取得できます。Google Contacts APIの詳細については、ウェブサイト（ [https://developers.google.com/google-apps/contacts/v3/](https://developers.google.com/google-apps/contacts/v3/ "https://developers.google.com/google-apps/contacts/v3/") ）を参照してください。
+
+Google Serviceアカウントには、Data Centerから接続します。このトピックでは、Google Contacts Serviceコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「データコネクターを使用してDataSetを追加する」で説明しています。
+
+## 必要条件
+
+Googleサービスアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* GoogleサービスアカウントJSONキー
+* サービスアカウントフローでアプリケーションが偽装するユーザーのメールアドレス
+
+JSONキーを生成するには、次の手順を実行します。
+
+1. GCP Consoleで、[IAMと管理] ページを開きます。
+2. 左側のナビゲーションペインで
+   ****[サービス アカウント]**** をクリックします。
+3. プロジェクトを選択して
+   ****[開く]**** をクリックします。
+4. ****[サービスアカウントを作成]****
+   をクリックします。
+5. サービスアカウントの名前と詳細を入力します。
+6. ****[作成]****
+   をクリックします。
+7. ****[プロジェクト所有者]****
+   を選択します。
+8. ****[次に進む]****
+   をクリックします。
+9. ****[キーを作成]****
+   をクリックします。
+10. キーのタイプに [JSON] を選択します。
+11. ****[作成]****
+    をクリックします。
+
+秘密キーがコンピューターに保存されます。
+
+## Google Contacts Serviceアカウントに接続する
+
+このセクションでは、Google Contacts Serviceコネクターページの **[認証情報]** および **[詳細]** ペインのオプションについて説明します。このページの他のペインの項目である **[スケジュール設定]** や **[DataSetの名前と説明]** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「データコネクターを使用してDataSetを追加する」 を参照してください。
+
+### 認証情報ペイン
+
+このペインには、Googleサービスアカウントにアクセスするための認証情報を入力するフィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> サービスアカウントJSONキー </p></td><td colspan="1" rowspan="1"><p> GoogleサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サービスアカウントユーザー </p></td><td colspan="1" rowspan="1"><p> サービスアカウントフローでアプリケーションが偽装するユーザーのメールアドレスを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいGoogle Contacts Service DataSetを作成できます。コネクターのアカウントはData Centerの ********[アカウント]******** タブで管理できます。このタブの詳細については、「コネクターのユーザーアカウントを管理する」を参照してください。
+
+### 詳細ペイン
+
+このペインには、必要なGoogle Contactsレポートタイプを選択するメインメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Contactsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 連絡先 </td><td colspan="1" rowspan="1"> Googleから連絡先のリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Contact Groups </td><td colspan="1" rowspan="1"> Googleから連絡先グループのリストを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ユーザーのフィールド </td><td colspan="1" rowspan="1"> レポートに表示するフィールド（列）を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「データコネクターを使用してDataSetを追加する」を参照してください。
+
+---
+
+DomoのGoogle Contacts Serviceコネクターを使用すると、連絡先のリストと連絡先グループを取得できます。
+
+

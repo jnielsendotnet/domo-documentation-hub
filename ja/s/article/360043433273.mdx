@@ -1,0 +1,132 @@
+---
+title: "Google Admin SDK Reportsコネクター"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+<Warning>
+********重要：******** DomoコネクターでOAuth認証を使用する機能にGoogleによって変更が加えられたことにより、新しいデータ接続を作成する際に、すべてのユーザーがサービスアカウントキー認証を使用しなければならなくなりました。新しいGoogle Admin SDK Reports DataSetを作成するには、このコネクターを使用します。既存のGoogle Admin SDK Reports DataSetはすべてこれまでどおり正常に実行されます。
+
+</Warning>
+
+## はじめに
+
+GoogleのレポートAPIの詳細については、ウェブサイト（ [https://developers.google.com/admin-.../v1/reference/](https://developers.google.com/admin-sdk/reports/v1/reference/ "https://developers.google.com/admin-sdk/reports/v1/reference/") ）を参照してください。
+
+Google Admin SDK Reportsには、Data Centerから接続します。このトピックでは、Google Admin SDK Reportsコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Googleサービスアカウントに接続するには、GoogleサービスアカウントのJSONキーとサービスアカウントのユーザー名が必要です。
+
+#### 新しいサービスアカウントとキーを生成するには、次の手順を実行します。
+
+1. [Google Cloudコンソール](https://console.cloud.google.com/ "Google Cloudコンソール") にログインします。
+
+2. **［APIs & Services］>［Credentials］** をクリックします。
+
+<Frame><img alt="API_Service-Creds.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1Y.png"/></Frame>
+
+3. **［Create Credentials］>［Service account］** をクリックします。
+
+<Frame><img alt="Create_Cred-Service_accnt.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1d.png"/></Frame>
+
+4. ［Create service account］ペインで、サービスアカウントの名前と説明を入力し、
+**［Create and continue］** をクリックします。
+
+5. **このサービスアカウントのプロジェクトへのアクセスを許可するには** 、 **［Select a role］** ドロップダウン から **［Project］>［Owner］** の順に選択します。
+
+<Frame><img alt="Project-Owner.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1b.png"/></Frame>
+
+6. **［Done］** をクリックします。
+
+7. 新しいJSONキーを作成するには、
+**［Service accounts］ペイン** で3つ並んだ点（展開メニュー）をクリックし、 **［Manage keys］** を選択します
+
+<InlineImage src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1c.png" />
+
+8. **［Keys］** セクションで、 **［Add Key］>［Create new key］** の順にクリックします。
+
+<Frame><img alt="Keys_Create_new_key.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1f.png"/></Frame>
+
+9. キーのタイプに
+**［JSON］** を選択し、 **［Create］** をクリックします。
+
+<Frame><img alt="select_JSON.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1e.png"/></Frame>
+
+10. **［Create］** をクリックします。
+
+シークレットキーがコンピューターに保存されます。
+
+#### サービスキーへのドメイン全体の委任を有効にするには：
+
+1. 新規に作成されたサービスアカウントを表から探します。
+
+**［Actions］** の下で 3つの点（展開メニュー）をクリックし、 **［Manage Details］** をクリックします。
+
+2. サービスアカウントの詳細で、
+
+**［Show domain-wide delegation］** をクリックして 展開し、
+
+**［Enable Google Workspace Domain-wide Delegation］**
+
+チェックボックスが選択されていることを確認します。
+
+<Frame><img alt="Enable_Google_wide_checkbox.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1Z.png"/></Frame>
+
+3.
+
+**［Save］**
+
+をクリックしてサービスアカウントを更新し、サービスアカウントの表に戻ります。新しい列
+
+**［Domain-wide delegation］** が表示されます。
+
+4.
+
+**［View Client ID］** をクリックしてクライアントIDを取得し、そのクライアントIDを記録しておきます。
+
+#### ドメイン全体の権限をサービスアカウントに委任するには：
+
+Google Workspaceドメインでユーザーデータにアクセスするには、作成したサービスアカウントにそのドメインのスーパー管理者がアクセス権を付与する必要があります。ドメイン全体の委任に関する詳細は、「 [APIアクセスをドメイン全体の委任で制御する](https://support.google.com/a/answer/162106?hl=en "ドメイン全体の委任を使用してGoogle Workspace APIアクセスを制御します") 」を参照してください。
+
+1. Google Workspaceドメインの
+[Adminコンソール](https://accounts.google.com/ServiceLogin/webreauth?continue=https%3A%2F%2Fadmin.google.com%2F&authuser=0&passive=3600&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin "Adminコンソール") から、 **メインメニュー >［Security］>［API controls］** の順に進みます。
+
+2. **［Domain wide delegation］** ペインで、 **［Manage Domain Wide Delegation］** を選択します。
+
+3. **［Add new］** をクリックします。
+
+<Frame><img alt="Domain_wide_delegation.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1g.png"/></Frame>
+
+4. **［Client ID］** フィールドには、上記のサービスアカウント作成ステップで取得したクライアントIDを入力します。
+
+<Frame><img alt="add_client.png" src="/images/kb/ka0Vq00000014Ub-00N5w00000Ri7BU-0EM5w000005vO1a.png"/></Frame>
+
+5. **［OAuth Scopes］** フィールドに、アプリケーションに必要なスコープのカンマ区切りのリストを入力します（使用可能なスコープのリストは、「認証要求」を参照してください）。
+
+例えば、アクティビティレポートにドメイン全体でアクセスする必要がある場合は、「 https://www.googleapis.com/auth/admin.reports.audit.readonly 」と入力してください。
+
+https://www.googleapis.com/auth/admin.reports.usage.readonly **［Authorize］** をクリックします。
+
+## Google Admin SDK Reportsアカウントに接続する
+
+このセクションでは、Google Admin SDK Reportsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Googleサービスアカウントにアクセスするための認証情報を入力するフィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Account Key JSON </p></td><td colspan="1" rowspan="1"><p> GoogleサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Service Account User </p></td><td colspan="1" rowspan="1"><p> サービスアカウントユーザー名を入力します。例： <a href="mailto:es@xyz.com"> es@xyz.com </a></p></td></tr></tbody></table>
+
+有効なキーを一度入力しておくと、いつでも同じアカウントを使用して新しいGoogle Admin SDK Reports DataSetを作成できます。 コネクターのアカウントはData Centerの ********************************［アカウント］******************************** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054?language=en_US "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、時間枠を選択するためのほかのメニューとともに、メインの **［Reports］** メニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Admin SDK Reportsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Customer Usage </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーのGoogle Appsサービスアクティビティを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Google Admin Activity </p></td><td colspan="1" rowspan="1"><p> アカウントのすべての管理者のAdmin Consoleアクティビティに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Google Drive Activity </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーによるGoogle Driveドキュメントの管理、変更、共有に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User Usage </p></td><td colspan="1" rowspan="1"><p> アカウントのユーザーのGoogle Appsサービスアクティビティを返します（一部の日付のデータは、使用可能になるまで空白のままになる場合があります）。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> データを特定の日付について取得するか、日付範囲について取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> 特定の日付のレポートデータを取得するのか、今日から指定した日数を遡った日までのレポートデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も近い日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に「 <span class="mt-font-courier-new"> 10 </span> 」、 <b> ［Days Back to End At］ </b> に「 <span class="mt-font-courier-new"> 5 </span> 」を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274?language=en_US "コネクターを使用してDataSetを追加する") 」を参照してください。

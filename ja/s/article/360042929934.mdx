@@ -1,0 +1,91 @@
+---
+title: "Pinterest Enterpriseコネクター"
+---
+
+## はじめに
+
+Pinterestは、ユーザーが新しい関心事項を視覚的に共有して発見できるようにするソーシャルネットワークです。Pinterest Enterpriseコネクターを使用すると、フォロワー、フォロー中、ピンなどの多数のPinterestエンティティを含む、様々なPinterestデータを確認することができます。Pinterest APIについての詳細は、PinterestのWebサイト（ [https://developers.pinterest.com/](https://developers.pinterest.com/ "https://developers.pinterest.com/") ）を参照してください。
+
+Pinterestアカウントには、Data Centerから接続します。このトピックでは、Pinterestコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Pinterestアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* PinterestクライアントID
+* Pinterestクライアントシークレット
+* Pinterestアカウントの認証情報（Pinterestへのログインに使用するメールアドレスとPinterestのパスワード）、Facebook、Google認証情報のいずれか
+
+クライアントIDとクライアントシークレットのリダイレクトURIについては、
+
+https://oauth.domo.com/api/data/v1/oauth/providers/pinterest-enterprise/exchange
+を参照してください。
+
+クライアントIDとクライアントシークレットの生成方法については、 [https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/](https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/ "https://www.codeholic.in/how-to-generate-pinterest-client-id-and-secret-key/") を参照してください。
+
+## Pinterestアカウントに接続する
+
+このセクションでは、Pinterestコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Pinterestアカウントに接続するための認証情報の入力フィールドが表示されます。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Client ID </p></td><td colspan="1" rowspan="1"><p> PinterestクライアントIDを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Client Secret </p></td><td colspan="1" rowspan="1"><p> Pinterestクライアントシークレットを入力します。 </p></td></tr></tbody></table>
+
+クライアントIDとクライアントシークレットの生成方法については、
+https://www.codeholic.in/blog/how-to-generate-pinterest-client-id-and-secret-key/
+を参照してください。
+
+有効なPinterest認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいPinterest DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するPinterestレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーの氏名、IDおよびURLを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Boards </p></td><td colspan="1" rowspan="1"><p> URL、IDおよび氏名など、認証ユーザーの公開ボードのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Board Pins </p></td><td colspan="1" rowspan="1"><p> ボードのピンのリストを、ID、URL、リンク、説明とともに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Followers </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーをフォローしているユーザーを、ユーザーの名前、ID、およびURLとともに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Boards </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーがフォローしているボードをボードのID、名前およびURLとともに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Interests </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーがフォローしているトピックをトピックの名前およびIDとともに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Following Users </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーがフォローしているユーザーをユーザーの名前、ID、およびURLとともに返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pins </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのピンのID、リンク、URL、説明を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Boards </p></td><td colspan="1" rowspan="1"><p> 認証ユーザーのボード名（ボードのピンとは異なります）をID、名前およびURLとともに検索します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Pins </p></td><td colspan="1" rowspan="1"><p> ID、リンク、URLおよび説明と一致する認証ユーザーのピンの説明を検索します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Board ID </p></td><td colspan="1" rowspan="1"><p> データを取得するボードのIDを入力します。「ボード」レポートを実行し、「Data Id Str」という列を確認すると、ボードIDを見つけることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query (Optional) </p></td><td colspan="1" rowspan="1"><p> 「Search Boards」レポートと「Search Pins」レポートを使用する際にクエリキーワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付に対して、または日付範囲に対してデータを取得するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付か相対的な日付かを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付か、相対的な日付かを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を作成できます。 </p><p> 例えば、 <span class="mt-font-courier-new"> ［Days Back to Start From］ </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> ［Days Back to End At］ </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示される日の範囲を作成できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# Pinterestの認証情報が保護されていることをどのように知ることができますか？">
+
+
+DomoはOAuthプロセスを使用してPinterestに接続するため、認証情報は安全であり、保存されることはありません。DomoのPinterestアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="# ボードIDはどこにありますか？">
+
+
+「Boards」レポートを実行し、「Data Id Str」という列を確認すると、ボードIDを見つけることができます。
+
+
+</Accordion>
+<Accordion title="# データはどれくらいの頻度で更新できますか？">
+
+
+DataSetは1日に1回更新する設定にする必要があります。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPIレート制限はありますか？">
+
+
+Pinterestでは、各ユーザーは1時間あたり最大1,000件のAPIを呼び出すことができます。1回のDataSet実行に複数のAPI呼び出しが必要になる場合がありますのでご注意ください。60分のウィンドウは、最初のリクエストの実行時にもとづくスライディングウィンドウです。レート制限に達した場合、さらにいくつかのリクエストを取得するには、最大1時間待つだけで済みます。
+
+
+</Accordion>
+<Accordion title="# いいね！したピンはどうなったのですか？">
+
+
+2017年6月、Pinterestは、［いいね！］ボタンと［保存］ボタンの共存によってユーザーが混乱すると判断し、UIから［ いいね！］ボタンを削除しました。現在は、［保存］ボタンのみを利用できます。それ以前に「いいね！」されたすべてのアイテムは、アカウントの「いいね！したピン」というシークレットボードに移動されました。
+
+
+
+</Accordion>
+</AccordionGroup>

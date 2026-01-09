@@ -1,0 +1,153 @@
+---
+title: "DomoでSAP BWに接続する"
+---
+
+## 概要
+
+DomoでSAP BWデータに接続するには、Domo-SAPデータリンクを確立する必要があります。このためには、以下のすべてのステップを実行します。
+
+1. [DomoとBWとの間にRFC接続を確立する](#h_a2635c0d-ff35-4b30-bf47-ee85a8733104 "SAP BWコネクター")
+2. [論理ファイルを作成する](#h_dcb3c085-e171-4d5d-b6e2-deed0188d285 "SAP BWコネクター")
+3. [BWオブジェクトのデータ構造を見つける](#h_69801cf8-6231-4453-93f1-4259332b6b5f "SAP BWコネクター")
+4. [APDを構築する](#h_2a5ec744-50f8-4a9b-8bed-0e274093b27f "SAP BWコネクター")
+
+## ステップ1：DomoとBWとの間にRFC接続を確立する
+
+1. mySAP ERPでトランザクション
+   SM59 を実行します。
+     
+   <Frame><img alt="sapbw1.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwD.png"/></Frame>
+
+2. **［HTTP Connections to External Server（外部サーバーへのHTTP接続）］**
+   を選択し、 **［作成］** をクリックします。
+     
+   <Frame><img alt="sapbw2.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwF.png"/></Frame>
+
+3. 以下のフィールドに入力します。
+
+   * **RFC Destination（RFC宛先）**
+   * **Description 1（説明1）**
+   * **Target Host（ターゲットホスト）**
+   * **Service No.（サービス番号）**
+   * **Path Prefix（パスプレフィックス）**
+       
+     <Frame><img alt="sapbw3.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwG.png"/></Frame>
+
+4. **［Logon & Security（ログオンとセキュリティ）］**
+   タブをクリックします。
+5. **［Basic Authentication（基本認証）］**
+   ラジオボタンを選択します。
+     
+   <Frame><img alt="sapbw4.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw7.png"/></Frame>
+
+6. 下にスクロールし、ユーザー名とパスワードを入力します。
+     
+   <Frame><img alt="sapbw5.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw6.png"/></Frame>
+
+7. **［保存］**
+   をクリックします。
+
+これでRFC接続が確立されました。
+
+## ステップ2：論理ファイルを作成する
+
+1. mySAP ERPでトランザクション
+   FILE を実行します。
+2. **［New Entries（新しいエントリ）］**
+   を選択します。
+     
+   <Frame><img alt="sapbw9.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw0.png"/></Frame>
+
+3. 以下のようにフィールドに入力します。
+
+   <table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Logical file（論理ファイル） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> Z_DOMO_DROP_FILE </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Name（名前） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> Domo drop </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Physical file（物理ファイル） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> DOMO TEST_.csv </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Data format（データ形式） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> ASC </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Applicat.area（アプリケーション領域） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> FI </span></p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Logical path（論理パス） </p></td><td class="mt-noheading" colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> Z_DOMO_DROP </span></p></td></tr></tbody></table>
+
+   <Frame><img alt="sapbw12.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw2.png"/></Frame>
+
+4. **［保存］**
+   をクリックします。
+5. トランスポート情報を入力します。
+
+## ステップ3：BWオブジェクトのデータ構造を見つける
+
+1. Data Warehousing Workbenchでトランザクション
+   RSA1 を実行します。
+2. **［BI Content（BIコンテンツ）］**
+   を選択します。
+     
+   <Frame><img alt="sapbw13.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwA.png"/></Frame>
+
+3. 目的のBWオブジェクトに移動してダブルクリックします。
+4. **［Key Figures（指標）］**
+   をクリックします。
+     
+   <Frame><img alt="sapbw14.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNvx.png"/></Frame>
+
+オブジェクトのデータ構造が表示されます。
+
+## ステップ4：APDを構築する
+
+1. Data Warehousing Workbenchでトランザクション
+   RSA1 を実行します。
+2. Analysis Process Designer（APD）を開きます。
+     
+   <Frame><img alt="sap145.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwB.png"/></Frame>
+
+3. **［一般］**
+   を選択し、 **［作成］** をクリックします。
+     
+   <Frame><img alt="sapbw15.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwE.png"/></Frame>
+
+4. **［General Application（汎用アプリケーション）］**
+   を選択します。
+     
+   <Frame><img alt="sapbw16.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw8.png"/></Frame>
+
+5. **［説明］**
+   フィールドに説明を入力します。
+6. データソースを選択します（この場合はInfoProvider）。
+     
+   <Frame><img alt="sapbw17.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw4.png"/></Frame>
+
+7. データソースに名前を付けます。
+8. InfoProviderを選択します。
+     
+   送信するフィールドを制限することもできます。
+     
+   <Frame><img alt="sapbw18.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw9.png"/></Frame>
+
+   <Frame><img alt="sapbw19.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNwC.png"/></Frame>
+
+   <Frame><img alt="sapbw20.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw3.png"/></Frame>
+
+9. **［Write Data to File（ファイルにデータを書き込む）］**
+   を選択します。
+     
+   <Frame><img alt="sapbw21.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNvy.png"/></Frame>
+
+   <Frame><img alt="sapbw22.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNvz.png"/></Frame>
+
+10. **［Data Target: File（データターゲット：ファイル）］**
+    ダイアログで、以下を実行します。
+
+    1. **［Description（説明）］**
+       フィールドにファイルの説明を入力します。
+    2. **［Application Server（アプリケーションサーバー）］**
+       ラジオボタンを選択します。
+    3. **［Logical File Name（論理ファイル名）］**
+       ボックスをチェックします。
+    4. **［ファイル］**
+       フィールドに新しい論理ファイル名を入力します。
+    5. 緑のチェックボックスをクリックします。
+         
+       <Frame><img alt="sapbw23.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw1.png"/></Frame>
+
+11. クリックしてドラッグし、ノードを接続します。
+      
+    <Frame><img alt="sapbw24.png" src="/images/kb/ka05w000001233r-00N5w00000Ri7BU-0EM5w000005vNw5.png"/></Frame>
+
+12. 変更を保存します。
+13. **［Activate（アクティブ化）］**
+    アイコンをクリックします。
+
+

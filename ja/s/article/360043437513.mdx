@@ -1,0 +1,76 @@
+---
+title: "DomoでClicktaleデータに接続する"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+CSV-SFTPコネクターを使用することで、CSVデータとしてDomoにClicktaleデータを取り込むことができます。Clicktale DataSetを作成したら、 Beast Modeを使用してClicktaleカードに再生リンクを追加することができます。この記事では、これらのタスクの実行方法を説明します。
+
+## 必要条件
+
+ClicktaleデータをDomoに取り込むには、SFTPの認証情報（Clicktaleから提供される）が必要です。認証情報には以下の項目が含まれます。
+
+* SFTPホスト名
+* SSHのユーザー名とパスワード
+
+## DomoにClicktaleデータをインポートする
+
+DomoにClicktaleデータをインポートするには、Clicktaleから提供された認証情報を用いてClicktaleのSFTPサーバーに接続する必要があります。
+
+**DomoにClicktaleデータをインポートするには、**
+
+1. 以下のいずれかを実行します。
+
+   * <InlineImage src="/images/kb/ka05w0000012340-00N5w00000Ri7BU-0EM5w000005vNwt.png" />
+     **>［データ］>［ファイル］** の順に選択します。
+   * 画面上部のツールバーで
+     **［データ］** を選択して、 **［データを接続］** 領域にある **［ファイル］** をクリックします。
+   * 画面上部のツールバーにある
+     **［Appstore］** を選択して、 **［コネクター］** タブをクリックし、「CSV-SFTP」を検索します。
+2. 「CSV-SFTP」のタイルをクリックします。
+3. **［データを取得する］**
+   をクリックします。
+4. **［認証情報］**
+   ペインで、Clicktaleから提供された自分のSFTPの認証情報を入力し、 **［接続］** をクリックします。
+5. **［詳細］**
+   ペインで、CSVファイルのお好みのオプションを設定してください。
+     
+   使用できるオプションの詳細については、「 [CSV-SFTPコネクター](/ja/s/article/360042931894 "CSV-SFTPコネクター") 」を参照してください。
+6. **［スケジュール設定］**
+   ペインでは、DataSetを毎日更新するよう設定し、 **［更新］** を **［追加］** に設定します。
+7. **［DataSetに名前を付け、説明を入力］**
+   ペインでは、DataSetの名前と説明を入力します。
+8. **［保存］**
+   をクリックします。
+
+ClicktaleデータがCSVのDataSetとしてDomoにインポートされます。
+
+## カードに再生リンクを追加する
+
+DomoでClicktaleデータが使用可能になると、それを使って再生リンクを含む表カードを作成できます。このリンクによって、ユーザーはデータから驚くべきインサイトを得ることができます。
+
+**再生リンクを使用してあなたのClicktaleデータから表を作成するには、**
+
+1. DataSetの詳細ビューで、
+   **［カード］** タブをクリックし、次に **［カードを追加］** をクリックします。
+2. Analyzerで、「
+   [表](/ja/s/article/360043429573 "表") 」の説明にあるとおりに表を作成します。
+3. 次の式を用いてBeast Mode計算を追加します。
+     
+   `CONCAT('`
+
+   `http://dmz01.app.clicktale.com/Player.aspx?PID=',`ProjectID`,'&UID=',`UID`,'&SID=',`SID`,'" target="_blank">','Click To Replay','`
+
+   `')`
+     
+   <Frame><img alt="clicktale_replay_beastmode.png" src="/images/kb/ka05w0000012340-00N5w00000Ri7BU-0EM5w000005vNwr.png" style={{width: 700, height: 421}}/></Frame>
+
+4. Beast Modeの計算を使用し、Clicktaleの再生リンクを用いて新しい表の列を追加します。
+     
+   <Frame><img alt="39clicktale_column.png" src="/images/kb/ka05w0000012340-00N5w00000Ri7BU-0EM5w000005vNwu.png"/></Frame>
+
+   Beast Modeの詳細については、「 [Beast Modeを使用してデータを変換する](/ja/s/article/360043430053) 」を参照してください。
+
+

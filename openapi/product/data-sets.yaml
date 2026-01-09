@@ -1,0 +1,1607 @@
+openapi: 3.0.0
+info:
+  title: Datasets API
+  version: v1
+  description: |
+    The Domo Datasets API provides a set of endpoints for managing, creating, and updating datasets within Domo. The API allows developers to execute SQL queries on datasets,
+    manage access permissions, retrieve metadata, append rows, share datasets, and perform various dataset operations.
+
+servers:
+  - url: 'https://{instance}.domo.com'
+    description: Domo Instance
+    variables:
+      instance:
+        default: example
+        description: Your Domo instance name
+
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Developer token obtained from Domo
+    sessionToken:
+      type: apiKey
+      in: header
+      name: x-domo-authentication
+      description: Session token for authenticated requests
+
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+
+    QueryRequest:
+      type: object
+      required:
+        - sql
+      properties:
+        sql:
+          type: string
+          description: The SQL statement to execute
+          example: "SELECT * FROM your_table WHERE column = 'value'"
+
+    QueryResponse:
+      type: array
+      items:
+        type: object
+        additionalProperties: true
+
+    Permission:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [USER, GROUP]
+        id:
+          type: string
+        accessLevel:
+          type: string
+          enum: [OWNER, CO_OWNER, READ, READ_WRITE, READ_SHARE, READ_WRITE_DELETE_SHARE_ADMIN]
+        name:
+          type: string
+
+    PermissionList:
+      type: object
+      properties:
+        list:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+        totalUserCount:
+          type: integer
+        totalGroupCount:
+          type: integer
+
+    DatasetMetadata:
+      type: object
+      properties:
+        id:
+          type: string
+        displayType:
+          type: string
+        dataProviderType:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        owner:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+            type:
+              type: string
+            group:
+              type: boolean
+        status:
+          type: string
+        created:
+          type: integer
+          format: int64
+        lastTouched:
+          type: integer
+          format: int64
+        lastUpdated:
+          type: integer
+          format: int64
+        rowCount:
+          type: integer
+        columnCount:
+          type: integer
+        streamId:
+          type: integer
+        permissions:
+          type: string
+
+    UploadResponse:
+      type: object
+      properties:
+        dataSourceId:
+          type: string
+        uploadId:
+          type: integer
+        requestedAsOf:
+          type: integer
+          format: int64
+
+    UploadRequest:
+      type: object
+      properties:
+        action:
+          type: string
+          enum: [APPEND, REPLACE]
+          nullable: true
+        appendId:
+          type: string
+          nullable: true
+        message:
+          type: string
+
+    CommitRequest:
+      type: object
+      required:
+        - action
+        - index
+      properties:
+        action:
+          type: string
+          enum: [APPEND, REPLACE]
+        index:
+          type: boolean
+        restateDataTag:
+          type: string
+
+    StreamCreate:
+      type: object
+      required:
+        - transport
+        - configuration
+        - account
+        - updateMethod
+        - dataProvider
+        - dataSource
+      properties:
+        transport:
+          type: object
+          properties:
+            type:
+              type: string
+              enum: [CONNECTOR]
+            description:
+              type: string
+            version:
+              type: string
+        configuration:
+          type: array
+          items:
+            type: object
+            properties:
+              name:
+                type: string
+              value:
+                type: string
+              type:
+                type: string
+              category:
+                type: string
+        account:
+          type: object
+          properties:
+            id:
+              type: integer
+        updateMethod:
+          type: string
+          enum: [APPEND, REPLACE]
+        dataProvider:
+          type: object
+          properties:
+            key:
+              type: string
+        dataSource:
+          type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+        advancedScheduleJson:
+          type: string
+
+    StreamExecution:
+      type: object
+      properties:
+        action:
+          type: string
+          enum: [MANUAL]
+
+    ShareRequest:
+      type: object
+      required:
+        - permissions
+        - sendEmail
+      properties:
+        permissions:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: string
+              type:
+                type: string
+                enum: [USER, GROUP]
+              accessLevel:
+                type: string
+                enum: [CO_OWNER, READ, READ_WRITE]
+        sendEmail:
+          type: boolean
+
+    Schema:
+      type: object
+      properties:
+        columns:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+                enum: [STRING, LONG, DOUBLE, DATE, DATETIME]
+              name:
+                type: string
+              id:
+                type: string
+              visible:
+                type: boolean
+              order:
+                type: integer
+
+    PartitionSearch:
+      type: object
+      properties:
+        paginationFields:
+          type: array
+          items:
+            type: object
+            properties:
+              fieldName:
+                type: string
+              sortOrder:
+                type: string
+                enum: [ASC, DESC]
+              filterValues:
+                type: object
+                properties:
+                  MIN:
+                    nullable: true
+                  MAX:
+                    nullable: true
+        limit:
+          type: integer
+          default: 100
+        offset:
+          type: integer
+          default: 0
+
+    TagArray:
+      type: array
+      items:
+        type: string
+      example: ["tag1", "tag2"]
+
+    UserRemovalRequest:
+      type: array
+      items:
+        type: object
+        properties:
+          id:
+            type: string
+          type:
+            type: string
+            enum: [USER, GROUP]
+
+    IndexRequest:
+      type: object
+      properties:
+        dataIds:
+          type: array
+          items:
+            type: string
+
+    DatasetCreateRequest:
+      type: object
+      properties:
+        userDefinedType:
+          type: string
+          default: api
+        dataSourceName:
+          type: string
+        schema:
+          $ref: '#/components/schemas/Schema'
+
+    PropertiesUpdateRequest:
+      type: object
+      properties:
+        dataProviderType:
+          type: string
+          example: "domo-jupyterdata"
+
+    DataVersionHydrateRequest:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+        dataSourceId:
+          type: string
+        versionWindow:
+          type: object
+
+security:
+  - developerToken: []
+
+paths:
+  /api/query/v1/execute/{datasetId}:
+    post:
+      summary: Query with SQL
+      description: Executes an SQL query on the specified dataset and returns results
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: The ID of the dataset to query
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryRequest'
+            example:
+              sql: "SELECT * FROM your_table WHERE column = 'value'"
+      responses:
+        '200':
+          description: Query results
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryResponse'
+              example:
+                - column1: "value 1"
+                  column2: "value 2"
+                  column3: "value 3"
+                - column1: "value 1"
+                  column2: "value 2"
+                  column3: "value 3"
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/query/v1/execute/{datasetId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "sql": "SELECT * FROM your_table WHERE column = 'value'"
+            }
+
+  /api/data/v3/datasources/{datasetId}/permissions:
+    get:
+      summary: Dataset Access List
+      description: Retrieves a list of users and groups with access to the dataset, along with their permissions
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: Unique identifier of the dataset
+          schema:
+            type: string
+      responses:
+        '200':
+          description: List of permissions
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PermissionList'
+              example:
+                list:
+                  - type: "USER"
+                    id: "966365811"
+                    accessLevel: "OWNER"
+                    name: "Scott Thompson"
+                totalUserCount: 1
+                totalGroupCount: 0
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v3/datasources/{datasetId}/permissions HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/data/v3/datasources/{datasetId}/permissions/USER/{userId}:
+    delete:
+      summary: Revoke Dataset Access
+      description: Revokes access to a specified dataset for a given user
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: The ID of the dataset
+          schema:
+            type: string
+        - name: userId
+          in: path
+          required: true
+          description: The ID of the user
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Access revoked successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE /api/data/v3/datasources/{datasetId}/permissions/USER/{userId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+  /api/data/v3/datasources/{datasetId}:
+    get:
+      summary: Get Metadata
+      description: Retrieves metadata for a specified dataset, including the dataset's properties and optionally requested parts of the metadata
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: The ID of the dataset
+          schema:
+            type: string
+        - name: part
+          in: query
+          description: Comma-separated list of metadata parts to include
+          schema:
+            type: string
+            example: "core,permission"
+      responses:
+        '200':
+          description: Dataset metadata
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatasetMetadata'
+              example:
+                id: "dataset id"
+                displayType: "webform"
+                dataProviderType: "webform"
+                type: "webform"
+                name: "dataset name"
+                owner:
+                  id: "User id"
+                  name: "User name"
+                  type: "USER"
+                  group: false
+                status: "SUCCESS"
+                created: 1231234124
+                lastTouched: 1231421312
+                lastUpdated: 12341234412
+                rowCount: 2
+                columnCount: 3
+                streamId: 25222
+                permissions: "READ_WRITE_DELETE_SHARE_ADMIN"
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v3/datasources/{datasetId}?part=core,permission HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+  /api/data/v3/datasources/{datasetId}/uploads:
+    post:
+      summary: Create Upload Session
+      description: Generates an uploadId for appending or replacing data. This is Stage 1 of the upload process
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          description: Unique identifier of the dataset
+          schema:
+            type: string
+        - name: restateDataTag
+          in: query
+          description: Specifies a partition for UPDATE/REPLACE actions
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UploadRequest'
+            example:
+              action: "APPEND"
+              message: "Uploading"
+              appendId: "latest"
+      responses:
+        '200':
+          description: Upload session created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UploadResponse'
+              example:
+                dataSourceId: "0dbe6a6a-5588-4a1e-9db4-989ca98762a5"
+                uploadId: 10
+                requestedAsOf: 1654557838137
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v3/datasources/{datasetId}/uploads HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "action": "APPEND",
+              "message": "Uploading",
+              "appendId": "latest"
+            }
+
+  /api/data/v3/datasources/{datasetId}/uploads/{uploadId}/parts/{part}:
+    put:
+      summary: Upload CSV Part
+      description: Uploads CSV data as part of a multi-part upload. This is Stage 2 of the upload process
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: uploadId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: part
+          in: path
+          required: true
+          description: Part number of the upload
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          text/csv:
+            schema:
+              type: string
+              format: binary
+            example: "Jae and Oleksii, why\nhello, it is the way"
+      responses:
+        '200':
+          description: Part uploaded successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            PUT /api/data/v3/datasources/{datasetId}/uploads/{uploadId}/parts/1 HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: text/csv
+            Accept: application/json
+
+            Jae and Oleksii, why
+            hello, it is the way
+
+  /api/data/v3/datasources/{datasetId}/uploads/{uploadId}/commit:
+    put:
+      summary: Commit and Index Upload
+      description: Finalizes the data upload by committing the uploaded parts and indexing the dataset. This is Stage 3 of the upload process
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: uploadId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CommitRequest'
+            example:
+              action: "APPEND"
+              index: true
+      responses:
+        '200':
+          description: Upload committed successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            PUT /api/data/v3/datasources/{datasetId}/uploads/{uploadId}/commit HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "action": "APPEND",
+              "index": true
+            }
+
+  /api/data/v1/streams:
+    post:
+      summary: Stream Create
+      description: Creates a new data stream using a connector and specifies configuration details
+      tags:
+        - Datasets API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamCreate'
+            example:
+              transport:
+                type: "CONNECTOR"
+                description: "com.domo.connector.snowflakeunloadv2"
+                version: "1"
+              configuration:
+                - name: "query"
+                  value: "SELECT * FROM table"
+                  type: "string"
+                  category: "METADATA"
+              account:
+                id: 3
+              updateMethod: "APPEND"
+              dataProvider:
+                key: "snowflake-unload-v2"
+              dataSource:
+                name: "hello world"
+                description: "config works?"
+              advancedScheduleJson: "{\"type\": \"MANUAL\", \"timezone\": \"UTC\"}"
+      responses:
+        '200':
+          description: Stream created successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v1/streams HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "transport": {
+                "type": "CONNECTOR",
+                "description": "com.domo.connector.snowflakeunloadv2",
+                "version": "1"
+              },
+              "configuration": [
+                {
+                  "name": "query",
+                  "value": "SELECT * FROM table",
+                  "type": "string",
+                  "category": "METADATA"
+                }
+              ],
+              "account": {
+                "id": 3
+              },
+              "updateMethod": "APPEND",
+              "dataProvider": {
+                "key": "snowflake-unload-v2"
+              },
+              "dataSource": {
+                "name": "hello world",
+                "description": "config works?"
+              },
+              "advancedScheduleJson": "{\"type\": \"MANUAL\", \"timezone\": \"UTC\"}"
+            }
+
+  /api/data/v1/streams/{streamId}:
+    get:
+      summary: Stream Get
+      description: Retrieves configuration details for a specific data stream
+      tags:
+        - Datasets API
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Stream details
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v1/streams/{streamId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+    put:
+      summary: Stream Update
+      description: Updates the configuration of an existing data stream
+      tags:
+        - Datasets API
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamCreate'
+            example:
+              transport:
+                type: "CONNECTOR"
+                description: "com.domo.connector.postgresql.partition"
+                version: "0"
+              configuration:
+                - name: "fetch_size"
+                  value: "None"
+                  type: "string"
+                  category: "METADATA"
+              account:
+                id: 1
+              updateMethod: "APPEND"
+              dataProvider:
+                key: "postgresql-partition"
+              dataSource:
+                name: "hello world"
+                description: "config works?"
+              advancedScheduleJson: "{\"type\": \"MANUAL\", \"timezone\": \"UTC\"}"
+      responses:
+        '200':
+          description: Stream updated successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            PUT /api/data/v1/streams/{streamId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "transport": {
+                "type": "CONNECTOR",
+                "description": "com.domo.connector.postgresql.partition",
+                "version": "0"
+              },
+              "configuration": [
+                {
+                  "name": "fetch_size",
+                  "value": "None",
+                  "type": "string",
+                  "category": "METADATA"
+                }
+              ],
+              "account": {
+                "id": 1
+              },
+              "updateMethod": "APPEND",
+              "dataProvider": {
+                "key": "postgresql-partition"
+              },
+              "dataSource": {
+                "name": "hello world",
+                "description": "config works?"
+              },
+              "advancedScheduleJson": "{\"type\": \"MANUAL\", \"timezone\": \"UTC\"}"
+            }
+
+  /api/data/v1/streams/{streamId}/history/aggregate:
+    get:
+      summary: Stream Execution History
+      description: Retrieves the execution history for a specific data stream, including details about completed operations, errors, and performance metrics
+      tags:
+        - Datasets API
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Execution history
+          content:
+            application/json:
+              example:
+                - streamId: 371
+                  executionId: 34320
+                  currentState: "SUCCESS"
+                  rowsInserted: 297164
+                  bytesInserted: 43584980
+                  startedAt: 1656009784
+                  endedAt: 1656009824
+                  updateMethod: "REPLACE"
+                  peakMemoryUsedBytes: 200819808
+                - streamId: 371
+                  executionId: 34319
+                  currentState: "SUCCESS"
+                  rowsInserted: 297164
+                  bytesInserted: 43584980
+                  startedAt: 1656007981
+                  endedAt: 1656008009
+                  updateMethod: "REPLACE"
+                  peakMemoryUsedBytes: 206690488
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v1/streams/{streamId}/history/aggregate HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/data/v1/streams/{streamId}/executions:
+    post:
+      summary: Execute Dataset Stream
+      description: Executes a dataset stream manually
+      tags:
+        - Datasets API
+      parameters:
+        - name: streamId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StreamExecution'
+            example:
+              action: "MANUAL"
+      responses:
+        '200':
+          description: Stream execution started
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v1/streams/{streamId}/executions HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "action": "MANUAL"
+            }
+
+  /api/data/ui/v3/datasources/{datasetId}/tags:
+    post:
+      summary: Create Dataset Tag
+      description: Creates tags for the specified dataset
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TagArray'
+            example: ["tag1", "tag2"]
+      responses:
+        '200':
+          description: Tags created successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/ui/v3/datasources/{datasetId}/tags HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            ["tag1", "tag2"]
+
+  /api/data/v3/datasources/{datasetId}/share:
+    post:
+      summary: Share Dataset
+      description: Shares a dataset and grants access permissions to specified users
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShareRequest'
+            example:
+              permissions:
+                - id: "ownerId1"
+                  type: "USER"
+                  accessLevel: "CO_OWNER"
+              sendEmail: true
+      responses:
+        '200':
+          description: Dataset shared successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v3/datasources/{datasetId}/share HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "permissions": [
+                {
+                  "id": "ownerId1",
+                  "type": "USER",
+                  "accessLevel": "CO_OWNER"
+                }
+              ],
+              "sendEmail": true
+            }
+
+  /api/data/v3/datasources/{datasetId}/USERS/{userId}:
+    delete:
+      summary: Remove User from Dataset
+      description: Removes a user from a dataset's permissions
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: userId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: User removed successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE /api/data/v3/datasources/{datasetId}/USERS/{userId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+  /api/data/v3/datasources/{datasetId}/users:
+    delete:
+      summary: Remove Multiple Users
+      description: Removes multiple users from a dataset's permissions
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRemovalRequest'
+            example:
+              - id: "userId1"
+                type: "USER"
+              - id: "userId2"
+                type: "USER"
+      responses:
+        '200':
+          description: Users removed successfully
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE /api/data/v3/datasources/{datasetId}/users HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            [
+              {"id": "userId1", "type": "USER"},
+              {"id": "userId2", "type": "USER"}
+            ]
+
+  /api/data/v3/datasources/{datasetId}/dataversions/details:
+    get:
+      summary: Get Data Versions
+      description: Retrieves detailed information about all data versions associated with the dataset
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data versions list
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v3/datasources/{datasetId}/dataversions/details HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/query/v1/datasources/{datasetId}/partition:
+    get:
+      summary: Get Partition List
+      description: Retrieves a list of partitions associated with the dataset. Does not include metadata such as row counts
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Partition list
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/query/v1/datasources/{datasetId}/partition HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/query/v1/datasources/{datasetId}/partition/list:
+    post:
+      summary: Search Partition List
+      description: Searches for partitions associated with the dataset. Allows pagination, sorting, and filtering of results
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PartitionSearch'
+            example:
+              paginationFields:
+                - fieldName: "datecompleted"
+                  sortOrder: "DESC"
+                  filterValues:
+                    MIN: null
+                    MAX: null
+              limit: 100
+              offset: 0
+      responses:
+        '200':
+          description: Filtered partition list
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/query/v1/datasources/{datasetId}/partition/list HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "paginationFields": [
+                {
+                  "fieldName": "datecompleted",
+                  "sortOrder": "DESC",
+                  "filterValues": {
+                    "MIN": null,
+                    "MAX": null
+                  }
+                }
+              ],
+              "limit": 100,
+              "offset": 0
+            }
+
+  /api/dataprocessing/v2/dataflows/data-version-hydrate:
+    post:
+      summary: Data Version List from Magic
+      description: Retrieves a list of data versions for datasets processed with the MAGIC engine
+      tags:
+        - Datasets API
+      parameters:
+        - name: engine
+          in: query
+          schema:
+            type: string
+            default: MAGIC
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 500
+        - name: offset
+          in: query
+          schema:
+            type: integer
+            default: 0
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DataVersionHydrateRequest'
+            example:
+              id: ""
+              type: "LoadFromVault"
+              dataSourceId: "{dataset_id}"
+              versionWindow:
+                type: "EXPRESSION"
+                expression: "1=1"
+      responses:
+        '200':
+          description: Data version list
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/dataprocessing/v2/dataflows/data-version-hydrate?engine=MAGIC&limit=500&offset=0 HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "id": "",
+              "type": "LoadFromVault",
+              "dataSourceId": "{dataset_id}",
+              "versionWindow": {
+                "type": "EXPRESSION",
+                "expression": "1=1"
+              }
+            }
+
+  /api/query/v1/datasources/{datasetId}/tag/{partitionId}/data:
+    delete:
+      summary: Delete Data Version
+      description: Marks the data version associated with a partition tag as deleted. This does not delete the partition tag itself or remove the association between the partition tag and the data version
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: partitionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Data version deleted
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE /api/query/v1/datasources/{datasetId}/tag/{partitionId}/data HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/query/v1/datasources/{datasetId}/partition/{partitionId}:
+    delete:
+      summary: Delete Partition Tag
+      description: Removes the association of a partition tag with its dataset, ensuring it no longer appears in the partition list
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: partitionId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Partition tag removed
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            DELETE /api/query/v1/datasources/{datasetId}/partition/{partitionId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/data/v3/datasources/{datasetId}/indexes:
+    post:
+      summary: Index Dataset (indexes)
+      description: Indexes data versions for a dataset to make them queryable. If no dataIds are provided, all complete and unindexed versions are indexed
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/IndexRequest'
+            example:
+              dataIds: []
+      responses:
+        '200':
+          description: Indexing started
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v3/datasources/{datasetId}/indexes HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "dataIds": []
+            }
+
+  /api/data/v2/datasources:
+    post:
+      summary: Create Dataset Copy
+      description: Creates a new dataset by copying an existing schema and providing user-defined metadata
+      tags:
+        - Datasets API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DatasetCreateRequest'
+            example:
+              userDefinedType: "api"
+              dataSourceName: "hello world"
+              schema:
+                columns:
+                  - type: "STRING"
+                    name: "Friend"
+                  - type: "STRING"
+                    name: "Attending"
+      responses:
+        '200':
+          description: Dataset created
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v2/datasources HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "userDefinedType": "api",
+              "dataSourceName": "hello world",
+              "schema": {
+                "columns": [
+                  {
+                    "type": "STRING",
+                    "name": "Friend"
+                  },
+                  {
+                    "type": "STRING",
+                    "name": "Attending"
+                  }
+                ]
+              }
+            }
+
+  /api/query/v1/datasources/{datasetId}/schema/indexed:
+    get:
+      summary: Get Dataset Schema
+      description: Retrieves the schema of a dataset, including details about columns, their types, and metadata
+      tags:
+        - Datasets API
+      security:
+        - sessionToken: []
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: includeHidden
+          in: query
+          description: Specifies whether hidden columns are included
+          schema:
+            type: boolean
+            default: false
+      responses:
+        '200':
+          description: Dataset schema
+          content:
+            application/json:
+              example:
+                name: "schema"
+                tables:
+                  - columns:
+                      - name: "Display Name"
+                        id: "Display Name"
+                        type: "STRING"
+                        visible: true
+                        order: 0
+                      - name: "Role"
+                        id: "Role"
+                        type: "STRING"
+                        visible: true
+                        order: 0
+                dataSourceId: "94a4edfa-5926-4f0c-ad1e-a341f53f6113"
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/query/v1/datasources/{datasetId}/schema/indexed?includeHidden=false HTTP/1.1
+            Host: {instance}.domo.com
+            x-domo-authentication: {session_token}
+            Content-Type: application/json
+            Accept: application/json
+
+  /api/data/v2/datasources/{datasetId}/schemas:
+    post:
+      summary: Alter Dataset Schema
+      description: Modifies the schema of an existing dataset by adding or altering columns
+      tags:
+        - Datasets API
+      security:
+        - sessionToken: []
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Schema'
+            example:
+              columns:
+                - name: "name"
+                  id: "name"
+                  type: "STRING"
+                  visible: true
+                  order: 0
+                - name: "id"
+                  id: "id"
+                  type: "LONG"
+                  visible: true
+                  order: 0
+                - name: "alertId"
+                  id: "alertId"
+                  type: "LONG"
+                  visible: true
+                  order: 0
+      responses:
+        '200':
+          description: Schema updated
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/data/v2/datasources/{datasetId}/schemas HTTP/1.1
+            Host: {instance}.domo.com
+            x-domo-authentication: {session_token}
+            Content-Type: application/json
+            Accept: application/json
+
+            {
+              "columns": [
+                {
+                  "name": "name",
+                  "id": "name",
+                  "type": "STRING",
+                  "visible": true,
+                  "order": 0
+                },
+                {
+                  "name": "id",
+                  "id": "id",
+                  "type": "LONG",
+                  "visible": true,
+                  "order": 0
+                },
+                {
+                  "name": "alertId",
+                  "id": "alertId",
+                  "type": "LONG",
+                  "visible": true,
+                  "order": 0
+                }
+              ]
+            }
+
+  /api/content/v1/datasources/{datasetId}/cards:
+    get:
+      summary: Get Cards for Dataset
+      description: Retrieves a list of cards associated with a dataset. Includes drill paths for cards if drill is set to true
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: drill
+          in: query
+          description: Whether to include drill paths
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: List of cards
+          content:
+            application/json:
+              example:
+                - id: 93905300
+                  urn: "93905300"
+                  type: "kpi"
+                  chartType: "badge_xyscatterplot"
+                  title: "Page Views by User"
+                  ownerId: 587894148
+                  owners:
+                    - id: "587894148"
+                      type: "USER"
+                      displayName: "Bryan Van Kampen"
+                  access: true
+                  datasourceId: "61c4e63d-0627-41f7-b138-74968ebd7634"
+                - id: 100292082
+                  urn: "100292082"
+                  type: "kpi"
+                  chartType: "badge_vert_bar"
+                  title: "DataFlow Creation"
+                  ownerId: 1893952720
+                  owners:
+                    - id: "1893952720"
+                      type: "USER"
+                      displayName: "Jae Wilson"
+                  access: true
+                  datasourceId: "61c4e63d-0627-41f7-b138-74968ebd7634"
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/content/v1/datasources/{datasetId}/cards?drill=true HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/query/v1/datasources/{datasetId}:
+    post:
+      summary: Index Dataset (query)
+      description: Indexes a dataset to make it available for querying. This process is required after schema changes or data updates
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Indexing started
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            POST /api/query/v1/datasources/{datasetId} HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/data/v3/datasources/{datasetId}/indexes/{indexId}/statuses:
+    get:
+      summary: Index Dataset Progress
+      description: Retrieves the status of a dataset indexing operation for the specified index ID
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: indexId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Index status
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            GET /api/data/v3/datasources/{datasetId}/indexes/{indexId}/statuses HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+
+  /api/data/v3/datasources/{datasetId}/properties:
+    put:
+      summary: Change Dataset Properties
+      description: Updates the properties of a dataset, such as the data provider type
+      tags:
+        - Datasets API
+      parameters:
+        - name: datasetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PropertiesUpdateRequest'
+            example:
+              dataProviderType: "domo-jupyterdata"
+      responses:
+        '200':
+          description: Properties updated
+      x-codeSamples:
+        - lang: HTTP
+          source: |
+            PUT /api/data/v3/datasources/{datasetId}/properties HTTP/1.1
+            Host: {instance}.domo.com
+            X-DOMO-Developer-Token: {token}
+            Content-Type: application/json
+
+            {
+              "dataProviderType": "domo-jupyterdata"
+            }

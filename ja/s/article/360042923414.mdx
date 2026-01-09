@@ -1,0 +1,97 @@
+---
+title: "ランクや行カウントを作成する"
+---
+
+DataSetのランクや行カウントを作成するには、
+
+MySQLやRedShift DataFlowを使用します。
+
+## MySQLの場合
+
+DataFlowに次のコードを入力します。
+
+```sql
+Select
+
+a.*
+
+,@rank:= @rank + 1 AS `Rank`
+
+FROM your_dataset a
+
+,(SELECT @rank:=0) b
+```
+
+`ORDER BY ___`
+  
+<Frame><img alt="Rank1.png" src="/images/kb/ka05w00000128q6-00N5w00000Ri7BU-0EM5w000005vOwG.png"/></Frame>
+## ウィンドウ表示のMySQLの場合
+
+変数を使ってウィンドウ表示の行カウントを作成することもできます。MySQLはクエリのFROMとORDER BY部分を評価した後、SELECT部分を評価します。この後、SELECTの各列が順に評価されます。この評価順序を利用して、ROW\_NUMBERなどのほかのウィンドウ関数を複製することができます。
+
+DataFlowに次のコードを入力します。
+
+```sql
+SELECT
+
+a.`Name`,
+
+a.`Amount`,
+
+CASE WHEN a.`Name` = @PriorRecordName then @RowNumber:= @RowNumber + 1
+
+WHEN a.`Name` <> @PriorRecordName then @RowNumber:= 1
+
+END AS 'Windowed Row Number',
+
+@PriorRecordName:= a.`Name`
+
+FROM `mydatatable` a, (SELECT @PriorRecordName:= '', @RowNumber:= 0) AS b
+
+ORDER BY a.`Name, a.`Amount
+```
+
+このクエリでは、@PriorRecordName変数と@RowNumber変数はクエリのSELECT部分の前に初期化されます。変数はそれぞれ空の文字列と0で初期化されます。次に、SELECTステートメント内の各列が順に評価されます。この方法ではデータが正しくソートされていることが重要になるため、クエリのORDER BYに「Name」列と「Amount」列を含める必要があります。
+
+CASEステートメントは「Windowed Row Number」の設定方法を決定します。「Name」の値が@PriorRecordNameの値と一致する場合、@RowNumberが1増加し、その値が「Windowed Row Number」列として返されます。ただし、「Name」が@PriorRecordNameと一致しない場合、@RowNumberは値1を受け取り、その値を「Windowed Row Number」として返します。最後に、@PriorRecordName変数が「Name」フィールドの値に設定されます。
+
+クエリは行を順に返し、現在の行の「Name」の値が前の行の「Name」の値と同じかどうかを確認し、それに応じて「Windowed Row Number」の値を割り当てます。
+
+上記のクエリを実行すると、出力は以下のようになります。
+
+<Frame><img alt="Windowed_Row_Count_Output.png" src="/images/kb/ka05w00000128q6-00N5w00000Ri7BU-0EM5w000005vOwQ.png"/></Frame>
+DataFlowに次のコードを入力すると、CASEステートメントなしで変数を使ってウィンドウ表示の行カウントを作成できます。
+
+```sql
+Select
+
+  a.*
+
+  ,@rank:=  IF(@prev = a.`column`,@rank + 1,1) AS `Rank`
+
+  ,@prev:= a.`column`
+```
+
+`FROM your_dataset a
+  
+,(SELECT @rank:=0, @prev:=’’) b`
+  
+<Columns>
+  <Frame><img alt="Rank2.png" src="/images/kb/ka05w00000128q6-00N5w00000Ri7BU-0EM5w000005vOwM.png"/></Frame>
+  <Frame><img alt="Rank3.png" src="/images/kb/ka05w00000128q6-00N5w00000Ri7BU-0EM5w000005vOwI.png"/></Frame>
+</Columns>
+## RedShiftの場合
+
+次の入力コードを入力します。
+
+```
+ROW_NUMBER () OVER
+
+([ PARTITION BY expr_list ]
+
+[ ORDER BY order_list ]
+
+)
+```
+
+日本語

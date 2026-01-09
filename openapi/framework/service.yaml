@@ -1,0 +1,338 @@
+openapi: 3.0.0
+info:
+  title: Domo AI Service Layer API
+  version: v1
+  description: |
+    Domo's AI Service Layer enables developers to build AI capabilities into their Domo Apps.
+    
+    Currently supported services:
+    - **Text Generation**: Generate text responses from text prompts
+    - **Text-to-SQL**: Generate SQL queries based on prompts and dataset schemas
+    - **Image-to-Text**: Generate text responses from images (OCR)
+    
+    Domo allows you to configure which models power each of the services.
+
+servers:
+  - url: 'https://{instance}.domo.com'
+    description: Domo Instance
+    variables:
+      instance:
+        default: example
+        description: Your Domo instance name
+
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message
+
+    PromptTemplate:
+      type: object
+      properties:
+        template:
+          type: string
+          description: Template string for the prompt. Use ${input} and other ${parameter} placeholders
+          example: "${input}. You are a helpful assistant that gives answers in ${max_words} words or less"
+
+    AIResponse:
+      type: object
+      properties:
+        prompt:
+          type: string
+          description: The actual prompt sent to the model
+        choices:
+          type: array
+          items:
+            type: object
+            properties:
+              output:
+                type: string
+                description: The generated output from the model
+        modelId:
+          type: string
+          description: ID of the model used (if custom model specified)
+        isCustomerModel:
+          type: boolean
+          description: Whether a custom model was used
+
+    TextGenerationRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The prompt to send to the model
+          example: "Tell me a joke about data."
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value pairs for template parameter substitution
+          example:
+            max_words: "30"
+        model:
+          type: string
+          description: The ID of a specific model to use (optional)
+          example: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+
+    DataSourceColumn:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Column name
+          example: "Date"
+        type:
+          type: string
+          description: Column data type
+          enum: [string, number, date, datetime, boolean]
+          example: "date"
+
+    DataSourceSchema:
+      type: object
+      properties:
+        dataSourceName:
+          type: string
+          description: Name of the data source
+          example: "Sales"
+        description:
+          type: string
+          description: Description of the data source
+          example: "Sales Data"
+        columns:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceColumn'
+
+    TextToSQLRequest:
+      type: object
+      required:
+        - input
+      properties:
+        input:
+          type: string
+          description: The natural language prompt to convert to SQL
+          example: "Show me the sales for the last 3 months."
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        parameters:
+          type: object
+          additionalProperties:
+            type: string
+          description: Key-value pairs for template parameter substitution
+          example:
+            measure: "sales"
+            timeframe: "3 months"
+        model:
+          type: string
+          description: The ID of a specific model to use (optional)
+          example: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+        dataSourceSchemas:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataSourceSchema'
+          description: Schemas of datasets to consider when generating SQL
+
+    ImageData:
+      type: object
+      required:
+        - mediaType
+        - type
+        - data
+      properties:
+        mediaType:
+          type: string
+          description: MIME type of the image
+          enum: [image/png, image/jpeg, image/jpg, image/gif, image/webp]
+          example: "image/png"
+        type:
+          type: string
+          description: Encoding type
+          enum: [base64]
+          example: "base64"
+        data:
+          type: string
+          description: Base64-encoded image data (without data URL prefix)
+          example: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+
+    ImageToTextRequest:
+      type: object
+      required:
+        - input
+        - image
+        - model
+      properties:
+        input:
+          type: string
+          description: The prompt describing what to extract from the image
+          example: "return the text in the image, ensuring new lines are preserved"
+        image:
+          $ref: '#/components/schemas/ImageData'
+        model:
+          type: string
+          description: The ID of the model to use for OCR
+          example: "domo.domo_ai.domogpt-chat-medium-v1.1:anthropic"
+        promptTemplate:
+          $ref: '#/components/schemas/PromptTemplate'
+        system:
+          type: string
+          description: System prompt to guide the OCR process
+          example: "You are an AI assistant tasked with performing Optical Character Recognition (OCR) on an image..."
+
+paths:
+  /domo/ai/v1/text/generation:
+    post:
+      summary: Text Generation
+      description: Generates a text response from a text prompt using AI
+      tags: 
+        - AI Service Layer API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextGenerationRequest'
+            examples:
+              simple:
+                summary: Simple prompt
+                value:
+                  input: "Tell me a joke about data."
+              withTemplate:
+                summary: With custom template and parameters
+                value:
+                  input: "Recap the 2021 superbowl"
+                  promptTemplate:
+                    template: "${input}. You are a helpful assistant that gives answers in ${max_words} words or less"
+                  parameters:
+                    max_words: "30"
+                  model: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+      responses:
+        '200':
+          description: Text generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                prompt: "Recap the 2021 superbowl"
+                choices:
+                  - output: "The 2021 Super Bowl, also known as Super Bowl LV, took place on February 7, 2021..."
+                modelId: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+                isCustomerModel: true
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/ai/v1/text/sql:
+    post:
+      summary: Text-to-SQL
+      description: Generates a SQL query based on a natural language prompt and dataset schemas
+      tags: 
+        - AI Service Layer API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextToSQLRequest'
+            examples:
+              simple:
+                summary: Simple SQL generation
+                value:
+                  input: "Show me the sales for the last 3 months."
+                  dataSourceSchemas:
+                    - dataSourceName: "Sales"
+                      description: "Sales Data"
+                      columns:
+                        - name: "Date"
+                          type: "date"
+                        - name: "Sales"
+                          type: "number"
+              withTemplate:
+                summary: With custom template and parameters
+                value:
+                  input: "Create a sql query to show me total sales."
+                  promptTemplate:
+                    template: "${input}. Show me the ${measure} for the last ${timeframe}"
+                  parameters:
+                    measure: "sales"
+                    timeframe: "3 months"
+                  model: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+                  dataSourceSchemas:
+                    - dataSourceName: "Sales"
+                      description: "Sales Data"
+                      columns:
+                        - name: "Date"
+                          type: "date"
+                        - name: "Sales"
+                          type: "number"
+      responses:
+        '200':
+          description: SQL generation successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                prompt: "You are a helpful assistant that generates SQL queries. Table `Voter Registration`, columns=[State:string, County:string, Party:string, Registered Voters: number, Total Votes:number]. Find the total votes by party in each county in the state of Utah."
+                choices:
+                  - output: "SELECT County, Party, SUM(`Total Votes`) AS TotalVotes FROM `Voter Registration` WHERE State = 'Utah' GROUP BY County, Party"
+                modelId: "8dc5737d-0bc8-425b-ad0d-5d6ec1a99e72"
+                isCustomerModel: true
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /domo/ai/v1/image/text:
+    post:
+      summary: Image-to-Text (OCR)
+      description: Generates a text response from an image using optical character recognition
+      tags: 
+        - AI Service Layer API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ImageToTextRequest'
+            example:
+              input: "return the text in the image, ensuring new lines are preserved"
+              image:
+                mediaType: "image/png"
+                type: "base64"
+                data: "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+              model: "domo.domo_ai.domogpt-chat-medium-v1.1:anthropic"
+              promptTemplate:
+                template: "${input}"
+              system: "You are an AI assistant tasked with performing Optical Character Recognition (OCR) on an image. Your goal is to accurately identify and transcribe any text present in the image..."
+      responses:
+        '200':
+          description: OCR successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AIResponse'
+              example:
+                prompt: "return the text in the image, ensuring new lines are preserved"
+                choices:
+                  - output: "<answer>\nHello World\n</answer>"
+                modelId: "domo.domo_ai.domogpt-chat-medium-v1.1:anthropic"
+                isCustomerModel: false
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'

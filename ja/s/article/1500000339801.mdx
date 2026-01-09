@@ -1,0 +1,74 @@
+---
+title: "Salesforce Marketing Cloud Restコネクター"
+---
+
+## はじめに
+
+Salesforce Marketing Cloudは、メールをはじめ、モバイル、ソーシャルおよびオンラインマーケティング用のマーケティングオートメーションと分析ソフトウェアを開発しています。API統合と付加価値の高いマーケティングアプリケーションを使って、マーケティングビジネスをカスタマイズおよびパーソナライズすることができます。REST APIは、強力で使いやすいシンプルなRESTベースのWebサービスインターフェースを提供し、Salesforceと連携します。DomoのSalesforce Marketing Cloud Restコネクターにより、統合と開発を簡単に行うことができます。このコネクターを使うと、強力で使いやすいシンプルなRESTベースのインターフェースにより、キャンペーンやキャンペーンアセットに関するデータを取得できます。Salesforce Marketing Cloud APIの詳細については、Salesforceの「
+
+[APIドキュメント](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm "https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm") 」を参照してください。
+
+Salesforce Marketing Cloud Restコネクターは「クラウドApp」コネクターです。つまり、クラウドに保管されたデータを取得できます。Data Centerでウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Salesforce Marketing CloudアカウントにはData Centerから接続します。このトピックでは、Salesforce Marketing Cloud Restコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Salesforce Marketing Cloudアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Salesforce Marketing Cloudのサブドメインこれは「mc」で始まる28文字の文字列です。
+* OAuth 2.0 API統合のクライアントIDとクライアントシークレット。
+
+## Salesforce Marketingアカウントに接続する
+
+このセクションでは、
+
+**Salesforce Marketing Cloud Rest**
+
+コネクターページの
+
+**［認証情報］**
+
+および
+
+［詳細］
+
+ペインのオプションについて説明します。このページのほかのペインの項目である
+
+**［スケジュール設定］** や
+
+**［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、
+
+Salesforce Marketing アカウントに接続するための認証情報入力フィールドが含まれています。下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Salesforce Marketing Could Subdomain </td><td colspan="1" rowspan="1"> Salesforce Marketing Cloudのサブドメインを入力します。これは「mc」で始まる28文字の文字列です。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> OAuth 2.0 API統合のクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> OAuth 2.0 API統合のクライアントシークレットを入力します。 </td></tr></tbody></table>
+
+有効な
+
+Salesforce Marketing
+
+の認証情報を一度入力しておくと、随時同じアカウントを利用して新しい
+
+Salesforce Marketing Cloud Rest
+
+DataSetを作成できます。コネクターのアカウントは、Data Centerの
+
+**［アカウント］** タブで管理することができます。このタブの詳細については、「
+
+[コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したいSalesforce Marketing Cloud Restレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Asset Categories </td><td colspan="1" rowspan="1"> MIDに存在している、または所有している1つ以上のContent Builderカテゴリーを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Assets </td><td colspan="1" rowspan="1"> すべてのアセットのコレクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign Assets </td><td colspan="1" rowspan="1"> キャンペーンアセットのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign List </td><td colspan="1" rowspan="1"> キャンペーンのコレクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Definitions </td><td colspan="1" rowspan="1"> イベント定義のコレクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Definition By Id </td><td colspan="1" rowspan="1"> IDで個々のイベント定義を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Definition By Key </td><td colspan="1" rowspan="1"> キーで個々のイベント定義を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Interactions </td><td colspan="1" rowspan="1"> すべてのインタラクションのコレクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Interaction By Id </td><td colspan="1" rowspan="1"> IDで単一のインタラクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Interaction Status By Id </td><td colspan="1" rowspan="1"> IDでインタラクションのステータスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Interaction Status By Key </td><td colspan="1" rowspan="1"> キーでインタラクションのステータスを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Interaction Summary </td><td colspan="1" rowspan="1"> （すべてのバージョンから）ジャーニー/インタラクションの要約データを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Trigger Statistics </td><td colspan="1" rowspan="1"> トリガー統計のコレクションを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Trigger Statistics By Journey </td><td colspan="1" rowspan="1"> ジャーニーでトリガー統計のコレクションを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Campaign Selection </td><td colspan="1" rowspan="1"> すべてのキャンペーンのデータまたは特定のキャンペーンのデータを取得するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaigns </td><td colspan="1" rowspan="1"> 1つ以上のキャンペーンを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Event Definition Id </span></td><td colspan="1" rowspan="1"><span> イベント定義IDを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Event Definition Key </span></td><td colspan="1" rowspan="1"><span> イベント定義キーを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Interaction Id </span></td><td colspan="1" rowspan="1"><span> インタラクションIDを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Interaction Key </span></td><td colspan="1" rowspan="1"><span> インタラクションキーを選択します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

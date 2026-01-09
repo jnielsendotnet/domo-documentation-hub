@@ -1,0 +1,99 @@
+---
+title: "MySQL SSH Writebackコネクター"
+---
+
+## はじめに
+
+MySQLは、オープンソースのリレーショナルデータベース管理システムです。MySQL SSH Writebackコネクターを使用すると、Domo DataSetから指定のMySQLデータベースにデータをエクスポートする際に、MySQLに安全に接続できます。MySQLデータベースへのデータのエクスポートはData Centerで行います。
+
+Data CenterでDomo-MySQL接続を設定します。このトピックでは、MySQL SSH Writebackコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* SSHトンネルを使用しているサーバーのホスト名
+* SSHサーバーのポート番号、ユーザー名、秘密キー、秘密キーのパスフレーズ
+* データベースサーバーのホスト名またはIPアドレス
+* MySQLのポート番号、ユーザー名、パスワード、データベース名
+
+<Note>
+注記： **Domoはssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するRSAキーである必要があります。**
+
+</Note>
+
+<Warning>
+**重要** ：MySQLでは以下の権限が必要です。
+
+* FILE
+* CREATE
+* DROP
+* INSERT
+* SELECT
+* UPDATE
+
+</Warning>
+
+## 接続を設定する
+
+このセクションでは、MySQL SSH Writebackコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データのコピー先となるMySQLアカウントに接続するための認証情報を入力するフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> SSH Server Host Name </td><td colspan="1" rowspan="1"><span> SSHサーバーのホスト名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> SSH Port Number </td><td colspan="1" rowspan="1"><span> SFTPサーバーのポート番号を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> SSH Username </td><td colspan="1" rowspan="1"><span> SSHサーバーのユーザー名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> SSH Password </td><td colspan="1" rowspan="1"><span> SSHサーバーのパスワードを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key </td><td colspan="1" rowspan="1"><span> PEM形式のSSH秘密キー（DESまたはRSA）を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key Passphrase </td><td colspan="1" rowspan="1"><span> SSHサーバーの秘密キーのパスフレーズを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> MySQL JDBC Driver </td><td colspan="1" rowspan="1"><span> 使用するMySQL JDBCドライバーを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"><span> データベースサーバーのホスト名またはIPアドレスを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"><span> MySQLのポート番号を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><span> MySQLユーザー名を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"><span> MySQLのパスワードを入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Database </td><td colspan="1" rowspan="1"><span> MySQLデータベース名を入力します。 </span></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDomo-MySQL接続を設定できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、データを指定してデータの送信先を示すための多数のフィールドがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSet ID </p></td><td colspan="1" rowspan="1"><p><span> DataSet URLにあるDomo DataSet ID（GUID）を入力します。 </span></p><p> 例えば、URLが <span class="mt-font-courier-new"><span class="nowiki"><a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview" rel="noopener" target="_blank"> https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview </a></span></span> であれば、DataSet IDは <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </span> になります。 </p></td></tr><tr><td colspan="1" rowspan="1"> How would you like to select your table? </td><td colspan="1" rowspan="1"><span> 新しい表を作成してDataSetデータをエクスポートするか、既存のテーブルを選択してDataSetデータをエクスポートするかを指定します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"><p><span></span><span> 表の名前にDataSet IDを使用するか、カスタム名を使用するかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Custom Table Name </td><td colspan="1" rowspan="1"><span> DataSetを書き込むSQL表の名前を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Delete existing table and create a new table with the same name </span></td><td colspan="1" rowspan="1"><p><span> Domoで既存の表を削除し、同じ名前を持つ新しい表を作成する場合は、このチェックボックスを選択します。 </span></p><p><span><b> 警告 </b> ：これにより 既存の表が削除されます。削除されたデータは復元できなくなります。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Existing Table </td><td colspan="1" rowspan="1"><span> DataSetを書き込む表を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Update Operation Type </td><td colspan="1" rowspan="1"><p><span> データの更新中にデータを追加するか、新しいデータで上書きするか、データをアップサートするかを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> Use Column Mapping </td><td colspan="1" rowspan="1"><span> DataSetの列名と表の列名のマッピングを行う場合は、このチェックボックスを選択します。このオプションを選択すると、テキスト領域に配置されている列のみが更新/挿入されます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Dataset Column Names </td><td colspan="1" rowspan="1"><span> DataSetの列名のリストをカンマで区切って入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Table Column Names </td><td colspan="1" rowspan="1"><span> 表の列名のリストをカンマで区切って入力します。表の列名のシーケンスはDataSetの列名のシーケンスに対応させる必要があります。マッピングを適切に行うためには、DataSetの列名の数を表の列名の数と等しくする必要があります。 </span></td></tr><tr><td colspan="1" rowspan="1"> Primary Column </td><td colspan="1" rowspan="1"><span> プライマリキー列とする列名を選択します。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+以下が必要です。
+
+* SSHトンネルを使用しているサーバーのホスト名
+* SSHサーバーのポート番号、ユーザー名、秘密キー、秘密キーのパスフレーズ
+* データベースサーバーのホスト名またはIPアドレス
+* MySQLのポート番号、ユーザー名、パスワード、データベース名
+* 使用するMySQL JDBCドライバーを選択
+  する必要もあります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="入力DataSet IDはどのように見つけることができますか？">
+
+
+Domoの入力DataSet IDは、データのエクスポート元となるDataSetのURLで見つけることができます。例：
+https://customer.domo.com/datasources/ **aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee** /details/settings
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないかどうかを確認してください。
+* まれに、多過ぎる情報をリクエストした結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの実行履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

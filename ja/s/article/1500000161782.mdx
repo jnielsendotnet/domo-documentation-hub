@@ -1,0 +1,42 @@
+---
+title: "WooCommerceコネクター"
+---
+
+## はじめに
+
+WooCommerceは、世界中の起業家に向けたオープンソースで完全にカスタマイズ可能な、柔軟で強化されたeコマースプラットフォームです。組み込みのツールと人気の統合によって、業務を効率的に管理でき、ビジネス全体でオーディエンスを広げることができます。DomoのWooCommerceコネクターを使用すると、顧客や注文に関するデータを取得することができます。最も重要なパフォーマンスメトリクスを監視するには、DomoのWooCommerceコネクターを使用してください。WooCommerce APIの詳細については、WooCommerce のページ（ [https://docs.woocommerce.com/documen...erce-rest-api/](https://docs.woocommerce.com/document/woocommerce-rest-api/ "https://docs.woocommerce.com/document/woocommerce-rest-api/") ）を参照してください。
+
+WooCommerceアカウントには、Data Centerから接続します。このトピックでは、WooCommerceユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+WooCommerceアカウントに接続してDataSetを作成するには、以下の情報が必要になります。
+
+* サーバーのユーザー名とパスワード
+* コンシューマーキー
+* コンシューマーシークレット
+* サーバーのドメイン名
+
+## WooCommerceアカウントに接続する
+
+このセクションでは、 WooCommerce コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 WooCommerce アカウントへの接続に使用する認証情報を入力するためのフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Username］ </td><td colspan="1" rowspan="1"> サーバーのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Password］ </td><td colspan="1" rowspan="1"> サーバーのパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Consumer Key］ </td><td colspan="1" rowspan="1"> コンシューマーキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Consumer Secret］ </td><td colspan="1" rowspan="1"> コンシューマーシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Domain］ </td><td colspan="1" rowspan="1"> サーバーのドメイン名を入力します。 </td></tr></tbody></table>
+
+有効な WooCommerce 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい WooCommerce DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［Report］ </p></td><td colspan="1" rowspan="1"><p> 実行するWooCommerceレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> ［All Customers］ </td><td colspan="1" rowspan="1"> すべての顧客に関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ［All Orders］ </td><td colspan="1" rowspan="1"> すべての注文に関するデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ［Search Text］ </td><td colspan="1" rowspan="1"> 結果をフィルターするためのテキスト文字列を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Email］ </td><td colspan="1" rowspan="1"> 結果は、特定のメールが指定されているリソースに対してフィルターされます。 </td></tr><tr><td colspan="1" rowspan="1"> ［Customer ID］ </td><td colspan="1" rowspan="1"> 割り当てられた注文を取得する対象の顧客IDを入力します。顧客IDは［All Customers］レポートで確認できます。 </td></tr><tr><td colspan="1" rowspan="1"> ［Product Selection Criteria］ </td><td colspan="1" rowspan="1"> すべての製品、特定の製品、または製品別にフィルターされていない注文のいずれに関する詳細を取得するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Product］ </td><td colspan="1" rowspan="1"> 割り当てられた注文を取得する対象の製品を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Role］ </td><td colspan="1" rowspan="1"> 割り当てられたリソースで取得する権限を入力します。デフォルト値は「Customer」です。 </td></tr><tr><td colspan="1" rowspan="1"> ［Status］ </td><td colspan="1" rowspan="1"> 割り当てられた注文を取得する対象のステータスを入力します。デフォルト値は「any」です。 </td></tr><tr><td colspan="1" rowspan="1"> ［Sublist To Flatten］ </td><td colspan="1" rowspan="1"> 平坦化するサブリストを選択します。他のリストはすべて無視されます。デフォルトでは、リストは平坦化されません。 </td></tr><tr><td colspan="1" rowspan="1"> ［Filter Data By Date］ </td><td colspan="1" rowspan="1"> 選択した期間でデータをフィルターする場合、このチェックボックスを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Date］ </td><td colspan="1" rowspan="1"> データをフィルターするための日付値です。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

@@ -1,0 +1,63 @@
+---
+title: "Yahoo! JAPAN Display Ad Network（YDN）コネクター"
+---
+
+## はじめに
+
+Yahoo! JAPAN Corporationは、元はアメリカのインターネット企業Yahoo!（現在のAltaba）と日本の企業SoftBankの合弁会社として設立された日本のインターネット企業です。DomoのYahoo! JAPAN Display Ad Network（YDN）コネクターを使ってYahoo! JAPAN Display Ad Network（YDN）システムからDomoへデータを引き込みます。Yahoo! JAPAN Marketing Solutions APIについての詳細は、ウェブサイト（ [https://biz.marketing.yahoo.co.jp/developercenter-en/program/](https://biz.marketing.yahoo.co.jp/developercenter-en/program/ "https://biz.marketing.yahoo.co.jp/developercenter-en/program/") ）を参照してください。
+
+Yahoo! JAPANアカウントには、Data Centerから接続します。このトピックでは、Yahoo! JAPAN Display Ad Network（YDN）コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Yahoo! JAPAN アカウントに接続してDataSetを作成するには、自分のYahoo! JAPANアカウントに関連付けられたYahoo! JAPANのビジネスIDとパスワードが必要です。
+
+## 自分のYahoo! JAPANアカウントに接続する
+
+このセクションでは、Yahoo! JAPAN Display Ad Network（YDN）コネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションを説明します。このページのほかのペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+Yahoo! JAPAN Display Ad Network（YDN）コネクターは接続にOAuthを使用します。そのためDomo内での認証情報の入力は必要ありません。 **［接続］** をクリック（DomoにYahoo!JAPANアカウントが存在する場合は **［アカウントを追加］** を選択）してYahoo! JAPAN OAuth画面を開き、Yahoo! JAPANの認証情報を入力します。有効なYahoo! JAPANの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいDataSetを作成できます。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoに接続する際、既にYahoo! JAPANにログインしている場合は、 **［アカウントを追加する］** をクリックすると自動的に認証されます。ログインしているアカウントと異なるアカウントに接続するには、まずログインしているYahoo! JAPANアカウントからログアウトする必要があります。
+
+</Note>
+
+#### 新しい接続を確立する
+
+1. Yahoo! JAPAN Display Ad Network（YDN）を通してYahoo! JAPANアカウントに接続するには、コネクターUIで
+**［接続］** ボタンをクリックします。
+
+<Frame><img alt="clipboard_e91837f321dac7507868d944274230d33.png" src="/images/kb/ka0Vq000000EySX-00N5w00000Ri7BU-0EM5w000005vO05.png"/></Frame>
+
+2. Yahoo! JAPANログインウィンドウが開くので、そこに
+**Yahoo! JAPANビジネスID** と **パスワード** を入力します。
+
+<Frame><img alt="clipboard_ec8440a94515c206ded31ab9d53cf175e.png" src="/images/kb/ka0Vq000000EySX-00N5w00000Ri7BU-0EM5w000005vO01.png"/></Frame>
+
+3. 認証情報を入力して
+**［ログイン］** をクリックします。
+
+4. ここでYahoo! JAPAN AdsへのDomoからのアクセスを許可するかどうか尋ねられます。
+**［承認］** をクリックします。
+
+<Frame><img alt="clipboard_e5757ca3aac4ef7a33751a4c5626febab.png" src="/images/kb/ka0Vq000000EySX-00N5w00000Ri7BU-0EM5w000005vO09.png"/></Frame>
+
+5. アカウントは正常に追加されます。
+**［次へ］** をクリックして、コネクターを使ってYahoo! JAPAN Display Ad Network（YDN）システムからDomoへデータを引き込みます。
+
+<Frame><img alt="clipboard_eb60ad956119ebf54b32fd190fc9e2fcd.png" src="/images/kb/ka0Vq000000EySX-00N5w00000Ri7BU-0EM5w000005vNzz.png"/></Frame>
+
+### ［詳細］ ペイン
+
+このペインには、メインの ****［Reports］**** メニューのほか、レポートを設定するための様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したいYahoo! JAPAN Display Ad Network（YDN）レポートを選択します。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Impossible Field Combinations </td><td colspan="1" rowspan="1"> 選択したレポートタイプに対応する不可能なフィールドの組み合わせデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Report Service </td><td colspan="1" rowspan="1"> Yahoo! JAPAN Display Adsから選択したアカウントIDとレポートタイプにもとづくデータを取得します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Account ID </td><td colspan="1" rowspan="1"> レポートするアカウントIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Report Type </p></td><td colspan="1" rowspan="1"><p> 目的のレポートタイプを選択します。 </p><table class="mt-responsive-table"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Ad </td><td class="mt-noheading" colspan="1" rowspan="1"> 広告データを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Audience Category </td><td class="mt-noheading" colspan="1" rowspan="1"> オーディエンスカテゴリーデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Conversion Path </td><td class="mt-noheading" colspan="1" rowspan="1"> 変換パスデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Cross Campaign Reaches </td><td class="mt-noheading" colspan="1" rowspan="1"> 横断リーチデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Label </td><td class="mt-noheading" colspan="1" rowspan="1"> ラベルデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Placement Targets </td><td class="mt-noheading" colspan="1" rowspan="1"><p> プレイスメントターゲットデータを返します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Reach </td><td class="mt-noheading" colspan="1" rowspan="1"> リーチデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Search Targets </td><td class="mt-noheading" colspan="1" rowspan="1"> 検索ターゲットデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Site Category </td><td class="mt-noheading" colspan="1" rowspan="1"> サイトカテゴリーデータを返します。 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> URL </td><td class="mt-noheading" colspan="1" rowspan="1"> URLデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Report Fields </td><td colspan="1" rowspan="1"> レポートに表示する列を選択します。特定のレポートフィールドの組み合わせは、Yahoo! JAPAN Adsで許可されていないので、単に「Select All」を選ばないでください。どのレポートフィールドの組み合わせが許可されていないかを判断するには、「Impossible Field Combinations」レポートを実行してください。 </td></tr><tr><td colspan="1" rowspan="1"> Frequency Range </td><td colspan="1" rowspan="1"> レポートの頻度範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Language </td><td colspan="1" rowspan="1"> 結果をフィルタリングする言語を選択します（デフォルトは英語）。 </td></tr><tr><td colspan="1" rowspan="1"> Sort Type </td><td colspan="1" rowspan="1"> データを昇順または降順で並べ替えるか、並べ替えを行わないかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Sort By Fields </td><td colspan="1" rowspan="1"> データをソートするフィールドを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter </td><td colspan="1" rowspan="1"> レポートにフィルターフラグを設定するには［Yes］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Operator 1...6 </td><td colspan="1" rowspan="1"> レポートの演算子を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter Value 1...6 </td><td colspan="1" rowspan="1"> レポートフィルターの値を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲のデータを引き込むか、カスタム日付範囲のデータを引き込むかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Report Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Specific Date </td><td colspan="1" rowspan="1"> レポートの日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Days Back </td><td colspan="1" rowspan="1"> レポートに表示する過去日数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は <b><b> ［End Date］ </b></b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b><b> ［Start Date］ </b></b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Select Specific Start Date </td><td colspan="1" rowspan="1"> 日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Specific End Date </td><td colspan="1" rowspan="1"> 日付範囲の2番目の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b><b> ［Days Back to End At］ </b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b> ［Days Back to Start From］ </b></b> に10、 <b><b> ［Days Back to End At］ </b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b><b> ［Days Back to Start From］ </b></b> と組み合わせることによって、範囲を作成できます。 </p><p> 例えば、 <b><b> ［Days Back to Start From］ </b></b> に10、 <b><b> ［Days Back to End At］ </b></b> に5を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

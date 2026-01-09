@@ -1,0 +1,46 @@
+---
+title: "Vertica Partitionコネクター"
+---
+
+## はじめに
+
+Verticaは、データウェアハウスやビジネスインテリジェンスのための自己チューニング方式/カラム指向型の高速SQLデータベース管理ソフトウェアです。Verticaのパーティショニングでは、パフォーマンスを向上させる方法でデータを分割できます。Verticaのパーティションを使用すると、クエリの実行中に並列性を改善できます。DomoのVertica Partitionコネクターを使用すると、詳細分析や可視化のために、指定した過去日数にもとづいてDomoにデータを取り込むことができます。Verticaの詳細は、 [https://my.vertica.com/documentation/vertica/](https://my.vertica.com/documentation/vertica/ "https://my.vertica.com/documentation/vertica/") を参照してください。
+
+Verticaアカウントには、Data Centerから接続します。このトピックでは、Vertica Partitionコネクターユーザインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、およびDataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360057013954 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Verticaアカウントに接続してDataSetを作成するには、以下の情報が必要になります。
+
+* Verticaデータベースをホストするホストまたはサーバーの名前
+* Verticaデータベースへの接続に使用するユーザー名とパスワード
+* Verticaデータベースのポート番号
+* Verticaデータベースの名前
+
+## Verticaアカウントに接続する
+
+このセクションでは、 Vertica Partition コネクターページの **［認証情報］** ペインと **［詳細］** ペインにあるオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360057013954 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Vertica アカウントへの接続に使用する認証情報を入力するためのフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Host］ </td><td colspan="1" rowspan="1"> Verticaデータベースをホストするサーバーの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Port Number］ </td><td colspan="1" rowspan="1"> Verticaデータベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Username］ </td><td colspan="1" rowspan="1"> Verticaデータベースへの接続に使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Password］ </td><td colspan="1" rowspan="1"> Verticaデータベースへの接続に使用するパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Database Name］ </td><td colspan="1" rowspan="1"> Verticaデータベースの名前を入力します。 </td></tr></tbody></table>
+
+有効な Vertica 認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しい Vertica Partition DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ホワイトリストへの登録
+
+Verticaデータベースに接続するには、接続するデータベースサーバーのポートのIPアドレスをホワイトリストに登録しておく必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリスト化する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリスト化する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、Verticaデータベースからデータを取得するために使用するSQLクエリを入力します。特定のデータベース表とパーティション列の名前を選択できます。データを取得する過去の日数も指定できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Query］ </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Table Name］ </td><td colspan="1" rowspan="1"> データベース表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Partition Column Name］ </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Past Days］ </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はXとすることができ、 この場合Xはプラスの整数です。例：30。 </td></tr><tr><td colspan="1" rowspan="1"> ［Date Format］ </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> ［Custom Date Format］ </td><td colspan="1" rowspan="1"> データに適用するカスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

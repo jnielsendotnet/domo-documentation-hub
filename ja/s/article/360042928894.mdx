@@ -1,0 +1,194 @@
+---
+title: "NetSuite App TBAコネクター"
+---
+
+## はじめに
+
+このバージョンのNetSuiteコネクターは、NetSuiteのSuiteScript 2.0とトークンベース認証（TBA）を使用します。すべてのNetSuiteデータを可能な限り安全に効果的に収集したい場合は、このバージョンのコネクターを使用してください。
+
+NetSuiteには、Data Centerから接続します。このトピックでは、NetSuite App TBAコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+NetSuiteアカウントに接続し、このコネクターを使用してDataSetを作成するには、以下が必要です。
+
+* トークンID
+* トークンシークレット
+* アカウントID
+* NetSuiteスクリプトバンドルID
+* NetSuiteデプロイバンドルID
+
+これらの項目については、次の2つのセクションで詳しく説明しています。
+
+## NetSuiteバンドルのインストール
+
+このコネクターを使用してNetSuiteデータに接続するには、まずNetSuiteからDomo Data Connection 2.0バンドルをインストールする必要があります。
+
+**バンドルをインストールするには：**
+
+1. NetSuiteで、
+   **［Customization］>［SuiteBundler］>［Search & Install Bundles］** を選択します。
+2. **［Keywords］**
+   セクションで、「Domo」を検索します。
+3. 「Domo Data Connection 2.0」の検索結果をクリックします。
+4. **［Install］**
+   をクリックします。
+5. **［Customization］>［SuiteBundler］>［Search & Install Bundles］>［List］**
+   を選択します。
+     
+   <Frame><img alt="NetSuiteAppTBA_BundlesPath.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1S.png"/></Frame>
+
+6. リストで「Domo Data Connection 2.0」を探します。
+7. インストールが完了していること（緑色のチェックマーク）を確認します。
+
+## DomoでNetSuiteデータに接続する
+
+このセクションでは、NetSuite App TBAコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ［認証情報］ペイン
+
+このペインには、NetSuiteアカウントに接続するためのフィールドがあります。各接続オプションについて詳しく説明します。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"><p> Saved Search ID </p></td><td colspan="1" rowspan="1"> 実行するNetSuite保存済み検索のカスタム検索IDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Search Type </p></td><td colspan="1" rowspan="1"> 検索の種類を選択します。検索タイプを選択しない場合は、ドロップダウンリストから最初の空白オプションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Token ID </p></td><td colspan="1" rowspan="1"> NetSuiteでアカウントに割り当てられているアクセストークンからトークンIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Date Format </p></td><td colspan="1" rowspan="1"> 日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Use SQLite to Prevent duplicate records caused by modifying data during connector run </p></td><td colspan="1" rowspan="1"> このチェックボックスをオンにすると、最新の更新データのみが取り込まれることで、重複レコードが削除されます。これらの重複は、コネクターの実行中にデータが変更された場合に発生します。重複は、最新の行を保持するSQLiteクエリを使用して［row id］で選択することで削除されます。 <br/> このチェックボックスをオンにすると、コネクターの実行が遅くなります。この機能は必要な場合にのみ使用してください。この機能は、更新方法に <b> ［Merge］ </b> を選択した場合にのみ動作します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Duplicate Row Handling </p></td><td colspan="1" rowspan="1"> データで重複行を保持するか、削除するかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"><p> Use the checkbox to cache the results for the execution </p></td><td colspan="1" rowspan="1"> このチェックボックスをオンにすると、実行の結果がキャッシュされます。 <br/><b> 注記： </b> このオプションを使用すると、同時保存された検索更新によって検出されるデータの不一致を回避できます。これにより、特定の時間の結果のスナップショットが作成され、スナップショットからデータが取得されます。同時に更新されたデータは含まれません。 </td></tr><tr><td colspan="1" rowspan="1"><p> Use the checkbox to convert the column with leading zeroes to string </p></td><td colspan="1" rowspan="1"> このチェックボックスをオンにすると、先頭がゼロのデータを含む列が文字列に変換されます。 <br/><b> 注記： </b> このチェックボックスをオンにすると、既存のDataSetのスキーマが変更されます。既存の整数列が文字列に変換されます。 </td></tr><tr><td colspan="1" rowspan="1"><p> Folder ID </p></td><td colspan="1" rowspan="1"> キャッシュファイルを保存するNetSuiteファイルキャビネットのフォルダIDを指定します。 <br/><b> 注記： </b> ファイルはキャッシュ用のフォルダに保存され、インポートの完了後に削除されます。 </td></tr></tbody></table>
+
+一度NetSuiteに接続すると、随時同じアカウントを使用して新しいNetSuite App TBA DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+## 環境を選択する
+
+Netsuiteアカウントがサンドボックスアカウントの場合は、 **［Environment］** メニューで **［Sandbox］** を選択します。アカウントを確認するには、NetSuiteの右上隅にある名前/アカウントにカーソルを合わせ、 **［View all roles］** をクリックします。環境は、 **［Account Type］** にリスト表示されます。
+
+#### トークンIDとトークンシークレットを取得する
+
+**トークンIDとトークンシークレットを取得するには：**
+
+1. NetSuiteで、アクセスするデータを持つ権限を選択します。
+2. 画面の左上にある家の形をしたアイコンをクリックしてメインページに移動します。
+3. 左下にある
+   **［Settings］** ボックスで、 **［Manage Access Tokens］** をクリックします。
+     
+   <Frame><img alt="NetSuiteAppTBA_TokenView.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1V.png"/></Frame>
+
+   <Note>
+   **注記：** アクセストークンを使用するように権限を設定していない場合、 **［Manage Access Tokens］** リンクは表示されません。権限のアクセストークンを有効にするには、次の手順を実行します。
+
+   1. **［Setup］>［Company］>［Enable Features］**
+      に移動し、 **［SuiteCloud］** タブを開きます。
+   2. **［Manage Authentication］**
+      で、 **［Token-Based Authentication］** を有効にします。
+
+   </Note>
+
+4. **［New Access Token］**
+   をクリックして、［Domo Data Connection 2.0］を選択します。
+5. トークン名を選択します。
+6. **［Save］**
+   をクリックします。
+     
+   トークンIDとトークンシークレットはほかの情報の下に表示されます。
+7. 新しく生成された認証情報を安全な場所に保存しておきます（再び表示されることはありません）。
+
+#### アカウントIDを確認する
+
+アカウントIDを確認するには、NetSuiteで **［Setup］>［Integration］>［Web Services Preferences］** を選択します。
+  
+<Frame><img alt="NetSuiteAppTBA_AccountPath.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1Q.png"/></Frame>
+
+アカウントIDは、［Primary Information］の下に表示されます。
+  
+<Frame><img alt="NetSuiteAppTBA_AccountView2.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1N.png"/></Frame>
+
+#### スクリプトIDとデプロイIDを確認する
+
+**スクリプトIDを確認するには：**
+
+1. Netsuiteで、
+   **［Customization］>［Scripting］>［Scripts］** を選択します。
+2. ［Domo Data Connection 2.0］をクリックします。
+3. スクリプトIDは、［ID］の下にcustomscriptXXXXの形式で表示されています。「custoscript」という単語も含めてスクリプトID全体を入力する必要があります。
+
+   <Frame><img alt="NetSuiteAppTBA_ScriptView.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1T.png"/></Frame>
+
+**デプロイIDを確認するには：**
+
+1. デプロイIDを取得するには、まずスクリプトをデプロイする必要があります。そのためには、［Deploy Script］ボックスをクリックします。
+2. **［Customization］>［Scripting］>［Script Deployments］**
+   に移動します。
+3. 次に、
+   **［Domo Data Connection 2.0］** スクリプトを見つけます。
+4. デプロイIDは、［ID］の下にcustomdeployXの形式で表示されています。「customdeploy」という単語も含めてデプロイID全体を入力する必要があります。
+
+<Frame><img alt="DeployView.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1U.png"/></Frame>
+
+## ［詳細］ペイン
+
+このペインには **［Report］** メニューが1つあります。このメニューでは、Domoに取得するNetSuite保存済み検索のIDを入力します。
+
+NetSuite App TBAコネクターは、保存済み検索のデータ *のみ* を取得します。
+
+**保存済み検索のレポートIDを確認するには：**
+
+1. Netsuiteで、
+   **［Reports］>［Saved Searches］>［All Saved Searches］** を選択します。
+     
+   <Frame><img alt="NetSuiteAppTBA_ReportView.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1R.png"/></Frame>
+
+2. データを取得するレポートを探します。
+3. 必要な保存済み検索の
+   **［ID］** 列にあるIDをコピーします。
+     
+   customsearchXXXX の形式になっていますが、レポートIDはXXXXの部分です。
+     
+   <Frame><img alt="NetSuiteAppTBA_ReportPane.png" src="/images/kb/ka0Vq0000000p8z-00N5w00000Ri7BU-0EM5w000005vO1O.png"/></Frame>
+
+   <Tip>
+   **ヒント：** ［ID］列のIDでうまくいかない場合は、 **［View］** をクリックし、URLの保存済み検索IDを使用してください。
+
+   </Tip>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class=""> Saved Searched ID </span></p></td><td colspan="1" rowspan="1"><p><span></span> 実行するNetSuite保存済み検索のカスタム検索IDを指定してください。 <span></span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Search Type </span></p></td><td colspan="1" rowspan="1"><p><span> 検索の種類を選択します。検索の種類を指定しない場合は、上部の空白オプションを選択して［save］をクリックします。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Date Format </span></p></td><td colspan="1" rowspan="1"><p><span> 日付形式を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Duplicate Row Handling </span></p></td><td colspan="1" rowspan="1"><p><span> データで重複行を保持するか、削除するかを指定します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Use SQLite to Prevent duplicate records caused by modifying data during connector run </span></p></td><td colspan="1" rowspan="1"><p><span> このボックスをチェックすると重複レコードが削除され、最新の更新データのみが取り込まれます。これらの重複は、コネクターの実行中にデータが変更された場合に発生します。重複は、最新の行を保持するSQLiteクエリを使用して［row id］で選択することで削除されます。 <br/> このボックスをチェックすると、コネクターの実行が遅くなります。この機能は必要な場合にのみ使用してください。この機能は、更新方法に <b> ［Merge］ </b> を選択した場合にのみ動作します。 <b></b></span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Use the checkbox to cache the results for the execution </span></p></td><td colspan="1" rowspan="1"><p><span> このチェックボックスをオンにすると、実行の結果がキャッシュされます。 <br/><b> 注記： </b> このオプションを使用すると、同時保存された検索更新によって検出されるデータの不一致を回避できます。これにより、特定の時間の結果のスナップショットが作成され、スナップショットからデータが取得されます。同時に更新されたデータは含まれません。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class=""> Folder ID </span></p></td><td colspan="1" rowspan="1"><p><span> 注記：［Folder ID］チェックボックスは、 <b> ［Use the checkbox to cache the results for the execution］ </b> チェックボックスをオンにすると表示されます。 </span></p><p><span> キャッシュファイルを保存するNetSuiteファイルキャビネットのフォルダIDを指定してください。 <br/><b> 注記： </b> ファイルはキャッシュ用のフォルダに保存され、インポートの完了後に削除されます。 </span></p></td></tr></tbody></table>
+
+## その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="スクリプトIDが必要な理由を教えてください">
+
+
+NetSuiteで情報にアクセスするためにはスクリプトが必要です（保存済み検索経由）。DomoのNetSuite App TBAコネクターは、このスクリプトとやり取りしてデータを取得します。
+
+
+</Accordion>
+<Accordion title="このコネクターとほかのNetSuiteコネクターの違いは何ですか？">
+
+
+NetSuite App TBAは、多くの新機能をサポートするNetSuite APIの新しいバージョンを使用します。このコネクターはこれらの新機能の一部を使用してデータをより効率的に提供しますが、ほかのNetSuiteコネクターと同じ機能を備えています。
+
+
+</Accordion>
+<Accordion title="NetSuiteデータへのアクセスが安全であることを確認するにはどうすればよいですか？">
+
+
+NetSuiteAppTBAはトークンベースの認証を使用するため、Domoで実際の認証情報が使用されることはありません。トークンは、NetSuite UIを介していつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="コネクターが使用しているNetSuite権限を確認するにはどうすればよいですか？">
+
+
+NetSuiteの権限は、作成したトークンにアタッチされています。NetSuiteコネクターで別の権限を使用するには、必要な権限で新しいトークンを作成する必要があります。新しいトークンを作成するには：
+
+1. 右上にある名前にカーソルを合わせ、使用する権限をドロップダウンから選択します。
+2. 指示に従って、この権限でトークンを作成します。
+
+<Note>
+**注記** **：** すべての権限でアクセストークンを作成できるわけではありません。
+
+</Note>
+
+
+
+</Accordion>
+</AccordionGroup>

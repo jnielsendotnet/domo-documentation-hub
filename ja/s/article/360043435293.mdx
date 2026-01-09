@@ -1,0 +1,101 @@
+---
+title: "Alchemerコネクター"
+---
+
+## はじめに
+
+Alchemer（旧称はSurveyGizmo）はカスタマーエクスペリエンスのソリューションで、顧客中心の組織に転換する手助けをします。顧客からのフィードバックと経営上の意思決定がどのように相関しているのかを把握するのは必ずしも簡単ではありません。アンケートの背後にあるストーリーを把握するには、コンテキストが必要です。Domoのクラウドベースのプラットフォームでは、すべてのデータソースが1つのアンケートダッシュボードにまとめられます。アンケート結果と、マーケティング、業務、財務などのデータを並べて見ることで、アンケートの回答の要因を知ることができます。DomoのAlchemerコネクターを使うと、自分のアカウントにあるすべてのアンケートについてのアンケートキャンペーン、統計、回答者、または回答に関するデータを、個別またはまとめて取得することができます。正確な仕様（把握する内容、その方法）に沿って実施されたアンケートに関するレポートを取得することができます。Alchemer APIの詳細については、 [https://apihelp.surveygizmo.com](https://apihelp.surveygizmo.com "https://apihelp.surveygizmo.com") を参照してください。
+
+Alchemer コネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部にあるツールバーで **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+このトピックでは、 Alchemer コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用すると、アンケートの回答をすばやく可視化でき、各回答を閲覧する必要がなくなります。このコネクターを使用している大部分のユーザーは、「Survey Response」レポートを取得します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li> マーケティング権限 </li><li> 人事権限 </li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+レポートを「Replace」ではなく「Append」に設定し、DataSetを新たに実行するたびに前回実行時のデータに追加されるようにします。
+
+## 必要条件
+
+Alchemer アカウントに接続してDataSetを作成するには、 Alchemer APIキーとAPIシークレットが必要です。アカウントの認証情報を見つけるには、次の説明に従ってください： [https://apihelp.surveygizmo.com/help/authentication](https://apihelp.surveygizmo.com/help/authentication "https://apihelp.surveygizmo.com/help/authentication")
+
+## Alchemer アカウントに接続する
+
+このセクションでは、 Alchemer コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Alchemer アカウントに接続する認証情報の入力フィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> API Key </p></td><td colspan="1" rowspan="1"><p><span> Alchemer </span> アカウント用のAPIキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> API Secret </p></td><td colspan="1" rowspan="1"><p><span> Alchemer </span> アカウント用のAPIシークレットを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> Alchemerアカウントのドメインを選択します。 </p></td></tr></tbody></table>
+
+有効なAlchemer認証情報を入力しておくと、Domoで随時同じアカウントを使用して Alchemer DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニュー、および選択したレポートに応じて表示される **［Survey ID］** メニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p><span> Alchemer </span> レポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Account </p></td><td colspan="1" rowspan="1"><p> アカウントの全チームのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contact List </p></td><td colspan="1" rowspan="1"><p> アカウントのすべての連絡先のリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Surveys </p></td><td colspan="1" rowspan="1"><p> アカウントのすべてのアンケートのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Campaign </p></td><td colspan="1" rowspan="1"><p> 指定したアンケートのすべてのキャンペーンとリンクのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Response </p></td><td colspan="1" rowspan="1"><p> 指定したアンケートのすべての回答を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey Statistic </p></td><td colspan="1" rowspan="1"><p> 指定したアンケートのすべての統計のリストを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Survey ID </p></td><td colspan="1" rowspan="1"><p> 情報を取得したいアンケートを選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### レート制限
+
+ライセンスにもとづくアカウント（2017/01/17以降に作成されたアカウント） - 1分ごとに120件
+  
+従来のBasicアカウント - 1分ごとに30件
+  
+従来のProfessional - 1分ごとに60件
+  
+従来のTeam & Enterprise - 1分ごとに120件
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターではどのバージョンのAlchemer APIを使用しますか？">
+
+
+このコネクターでは、Alchemer APIバージョン5を使用しています。
+
+* 米国：
+  https://api.alchemer.com/v5
+* カナダ：
+  https://api.alchemer-ca.com/v5
+* EU：
+  https://api.alchemer.eu/v5
+
+
+</Accordion>
+<Accordion title="Alchemerコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Alchemerアカウントに接続するには、Alchemer APIキーとAPIシークレットが必要です。アカウントの認証情報を見つけるには、Alchemer Authenticationヘルプの説明に従ってください。
+
+
+</Accordion>
+<Accordion title="データはどれくらいの頻度で更新されますか？">
+
+
+回答の送信からAPI経由でデータを利用できるようになるまでには、5分以上かかる可能性があります。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="［SURVEY］フィールドで［SOMETHING WENT WRONG GETTING DATA!］というエラーが表示されるのはなぜですか？どうすればいいですか？">
+
+
+このエラーはアカウントが無効になったときに表示されます。有効な認証情報で新しいアカウントを作成して、もう一度お試しください。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,44 @@
+---
+title: "CA Agile Central Connector"
+---
+
+## はじめに
+
+Rally Softwareは、機能や品質、優先順位、障害物、そしてリスクのステータスを視覚的に把握できるようにするAgileのプロジェクトマネジメントツールを製作しています。 DomoのRally Connectorを使用すると、プロジェクトとタスク、ユーザー、欠点などに関するデータが取得できます。 Rally API に関する詳細は、
+https://help.rallydev.com/access-web-services-api-wsapi
+を参照してください。
+
+Rally Software Connector を使用するには、 データセンター で DataSet を作成し、Rally Software Connector を選択します。
+
+このトピックでは、Rally Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定および DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") を参照してください。
+
+## 必要条件
+
+Rallyアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Rallyアカウント用のAPIキー
+* Rally アカウントの URL （例：[https://rally1.rallydev.com](https://rally1.rallydev.com "https://rally1.rallydev.com") ）
+
+## Rallyアカウントに接続する
+
+このセクションでは、Rally Connectorページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、 Rallyアカウントに接続する認証情報の入力フィールドが含まれています。 下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> APIキー </p></td><td colspan="1" rowspan="1"><p> Rallyアカウント用のAPIキーを入力します。 </p><p><b> Rally用のAPIキーを入手するには </b></p><ol><li><p> Rally のユーザー名とパスワードを使用して Rally Application Manager（ <a href="https://rally1.rallydev.com/login" target="_blank"> https://rally1.rallydev.com/login </a><span class="nolink"> ） </span> にログインします。 </p></li><li><p> ページの一番上にある <b> APIキー </b> タブをクリックします。 </p></li><li><p><b> 新しいAPIキーを作成する </b> リンクをクリックします。 </p></li><li><p><b> 説明 </b> フィールドにキーの名前または説明を入力します。 例：「Domo API 接続」 </p></li><li><p><b> 権限 </b> セクションで <b> フルアクセス </b> オプションを選択します。 </p></li><li><p><b> 作成 </b> ボタンをクリックします。 </p></li></ol></td></tr><tr><td colspan="1" rowspan="1"><p> URL </p></td><td colspan="1" rowspan="1"><p> Rallyアカウント用のURLを入力します。 例： <span class="mt-font-courier-new"><a href="https://rally1.rallydev.com/login" target="_blank" title="https://rally1.rallydev.com/login"> https://rally1.rallydev.com/login </a></span></p></td></tr></tbody></table>
+
+有効な Rally 認証情報を入力しておくと、その後 Domo で同じアカウントを使用して、いつでも Rally DataSet を作成することができます。 Connectorアカウントは データセンター の **アカウント** タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、レポートのタイプを選択するメインの **レポート** メニューが含まれています。 下表に、Domo Rally Connectorを使用して作成できるレポート全てを記載しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> レポート </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 階層的要件 </p></td><td colspan="1" rowspan="1"><p> アカウントの階層的要件の情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ワークスペース設定 </p></td><td colspan="1" rowspan="1"><p> アカウントのワークスペース設定の情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ブロッカー </p></td><td colspan="1" rowspan="1"><p> アカウントのブロッカーに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ビルド </p></td><td colspan="1" rowspan="1"><p> アカウントのビルド情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 欠点 </p></td><td colspan="1" rowspan="1"><p> アカウントの欠点に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 反復 </p></td><td colspan="1" rowspan="1"><p> アカウントの反復に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 反復累積フローデータ </p></td><td colspan="1" rowspan="1"><p> 作業中のコード納入までのリードタイムのトレンドを分析するために、反復作業ステータスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 基本設定 </p></td><td colspan="1" rowspan="1"><p> アカウント内の全ユーザーのユーザー基本設定を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロジェクト </p></td><td colspan="1" rowspan="1"><p> 所有者、作成日などアカウント内のプロジェクトに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リリース累積フローデータ </p></td><td colspan="1" rowspan="1"><p> リリース値納入のリードタイムにおけるトレンドを分析するために作業中ステータスを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SCMリポジトリ </p></td><td colspan="1" rowspan="1"><p> アカウントのSCMリポジトリに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 登録情報 </p></td><td colspan="1" rowspan="1"><p> 有効期限の日付、最大プロジェクト数など、Rally登録状況に関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> タスク </p></td><td colspan="1" rowspan="1"><p> 所有者、説明、ステータス、見積もりなど、反復中のタスクに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> アカウント内の全ユーザーに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザーの反復能力 </p></td><td colspan="1" rowspan="1"><p> アカウント内の全ユーザーの反復による作業量データを返します。 </p></td></tr></tbody></table>
+
+削除しました：
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><div class="comment"><div class="mt-comment-content"><p> 永続可能なオブジェクト </p></div></div></td><td colspan="1" rowspan="1"><div class="comment"><div class="mt-comment-content"><p> アカウント内の永続可能なオブジェクトに関する情報を返します。 </p></div></div></td></tr><tr><td colspan="1" rowspan="1"><div class="comment"><div class="mt-comment-content"><p> Scoped 属性の定義 </p></div></div></td><td colspan="1" rowspan="1"><div class="comment"><div class="mt-comment-content"><p> アカウント内の全 scoped 属性定義を返します。 </p></div></div></td></tr></tbody></table>
+
+

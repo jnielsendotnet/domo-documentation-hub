@@ -1,0 +1,59 @@
+---
+title: "Adobe Targetコネクター"
+---
+
+## はじめに
+
+Adobe Targetを使用すると、A/Bテストを作成したり、カスタマイズしたエクスペリエンスをアプリケーションに埋め込んだりすることができます。DomoのAdobe Targetコネクターにより、キャンペーン、コンテンツ、パフォーマンスに関するデータを表示することができます。ターゲットとするマーケット向けのパッケージを作成する方法を学習しながら、自信を持ってマーケティング業務に取り組むことができます。Adobe Target APIの詳細については、 [https://developers.adobetarget.com/](https://developers.adobetarget.com/ "https://developer.omniture.com") を参照してください。
+
+Data Centerで、Adobe Tagetアカウントに接続することができます。このトピックでは、Adobe Targetコネクターのユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Adobe Targetアカウントに接続してDataSetを作成するには、以下の情報が必要になります。
+
+* クライアントID（APIキー）
+* クライアントシークレット
+* テクニカルアカウントID
+* 組織ID
+* テナント
+* シークレットキー
+
+#### クライアントIDの取得方法：
+
+* [Adobeによる説明](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md")
+  に従い、[Adobe I/O Console](https://console.adobe.io/integrations "https://console.adobe.io/integrations") で新しい統合環境を作成します。
+* パブリックキーとプライベートキーのペアを作成し、パブリックキーをAdobeにアップロードして、プライベートキーをDomoにダウンロードします。
+* **［Adobe統合環境の概要］** ページで、**APIキー（クライアントID）、テクニカルアカウントID、組織ID、** および **クライアントシークレット** を確認することができます。
+* Domoは、ユーザーが入力した認証情報を使用してJSONウェブトークンを作成し、プライベートキーを使用してJWTトークンをアクセストークンと交換することにより、Adobe Analytics APIにアクセスします。
+* 詳細については、[Adobeのウェブサイト](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md") を参照してください。
+
+#### クライアントシークレット、テクニカルアカウントID、組織IDの取得方法：
+
+[Adobeによる説明](https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md "https://www.adobe.io/authentication/auth-methods.html#!AdobeDocs/adobeio-auth/master/AuthenticationOverview/ServiceAccountIntegration.md") に従って [Adobe I/O Console](https://console.adobe.io/integrations "https://console.adobe.io/integrations") で新しい統合環境を作成すると、クライアントシークレット、テクニカルアカウントID、および組織IDが
+
+**［Adobe統合環境の概要］** ページに表示されます。
+
+## Adobe Targetアカウントに接続する
+
+このセクションでは、Adobe Targetコネクターページの **［認証情報］** ペインと **［詳細］** ペインに表示されるオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細につきましては「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### ［認証情報］ ペイン
+
+このペインには、Adobe Targetアカウントの認証情報を入力するためのフィールドが表示されます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クライアントID（APIキー） </td><td colspan="1" rowspan="1"> クライアントIDを入力します。詳しくは、 <span> 上記のセクション </span> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> クライアントシークレット </td><td colspan="1" rowspan="1"> クライアントシークレットを入力します。詳しくは、 <span> 上記のセクション </span> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> テクニカルアカウントID </td><td colspan="1" rowspan="1"> テクニカルアカウントIDを入力します。詳しくは、 <span> 上記のセクション </span> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> 組織ID </td><td colspan="1" rowspan="1"> 組織IDを入力します。詳しくは、 <span> 上記のセクション </span> を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> テナント </td><td colspan="1" rowspan="1"> Adobeのテナント名を入力します。Adobe Experience CloudにログインするためのURLの最初の部分がテナント名になります。例えば「 <span></span><span class="mt-font-courier-new"><a href="https://tenant-name.marketing.adobe.com" rel="noopener" target="_blank"> https://tenant-name.marketing.adobe.com </a></span> 」というURLの場合、「tenat-name」の部分がテナント名になります。 </td></tr><tr><td colspan="1" rowspan="1"> シークレットキー </td><td colspan="1" rowspan="1"> Adobe統合環境のPEM形式のプライベートキーを貼り付けます。 </td></tr></tbody></table>
+
+Adobe Targetの正しい認証情報を入力すると、同じアカウントを使用してAdobe Taeget用の新しいDataSetをいつでも作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他さまざまなメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するAdobe Targetレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> アクティビティレポート </td><td colspan="1" rowspan="1"> ターゲットアカウント内で作成されたアクティビティが一覧表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> APパフォーマンスレポート </td><td colspan="1" rowspan="1"> 指定のIDで参照される自動パーソナライゼーションアクティビティのパフォーマンスデータが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> 対象者レポート </td><td colspan="1" rowspan="1"> すべての有効な対象者が表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> 監査レポート </td><td colspan="1" rowspan="1"> ABアクティビティ、XTアクティビティ、または自動パーソナライゼーションアクティビティのオーダーデータまたは監査データが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> 環境レポート </td><td colspan="1" rowspan="1"> 使用可能なすべての環境が表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> mboxレポート </td><td colspan="1" rowspan="1"> 特定のクライアントで使用できるすべてのmboxが一覧表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> 新しいABパフォーマンスレポート </td><td colspan="1" rowspan="1"> 指定のIDで参照されるABアクティビティのパフォーマンスデータが表示されます。このデータが解析されて、エクスペリエンス名とレポートデータが結合します。 </td></tr><tr><td colspan="1" rowspan="1"> 新しいXTパフォーマンスレポート </td><td colspan="1" rowspan="1"> 指定のIDで参照されるエクスペリエンスアクティビティのパフォーマンスデータが表示されます。このデータが解析されて、エクスペリエンス名とレポートデータが結合します。 </td></tr><tr><td colspan="1" rowspan="1"> オファーレポート </td><td colspan="1" rowspan="1"> これまでに作成されたコンテンツのオファーが一覧表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> プロパティレポート </td><td colspan="1" rowspan="1"> すべてのプロパティが一覧表示されます。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> アクティビティID </td><td colspan="1" rowspan="1"> レポートを作成するアクティビティIDを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 平面化するサブリスト </td><td colspan="1" rowspan="1"> データ内で展開するフィールドを選択します。選択したフィールドで、複数の行にわたって各オブジェクトが表示されます。展開されないフィールドには、データではなく［リスト］が表示されます。すべてのサブフィールドを平面化すると、メモリー不足によるエラーが発生します。 </td></tr><tr><td colspan="1" rowspan="1"> レポートの日付 </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 単一の日付 </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 特定の日付 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 相対日付 </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <b><b> ［遡る日数］ </b></b> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> 日付範囲 </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日 - 特定 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 終了日 - 特定 </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 開始日 - 相対 </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（開始日）を入力します。 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 終了日 - 相対 </td><td colspan="1" rowspan="1"><p> データを取得したい過去の日数（終了日）を入力します <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b><b><b><b><b> 開始日 </b></b></b></b></b></b></b></b> に「10」、 <b><b><b><b><b><b><b><b> 終了日 </b></b></b></b></b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> 期間 </td><td colspan="1" rowspan="1"> データの受信を希望する期間を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 週の最初の曜日 </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

@@ -1,0 +1,300 @@
+---
+title: "Snowflake KeyPair Internal Managed Unloadコネクター"
+---
+
+## はじめに
+
+Snowflakeは、クラウドベースのアナリティクスデータウェアハウスシステムです。DomoのSnowflake KeyPair Internal Managed Unloadコネクターを使用すると、データをSnowflakeデータベースから社内のAmazon S3に、簡単かつ安全にアンロードできます。その後、ファイルは社内のS3からDomoにダウンロードされます。非常に大きなクエリを実行している場合は、このコネクターがほかのSnowflakeコネクターよりも優先されます。
+SnowflakeのデータがDomoに取り込まれると、ほかのすべてのDomoデータと組み合わせることで、最もミッションクリティカルなデータを集約して表示できます。
+
+## 必要条件
+
+Snowflakeデータベースに接続し、DataSetを作成するには、以下が必要です。
+
+* アカウントのフルネーム（Snowflakeが提供）。これは、Snowflake URLの https://の 直後に続く部分です。
+
+  アカウントのフルネームには、アカウントがホストされる地域とクラウドプラットフォームを識別する追加のセグメントが含まれる場合があることに注意してください。米国西部地域は ****account\_name**** 、その他の地域は ****account\_name.region\_id**** です。以下の表に、クラウドプラットフォームまたは地域別のアカウント名の例を示します。各行では、アカウント名が「xy12345」であると仮定しています。
+
+<Frame><img alt="snowflake_account_names.png" src="/images/kb/ka05w00000123Kt-00N5w00000Ri7BU-0EM5w000005vO5S.png"/></Frame>
+
+* Snowflakeホストへの接続に使用するユーザー名。
+* シークレットキー。
+* パスフレーズ。シークレットキーを暗号化する場合、OpenSSLが、シークレットキーファイルの暗号化に使用されるパスフレーズの入力を求めてきます。
+* 自分の権限名。
+
+### パブリックキーペア/シークレットキーペアの設定
+
+パブリック/シークレットキーペアを設定するには、以下のステップに従ってください。
+
+1. ターミナルウィンドウのコマンドラインからシークレットキーを生成します。
+     
+   シークレットキーの暗号化バージョンも、シークレットキーの暗号化されていないバージョンも生成できます。
+     
+   * 暗号化されていないバージョンを生成するには、以下のコマンドを使用します。
+       
+     `$ openssl genrsa -out rsa_key.pem 2048`
+   * 暗号化されたバージョンを生成するには、以下のコマンドを使用します。
+       
+     `$ openssl genrsa 2048 | openssl pkcs8 -topk8 -inform PEM -out rsa_key.p8`
+       
+     通常、暗号化されたバージョンを生成する方が安全です。
+       
+     2番目のコマンドを使用してシークレットキーを暗号化する場合、OpenSSLが、シークレットキーファイルの暗号化に使用されるパスフレーズの入力を求めてきます。シークレットキーを保護するために強力なパスフレーズを使用することを推奨します。このパスフレーズを安全な場所に記録します。Snowflakeに接続するときにパスフレーズを入力します。パスフレーズはシークレットキーの保護にのみ使用され、Snowflakeに送信されることはないことに注意してください。
+       
+     PEMシークレットキーの例を以下に示します。
+       
+     ```
+     -----BEGIN ENCRYPTED PRIVATE KEY-----
+       
+     MIIE6TAbBgkqhkiG9w0BBQMwDgQILYPyCppzOwECAggABIIEyLiGSpeeGSe3xHP1
+       
+     wHLjfCYycUPennlX2bd8yX8xOxGSGfvB+99+PmSlex0FmY9ov1J8H1H9Y3lMWXbL
+       
+     ...
+       
+     -----END ENCRYPTED PRIVATE KEY-----
+     ```
+2. コマンドラインからシークレットキーを参照してパブリックキーを生成します。シークレットキーが暗号化され、「rsa\_key.p8」という名前のファイルに含まれていると仮定して、次のコマンドを使用します。
+
+   `$ openssl rsa -in rsa_key.p8 -pubout -out rsa_key.pub`
+     
+   以下がPEMパブリックキーのサンプルです。
+     
+   ```
+   -----BEGIN PUBLIC KEY-----
+     
+   MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAy+Fw2qv4Roud3l6tjPH4
+     
+   zxybHjmZ5rhtCz9jppCV8UTWvEXxa88IGRIHbJ/PwKW/mR8LXdfI7l/9vCMXX4mk
+     
+   ...
+     
+   -----END PUBLIC KEY-----
+   ```
+3. パブリックキーファイルとシークレットキーファイルをローカルディレクトリにコピーして保存します。ファイルのパスを記録します。シークレットキーはPKCS#8（公開鍵暗号標準）フォーマットを使用して保存され、前のステップで指定したパスフレーズで暗号化されることに注意してください。ただし、OSが提供するファイル許可機構を使用して、ファイルを不正アクセスから保護する必要があります。使用されていないときにファイルをセキュリティ保護するのはユーザーの責任です。
+4. ALTER USERを使用して、Snowflakeユーザーにパブリックキーを割り当てます。例：
+
+   `alter user jsmith set rsa_public_key='MIIBIjANBgkqh...';`
+
+   <Note>
+   **注記：**
+   * セキュリティ管理者（つまりSECURITYADMIN権限を持つユーザー）以上がユーザーを変更できます。
+   * SQLステートメント内のパブリックキーヘッダーとフッターを除外します。
+
+   </Note>
+
+5. DESCRIBEUSERを使用してユーザーのパブリックキーの指紋を確認します。
+   <table><thead><tr><th colspan="1" rowspan="1"> プロパティ </th><th colspan="1" rowspan="1"> 値 </th><th colspan="1" rowspan="1"> デフォルト </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> 名前 </td><td colspan="1" rowspan="1"> JSMITH </td><td colspan="1" rowspan="1"> NULL値 </td><td colspan="1" rowspan="1"> 名前 </td></tr><tr><td colspan="1" rowspan="1"> RSA_PUBLIC_KEY_FP </td><td colspan="1" rowspan="1"> SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA= </td><td colspan="1" rowspan="1"> NULL値 </td><td colspan="1" rowspan="1"> ユーザーのRSAパブリックキーの指紋。 </td></tr><tr><td colspan="1" rowspan="1"> RSA_PUBLIC_KEY_2_FP </td><td colspan="1" rowspan="1"> NULL値 </td><td colspan="1" rowspan="1"> NULL値 </td><td colspan="1" rowspan="1"> ユーザーの2番目のRSAパブリックキーの指紋。 </td></tr></tbody></table>
+
+   <Note>
+   **注記：** RSA\_PUBLIC\_KEY\_2\_FPプロパティの詳細については、「キーローテーション」を参照してください。
+
+   </Note>
+
+6. 下のサンプルコードを修正して実行します。このコードはシークレットキーファイルを復号してSnowflakeドライバーに渡し、接続を作成します。
+   * セキュリティパラメーターを更新：
+     + \<path>は作成したシークレットキーファイルへのローカルパスを指定します。
+   * セッションのパラメーターを更新：
+     + \<user>はSnowflakeログイン名を指定します。
+     + \<account>はアカウントの名前（Snowflakeが提供）を指定します。
+   * サンプルコードは以下のとおりです。
+
+     ```import java.util.Properties;
+       
+     import java.sql.Connection;
+       
+     import java.sql.Statement;
+       
+     import java.sql.ResultSet;
+       
+     import java.sql.DriverManager;
+       
+     import java.io.File;
+       
+     import java.io.FileInputStream;
+       
+     import java.io.DataInputStream;
+       
+     import java.util.Base64;
+       
+     import java.security.spec.PKCS8EncodedKeySpec;
+       
+     import java.security.KeyFactory;
+       
+     import java.security.PrivateKey;
+       
+     import javax.crypto.EncryptedPrivateKeyInfo;
+       
+     import javax.crypto.SecretKeyFactory;
+       
+     import javax.crypto.spec.PBEKeySpec;`
+
+     `public class TestJdbc
+       
+     {
+       
+     public static void main(String[] args)
+       
+     throws Exception
+       
+     {
+       
+     File f = new File("<path>/rsa_key.p8");
+       
+     FileInputStream fis = new FileInputStream(f);
+       
+     DataInputStream dis = new DataInputStream(fis);
+       
+     byte[] keyBytes = new byte[(int) f.length()];
+       
+     dis.readFully(keyBytes);
+       
+     dis.close();`
+
+     `String encrypted = new String(keyBytes);
+       
+     String passphrase = System.getenv("PRIVATE_KEY_PASSPHRASE");
+       
+     encrypted = encrypted.replace("-----BEGIN ENCRYPTED PRIVATE KEY-----", "");
+       
+     encrypted = encrypted.replace("-----END ENCRYPTED PRIVATE KEY-----", "");
+       
+     EncryptedPrivateKeyInfo pkInfo = new EncryptedPrivateKeyInfo(Base64.getMimeDecoder().decode(encrypted));
+       
+     PBEKeySpec keySpec = new PBEKeySpec(passphrase.toCharArray());
+       
+     SecretKeyFactory pbeKeyFactory = SecretKeyFactory.getInstance(pkInfo.getAlgName());
+       
+     PKCS8EncodedKeySpec encodedKeySpec = pkInfo.getKeySpec(pbeKeyFactory.generateSecret(keySpec));
+       
+     KeyFactory keyFactory = KeyFactory.getInstance("RSA");
+       
+     PrivateKey encryptedPrivateKey = keyFactory.generatePrivate(encodedKeySpec);`
+
+     `String url = "jdbc:snowflake://<account>. snowflakecomputing.com ";
+       
+     Properties prop = new Properties();
+       
+     prop.put("user", "<user>");
+       
+     prop.put("account", "<account>");
+       
+     prop.put("privateKey", encryptedPrivateKey);`
+
+     `Connection conn = DriverManager.getConnection(url, prop);
+       
+     Statement stat = conn.createStatement();
+       
+     ResultSet res = stat.executeQuery("select 1");
+       
+     res.next();
+       
+     System.out.println(res.getString(1));
+       
+     conn.close();
+       
+     }
+       
+     }```
+
+#### キーローテーション
+
+Snowflakeは、中断しないローテーションができるように、複数のアクティブキーをサポートします。内部で従っている有効期限スケジュールにもとづき、パブリックキーとシークレットキーをローテーションし、置換します。
+
+現在、ALTER USERではRSA\_PUBLIC\_KEYとRSA\_PUBLIC\_KEY\_2のパラメーターを使用して、最大2つのパブリックキーを1人のユーザーに関連付けることができます。
+
+キーのローテーションを行うには：
+
+1. キーペア認証の使用のステップを完了します。
+     
+   * 新しいシークレットキーとパブリックキーのセットを生成します。
+   * ユーザーにパブリックキーを割り当てます。パブリックキーの値をRSA\_PUBLIC\_KEYまたはRSA\_PUBLIC\_KEY\_2のいずれか（現在使用していないキー値）に設定します。
+       
+     例：
+       
+     `alter user jsmis set rsa_public_key_2='JERUE Htcve...';`
+2. コードを更新してSnowflakeに接続します。新しいシークレットキーを指定します。
+     
+   Snowflakeは、接続情報とともに送信されたシークレットキーにもとづいて、認証用の正しいアクティブなパブリックキーを検証します。
+3. ユーザープロフィールから古いパブリックキーを削除します。例：
+     
+   `alter user jsmith unset rsa_public_key;`
+
+## Snowflakeアカウントに接続する
+
+このセクションでは、 Snowflake KeyPair Internal Managed Unload コネクターページの **［認証情報］** ペインと **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Snowflakeアカウントへの認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account Name </td><td colspan="1" rowspan="1"> アカウントのフルネーム（Snowflakeが提供）を入力します。米国西部地域は <b><b> account_name </b></b> 、その他の地域は <b><b> account_name.region_id </b></b> です。 </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Snowflakeホストへの接続に使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Private Key </td><td colspan="1" rowspan="1"> シークレットキーを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Passphrase </td><td colspan="1" rowspan="1"> シークレットキーを暗号化する場合、OpenSSLが、シークレットキーファイルの暗号化に使用されるパスフレーズの入力を求めてきます。パスフレーズをここに入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Role </td><td colspan="1" rowspan="1"> 権限の名称を入力します。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいSnowflake KayPair Internal Managed Unload DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、選択したレポートタイプに応じて様々なメニューが表示されます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query Type </p></td><td colspan="1" rowspan="1"><table><tbody><tr><th colspan="1" rowspan="1"> クエリタイプ </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Custom Query </td><td colspan="1" rowspan="1"> 実行するSQLクエリを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Builder </td><td colspan="1" rowspan="1"> クエリを自動生成する表とフィールドを選択します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Warehouses </td><td colspan="1" rowspan="1"> 取得したいデータが格納されているウェアハウスを選択します。このリストには、認証情報にもとづいてアクセス権のあるすべてのウェアハウスが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Databases </td><td colspan="1" rowspan="1"> 取得したいデータが格納されているデータベースを選択します。このリストには、認証情報にもとづいてアクセス権のあるすべてのデータベースが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Schemas </td><td colspan="1" rowspan="1"> 取得したいデータが格納されているデータベーススキーマを選択します。このリストには、認証情報にもとづいてアクセス権のあるすべてのスキーマが表示されます。 </td></tr><tr><td colspan="1" rowspan="1"> Database Objects </td><td colspan="1" rowspan="1"> 取得したいデータが格納されているデータベースオブジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Tables </td><td colspan="1" rowspan="1"> テーブルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"><span> Database Tables </span></td><td colspan="1" rowspan="1"> 取得するデータベーステーブルを選択します。このリストには、認証情報にもとづいてアクセス権のあるすべてのテーブルが表示されます。データベーステーブルを選択しない場合、コネクターはデータベーススキーマ全体を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Columns </td><td colspan="1" rowspan="1"> 取得するテーブルの列を選択します。このリストには、認証情報にもとづいてアクセス権のあるすべての列が表示されます。テーブルの列を選択しないと、コネクターは選択したデータベーステーブル全体を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Table Query Helper </td><td colspan="1" rowspan="1"><span> 選択したフィールドにもとづいてクエリが生成されます。このテキストをコピーして、［QUERY］フィールドに貼り付けます。必要に応じてこのクエリを編集します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Views </span></td><td colspan="1" rowspan="1"><span> ビューを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> View Columns </span></td><td colspan="1" rowspan="1"><span> レポートに含める表示列を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> View Query Helper </span></td><td colspan="1" rowspan="1"><span> 選択したフィールドにもとづいてクエリが生成されます。このテキストをコピーして、［QUERY］フィールドに貼り付けます。必要に応じてこのクエリを編集します。 </span></td></tr><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> データを取得するSQLクエリを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Partition or Upsert Support </p></td><td colspan="1" rowspan="1"><p> データをパーティション分割するか、Upsert機能を必要とするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Partition Criteria </p></td><td colspan="1" rowspan="1"><p> 日付のキー、日付以外のキー、またはメタクエリを使用してデータをパーティション分割するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Partition Support </td><td colspan="1" rowspan="1"><span> データをパーティション分割するかどうかを指定します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Partition Support Format </td><td colspan="1" rowspan="1"><span> パーティションの形式を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Select Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"><span> パーティション列の名前を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"><span> データをパーティション分割する日付以外のキーの列名を選択します。このディスカバリーには日付以外のすべてのフィールドが表示されます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Enter Partition Non Date Key Column Name </td><td colspan="1" rowspan="1"><span> パーティション列の名前を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Partition Query to determine partition tags </td><td colspan="1" rowspan="1"><span> パーティションタグを特定するために、パーティションクエリを入力します。 <b> ［Date］ </b> データを含む列が、パーティション列です。例：select <b> Date </b> from the Table_Name。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Partition Column Name </span></td><td colspan="1" rowspan="1"><span> パーティション列の名前を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Select or Enter Upsert Column </span></td><td colspan="1" rowspan="1"><span> 列名を手動で入力するか、リストから選択するかを選択できます。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Upsert Columns </span></td><td colspan="1" rowspan="1"><span> Upsertの列を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Upsert Column Names </span></td><td colspan="1" rowspan="1"><span> Upsert列名のカンマ区切りの値を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Past Years </span></td><td colspan="1" rowspan="1"><span> データを取得する過去の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Future Years </span></td><td colspan="1" rowspan="1"><span> データを取得する未来の年数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Past Months </span></td><td colspan="1" rowspan="1"><span> データを取得する過去の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Future Months </span></td><td colspan="1" rowspan="1"><span> データを取得する未来の月数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Past Days </span></td><td colspan="1" rowspan="1"><span> データを取得する過去の日数を入力します。値はXとすることができ、この場合Xは正の整数です。例：30。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Date Format </span></td><td colspan="1" rowspan="1"><span> 必要な日付形式を選択します。デフォルトでは、 <b> yyyy-MM-dd </b> が使用されます。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Custom Date Format </span></td><td colspan="1" rowspan="1"><span> カスタマイズされた日付形式を入力します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Query Tag </span></td><td colspan="1" rowspan="1"><span> これは、SnowflakeでConnector SQLの実行に <b> クエリタグ </b> としてタグ付けするために使用できるオプションのパラメーターです 。 </span></td></tr><tr><td colspan="1" rowspan="1"> Convert Columns to String </td><td colspan="1" rowspan="1"><span> 列を文字列に変換するには、カンマで区切った列名を入力します。例：column1, column2, column3。 </span></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターのインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターはいつ使用しますか？">
+
+
+Snowflake KeyPair Internal Managed Unloadコネクターは、Snowflakeが管理するS3バケットにデータをアンロードしてからDomoにデータを取り込むことで、SnowflakeからDomoにデータをインポートします。このコネクターはあらゆるサイズのDataSetに適しており、非常に大きなDataSetで推奨されます。接続するには、Snowflakeのローカルのユーザー名とシークレットキーが必要です。
+
+
+</Accordion>
+<Accordion title="このコネクターを起動するにはどのような認証情報が必要ですか？">
+
+
+Snowflakeアカウントに関連付けられているアカウント名、ユーザー名、シークレットキーが必要です。シークレットキーを暗号化する場合、OpenSSLが、シークレットキーファイルの暗号化に使用されるパスフレーズの入力を求めてきます。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+制限は、使用するサーバー構成によって異なります。
+
+
+</Accordion>
+<Accordion title="データ更新の頻度はどのくらいですか？">
+
+
+DataSetは15分ごとに実行できます。ただし、クエリの実行時間によっては、DataSetの実行頻度が低くなる場合があります。
+
+
+</Accordion>
+<Accordion title="クエリの記述の際に注意すべき点はありますか？">
+
+
+すべての単語、テーブル名、フィールド名が正しく記述されていることを確認します。
+
+
+</Accordion>
+<Accordion title="Snowflakeデータベースに接続できない理由は何ですか？IPアドレスのホワイトリスト登録が必要でしょうか？">
+
+
+Snowflakeデータベースに接続する前に、接続するポート上のデータベースサーバーにあるいくつかのIPアドレスをホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「
+
+[DomoでIPアドレスをホワイトリストに登録する](/ja/s/article/360043439173 "DomoでIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

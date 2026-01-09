@@ -1,0 +1,127 @@
+---
+title: "Microsoft Office 365用Domoアドイン | エンタープライズ向け手動インストールガイド"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+会社のMicrosoft 365管理者は、管理センターからMicrosoft 365製品用の新しいDomoアドインを展開できます。組織内のユーザーは、Microsoft 365デスクトップアプリから直接Domoアドインにアクセスできます。必要に応じてDomoアドインを削除することもできます。
+
+Microsoft AppSourceからDomo for Officeアドインをダウンロードすることを強く推奨します。これらの手順について、以下で説明します。Microsoft AppSourceにアクセスできない場合は、このガイドの後続の部分で、アドインを手動でインストールする方法について説明しています。
+
+### Microsoft AppSourceからDomo for Officeアドインをインストールする
+
+Microsoft AppSourceからDomo for Officeアドインをダウンロードするには、次のリンクをクリックしてください。
+
+* [Domo for Office](https://appsource.microsoft.com/ja/product/office/WA200005264?exp=ubp8) （Excel、PowerPoint、Word）
+* [Domo for Outlook](https://appsource.microsoft.com/ja/product/office/WA200005307?exp=ubp8&tab=Overview)
+    
+  Outlookアドインは、AndroidとiOSの両方のモバイルデバイスでサポートされています。
+
+<Frame><img alt="Screenshot 2023-07-31 at 12.29.41 PM.png" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006vSQd.jpg" style={{width: 515.994, height: 226.982}}/></Frame>
+Domo for Officeアドインのアップデートは、インストールしたものに自動的に適用されます。これらのアップデートが表示されない場合は、Microsoft 365アドインのキャッシュをクリアする必要があります。この方法については、 [Microsoftのドキュメンテーション](https://learn.microsoft.com/ja-jp/office/dev/add-ins/testing/clear-cache) を参照してください。
+
+## 必要条件
+
+Domoアドインをインストールするには以下が必要です。
+
+* Microsoft 365管理センターおよび カスタムアドインを公開する機能にアクセスします。
+* 次に示す DomoにあるMicrosoft 365管理マニフェストファイルへのリンク。
+
+#### 製品別のアドインマニフェストファイルへのリンク
+
+**Excel**
+
+https://extensions.domo.com/office365/addins/manifest/excel-extensions-domo-manifest.xml
+
+**Outlook**
+
+https://extensions.domo.com/office365/addins/manifest/outlook-extensions-domo-manifest.xml
+
+**PowerPoint**
+
+https://extensions.domo.com/office365/addins/manifest/ppt-extensions-domo-manifest.xml
+
+**Word**
+
+https://extensions.domo.com/office365/addins/manifest/word-extensions-domo-manifest.xml
+
+## アドインを組織に展開する
+
+1. [Microsoft 365管理センター](https://admin.microsoft.com/) にサインインします。
+2. 管理センターの左側のナビゲーションメニューから **［Settings］** > **［Integrated Apps］** に進みます。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーション、チームの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u4wA.png"/></Frame>
+3. **［Upload custom apps］** を選択します。
+     
+   **［Deploy New App］** モーダルが表示されます。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーション、チームの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MJ.png"/></Frame>
+4. **［Upload Apps to deploy］** の下で下矢印を選択し、 **［Host Product］** メニューを開きます。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MK.png"/></Frame>
+5. ［Host Product］メニューで、 **［Word, Excel, Powerpoint and Outlook］** を選択します。
+6. **［Choose how to upload app］** で **［Provide link to manifest file］** を選択します。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、テキスト、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7ML.png"/></Frame>
+7. **［Provide link to manifest file］** フィールドにこのガイドの「 [必要条件](#Prerequisites) 」セクションから、選択した製品のリンクをペーストします。
+     
+   <Note>
+     **注記：** Domoアドインを複数の製品に展開する場合は、この記事の手順を実行して各製品に個別に展開する必要があります。
+
+   </Note>
+
+8. 正しい製品リンクをペーストした後、フィールドの右側にある **［Validate］** を選択します。
+     
+   ファイルが検証されると、コメントがフィールドの下に表示されます。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MM.png"/></Frame>
+9. モーダルの下部にある **［Next］** を選択します。
+10. モーダルの **［Users］** セクションに記入し、 **［Next］** を選択します。
+      
+    <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、テキスト、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u4wF.png"/></Frame>
+11. モーダルの **［Deployment］** セクションで、正しいMicrosoft 365製品が **［Accept permissions requests］** および **［Finish］** ページに表示されていることを確認します。 次の画像例では、製品はWordです。
+      
+    <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MN.png"/></Frame>
+12. ［Deploy New App］ モーダルの **［Finish］** ページで **［Finish deployment］** を選択します。
+      
+    <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーションの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MO.png"/></Frame>
+13. 展開が完了したことを確認します。
+      
+    <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、テキスト、アプリケーション、メールの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MP.png"/></Frame>
+14. Domoアドインを展開するMicrosoft 365製品ごとに、この手順を繰り返します。
+
+## 管理者の管理アドインにアクセスする
+
+DomoアドインをMicrosoft 365デスクトップアプリに展開した後、組織内のユーザーがアドインにアクセスするには、次の手順を実行する必要があります。
+
+1. 作業するMicrosoft 365アプリを開きます。
+2. **［アドインを取得］** に進みます。
+   * Excel、PowerPoint、またはWordを使用している場合：
+   1. ドキュメントの上部にあるリボンの **［挿入］** タブに進みます。
+   2. **［アドインを取得］** を選択します。
+   * Outlookを使用している場合：
+   1. アプリの上部にあるツールバーから
+      <InlineImage src="/images/kb/ja/ka0Vq0000008bla-00N5w00000Ri7BU-0EM5w000006u7Kh.jpg" /> 三点メニュー を選択します。
+   2. **［アドインを取得］** を選択します。
+3. **［管理者による管理］** を選択します。
+4. **Domo** アドインを選択し、 **［追加］** を選択します。
+
+これで、Microsoft 365アプリの上部にあるリボンまたはツールバーで［Domo］タブを表示できるようになりました。様々なタスクでDomoアドインを使用する方法の詳細については、「 [Microsoft Office 365アプリ用Domoアドイン | ユーザーガイド](/ja/s/article/000005143) 」を参照してください。
+
+## Domoアドインを削除する
+
+Domoアドインの削除が必要になる場合があります。そのためには、次の手順を実行します。
+
+1. [Microsoft 365管理センター](https://admin.microsoft.com/) にサインインします。
+2. 管理センターの左側のナビゲーションメニューから **［Settings］** > **［Integrated Apps］** に進みます。
+3. 統合アプリのリストで、削除するアドインを見つけます。
+     
+   <Frame><img alt="自動的に生成されたグラフィカルなユーザーインターフェース、アプリケーション、チームの説明" src="/images/kb/ka0Vq0000000Xwr-00N5w00000Ri7BU-0EM5w000006u7MQ.png"/></Frame>
+4. **［Host products］** 列のMicrosoft 365アプリ名の左側にある <InlineImage src="/images/kb/ja/ka0Vq0000008bla-00N5w00000Ri7BU-0EM5w000006u7M4.jpg" /> 三点メニューを選択します。
+5. **［Remove］** を選択します。
+
+選択したMicrosoft 365アプリのDomoアドインの配付は終了しました。
+
+日本語

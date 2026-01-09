@@ -1,0 +1,67 @@
+---
+title: "Azure Synapse SQLコネクター"
+---
+
+<Warning>
+**重要：** 2020年 11月16日月曜日より、 ****Azure SQL Data Warehouse**** ****コネクター**** は、 ****Azure Synapse SQLコネクター**** と名称が変更されます。
+
+****これにより、どのような影響がありますか？****
+
+すべてのAzure SQL Data Warehouse DataSetは引き続き今まで通り実行されます。コネクターの機能に変更はありません。
+
+コネクターを使用しているお客様や、使用を予定しているお客様は、次の点にお気づきになると思います。
+
+1. AppStoreにこのコネクターの新しいアイコンがあります。既存のDataSetが新しいアイコンでData Centerに表示されるようになります。
+2. お客様が「タイプ」フィルターを使用してData CenterでAzure Data Warehouse DataSetを検索する場合には、「Azure Data Warehouse」ではなく「Azure Synapse SQL」タイプのDataSetを検索する必要があります。
+3. 新しいAzure SQL Data Warehouseを作成する場合は、AppStoreで「Azure SQL Data Warehouse Connector」ではなく、「Azure Synapse SQL Connector」を検索する必要があります
+4. Azure SQL Data Warehouseコネクターのコネクターアカウントは、「Azure Synapse SQL」アカウントと呼ばれるようになります。
+
+</Warning>
+
+## はじめに
+
+Azure Synapse SQLを使用すると、ハイパフォーマンスでグローバルに利用可能な、安全なクラウドData Warehouseをすばやく実装できます。DomoのAzure Synapse SQLコネクターを使用すると、AzureデータをDomoに取り込むことができます。
+
+Azure Synapse SQLデータベースには、Data Centerから接続します。このトピックでは、Azure Synapse SQLコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Azure Synapse SQLデータベースに接続してDataSetを作成するには、以下が必要です。
+
+* Azure Synapseデータベースのログインに使用するユーザー名とパスワード。
+* データベースのサーバー名。この情報は、次の方法で確認できます。
+
+  1. Azureポータルにログインします。
+  2. **［Azure Synapse Analytics］**
+     をクリックします。
+  3. 接続するSynapse SQL Poolをクリックします。
+  4. フルサーバー名を探します。例：
+     **[yourserver.database.windows.net](http://yourserver.database.windows.net)**
+* データベースのポート番号
+* データベース名
+
+Azure Synapse SQLデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Azure SQLデータベースに接続する
+
+このセクションでは、Azure Synapse SQLコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Azure Synapse SQLデータベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Server Name </p></td><td colspan="1" rowspan="1"><p> サーバーの名前を入力します。サーバー名を検索する方法については、上述の「必要条件」を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Azure Synapseデータベースの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Azure Synapseデータベースのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Azure Synapseデータベースのログインに使用するパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAzure Synapse SQL DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［クエリ］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> クエリの作成にサポートが必要な場合は、自動生成されたクエリを <b> ［Query Helper］ </b> フィールドからコピーしてこのフィールドに貼り付けます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルを選択します。選択したテーブルは、 <b> ［Query Helper］ </b> フィールドの自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルの列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> フィールドでテーブルを、 <b> ［Table Columns］ </b> フィールドで列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

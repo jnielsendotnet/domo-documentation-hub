@@ -1,0 +1,49 @@
+---
+title: "Pinterestコネクター"
+---
+
+<Warning>
+**重要：** 2018年3月以降、このコネクターはPinterestとの契約交渉により無効になっています。このコネクターを使用して作成されたDataSetを編集することはできません。また、Pinterest DataSetを使用したカードは更新されません。PinterestのデータをDomoにインポートする場合は、 [メールによるDataSetコネクター](/ja/s/article/360042931954 "Workbench 4を使用してデータに接続する") など、別の方法を使用する必要があります。
+
+</Warning>
+
+## はじめに
+
+Pinterestはメンバーが画像や動画などのオブジェクトをピンボードに「ピン」できるコンテンツ共有サービスです。 DomoのPinterestコネクターを使用すると、フォロワー、ピン、「いいね！」など、多数のPinterestエンティティに関するデータを取得できます。Pinterest APIについての詳細は、ウェブサイト（ [https://developers.pinterest.com/](https://developers.pinterest.com/ "https://developers.pinterest.com/") ）を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、ピン、「いいね！」など、Pinterestデータを取得するのに適しています。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> Pinterestのフォロワー数 </p></li><li><p> 「いいね！」で測定されるエンゲージメント </p></li><li><p> ピン数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> オーガニックソーシャルメディアマネージャー </p></li><li><p> CMO </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10分以下 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 2 </p></td></tr></tbody></table>
+
+Pinterestアカウントには、Data Centerから接続します。このトピックでは、Pinterestコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Pinterestアカウントに接続してDataSetを作成するには、アカウントの認証情報（Pinterestへのログインに使用するメールアドレスとPinterestのパスワード）か、FacebookまたはGoogleの認証情報が必要になります。
+
+## Pinterestアカウントに接続する
+
+このセクションでは、Pinterest コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetの名前と説明］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのPinterestコネクターは接続にOAuthを使用しているので、Domo内で認証情報を入力する必要はありません。 **［接続］** をクリック（またはDomoにPinterestアカウントがある場合は **［アカウントを追加］** を選択）して、PinterestのOAuth画面を開き、Pinterestにログイン用のメールアドレスとパスワードを入力します。また、FacebookやGoogleの認証情報を入力することもできます。有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいPinterest DataSetを作成できます。コネクターのアカウントは **Data Center** の ［アカウント］ タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にPinterestにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずPinterestからログアウトする必要があります。
+
+</Note>
+
+### 詳細ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するPinterestレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> アカウント </td><td colspan="1" rowspan="1"> 認証ユーザーの氏名、IDおよびURLを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ボード </td><td colspan="1" rowspan="1"> URL、IDおよび氏名など、認証ユーザーの公開ボードのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ボードピン </td><td colspan="1" rowspan="1"> ボードのピンのリストを、ID、URL、リンク、説明とともに返します。 </td></tr><tr><td colspan="1" rowspan="1"> フォロワー </td><td colspan="1" rowspan="1"> 認証ユーザーをフォローしているユーザーを返します。デフォルトではユーザーの氏名、ID、URLを返します。 </td></tr><tr><td colspan="1" rowspan="1"> フォロー中のボード </td><td colspan="1" rowspan="1"> 認証ユーザーがフォローしているボードを返します。デフォルトではボードのID、名前、URLを返します。 </td></tr><tr><td colspan="1" rowspan="1"> フォロー中の興味 </td><td colspan="1" rowspan="1"> 認証ユーザーがフォローしているトピックを返します。デフォルトでは、トピックのIDとその名前を返します。 </td></tr><tr><td colspan="1" rowspan="1"> フォロー中のユーザー </td><td colspan="1" rowspan="1"> 認証ユーザーがフォローしているユーザーを返します。デフォルトではユーザーの氏名、ID、URLを返します。 </td></tr><tr><td colspan="1" rowspan="1"> いいね！ </td><td colspan="1" rowspan="1"> 認証ユーザーが「いいね！」した ID、リンク、URL、ピンの説明を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ピン </td><td colspan="1" rowspan="1"> 認証ユーザーのピンの「いいね！」した ID、リンク、URL、説明を返します。 </td></tr><tr><td colspan="1" rowspan="1"> ボードを検索 </td><td colspan="1" rowspan="1"> 認証ユーザーのボード名（ボードのピンとは異なります）を検索します。応答が空の場合は、検索語と一致するものがなかったことを示します。デフォルトではクエリに一致するボードの ID、名前、URLを返します。 </td></tr><tr><td colspan="1" rowspan="1"> ピンを検索 </td><td colspan="1" rowspan="1"> 認証ユーザーのピンの説明を検索します。応答が空の場合は、検索語と一致するものがなかったことを示します。デフォルトではクエリに一致するピンの ID、名前、URLを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> ボードピン </td><td colspan="1" rowspan="1"> ピンを取得したいボードのIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 検索クエリ </td><td colspan="1" rowspan="1"> 検索する用語を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+フォロワーの結果数はしばしば短縮して表示されることがあるのでご注意ください。例えば、9,700人のフォロワーがいるとき、DataSetには「9.7」と表示される場合があります。分析して正しい数値に調整するにはロジックが必要になります。
+
+

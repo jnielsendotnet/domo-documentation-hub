@@ -1,0 +1,297 @@
+openapi: 3.0.0
+info:
+  title: Alerts API
+  description: Domo Alerts allow users to subscribe to various events and receive timely notifications as changes occur. Find out more about Alerts by reading this article. The Alerts API can be used to manage alerts in your Domo instance.
+  version: '4.0'
+servers:
+- url: https://{instance}.domo.com
+  description: Domo instance
+  variables:
+    instance:
+      default: YOUR_INSTANCE
+      description: Your Domo instance name
+paths:
+  /api/social/v4/alerts:
+    get:
+      operationId: get-alerts
+      summary: Get alerts
+      tags:
+      - Alerts
+      parameters:
+      - name: all
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to fetch all alerts at once
+      - name: cardId
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: A specific card id to fetch alerts for
+      - name: currentUserSubscriptions
+        in: query
+        required: false
+        schema:
+          type: boolean
+          default: false
+        description: Whether to fetch the alerts subscribed to by the current user
+      - name: dataSetId
+        in: query
+        required: false
+        schema:
+          type: string
+        description: A specific dataset id to fetch alerts for
+      - name: disabled
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to fetch only disabled alerts
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+          default: id, category, type, name, description, resourceType, resourceId, createdAt, createdBy, modifiedAt, modifiedBy
+        description: Which alert fields to include in the response (can be set to 'all' to fetch all fields)
+      - name: limit
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 100
+        description: The query limit
+      - name: offset
+        in: query
+        required: false
+        schema:
+          type: integer
+          default: 0
+        description: The query offset (for pagination)
+      - name: ownerId
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: A specific user id to fetch owned alerts for
+      - name: pageId
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: A specific page id to fetch alerts for
+      - name: sort
+        in: query
+        required: false
+        schema:
+          type: string
+          default: createdAt
+        description: The field to sort by
+      - name: subscriberId
+        in: query
+        required: false
+        schema:
+          type: integer
+        description: A specific user id to fetch subscribed alerts for
+      - name: subscriptionTypes
+        in: query
+        required: false
+        schema:
+          type: string
+        description: A list of subscription types to filter the alerts by
+      - name: suggested
+        in: query
+        required: false
+        schema:
+          type: boolean
+        description: Whether to fetch only alerts that are suggested for you
+      - name: triggered
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Whether to fetch only alerts that have been triggered
+      responses:
+        '200':
+          description: Returns the alerts based on the included query params.
+          content:
+            application/json:
+              schema:
+                type: object
+              example: 'HTTP/1.1 200 OKContent-Type: application/json{  [    {        "id": 358,        "name": "Any row has changes for column(s): ''embedURL, metric, src, filesAPINum, docId, userName, title''",        "type": "ANY_ROW",        "resourceType": "DATASET",        "resourceId": "58b3775b-ab03-4f54-9052-a3c5f7cbf426",        "createdAt": "2024-12-12 23:37:32",        "createdBy": 1341393147,        "modifiedAt": "2024-12-13 18:55:17",        "modifiedBy": 1341393147,        "category": "DATA"    }, ...  ]}'
+      x-codeSamples:
+      - lang: JavaScript
+        source: async function getAlerts() {  const url = `/api/social/v4/alerts`;  const response = await fetch(url);  return await response.json();}
+  /api/social/v4/alerts/{alertId}:
+    get:
+      operationId: get-an-alert
+      summary: Get an alert
+      tags:
+      - Alerts
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The id of the alert you want to get
+      - name: fields
+        in: query
+        required: false
+        schema:
+          type: string
+        description: Which alert fields to include in the response
+      responses:
+        '200':
+          description: Returns the alert.
+          content:
+            application/json:
+              schema:
+                type: object
+              example: 'HTTP/1.1 200 OK{  "actions": [],  "active": true,  "category": "DATA",  "configurations": [],  "contextual": true,  "createdAt": "2024-01-01 00:00:00",  "createdBy": 123456789,  "currentUserSubscribed": false,  "enabled": true,  "error": {},  "filterGroups": [],  "id": 123,  "modifiedAt": "2024-01-01 00:00:00",  "modifiedBy": 123456789,  "name": "My Favorite Alert",  "owner": 123456789,  "resourceId": "58b3775b-ab03-4f54-9052-a3c5f7cbf426",  "resourceName": "Test Dataset",  "resourceType": "DATASET",  "rule": "Any row has changes for column(s): ''test''",  "subscriptions": [],  "triggerFrequency": "Rarely",  "triggered": false,  "type": "ANY_ROW"}'
+      x-codeSamples:
+      - lang: JavaScript
+        source: async function getAlert(alertId) {  const url = `/api/social/v4/alerts/${alertId}`;  const response = await fetch(url);  return await response.json();}
+    delete:
+      operationId: delete-an-alert
+      summary: Delete an alert
+      tags:
+      - Alerts
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The alertId
+      responses:
+        '200':
+          description: Returns the parameter of success or error based on the alert id being valid.
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codeSamples:
+      - lang: JavaScript
+        source: 'async function deleteAlert(alertId) {  const url = `/api/social/v4/alerts/${alertId}`;  const response = await fetch(url, {    method: ''DELETE'',  });  return await response.json();}'
+  /api/social/v4/alerts/{alertId}/subscriptions:
+    post:
+      operationId: subscribe-user-to-an-alert
+      summary: Subscribe user to an alert
+      tags:
+      - Alerts
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The alertId
+      responses:
+        '200':
+          description: Returns the parameter of success or error based on the alert id being valid.
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codeSamples:
+      - lang: JavaScript
+        source: 'async function subscribeToAlert(alertId, userId) {  const url = `/api/social/v4/alerts/${alertId}/subscriptions`;  const response = await fetch(url, {    body: JSON.stringify({ subscriberId: userId, type: ''USER'' }),  });  return await response.json();}'
+    delete:
+      operationId: unsubscribe-user-from-an-alert
+      summary: Unsubscribe user from an alert
+      tags:
+      - Alerts
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The alertId
+      - name: subscriberId
+        in: query
+        required: true
+        schema:
+          type: integer
+        description: The id of the entity unsubscribing from the alert
+      - name: type
+        in: query
+        required: true
+        schema:
+          type: string
+        description: The entity type, can be USER, GROUP, BUZZ, DAILY, WEEKLY, or AUTO
+      responses:
+        '200':
+          description: Returns the parameter of success or error based on the alert id being valid.
+          content:
+            application/json:
+              schema:
+                type: object
+      x-codeSamples:
+      - lang: JavaScript
+        source: 'async function unsubscribeFromAlert(alertId, userId) {  const url = `/api/social/v4/alerts/${alertId}/subscriptions?subscriberId=${userId}&amp;type=USER`;  const response = await fetch(url, {    method: ''DELETE'',  });  return await response.json();}'
+  /api/social/v4/alerts/{alertId}/share:
+    post:
+      operationId: share-an-alert
+      summary: Share an alert
+      tags:
+      - Alerts
+      parameters:
+      - name: alertId
+        in: path
+        required: true
+        schema:
+          type: integer
+        description: The alertId
+      requestBody:
+        description: '- **userMessage** (String) Required: The message you want to send to the person
+
+          - **alertSubscriptions** (Object[]) Required: The entities you want to share the alert with. See above for entity params.
+
+          - **sendEmail** (Boolean) : Whether or not to send an email to the person once the alert is shared
+
+          - **metaData** (Object) : '
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                userMessage:
+                  type: string
+                  description: The message you want to send to the person
+                alertSubscriptions:
+                  type: array
+                  items:
+                    type: object
+                  description: The entities you want to share the alert with. See above for entity params.
+                sendEmail:
+                  type: boolean
+                  description: Whether or not to send an email to the person once the alert is shared
+                metaData:
+                  type: object
+              required:
+              - userMessage
+              - alertSubscriptions
+      responses:
+        '200':
+          description: Returns the parameter of success or error based on the alert id being valid.
+          content:
+            application/json:
+              schema:
+                type: object
+              example: '{  "userMessage": "I think you''ll find this alert useful",  "alertSubscriptions": [{ "subscriberId": 12345, "type": "USER" }],  "sendEmail": true,  "metaData": {}}'
+      x-codeSamples:
+      - lang: JavaScript
+        source: 'async function shareAlert(alertId, userId, message, email) {  const url = `/api/social/v4/alerts/${alertId}/share`;  const payload = {    userMessage: message,    alertSubscriptions: [{ subscriberId: userId, type: ''USER'' }],    sendEmail,    metaData: {},  };  const response = await fetch(url, {    body: JSON.stringify(payload),  });  return await response.json();}'
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+security:
+- BearerAuth: []

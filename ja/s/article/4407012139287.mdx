@@ -1,0 +1,57 @@
+---
+title: "Workbench 5.1でCDataドライバーをSAP用に設定する"
+---
+
+## はじめに
+
+CDataドライバーには、SAPへの接続に必要なすべてのファイルが含まているとは限りません。これらのファイルを入手するには、次の手順に従ってWindowsアプリケーション用のSAPGUIフロントエンドをダウンロードしてインストールする必要があります。
+
+## Windows用のSAPGUIをダウンロードする
+
+1. [SAP Software Downloads Center](https://support.sap.com/ja/my-support/software-downloads.html?anchorId=section_2065063837)
+   に移動します。
+2. **［Types of Software］** > **［Installation & Upgrades］** > **［Access Downloads］** の順に進みます。
+     
+   **ダウンロード** ページが開きます。
+3. **［By Category］** > **［SAP Frontend Components］** > **［SAP GUI FOR WINDOWS］** の順に進み、最新バージョンを選択します。
+
+アプリケーションをダウンロードし、プロンプトに従ってWindowsマシンにインストールします。
+
+## インストールを確認する
+
+SAPGUIが正常にインストールされたことを確認するには、次の手順に従います。
+
+1. Windowsマシンで **［Run］** ダイアログを開きます。
+2. **［Open］** フィールドに「odbcad32」と入力し **［OK］** を選択します。
+     
+   **［ODBC Data Source Administrator］** ダイアログが開きます。
+3. **［System DSN］** タブで、DSNを検索または作成できます。
+4. **［Configure］** > **［Test Connection］** の順に進みます。
+     
+   <Note>
+   **注：** **接続のテストは** 独自のライセンスキーを指定した場合にのみ機能し、それ以外の場合はライセンスエラーが表示されます。CDataからトライアルキーを取得します。または、WorkbenchジョブをこのDSNに添付してWorkbenchでジョブプレビューを実行することもできます。その場合、Workbenchはジョブの実行時にDomoが提供するライセンスキーを挿入します。
+
+   </Note>
+
+<Frame><img alt="CData.png" src="/images/kb/ka05w00000123s1-00N5w00000Ri7BU-0EM5w000005vPMP.png"/></Frame>
+
+## 必須のファイル
+
+SAP CDATA接続ツールを使用するには、Workbenchを実行しているマシンの「System32」または「Win32」フォルダと「SysWOW64」フォルダに、次の.dllファイルをコピーする必要があります。
+
+* icudt34.dll
+* icuin34.dll
+* icuuc34.dll
+* libicudecnumber.dll
+* librfc32.dll
+* librfc32u.dll
+* libsapu16vc80.dll
+* libsapucum.dll
+* sapnwrfc.dll
+
+<Note>
+**注：** 上記の.dllファイルはSAPによって提供されています。Domoは、SAPのライセンス制限により.dllファイルを配布できません。
+
+</Note>
+
+

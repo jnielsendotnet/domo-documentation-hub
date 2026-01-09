@@ -1,0 +1,108 @@
+---
+title: "AzureIotHubコネクター"
+---
+
+## はじめに
+
+AzureIotHubハブは、IoTアプリケーションとそれが管理するデバイス間で双方向通信を行うための中央メッセージハブとして機能する、クラウド内でホストされている管理サービスです。Azure IoT Hubは、数百万のIoTデバイスとクラウドホストのソリューションバックエンド間で信頼性と安全性の高い通信を行うIoTソリューションを構築するために使用できます。
+
+AzureIotHubコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+AzureIotHubアカウントには、Data Centerから接続します。このトピックでは、コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+AzureIotHubアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* アクティブな [Azureアカウント](https://azure.microsoft.com/ja-jp/pricing/purchase-options/azure-account?icid=ai-services "Azureアカウント") 。アカウントがない場合は、[無料アカウントを作成](https://azure.microsoft.com/ja-jp/free/ "無料アカウントを作成") できます。
+* [Translator](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation "Translator") リソース。
+* **標準パフォーマンス** の [Azure Blob Storageアカウント](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM "Azure Blobストレージアカウント") 。ストレージアカウント内にファイルを保存および整理するためのコンテナを作成します。ストレージコンテナでAzureストレージアカウントを作成する方法が分からない場合は、以下のクイックスタートに従ってください。
+
+  + [ストレージアカウントを作成します](https://learn.microsoft.com/ja-jp/azure/storage/common/storage-account-create?tabs=azure-portal "ストレージアカウントを作成します")
+    。ストレージアカウントを作成する場合は、**［Instance details］** > **［Performance］** フィールドで **［Standard］** パフォーマンスを選択します。
+  + [コンテナを作成します](https://learn.microsoft.com/ja-jp/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container "コンテナを作成します") 。コンテナを作成する場合は、**［New Container］** ウィンドウで **［Public access level］** を **［Container］**（コンテナとファイルに対する匿名の読み取りアクセス）に設定します。
+* Azureによって生成されたIoT Hubホスト名
+* 共有アクセスキー名
+* 共有アクセスキー
+
+## AzureIotHubコネクター アカウントに接続する
+
+このセクションでは、AzureIotHubコネクターページの［認証情報］および［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 AzureIotHub アカウントに接続する認証情報の入力フィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> フィールド </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> Host Name </td><td colspan="1" rowspan="1"> Azureによって生成されたIoT Hubホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Shared Access Key Name </td><td colspan="1" rowspan="1"> 共有アクセスキー名（IoT Hubの共有アクセスとポリシー）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Shared Access Key </td><td colspan="1" rowspan="1"> 共有アクセスキー（IoT Hubの共有アクセスとポリシー）を入力します。 </td></tr></tbody></table>
+
+有効なAzureIotHub認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAzureIotHub DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理することができます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既に AzureIotHub にログインしている場合は、**［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まず AzureIotHub からログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行する <span> AzureIotHub </span><span></span> レポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1" width="609"><tbody><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"><span></span> Get Configurations </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> IoT Hubのデバイスやモジュールの設定を複数取得します。 </div></div><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Devices </p></td><td colspan="1" rowspan="1"><p><span> IoT Hubアイデンティティレジストリから複数のデバイスのアイデンティティを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Device Registry Statistics </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> IoT Hubアイデンティティレジストリのデバイスアイデンティティの統計を取得します。 </div></div><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Job Details </p></td><td colspan="1" rowspan="1"><p><span> スケジュールされたジョブの詳細をIoT Hubから取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"><span></span> Get Modules on Device </p></td><td colspan="1" rowspan="1"><p><span> デバイス上のすべてのモジュールのアイデンティティを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Module Twin </p></td><td colspan="1" rowspan="1"><p><span> モジュールツインを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Query IoT Hub </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> SQLと同様の言語を使ってデバイスツインに関する情報を取得するために、IoT Hubにクエリを実行します。 </div></div><div class="DatasetsPaper_reportTileTextContainer_37z3j"></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Query Jobs </p></td><td colspan="1" rowspan="1"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> IoT Hubクエリ言語を使ってジョブに関する情報を取得するために、IoT Hubにクエリを実行します。 </div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Service Statistics </p></td><td colspan="1" rowspan="1"><p><span> このIoT Hubアイデンティティレジストリのサービス統計を取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Twin </p><p class="DatasetsPaper_title_3bKfQ"></p></td><td colspan="1" rowspan="1"><div><div class="Tabs-module_tabs__cHJe2 TabPapers_container_26uqt Tabs-module_tabBarPlacement-above__BGHlW"><div class="TabPanes-module_tabPanes__A-xE2"><div class="TabPane-module_tabPane__iOMa6 TabPapers_tabPane_2nBMQ"><div class="Paper_container_2GWPD"><div class="DatasetsPaper_tile_a798r DatasetsPaper_dataset_3-A25"><div class="DatasetsPaper_reportTileTextContainer_37z3j"><div class="DatasetsPaper_description_3dchc"> デバイスツインを取得します。 </div></div></div></div></div></div></div></div><p class="AppItemDetails_right_152HJ"></p></td></tr></tbody></table></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLは何ですか？">
+
+
+コネクターのベースURLは、 [https://\<fully-qualified-iothubname>.azure-devices.net/](https://fully-qualified-iothubname.azure-devices.net/ "https://<fully-qualified-iothubname>.azure-devices.net") です。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Configurations </p></td><td colspan="1" rowspan="1"><span> /configurations/\{id\} </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Devices </p></td><td colspan="1" rowspan="1"><span> /devices/\{deviceId\} </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Device Registry Statistics </p></td><td colspan="1" rowspan="1"><span> /statistics/devices </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Job Details </p></td><td colspan="1" rowspan="1"><span> /jobs/v2/\{jobId\} </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Modules on Device </p></td><td colspan="1" rowspan="1"><span> /devices/\{deviceId\}/modules </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Get Module Twin </p></td><td colspan="1" rowspan="1"><span> /twins/\{deviceId\}/modules/\{mid\} </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Query IoT Hub </p></td><td colspan="1" rowspan="1"><span> /devices/query </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"><span></span> Query Jobs </p></td><td colspan="1" rowspan="1"><span> /jobs/v2/query </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Service Statistics </p></td><td colspan="1" rowspan="1"><span> /statistics/service </span></td></tr><tr><td colspan="2" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Twin </p><p class="DatasetsPaper_title_3bKfQ"></p></td><td colspan="1" rowspan="1"><span> /twins/\{deviceId\} </span></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+AzureIotHubアカウントに接続するには、以下が必要になる場合があります。
+
+<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> パラメーター名 </b></td><td colspan="1" rowspan="1"><b> 場所 </b></td></tr><tr><td colspan="1" rowspan="1"><span> Shared Access Key Name </span></td><td colspan="1" rowspan="1"><span> Azureによって生成され、ウェブUIログインに使用されます </span></td></tr><tr><td colspan="1" rowspan="1"><span> Shared Access Key </span></td><td class="confluenceTd" colspan="1" rowspan="1"><span> Azureによって生成され、ウェブUIログインに使用されます </span></td></tr><tr><td colspan="1" rowspan="1"><span> Host Name </span></td><td class="confluenceTd" colspan="1" rowspan="1"><span> Azureによって生成され、ウェブUIログインに使用されます </span></td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="AzureIotHubコネクターの認証情報が保護されていることをどのようにして確認できますか？">
+
+
+ログインプロセスではOAuthプロセスが使用されるため、Domoによって認証情報が表示または保存されることはありません。これにより、ログインの安全性が保たれます。Domoのアカウントへのアクセスはいつでも取り消すことができます。
+
+
+</Accordion>
+<Accordion title="このコネクターをセットアップするために、特定の種類のアカウントは必要ですか？">
+
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+リソースマネージャーは、アプリケーションがあまりに多くのリクエストを送信しないように、1時間当たりのリクエスト数に制限を適用します。アプリケーションがこれらの制限を超えた場合、リクエストはスロットルされます。応答ヘッダーには範囲に対する残りのリクエスト数が含まれます。
+
+## トラブルシューティング
+
+* 認証が有効であることを確認してください。
+* 設定を見直し、すべての必須項目が選択されていることを確認してください。
+* コネクターの履歴にエラーメッセージが記録されていないか確認してください。
+* まれに、リクエストした情報が多すぎた結果、API制限またはタイムアウトに達する場合があります。記録されている場合は、コネクターの履歴でエラーメッセージと実行時間を確認することができます。また、取得するアカウント数やレポートのメトリクス数を減らしたり、取得するタイムフレームを短縮したりすることができます。
+
+
+
+</Accordion>
+</AccordionGroup>

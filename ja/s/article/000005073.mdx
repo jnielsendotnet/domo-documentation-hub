@@ -1,0 +1,127 @@
+---
+title: "Flex Map v2実装ガイド"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+<Warning>
+  **重要：** このガイドは、Flex Map v2 Appの実装に役立ちます。このガイドは、 Flex Map v1 Appの実装はサポートしていません。Flex Map v1 Appを実装するには、「 Flex Map v1実装ガイド 」を参照してください。
+
+</Warning>
+
+Flex Map v2は、場所や地域をマップしたり、データの地理的なインサイトを得たりするために使用できるプレミアムAppです。また、場所と重要な場所の関係を見つけることもできます。
+  
+このガイドでは、Flex Map v2 Appを実装する方法について以下のトピックで説明します。
+
+* [必要条件](#prereqs)
+* [必要なDataSetを設定する](#required_datasets)
+* [Domoユーザーグループを設定する](#user_groups)
+* [データをAppに接続する](#connecting_data)
+
+## 必要条件
+
+Flex Map v2を使用するには、まずDomoインスタンスで次のグループを作成しておく必要があります。
+
+* \_FlexMap\_Admins
+* \_FlexMap\_ViewOnly
+
+## 必要なDataSetを設定する
+
+Appを設定する前に、4つの主要機能を有効にするための2つのDataSetを作成する必要があります。
+
+* ピンレイヤー
+* ヒートマップ
+* マップレイヤー
+* 表示するカスタムKMLまたはGeoJSONレイヤーファイルをアップロードする
+
+2つのDataSetの詳細は以下の通りです。
+
+1. 場所データ — これはメインの場所DataSetです。場所の行は緯度と経度でマップされています。
+2. ヒートマップデータ — これはメインのヒートマップDataSetです。地域別のデータ行が、数値またはカテゴリーヒートマップとして表示されます。
+
+以下の説明に従って、各DataSetを準備します。
+
+### 場所データ
+
+このAppでは、場所DataSetに以下のフィールドを必要とします。
+
+<Warning>
+  **重要：** 必須フィールドでは大文字と小文字が区別されるため、これらの列は必ず以下の名前でデータに追加してください。
+
+</Warning>
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Column Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Location Id </p></td><td colspan="1" rowspan="1"><p> 場所の一意の数字/アルファベットの組み合わせです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Latitude </p></td><td colspan="1" rowspan="1"><p> 場所の緯度。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Longitude </p></td><td colspan="1" rowspan="1"><p> 場所の経度。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Location Name </p></td><td colspan="1" rowspan="1"><p> 場所の名前。 <br/> この値は、その場所のLocation Idと1対1の関係になっている必要があります。1つの場所に複数の行を設定できます。Appはその場所のデータをIDと名前でグループ化します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Address </p></td><td colspan="1" rowspan="1"><p> 場所の住所。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SearchCache </p></td><td colspan="1" rowspan="1"><p> Appのメインの検索バーを使用して場所を探すときに、Appで使用する用語のカンマ区切りのリスト。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><em> 追加の列 </em></p></td><td colspan="1" rowspan="1"><p> マップされたピンとともに表示する場所のデータとメトリクスの追加の列。 </p><p> 指定できる値は、地域、その他の住所データ、その他のメトリクスです。 </p></td></tr></tbody></table>
+
+### ヒートマップデータ
+
+このデータは、Appのヒートマップの地域にメトリクスをマップするために使用します。このデータの最も重要な列は、RegionCodeとRegionTypeです。
+
+Appは統計地域を使用してヒートマップを作成するため、メトリクスデータをAppが必要とする地域タイプにマップする必要があります。
+
+例えば、米国にいて、郵便番号にもとづくメトリクスデータがある場合、マップでデータを使用するには、郵便番号をCBSAコードにマップする必要があります。これらのコードにデータをマップするデータは、オンラインで簡単に見つけることができます。
+
+このAppは、米国のCBSA、カナダのCMA、オーストラリアのSA3、ヨーロッパのNUTS 2という地域コード/タイプをサポートしています。利用可能な地域以外の地域が必要な場合は、アカウントエグゼクティブ（AE）またはカスタマーサクセスマネージャー（CSM）にお問い合わせください。
+
+このAppは、ヒートマップDataSetに以下のフィールドを必要とします。
+  
+以下の3つの必須フィールドでは大文字と小文字が区別されるため、これらのフィールドは必ず以下の名前でデータに追加してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:206;a"><thead><tr><th colspan="1" rowspan="1"><p> Column Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> RegionCode </p></td><td colspan="1" rowspan="1"><p> RegionType列の値に対応する領域のコード。 </p><p> 例：RegionCode：30030、RegionType：CBSA </p></td></tr><tr><td colspan="1" rowspan="1"><p> RegionName </p></td><td colspan="1" rowspan="1"><p> （オプション）該当する場合は、地域の名前。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> RegionType </p></td><td colspan="1" rowspan="1"><p> この値はRegionCodeの値に対応しています。 </p><p> 指定できる値は、CBSA、CMA、NUTS 2、SA3です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><i> メトリクス列 </i></p></td><td colspan="1" rowspan="1"><p> ヒートマップの作成に使用するメトリクスを含む列。必要に応じていくつでも追加できますが、ヒートマップの機能には少なくとも1つ必要です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><em> 追加のメタデータ列 </em></p></td><td colspan="1" rowspan="1"><p> Domoページフィルターを使用してデータをフィルター処理する、マップする地域に関するメタデータを含むオプションの列。 </p></td></tr></tbody></table>
+
+## Domoユーザーグループを設定する
+
+Flex Map v2は、管理者、標準、閲覧のみの3つのユーザーレベルをサポートしています。
+  
+App内で管理者権限または閲覧のみの権限を持つには、ユーザーをDomoグループに追加する必要があります。標準ユーザーはグループに追加されず、Appの標準の権限と機能を利用できます。以下のリストでは、3つのユーザーレベルの違いについて説明します。
+
+* 管理者ユーザーは、Appで作成したアイテムをDomoグループのメンバーとシェアしたり、デフォルトマップとデフォルトセンターを設定したりできます。
+* 標準ユーザーは、自分のアイテムを作成したり、管理者ユーザーがシェアしているアイテムを表示したりはできますが、アイテムをシェアしたり、デフォルトを設定したりすることはできません。
+* 閲覧のみのユーザーは、App内に何も作成できません。管理者ユーザーがシェアしたアイテムを閲覧できるのみです。
+
+管理者ユーザーと閲覧のみのユーザーを追加するには、Domo管理者がDomo管理者ポータルに移動し、\_FlexMap\_Adminsと\_FlexMap\_ViewOnlyの2つのDomoグループを作成する必要があります。
+
+管理者権限または閲覧のみの権限をユーザーに付与するには、いずれかのグループにユーザーを追加し、標準ユーザー権限を付与するには、どちらのグループにもユーザーを追加しないでください。
+
+## データをAppに接続する
+
+必要なDataSetとユーザーグループを設定したら、Appを展開してデータを接続できます。
+
+* **Asset Library** 内でAppカードにアクセスできる場合は、AppをDomoのダッシュボードに展開して、以下の番号付き手順を実行します。
+* Appカードがサンプルデータとともに展開されている場合は、Appに移動し、以下の番号付き手順を実行します。
+
+以下の手順に従って、データをAppに接続します。
+
+1. Appの右上にマウスポインターを合わせ、
+   <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwN.jpg" /> **［カードのオプション］** がほかのマップコントロールの上にフローティング表示されるまで待ちます。
+
+   <Frame><img alt="rtaImage.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwI.jpg" style={{width: 392.997, height: 405.966}}/></Frame>
+2. <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwS.jpg" /> **［カードのオプション］**
+ > **［カードを編集］** の順に選択します。カードエディターが開きます。
+3. （オプション）編集中にAppの全ページを表示したい場合は、 **［フルページ］** のボックスにチェックを入れます。
+
+   <Frame><img alt="rtaImage-2.png" src="/images/kb/ka05w00000127Q7-00N5w00000Ri7BU-0EM5w000005vsM0.jpg" style={{width: 402.997, height: 233.991}}/></Frame>
+4. カードエディター画面の下部で、データ **［マッピング］** 領域を探します（表示されていない場合は、 <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwc.jpg" /> **展開** を選択して表示します。この領域には、 <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwh.jpg" /> **［DataSet］** と <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwm.jpg" /> **［コレクション］** の2つのタブがあります）。ハンバーガーメニューを選択して、マッピングナビゲーションドロワーを表示できます。
+
+   <Columns>
+     <Frame><img alt="rtaImage-6.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFwr.jpg" style={{width: 608.963, height: 175.938}}/></Frame>
+     <Frame><img alt="rtaImage-7.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFww.jpg" style={{width: 206.989, height: 292.983}}/></Frame>
+   </Columns>
+5. <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFx1.jpg" /> **［DataSet］** タブ（デフォルト）で、タブ上部のDataSetリストを選択し、 **［locations］** を選択します。
+
+   <Frame><img alt="rtaImage-10.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFx6.jpg" style={{width: 306.974, height: 172.997}}/></Frame>
+6. **［DataSetを選択］** の下のボタンをクリックして、 **［DataSetを選択］** モーダルを開きます。
+7. モーダルで、準備した場所DataSetを検索して選択します。
+
+   <Frame><img alt="rtaImage-11.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFxB.jpg" style={{width: 504.972, height: 391.989}}/></Frame>
+8. DataSetを見つけて選択したら、 **［DataSetを選択］** を選択してモーダルを閉じます。
+9. **ヒートマップ** DataSetで手順5～8を繰り返します。
+10. <InlineImage src="/images/kb/ja/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFxG.jpg" /> **［コレクション］** タブに移動し、 **［Appのデフォルトで未設定のコレクションを自動的に生成する］** をオンにします。
+
+    <Frame><img alt="rtaImage-13.png" src="/images/kb/ka05w0000012A9f-00N5w00000Ri7BU-0EM5w000006wFxL.jpg" style={{width: 451.974, height: 113.991}}/></Frame>
+11. カードエディターの上部にある **［保存して終了］** を選択して設定を保存します。
+
+Flex Map v2 Appを設定した後は、「 [Flex Map v2ユーザーガイド](/ja/s/article/000005048) 」でAppのナビゲーションに関する詳細を確認できます。
+
+日本語

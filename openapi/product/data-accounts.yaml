@@ -1,0 +1,281 @@
+openapi: 3.0.0
+info:
+  title: Data Accounts API
+  version: v1
+  description: |
+    API for interacting with various Domo data operations, including retrieving, creating, and managing accounts.
+servers:
+  - url: 'https://{domo_instance}.domo.com'
+    description: Domo Instance
+    variables:
+      domo_instance:
+        default: example
+        description: Your Domo instance name
+components:
+  securitySchemes:
+    developerToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: "Developer token for authentication."
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: A human-readable error message.
+          
+    Account:
+      type: object
+      description: Represents a Domo account.
+      properties:
+        accountId:
+          type: string
+          description: The unique identifier for the account.
+        displayName:
+          type: string
+          description: The display name of the account.
+        status:
+          type: string
+          description: The status of the account.
+          example: Active
+          
+    AccountSummary:
+      type: object
+      description: Summary information for an account.
+      properties:
+        accountId:
+          type: string
+          description: The unique identifier for the account.
+        displayName:
+          type: string
+          description: The display name of the account.
+          
+    CreateAccountRequest:
+      type: object
+      required:
+        - displayName
+        - accountType
+      properties:
+        displayName:
+          type: string
+          description: The name of the new account.
+        accountType:
+          type: string
+          description: The type of account.
+          example: Standard
+          
+    SearchRequest:
+      type: object
+      required:
+        - query
+        - entityList
+      properties:
+        count:
+          type: integer
+          description: How many results to return.
+          default: 10
+          example: 100
+        offset:
+          type: integer
+          description: The results offset.
+          default: 0
+        combineResults:
+          type: boolean
+          default: false
+        query:
+          type: string
+          description: The search query string.
+          example: "*sdk*"
+        filters:
+          type: array
+          description: Filters to apply to the search.
+          items:
+            type: object
+          default: []
+        facetValuesToInclude:
+          type: array
+          description: Facet values to include in the search results.
+          items:
+            type: string
+            enum: [DATAPROVIDERNAME, OWNED_BY_ID, VALID, USED, LAST_MODIFIED_DATE]
+        queryProfile:
+          type: string
+          description: The query profile to use.
+          example: GLOBAL
+        entityList:
+          type: array
+          description: The entity list to search within.
+          items:
+            type: array
+            items:
+              type: string
+          example: [["account"]]
+        sort:
+          type: object
+          description: Sort options.
+          properties:
+            fieldSorts:
+              type: array
+              items:
+                type: object
+                properties:
+                  field:
+                    type: string
+                    example: display_name_sort
+                  sortOrder:
+                    type: string
+                    enum: [ASC, DESC]
+                    example: ASC
+                    
+    SearchResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Account'
+            
+  responses:
+    NotFound:
+      description: The requested resource was not found.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+    Unauthorized:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ErrorResponse'
+            
+security:
+  - developerToken: []
+
+paths:
+  /api/data/v1/accounts/{account_id}:
+    get:
+      summary: Get Account by ID
+      description: Retrieve information for a specific account by its ID.
+      tags: 
+        - Data Accounts API
+      parameters:
+        - name: account_id
+          in: path
+          required: true
+          description: The unique identifier for the account.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Account information retrieved successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                accountId: "{account_id}"
+                displayName: "Account Display Name"
+                status: "Active"
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+  /api/data/v1/accounts:
+    get:
+      summary: Get All Accounts
+      description: Retrieve a list of all accounts.
+      tags: 
+        - Data Accounts API
+      responses:
+        '200':
+          description: A list of accounts.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AccountSummary'
+              example:
+                - accountId: "{account_id}"
+                  displayName: "Account 1"
+                - accountId: "{account_id}"
+                  displayName: "Account 2"
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+    
+    post:
+      summary: Create Account
+      description: Create a new account.
+      tags: 
+        - Data Accounts API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateAccountRequest'
+            example:
+              displayName: "New Account"
+              accountType: "Standard"
+      responses:
+        '200':
+          description: Account created successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+              example:
+                accountId: "{account_id}"
+                displayName: "New Account"
+                status: "Active"
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+  /api/search/v1/query:
+    post:
+      summary: Search Accounts by Name
+      description: Search for accounts using a query string and filters.
+      tags: 
+        - Data Accounts API
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+            example:
+              count: 100
+              offset: 0
+              combineResults: false
+              query: "*sdk*"
+              filters: []
+              facetValuesToInclude:
+                - DATAPROVIDERNAME
+                - OWNED_BY_ID
+                - VALID
+                - USED
+                - LAST_MODIFIED_DATE
+              queryProfile: GLOBAL
+              entityList: [["account"]]
+              sort:
+                fieldSorts:
+                  - field: display_name_sort
+                    sortOrder: ASC
+      responses:
+        '200':
+          description: Search results returned successfully.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+              example:
+                results:
+                  - accountId: "{account_id}"
+                    displayName: "SDK Account"
+                    status: "Active"
+        '401':
+          $ref: '#/components/responses/Unauthorized'

@@ -1,0 +1,153 @@
+---
+title: "Amazon S3 AssumeRole Advancedコネクター"
+---
+
+## はじめに
+
+Amazon S3はどこからでも、どんな量のデータも保存、取得することができます。DomoもAmazon S3のように、どんな規模のビジネスにも適合するスケーラブルな設計となっています。顧客は自身のDomo環境に毎週一斉に、何百万回も新規データをアップロードしています。500億行を超えるDataSetをお持ちですか？問題ありません。Domoは膨大な量のデータを迅速に処理できる設計を備えています。DomoのS3コネクターを使用すると、既存のすべての3Sデータをいつでも、どこでも活用することができます。
+  
+DomoはS3に直接接続して必要な情報をリアルタイムで可視化できるため、分析を簡単に実行することができます。また、S3データはほかのメトリクスと並べることができます。すべてを単一のプラットフォームで見ることができ、メトリクスがしきい値に達したときに即時に通知を受け取ることができます。
+  
+Amazon S3 AssumeRole Advancedコネクターでは、Amazon S3バケットにコネクターの［詳細］セクションで指定したプレフィックスで始まる複数のファイルがある場合、指定したプレフィックスを持つすべてのファイルを同じスキーマとみなしてインポートします。DomoのAmazon S3 AssumeRole Advancedコネクターを使って、すべてのファイルを同じプレフィックスでインポートするAmazon S3 AssumeRole Advanced integrationとS3バケットのデータを接続します。Amazon S3 APIについて詳しくは、製品ページ（ [http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+Amazon S3 AssumeRole Advancedコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerで、このコネクターを含むほかのファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで ****［ファイル］**** をクリックします。
+
+Amazon S3のアカウントには、Data Centerから接続します。このトピックでは、Amazon S3 AssumeRole Advancedコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、およびDataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## ベストプラクティス
+
+S3に保存されたデータや、ほかのS3データベースとの関係を理解していると、このコネクターを使用する上で大変役立ちます。
+
+## 必要条件
+
+Amazon S3アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* 引き受ける権限のAmazonリソースネーム（ARN）。
+* 引き受けた権限のセッションの識別子。信頼ポリシーの設定が必要です。このことについては、以下で説明します。
+* サードパーティが顧客のアカウントで権限を引き受ける時に使う一意の識別子。
+* データの引き込み元となるAmazon S3バケットの名前。
+* Amazon S3のリージョン。
+
+### 信頼ポリシーの設定
+
+権限のセッション識別子に対する信頼ポリシーは、以下の通りです。
+
+`{`\
+`"Effect": "Allow",`\
+`"Principal": {`\
+`"AWS": "arn:aws:iam::*accountId*:root"`\
+`},`\
+`"Action": "sts:AssumeRole",`\
+`"Condition": {`\
+`"StringEquals": {`\
+`"sts:ExternalId": "*customer externalID*"`\
+`}`\
+`}`\
+`}`
+
+Domo環境のアカウントIDは、以下の通りです。
+
+* 米国：339405024189
+* オーストラリア：010251424122
+* ヨーロッパ、中東、アフリカ（IE）：687132894031
+* 日本：622384692065
+* カナダ：710710207408
+
+### よくある質問
+
+<AccordionGroup>
+<Accordion title="# コネクター設定フィールドの説明">
+
+
+
+</Accordion>
+<Accordion title="**Role ARN**">
+
+  
+顧客が信頼ポリシーを作成し追加したロールのARNです。
+
+
+</Accordion>
+<Accordion title="**Role Session Name**">
+
+  
+デフォルトの「Domo」のままにできます。
+
+
+</Accordion>
+<Accordion title="**External ID**">
+
+  
+認証情報セクションペインでDomoが生成した外部IDで、ロールの信頼度ポリシーに適用されます。
+
+
+</Accordion>
+<Accordion title="**Bucket**">
+
+  
+顧客がデータを取得したいS3バケットです。
+
+
+</Accordion>
+<Accordion title="**Region**">
+
+  
+顧客のS3バケットが格納されているAWSリージョンです。
+
+## Amazon S3バケットに接続する
+
+このセクションでは、Amazon S3 AssumeRole Advancedコネクターページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページのほかのペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付け、説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### IAM権限を作成する（コンソール）
+
+AWSマネジメントコンソールを使用して、IAMユーザーが引き受けることができる権限を作成できます。例えば、実稼働環境から開発環境を分離する目的で、組織に複数のAWSアカウントが存在するとします。開発アカウントのユーザーが実稼働用アカウントでリソースにアクセスできる権限の作成についての高度な情報は、「[個別の開発用アカウントと本稼働用アカウントを使用したシナリオ例](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_aws-accounts.html#id_roles_common-scenarios_aws-accounts-example) 」を参照してください。
+
+
+</Accordion>
+<Accordion title="権限を作成するには（コンソール）：">
+
+
+1. AWSマネジメントコンソールにサインインして、IAMコンソール（ https://console.aws.amazon.com/iam/ ）を開きます。
+2. コンソールのナビゲーションペインで、**［Roles］**、**［Create role］** の順に選択します。
+3. **［AWS account］** 権限タイプを選択します。
+4. 自分のアカウントの権限を作成するには、**［This account］** を選択します。別のアカウントの権限を作成するには、**［Another AWS account］** を選択し、リソースへのアクセス権を付与する **アカウントID** を入力します。
+
+   指定されたアカウントの管理者は、この権限を引き受けられる許可を、アカウント内のすべてのIAMユーザーに付与できます。これを実行するには、管理者は、ユーザーまたはグループに `sts:AssumeRole` アクションを許可するポリシーを追加します。そのポリシーは、権限のARNを `リソース` として指定する必要があります。
+5. 自分が管理していないアカウントからユーザーに許可を付与し、そのユーザーがこの権限をプログラム的に引き受ける場合は、**［Require external ID］** を選択してください。外部IDは、サードパーティアカウントの管理者との間で合意された任意の単語または数字とすることが可能です。このオプションは、正しい `sts:ExternalID` がリクエストに含まれている場合にのみ、ユーザーが権限を引き受けられるようにする条件を信頼ポリシーに自動的に追加します。詳細については、「 [AWSリソースへのアクセス権を第三者に付与するときに外部IDを使用する方法](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html) 」を参照してください。
+
+   重要
+
+   このオプションを選択すると、権限へのアクセスは、AWS CLI、Tools for Windows PowerShell、またはAWS APIを介した場合のみに制限されます。これは、AWSコンソールを使用しても、信頼ポリシーに `externalId` の条件が存在する権限への切り替えができないためです。 ただし、こうしたアクセス権は、関連するSDKを使ってスクリプトやアプリケーションを書くことで、プログラム的に作成することが可能です。詳細やサンプルスクリプトについては、AWS Security Blogの「 [How to Enable Cross-Account Access to the AWS Management Console](http://aws.amazon.com/blogs/security/how-to-enable-cross-account-access-to-the-aws-management-console) 」を参照してください。
+6. 多要素認証（MFA）でサインインするユーザーに対して権限を制限したい場合は、**［Require MFA］** を選択します。これにより、権限の信頼ポリシーにMFAサインインをチェックする条件を追加します。権限を引き受けるユーザーは、設定されたMFAデバイスから、ワンタイムパスワードでサインインする必要があります。MFA認証のないユーザーは権限を引き受けることができません。MFAの詳細については、「 [AWSでの多要素認証（MFA）の使用](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_mfa.html) 」を参照してください。
+7. **［Next］** を選択します。
+8. IAMには、アカウント内のAWS管理ポリシーとカスタマー管理ポリシーの一覧があります。アクセス許可ポリシーとして使用するポリシーを選択します。または、**［Create policy］** を選択して新しいブラウザータブを開き、最初から新しいポリシーを作成します。詳細については、「 [IAMポリシーの作成](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_create-console.html#access_policies_create-start) 」を参照してください。ポリシーを作成したら、そのタブを閉じて元のタブに戻ります。権限を引き受けるユーザーに付与したいアクセス許可ポリシーの横にあるチェックボックスを選択します。必要な場合は、この時点ではポリシーを選択せず、後で権限にポリシーを追加することもできます。デフォルトでは、権限には何も許可がありません。
+9. （オプション）[許可の境界](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_boundaries.html) を設定します。これは、高度な機能です。**［Set permissions boundary］** セクションを開き、**［Use a permissions boundary to control the maximum role permissions］** を選択します。許可の境界に使用するポリシーを選択します。
+10. **［Next］** を選択します。
+11. **［Role name］** に、自分の権限名を入力します。権限名は、AWSアカウント内で一意である必要があります。大文字と小文字は識別されません。例えば、名前が `PRODROLE` の権限と `prodrole` の権限を両方とも作成することはできません。ほかのAWSリソースが権限を参照する可能性があるため、作成後に権限名を編集することはできません。
+12. （オプション）**［Description］** に、新しい権限の説明を入力します。
+13. **［Step 1: Select trusted entities］**、または **［Step 2: Add permissions］** のセクションで **［Edit］** を選択し、権限の使用事例と許可を変更します。
+14. （オプション）タグをキーと値のペアとして追加して、メタデータを権限に追加します。IAMにおけるタグの使用の詳細については、「 [IAMリソースのタグ付け](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_tags.html) 」を参照してください。
+15. 権限情報を確認し、**［Create role］** を選択します。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon S3バケットにアクセスするための認証情報を入力するフィールドがあります。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Role ARN </td><td colspan="1" rowspan="1"> 引き受ける権限のAmazonリソースネーム（ARN）を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Role Session Name </td><td colspan="1" rowspan="1"> 引き受けたロールのセッションに対する識別子を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> External ID </td><td colspan="1" rowspan="1"> サードパーティが顧客のアカウントで権限を引き受けるときに使う一意の識別子を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Bucket </td><td colspan="1" rowspan="1"> ファイルを取得したいAmazon S3バケットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"> ファイルがあるS3バケットのリージョンを選択します。 </td></tr></tbody></table>
+
+有効なAmazon S3認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon S3 AssumedRole Advanced DataSetを作成できます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> What File Type would you like to import? </td><td colspan="1" rowspan="1"> Domoにインポートしたいファイルのタイプを、CSV、JSON、TSV、TXT、XML、XLS、XLSXから選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Prefix </td><td colspan="1" rowspan="1"> 結果にフィルターを適用するためのプレフィックスを入力します。プレフィックスを指定すると、指定したプレフィックスで始まるキーのみに結果が絞り込まれます。 </td></tr><tr><td colspan="1" rowspan="1"> File Name </td><td colspan="1" rowspan="1"> インポートしたいAmazon S3オブジェクト（ファイル）の名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> File Name Match Type </td><td colspan="1" rowspan="1"> 取得したいファイルの名前が、 <b><b> ［File Name］ </b></b> で入力したテキストから始まるのか、それともそれを含んでいるのかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> File Compression Type </td><td colspan="1" rowspan="1"> ファイルの圧縮方式をGzip、zip、noneから選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Subfile Name </td><td colspan="1" rowspan="1"> インポートするサブファイルの名前または一部を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Add Filename Column </td><td colspan="1" rowspan="1"><b><b> _BATCH_FILE_NAME_ </b></b> 列を最終出力に追加するかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Select the Delimiting Character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your Delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するのに使用する引用文字を選択します。CSVの標準のデフォルトの引用符は二重引用符です。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> 希望するCSV引用符を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するCSVエスケープ文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Are Headers present in CSV file? </td><td colspan="1" rowspan="1"> ファイルのヘッダーがある場合は「YES」を、それ以外の場合は「NO」を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Columns and Formats </td><td colspan="1" rowspan="1"> 下で指定した日付列名とフォーマットを、ファイル内に存在する順に入力します。 <br/> 例：columnName1:dateFormat1,columnName2:dateFormat2 <br/> columnName1:dd-MM-yyyy,columnName2:MM-dd-yyyy </td></tr><tr><td colspan="1" rowspan="1"> Enable parsing for large JSON files? </td><td colspan="1" rowspan="1"> 大きなJSONファイルの解析を有効にするには、「Yes」を選びます。 </td></tr><tr><td colspan="1" rowspan="1"> Does your JSON text require a line reader? </td><td colspan="1" rowspan="1"> JSONテキストから複数の行を読み込む場合は、「Yes」を選びます。 </td></tr><tr><td colspan="1" rowspan="1"> Should the backslash be escaped? </td><td colspan="1" rowspan="1"> エスケープする必要のあるバックスラッシュがJSONテキストにある場合は、「Yes」を選びます。 </td></tr><tr><td colspan="1" rowspan="1"> Enter your data tag </td><td colspan="1" rowspan="1"> ファイルのデータのためのタグを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter your sub list to flatten </td><td colspan="1" rowspan="1"> 平坦化するデータのカンマ区切りのリストを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter fields to exclude </td><td colspan="1" rowspan="1"> インポートで除外したいフィールドを、カンマ区切りのリストとして指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter your header tag </td><td colspan="1" rowspan="1"> JSONテキストのヘッダーのタグを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Header Start Row </td><td colspan="1" rowspan="1"> ファイルのヘッダーの開始行番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Data Start Row </td><td colspan="1" rowspan="1"> ファイルのデータの開始行番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Footer Rows to Skip </td><td colspan="1" rowspan="1"> ファイルの最後でスキップする行数を入力します。例えば、最後の2行をスキップするには、2と入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Sheet Name </td><td colspan="1" rowspan="1"> 指定されたスプレッドシートから取得したいシート名を入力します。シート名に誤ってスペースが入力されていないか確認してください。このフィールドが空の場合は、ワークブック内の最初のシートが使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> Enter XPath Expression </td><td colspan="1" rowspan="1"> XPath式を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Do you require Attributes in Data? </td><td colspan="1" rowspan="1"> データの一部として属性値を必要としている場合は、「Yes」を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+
+
+</Accordion>
+</AccordionGroup>

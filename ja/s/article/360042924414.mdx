@@ -1,0 +1,45 @@
+---
+title: "比較塗りつぶしパネル"
+---
+
+## はじめに
+
+パネルは、目標達成に向けた進捗を示すシンプルなチャートです。比較塗りつぶしパネルは、 [塗りつぶしパネル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Filled+gauge "塗りつぶしパネル") と類似していますが、より複雑です。塗りつぶしパネルには現在の数値のみが表示されますが、比較塗りつぶしパネルには前の数値も表示されます。この結果、利用者はパネルの最終更新以降の変更程度を確認することができます。また、変更の割合と方向はチャート中央に表示されます。比較塗りつぶしパネルではオプションで目標値を指定することもできます。
+
+比較塗りつぶしパネルには、基本と高度の2つのタイプがあります。高度なタイプには基本バージョンにはない追加パラメータがある以外は、どちらも同じです。例えば、範囲を設定し、中央値を指定することができます。これらの要素は、見やすいように、パネルの2番目の円に表示されます。
+
+Domoの他のタイプのゲージとしては、 [単値ラベル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Single+Value+gauge "単値ラベル") 、 [放射状ゲージ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Radial+gauge "放射状ゲージ") 、 [フェイスゲージグラフ](http://wiki.domo.com/confluence/display/DHCS/Building+a+Face+gauge "フェイスゲージグラフ") 、 [進捗パネル](http://wiki.domo.com/confluence/display/DHCS/Building+a+Progress+Bar+gauge "進捗パネル") があります。
+
+## 比較塗りつぶしパネルの追加
+
+比較塗りつぶしパネルは、DataSetから、4つのデータの列または行を必要とします。列は以下のとおりです。
+
+* パネルに表示される最小または最低値
+* パネルに表示される最大または最高値
+* パネルの現在の数値
+* パネルの以前の数値
+
+高度な比較塗りつぶしパネルには、上記の列のすべてに加えて、以下が必要です。
+
+* 下範囲の値を含んだ列
+* 上範囲の値を含んだ列
+* 中央値を含んだ列
+
+基本および高度な比較塗りつぶしパネルどちらも、オプションの目標値の列を含めることもできます。
+
+以下のスクリーンショットは、高度な比較塗りつぶしパネルにおけるこれら要素すべてと、（前および現在の数値に基づいて自動的に計算される）変化の割合と方向を示しています。
+
+<Frame><img alt="parts_of_a_comparative_fill_gauge.png" src="/images/kb/ka0Vq000000DYzx-00N5w00000Ri7BU-0EM5w000005vPBD.png"/></Frame>
+DataSetに複数の行がある場合、 *1* 行目のみを使用します。集計は行われません。
+
+Analyzerでは、比較塗りつぶしパネルのデータを含む列を選択します。データ列の選択の詳細については「 [DataSetの列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法について詳しくは「 [可視化カード作成パート2：Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：Card Builder") 」を参照してください。
+
+## 比較塗りつぶしパネルをカスタマイズする
+
+［ **チャートの設定** ］で、比較パネルの外観をカスタマイズできます。すべてのチャート設定については「 [パネルのプロパティを設定する](/s/article/360042925354 "チャートのプロパティ") 」を参照してください。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"> プロパティ </th><th colspan="1" rowspan="1"> 説明 </th><th colspan="1" rowspan="1"> 例 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 一般 &gt; 色の方向 </p></td><td colspan="1" rowspan="1"><p> ゲージで緑の塗りつぶしが正（デフォルト）の変更を表すか、負の変更を表すかを決めます。正が緑で表される場合、マイナスは赤で表されます。逆に、緑でマイナスを表す場合は、正が赤になります。 </p><p> 右の例では、このプロパティに <b> ［マイナスは緑］ </b> が選択されています。割合は正なので、色は赤で塗りつぶされます。 </p></td><td colspan="1" rowspan="1"><img alt="comparative_fill_gauge_positive_red.png" src="/images/kb/ka05w000001242k-00N5w00000Ri7BU-0EM5w000005vZ6X.png"/></td></tr></tbody></table>
+
+日本語

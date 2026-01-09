@@ -1,0 +1,76 @@
+---
+title: "Google Cloud Storage Serviceコネクター"
+---
+
+<Warning>
+****重要：**** DomoコネクターでOAuth認証を使用する機能にGoogleによって変更が加えられたことにより、新しいデータ接続を作成する際に、すべてのユーザーがサービスアカウントキー認証を使用しなければならなくなりました。新しいGoogle Cloud Storage DataSetを作成するには、このコネクターを使用します。既存のGoogle Cloud Storage DataSetはすべてこれまで通り正常に実行されます。
+
+</Warning>
+
+## はじめに
+
+Google Cloud Storageは、Googleのクラウド内にデータを保管するためのインターネットサービスです。DomoのGoogle Cloud Storage Serviceコネクターを使うと、Google Cloud Storage内のプロジェクトバケットとオブジェクトに関するデータを取得することができます。バケットは、ファイルの一般的な保存場所です。プロジェクトではリソースと権限を整理できます。多くのユーザーは、このコネクターを使用して、データを保存するバケットに接続します。
+
+Google Cloud Storage APIについての詳細は、 [https://cloud.google.com/storage/docs/json\_api/](https://cloud.google.com/storage/docs/json_api/ "https://cloud.google.com/storage/docs/json_api/") を参照してください。
+
+Google Cloud Storageコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこのコネクターやほかのファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+Google Cloud Storageアカウントには、 Data Center から接続します。このトピックでは、Google Cloud Storageコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> Google Cloud Storageバケットには任意のサイズのファイルを配信できます。バケット内のファイルをリストで指定するか、個々のファイルを取得できます。このコネクターを使用すると、バケットまたはプロジェクト名に関連付けられているバケットおよびプロジェクトに関する詳細を取得することもできます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> なし。このコネクターは、主にクラウドストレージバケットからファイルを取得する際に使用されます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> データスペシャリスト </p></li><li><p> アナリスト </p></li><li><p> MajorDomo </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 認証情報の入力 - 15分以内 </p></li><li><p> コネクターの設定 - 20分 </p></li><li><p> コネクターの実行許可 - 時間はファイルサイズによって異なる </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10の段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Googleサービスアカウントに接続するには、GoogleサービスアカウントのJSONキーが必要です。キーを生成するには、次の手順を実行します。
+
+1. GCPコンソールで、
+   ********［IAM & Admin］******** ページを開きます。
+2. 左側のナビゲーションペインで
+   ****************［Service accounts］**************** をクリックします。
+3. プロジェクトを選択して
+   ****************［Open］**************** をクリックします。
+4. ****************［Create Service Account］****************
+   をクリックします。
+5. サービスアカウントの名前と説明を入力します。
+6. ****************［Create］****************
+   をクリックします。
+7. ****************［Project Owner］****************
+   を選択します。
+8. ****************［Continue］****************
+   をクリックします。
+9. ****************［Create key］****************
+   をクリックします。
+10. キーのタイプに
+    ****************［JSON］**************** を選択します。
+11. ****************［Create］****************
+    をクリックします。
+
+秘密キーがコンピューターに保存されます。
+
+## Googleサービスアカウントに接続する
+
+このセクションでは、Google Cloud Storage Serviceコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Googleサービスアカウントにアクセスするための認証情報を入力するフィールドがあります。下表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Service Account Key JSON </p></td><td colspan="1" rowspan="1"><p> GoogleサービスアカウントキーのJSONをコピーして貼り付けます。キーを作成する方法については、上述の「必要条件」を参照してください。 </p></td></tr></tbody></table>
+
+有効なキーを一度入力しておくと、随時同じアカウントを使用して新しいGoogle Cloud Service DataSetを作成できます。コネクターのアカウントはData Centerの ****************［アカウント］**************** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニュー、および選択したレポートタイプに応じて表示/非表示になるその他様々なメニューが含まれます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Google Cloud Storageレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> List Buckets </p></td><td colspan="1" rowspan="1"><p> 認証されたサービスアカウントに関連付けられたプロジェクト内のバケットのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> List Objects </p></td><td colspan="1" rowspan="1"><p> 指定したバケット内のオブジェクトについてのデータを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Import All Objects </p></td><td colspan="1" rowspan="1"><p> すべてのオブジェクト内のCSVオブジェクトまたはCSVファイルをインポートできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Import Multiple Objects </p></td><td colspan="1" rowspan="1"><p> ZIP/GZIPオブジェクト内のCSVオブジェクトまたはCSVファイルをインポートできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Import Object </p></td><td colspan="1" rowspan="1"><p> ZIP/GZIPオブジェクト内のCSVオブジェクトまたはCSVファイルをインポートできます。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Bucket Name </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むオブジェクトを含むバケットの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Object Name </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むオブジェクトの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Contains Header Row? </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むCSVファイルにヘッダー行を含める場合は、 <b> ［Yes］ </b> を選択します。 <b> ［No］ </b> を選択すると、新しいDataSetでヘッダー行が生成されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Object's File Type </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むオブジェクトのファイルタイプを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> File Name from Zip File </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むZipファイルを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Delimiter </p></td><td colspan="1" rowspan="1"><p> CSVファイルの区切り文字を選択します。区切り文字がリストにない場合は、 <b> ［Other］ </b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Custom Delimiter </p></td><td colspan="1" rowspan="1"><p> CSVテキストを区切る文字を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+目的のバケットを取得するために必要な、プロジェクトの権限を持っていることを確認してください。
+
+

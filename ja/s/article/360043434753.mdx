@@ -1,0 +1,42 @@
+---
+title: "Yammer Connector"
+---
+
+## はじめに
+
+Yammer は、組織内でプライベートなコミュニケーションを実施するためのフリーミアムのエンタープライズ用ソーシャル・ネットワーキング・サービスです。 Domo のYammer Connector を使用すると、ネットワークやおすすめ、ユーザー、メッセージ、そしてお知らせなどに関するデータを取得することができます。 Yammer API の詳細については、
+https://developer.yammer.com/restapi/
+を参照してください。
+
+Yammer Connector を使用するには、 データセンター で DataSetを作成し、Yammer Connector を選択します。
+
+このトピックでは、Yammer Connector ユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定および DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") を参照してください。
+
+## 必要条件
+
+Yammer アカウントに接続して DataSet を作成するには、以下が必要です。
+
+* Yammer アカウントのセットアップに使用した所属組織のメールアドレス。 このメールアドレスには貴社のインターネットドメイン（[domo.com](http://domo.com) など）が必要です。
+* Yammer のパスワード。
+
+## Yammer アカウントに接続する
+
+このセクションでは、Yammer Connector ページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo Yammer Connector は接続に OAuth を使用しています。 **接続** （または、Domo に既存の Yammer アカウントがある場合は **アカウントを追加** を選択）をクリックすると、Yammer OAuth 画面が開き、Yammer メールアドレスとパスワードが入力できます。 認証情報を入力した後で、 **許可する** をクリックして Domo が Yammer に接続するのを許可する必要があります。 有効な Yammer 認証情報を入力した後は、いつでも Domoで同じアカウントを使用して、Yammer DataSet を作成することができます。 Connector アカウントは、 **データセンター** の アカウント タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+<Note>
+
+
+**注記：** Domo で接続する際、既に Yammerにログインしている場合は、 **アカウントの追加** をクリックすると自動的に認証されます。 ログインしているアカウントとは異なるアカウントに接続したい場合は、まずYammerからログアウトする必要があります。
+</Note>
+
+### 詳細ペイン
+
+このペインには、メインの **レポート** メニューおよび選択したレポートタイプに応じて表示/非表示になるその他様々なフィールドとメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Yammer レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> ネットワーク </p></td><td colspan="1" rowspan="1"><p> 認証されたユーザーがアクセス権のあるネットワークのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索 </p></td><td colspan="1" rowspan="1"><p> 入力したクエリに一致するグループ、メッセージ、トピック、またはユーザーを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> おすすめ </p></td><td colspan="1" rowspan="1"><p> おすすめのグループとユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> 認証済みのユーザーの組織内のユーザーのリストを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> メッセージ </p></td><td colspan="1" rowspan="1"><p> ネットワーク内のパブリックメッセージを返します。 メッセージは <b> メッセージタイプ </b> を選択して、フィルターすることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 通知 </p></td><td colspan="1" rowspan="1"><p> 認証済みのユーザーの通知フィードを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索対象 </p></td><td colspan="1" rowspan="1"><p> 検索対象となる Yammer エリアを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索クエリ </p></td><td colspan="1" rowspan="1"><p> データを取得したいクエリを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> メッセージタイプ </p></td><td colspan="1" rowspan="1"><p> 取得するメッセージのタイプを選択します。 </p></td></tr></tbody></table>
+
+

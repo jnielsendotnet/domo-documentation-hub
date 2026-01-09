@@ -1,0 +1,71 @@
+---
+title: "Mixpanelコネクター"
+---
+
+## はじめに
+
+Mixpanelは、ウェブやモバイルアプリケーションのユーザーインタラクションを追跡するビジネス分析サービスです。Mixpanel APIの詳細については、ウェブサイト（ [https://mixpanel.com/docs/api-docume...ata-export-api](https://mixpanel.com/docs/api-documentation/data-export-api "https://mixpanel.com/docs/api-documentation/data-export-api") ）を参照してください。
+
+Mixpanelコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部にあるツールバーで **［クラウドApp］** をクリックすると、MixpanelコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+Mixpanelアカウントには、Data Centerから接続します。このトピックでは、Mixpanelコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは以下の使用事例に適しています。 </p><ul><li><p> Appを起動してその後使い続けるユーザー数を追跡する。 </p></li><li><p> Appの各部分に到達するユーザー数を追跡する。 </p></li><li><p> Appを最初に使用した後、何日間使用しているかを追跡する。 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> ユーザー数 </p></li><li><p> Appを継続的に利用しているユーザー数 </p></li><li><p> App内の特定イベントに到達したユーザー数 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> マーケティング権限 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 5時間以内 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 6 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Mixpanelアカウントに接続してDataSetを作成するには、以下の情報が必要です。
+
+* サーバーがホストされている地域を選択
+* Mixpanel APIのシークレット
+
+これらの認証情報を取得するには、以下を実行します。
+
+1. Mixpanelにログインします。
+2. 右上隅の自分の名前をクリックします。
+3. **［Account］**
+   を選択します。
+4. **［Projects］**
+   をクリックします。
+
+ウィンドウに、APIキーとシークレットが表示されます。
+
+## Mixpanelアカウントに接続する
+
+このセクションでは、Mixpanelコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Mixpanelアカウントに接続するための認証情報を入力するフィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Server Region </td><td colspan="1" rowspan="1"><span> サーバーがホストされている地域を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> API Secret </td><td colspan="1" rowspan="1"> Mixpanel APIのシークレットを入力します。 </td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なMixpanelの認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいMixpanel DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行したいMixpanelレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Common Events </td><td colspan="1" rowspan="1"> 指定した期間において最もよく見られるイベントのリストを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Engage </td><td colspan="1" rowspan="1"> ユーザーエンゲージメントに関する情報を取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Engage with Limited Columns </td><td colspan="1" rowspan="1"> カスタムフィルターでイベントを返したり、返す列を選択したりできます。 </td></tr><tr><td colspan="1" rowspan="1"> Event Information </td><td colspan="1" rowspan="1"> 単一のイベントのデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Property Information </td><td colspan="1" rowspan="1"> 単一のイベントのプロパティ情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Funnel Information </td><td colspan="1" rowspan="1"> 単一のファネルに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Funnel List </td><td colspan="1" rowspan="1"> ファネルのリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> JQL Query </td><td colspan="1" rowspan="1"> JavaScript Query（JQL）を実行してデータを返します。 <span> 詳細については、「 </span><a href="https://mixpanel.com/help/reference/jql/api-reference" target="_blank"> Mixpanelのドキュメント </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Raw Data </td><td colspan="1" rowspan="1"> Mixpanelの未加工データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Retention </td><td colspan="1" rowspan="1"> Birthにもとづくカスタマーリテンションを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Segmentation </td><td colspan="1" rowspan="1"> イベントのデータのセグメントを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (average) </td><td colspan="1" rowspan="1"> イベントのデータの平均セグメントを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (numeric) </td><td colspan="1" rowspan="1"> イベントのデータの特定の数のセグメントを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Segmentation (sum) </td><td colspan="1" rowspan="1"> イベントのデータのセグメント総数を返します。 </td></tr><tr><td colspan="1" rowspan="1"> Top Events </td><td colspan="1" rowspan="1"> 最もよく使用されるイベントを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Top Properties </td><td colspan="1" rowspan="1"> 最もよく使用されるイベントのプロパティを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Top Property Values </td><td colspan="1" rowspan="1"> 最もよく使われるイベントのプロパティを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Type </td><td colspan="1" rowspan="1"> 取得するデータのタイプを <b> ［Average］ </b> 、 <b> ［General］ </b> 、 <b> ［Unique］ </b> から選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Where </td><td colspan="1" rowspan="1"><p> 返されるイベントをフィルタリングするための式を入力します。例： </p><p><code> Where = number(properties["time"])&gt;=2000 </code></p></td></tr><tr><td colspan="1" rowspan="1"> Columns List </td><td colspan="1" rowspan="1"> 取得したい列をカンマ区切りのリストとして入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Event Name </td><td colspan="1" rowspan="1"> データを取得したいイベントを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Unit </td><td colspan="1" rowspan="1"> レポートデータの内訳の時間単位を選択します。例えば、 <b> ［Month］ </b> を選択した場合、レポートのデータは月別に分類されます。 </td></tr><tr><td colspan="1" rowspan="1"> Unit Count </td><td colspan="1" rowspan="1"> 引き込みたいデータの単位数を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Funnel Name </td><td colspan="1" rowspan="1"> データを取得するファネルを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> レポートに表示するデータの日数を入力します。この値は、 <span class="mt-font-courier-new"> X </span> をプラスの整数とし、 <span class="mt-font-courier-new"> X </span> 、 <span class="mt-font-courier-new"> XDay </span> 、または <span class="mt-font-courier-new"> XDays </span> で指定できます。例： <span class="mt-font-courier-new"> 30Days </span></td></tr><tr><td colspan="1" rowspan="1"> Days Back to End </td><td colspan="1" rowspan="1"> レポートのデータの終了日は、何日遡るべきかを入力します。この値は、 <span class="mt-font-courier-new"> X </span> をプラスの整数とし、 <span class="mt-font-courier-new"> X </span> 、 <span class="mt-font-courier-new"> XDay </span> 、または <span class="mt-font-courier-new"> XDays </span> で指定できます。例： <span class="mt-font-courier-new"> 30Days </span></td></tr><tr><td colspan="1" rowspan="1"> Backfill </td><td colspan="1" rowspan="1"> バックフィルは、初回の実行で行う 1 回限りのデータ取得です。それ以降の実行ではデータのバックフィルは行われません。過去データを取得する日数を入力します（ <b> ［Past Days］ </b> の値を基準にして）。 </td></tr><tr><td colspan="1" rowspan="1"> On </td><td colspan="1" rowspan="1"><p> イベントをセグメントするプロパティの式を入力します（ <b> Retention </b> レポートでは、2 つめのイベントがセグメント化されます）。 </p><p> 例： </p><p><code> ON = properties["mp_country_code"] </code></p></td></tr><tr><td colspan="1" rowspan="1"> Retention Type </td><td colspan="1" rowspan="1"><b> ［Compounded］ </b> または <b> ［Birth］ </b> のいずれかのリテンションタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Born Event </td><td colspan="1" rowspan="1"> Birthリテンションのコホートでカウントされるために、ユーザーが最初に行うべきイベントを入力します。例:： <span class="mt-font-courier-new"> event integration </span></td></tr><tr><td colspan="1" rowspan="1"> Born Where </td><td colspan="1" rowspan="1"><p> Born Eventをフィルタリングする式を入力します。例： <span class="mt-font-courier-new"> properties["signedup"] </span></p></td></tr><tr><td colspan="1" rowspan="1"> Retention Event Name </td><td colspan="1" rowspan="1"> リテンションにカウントするイベントの名前を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Buckets </td><td colspan="1" rowspan="1"> データをグループ化するバケットの数を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+WHERE 節がうまく書けません。 WHERE 節を書く際は、以下を確認してください。
+
+* すべての単語のスペルが正しいか？
+* 参照するプロパティ、イベント、列のスペルが正しいか？　あるいは存在するか？
+* WHERE節の句読点は正しいか？（ツールチップに例があります）
+
+このコネクターを使用する際には、以下の点も確認してください。
+
+* リスト表示される列は、「Engage」レポートが返す有効な列か？
+* **［Past Days］**
+  フィールドの値は有効なフォーマットか？
+
+

@@ -1,0 +1,152 @@
+---
+title: "DataFlowを実行する"
+---
+
+import { InlineImage } from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+DataFlowを実行するとは、そのDataFlowのスクリプトを実行するということです。初めてDataFlowを実行すると、入力DataSet内のデータ、適用したSQL変換、およびそれらを結合する方法の指示にもとづいて、SQLを使用して1つ以上の新しいDataSetが生成されます。それ以降の実行では、入力DataSet自体に行われた新しい変更や、DataFlowのSQLに対して行った変更にもとづき、DataSetが更新されます。
+
+<Note>
+  **注記：**
+
+  * DataFlow
+  は、そのコンポーネント DataSet へのアクセス権がないと実行できません。
+  * DataSetの実行に失敗した場合、通知なく自動的に1回再試行されます。最初の実行に失敗した後もDataFlowの失敗が続く場合は、通知が送られます。
+  * 以前のDataFlowバージョンでは、前回実行されたDataFlowがまだインデックスの作成中である場合は、DataFlowは実行できませんでした。新しいバージョンでは、そういったことはなくなっています。複数のDataFlowを同時に実行できるようになりました。
+
+</Note>
+
+<Warning>
+  **重要：** DataFlowの入力DataSetは、PDPのポリシーで制限することはできません。利用可能なすべての行はDataFlowを経由する *必要があります* 。このため、PDPポリシーは、DataFlowが生成する出力DataSetに適用する必要があります。
+
+  PDPポリシーが有効の状態で、入力DataSetを使ってDataFlowを作成するときには、以下の条件が少なくとも1つ満たされていないと、DataFlowに不具合が発生します。
+
+  * 「管理者」セキュリティプロフィールを保有している。
+  * DataSetの所有者である。
+  * 「All Rows」ポリシーに自分のユーザーアカウントが追加されている。これにより、DataSetのすべての行にアクセスできます。
+
+  DataFlowでPDPを使用する方法の詳細については、「 PDPとDataFlow/DataFusion 」を参照してください。
+
+</Warning>
+
+一度に1つずつまたは複数のDataFlowを一括して実行できます。
+
+## 1つのDataFlowを実行する
+
+以下のいずれの場所からも1つのDataFlowを実行できます。
+
+* Data Centerの **［DataFlow］** タブから。これはDataFlowを実行するのに一番早い方法です。しかし、事前に **［DataFlowを作成］** ビューでDataFlowを作成しておく必要があります。
+
+  ![]()
+
+  <Frame><img alt="dataflow_run_2.png" src="/images/kb/ka05w00000124SK-00N5w00000Ri7BU-0EM5w000005vOsN.png"/></Frame>
+* DataFlowの詳細ビューから。前述のオプションのように、これを実行するためには、事前にDataFlowを作成しておく必要があります。
+
+  ![]()
+
+  <Frame><img alt="dataflow_run_from_details.png" src="/images/kb/ka05w00000124SK-00N5w00000Ri7BU-0EM5w000005vOsB.png"/></Frame>
+* **［DataFlowを作成］/［DataFlowを編集］** ビューから。このビューでは、 **［保存］** または **［保存して実行］** を選択することができます。 **［保存］** オプションはDataFlowの変更のみ保存します。DataFlowを作成したばかりの場合は、 **Data Center** ページの **［DataFlows］** リストにカードが追加されます。 **［保存して実行］** オプションは **［保存］** と同じ機能に加えて、DataFlowのスクリプトも実行します。
+
+  <Frame><img alt="dataflow_save_options.png" src="/images/kb/ka05w00000124SK-00N5w00000Ri7BU-0EM5w000005vOsF.png"/></Frame>
+**Data CenterページからDataFlowを実行するには：**
+
+1. Domoで、画面上部のツールバーの ****［データ］**** をクリックします。
+2. 左側のナビゲーションペインで
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsJ.png" /> をクリックします。
+
+   **［DataFlow］** タブが表示されます。
+3. 実行するDataFlowを見つけます。
+
+   フィルターオプションを使って、リストに表示されるDataFlowを絞り込むことができます。
+4. 目的のDataFlowにマウスポインターを合わせ、
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsD.png" /> をクリックし、 **［実行］** を選択します。
+
+これでDataFlowのスクリプトが実行されます。初めてこのDataFlowを実行した場合は、DataFlowにもとづいたDataSetが生成され **［DataSet］** タブに追加されます。DataSetが生成済みの場合は、入力DataSetおよびDataFlow SQLに対して行われた変更に従って更新されます。
+
+**DataFlowを詳細ビューから実行する** **には：**
+
+1. Domoで、画面上部のツールバーの ****［データ］**** をクリックします。
+2. 左側のナビゲーションペインで
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsJ-1.png" /> をクリックします。
+
+   **［DataFlow］** タブが表示されます。
+3. 実行するDataFlowを見つけます。
+
+   フィルターオプションを使って、リストに表示されるDataFlowを絞り込むことができます。
+4. 目的のDataFlowにマウスポインターを合わせ、
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsP.png" /> をクリックし、 **［詳細］** を選択します。
+5. <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsH.png" /> をクリックし、 **［実行］** を選択します。
+
+**［DataFlowを作成］/［DataFlowを編集］ビューからDataFlowを実行するには：**
+
+1. Domoで、画面上部のツールバーの ****［データ］**** をクリックします。
+2. （条件付き）以下のいずれかを行ってください。
+
+   * DataFlowをまだ作成していない場合...
+
+     1. **［Magic変換］** ツールバーで **［ETL］** または **［SQL］** をクリックします。
+     2. 「
+        SQL DataFlowを作成する 」で示された手順に従います。
+     3. DataFlowを作成したら、 **［保存して実行］** クリックします。
+
+        これでDataFlowのスクリプトが実行されます。DataFlowにもとづいたDataSetが生成されて、 **［DataSet］** タブに追加され、DataFlowのエントリーが **［DataFlow］** タブに表示されます。
+   * DataFlowが既に存在する場合...
+
+     1. 左側のナビゲーションペインで
+        <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsJ-2.png" /> をクリックし、 **［DataFlow］** タブを開きます。
+     2. 実行するDataFlowを見つけます。
+
+        Data CenterでのDataFlowの検索やフィルタリングの詳細については、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+     3. DataFlow行にマウスポインターを合わせて、
+        <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsD-1.png" /> アイコンをクリックします。
+     4. **［編集］** を選択します。
+     5. 必要な変更を行い（詳細については、「
+        SQL DataFlowを作成する 」を参照してください）、 **［保存して実行］** をクリックします。
+
+        これでDataFlowのスクリプトが実行されます。DataFlowにもとづいたすべてのDataSetは、入力DataSetおよびDataFlow SQLの変更に従ってアップデートされます。
+
+Data Centerのコンポーネントと **［DataFlow］** タブの詳細については、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+<Note>
+  **注記：** DataFlowが正常に実行されたときにDataFlowの出力DataSetが「更新済み」としてマークされないのはなぜかと疑問に思われるユーザーの方が多くいます。これは一般的には、データが実際には変更されていないためです。つまり更新されていません。そのため、DataSetは更新済みとは表示されません。
+
+</Note>
+
+## 複数のDataFlowを実行する
+
+Data Centerで選択して **［今すぐ実行する］** オプションを選択すると、一度に複数のDataFlowを実行できます。
+
+**一度に複数のDataSetを実行するには：**
+
+1. Domoで、画面上部のツールバーの ****［データ］**** をクリックします。
+2. 左側のナビゲーションペインで
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsJ-3.png" /> をクリックします。
+
+   **［DataFlow］** タブが表示されます。
+3. 実行するDataFlowの1つを見つけます。
+
+   Data CenterでのDataFlowの検索やフィルタリングの詳細については、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+4. 該当するDataFlowの行にマウスポインターを合わせ、コネクターアイコンの上にポップアップ表示される、丸で囲まれたチェックマークをクリックします。
+
+   <Frame><img alt="data_center_dataflows_bulk.png" src="/images/kb/ka05w00000124SK-00N5w00000Ri7BU-0EM5w000005vOsL.png"/></Frame>
+5. 画面上部に表示される青いバーで
+   <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsq.png" /> アイコンをクリックします。
+6. **［今すぐ実行する］** を選択します。
+
+   選択したすべてのDataFlowが、今すぐ実行されます。
+
+## DataFlowをキャンセルする
+
+実行中のDataFlowを途中でキャンセルする場合は、 <InlineImage src="/images/kb/ja/ka05w00000126oL-00N5w00000Ri7BU-0EM5w000005vOsD-2.png" /> メニューで **［キャンセル］** オプションを選択します。データの完全性を保護するために、「インデックス作成中」段階に達するとDataFlowはキャンセルできなくなります。完了するまで実行を続行する必要があります。
+
+**動画 - DataFlowをキャンセルする**
+
+<iframe allowfullscreen="" frameborder="1" height="315" src="//www.youtube-nocookie.com/embed/gjAtYYh3oQQ" width="560"></iframe>
+
+## トラブルシューティング
+
+トラブルシューティングについては、「 [DataFlowとDataFusionのトラブルシューティングとよくある質問](/s/article/360043427953 "DataFlowとDataFusionのトラブルシューティングとよくある質問") 」を参照してください。
+
+日本語

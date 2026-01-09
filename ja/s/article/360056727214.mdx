@@ -1,0 +1,52 @@
+---
+title: "クエリを実行できないDataSet"
+---
+
+## はじめに
+
+すべてのDataSetが同じように作成されるわけではありません。例えば、DataFlowの入力としてのみ使用されるDataSetもあれば、あまりアクセスされずクエリが頻繁に実行されないDataSetもあります（カードやダッシュボードで定期的に使用、閲覧される場合など）。このようなDataSetは予定に従って継続的かつ正常に実行され、現在の使用環境に合わせて最適化されます。ただし可視化に使用するためには、クエリがアクティブに実行される必要があります。
+
+## クエリをアクティブに実行できないDataSet
+
+DataSetがクエリ向けに最適化されていない場合、［DataSetの詳細］には次のメッセージが表示されます。
+
+<Frame><img alt="Cold_Storage_Message.png" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuN.png"/></Frame>
+また、［DataSetの詳細］ビューの **［開く：］** メニューをクリックすると、DataSetのステータスが通知されます。DataSetを使用して新しいコンテンツの作成を開始するには、クエリがアクティブに実行される状態にDataSetを戻す必要があります。
+
+<Frame><img alt="Cold_Storage_Open_With_Message.png" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuL.png"/></Frame>
+### DataSetをクエリがアクティブに実行される状態にする
+
+DataSetをクエリ向けに最適化してカードやダッシュボードなどで使用されるようにするには、詳細ビューの［概要］タブで **［開始］** ボタンをクリックします。準備が完了すると、このDataSetを使用できるようになります。
+
+<Frame><img alt="Cold_Storage_Start.jpg" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuJ.jpg"/></Frame>
+#### Data Centerから使用する場合
+
+1. [Data Center](https://domohelp.domo.com/Welcome/Domo_User_Interface/Data_Center_Layout "Data Centerのレイアウト") に移動して、クエリをアクティブに実行するDataSetを検索します。
+2. DataSetをクリックし、［DataSetの詳細］の［概要］タブを表示します。
+3. **［開始］** をクリックします。
+
+#### Analyzerで使用する場合
+
+1. DataSetに対してクエリがアクティブに実行されていない場合、Analyzerでは次のメッセージが表示されます。
+     
+   <Frame><img alt="Cold_Storage_Analyzer.png" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuH.png"/></Frame>
+2. **［詳細を取得する］** をクリックし、［DataSetの詳細］に直接移動します。
+3. **［開始］** をクリックします。
+
+#### ［カードの詳細］から使用する場合
+
+1. DataSetに対してクエリがアクティブに実行されていない場合、［カードの詳細］ビューでは次のメッセージが表示されます。
+     
+   <Frame><img alt="Cold_Storage_Cards.png" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuQ.png"/></Frame>
+2. **［詳細を取得する］** をクリックし、［DataSetの詳細］に直接移動します。
+3. **［開始］** をクリックします。
+
+#### DataFusionで使用する場合
+
+1. 入力として使用しようとしているDataSetに対してクエリがアクティブに実行されていない場合、DataFusionでは次のメッセージが表示されます。
+     
+   <Frame><img alt="Cold_Storage_DataFusion.png" src="/images/kb/ka05w000001233P-00N5w00000Ri7BU-0EM5w000005vNuT.png"/></Frame>
+2. Data Centerに移動します。DataSetを見つけて選択し、［DataSetの詳細］ビューにアクセスします。
+3. **［開始］** をクリックします。
+
+日本語

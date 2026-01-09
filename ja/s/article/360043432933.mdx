@@ -1,0 +1,39 @@
+---
+title: "Quandl Stock Reports Connector"
+---
+
+## はじめに
+
+Quandlは、数値データの検索エンジンです。 複数のソースのデータをインデックスし、様々なフォーマットでデータを検索しダウンロードすることができます。 DomoのQuandl Connectorを使用すると、一般公開用のQuandl データセットを取得することができます。 Quandl API に関する詳細は、ウェブサイト ([https://www.quandl/com/help/api](https://www.quandl/com/help/api "https://www.quandl/com/help/api") ) を参照してください。
+
+Quandl Connector は「クラウド App」です。つまり、クラウドに保管されたデータを取得します。 データセンターでは、ウィンドウ上部のツールバーでクラウド App をクリックすることで、これを含む他のクラウド A **pp C** onnector のページにアクセスできます。
+
+Quandl のデータセットは、 データセンター からダウンロードすることができます。 このトピックでは、Quandl Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> この Connector は、株価や投資情報、そして大型金融取引情報の取得に役立ちます。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> 株価 </p></li><li><p> 経済統計 </p></li><li><p> 基本指標 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な社内の権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> CFO </p></li><li><p> 会計士 </p></li><li><p> 投資家 </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 数分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1 から 10 まで。1 が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+この Connector は「置換」に設定する必要があります。「追加」を使用するとデータが複製されてしまいます。
+
+## 必要条件
+
+なし。 DomoのQuandl Connectorは一般公開用データセットの取得に使用されるため、認証情報の入力は必要ありません。
+
+## Quandl データセットに接続する
+
+このセクションでは、Quandl Connectorインターフェースの 詳細 タブで、Quandl データセットに接続する方法を説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 詳細ペイン
+
+このペインには、Quandl データセットを選択できるメインの **ファイル** メニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ファイル </p></td><td colspan="1" rowspan="1"><p> 一般公開用Quandl データセットを選択します。 </p></td></tr></tbody></table>
+
+#### 利用可能なデータセット
+
+下表に、Domo Quandl Connectorを使用して取得できる一般向けデータセットを記載します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> データセット </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Zacks Fundamentals Collection B </p></td><td colspan="1" rowspan="1"><p> 4千以上の上場廃止株を含む、1万以上の米国株式の基本指標を200以上返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End of Day US Stock Prices </p></td><td colspan="1" rowspan="1"><p> 公開取引される全ての米国株式の、1日の終わり(EOD)の株価、配当、調整、分割をプロフェッショナルレベルで返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> NASDAQ-100 </p></td><td colspan="1" rowspan="1"><p> ナスダック100指数のデータを返します。ナスダック100指数には、ナスダックに上場する国内外の非金融銘柄の時価総額上位100銘柄が含まれます。 </p></td></tr></tbody></table>
+
+

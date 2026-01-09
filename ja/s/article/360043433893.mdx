@@ -1,0 +1,37 @@
+---
+title: "IBM Digital Analyticsコネクター"
+---
+
+## はじめに
+
+IBM Digital Analytics（旧称Coremetrics）で、マーケティング担当者はデジタルアナリティクスや比較ベンチマークからインサイトを得られるようになります。DomoのIBM Digital Analyticsコネクターを使用して、訪問数が多い上位の国、マーケティングチャネルおよびプログラム、メトリクス、トップページに関するデータを取得します。IBM Digital Analyticsの詳細については、ウェブサイト（ [http://www-03.ibm.com/software/produ...ital-analytics](http://www-03.ibm.com/software/products/en/digital-analytics "http://www-03.ibm.com/software/products/en/digital-analytics") ）を参照してください。
+
+IBM Digital Analyticsアカウントには、Data Centerから接続します。このトピックでは、IBM Digital Analyticsコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+IBM Digital AnalyticsアカウントにアクセスしてDataSetを作成するには、IBM Digital Analyticsのアカウントへのログイン時に使用するユーザー名とパスワードを [https://welcome.coremetrics.com](https://welcome.coremetrics.com "https://welcome.coremetrics.com") で設定する必要があります。
+
+## IBM Digital Analyticsアカウントに接続する
+
+このセクションでは、IBM Digital Analyticsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページの他のペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細につきましては「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」をご覧ください。
+
+### ［認証情報］ペイン
+
+このペインには、IBM Digital Analyticsアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> IBM Digital Analyticsアカウントのユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> IBM Digital Analyticsアカウントのパスワードを入力します。 </td></tr></tbody></table>
+
+有効なIBM Digital Analytics認証情報を一度入力しておくと、随時同じアカウントを使用して新しいIBM Digital Analytics DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［レポート］** メニューの他、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するIBM Digital Analyticsレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> 地理的位置 - 国 </td><td colspan="1" rowspan="1"> 最も多くの訪問者セッションを開始した国の情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> マーケティングチャネル </td><td colspan="1" rowspan="1"> マーケティングチャネルのパフォーマンスに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> マーケティングプログラムの全リスト </td><td colspan="1" rowspan="1"> マーケティングキャンペーンに関する情報を返します。 </td></tr><tr><td colspan="1" rowspan="1"> メトリクス </td><td colspan="1" rowspan="1"> 特定のアカウントについて追跡したメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"> トップページ </td><td colspan="1" rowspan="1"> 特定のアカウントのページリストを訪問者数の多い順で返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> クライアントID </td><td colspan="1" rowspan="1"> データを取得するすべてのIBM Digital AnalyticsクライアントIDをカンマで区切って入力します。例： <span class="mt-font-courier-new"> 123,456,789 </span></td></tr><tr><td colspan="1" rowspan="1"> 開始日までの日数 </td><td colspan="1" rowspan="1"><p> レポートで表示する過去の日のうち、現在から最も遠い日までの日数を入力します。 <b> 終了日 </b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <span class="mt-font-courier-new"> 開始日 </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> 終了日 </span> に <b> 5 </b> を入力した場合、レポートには10日前から5日前までのデータが含まれます。このパラメータに戻る最大日数は93日です。今日のデータは明日まで利用できません。 </p></td></tr><tr><td colspan="1" rowspan="1"> 終了日までの日数 </td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> 開始日 </b> までの日数と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <span class="mt-font-courier-new"> 開始日 </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> 終了日 </span> に <b> 5 </b> を入力した場合、レポートには10日前から5日前までのデータが含まれます。このパラメータに戻る最大日数は93日です。今日のデータは明日まで利用できません。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

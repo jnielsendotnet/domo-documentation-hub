@@ -1,0 +1,41 @@
+---
+title: "MindTouchコネクター"
+---
+
+## はじめに
+
+MindTouchは、ドキュメントを整理してユーザーが簡単に見つけられるようにするためのドキュメントコンテンツ管理システムです。MindTouch APIの詳細については、ウェブサイト（ [https://success.mindtouch.com/Soluti...\_Documentation](https://success.mindtouch.com/Solutions/Knowledge_Management/MindTouch_Tools_and_Features/API_Documentation "https://success.mindtouch.com/Solutions/Knowledge_Management/MindTouch_Tools_and_Features/API_Documentation") ）を参照してください。
+
+MindTouchアカウントには、Data Centerから接続します。このトピックでは、MindTouchコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+MindTouchアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* MindTouchインスタンスのドメイン（例：
+  [mycompany.mindtouch.com](http://mycompany.mindtouch.com) ）
+* MindTouchアカウントに使用するユーザー名とパスワード
+
+## MindTouchアカウントに接続する
+
+このセクションでは、MindTouchコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このページには、MindTouchアカウントに接続するための認証情報を入力するフィールドがあります。以下の表で、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Domain </p></td><td colspan="1" rowspan="1"><p> MindTouchインスタンスのドメイン（例： <span class="mt-font-courier-new"><a href="http://mycompany.mindtouch.com" rel="noopener" target="_blank"> mycompany.mindtouch.com </a></span> ）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> MindTouchユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> MindTouchパスワードを入力します。 </p></td></tr></tbody></table>
+
+有効なMindTouch認証情報を一度入力しておくと、随時同じアカウントを使用して新しいMindTouch DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMindTouchレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p><b> レポート名 </b></p></td><td colspan="1" rowspan="1"><p><b> 説明 </b></p></td></tr><tr><td colspan="1" rowspan="1"><p> Archive Files </p></td><td colspan="1" rowspan="1"><p> 削除されたすべてのファイルの情報を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Archive Pages </p></td><td colspan="1" rowspan="1"><p> 削除されたすべてのページの情報を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content ID Associations </p></td><td colspan="1" rowspan="1"><p> コンテンツIDからページへの関連付けを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Content IDs </p></td><td colspan="1" rowspan="1"><p> コンテンツIDと説明を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events Page Hierarchy </p></td><td colspan="1" rowspan="1"><p> サイト履歴サマリーを取得します（1ページ当たり最新の1000イベント）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Events Page </p></td><td colspan="1" rowspan="1"><p> ページ履歴サマリーを取得します（1ページ当たり最新の1000イベント）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Groups </p></td><td colspan="1" rowspan="1"><p> MindTouchインスタンス内のすべてのグループのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> License </p></td><td colspan="1" rowspan="1"><p> MindTouchライセンスに関する情報を取得します。MindTouchの管理者ユーザーの場合は、すべてのライセンス情報が取得されます。それ以外の場合は、公開情報のみが取得されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Rating </p></td><td colspan="1" rowspan="1"><p> MindTouchサイトのページ評価データを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Pages </p></td><td colspan="1" rowspan="1"><p> MindTouchサイトのページのリストを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Page Security </p></td><td colspan="1" rowspan="1"><p> 表示をパブリックにするかプライベートにするかなど、ページのセキュリティ設定に関する情報を取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Search Terms and Queries </p></td><td colspan="1" rowspan="1"><p> 検索語とクエリのデータを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Site Activity </p></td><td colspan="1" rowspan="1"><p> 特定の日付のサイトアクティビティを取得するのか、指定した日数を遡った日までのサイトアクティビティを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Usage </p></td><td colspan="1" rowspan="1"><p> サイトの使用状況に関するデータを取得します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Users </p></td><td colspan="1" rowspan="1"><p> MindTouchサイト内のユーザーのリストを取得します。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> すべてのページを取得するか、評価されたページのみを取得するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date Type </p></td><td colspan="1" rowspan="1"><p> 特定の日付のデータを取得するのか、指定した日数を遡った日までのデータを取得するのかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Specific Date </p></td><td colspan="1" rowspan="1"><p> データを取得する日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> 遡ってデータを取得する日数を入力します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新オプションなど、その他のコネクターインターフェースのセクションの詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

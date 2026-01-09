@@ -1,0 +1,288 @@
+openapi: 3.0.3
+info:
+  title: Domo Users API
+  description: |
+    API for managing Domo Users from outside of your Domo instance, such as:
+    - Jupyter scripts
+    - Code Engine Functions
+    - Custom Java/Node/Python scripts
+  version: 1.0.0
+  contact:
+    name: Domo Support
+    url: https://www.domo.com
+
+servers:
+  - url: https://{instance}.domo.com/api/identity/v1
+    description: Domo Identity API
+    variables:
+      instance:
+        default: your-instance
+        description: Your Domo instance name
+
+security:
+  - DeveloperToken: []
+
+tags:
+  - name: Users
+    description: Operations for managing Domo users
+
+paths:
+  /users:
+    post:
+      tags:
+        - Users API (Product)
+      summary: Create User
+      description: Creates a new user in Domo
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateUserRequest'
+            example:
+              displayName: "John Doe"
+              emailAddress: "john.doe@example.com"
+              roleId: 1
+      responses:
+        '200':
+          description: User created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request - Invalid input parameters
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '409':
+          description: Conflict - User already exists
+
+    get:
+      tags:
+        - Users API (Product)
+      summary: Get All Users
+      description: Retrieves a list of all users in Domo
+      operationId: getAllUsers
+      parameters:
+        - $ref: '#/components/parameters/PartsQueryParam'
+      responses:
+        '200':
+          description: Users retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+
+  /users/{id}:
+    get:
+      tags:
+        - Users API (Product)
+      summary: Get User By Id
+      description: Retrieves a specific user by their ID
+      operationId: getUserById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: ID of the user requested
+          schema:
+            type: integer
+          example: 123456
+        - $ref: '#/components/parameters/PartsQueryParam'
+      responses:
+        '200':
+          description: User retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserListResponse'
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: User not found
+
+    patch:
+      tags:
+        - Users API (Product)
+      summary: Update User
+      description: Updates an existing user's information
+      operationId: updateUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of the user requested
+          schema:
+            type: integer
+          example: 123456
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateUserRequest'
+            example:
+              roleId: 5
+      responses:
+        '200':
+          description: User updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Bad request - Invalid input parameters
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: User not found
+
+    delete:
+      tags:
+        - Users API (Product)
+      summary: Delete User
+      description: Deletes a user from Domo
+      operationId: deleteUser
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Id of the user requested.
+          schema:
+            type: integer
+          example: 123456
+      responses:
+        '200':
+          description: User deleted successfully
+          content:
+            application/json:
+              schema:
+                type: integer
+                example: 1
+        '401':
+          description: Unauthorized - Invalid or missing authentication token
+        '404':
+          description: User not found
+
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+
+  parameters:
+    PartsQueryParam:
+      name: parts
+      in: query
+      required: false
+      description: Specifies the level of detail to include in the response
+      schema:
+        type: string
+        enum:
+          - MINIMAL
+          - SIMPLE
+          - DETAILED
+          - GROUPS
+          - ROLE
+      example: DETAILED
+
+  schemas:
+    CreateUserRequest:
+      type: object
+      required:
+        - displayName
+        - emailAddress
+        - roleId
+      properties:
+        displayName:
+          type: string
+          description: Display name of the user
+          example: "John Doe"
+        emailAddress:
+          type: string
+          format: email
+          description: Email address of the user
+          example: "john.doe@example.com"
+        roleId:
+          type: integer
+          description: Role ID to assign to the user
+          example: 1
+
+    UpdateUserRequest:
+      type: object
+      properties:
+        displayName:
+          type: string
+          description: Display name of the user
+          example: "John Doe"
+        emailAddress:
+          type: string
+          format: email
+          description: Email address of the user
+          example: "john.doe@example.com"
+        roleId:
+          type: integer
+          description: Role ID to assign to the user
+          example: 5
+
+    UserAttribute:
+      type: object
+      properties:
+        key:
+          type: string
+          description: Attribute key
+          example: "department"
+        values:
+          oneOf:
+            - type: array
+              items:
+                type: string
+            - type: array
+              items:
+                type: integer
+          description: Attribute values (can be strings or numbers)
+          example: ["Engineering", "Product"]
+
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique identifier for the user
+          example: 123456
+        displayName:
+          type: string
+          description: Display name of the user
+          example: "John Doe"
+        userName:
+          type: string
+          description: Username of the user
+          example: "john.doe@example.com"
+        emailAddress:
+          type: string
+          format: email
+          description: Email address of the user
+          example: "john.doe@example.com"
+        roleId:
+          type: integer
+          description: Role ID assigned to the user
+          example: 1
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserAttribute'
+          description: Custom attributes associated with the user
+
+    UserListResponse:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+          description: List of users

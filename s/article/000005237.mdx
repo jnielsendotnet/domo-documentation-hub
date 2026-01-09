@@ -1,0 +1,221 @@
+---
+title: "> Domo on Google BigQuery (RECOMMENDED)"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### Intro
+
+With Cloud Amplifier, you can power your Domo instance using Google BigQuery. This guide is written for users who are familiar with BigQuery and describes how to register BigQuery with Cloud Amplifier, including setup for Read and Write capability and OAuth configuration.
+
+After completing the setup process, you can begin using virtual tables that read from BigQuery to create cards, configure alerts, and serve as inputs in Magic ETL DataFlows.
+
+<Note>
+**Note:** Magic ETL leverages the BigQuery-Cloud Amplifier integration so you can effortlessly transform your data inside BigQuery. Learn about [Magic ETL on BigQuery](/s/article/000005557).
+</Note>
+
+---
+
+This article provides information about registering BigQuery with Cloud Amplifier in the following topics:
+
+* [Architectural overview](#architectural_overview)
+* [Prerequisites](#prerequisites)
+* [Read setup](#read_setup)
+* [Write setup](#write_setup)
+  + [Prepare a dataset in Google BigQuery](#prepare_dataset_in_bigquery)
+  + [Configure Write access for BigQuery in Domo](#configure_bigquery_write)
+* [Use BigQuery-sourced DataSets in a DataFlow](#bigquery_sourced_datasets)
+* [Configure BigQuery OAuth](#configure_bigquery_oauth)
+
+---
+
+### Architectural Overview
+
+<Frame><img alt="BigQuery architecture diagram.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000003Db3G.jpg"/></Frame>
+
+### Prerequisites
+
+Before configuring the Cloud Amplifier—BigQuery connection, we strongly recommend that you complete the following:
+
+* **(Recommended) Create a BigQuery service account —**
+  We recommend creating a new BigQuery account specifically for this integration. You can use any account with Read access in BigQuery, but it is best practice to use a service account. This account must have read access to your default BigQuery environment in order to create virtual BigQuery tables in Domo. When you create this account, a BigQuery service account key file is generated that is required for [setup](#setup).
+* **(Recommended) Create a Domo service account —**
+  We recommend creating a new Domo account specifically for this integration. The custom role for the account must have the Manage Cloud Accounts and Manage DataSet grants enabled.
+    
+  For more information about roles and grants, see [Managing Custom Roles](/s/article/360043438973).
+
+### Read Setup
+
+Follow these steps to configure Read access to BigQuery tables from within Domo using Cloud Amplifier.
+
+1. Log in to your Domo service account.
+2. In the navigation header, select
+   **Data**.
+     
+   The Data Center displays.
+3. If you are not already there, go to the
+   <InlineImage src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EM5w000005vNu2.png" /> **Data Warehouse** in the left side rail.
+4. In the warehouse area of the screen, select the molecule shown below.
+     
+   Selecting the molecule brings it into focus.
+
+   <Frame><img alt="select molecule.png" src="/images/kb/ka0Vq000000BCKP-00N5w00000Ri7BU-0EM5w000006wDev.jpg" style={{width: 663.999, height: 457.997}}/></Frame>
+
+   <Frame><img alt="molecule in focus.jpeg" src="/images/kb/ka0Vq000000BCKP-00N5w00000Ri7BU-0EM5w000006wDdZ.jpg" style={{width: 287.99, height: 316.996}}/></Frame>
+
+5. Select
+   **<InlineImage src="/images/kb/ka0Vq000000BCKP-00N5w00000Ri7BU-0EM5w000005vNtv.png" />** **Add New Cloud**.
+     
+   The Add New Integration modal displays.
+6. In the modal under
+   **Native integration**, select **BigQuery**.
+
+   <Frame><img alt="bigquery.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EM5w000006v4Ro.jpg" style={{width: 531.989, height: 356.996}}/></Frame>
+
+   The **BigQuery cloud integrations** page displays.
+7. Select
+   **+ Add New Integration**.
+
+   <Frame><img alt="bq cloud integrations.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EM5w000006v4Rt.jpg" style={{width: 531.989, height: 356.996}}/></Frame>
+
+8. Enter a name and optional description in the
+   **Integration name** and **Integration description** fields.
+9. Upload the BigQuery service account key file here. This file is generated in Google Console for the service account that you created for the BigQuery integration.
+
+   <Frame><img alt="upload file.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EM5w000006v4S3.jpg" style={{width: 535, height: 373.999}}/></Frame>
+
+10. Select
+    **Next**.
+
+You have successfully configured your Read-only integration from BigQuery to Cloud Amplifier.
+
+### Write Setup
+
+Setting up BigQuery Write requires an existing BigQuery dataset that can be connected to Domo. This graphic displays a general view of the process—a BigQuery admin creates a BigQuery project and dataset and provides the necessary IDs and provisioning region to a Domo user with the [Manage Cloud Accounts](https://domo-support.domo.com/s/article/4412849158167?language=en_US#required_grants) grant. The Domo user then uses the provided information to configure BigQuery Write. The tasks below provide instructions for preparing a dataset in BigQuery and setting up BigQuery Write with Cloud Amplifier.
+
+<Frame><img alt="Screenshot 2024-02-13 at 2.07.54 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LlGr.jpg" style={{width: 500, height: 485}}/></Frame>
+
+# Prepare a Dataset in Google BigQuery
+
+1. In Google BigQuery, select an existing studio project or create a new one. See the
+   [BigQuery documentation](https://cloud.google.com/bigquery/docs) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> to learn how to access or create projects.
+2. In your project, add a new dataset to which you want tables from Domo to be written. In this example, we use `data\_from\_domo` as the Dataset ID in BigQuery.
+     
+   <Frame><img alt="Screenshot 2024-02-13 at 2.17.43 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LlIU.jpg" style={{width: 901, height: 441}}/></Frame>
+
+3. After creating the dataset in BigQuery, find the data location (provisioning region) for the dataset in the dataset details.
+     
+   <Frame><img alt="dataset location.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000Llbp.jpg" style={{width: 902, height: 440}}/></Frame>
+
+4. Provide the following information from Big Query to a Domo user who has the Cloud Admin grant.
+   * Project ID
+   * Dataset ID
+   * Data location (provisioning region)
+
+# Configure Write Access for BigQuery in Domo
+
+1. In the Domo navigation header, select
+   **Data** to open the Data Center.
+2. If you're not already there, select
+   <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uR3y.jpg" /> **Data Warehouse** in the left rail and open the Data Warehouse.
+     
+   <Frame><img alt="warehouse.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LllW.jpg" style={{width: 899, height: 409}}/></Frame>
+
+3. Select an existing BigQuery integration.
+     
+   The **Amplify** modal displays.
+     
+   <Frame><img alt="Screenshot 2024-02-13 at 2.52.01 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LmmP.jpg" style={{width: 502, height: 342}}/></Frame>
+
+4. In the modal, select
+   **Google BigQuery** native integration.
+     
+   <Frame><img alt="select bigquery.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000Ln5l.jpg" style={{width: 503, height: 343}}/></Frame>
+
+5. In the list, locate the BigQuery integration to which you want to add Write capability. Hover over the integration and select
+   <InlineImage src="/images/kb/ka0Vq0000000Qyb-00N5w00000Ri7BU-0EMVq000000K39p.jpg" /> **Options** to display the options menu.
+     
+   <Frame><img alt="bigquery cloud integrations.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LnAb.jpg" style={{width: 605, height: 404}}/></Frame>
+
+6. In the menu, select
+   **Configure write access** to open the **Connect a BigQuery cloud integration** wizard.
+     
+   <Frame><img alt="configure write access.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LoY5.jpg" style={{width: 605, height: 404}}/></Frame>
+
+7. In the
+   **Destination Project**
+
+   field, enter the name of the BigQuery project. In the **Destination Dataset** field, enter the name of the BigQuery dataset. Then select **Next**.
+     
+   <Frame><img alt="Screenshot 2024-02-13 at 4.13.03 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LobJ.jpg" style={{width: 604, height: 405}}/></Frame>
+
+8. Review the displayed information and check the box to acknowledge that Domo will now be able to write to the provided dataset.
+     
+   <Frame><img alt="Screenshot 2024-02-13 at 4.17.26 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000Lohl.jpg" style={{width: 601, height: 400}}/></Frame>
+
+9. Select
+   **Next** to confirm that the connection is successfully established.
+     
+   <Frame><img alt="select next to finalize.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000Os2T.jpg" style={{width: 604, height: 404}}/></Frame>
+
+   <Frame><img alt="Screenshot 2024-02-13 at 4.21.11 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LmXv.jpg" style={{width: 603, height: 402}}/></Frame>
+
+You can now use your BigQuery integration as an output for Domo. In the example below, **Data from Domo** is now an option for a Magic ETL output.
+
+<Frame><img alt="data from domo in magic.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000LooD.jpg" style={{width: 900, height: 449}}/></Frame>
+
+### Use BigQuery-sourced Datasets in a DataFlow
+
+When you use BigQuery-sourced datasets in a DataFlow, the data is queried live from BigQuery at the time the flow initiates. In addition, BigQuery-sourced datasets are checked for updates every 15 minutes based on the table's LAST\_ALTERED DateTime. If the LAST\_ALTERED field indicates that data has been updated, any DataFlows that use this table as an input are triggered and will begin to run.
+
+### Configure BigQuery OAuth
+
+The OAuth option for BigQuery-Cloud Amplifier makes it possible to reuse governance and permissions already established in BigQuery. When OAuth is configured for a cloud integration, all DataSets that are then established using that integration now use OAuth.
+
+Any time someone tries to view a card or preview a DataSet built using an OAuth-configured integration, Domo prompts the person to enter their BigQuery credentials. Domo then queries the BigQuery data in the context of the authenticated user.
+
+If a DataSet was set up using a non-OAuth-configured integration, any queries made to BigQuery are made in the context of the service account from the associated BigQuery service account key file.
+
+<Warning>
+**Important:** All DataFlows or alerts that use OAuth-configured DataSets use the service account on the associated integration.
+
+</Warning>
+
+# Prerequisites
+
+You must have the following to configure a BigQuery integration with OAuth in Domo:
+
+* A project in your BigQuery account
+* A valid BigQuery service account key file
+
+# Configure a BigQuery Integration with Per-User OAuth
+
+1. Go to the Domo Data Warehouse and select the
+   **Add** node.
+     
+   <Frame><img alt="add node.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000or2k.jpg" style={{width: 901, height: 316}}/></Frame>
+
+2. From the native integration options, select **BigQuery**.
+     
+   <Frame><img alt="select bigquery.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000ouqE.jpg" style={{width: 651, height: 446}}/></Frame>
+
+3. Select
+   **+** **Add New Integration**.
+     
+   <Frame><img alt="add new integration.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000oxL3.jpg" style={{width: 651, height: 462}}/></Frame>
+
+4. In the provided fields, enter an integration name and optional description, upload your BigQuery service account key file in JSON format, and select the provisioning region that you want to use for this integration. You cannot change the provisioning region after it is set.
+     
+   <Frame><img alt="Screenshot 2024-04-24 at 3.11.53 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000oxbB.jpg" style={{width: 651, height: 458}}/></Frame>
+
+5. Enable the
+   **Use OAuth per-user integration** switch. Then enter your default billing project ID and select **Authenticate**.
+     
+   <Frame><img alt="authenticate.jpg" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000oxrJ.jpg" style={{width: 650, height: 458}}/></Frame>
+
+6. Validate your credentials against your IdP. After successful validation, a message displays. In the connect modal, select
+   **Next**.
+
+You have successfully configured OAuth for BigQuery to Domo. Any card queries or data previews on any DataSets established using this integration now prompt the person to authenticate in BigQuery before query results are returned.
+  
+<Frame><img alt="Screenshot 2024-04-24 at 3.18.32 PM.png" src="/images/kb/ka0Vq000000BER3-00N5w00000Ri7BU-0EMVq000000oy0z.jpg" style={{width: 605, height: 401}}/></Frame>

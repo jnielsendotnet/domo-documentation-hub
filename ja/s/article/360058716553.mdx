@@ -1,0 +1,48 @@
+---
+title: "Microsoft SQL Serverパーティションコネクター"
+---
+
+## はじめに
+
+Microsoft SQL Serverは拡張可能なハイブリッドデータベースプラットフォームです。パーティショニングでデータの統合を維持しながらメンテナンス作業をより素早く実行し、クエリのパフォーマンスと効率を向上できます。DomoのMicrosoft SQL Serverパーティションコネクターを使用すると、標準SQLクエリを使用してSQLサーバーからのデータを問い合わせ、提供された過去の日数に基づいてデータをDomoに取り込むことができます。このコネクターを使用すると、Microsoft SQL Serverのデータを他のシステムからのデータと一緒にすべてDomoで参照できます。Microsoft SQL Server APIの詳細については、ウェブサイト（https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx ）を参照してください。
+
+Microsoft SQL Serverパーティションコネクターは「データベース」コネクターです。つまり、クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで ********［データベース］******** をクリックすることで、これを含む他のデータベースコネクターのページにアクセスできます。
+
+Microsoft SQL Serverには、Data Centerから接続します。このトピックでは、Microsoft SQL Serverパーティションコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Microsoft SQL Serverデータベースに接続してDataSetを作成するには、必要なデータベースと表に対する読み取り専用アクセス権を持つアカウントの作成をDBAに依頼してください。接続するには、以下のすべてが必要です。
+
+* Microsoft SQL Serverアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベースの名前
+
+オプションで、SSL CA証明書のあるURLを含めることもできます。
+
+Microsoft SQL serverに接続する前に、データベースサーバーの接続ポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Microsoft SQL Serverデータベースに接続する
+
+このセクションでは、［Microsoft SQL Serverパーティションコネクター］ページの ****［認証情報］**** および ****［詳細］**** ペインのオプションについて説明します。このページの他のペインの項目である ****［スケジュール設定］**** や ****［DataSetに名前を付けて説明を入力］**** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Microsoft SQL Serverデータベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> Microsoft SQL Serverアカウントのログインに使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Microsoft SQL Serverアカウントのログインに使用するパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> データベースのホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書（オプション） </td><td colspan="1" rowspan="1"> SSL CA証明書があるURLを入力します。 </td></tr></tbody></table>
+
+一度有効なMicrosoft SQL Server認証情報を入力したら、新しいMicrosoft SQL ServerパーティションDataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"><p> 必要なデータの選択に使用するSQLクエリを入力します。 </p><p> 例：select Date from Employee </p></td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> Domoに取得するデータを含む表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> カスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターのインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+

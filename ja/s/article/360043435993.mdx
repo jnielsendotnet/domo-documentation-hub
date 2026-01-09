@@ -1,0 +1,80 @@
+---
+title: "Amazon DynamoDBコネクター"
+---
+
+## はじめに
+
+Amazon DynamoDBは、フルマネージド型のNoSQLデータベースサービスです。シームレスなスケーラビリティにより、高速で期待に応えるパフォーマンスを提供します。Amazon DynamoDBを使用すると、あらゆる量のデータを保存し取得することができ、あらゆるレベルのリクエストトラフィックにも対応するデータベーステーブルを作成できます。このコネクターを使用して、AWS（Amazon Web Services）アカウントと紐付いたリージョン用であるDynamoDBのテーブルにアクセスします。
+
+AWSアカウントには、Data Centerから接続します。このトピックでは、Amazon DynamoDBコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+AWSに接続してAmazon DynamoDB DataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー
+* AWSシークレットキー
+
+#### アクセスキーとシークレットアクセスキーを確認するには、以下の手順を実行します。
+
+1. AWS Management Consoleにログインします。
+2. ページの右上にあるユーザー名をクリックします。
+3. ドロップダウンメニューで **［Security Credentials］** を選択します。
+4. **［Access Credentials］** セクションで、最新のアクセスキーIDをコピーします。
+5. 同じ行の **［Show link］** をクリックし、シークレットアクセスキーをコピーします。
+
+## Amazon DynamoDBアカウントに接続する
+
+このセクションでは、Amazon DynamoDBコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Amazon DynamoDBアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> AWS Access Key </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AWS Secret Key </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。 </p></td></tr></tbody></table>
+
+これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
+
+有効なAmazon DynamoDB認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAmazon DynamoDB DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") [」を参照してください。](/ja/s/article/360042926054)
+
+### ［詳細］ペイン
+
+このペインには、使用するリージョン名とテーブルを選択する、2つのドロップダウンメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+<thead>
+<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1"><p> Region Name </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするテーブルを含むAmazon DynamoDBのリージョンを選択します。 </p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><p> How would you like to fetch your data? </p></td><td colspan="1" rowspan="1"><p><span> 属性名でデータを取得するか、クエリを提供してデータを取得するかを選択します。 </span></p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p><span> 実行するSQLクエリを入力します。 </span></p><p><span> 例：select * from table_name. </span></p><p><span><b> 注記： </b> 列名がある場合は、すべての列名を二重引用符で囲んでください。 </span></p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むAmazon DynamoDBのテーブルを選択します。 </p></td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"> How would you like to provide attribute names? </td><td colspan="1" rowspan="1"> 検出によって属性名を指定するか、手動で指定するかを選択します。 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Attribute Names（最大で1498個まで選択可能） </span>
+</td>
+<td colspan="1" rowspan="1">
+<p><span> 取り込む属性名を選択します。すべての属性を取り込む場合は、リストから属性を選択しません。最大で1498個まで選択できます。 </span></p> 
+<Note>
+ <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> 属性を選択しなかった場合、このコネクターは、デフォルトですべてのフィールドを取り込みます。 </div></div></div> 
+</Note>
+
+ </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

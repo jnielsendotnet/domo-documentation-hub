@@ -1,0 +1,84 @@
+---
+title: "Adobe Analytics Data Warehouseに接続する"
+---
+
+## はじめに
+
+このトピックでは、Adobe Analytics Data WarehouseからDomoにデータを取り込むプロセスを説明します。
+
+このプロセスは以下の3つのパートに分けられます。
+
+1. Adobeホスト型FTPアカウントの設定
+2. Data Warehouseのレポートの設定
+3. CSV Advancedコネクター使用によるSFTP接続の設定
+
+## Adobeホスト型FTPアカウントの設定
+
+Adobe Analytics Data Warehouseに接続するには、まずAdobe管理者にAdobeホスト型FTPアカウントを設定してもらう必要があります。Adobeは、高いパフォーマンスを確保しながらファイル転送の信頼性を向上させるために特別に設計された、高可用性を備えた高性能なFTPクラスターを保有しています。
+
+Adobe管理者は次のことを行います。
+
+1. ホスト名 \<ftp.omniture.com> を使用してFTPアカウントを設定します。ユーザー名とパスワードはAdobe担当者から提供されます。
+2. アカウントが設定されたら、CyberduckやFileZillaのようなFTPクライアントを介して接続し、アカウントが有効であることを確認します。
+
+## Data Warehouseのレポートの設定
+
+Data Warehouseのデータに接続するための次の手順は、レポートが正しく設定されていることの確認です。
+
+1. 目的のレポートスイート、ディメンション、セグメントと同様にAdobe Analytics Data Warehouseにアクセスできる認証情報を使用して、Omnitureにログインします。
+2. **［Tools］** メニューで **［Data Warehouse］** を選択します。
+
+   デフォルトでは **［Requests］** タブに移動します。
+3. 指定したい日付範囲とリクエスト名を入力します。
+4. 日付単位を「Daily」に設定します（「Weekly」「Monthly」などのほかの日付単位を選ぶと、Domoでは使用しにくい文字列が返されます）。
+
+   <Frame><img alt="aadw_1.png" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwn.png"/></Frame>
+
+5. **［Breakdown］** セクションで目的のセグメントのボックスにチェックを入れるか、このセクションからセグメントを **［Report Preview］** 領域にドラッグして、レポートを作成します。 **［Breakdown］** リスト内のセグメントが0または1でDataSetの列に追加されることで、そのセグメントがその行に適用されるかどうかが示されます。
+
+   ディメンションは、標準の内訳またはカスタムの内訳のいずれかになります。
+
+   <Frame><img alt="aadw_2.png" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwj.png"/></Frame>
+
+6. 目的のメトリクスを選択します（標準版またはカスタム版）。
+
+   <Frame><img alt="aadw_3.png" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwl.png"/></Frame>
+
+7. **［Advanced Delivery Options］** を選択してレポートのスケジュールを設定し、SFTPに送信します。
+8. **［Advanced Delivery Options］** でファイル名を作成し、日付範囲を追加するかどうか、ZIPファイルに圧縮するかどうかを決定します。
+9. レポートの送信先に **［FTP］** を選択します。
+
+   * **ホスト** は \<ftp.omniture.com> とします。
+   * **ユーザー名** と **パスワード** に関しては、FTP接続を設定したAdobe管理者から提供された認証情報を使用します。
+
+     <Frame><img alt="aadw_4.png" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwm.png"/></Frame>
+
+10. **［Scheduling Options］** タブでは、 **［Schedule for later］** ラジオボタンを選択します。
+
+    毎日、毎週、毎月といった任意のケイデンスでレポートが送信されるように設定できます。
+11. FTPサイトにレポートを送信する時刻を選択します。
+12. **［Schedule］** をクリックして、すべての変更内容を保存します。
+13. （オプション）**［Send To］** ボックスで、成功したか失敗したかを知らせる確認メールの送信先メールアドレスを指定します。次に、 **［Request this report］** をクリックしてスケジュールレポートを作成します。
+
+    <Frame><img alt="aadw_5.png" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwo.png"/></Frame>
+
+## SFTP接続の設定
+
+この最後の手順では、 [CSV Advanced](/ja/s/article/360043436513 "CSV Advancedコネクター") コネクターを使用してSFTP接続を設定します。
+
+1. Domoで、CSVの高度な接続を新規に作成します。
+
+   1. **［認証情報］** ペインで、Omniture FTPサイトでの認証に使用するユーザー名とパスワードを入力します。ほかの入力ボックスは無視してください。
+   2. **［詳細］** ペインで次の操作を行います。
+
+      1. 1つ目のドロップダウンメニューで **［File Transfer (SFTP)］** を選択します。
+      2. URLボックスに、AdobeのFTPホスト名である「 [subdomain.omniture.com](http://subdomain.omniture.com) 」を入力します。
+
+         例えば、AdobeのFTPホスト名は \<ftp4.omniture.com> なので、「sftp:/\<ftp4.omniture.com> 」と入力します。AdobeのFTPホスト名についての詳細は、https://experienceleague.adobe.com/docs/analytics/export/ftp-and-sftp/set-up-ftp-accounts/ftp-accounts.html?lang=en を参照してください。
+      3. 2つ目のドロップダウンメニューで **［Enter a File Name］** を選択します。
+      4. **［Enter a File Name］** ボックスでは、接続先のファイル名を入力します。
+      5. **［Select a File Type］** メニューで **［CSV］** を選択します。
+
+         <Frame><img alt="aadw_6.jpg" src="/images/kb/ka05w0000012341-00N5w00000Ri7BU-0EM5w000005vNwk.jpg"/></Frame>
+
+   3. スケジュール設定、名前付けなどを完了します。

@@ -1,0 +1,64 @@
+---
+title: "ダイナミックテキストボックス"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+ダイナミックテキストボックスは、標準の [テキストボックス](/ja/s/article/360043429593) と同じく、テキストを含むカードを作成するのに使用できます。両者の違いは、標準のテキストボックスでは、ボックス内のテキストがDataSetから直接取得され、使用できるマクロが1つだけであることです。このマクロにより、選択した値列の最初の値を動的に参照できます。
+
+ダイナミックテキストボックスでは、ユーザー自身がテキストを入力しますが、10数種のマクロが利用できるため、選択したカテゴリーと値列から、変化率、列名、最初の値/最終値/最後から2番目の値、最小/最大/平均値、最初または最後のカテゴリーといった情報を参照することができます。
+
+ダイナミックテキストボックスでは、データが更新されるたびに更新される動的フィールドを備えたテキストカードを作成できます。以下に示すカードの例では、呼び出されたすべてのフィールドが、DataSetの内容にもとづいて動的に更新されるように設定されています。
+
+<Frame><img alt="dynamic_textbox_example.png" src="/images/kb/ka05w00000125oI-00N5w00000Ri7BU-0EM5w000005vPAP.png"/></Frame>
+テキストは、どれだけ長くてもかまいません。またどんな文字も使用可能です。テキストの書式は、中央揃え、左揃え、右揃え、余白スペースの調整が可能です。フォントサイズ、色、スタイルを変更することもできます。これらのオプションとその他のオプションについては、以下で説明します。
+
+この記事では、以下のトピックでダイナミックテキストボックスの使用方法を説明します。
+
+* [ダイナミックテキストボックスを作成する](#powering)
+* [ダイナミックテキストボックスをカスタマイズする](#customize)
+
+## ダイナミックテキストボックスを作成する
+
+ダイナミックテキストボックスでは、DataSetから2列または2行のデータが必要です。一方の列はマクロを取得する *カテゴリー* 列を参照し、もう一方の列は *値* 列を参照します。例えば、「ある［地域］の売上高は［値（額）］でした」というテキストを表示したい場合、地域名の列を **［カテゴリー］** フィールドに、値の列を **［値］** フィールドにドラッグします。
+
+すると、DataSetから最初のカテゴリーや値がプレビューに取り込まれますが、この時点での表示は満足できるものではないかもしれません。有益なデータをカードに表示するには、 **［チャートの設定］>［一般］>［テキスト］** の順に進み、必要なテキストおよび選択した列のデータを参照するマクロを入力します。 ［チャートの設定］については、後述する「 [ダイナミックテキストボックスをカスタマイズする](#customize) 」で説明します。
+
+値、カテゴリー、系列データの詳細については、「 [チャートデータについて](/s/article/360043428693 "チャートデータについて") 」を参照してください。
+
+Analyzerで、テキストボックスで使用するデータを含む列を選択します。データ列の選択の詳細については、「 [DataSet列をチャートに適用する](/s/article/360043428713 "DataSet列をチャートに適用する") 」を参照してください。
+
+Analyzerでチャートをフォーマットする方法の詳細については、「 [可視化カード作成パート2：Analyzer](/s/topic/0TO5w000000ZaoUGAS "KPIカード作成パート2：Card Builder") 」を参照してください。
+
+## ダイナミックテキストボックスをカスタマイズする
+
+ダイナミックテキストボックスの外観をカスタマイズするには、いくつかの方法があります。マクロを使用して、テキストボックスに表示するテキストを指定できます。また、書式、余白スペース、フォントサイズ、色、スタイルなども変更できます。
+
+### テキストとマクロを定義する
+
+選択したダイナミックテキストチャートのAnalyzerで、 **［チャートの設定］** > **［一般］** > **［テキスト］** の順に進み、テキストボックスに表示させるテキストを指定します。
+
+利用できるマクロを表示するには、 <InlineImage src="/images/kb/ja/ka05w00000126Mp-00N5w00000Ri7BU-0EM5w000005wwDT.jpg" /> を選択します。
+
+<Columns>
+  <Frame><img alt="ダイナミックテキストplus.jpg" src="/images/kb/ka05w00000125oI-00N5w00000Ri7BU-0EM5w000005wwC1.jpg" style={{width: 490.994, height: 197.997}}/></Frame>
+  <Frame><img alt="ダイナミックテキストplus.jpg" src="/images/kb/ka05w00000125oI-00N5w00000Ri7BU-0EM5w000005wwC6.jpg" style={{width: 710.98, height: 668.999}}/></Frame>
+</Columns>
+例えば、テキストボックスのテキストに「［日付］の最初の売上、［日付］の最後の売上」と表示したい場合、「 `［最初の値］の最初の売上、［最後の値］の最後の売上` 」と入力します。
+
+すると、データが更新されるたびに、［最初の値］と［最後の値］のマクロによって最新データに更新されます。
+
+<Frame><img alt="ダイナミックテキストexample.jpg" src="/images/kb/ka05w00000125oI-00N5w00000Ri7BU-0EM5w000005wwCk.jpg" style={{width: 704.986, height: 546.996}}/></Frame>
+以下のマクロがすべて利用可能です。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> マクロ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 平均値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列のすべての値の平均値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"> カテゴリー行の名前 </td><td colspan="1" rowspan="1"> 選択したカテゴリー列の名前を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p> 割合を変更 </p></td><td colspan="1" rowspan="1"><p> 選択した値列のすべての値に対する変化の割合を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 値を変更 </p></td><td colspan="1" rowspan="1"><p> 選択した値列のすべての値に対する変化の量を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初のカテゴリー </p></td><td colspan="1" rowspan="1"><p> 選択したカテゴリー列の最初のカテゴリー（つまり最上位のカテゴリー）の値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最初の値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の最初の値（つまり最上位の値）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> アイテムカウント </p></td><td colspan="1" rowspan="1"><p> データの行数を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後のカテゴリー </p></td><td colspan="1" rowspan="1"><p> 選択したカテゴリー列の最後のカテゴリー（つまり最下位のカテゴリー）の値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後の値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の最後の値（つまり最下位の値）を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最大カテゴリー </p></td><td colspan="1" rowspan="1"><p> 選択したカテゴリー列の最大カテゴリーの値を返します。これは通常、最新の日付が返される日付列に適用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最大値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の最高値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 中央値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の中央値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最小カテゴリー </p></td><td colspan="1" rowspan="1"><p> 選択したカテゴリー列の最小カテゴリーの値を返します。これは通常、最も古い日付が返される日付列に適用されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最小値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の最低値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後から2番目のカテゴリー </p></td><td colspan="1" rowspan="1"><p> 選択したカテゴリー列の2番目のカテゴリーの値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 最後から2番目の値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の2番目の値を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 行の名前の値 </p></td><td colspan="1" rowspan="1"><p> 選択した値列の名前を返します。 </p></td></tr></tbody></table>
+
+### その他のプロパティをカスタマイズする
+
+すべてのチャートのプロパティについては、「 [チャートのプロパティ](/s/topic/0TO5w000000ZaodGAC "チャートのプロパティ") 」を参照してください。以下の表では、ダイナミックテキストボックスに固有のプロパティを説明します。これらのプロパティを調整する場合、 **［チャートの設定］** > **［一般］** に進みます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［値を短縮］ </p></td><td colspan="1" rowspan="1"><p> このボックスにチェックを入れると、テキストボックスの値は省略形で表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［フォントサイズ］ </p></td><td colspan="1" rowspan="1"><p> テキストボックスのテキストのフォントサイズを選択できます。小から特大までさまざまなサイズが利用できます。 <b> ［デフォルト］ </b> を選択すると、利用可能なスペースに最も適したサイズが選択されます。例えば、利用可能スペースが最大の場合、特大サイズで表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［フォントスタイル］ </p></td><td colspan="1" rowspan="1"><p> テキストのフォントスタイルを、プレーン、太字、斜体、太字斜体から選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［フォントの色］ </p></td><td colspan="1" rowspan="1"><p> テキストの色を選択できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［横方向のテキスト調整］ </p></td><td colspan="1" rowspan="1"><p> 横方向のテキスト調整を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［縦方向のテキスト調整］ </p></td><td colspan="1" rowspan="1"><p> テキストボックス内のテキストを、上揃え、上下中央揃え、下揃えのいずれで表示するかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［上部余白］ </p></td><td colspan="1" rowspan="1"><p> テキスト上部のスペースの量をピクセル単位で決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［下部余白］ </p></td><td colspan="1" rowspan="1"><p> テキスト下部のスペースの量をピクセル単位で決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［左余白］ </p></td><td colspan="1" rowspan="1"><p> テキスト左側のスペースの量をピクセル単位で決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［右余白］ </p></td><td colspan="1" rowspan="1"><p> テキスト右側のスペースの量をピクセル単位で決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［最初の値に適用］ </p></td><td colspan="1" rowspan="1"><p> フォーマットの変更をデータの最初の値に適用するかどうかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［最後の値に適用］ </p></td><td colspan="1" rowspan="1"><p> フォーマットの変更をデータの最後の値に適用するかどうかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［最小値に適用］ </p></td><td colspan="1" rowspan="1"><p> フォーマットの変更をデータの最小値に適用するかどうかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［最大値に適用］ </p></td><td colspan="1" rowspan="1"><p> フォーマットの変更をデータの最大値に適用するかどうかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［データ］ </p></td><td colspan="1" rowspan="1"><p> フォーマットの変更をデータの最初と最後の値に適用するか（デフォルト）、最後の2つの値に適用するかを決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［色の方向を逆にする］ </p></td><td colspan="1" rowspan="1"><p> このボックスにチェックを入れると、データの負の値は、 <b> ［正の値の色］ </b> で選択した色で表示されます。正の値の場合は［負の値の色］で表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［正の値の色］ </p></td><td colspan="1" rowspan="1"><p> テキストボックスで正の変化値/割合を表すのに使用される色を決定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［変化値のオプション］&gt;［負の値の色］ </p></td><td colspan="1" rowspan="1"><p> テキストボックスで負の変化値/割合を表すのに使用される色を決定します。 </p></td></tr></tbody></table>
+
+日本語

@@ -1,0 +1,38 @@
+---
+title: "Loggly Connector"
+---
+
+## はじめに
+
+Loggly は、経営における問題解決を迅速化するため、クラウドを活用したアプリケーションを構築・管理する企業をサポートしています。 Domo の Loggly Connector を使用すると、フィールド名や特定フィールドの数を返したり、Loggly イベント検索を実行したりすることができます。 Loggly API に関する詳細は、ウェブサイト（
+https://www.loggly.com/docs/api-overview/
+）を参照してください。
+
+Loggly アカウントには、 データセンター から接続します。 このトピックでは、Loggly Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") で説明しています。
+
+## 必要条件
+
+ご自分の会社のLoggly インスタンスに接続しDataSetを作成するには、以下が必要です。
+
+* Logglyのユーザー名とパスワード
+* 自分の会社の Loggly のベース URL （例えば、[http://mycompany.loggly.com](http://mycompany.loggly.com "http://mycompany.loggly.com") )。
+
+## Logglyアカウントに接続する
+
+このセクションでは、Loggly Connectorページの **認証情報** および **詳細** ペインについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+このペインには、会社のLoggly インスタンスに接続するための認証情報を入力するフィールドが含まれています。 下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Logglyのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Logglyのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ベース URL </p></td><td colspan="1" rowspan="1"><p> 会社のLoggly インスタンスのURLを入力します。 例： <span class="mt-font-courier-new"><span class="nolink"><a href="http://mycompany.loggly.com" target="_blank" title="http://mycompany.loggly.com"> http://mycompany.loggly.com </a></span></span></p></td></tr></tbody></table>
+
+有効なLoggly認証情報を一度入力しておくと、随時同じアカウントを使用して、新しいLoggly DataSetを作成することができます。 Connectorアカウントは データセンター の **アカウント** タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、Logglyレポートタイプを選択するメインメニューがあります。 選択するレポートのタイプによっては、他のオプションが表示されることがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Logglyレポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> イベントフィールド </p></td><td colspan="1" rowspan="1"><p> 全てのイベントフィールドの名前を返します。 フィールドは、 <b> 検索クエリ </b> にメタデータを入力し、フィルターにかけることができます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索イベント </p></td><td colspan="1" rowspan="1"><p> 指定した検索内容に基づいたLogglyイベントを返します。 クエリを指定しない場合は、全てのイベントを返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 固有のカウント </p></td><td colspan="1" rowspan="1"><p> 指定したフィールドのカウントを返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> 検索クエリ </p></td><td colspan="1" rowspan="1"><p> データをフィルターする検索クエリを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> フィールド名 </p></td><td colspan="1" rowspan="1"><p> フィールド名を入力すると、そのフィールド固有のデータを返します。 </p></td></tr></tbody></table>
+
+

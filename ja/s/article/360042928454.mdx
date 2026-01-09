@@ -1,0 +1,57 @@
+---
+title: "Square DataSet Unionコネクター"
+---
+
+## はじめに
+
+Square, Inc.は、金融サービス、マーチャントサービスアグリゲーターおよびモバイル決済企業です。Square APIの詳細については、Webサイト（ [https://docs.connect.squareup.com/](https://docs.connect.squareup.com/ "https://docs.connect.squareup.com/") ）を参照してください。
+
+このコネクターは、個別の認証を必要とするさまざまなSquare アカウントのDomo DataSetがある場合に便利です。
+
+Data CenterでSquare DataSetへの接続を設定します。このトピックでは、Square DataSet Unionコネクターユーザーインターフェース固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Domoの中の既存のSquare DataSetに接続して新しいDataSetを作成するには、 **［管理者］ > ［セキュリティ］** で生成されたDomoアクセストークンが必要です。これには、Domoの管理者権限が必要です。詳細については、「 [アクセストークンを管理する](/ja/s/article/360042934494 "アクセストークンを管理する") 」を参照してください。
+
+## Square DataSetを結合する
+
+このセクションでは、Square DataSet Unionコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetの名前と説明］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+### 認証情報ペイン
+
+このペインでDomoアクセストークンを入力して、既存のSquare DataSetに接続できるようにします。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> アクセストークン </p></td><td colspan="1" rowspan="1"><p><b> ［管理者］ &gt; ［セキュリティ］ </b> で生成するDomoアクセストークンを入力します。これには、Domoの管理者権限が必要です。詳細については、「 <a href="/s/article/360042934494" target="_blank" title="アクセストークンを管理する"> アクセストークンを管理する </a> 」を参照してください。 </p></td></tr></tbody></table>
+
+有効なアクセストークンを一度入力しておくと、いつでも同じアカウントを使用して新しいSquare DataSet Union DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### 詳細ペイン
+
+このペインには結合したいSquare DataSetのレポートタイプと設定を選択するメニューが含まれています。レポートタイプと設定を選択すると、Domoインスタンスで一致するすべてのSquare DataSetを結合することを選択するか、結合する特定のものを選択できます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するSquareレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> 注文 </p></td><td colspan="1" rowspan="1"><p> UNIONのすべての、または選択された「注文」は選択された設定で報告します。設定には、「ディスカウント」、「ライン品目」、「払い戻し」、「返送」、「注文エントリ」、「なし」があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 支払い </p></td><td colspan="1" rowspan="1"><p> UNIONのすべての、または選択された「支払い」は選択された設定で報告します。設定には「処理手数料」と「なし」があります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 決済エントリ </p></td><td colspan="1" rowspan="1"><p> UNIONのすべての、または選択された「決済エントリ」は選択された設定で報告します。設定には「失敗」と「送信済」が含まれています。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 決済 </p></td><td colspan="1" rowspan="1"><p> UNIONのすべての、または選択された「決済」は選択された設定で報告します。設定には「失敗」と「送信済」が含まれています。 </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> 設定 </p></td><td colspan="1" rowspan="1"><p> レポートに必要な設定を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 結合するDataSet </p></td><td colspan="1" rowspan="1"><p> すべての一致するDataSetを結合するか、リスト（ <b> 発見 </b> ）から特定のDataSetを選択するかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> DataSet </p></td><td colspan="1" rowspan="1"><p> 結合したいDataSetを選択します。Domoインスタンスで選択されたレポート/設定の組み合わせに一致するものがない場合は、ここには何も表示されません。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、残りのコネクターインターフェースのセクションの詳細については、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# このコネクターを使用するにはどんな認証情報が必要ですか?">
+
+
+**［管理者］ > ［セキュリティ］** で生成されたDomoアクセストークンが必要です。これには、Domoの管理者権限が必要です。詳細については、「 [アクセストークンを管理する](/ja/s/article/360042934494 "アクセストークンを管理する") 」を参照してください。
+
+
+</Accordion>
+<Accordion title="# このコネクターはいつ使用しますか？">
+
+
+このコネクターは、個別の認証を必要とするさまざまなSquare アカウントのDomo DataSetがある場合に便利です。
+
+
+
+</Accordion>
+</AccordionGroup>

@@ -1,0 +1,59 @@
+---
+title: "Marketo Bulk APIコネクター"
+---
+
+## はじめに
+
+Marketoはマーケティングオートメーション企業で、B2Bマーケター向けの自動化マーケティングやデマンドジェネレーションソフトウェアとサービスを開発しています。Marketoは、電子メール、モバイル、ソーシャルメディア、デジタル広告、ウェブ管理、分析などのアカウントベースのマーケティング自動化ソフトウェアを提供しています。Marketo Bulk APIコネクターを活用すると、リードとアクティビティのデータをDomoで表示できます。Marketo Bulk APIの詳細については、
+https://developers.marketo.com/rest-api/bulk-import/
+を参照してください。
+
+Marketo Bulk APIコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerでウィンドウ上部のツールバーで ****［クラウドApp］**** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+Marketoアカウントには、Data Centerから接続します。このトピックでは、Marketo Bulk APIコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p><b><b> 主な使用事例 </b></b></p></td><td colspan="1" rowspan="1"><p> デジタルマーケティングキャンペーンのパフォーマンスレポートの作成と最適化。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 主なメトリクス </b></b></p></td><td colspan="1" rowspan="1"><ul><li><p> メール送信 </p></li><li><p> メール配信 </p></li><li><p> メール開封 </p></li><li><p> メールクリック </p></li><li><p> クリックスルー率 </p></li><li><p> クリック率 </p></li><li><p> 配信率 </p></li><li><p> 開封率 </p></li><li><p> コンテンツクリック </p></li><li><p> コンテンツクリックスルー率 </p></li><li><p> マーケティングクオリファイドリード </p></li><li><p> リード速度 </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 社内における主な権限 </b></b></p></td><td colspan="1" rowspan="1"><ul><li><p> マーケティングディレクター </p></li><li><p> マーケティング活動 </p></li><li><p> マーケティング担当バイスプレジデント </p></li><li><p> マーケティングアナリスト </p></li><li><p> デジタルマーケティングスペシャリスト </p></li><li><p> マーケティングオートメーション </p></li><li><p> アウトバウンドマーケティング </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 平均導入時間 </b></b></p></td><td colspan="1" rowspan="1"><p> 約50時間 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></b></p></td><td colspan="1" rowspan="1"><p> 5 </p></td></tr></tbody></table>
+
+## 必要条件
+
+Marketoアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* カスタムサービスの作成中に生成されたMarketoクライアントIDとクライアントシークレット。これらの情報を探すには、Marketoにサインインし、
+  ****［Admin］ > ［Launchpoint］**** と進み、 ****［Details］**** をクリックしてカスタムサービス（通常は「Domo」という名前になっています）を参照します。
+* 「エンドポイント」URLと「アイデンティティー」URL。エンドポイントURLとアイデンティティーURLを取得するには、Marketoで
+  ****［Admin］ > ［Integration］ > ［Web Services］**** に進みます。
+
+Marketoカスタムサービス作成手順の説明については、
+http://developers.marketo.com/documentation/rest/custom-service/
+を参照してください。
+
+## Marketoアカウントに接続する
+
+このセクションでは、 Marketo Bulk API コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、コネクタータイプのほとんどで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、 Marketo アカウントにアクセスするための認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> カスタムサービスの作成中に生成されたMarketoクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> カスタムサービスの作成中に生成されたクライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Endpoint URL </td><td colspan="1" rowspan="1"> カスタムサービス作成時に提供された、「rest」エンドポイントURLを入力します。例： <span class="mt-font-courier-new"><a href="https://100-AEK-913.mktorest/com/rest" rel="noopener" target="_blank"> https://100-AEK-913.mktorest/com/rest </a></span></td></tr><tr><td colspan="1" rowspan="1"> Identity URL </td><td colspan="1" rowspan="1"> カスタムサービス作成時に提供された、「アイデンティティー」URLを入力します。例： <span class="mt-font-courier-new"><a href="https://100-AEK-913.mktorest.com/identity" rel="noopener" target="_blank"> https://100-AEK-913.mktorest.com/identity </a></span></td></tr></tbody></table>
+
+有効なMarketo認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいMarketo Bulk API DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するMarketo Bulk APIレポートを選択します。以下のレポートを利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><th colspan="1" rowspan="1"> レポート </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Leads </td><td colspan="1" rowspan="1"> リードデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Activities </td><td colspan="1" rowspan="1"> リードのアクティビティデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Program Members </td><td colspan="1" rowspan="1"> プログラムメンバーのデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Lead Fields </td><td colspan="1" rowspan="1"> データを取得するリードプロパティを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Filter Types </td><td colspan="1" rowspan="1"> 取得するデータをフィルターを適用する方法を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Import Type </td><td colspan="1" rowspan="1"><p> データをインポートする方法を選択します。 </p><p> このDataSetをスケジュールする際に、最初の実行で更新方法の追加モード（［スケジュール］ -&gt; ［更新方法］ -&gt; ［追加］）を選択すると、Domoは選択した日付パラメーターを使用してこのDataSetを実行し、以降のすべての実行の最後の実行のデータを取得します。または、Domoは選択した日付パラメーターを使用してこのDataSetを実行します。 </p></td></tr><tr><td colspan="1" rowspan="1"> Report Dates </td><td colspan="1" rowspan="1"> 取得するデータの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、または今日から何日前までの相対的な日付かを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間です。 </td></tr><tr><td colspan="1" rowspan="1"> Smart Lists </td><td colspan="1" rowspan="1"> データを取得するスマートリストを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Static Lists </td><td colspan="1" rowspan="1"> データを取得する静的リストを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Activity Types </td><td colspan="1" rowspan="1"> データを取得するアクティビティタイプを選択します。 </td></tr></tbody></table>
+
+<Note>
+**注記：** Marketoコネクターには、厳格なAPI制限があります。Domoコネクターは、お客様のデータを取得するために必要最小限のクォータを消費します。利用可能なAPIクォータ制限が不十分な場合、Domoは「拡張実行」と呼ばれる機能をインテリジェントに実行します。コネクターは、利用できる限り多くのAPIクォータを消費して、クォータで許可される最大量のデータをDataSetに取得した後、クォータがリセットされるまで一時停止します。クォータがリセットされると、コネクターは最後に取得したレコードの直後からデータの取得を再開します。この場合、お客様のDataSet履歴に「拡張実行」というエントリが表示されます。クォータは通常、午前0時（米国中部標準時）にリセットされます。
+
+* コネクターがすべてのAPIクォータを消費することなくすべてのデータを取得できる場合、コネクターは拡張実行を設定しません。
+
+</Note>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

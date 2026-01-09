@@ -1,0 +1,64 @@
+---
+title: "Google Search Consoleコネクター"
+---
+
+## はじめに
+
+Google Seach Console（旧称Google Webmaster Tools）は、Googleが提供する無料のウェブサービスです。このサービスを利用すると、ウェブマスターはインデックスの状態を確認し、ウェブサイトの可視性を最適化することができます。Google Search Console APIの詳細については、ウェブサイト（ [https://developers.google.com/webmas...-api-original/](https://developers.google.com/webmaster-tools/search-console-api-original/ "https://developers.google.com/webmaster-tools/search-console-api-original/") ）を参照してください。
+
+Googleアカウントには、Data Centerから接続します。このトピックでは、Google Console Toolsコネクターユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターは、一般的なSEOメトリクスを取得します。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> クローラーエラー数 </p></li><li><p> クリック数 </p></li><li><p> インプレッション数 </p></li><li><p> CTR </p></li><li><p> サイトごとの位置 </p></li><li><p> 国 </p></li><li><p> クエリ </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> SEOスペシャリスト </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 10時間以下 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1から10までのスケールで、1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 3 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+* Google Search Consoleのローリングウィンドウは90日に制限されており、2日間の遅延が発生します。コネクターを構築する際には、90日間のデータをすべて取り込むようにコネクターを設定することを推奨します。そのためには、次の手順に従います。
+
+  1. **［Duration］**
+     を **［Date Range］** 、 **［Start Date］** を **［Relative］** 、 **［Days Back to Start From］** を ［90］ 、 **［Days Back to End At］** を ［Yesterday-2］ に設定します。
+  2. コネクターを1回実行します。
+  3. **［Start Date］**
+     と **［End Date］** を **［Relative］** 、 **［Days Back To Start From］** を ［Yesterday-2］ 、 **［Days Back to End At］** を ［Yesterday-2］ に設定します。
+  4. 更新設定を
+     **［Append］** にして、毎日実行するようにスケジュールを更新します。
+  5. 実行せずにDataSetを保存します。
+       
+     コネクターはスケジュールに従って実行され、新しいデータが毎日追加されます。
+* Google Search Console APIからのデータは、遅れる傾向があります（場合によっては数日）。
+
+## 必要条件
+
+Googleアカウントに接続してDataSetを作成するには、Googleの認証情報が必要です。
+
+Google認証情報を使用してアカウントを作成できますが、実際にGoogle Search Consoleの機能を使用していなければ、このコネクターを使用してデータに接続できません。
+
+## Googleアカウントに接続する
+
+このセクションでは、Google Search Consoleコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインのオプションである **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+DomoのGoogle Search Consoleは、接続にOAuthを使用します。 このため、Domo内での認証情報の入力は必要ありません。 **［接続］** をクリック（または、Domoに既存のGoogle検索コンソールアカウントがある場合は **［アカウントを追加］** を選択）すると、Google Search Console OAuth画面が開き、Googleの認証情報を入力できます。有効なGoogleの認証情報を入力した後は、新しいGoogle Search ConsoleDataSetを作成する際に常に同じアカウントを使用できるようになります。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既にGoogleにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続する場合は、まずGoogleからログアウトする必要があります。
+
+</Note>
+
+### ［詳細］ペイン
+
+このペインには、メインとなる **［Reports］** メニューのほか、選択したレポートタイプに応じて表示/非表示になる様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するGoogle Search Consoleレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Sitemap Details </td><td colspan="1" rowspan="1"> 特定のサイトマップに関するデータを取得します。 </td></tr><tr><td colspan="1" rowspan="1"> Search Analytics Query </td><td colspan="1" rowspan="1"> 定義したディメンションで検索トラフィックデータをクエリして返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"> Get Consolidated Data </td><td colspan="1" rowspan="1"> 単一行で指定した日付範囲の連結データを取得するには、このチェックボックスを選択します。日付範囲内の各日付のデータを独立した行として取得するには、このボックスのチェックを外したままにします。 </td></tr><tr><td colspan="1" rowspan="1"> Choose Search Dimensions </td><td colspan="1" rowspan="1"> 情報を取得したいディメンションを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Choose Search Type </td><td colspan="1" rowspan="1"><span> 情報を受信する検索タイプを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Include Fresh Data </td><td colspan="1" rowspan="1"><span> 最新データを含むすべてのデータを取得する場合は、このチェックボックスを選択します。選択しない場合には、ファイナライズされたデータのみが含まれます。 </span></td></tr><tr><td colspan="1" rowspan="1"> Choose Your Site </td><td colspan="1" rowspan="1"> データを取得するサイトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Choose the Site Map (Errors, Warnings) </td><td colspan="1" rowspan="1"> データを取得するサイトマップを選択します。エラーと警告の数とともにURLがリストされます。例： <span class="mt-font-courier-new"><a href="http://www.domo.com" rel="noopener" target="_blank"> www.domo.com </a> (1,0) </span> （Domoのウェブサイトにはエラーが1個と警告が0個あります）。 </td></tr><tr><td colspan="1" rowspan="1"><p> Duration </p></td><td colspan="1" rowspan="1"><p> 特定の日付か、日付範囲に対してデータを取得するかどうか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Date </p></td><td colspan="1" rowspan="1"><p> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Date </p></td><td colspan="1" rowspan="1"><p> レポートの日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back </p></td><td colspan="1" rowspan="1"><p> レポートに表示する過去日数を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付が特定の日付なのか、相対的な日付なのかを指定します。範囲の最後の日付は、 <b> ［End Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付が特定の日付なのか、相対的な日付なのかを指定します。日付範囲の最初の日付は <b> ［Start Date］ </b> で選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific Start Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の最初の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Select Specific End Date </p></td><td colspan="1" rowspan="1"><p> 日付範囲の2番目の日付を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to Start From </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、最も過去の日までの日数を入力します。 <b> ［Days Back to End At］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <span class="mt-font-courier-new"> ［Days Back to Start From］ </span> に <b> 10 </b> 、 <span class="mt-font-courier-new"> ［Days Back to End At］ </span> に <b> 5 </b> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Days Back to End At </p></td><td colspan="1" rowspan="1"><p> レポートで表示する、直近の日までの日数を入力します。 <b> ［Days Back to Start From］ </b> と組み合わせることによって、表示日数の範囲を指定できます。 </p><p> 例えば、 <b> ［Days Back to Start From］ </b> に <span class="mt-font-courier-new"> 10 </span> 、 <b> ［Days Back to End At］ </b> に <span class="mt-font-courier-new"> 5 </span> を入力した場合、レポートには、今日から数えて10日前から5日前のデータが含まれます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+* Google Search ConsoleのフロントエンドUIとAPIに違いがあることも珍しくはありません。あまりにも差異が大きい場合は、レコードが重複していないことを確認してください。重複があった場合、DataSetで完全な置き換えを実行し、毎日の追加スケジュールをリセットします。
+* 追加する検索ディメンションが多くなるほど、データの合計がGoogle Search Consoleのフロントエンドに表示される合計と一致する可能性が低くなります。これは、Google Search Console APIがDomoにデータを送信するときに、データを分割することが原因です。Domoのデータを確認する場合は、このリンク（
+  [https://developers.google.com/apis-e...nalytics.query](https://developers.google.com/apis-explorer/#p/webmasters/v3/webmasters.searchanalytics.query "https://developers.google.com/apis-explorer/#p/webmasters/v3/webmasters.searchanalytics.query") ）をクリックして、DomoのデータがGoogle Search Consoleが返すものと一致するかどうかを確認してください。Google Searchのフロントエンドの合計をDomoと比較する場合は、コネクターの検索ディメンションを選択しないでください。
+
+

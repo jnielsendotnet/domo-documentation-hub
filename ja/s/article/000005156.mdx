@@ -1,0 +1,32 @@
+---
+title: "分散チャート"
+---
+
+## はじめに
+
+分散チャートは、データを直接表示するほかのグラフタイプとは異なり、実際の支出と予算、実際の値と予測値など、2セットのデータの差を示します。
+
+以下に2つのチャートを示します。1つ目は売上高と予算のデータをシンプルな2本の折れ線チャートとして示し、2つ目は分散チャートと同じデータを示しています。分散チャートではデルタ（差分）データがハイライト表示されます。これは、線の間の差を分析する場合に便利です。
+
+<Columns>
+  <Frame><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8hO.jpg"/></Frame>
+  <Frame><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8hx.jpg"/></Frame>
+</Columns>
+## 分散チャートを作成する
+
+分散チャートには、「日付」フィールドと「実際」の値が必要です。必須ではありませんが、チャートのパワーを強調するには「目標」値が重要です。値、カテゴリー、系列データについては、「 [チャートデータについて](/ja/s/article/360043428693) 」を参照してください。
+
+Analyzerでは、分散チャートで使用するデータを含む列を選択します。データ列の選択の詳細については、「 [DataSet列をチャートに適用する](/ja/s/article/360043428713) 」を参照してください。
+
+次の画像は、典型的な列ベースのスプレッドシートのデータが、どのように分散チャートに変換されるかを示しています。
+
+<Frame><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8j0.jpg"/></Frame>
+## 分散チャートをカスタマイズする
+
+分散チャートの外観をカスタマイズする方法はいくつかありますが、その多くは **［チャートの設定］** ツールで可能です。詳細については、「 [チャートのプロパティ](/ja/s/article/360042925374) 」に関する記事を参照してください。
+
+次の表に、分散チャート固有のプロパティの一部を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:203;a"><thead><tr><th colspan="1" rowspan="1"><p> プロパティ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th><th colspan="1" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［値の書式］ </p></td><td colspan="1" rowspan="1"><p> 通貨記号を値に追加するかどうかを決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［値（小数位）］ </p></td><td colspan="1" rowspan="1"><p> 値の小数位の数を決めます。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［％値（小数位）］ </p></td><td colspan="1" rowspan="1"><p> パーセント値の小数点以下の桁数を決定します。 </p></td><td colspan="1" rowspan="1"><p> — </p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［線のスタイル］ </p></td><td colspan="1" rowspan="1"><p> ポイント間の線のスタイルを［デフォルト］、［直線］、［曲線］、［ステップ］から選択できます。自分のデータに最も適した見た目になるものを確認できます。 </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8jU.jpg"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［正の値の色］ </p></td><td colspan="1" rowspan="1"><p> 分散が正の場合に表示される色を選択できます。 </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8jZ.jpg"/></p></td></tr><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［負の値の色］ </p></td><td colspan="1" rowspan="1"><p> 分散が負の場合に表示される色を選択できます。 </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8je.jpg"/></p></td></tr></tbody><tbody><tr><td colspan="1" rowspan="1"><p> ［一般］&gt;［差の絶対値を表示］ </p></td><td colspan="1" rowspan="1"><p> ゼロを基準とした絶対的な差として値を表示します。これにより、差の大きさや範囲をより適切に可視化できます。 </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8kh.jpg"/></p></td></tr></tbody><tbody><tr><td colspan="1" rowspan="1"><p> 実際の線 </p></td><td colspan="1" rowspan="1"><p> 実際の線のタイプ、色、太さを設定できます。 </p></td><td colspan="1" rowspan="1"><p><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006uAdO.jpg"/></p></td></tr></tbody><tbody><tr><td colspan="1" rowspan="1"><p> 目標線 </p></td><td colspan="1" rowspan="1"><p> 目標線の値、ラベル、タイプ、色、太さを設定できます。 </p></td><td colspan="1" rowspan="1"><img alt="image.png" src="/images/kb/ka05w000001277K-00N5w00000Ri7BU-0EM5w000006u8jo.jpg"/></td></tr></tbody></table>
+
+日本語

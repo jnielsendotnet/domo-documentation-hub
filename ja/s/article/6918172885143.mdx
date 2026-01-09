@@ -1,0 +1,80 @@
+---
+title: "Agentboxコネクター"
+---
+
+## はじめに
+
+Agentboxはエージェンシーに営業チームと資産管理チーム向けの完全なクラウドベースのソフトウェアソリューションを提供し、最先端の設計、ロバストなトレーニング手法、一貫性のある管理者権限を強みとしています。
+
+Domoを使用することで、データが経時的にどのように変化するかを追跡および監視し、カスタマイズ可能なレポートを作成して、データの背後にある説得力のあるストーリーを伝えることができます。わずか数分で、追跡する主要なメトリクスを特定する強力な可視化をすばやく簡単に作成できるようになります。
+
+Agentboxコネクターは「クラウドApp」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーで **［クラウドApp］** をクリックすると、このコネクターやほかのクラウドAppコネクターのページにアクセスできます。
+
+AgentboxアカウントにはData Centerから接続します。このトピックでは、Agentboxコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Agentboxアカウントに接続してDataSetを作成するには、 Agentboxアカウント に関連付けられたクライアントIDとAPIキーが必要です。
+
+## Agentboxアカウントに接続する
+
+このセクションでは、Agentboxコネクターページの［認証情報］ペインと［詳細］ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Agentboxアカウントに接続する認証情報の入力フィールドが含まれています。以下の表は、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> AgentboxクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> API Key </td><td colspan="1" rowspan="1"> Agentbox APIキーを入力します。 </td></tr></tbody></table>
+
+有効なAgentbox認証情報を一度入力しておくと、随時同じアカウントを使用して新しいAgentbox DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Report］** メニューのほか、選択したレポートタイプに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するAgentboxレポートを選択します。以下のレポートが利用できます。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Contacts </td><td colspan="1" rowspan="1"> 指定した条件を満たす連絡先レコードのセットを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Enquiries </td><td colspan="1" rowspan="1"> 検索条件にもとづいて、照会のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Inspections </td><td colspan="1" rowspan="1"> 検索条件にもとづいて、検証のリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> 指定した条件情報を満たすメモレコードのセットを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Listings </p></td><td colspan="1" rowspan="1"> 指定した条件を満たすリストのセットを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Listing Details </td><td colspan="1" rowspan="1"> 単一のリストレコードを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Listings Details with Images </td><td colspan="1" rowspan="1"> 検索条件に一致するIDと、列として展開される画像データを含む詳細なリストを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Offices </p></td><td colspan="1" rowspan="1"> すべてのオフィスレコード（［Full Details］）を返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation report </p></td><td colspan="1" rowspan="1"> Gross Commission Allocationレポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation External report </p></td><td colspan="1" rowspan="1"> Gross Commission Allocation Externalレポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Gross Commission Allocation Summary report </p></td><td colspan="1" rowspan="1"> Gross Commission Allocation Summaryレポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Marketing Funds Expenses Summary </p></td><td colspan="1" rowspan="1"> Marketing Funds Expenses Summaryレポートを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Performance </p></td><td colspan="1" rowspan="1"> パフォーマンスメトリクスを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Staff Members </p></td><td colspan="1" rowspan="1"> すべてのスタッフメンバーレコードを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Staff Performance </td><td colspan="1" rowspan="1"> すべてのスタッフパフォーマンスレコードを返します。 </td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Staged Commission Payments </p></td><td colspan="1" rowspan="1"><div><div><div> 段階的コミッション支払いのリストを返します。 </div></div></div></td></tr><tr><td colspan="1" rowspan="1"><p class="DatasetsPaper_title_3bKfQ"> Tasks </p></td><td colspan="1" rowspan="1"> 指定した条件を満たすタスクレコードのセットを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><span> Only Import Records Modified Since Last Run </span></td><td colspan="1" rowspan="1"> 最終実行日以降に変更されたレコードを <span> インポートする場合は［Yes］を選択します。それ以外の場合は［No］を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Fields to Include </span></td><td colspan="1" rowspan="1"><span> 応答に含める追加の出力オブジェクトを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Performance Period Start Date </span></td><td colspan="1" rowspan="1"><span> パフォーマンス期間の開始日を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Performance Period End Date </span></td><td colspan="1" rowspan="1"><span> パフォーマンス期間の終了日を選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Sale Status </span></td><td colspan="1" rowspan="1"><span> 「Sales Written」関連メトリクスの販売ステータスを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"><span> Filter By </span></td><td colspan="1" rowspan="1"><span> 修正日または作成日のどちらでデータを取得するかどうかを選択します。 </span></td></tr><tr><td colspan="1" rowspan="1"> Date Selection </td><td colspan="1" rowspan="1"> データの日付形式を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Single Date </td><td colspan="1" rowspan="1"> レポートのデータが特定の日付か、今日から何日前までのものかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specific Date </td><td colspan="1" rowspan="1"> 日付セレクターを使用して特定の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Relative Date </td><td colspan="1" rowspan="1"> 何日前に遡ってデータを取得したいか、 <span></span><b> ［Days Back］ </b><span></span> フィールドに日数を入力します。今日を指定するには「today」または「0」、昨日なら「yesterday」または「1」、過去7日間のデータを取得するには「today-7」または「7」と指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Range </td><td colspan="1" rowspan="1"> 特定の日付範囲または相対的な日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最初の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> End Date - Specific </td><td colspan="1" rowspan="1"> 日付セレクターを使用して、日付範囲の最後の日付を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Start Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前からデータの取得を開始するか（開始日）を入力します。 <b><b><b><b> ［End Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> End Date - Relative </td><td colspan="1" rowspan="1"><p> 過去何日前までのデータを取得するか（終了日）を入力します。 <b><b><b><b> ［Start Date］ </b></b></b></b> と組み合わせて、表示する日付の範囲を作成します。 </p><p> 例えば、 <b><b><b><b> ［Start Date］ </b></b></b></b> に「10」、 <b><b><b><b> ［End Date］ </b></b></b></b> に「5」を入力した場合、レポートには10日前から5日前のデータが含まれます。 </p></td></tr><tr><td colspan="1" rowspan="1"> Time Period </td><td colspan="1" rowspan="1"> データを受信する期間を指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Starting Day of the Week </td><td colspan="1" rowspan="1"> 週を開始する曜日を選択します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、コネクターインターフェースのその他のセクションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="このコネクターのベースURLはどのエンドポイントですか？">
+
+
+AgentboxコネクターのベースURLは https://api.agentboxcrm.com.auで す。
+
+
+</Accordion>
+<Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
+
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="2" rowspan="1"> レポート名 </th><th colspan="1" rowspan="1"> エンドポイントURL（1つまたは複数） </th></tr><tr><td colspan="2" rowspan="1"><span> Contacts </span></td><td colspan="1" rowspan="1"><span> /contacts </span></td></tr><tr><td colspan="2" rowspan="1"><span> Enquiries </span></td><td colspan="1" rowspan="1"><span> /enquiries </span></td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation External report </td><td colspan="1" rowspan="1"> /reports/gross-commission-allocation-external </td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation report </td><td colspan="1" rowspan="1"> /gross-commission-allocation </td></tr><tr><td colspan="2" rowspan="1"> Gross Commission Allocation Summary report </td><td colspan="1" rowspan="1"> /reports/gross-commission-allocation-summary </td></tr><tr><td colspan="2" rowspan="1"> Inspections </td><td colspan="1" rowspan="1"> /inspections </td></tr><tr><td colspan="2" rowspan="1"> Listings </td><td colspan="1" rowspan="1"> /listings </td></tr><tr><td colspan="2" rowspan="1"> Marketing Funds Expenses Summary and Performance </td><td colspan="1" rowspan="1"> /reports/marketing-funds-expenses-summary </td></tr><tr><td colspan="2" rowspan="1"> Notes </td><td colspan="1" rowspan="1"> /notes </td></tr><tr><td colspan="2" rowspan="1"> Offices </td><td colspan="1" rowspan="1"> /offices </td></tr><tr><td colspan="2" rowspan="1"> Staff Members and Tasks </td><td colspan="1" rowspan="1"> /staff </td></tr></tbody></table>
+
+
+</Accordion>
+<Accordion title="このコネクターを作成するにはどのような認証情報が必要ですか？">
+
+
+Agentboxアカウント に関連付けられたクライアントIDとAPIキーが必要です。
+
+
+</Accordion>
+<Accordion title="注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+</Accordion>
+<Accordion title="同じアカウントを使用して複数のDataSetを作成することはできますか？">
+
+
+はい。
+
+
+
+</Accordion>
+</AccordionGroup>

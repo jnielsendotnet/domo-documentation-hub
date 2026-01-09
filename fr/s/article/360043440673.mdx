@@ -1,0 +1,173 @@
+---
+title: "Version 1 janvier 2017"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Nouvelles fonctionnalités et optimisations
+
+Les fonctionnalités et optimisations de cette version sont notamment les suivantes:
+
+### Nouveaux outils d'interaction entre les cartes (CSR)
+
+Nos nouveaux outils d'Interaction entre les cartes (Rendu du côté du client) facilitent l'analyse des données en profondeur sur vos graphiques de façon innovante et amusante. Ces outils sont notamment les suivants:
+
+* **Nouveau Sélecteur de graphique**
+  . Vous pouvez maintenant changer le type de carte pour la plupart des graphiques directement dans la page Détails au lieu d'avoir à ouvrir d'abord le Card Builder. Contrairement au sélecteur de type de graphique dans le Card Builder, qui affiche uniquement les icônes pour chaque type de graphique, le sélecteur de type de graphique de la vue Détails affiche les versions réelles des vignettes de chaque type de graphique disponible avec vos données de graphique déjà en vigueur.
+    
+  <Frame><img alt="new_chart_picker_rn.png" src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOng.png"/></Frame>
+
+* **Commutateur des éléments de la légende**
+  . Dans la plupart des types de graphiques comportant des légendes (hors Maps), vous pouvez maintenant cliquer sur un élément de légende pour masquer ou afficher les données correspondantes dans le graphique.
+    
+  <Frame><img alt="legend_toggle_rn.png" src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOnp.png"/></Frame>
+
+* **Zoom dans le graphique**. Vous pouvez cliquer et glisser une partie d'un graphique pour effectuer un "zoom en avant" de cette partie-là. Cela fonctionne dans la plupart des types de graphiques, hors les graphiques de type circulaire, les cartes, les jauges, les graphiques de type Radar et certains autres.
+* **Tri rapide**. Vous pouvez maintenant changer rapidement le type de tri pour la plupart des graphiques à barre et à ligne en cliquant simplement sur une icône, sans avoir à ouvrir le Card Builder.
+* **Graphique - Enregistrer sous**. Lorsque vous apportez des modifications à un graphique dans la vue Détails (soit à l'aide des fonctionnalités ci-dessus, soit en filtrant à l'aide de l'outil Analyzer), vous pouvez maintenant enregistrer une copie du graphique modifié dans votre Domo. Vous pouvez ensuite attribuer un nouveau nom à la nouvelle version de la carte, entrer une description pour aider les utilisateurs à comprendre ce qui a été modifié dans la carte, et sélectionner la page Domo dans laquelle résidera la nouvelle carte.
+* **Prévision des données**. Une nouvelle propriété de grapique dans les graphiques à barres et en courbes vous permet de prévoir la valeur de la période actuelle restante dans votre graphique. Elle accomplit ceci en prenant la valeur actuelle de la période et en la comparant à la période précédente.
+
+Pour obtenir plus d'informations sur tous ces outils, consultez la rubrique [Nouveaux outils d'interaction entre les cartes (janv 2016)](/s/article/360043439593 "Nouveaux outils de l'Analyzer (janv 2016)").
+
+## Options Administrateur en bloc pour les Pages et Cartes
+
+Les utilisateurs "Administrateur" de Domo ont maintenant la possibilité d'apporter des modifications en bloc aux pages et cartes de l'instance Domo de leur société! Avec cette capacité en place, les utilisateurs de votre instance Domo n'auront plus à perdre leur temps à déplacer, supprimer et définir manuellement les permissions dans les cartes et pages, leur donnant plus de temps pour s'occuper des tâches plus importantes telles que le traitement des besoins de votre entreprise.
+
+Les onglets **Cartes** et **Pages** dans les Paramètres Administrateur ont été entièrement réaménagés pour vous permettre d'apporter des modifications en bloc de façon simple. L'onglet **Cartes** vous permet de filtrer par carte, propriétaire, nombre de pages dans lesquelles se trouve la carte, type de carte (graphique, document, sondage, etc.) et la date de la dernière modification, ou une combinaison quelconque de ces options. L'onglet **Pages** vous permet de filtrer par page, page parent, propriétaire, nombre de cartes dans la page et la date et heure de la dernière modification, ou une combinaison quelconque. Vous pouvez même sélectionner toutes les cartes ou pages de votre instance si vous souhaitez toutes les modifier. Vous pouvez cliquer n'importe où dans la ligne d'une page ou carte quelconque pour afficher un onglet contenant plus d'informations.
+  
+<Frame><img alt="bulk_admin_rn.png" src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOnf.png"/></Frame>
+
+#### Options en bloc pour les pages
+
+Les options en bloc pour les pages sont notamment les suivantes:
+
+* Modification des propriétaires de pages
+* Ajout et suppression des utilisateurs et des groupes
+* Déplacement des pages dans la hiérarchie (inclut des options de définition de permissions dans les pages déplacées)
+* Verrouillage et déverrouillage des pages
+* Suppression des pages
+
+#### Options en bloc pour les cartes
+
+Les options en bloc pour les cartes sont notamment les suivantes:
+
+* Modification des propriétaires de cartes
+* Ajout et suppression des utilisateurs et des groupes
+* Duplication de cartes
+* Ajout et retrait de cartes des pages
+* Verrouillage et déverrouillage des cartes
+* Suppression des cartes
+
+Pour obtenir plus d'informations sur ces options, consultez la rubrique [Topologie des Paramètres d'administrateur](/s/article/360042934234 "Topologie des Paramètres d'administrateur").
+
+### Formulaire en ligne Domo v2
+
+Les formulaires en ligne (formulaires Web) ont été optimisés de façon à fournir davantage d'options pour la création manuelle de DataSets dans Domo. Ces nouvelles options sont notamment les suivantes:
+
+* Vous pouvez importer un DataSet existant dans un formulaire Web.
+* Vous pouvez modifier le type de données d'une colonne. Les types de données
+  **Numéro** (valeur), **Texte** (chaîne) et **Date** sont disponibles. Vous pouvez également désactiver l'identification automatique du type de données d'une colonne en désélectionnant l'option **Détection automatique** d'une colonne.
+* Vous pouvez rechercher et remplacer des chaînes de texte données.
+* Vous pouvez ajouter des colonnes à votre formulaire en ligne en un clic.
+* Vous pouvez développer l'éditeur des formulaires en ligne de façon à ce qu'il remplisse votre écran.
+* Vous pouvez utiliser un filtre pour voir les lignes d'une colonne qui ne correspondent pas au type de données sélectionné.
+
+Chaque colonne affiche également le nombre de valeurs uniques dans cette colonne-là.
+
+<Frame><img alt="webform_new_rn.png" src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOnj.png"/></Frame>
+
+Pour obtenir plus d'informations, voir [Alimentation d'une carte KPI par des données](/s/article/360043429873 "Alimentation d'une carte KPI par des données").
+
+### Plug-ins PowerPoint et Excel de Domo v2
+
+Des versions mises à jour de nos plug-ins PowerPoint et Excel sont maintenant disponibles. Ces nouvelles versions comportent les optimisations et corrections suivantes:
+
+#### Général
+
+Un bogue a été corrigé, permettant aux utilisateurs avec permissions SSO derrière un proxy de se connecter à leur instance Domo.
+
+#### Plug-in Excel
+
+* **Tableau de requêtes**
+  . Vous pouvez maintenant extraire des sous-ensembles de DataSets ou des valeurs uniques et les introduire dans Excel selon des agrégats, filtres, limites, etc.
+* **Nouvelle interface utilisateur de chargement.**
+  L'interface utilisateur dédiée au chargement d'un DataSet a été réaménagée avec une barre de progression et une messagerie optimisée pour vous donner une meilleure idée du processus et du temps approximatif qu'il vous faudra pour charger vos données dans Domo.
+* **Nouvelle interface utilisateur de téléchargement.**
+  L'interface utilisateur dédiée au téléchargement d'un DataSet a également été réaménagée avec une barre de progression et une messagerie optimisée.
+* **Corrections de bogues**
+  . Plusieurs corrections de bogues ont été effectuées, dont des erreurs lors du chargement de DataSets ne contenant aucune colonne et lors de la vérification de la présence de la dernière version dans les régions internationales.
+
+#### Plug-in PowerPoint
+
+* **N° de résumé**
+  . Les N° de résumé des graphiques peuventmaintenant être extraits et ajoutés à des diapos.
+* **Soutient des groupes de publication.**
+  Le Soutien des groupes de publication a été ajouté.
+* Plusieurs corrections de bogues ont également été effectuées traitant des erreurs lors de l'actualisation des cartes dans les régions internationales.
+
+Pour obtenir plus d'informations, consultez les rubriques [Utilisation du Plug-in Excel de Domo](/s/article/360043437933 "Utilisation du Plug-in PowerPoint de Domo").
+
+### Optimisations ETL
+
+Dans notre éditeur Magic ETL, vous pouvez désormais effectuer toutes les opérations suivantes:
+
+* Sélectionnez la date et l'heure actuelles (en temps universel).
+* Remplacez les valeurs
+  NULL et les chaînes vides.
+* Utilisez des types d'agrégation
+  MIN, MAX et Compte comprenant des valeurs NULL.
+
+Pour obtenir plus d'informations sur l'éditeur ETL, consultez la rubrique Création d'un DataFlow Magic ETL.
+
+### Nouveaux connecteurs publics
+
+Les connecteurs suivants sont maintenant publics avec cette version:
+
+* Bitly
+* Brandwatch
+* Crimson Hexagon
+* Jobvite
+* Sample Data Engine
+* Snowflake
+* Tumblr
+* USGS Earthquakes
+* RAAS de Workday
+
+Pour obtenir plus d'informations sur la configuration de ces connecteurs et d'autres, consultez la rubrique [Configuration de chaque connecteur](/s/topic/0TO5w000000ZanLGAS "Configuration de chaque connecteur").
+
+### Dupliquer cette carte = Enregistrer sous
+
+Afin d'éliminer la confusion chez les nouveaux utilisateurs, l'option **Dupliquer cette carte** pour les cartes a été remplacée par **Enregistrer sous**.
+
+### Participants à l'Appstore
+
+Les utilisateurs de niveau participant peuvent désormais parcourir les applications dans l'Appstore. Pour obtenir plus d'informations sur l'Appstore, consultez la rubrique [Référence de rôle de sécurité](/s/article/360043438953 "L'AppStore").
+
+### Nouveau menu Partager dans Détails du graphique
+
+Deux actions partagées couramment utilisées dans l'affichage des Détails du graphique: — **Partager** et **Exporter** —ont été déplacées du menu <InlineImage src="/images/kb/ka05w00000123Qn-00N5w00000Ri7BU-0EM5w000005vOAc.png" /> au nouveau menu <InlineImage src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOne.png" />. Ce menu contient également la nouvelle option **Enregistrer sous**, décrite dans la [Version 1 janvier 2017](#h_01EW7BM9S7GY2FTM7A7D5AHH75 "Version 1 janvier 2017") ci-dessus.
+
+<Frame><img alt="details_share_menu.png" src="/images/kb/ka05w00000129vC-00N5w00000Ri7BU-0EM5w000005vOno.png"/></Frame>
+
+Pour obtenir plus d'informations, consultez la rubrique [Topologie de l'affichage des Détails sur la carte](/s/article/360042923934 "Topologie de l'affichage des Détails sur la carte").
+
+## Obtenir de l'aide
+
+Vous pouvez afficher les dernières notes de publication dans le Centre d'aide, auquel vous pouvez accéder depuis Domo en cliquant sur <InlineImage src="/images/kb/ka05w00000124Tr-00N5w00000Ri7BU-0EM5w000005vPKS.png" /> **> Centre d'aide**.
+
+En cas de questions sur Domo,
+
+* recherchez un sujet dans le Centre d'aide
+* recevez une formation à Domo University à
+  [https://www.domo.com/university/training](https://www.domo.com/university/training "http://www.domo.com/university")
+* obtenez des réponses dans la communauté Domo à
+  dojo.domo.com
+* contactez le Support technique via @DomoSupport dans Buzz, en envoyant un e-mail à
+  [support@domo.com](mailto:support@domo.com "support@domo.com") ou par téléphone au 801-805-9505 (du lundi au vendredi de 7 h à 18 h (HNR)).
+* contactez votre Responsable de clients Domo ou votre Consultant technique.
+
+Envoyez-nous vos commentaires depuis Domo(<InlineImage src="/images/kb/ka05w00000124Tr-00N5w00000Ri7BU-0EM5w000005vPKS.png" /> **> Commentaires**). Ou envoyez un e-mail à [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com").
+
+Pour plus d'informations sur comment obtenir de l'aide, consultez la rubrique Obtenir de l'aide.
+
+Français

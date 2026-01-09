@@ -1,0 +1,63 @@
+---
+title: "Microsoft SQL SSHコネクター"
+---
+
+## はじめに
+
+Microsoft SQLは広く使われているリレーショナルデータベース管理システムです。DomoのMicrosoft SQL SSHコネクターを使用すると、Microsoft SQLデータベースからデータを引き出すことができます。Microsoft SQL SSHコネクターは、Microsoft SQLデータベースとの間にセキュアで暗号化された接続を確立してDomoにデータを取り込み、さらに優れた意思決定を実現します。Domoにデータを取り込むには、Domoの構築済みのMicrosoft SQL SSHコネクターを使用します。 Microsoft SQL Server APIの詳細については、ウェブサイト（https://technet.microsoft.com/en-us/library/aa174556(v=sql.80).aspx ）を参照してください。
+
+Microsoft SQL SSH コネクターは「データベース」コネクターです。つまり、クエリを使ってデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、これを含むほかのデータベースコネクターのページにアクセスできます。
+
+Microsoft SQL Serverには、Data Centerから接続します。このトピックでは、Microsoft SQL SSH コネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## ベストプラクティス
+
+アクセス権が必要なデータベースと表に限定されている、読み取り専用アカウントを使用していることを確認します。
+
+## 必要条件
+
+Microsoft SQL Serverデータベースに接続してDataSetを作成するには、以下のすべてが必要です。
+
+* Unixアカウントのユーザー名とパスワード
+* UNIXサーバーのホスト名（SSHトンネル経由）
+* SSHのポート番号
+* UNIXアカウント
+  の SSH秘密キー （DESまたはRSA。PEM形式）
+* Microsoft SQL Serverのホスト名、データベース名、ユーザー名、パスワード、ポート番号
+
+<Note>
+**注記： Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+SQL Serverに接続する前に、接続先となるデータベースサーバーのポートでIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+## Microsoft SQL Serverデータベースに接続する
+
+このセクションでは、Microsoft SQL SSHコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースに接続するための認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Hostname </p></td><td colspan="1" rowspan="1"><p><span> UNIXサーバーのホスト名（SSHトンネル経由）を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p><span> UNIXアカウントのユーザー名 </span> を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p><span> UNIXアカウントのパスワードを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p><span> UNIXポート </span> のポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p><span> PEM形式のSSH秘密キー（DESまたはRSA）を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Microsoft SQL Server Host </p></td><td colspan="1" rowspan="1"><p><span> Microsoft SQL Serverのホスト名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Microsoft SQL Server Database </p></td><td colspan="1" rowspan="1"><p><span> Microsoft SQL Serverのデータベース名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Microsoft SQL Server Username </p></td><td colspan="1" rowspan="1"><p><span> Microsoft SQL Serverのユーザー名を入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Microsoft SQL Server Password </p></td><td colspan="1" rowspan="1"><p><span> Microsoft SQL Serverのパスワードを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Microsoft SQL Server Port </p></td><td colspan="1" rowspan="1"><p><span> Microsoft SQL Serverデータベースのポート番号を入力します。 </span></p></td></tr></tbody></table>
+
+一度有効なMicrosoft SQL Server認証情報を入力したら、新しいMicrosoft SQL SSH DataSetを作成する際にいつでも同じアカウントを使用することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p> メニュー </p></td><td colspan="1" rowspan="1"><p> 説明 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SQL Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><code> Select GeneralManager from Sales WHERE GeneralManager = 'jane'; </code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Fetch Size </p></td><td colspan="1" rowspan="1"><p><span> メモリのパフォーマンスのフェッチサイズを入力します。空白にすると、デフォルトサイズの1000が適用されます。メモリー不足の場合、フェッチサイズを小さくしてください。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## トラブルシューティング
+
+* Windowsサーバーでポートが開放されており、ファイアーウォールでポートが開放されてフォワーディングされていることを確認します。
+* クライアントネットワーク内のワークステーションから接続できることを確認します。
+* リモート接続を行うには、ネットワークプロトコルを有効化する必要があります。
+
+

@@ -1,0 +1,38 @@
+---
+title: "Dropbox for Business Connector"
+---
+
+## はじめに
+
+Dropbox for Business とは、ユーザーが安全にファイルを共有、保存、同期できるファイル共有および保存ソリューションです。 Domo の Dropbox for Business Connector を使用すると、アカウント情報やチーム情報、監査ログ、そしてチームの使用統計情報に関するレポートをまとめることができます。 Dropbox for Business API の詳細については、
+https://www.dropbox.com/developers/business
+を参照してください。
+
+Dropbox for Business Connector を使用するには、データセンターで DataSet を作成し、Dropbox for Business Connectorを選択します。
+
+このトピックでは、 Dropbox for Business Connector ユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定および DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") を参照してください。
+
+## 必要条件
+
+Dropboxアカウントに接続して Dropbox for Business Connector の DataSetを作成するには、以下が必要です。
+
+* Dropboxアカウントへのログインに使用するアカウント
+* Dropboxアカウントへのログインに使用するパスワード
+
+## Dropboxアカウントに接続する
+
+このセクションでは、Dropbox for Business Connectorページの **認証情報** および **詳細** ペインのオプションについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo の Dropbox for Business Connector は、OAuthを使用して Dropbox for Business に接続します。 （Domo がユーザーのパスワードを保存・送信することはありません。） **接続** をクリック（またはDomoに Dropbox アカウントがある場合は **アカウントを追加** を選択）して、Dropbox の OAuth 画面を開き、Dropbox アカウントに関連付けられたアカウントとパスワードを入力します。 有効な Dropbox 認証情報を入力した後は、いつでもDomoで同じアカウントを使用して、Dropbox for Business の DataSet を作成することができます。
+
+Connectorアカウントは **データセンター** の **アカウント** タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、レポートのタイプを選択する単一のメニューがあります。 下表には、Dropbox for Business Connectorを使用して作成できるレポート全てについて記載しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p3"><span class="s1"><b> レポート </b></span></p></th><th colspan="1" rowspan="1"><p class="p3"><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> 監査ログ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> Dropbox for Business のチーム用監査ログにアクセスします。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> リンクされているデバイス </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> リンクされているチームのデバイスに関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> ユーザー </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのメンバーをリストにして表示します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> メンバーシップ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのメンバーシップに関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> ストレージの使用状況 </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのストレージ使用状況に関するレポートデータを取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チーム情報 </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームの情報を取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> ユーザーのアクティビティ </span></p></td><td colspan="1" rowspan="1"><p class="p3"><span class="s1"> チームのユーザーのアクティビティに関するレポートデータを取得します。 </span></p></td></tr></tbody></table>
+
+

@@ -1,0 +1,53 @@
+---
+title: "Oracle Database SSHコネクター"
+---
+
+## はじめに
+
+Oracle Databaseは、Oracle Corporation社により開発・販売されたオブジェクトリレーショナルデータベース管理システムです。DomoのOracle Database SSHコネクターを使用して、OracleデータベースからSSHトンネル経由でデータをロードし、カスタマイズされたレポートを編集できます。取得するデータの指定は、SQLクエリの入力で行います。
+
+Oracle Databaseには、Data Centerから接続します。このトピックでは、Oracle Database SSHコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Oracle Databaseに接続してDataSetを作成するには、以下が必要です。
+
+* Oracle Databaseのログインに使用するユーザー名とパスワード
+* Oracle DatabaseのSID
+* Oracle Databaseのポート番号
+* Oracle Databaseのホスト名またはIPアドレス
+* SSHのホスト名またはURL
+* SSHのユーザー名とパスワード
+* SSHポート番号
+* SSH秘密鍵
+
+また、Oracle Databaseに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターとフェデレーテッドアダプターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+<Note>
+**注記： Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEM形式）である必要があります。**
+
+</Note>
+
+## Oracle Databaseに接続する
+
+このセクションでは、Oracle Database SSHコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、データベースとSSHサーバーに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドで必要とされる内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Server Hostname </p></td><td colspan="1" rowspan="1"><p> SSHサーバーのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p> SSHユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> SSHパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> SSHポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> Oracle Databaseのホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密鍵を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Oracle Database名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> Oracleユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> Oracleパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> Oracleのポート番号を入力します。 </p></td></tr></tbody></table>
+
+有効なOracle Databaseの認証情報を一度入力しておくと、随時同じアカウントを使用して新しいOracle Database SSH DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> クエリの作成にヘルプが必要な場合は、 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルを選択します。選択したテーブルは、 <b> ［Query Helper］ </b> フィールドの自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルの列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> フィールドでテーブルを、 <b> ［Table Columns］ </b> フィールドで列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

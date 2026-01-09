@@ -1,0 +1,46 @@
+---
+title: "テキスト文字列からテキストのセグメントを抽出する"
+---
+
+## はじめに
+
+テキスト文字列からテキストのセグメントを抽出するには、MySQLまたはMagic ETL DataFlowを使用します（Beast Modeで `SUBSTRING` を使用する場合と同様です）。
+
+## MySQL DataFlowのサブストリング
+
+MySQL DataFlowでは `SUBSTRING_INDEX()` を使用して、テキストの文字列からテキストのセグメントを抽出できます。例えば、 `{"number":"91402","name":"Frodo"}` を使用して番号や名前を抽出するとします。
+
+`SUBSTRING_INDEX(str,delim,count )` を使用し、区切り文字 `delim` の `count` が出現する前にサブストリング *`str`* を返します。 `count` が正の値である場合、最後の区切り文字の左側にあるものすべて（左からカウントします）が返ります。 `count` が負の値である場合、最後の区切り文字の右側にあるものすべて（右からカウントします）が返ります。 `SUBSTRING_INDEX()` は `delim` の検索時に大文字と小文字の区別が一致するかを確認します。
+
+**`mysql> SELECT SUBSTRING_INDEX(' www.mysql.com ', '.', 2); -> 'www.mysql' mysql> SELECT SUBSTRING_INDEX(' www.mysql.com ', '.', -2); -> ' mysql.com '`**
+
+上記の例の場合...
+
+```
+,substring_index(substring_index(`data`, '"', 4),'"',-1)  as ‘number’
+
+,substring_index(substring_index(`data`, '"', 8),'"',-1)  as ‘name’
+```
+
+## Magic ETL DataFlowのサブストリング
+
+Magic ETL DataFlowで `SUBSTRING` アクションを実行するには、 **［テキストを置換］** アクションを使用します。同じ列で2つの検索を行います。最初の検索では以下の正規表現を使います：
+
+`^.{X}`
+
+Xは `SUBSTRING` を開始する文字の数です。
+
+次の検索には以下の正規表現を使います：
+
+`(?<=^.{Y}).+`
+
+Yは削除する文字の数です。
+
+関数が機能するためには、歯車アイコンをクリックし、両方の検索ボックスで **［RegEx を使用］** を選択する必要があります。
+
+以下に例を示します...
+
+<Frame><img alt="etl_substring.png" src="/images/kb/ka05w00000123j8-00N5w00000Ri7BU-0EM5w000005vOvS.png"/></Frame>
+... `SUBSTRING` アクションは位置0で開始され、7文字抽出します。
+
+日本語

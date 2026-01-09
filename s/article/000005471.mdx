@@ -1,0 +1,73 @@
+---
+title: "Domo on Azure SQL (Beta)"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+### Intro
+
+Azure SQL users can connect their data to Domo through Cloud Amplifier native integrations. Get started by providing connection parameters, then select the tables you want to see as Domo DataSets.
+
+### Create an Azure SQL Integration
+
+Follow the steps in this article to configure a read-only Azure SQL–Domo integration:
+
+1. In the Domo Data Center, navigate to the <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uR3y.jpg" /> **Data Warehouse**.
+
+2. Select <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uSeO.jpg" /> **Add New Cloud Account**.
+   
+   <Frame><img alt="add new cloud account.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uRaE.jpg" style={{width: 500, height: 452}}/></Frame>
+
+   The **Amplify existing cloud warehouses** modal displays.
+3. In the **Native integration** section, choose **See More** to see additional options.
+     
+   <Frame><img alt="see more.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uTIf.jpg" style={{width: 500, height: 340}}/></Frame>
+
+4. Select **Azure SQL**.
+     
+   <Frame><img alt="choose azure sql.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001JtzW.jpg" style={{width: 500, height: 375}}/></Frame>
+
+5. Select **+ Add New Integration**.
+     
+   <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001K1Yr.jpg" /> <InlineImage src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001JrL0.jpg" />
+6. Enter the following connection parameters in the provided fields to connect to your Azure SQL database:
+   
+      * **Integration name —**
+      If you need to update your integration in the future, this is the name to search for in the list of integrations.
+      * **Integration description (optional) —**
+      Any additional information about the integration.
+      * **Azure SQL Database connection URL —**
+      The host and port for the Azure SQL instance you are connecting to. Ex. *< [myhost.com](http://myhost.com):3306>*.
+      * **Azure SQL Database database name —**
+      The name of the database containing the tables you want to connect to.
+      * **Azure SQL Database username —**
+      The Azure SQL instance username with access to the data you are connecting to.
+      * **Azure SQL Database password —**
+      The password for the Azure SQL user.
+      
+      <Frame><img alt="azure sql.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001JwKg.jpg" style={{width: 599, height: 442}}/></Frame>
+
+7. Configure caching options at the bottom of the form and select **Next**. Learn about Cloud Amplifier [caching rules](https://domo-support.domo.com/s/article/4412849158167?language=en_US#caching_rules).
+   
+   <Frame><img alt="Screenshot 2024-05-07 at 3.24.52 PM.png" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uWur.jpg" style={{width: 549, height: 156}}/></Frame>
+
+   A success message displays.
+8. Select **Choose Tables to Connect** to open the table picker.
+     
+   <Frame><img alt="choose tables.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001K20H.jpg" style={{width: 600, height: 381}}/></Frame>
+
+9. Use the table picker to select from schemas and tables. When you're ready, select
+   **Create DataSets**.
+     
+   <Frame><img alt="table picker.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001L0hB.jpg" style={{width: 600, height: 356}}/></Frame>
+
+10. (Optional)The confirmation modal allows you to share your DataSets with other Domo users. After choosing people to add and choosing their level of access in the dropdown, select
+    **Share**.
+      
+    Or, select **No Thanks** to close the modal without sharing access.
+      
+    <Frame><img alt="share modal.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000000uXZB.jpg" style={{width: 550, height: 313}}/></Frame>
+
+You can now interact with your Azure SQL DataSets in Domo.
+
+<Frame><img alt="interact with azure sql.jpg" src="/images/kb/ka0Vq000000BCNd-00N5w00000Ri7BU-0EMVq000001K2I1.jpg" style={{width: 899, height: 397}}/></Frame>

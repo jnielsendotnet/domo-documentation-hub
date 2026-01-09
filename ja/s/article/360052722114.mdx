@@ -1,0 +1,83 @@
+---
+title: "AWS Data Exchange V2コネクター"
+---
+
+## はじめに
+
+AWS Data Exchangeを使用すると、クラウド内のサードパーティのデータの検索、サブスクライブ、使用が簡単になります。カテゴリーを代表するブランドを含む、経験豊かなデータプロバイダーからのDataSetにアクセスできます。年間220万本以上の個別のニュース記事を複数の言語でキュレーションしているReuters、年間140億件以上のヘルスケア業務と1兆ドル以上の請求を処理し匿名化しているChange Healthcare、3億3,000万件以上の世界中のビジネスレコードのデータベースを管理しているDun & Bradstreet、2億2,000万人の個別の消費者と世界中の6,000万ヶ所以上の商業施設から位置データを取得しているFoursquareなどです。DomoのData Exchangeコネクターを使用すると、Amazon S3バケットからデータをDomoにインポートできます。Domoのビジネスソリューションを可視化し作成する機能と、AWSのパワフルなDataSetを組み合わせ、自分のデータと外部DataSetを組み合わせることで、価値の高いソリューションを作成できます。このコネクターは、サブスクライブして承認したAWS Data Exchange DataSetのみを一覧表示します。Amazon S3 APIについて詳しくは、製品ページ（ [http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html](http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html "http://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html") ）を参照してください。
+
+AWS Data Exchange V2アカウントには、Data Centerから接続します。このトピックでは、AWS Data Exchange V2コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+<table data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><p><b><b> 主な使用事例 </b></b></p></td><td colspan="1" rowspan="1"><p> このコネクターは、APIが使用できない状況でフラットファイルを取得するための最善の方法です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 主なメトリクス </b></b></p></td><td colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 社内における主な権限 </b></b></p></td><td colspan="1" rowspan="1"><ul><li> データスペシャリスト </li><li> マーケティング権限 </li><li> 財務権限 </li><li> S3にデータを保存しているあらゆるユーザー </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 平均導入時間 </b></b></p></td><td colspan="1" rowspan="1"><p> S3に適切なタイプのファイルがあれば1時間以内 </p></td></tr><tr><td colspan="1" rowspan="1"><p><b><b> 使いやすさ（1から10のスケールで、1が「最も使いやすい」） </b></b></p></td><td colspan="1" rowspan="1"><p> 4 </p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+S3に保存されたデータや、ほかのS3データベースとの関係を理解していると、このコネクターを使用する上で大変役立ちます。
+
+## 必要条件
+
+AWS Data Exchange V2アカウントに接続してDataSetを作成するには、以下が必要です。
+
+* AWSアクセスキー。これは、AWS Consoleの
+  ****［Security Credentials］**** セクションで確認できます。または、IAMを使用している場合は、 ****［Users］**** から確認できます。
+* AWSアクセスキーの作成時に取得したAWSシークレットキー。新しいシークレットキーは、AWS Consoleで生成することができます。
+
+AWSアクセスキーとシークレットキーにはAWS Data Exchangeへのフルアクセスも必要です。
+
+### 適切な権限が付与されたユーザーを作成する
+
+DomoでS3データに接続する前に、IAM Amazon Consoleで適切な権限を持つユーザーを作成する必要があります。
+
+****ユーザーを設定するには、以下の手順を実行します。****
+
+1. IAM Amazon Console（Identity and Access Management Amazon Console）で、
+**［Users］** をクリックします。
+
+<Frame><img alt="screen1.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6X.png"/></Frame>
+
+2. **［Add User］** ボタンをクリックします。
+
+<Frame><img alt="screen2.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6V.png"/></Frame>
+
+3. 新規ユーザーを追加し、次のオプションを設定します。
+
+* **［Details］**
+  ペインの **［Select AWS access type］** で **［Programmatic Access］** のボックスをチェックします。
+* **［Permissions］**
+  ペインで、 **［Attach existing policies directly］** を選択し、 **［AmazonS3FullAccess］** または **［AmazonS3ReadOnlyAccess］** のボックスをチェックします。
+    
+  カスタマー管理ポリシーは *使用できません* 。
+
+<Frame><img alt="Set_Permissions.png" src="/images/kb/ka05w00000123MS-00N5w00000Ri7BU-0EM5w000005vO6E.png"/></Frame>
+
+* **［Next: Tags］**
+  ボタンをクリックしてタグを追加します。タグの追加はオプションです。
+* **［Review］**
+  ペインで、 **［Create User］** をクリックします。
+
+4. ユーザーを作成したら、Domoの
+**［認証情報］** ペインの中で使用するアクセスキーとシークレットキーをコピーします。
+
+## AWS Data Exchange V2アカウントに接続する
+
+このセクションでは、AWS Data Exchange V2コネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、AWS Data Exchange V2アカウントに接続する認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Access Key </td><td colspan="1" rowspan="1"> AWSアクセスキーを入力します。アクセスキーを検索する方法については、上述の「必要条件」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> Secret Key </td><td colspan="1" rowspan="1"> AWSシークレットキーを入力します。シークレットキーを検索する方法については、上述の「必要条件」を参照してください。 </td></tr></tbody></table>
+
+有効なAWS Data Exchange V2認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいAWS Data Exchange V2 DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインは、AWS Data Exchange DataSetと選択可能な様々なパラメーターを一覧表示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> List Data Sets </td><td colspan="1" rowspan="1"> DataSetを選択します。このコネクターは、サブスクライブして承認したAWS Data Exchange DataSetのみを一覧表示します。 </td></tr><tr><td colspan="1" rowspan="1"> Region </td><td colspan="1" rowspan="1"><p> AWS Data Exchangeが利用可能なAWSリージョンを選択します。最新の詳細なリージョンのリストを入手するには、 <a class="link-https" href="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/" target="_blank" title="https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/"> AWSリージョン別サービスリスト </a> にアクセスしてください。 </p></td></tr><tr><td colspan="1" rowspan="1"> What asset type would you like to import? </td><td colspan="1" rowspan="1"> インポートして解析したいアセットのタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select the delimiting character </td><td colspan="1" rowspan="1"> ファイルで使用する区切り文字を選択します。区切り文字がリストにない場合は、［Other］を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Specify your delimiter </td><td colspan="1" rowspan="1"> CSVテキストを区切る文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Quote Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するのに使用する引用文字を選択します（CSVの標準のデフォルトの引用文字は二重引用符です）。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Quote Character </td><td colspan="1" rowspan="1"> 希望するCSV引用文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Escape Character </td><td colspan="1" rowspan="1"> CSVファイルを解析するために使用するエスケープ文字を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Custom Escape Character </td><td colspan="1" rowspan="1"> 希望するCSVエスケープ文字を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter the WorkBook Sheet Name </td><td colspan="1" rowspan="1"> ワークブックのシート名を入力します。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

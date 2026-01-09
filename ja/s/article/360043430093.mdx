@@ -1,0 +1,165 @@
+---
+title: "Beast Mode計算例：カード要素変換"
+---
+
+### はじめに
+
+Beast Mode計算を使用すると、カード、表、まとめ数字などのDomoの様々な要素に独自のフォーマットを適用できます。
+
+<Note>
+  **注記：** Beast Modeを使用してグラフィック、リンク、画像を表カードに追加するときは、次のことに注意してください。
+
+  * Mega表では、HTMLタグやHTMLのスタイル属性がサポートされていません。サポートされているのは画像とリンクのみです。
+  * HTML表では、HTMLタグおよびstyle="background-color"などのスタイル属性がサポートされています。
+  * HTML表では、Beast Mode計算を使用してコンテンツをセルに追加する際のフィルター処理はサポートされていません。詳細については、「
+  [ダッシュボードのページフィルターとフィルタービュー](/ja/s/article/360042923914) 」を参照してください。
+
+  <Frame><img alt="Filters.png" src="/images/kb/ka05w0000012A3J-00N5w00000Ri7BU-0EM5w000006u1BC.jpg" style={{width: 180, height: 180}}/></Frame>
+</Note>
+
+この記事では、カード変換におけるBeast Mode計算について次のカテゴリーで説明します。
+
+* [表内の値を定型化する](#StylizingaValueinaTable)
+* [表カードにURLを含める](#IncludingaURLinaTableCard)
+* [まとめ数字にフォーマットを適用する](#FormattingaSummaryNumber)
+* [値の変更にもとづいて表に異なる画像を表示する](#ShowingDifferentPicturesinaTableBasedonChangingValues)
+
+---
+
+### 表内の値を定型化する
+
+Beast Mode計算を使用すると、表中のセルの値を定型化することができます。例えば、「Salesperson」列のセルの値が「Bob」に等しい場合にセルを定型化するには、「Salesperson」という計算を作成して次のコードを使用します。
+
+```
+CASE `salesperson` when 'Bob' then CONCAT('<span style="color:red">',`salesperson`,'</span>') else `salesperson` end
+```
+
+### 表カードにURLを含める
+
+表カードにURLを挿入するには、次のBeast Mode計算を使用します。
+
+```
+CONCAT(`TopicName`, ': ', '<a href="', `Link`, '" target="_blank">', `Link`, '</a>')
+```
+
+「TopicName」は、トピック名を持つDataSet内のフィールドを参照し、「Link」はURLを持つフィールドを参照します。
+
+<Warning>
+  **重要：** URLは `https://` で始まる必要があります。
+
+</Warning>
+
+### まとめ数字にフォーマットを適用する
+
+Beast Mode計算を使用すると、まとめ数字のフォントサイズを変更できます。まとめ数字の外観のほかの側面をカスタマイズしたり、同じカードに複数のまとめ数字を含めることもできます。
+
+<Warning>
+  **重要：** このセクションで説明する変更点は、Domo Mobileではサポートされていないほか、PowerPointへのエクスポート時にもサポートされていません。このような場合、まとめ数字の代わりにHTMLが表示されます。
+
+</Warning>
+
+# まとめ数字のフォントサイズを変更する
+
+まとめ数字のフォントサイズを変更するには、Beast Mode計算をconcat()関数でラップします。この関数では、次のようにdivタグを使用してフォントサイズを指定します。
+
+```
+CONCAT('<div style="font-size:20px">',CONCAT('2017',' ','Booked',' ','Rev',' ','$',round(sum(`Grouped booked Rev`)/1000000,2),'M',' ','v.',' ',' ','Budget',' ','Rev',' ','$',round(sum(`2017 Budget Revenue`)/1000000,2),'M'),'</div>' )
+```
+
+# カスタマイズされたまとめ数字を作成する
+
+カスタマイズされたまとめ数字を作成すると、カード内で最も重要な情報をすばやく把握できます。複数の範囲、色、記号などを追加してカスタマイズされたまとめ数字を作成し、ユーザーに最初に目にしてほしい情報をハイライト表示できます。
+
+そのためには、concat()関数を使用してBeast Mode計算を作成します。これにより、複数の文字列を1つに組み合わせることができます。
+
+<Note>
+  **注記：** これにより、桁区切りの文字などのフォーマットオプションがバイパスされるため、文字列はconcat()ステートメントに含める必要があります。
+
+</Note>
+
+次のサンプル計算とそれに対応する出力を見てみましょう。
+
+#### 例1
+
+次のBeast Mode計算を使用して、チャートに示されているようにまとめ数字を表示します。
+
+```
+CONCAT(Sum(CASE when `Status` <> 'New' then 1 END),' Total, ',sum(case when `Date` >= date_sub(curdate(),INTERVAL 1 MONTH) then 1 else 0 end),' In Last 30 Days')
+```
+
+<Frame><img alt="custom_summary_number1.png" src="/images/kb/ka0Vq000000BY81-00N5w00000Ri7BU-0EM5w000005vOEA.png"/></Frame>
+#### 例2
+
+次のBeast Mode計算を使用して、チャートに示されているようにまとめ数字を表示します。
+
+```
+CONCAT('$',round(SUM(Case when (`Date`<= curdate() and `Status` = 'Accepted' and `Account Status` = 'Active') then `Amount` END)/1000000,2),’m – ‘,(case when `Value` > 0 then 'm -? ' else 'm -? ' end),round(round(SUM(Case when (`Date`<= curdate() and `Status` = 'Accepted' and `Account Status` = 'Active') then `Amount` END)/SUM(Case when (`Date`<= date_sub(curdate(), INTERVAL 1 MONTH) and `Status` = 'Accepted' and `Account Status` = 'Active') then `Amount` END)-1,2)*100,0),'% From 30 Days Ago')
+```
+
+<Frame><img alt="custom_summary_number2.png" src="/images/kb/ka0Vq000000BY81-00N5w00000Ri7BU-0EM5w000005vOEB.png"/></Frame>
+#### 例3
+
+`concat()` 関数にHTMLを追加すれば、画像、色分け、その他のスタイルを含めることもできます。サポートされているHTMLの完全なリストは、 [HTML表の制限に関する記事](/ja/s/article/360043430033) を参照してください。
+
+次のBeast Mode計算を使用して、チャートに示されているようにまとめ数字を表示します。
+
+```
+CONCAT('<a style="color: #f00">',SUM(CASE WHEN `Color` = 'Red' THEN `Value` END),'</a>',' Total Red | ','<a style="color: #00c200">',SUM(CASE WHEN `Color` = 'Green' THEN `Value` END),'</a>',' Total Green | ','<a style="color: #ff0">',SUM(CASE WHEN `Color` = 'Yellow' THEN `Value` END),'</a>',' Total Yellow')
+```
+
+<Frame><img alt="custom_summary_number3.png" src="/images/kb/ka0Vq000000BY81-00N5w00000Ri7BU-0EM5w000005vOE9.png"/></Frame>
+<Note>
+  **注記：**
+
+  * カードの
+  **編集** ビューでは、HTMLコーディングの効果を確認できません。フォーマットを確認するには、カードを保存してから、 **詳細** ビューまたは **ダッシュボード** ビューでカードを表示する必要があります。
+  * PowerPointプラグインを使用する場合や、HTMLを含むカードをエクスポートする場合は、作成された出力ではなく、基盤となるBeast Mode計算として表示されます。
+
+</Note>
+
+まとめ数字の詳細については、「 [チャートのまとめ数字を設定する](/ja/s/article/360043428753) 」を参照してください。
+
+### 複数のまとめ数字を作成する
+
+Beast Modeを使用すると、1つのカードについて、複数のサマリー統計を表示することができます。これにより、カードの閲覧ユーザーは、カードが伝えようとしているストーリーを把握しやすくなります。
+
+Beast Mode計算で使用する必須関数は `concat()` です。 `concat()` ステートメント内には、テキストやあらゆる組み合わせのメトリクスなどを追加できます。
+
+<Note>
+  **注記：** この方法でまとめ数字を作成すると標準のフォーマットオプションをバイパスするため、フォーマットをconcat()ステートメントに含める *必要があります* 。例：
+
+  ```
+  CONCAT(calculation, ‘Text’, [etc])
+  ```
+
+
+</Note>
+
+#### 例
+
+次のBeast Mode計算では、レコードの合計数と比較して、 **STATUS** フィールドが「COMPLETE」になるレコード数を表示するまとめ数字を、concat()関数を使用して作成します。
+
+```
+CONCAT(SUM(CASE WHEN STATUS = 'COMPLETE' THEN `Amount` ELSE 0 END), ' out of ', 'SUM(`Amount`))
+```
+
+したがって、例えば完了したレコードが65でレコード合計数が80である場合、上の関数の結果は、「65 out of 80」になります。
+
+### 値の変更にもとづいて表に異なる画像を表示する
+
+表カードではHTMLコードを使用できるため、CASEステートメントを使用し、データ値にもとづいて画像を表示できます。
+
+例えば、次のBeast Mode計算を使用すると、「Profit」が正か負かにもとづいて、表に異なる画像が表示されます。
+
+```
+CASE WHEN `Profit` < 0 THEN CONCAT('<div style="text-align:center"><img alt="DOWN" height="20px" src="https://4.bp.blogspot.com/-VtfK8e7-guk/UNgpNEi_IEI/AAAAAAAAJZI/PuIiQXbcfJY/s1600/mark_arrow_down.png">','</div>';;) ELSE CONCAT('<div style="text-align:center"><img alt="UP" height="20px" src="https://3.bp.blogspot.com/-8vT29qQLkGY/UNgpRL7EsJI/AAAAAAAAJZs/ONyYGbuksDQ/s1600/mark_arrow_up.png">','</div>';;) END 
+```
+
+<Note>
+  **注記：** 「src」セクションには、使用する画像のURLを入力します。
+
+</Note>
+
+[このページのトップへ](#intro)
+
+日本語

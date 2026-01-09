@@ -1,0 +1,505 @@
+openapi: 3.0.0
+info:
+  title: Beast Modes API
+  description: Beast Modes are run time calculations on Cards or Datasets.
+  version: 1.0.0
+servers:
+- url: https://{instance}.domo.com
+  variables:
+    instance:
+      default: your-instance
+      description: Your Domo instance name
+paths:
+  /api/query/v1/functions/statistics:
+    get:
+      summary: Get Statistics
+      description: Fetch instance-wide statistics on Beast Mode usage.
+      operationId: get-statistics
+      tags:
+      - Beast Modes
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total:
+                    type: integer
+                    description: Total number of Beast Modes
+                  onDatasets:
+                    type: integer
+                    description: Number of Beast Modes on Datasets
+                  onCards:
+                    type: integer
+                    description: Number of Beast Modes on Cards
+                  inVisualizations:
+                    type: integer
+                    description: Number of Beast Modes in visualizations
+                  locked:
+                    type: integer
+                    description: Number of locked Beast Modes
+                  invalid:
+                    type: integer
+                    description: Number of invalid Beast Modes
+                  invalidLink:
+                    type: integer
+                    description: Number of Beast Modes with invalid links
+                  archived:
+                    type: integer
+                    description: Number of archived Beast Modes
+              example:
+                total: 525
+                onDatasets: 406
+                onCards: 119
+                inVisualizations: 98
+                locked: 0
+                invalid: 0
+                invalidLink: 68
+                archived: 0
+      x-codeSamples:
+      - lang: HTTP
+        source: |
+          GET https://{instance}.domo.com/api/query/v1/functions/statistics
+          X-DOMO-Developer-Token: YOUR_TOKEN
+          Content-Type: application/json
+  /api/query/v1/functions/search:
+    post:
+      summary: Get All Beast Modes
+      description: Gets all Beast Mode objects in the instance.
+      operationId: get-all-beast-modes
+      tags:
+      - Beast Modes
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: To search for Beast Modes by name.
+                filters:
+                  type: array
+                  description: Filter criteria for the request.
+                  items:
+                    type: object
+                    properties:
+                      field:
+                        type: string
+                sort:
+                  type: object
+                  description: Object that takes the field to sort by and ascending as true or false
+                  properties:
+                    field:
+                      type: string
+                    ascending:
+                      type: boolean
+                limit:
+                  type: integer
+                  description: How many records to limit the request by. Must be between 1 and 5000.
+                  minimum: 1
+                  maximum: 5000
+                offset:
+                  type: integer
+                  description: Which record to start the response with.
+              required:
+              - filters
+              - sort
+              - limit
+            example:
+              name: ""
+              filters:
+              - field: notvariable
+              sort:
+                field: name
+                ascending: true
+              limit: 3
+              offset: 0
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  totalHits:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+                  hasMore:
+                    type: boolean
+                  degraded:
+                    type: boolean
+              example:
+                totalHits: 525
+                results:
+                - id: 427
+                  name: "% Behind Schedule Objects"
+                  owner: 8811501
+                  lastModified: 1670963682352
+                  created: 1670963682352
+                  global: false
+                  locked: false
+                  legacyId: calculation_ab07cd22-2558-4f8f-b692-f39f6869a01a
+                  status: VALID
+                  links:
+                  - resource:
+                      type: CARD
+                      id: "dr:1947052903:616023142"
+                    visible: true
+                    active: false
+                    valid: VALID
+                  - resource:
+                      type: DATA_SOURCE
+                      id: aa7d9422-9abe-4581-bbf3-4a8cb5d3fc25
+                    visible: false
+                    active: false
+                    valid: ILLEGAL_REFERENCE
+                  archived: false
+                  activeLinks: {}
+                hasMore: true
+                degraded: false
+      x-codeSamples:
+      - lang: HTTP
+        source: |
+          POST https://{instance}.domo.com/api/query/v1/functions/search
+          X-DOMO-Developer-Token: YOUR_TOKEN
+          Content-Type: application/json
+
+          {
+            "name": "",
+            "filters": [
+              {
+                "field": "notvariable"
+              }
+            ],
+            "sort": {
+              "field": "name",
+              "ascending": true
+            },
+            "limit": 3,
+            "offset": 0
+          }
+  /api/query/v1/functions/template/{beastmodeId}:
+    get:
+      summary: Get Beast Mode by Id
+      description: Gets a specified Beast Mode calculation.
+      operationId: get-beast-mode-by-id
+      tags:
+      - Beast Modes
+      parameters:
+      - name: beastmodeId
+        in: path
+        required: true
+        description: ID of the BeastMode
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  owner:
+                    type: integer
+                  locked:
+                    type: boolean
+                  global:
+                    type: boolean
+                  expression:
+                    type: string
+                  checkSum:
+                    type: string
+                  links:
+                    type: array
+                    items:
+                      type: object
+                  legacyId:
+                    type: string
+                  lastModified:
+                    type: integer
+                  created:
+                    type: integer
+                  aggregated:
+                    type: boolean
+                  analytic:
+                    type: boolean
+                  nonAggregatedColumns:
+                    type: array
+                    items:
+                      type: string
+                  dataType:
+                    type: string
+                  status:
+                    type: string
+                  cacheWindow:
+                    type: string
+                  columnPositions:
+                    type: array
+                    items:
+                      type: object
+                  functions:
+                    type: array
+                    items:
+                      type: string
+                  functionTemplateDependencies:
+                    type: array
+                    items:
+                      type: string
+                  archived:
+                    type: boolean
+                  hidden:
+                    type: boolean
+                  variable:
+                    type: boolean
+              example:
+                id: 232
+                name: "% Change - Orders"
+                owner: 27
+                locked: false
+                global: false
+                expression: "(CASE  WHEN (sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END )) = 0) THEN 0 ELSE ((sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < 28) AND (DateDiff(Current_Date(),`Date`) > 0)) THEN `Orders` END )) - sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) / sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) END )"
+                checkSum: 4041d1731163b41ae86552ebb46f8a2f1d5aecd5
+                links:
+                - resource:
+                    type: DATA_SOURCE
+                    id: 32e6af61-c725-487a-8a4a-a46fbfed9fb1
+                  visible: true
+                  active: false
+                  valid: VALID
+                legacyId: calculation_6ca6ab70-412a-4394-82d7-d6f648758907
+                lastModified: 1654190830737
+                created: 1654190830737
+                aggregated: true
+                analytic: false
+                nonAggregatedColumns: []
+                dataType: DECIMAL
+                status: VALID
+                cacheWindow: day
+                columnPositions:
+                - columnName: "`Date`"
+                  columnPosition: 67
+                - columnName: "`Date`"
+                  columnPosition: 123
+                - columnName: "`Orders`"
+                  columnPosition: 149
+                functions:
+                - DOMO_OP_MULTIPLY
+                - ADDDATE
+                - DOMO_OP_ADD
+                - SUM
+                - DOMO_OP_SUBTRACT
+                - DATEDIFF
+                - DOMO_OP_DIVIDE
+                functionTemplateDependencies: []
+                archived: false
+                hidden: false
+                variable: false
+      x-codeSamples:
+      - lang: HTTP
+        source: |
+          GET https://{instance}.domo.com/api/query/v1/functions/template/{beastmodeId}
+          X-DOMO-Developer-Token: YOUR_TOKEN
+          Content-Type: application/json
+    put:
+      summary: Lock Beast Mode
+      description: Locks a Beast Mode so it cannot be altered.
+      operationId: lock-beast-mode
+      tags:
+      - Beast Modes
+      parameters:
+      - name: beastmodeId
+        in: path
+        required: true
+        description: The ID of the Beast Mode to lock
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                locked:
+                  type: boolean
+                  description: true to lock Beast Mode. false to unlock it.
+              required:
+              - locked
+            example:
+              locked: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 232
+                name: "% Change - Orders"
+                owner: 27
+                locked: true
+                global: false
+                expression: "(CASE  WHEN (sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END )) = 0) THEN 0 ELSE ((sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < 28) AND (DateDiff(Current_Date(),`Date`) > 0)) THEN `Orders` END )) - sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) / sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) END )"
+                checkSum: 4041d1731163b41ae86552ebb46f8a2f1d5aecd5
+                links:
+                - resource:
+                    type: DATA_SOURCE
+                    id: 32e6af61-c725-487a-8a4a-a46fbfed9fb1
+                  visible: true
+                  active: false
+                  valid: VALID
+                legacyId: calculation_6ca6ab70-412a-4394-82d7-d6f648758907
+                lastModified: 1734470226460
+                created: 1654190830737
+                aggregated: true
+                analytic: false
+                dataType: DECIMAL
+                status: VALID
+                cacheWindow: day
+                columnPositions:
+                - columnName: "`Date`"
+                  columnPosition: 67
+                - columnName: "`Date`"
+                  columnPosition: 123
+                - columnName: "`Orders`"
+                  columnPosition: 149
+                functions:
+                - DOMO_OP_MULTIPLY
+                - ADDDATE
+                - DOMO_OP_ADD
+                - SUM
+                - DOMO_OP_SUBTRACT
+                - DATEDIFF
+                - DOMO_OP_DIVIDE
+                archived: false
+                hidden: false
+                variable: false
+      x-codeSamples:
+      - lang: HTTP
+        source: |
+          PUT https://{instance}.domo.com/api/query/v1/functions/template/{beastmodeId}
+          X-DOMO-Developer-Token: YOUR_TOKEN
+          Content-Type: application/json
+
+          {
+            "locked": true
+          }
+  /api/query/v1/functions/template/{beastmodeId}/update:
+    put:
+      summary: Update a Beast Mode
+      description: Update the formula that consitutes the calculation in the Beast Mode.
+      operationId: update-a-beast-mode
+      tags:
+      - Beast Modes
+      parameters:
+      - name: beastmodeId
+        in: path
+        required: true
+        description: The ID of the Beast Mode to update
+        schema:
+          type: integer
+      - name: strict
+        in: query
+        required: false
+        description: Strict mode flag
+        schema:
+          type: boolean
+          default: false
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expression:
+                  type: string
+                  description: The text formula to update
+              required:
+              - expression
+            example:
+              expression: "(CASE  WHEN (sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END )) = 0) THEN 0 ELSE ((sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < 28) AND (DateDiff(Current_Date(),`Date`) > 0)) THEN `Orders` END )) - sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) / sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) END )"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+              example:
+                id: 232
+                name: "% Change - Orders"
+                owner: 27
+                locked: true
+                global: false
+                expression: "(CASE  WHEN (sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END )) = 0) THEN 0 ELSE ((sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < 28) AND (DateDiff(Current_Date(),`Date`) > 0)) THEN `Orders` END )) - sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) / sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) END )"
+                checkSum: 4041d1731163b41ae86552ebb46f8a2f1d5aecd5
+                links:
+                - resource:
+                    type: DATA_SOURCE
+                    id: 32e6af61-c725-487a-8a4a-a46fbfed9fb1
+                  visible: true
+                  active: false
+                  valid: VALID
+                legacyId: calculation_6ca6ab70-412a-4394-82d7-d6f648758907
+                lastModified: 1734532686486
+                created: 1654190830737
+                aggregated: true
+                analytic: false
+                nonAggregatedColumns: []
+                dataType: DECIMAL
+                status: VALID
+                cacheWindow: day
+                columnPositions:
+                - columnName: "`Date`"
+                  columnPosition: 67
+                - columnName: "`Date`"
+                  columnPosition: 123
+                - columnName: "`Orders`"
+                  columnPosition: 149
+                functions:
+                - DOMO_OP_MULTIPLY
+                - ADDDATE
+                - DOMO_OP_ADD
+                - SUM
+                - DOMO_OP_SUBTRACT
+                - DATEDIFF
+                - DOMO_OP_DIVIDE
+                functionTemplateDependencies: []
+                archived: false
+                hidden: false
+                variable: false
+      x-codeSamples:
+      - lang: HTTP
+        source: |
+          POST https://{instance}.domo.com/api/query/v1/functions/template/{beastmodeId}?strict=false
+          X-DOMO-Developer-Token: YOUR_TOKEN
+          Content-Type: application/json
+
+          {
+            "expression": "(CASE  WHEN (sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END )) = 0) THEN 0 ELSE ((sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < 28) AND (DateDiff(Current_Date(),`Date`) > 0)) THEN `Orders` END )) - sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) / sum((CASE  WHEN ((DateDiff(AddDate(Current_Date(),-1),`Date`) < (28 + (52 * 7))) AND (DateDiff(Current_Date(),`Date`) > (52 * 7))) THEN `Orders` END ))) END )"
+          }
+components:
+  securitySchemes:
+    DeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+      description: Domo Developer Token for authentication
+  schemas: {}
+security:
+- DeveloperToken: []

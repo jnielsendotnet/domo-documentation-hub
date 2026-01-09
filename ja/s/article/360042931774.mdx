@@ -1,0 +1,53 @@
+---
+title: "SAP ASE SSHコネクター"
+---
+
+## はじめに
+
+SAP ASE（Adaptive Server Enterprise）SSHは、ビジネス向けリレーショナルデータベースサーバー製品です。以前はSybase SQLサーバーと呼ばれていました。DomoのSAP ASE SSHコネクターを使用し、SQLクエリ―を入力することにより、SSHトンネル経由でSAPデータベースからデータを取得します。SAP ASE SSHの詳細については、SAP社のウェブサイト（ [https://www.sap.com/japan/products/technology-platform/sybase-ase.html](https://www.sap.com/japan/products/technology-platform/sybase-ase.html "https://www.sap.com/japan/products/technology-platform/sybase-ase.html") ）をご覧ください。
+
+SAP ASE SSHデータベースには、Data Centerから接続します。このトピックでは、SAP ASE SSHコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定およびDataSet情報の編集については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+SAP ASE SSHデータベースに接続してDataSetを作成するには、以下の情報が必要になります。
+
+* SAP ASEアカウントのログインに使用するユーザー名とパスワード
+* データベースのホスト名
+* データベースのポート番号
+* データベース名
+* SSHホスト名
+* SSHユーザーのユーザー名とパスワード
+* SSHポート番号
+* SSH秘密鍵
+
+SAPデータベースに接続する前に、接続先となるデータベースサーバーのポートで使用するIPアドレスをいくつかホワイトリストに登録する必要があります。IPアドレスの詳細なリストは、「 [コネクターのIPアドレスをホワイトリストに登録する](/ja/s/article/360043630093 "コネクターのIPアドレスをホワイトリストに登録する") 」を参照してください。
+
+<Note>
+**注記：Domoは、ssh-keygenを使用して生成されるSSHキーをサポートしていません。SSHキーは、OpenSSLが生成するDESまたはRSAキー（PEMフォーマット）である必要があります。**
+
+</Note>
+
+## SAP ASE SSHデータベースに接続する
+
+このセクションでは、SAP ASE SSHコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、SAP ASE SSHアカウントに接続するための認証情報を入力するためのフィールドが含まれます。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Host </p></td><td colspan="1" rowspan="1"><p> SSHホスト名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH User </p></td><td colspan="1" rowspan="1"><p> SSHユーザーのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> SSHユーザーのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> SSHポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密鍵を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> SAP Adaptive Server Enterpriseアカウントのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> SAP Adaptive Server Enterpriseアカウントのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> SAPデータベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> データベース名を入力します。 </p></td></tr></tbody></table>
+
+有効なSAP ASE SSH認証情報を一度入力しておくと、随時同じアカウントを使用して新しいSAP ASE SSH DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するためのSQL（構造化照会言語）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルを選択します。選択したテーブルは、 <b> ［Query Helper］ </b> フィールドの自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoに引き込むデータを含むテーブルの列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> フィールドでテーブルを、 <b> ［Table Columns］ </b> フィールドで列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

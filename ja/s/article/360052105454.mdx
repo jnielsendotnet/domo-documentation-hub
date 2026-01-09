@@ -1,0 +1,94 @@
+---
+title: "JSON No Code OAuthコネクター"
+---
+
+## はじめに
+
+JavaScript Object Notation（JSON）は、使いやすい軽量のデータ交換フォーマットです。JSON No Code OAuthコネクターでは、HTTPSソースからOAuth認証を使用してファイルをインポートできます。JSON APIの詳細については、ウェブサイト（ [http://jsonapi.org/](https://jsonapi.org/) ）を参照してください。
+
+JSON No Code OAuthアカウントには、Data Centerから接続します。このトピックでは、JSON No Code OAuthコネクターのユーザーインターフェイスに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+JSON No Code OAuthアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* アカウント名
+* 認証サーバのクライアントIDとクライアントシークレット
+* API認証のエンドポイント
+* APIアクセストークンのエンドポイント
+* この接続に必要なスコープ（オプション）スコープをスペースで区切ります。
+* また、アクセストークンを更新する際にリダイレクトURIをAPIに渡す必要があるどうかを指定する必要もあります。
+
+## JSON No Code OAuthアカウントに接続する
+
+このセクションでは、JSON No Code OAuthコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインのオプションである **［スケジュール設定］** と **［DataSetに名前を付け、説明を入力］** については、ほとんどのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、JSON No Code OAuthアカウントに接続するための認証情報を入力するためのフィールドが含まれます。下表は、各フィールドに必要な内容を説明しています。
+
+<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> フィールド </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Account name </td><td colspan="1" rowspan="1"> アカウント名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> OAuth認証に使用するクライアントID </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> OAuth認証に使用するクライアントシークレット </td></tr><tr><td colspan="1" rowspan="1"> Authorization URL </td><td colspan="1" rowspan="1"> API認証のエンドポイント </td></tr><tr><td colspan="1" rowspan="1"> Access token URL </td><td colspan="1" rowspan="1"> APIアクセストークンのエンドポイント </td></tr><tr><td colspan="1" rowspan="1"> Scopes </td><td colspan="1" rowspan="1"> この接続に必要な範囲を入力します。スコープをスペースで区切ります。 </td></tr><tr><td colspan="1" rowspan="1"> State type </td><td colspan="1" rowspan="1"> OAuthに要求される状態のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> State location </td><td colspan="1" rowspan="1"> 状態をクエリパラメーターとして送信するか、パスで送信するかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Response type </td><td colspan="1" rowspan="1"> 認証URLで使用する応答タイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Use Redirect URI when Refreshing Access Token </td><td colspan="1" rowspan="1"><span> アクセストークンを更新する際にリダイレクトURIをAPIに渡す必要があるかどうかを指定します（これは稀です）。 </span></td></tr></tbody></table>
+
+JSON No Code OAuthアカウントコネクターは、OAuthを使用して接続します。 そのため、Domo内で認証サーバーの認証情報を入力する必要はありません。 **［接続］** （または、Domoに既存のJSON非コードOAuthアカウントがある場合は **［アカウントを追加］** を選択）をクリックすると、OAuth認証サーバー画面が開き、認証サーバーのメールアドレスとパスワードが入力できます。有効なJSON No Code OAuth認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいJSON No Code OAuth DataSetを作成できます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブについて詳しくは、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+<Note>
+**注記：** Domoで接続する際、既に認証サーバーアカウントにログインしている場合は、 **［アカウントを追加］** をクリックすると自動的に認証されます。ログインしているアカウントと異なるアカウントに接続したい場合は、まず認証サーバーアカウントからログアウトしなければなりません。
+
+</Note>
+
+### ［Data Selection］ペイン
+
+このペインでは、接続先のサーバー/SFTPサイト、JSONファイルの名前、およびその他の構成の設定を指定します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Choose the HTTP Method to use </td><td colspan="1" rowspan="1"> HttpメソッドとしてGETかPOSTのいずれかを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Enter the URL to your JSON file </td><td colspan="1" rowspan="1"> JSONファイルのURLを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> How will you provide the certificate </td><td colspan="1" rowspan="1"><p> 証明書を提供する方法を以下から選択します。 </p><ul><li><p> No certificate </p></li><li><p> 証明書へのURLパス </p></li><li><p> Certificate Content </p></li></ul></td></tr></tbody></table>
+
+#### 詳細設定
+
+<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> メニュー </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> HTTPS Headers </td><td colspan="1" rowspan="1"> HTTPSヘッダーのキーと値を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> クエリパラメーターのキーと値を入力します。クエリパラメータをエンコードするかどうかを指定します。 </td></tr><tr><td colspan="1" rowspan="1"> Date Query Parameters </td><td colspan="1" rowspan="1"> 日付クエリのパラメーターとして、日付フィルターなし、単一の日付、または日付範囲を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> JSON Settings </td><td colspan="1" rowspan="1"> JSONテキストでラインリーダーが必要かどうかと、バックスラッシュ文字をエスケープするかどうかを指定します。 </td></tr></tbody></table>
+
+### 解析
+
+#### ページ設定
+
+データをページ設定する方法を選択します。
+
+* 改ページなし
+* 結果から次のURLを取得する
+* 結果から次のページトークンを取得する
+* レコード別にオフセット
+* ページ別にオフセット
+
+#### 解析
+
+データプレビューを使用することで、列をクリックして解析用にデータの書式を設定することができます。
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="登録するにはどのリダイレクトURIが必要ですか？">
+
+
+登録するリダイレクトURI：https://oauth.domo.com/api/data/v1/oauth/providers/json-oauth/exchange 。
+
+
+</Accordion>
+<Accordion title="**このコネクターは改ページをサポートしていますか？**">
+
+
+はい。改ページを有効にするには、APIでサポートされている改ページタイプを選択して、必要な詳細を入力します。
+
+
+</Accordion>
+<Accordion title="**データを解析する手順を教えてください。**">
+
+
+［Parsing］ペインの［Parsing］タブで、拡張または変更するデータが格納されている列を選択します。おすすめのアクションにカーソルを置いて効果を確認し、目的のアクションをクリックして選択します。希望する状態でデータが表示されるまで繰り返します。必要に応じて、右側にある［History］セクションを使用してアクションを取り消します。
+
+
+
+</Accordion>
+</AccordionGroup>

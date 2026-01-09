@@ -1,0 +1,281 @@
+openapi: 3.1.0
+info:
+  title: Group Documentation
+  version: "1.0.0"
+  description: "Authentication: Requests to the endpoints in this document should be authenticated using an access token. The token should be passed using the X-DOMO-Developer-Token header. For information about generating an access token see https://domo-support.domo.com/s/article/360042934494?language=en_US."
+servers:
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: YOUR_INSTANCE
+        description: Domo instance subdomain
+components:
+  securitySchemes:
+    DomoDeveloperToken:
+      type: apiKey
+      in: header
+      name: X-DOMO-Developer-Token
+  schemas:
+    GroupIdParam:
+      type: string
+      description: "The ID of the group to fetch"
+    UserIdParam:
+      type: string
+      description: "The ID of the user"
+    GroupResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          description: "closed, open, or dynamic"
+        userIds:
+          type: array
+          items:
+            type: integer
+        creatorId:
+          type: integer
+        memberCount:
+          type: integer
+        guid:
+          type: string
+        description:
+          type: string
+        hidden:
+          type: boolean
+        default:
+          type: boolean
+        active:
+          type: boolean
+      example:
+        id: 6789456782
+        name: "Group Name"
+        type: "closed"
+        userIds: [123123123, 342342344, 555543423, 432423423]
+        creatorId: 4421231232
+        memberCount: 4
+        guid: "guid-goes-here"
+        description: ""
+        hidden: false
+        default: false
+        active: true
+    UserDetailsItem:
+      type: object
+      properties:
+        name:
+          type: string
+        id:
+          type: integer
+        location:
+          type: string
+        manager:
+          type: string
+        phoneNumber:
+          type: string
+        title:
+          type: string
+    CreateGroupRequest:
+      type: object
+      required: [name, type]
+      properties:
+        name:
+          type: string
+          description: "Name of the group"
+        description:
+          type: string
+          description: "Description of the group"
+        type:
+          type: string
+          description: "Group type: closed, open, or dynamic"
+          enum: [closed, open, dynamic]
+      example:
+        name: "New Group"
+        description: "This is a new group"
+        type: "closed"
+    CreateGroupResponse:
+      type: object
+      properties:
+        id:
+          type: string
+      example:
+        id: "123123123"
+    RemoveMembersItem:
+      type: object
+      properties:
+        groupId:
+          type: string
+        removeMembers:
+          type: array
+          items:
+            type: object
+            properties:
+              type:
+                type: string
+              id:
+                type: string
+      required: [groupId, removeMembers]
+      example:
+        groupId: "1231231232"
+        removeMembers:
+          - type: "USER"
+            id: "112321221"
+security:
+  - DomoDeveloperToken: []
+tags:
+  - name: groups
+paths:
+  /api/content/v2/groups/{group}:
+    get:
+      tags: [Groups API (Product)]
+      summary: Fetch Group
+      description: "Retrieve details of a specific group by its ID."
+      parameters:
+        - in: path
+          name: group
+          required: true
+          description: "The ID of the group to fetch"
+          schema:
+            $ref: "#/components/schemas/GroupIdParam"
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/GroupResponse"
+  /api/identity/v1/users/{userId}:
+    get:
+      tags: [Groups API (Product)]
+      summary: Fetch User Details
+      description: "Fetch detailed information for a specific user by their ID."
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          description: "The ID of the user"
+          schema:
+            $ref: "#/components/schemas/UserIdParam"
+        - in: query
+          name: parts
+          required: false
+          description: "Specifies the detail level, e.g., detailed"
+          schema:
+            type: string
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/UserDetailsItem"
+              examples:
+                example:
+                  value:
+                    - name: "Domo User"
+                      id: 3817263817
+                      location: ""
+                      manager: ""
+                      phoneNumber: "+phone number"
+                      title: "Software Engineer"
+  /api/content/v2/groups:
+    post:
+      tags: [Groups API (Product)]
+      summary: Create a Group
+      description: "Create a new group with the specified details."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateGroupRequest"
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CreateGroupResponse"
+  /api/content/v2/groups/{group}/user/{userId}:
+    put:
+      tags: [Groups API (Product)]
+      summary: Add People to a Group
+      description: "Add a user to a specific group."
+      parameters:
+        - in: path
+          name: group
+          required: true
+          description: "The ID of the group"
+          schema:
+            $ref: "#/components/schemas/GroupIdParam"
+        - in: path
+          name: userId
+          required: true
+          description: "The ID of the user to add to the group"
+          schema:
+            $ref: "#/components/schemas/UserIdParam"
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                type: boolean
+              examples:
+                example:
+                  value: true
+  /api/content/v2/groups/{group}/removeuser/{userId}:
+    delete:
+      tags: [Groups API (Product)]
+      summary: Remove a Person from a Group
+      description: "Remove a user from a specific group."
+      parameters:
+        - in: path
+          name: group
+          required: true
+          description: "The ID of the group"
+          schema:
+            $ref: "#/components/schemas/GroupIdParam"
+        - in: path
+          name: userId
+          required: true
+          description: "The ID of the user to remove"
+          schema:
+            $ref: "#/components/schemas/UserIdParam"
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                type: boolean
+              examples:
+                example:
+                  value: true
+  /api/content/v2/groups/access:
+    put:
+      tags: [Groups API (Product)]
+      summary: Remove Multiple People from a Group
+      description: "Remove multiple users from a specific group."
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/RemoveMembersItem"
+      responses:
+        "200":
+          description: "Status Code: 200"
+          content:
+            application/json:
+              schema:
+                type: boolean
+              examples:
+                example:
+                  value: true

@@ -1,0 +1,77 @@
+---
+title: "新しいMagic ETLタイル：パフォーマンス"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+<Note>
+  **注記：** この機能は、 *ご要望をいただいた場合に有料で提供いたします* 。
+
+  機能の有効化をリクエストするには：
+
+  * Domoカスタマーサクセスマネージャー、テクニカルコンサルタント、またはAEにお問い合わせください。
+  * CSM、TC、またはAEの連絡先情報がない場合は、テクニカルサポートまで連絡先をお問い合わせください。お問い合わせ方法については、「
+  [ヘルプとサポート](/s/article/360042922874) 」を参照してください。
+
+  機能によっては、事前にトレーニングが必要となる場合があります。
+
+</Note>
+
+## はじめに
+
+Magic ETL DataFlowの［パフォーマンス］タブでは2つのタイルを使用できます。これには以下のものが含まれます。
+
+* 列を選択して保存する
+* 列の復元
+
+Magic ETL DataFlowの作成については、「 [Magic ETL DataFlowを作成する](/s/article/360055259234 "Magic ETL DataFlowを作成する") 」を参照してください。
+
+Data Centerについては、「 [Data Centerのレイアウト](/ja/s/article/360047553253) 」を参照してください。
+
+<Warning>
+  **重要：** 新しいMagic ETLの動作は大幅に変更されました。ミッションクリティカルなMagic ETL DataFlowを変換する際は、事前に「 Magic ETLの動作変更と機能のアップデート 」をお読みください。 **DataFlowで想定外の動作が発生することのないように、記事を十分理解した上でMagic ETL DataFlowを変換してください。**
+
+</Warning>
+
+<Frame><img alt="Performance_Tab.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNiY.png"/></Frame>
+## 必要条件
+
+パフォーマンスタイルは、PythonまたはRスクリプティングタイルと組み合わせて使用するよう設計されています。スクリプティングタイルの詳細については、「 [Magic ETLタイル：スクリプティング](/s/article/360045485833) 」を参照してください。
+
+<Frame><img alt="Performance_Tiles_Configuration.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNim.png"/></Frame>
+## ［列を選択して保存する］タイル
+
+<Frame><img alt="Select_and_Store_Columns.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNj1.png"/></Frame>
+［列を選択して保存する］タイルでは、PythonまたはRスクリプトタイルの中でスクリプトの一部として使用されていない列を保存/削除することができます。スクリプティングタイルの実行前にスクリプティングタイルの変換に適用されない列を保存すると、データの読み込み量が削減されます。この処理を行うと、タイルは変換に必要な列のみをロードするようになり、スクリプティングタイルの実行時間が短縮されます。
+
+<Frame><img alt="Select_and_Store_Columns_Configuration.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNj3.png"/></Frame>
+**［列を選択して保存する］タイルを設定するには：**
+
+1. キャンバスで、 **［列を選択して保存する］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000xuX-00N5w00000Ri7BU-0EM5w000005vNiV.png" /> をクリックして名前を入力します。
+3. 後続のPythonまたはRスクリプトタイルで使用する列を選択します。
+4. （オプション）すべての必要な列が選択されていることを確認するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000xuX-00N5w00000Ri7BU-0EM5w000005vNj2.png" /> をクリックすると、リストのすべての非選択の列を非表示にできます。
+5. 列をDataFlowに復元するために使用する列に名前を付けます。
+   
+<Warning>
+  **重要：** このステップで名前を付けた列をDataFlowのほかのタイルで変更しないでください。［列の復元］タイルが正常に機能しなくなります。
+
+</Warning>
+
+## ［列の復元］タイル
+
+<Frame><img alt="Restore_Columns.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNiX.png"/></Frame>
+［列の復元］タイルでは、PythonまたはRスクリプトタイルのスクリプトを処理した後、保存されている列をDataFlowに復元/追加することができます。
+
+<Frame><img alt="Restore_Columns_Configuration.png" src="/images/kb/ka0Vq0000000xsv-00N5w00000Ri7BU-0EM5w000005vNj5.png"/></Frame>
+**［列の復元］タイルを設定するには：**
+
+1. キャンバスで、 **［列の復元］** タイルをクリックします。
+2. （オプション）タイルの名前を変更するには、
+   <InlineImage src="/images/kb/ja/ka0Vq0000000xuX-00N5w00000Ri7BU-0EM5w000005vNiV-1.png" /> をクリックして名前を入力します。
+3. ［列を選択して保存する］タイルで指定した列を選択します。
+4. （オプション）テキストにマウスポインターを合わせて列数を表示し、復元する列を確認します。
+
+日本語

@@ -1,0 +1,61 @@
+---
+title: "CNN RSSコネクター"
+---
+
+## はじめに
+
+[CNN.com](http://CNN.com) は、RSSアグリゲーターを使用するサイト訪問者向けに、ニュースヘッドラインのフィードをXML形式で提供しています。Domo CNNコネクターは、これらのヘッドラインを取得して新しいDataSetを作成します。これを使ってDomoに最新のヘッドラインを追加することができるようになります。CNN APIの情報については、 [https://developer.cnn.com/docs/read/api](https://developer.cnn.com/docs/read/api "https://developer.cnn.com/docs/read/api") を参照してください。
+
+CNN RSSコネクターは「クラウドアプリ」コネクターであるため、クラウドに保管されたデータの取得が可能です。Data Centerのウィンドウ上部のツールバーにある **［クラウドApp］** をクリックすると、これを含むほかのクラウドAppコネクターのページにアクセスできます。
+
+CNN DataSetの作成は、Data Centerで行います。このトピックでは、CNN Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」で説明しています。
+
+<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主な使用事例 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> このコネクターを使用して現在のニュースの見出しをDomoのカードにプルします。 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 主なメトリクス </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 該当なし </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 社内における主な権限 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><ul><li><p> エグゼクティブ </p></li><li><p> ディレクタ </p></li><li><p> マネージャー </p></li><li><p> アナリスト </p></li></ul></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 平均導入時間 </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> １～２分 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p><b> 使いやすさ（1～10段階。1が「最も使いやすい」） </b></p></td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 <span></span></p></td></tr></tbody></table>
+
+## ベストプラクティス
+
+このコネクターは、トピックごとにニュース見出しの所定のフィードを提供します。そのため、関心のあるトピックの選択が容易です。ただし、各レポートに新しい接続を作成する必要があることに注意してください。
+
+## 必要条件
+
+認証情報は不要です。
+
+## CNN DataSetを作成する
+
+このセクションでは、CNN RSS ConnectorページでCNN DataSetを作成する方法を説明します。このページのほかのペインの項目である **スケジュール設定** や **DataSetの名前と説明** に関しては、ほとんどのコネクタータイプで共通しています。詳細については [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、CNNレポートのタイプを選択する単一のメニューがあります。
+
+下表に、 Domo CNN RSS Connectorを使用して作成できる所定のレポートすべてを記載しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ビジネス </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ビジネス関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> CNN学生向けニュース </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 学生向けニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 犯罪 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 犯罪関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エンターテインメント </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> エンターテインメント関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 健康 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 健康関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 生活 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 生活関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最も人気 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最も人気のあるニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最新 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最新ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 政治 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 政治関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> テクノロジー </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最新テクノロジー関連ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 旅行 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 旅行関連のニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> トップニュース </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 最新のトップニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 米国関連のニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 動画 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 動画ニュースの情報を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 国際 </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 国際ニュースの情報を返します。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、オプションの更新など、このページにないセクションに記載のコネクターインターフェースについては、「 [データコネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "データコネクターを使用してDataSetを追加する") 」を参照してください。
+
+## トラブルシューティング
+
+コネクターが正しいレポートを取得していること、および必要なスケジュールに従っていることを確認してください。
+
+## よくある質問
+
+<AccordionGroup>
+<Accordion title="# データ更新の頻度はどのくらいですか？">
+
+
+CNN RSSフィードは、CNNが選択したフィードに新しい記事を公開したときに、更新されます。コネクターは、コネクターのスケジュール設定に従って、新しい記事を取得します。
+
+
+</Accordion>
+<Accordion title="# 注意すべきAPI制限はありますか？">
+
+
+ありません。
+
+
+
+</Accordion>
+</AccordionGroup>

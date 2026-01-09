@@ -1,0 +1,184 @@
+---
+title: "Versionshinweise für März 2021"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## Neue Merkmale und Verbesserungen
+
+In dieser Version gibt es folgende Funktionen und Verbesserungen:
+
+### Erstellen Sie Ihren eigenen Writeback-Konnektor
+
+Verwenden Sie die Konnektor-IDE zum Erstellen eines Writeback-Konnektors, um Daten von Domo an Ihre externen Systeme zu senden. Writeback-Konnektoren ermöglichen Ihnen, Daten zwischen Ihren Unternehmenssystemen zu teilen, die derzeit nicht miteinander kommunizieren. Und wenn Sie in der Domo-Bibliothek nicht das finden, was Sie benötigen, haben Sie nun die Möglichkeit, Ihre eigene zu erstellen. Weitere Informationen finden Sie unter [https://developer.domo.com/docs/writeback-connectors/build](https://developer.domo.com/docs/writeback-connectors/build "https://developer.domo.com/docs/writeback-connectors/build").
+
+### Data Science-Homepage
+
+Die Data Science-Homepage enthält alle leistungsstarken Data Science-Tools an einem Ort, bietet Schnellzugriff auf die Data Science-Tools, Produkt- und Service-Beschreibungen und erläutert, wo Sie welche Tools einsetzen können, um die Datenwissenschaft schneller umfassend zu nutzen. Weitere Informationen finden Sie auf der Data Science-Homepage.
+
+<Frame><img alt="Data_Science_Home_Page.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnR.png"/></Frame>
+### Python- und R-SDK-Verbesserungen
+
+Die R- und Python-SDKs wurden aktualisiert und verwenden nun in beiden Sprachen dieselben Funktionsnamen und verfügen jeweils über dieselben Funktionen. Weitere Informationen finden Sie unter [https://developer.domo.com/docs/domo-sdks/sdks](https://developer.domo.com/docs/domo-sdks/sdks "https://developer.domo.com/docs/domo-sdks/sdks").
+
+### Filteransichten
+
+Filteransichten ermöglichen Ihnen, durch Anpassung ein einzelnes Dashboards die Anforderungen aller Zielgruppen zu erfüllen.
+
+Mit Filteransichten können Sie:
+
+* personalisierte Ansichten speichern, die nur Sie sehen können.
+* wichtige Ansichten prüfen und freigeben, um den Blick auf eine bestimmte Perspektive auszurichten.
+* eine beliebige Anzahl personalisierter Datengeschichten für jede Person mit beliebiger Rolle bereitstellen.
+* festlegen, welche gespeicherte Filteransicht als „Standard“ für ein Dashboard verwendet werden soll.
+
+Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene und Filteransichten](/s/article/360042923914 "Anwenden von Filtern auf Seitenebene (mit Filteransichten) (BETA)").
+
+<Frame><img alt="Filter_Views.png" src="/images/kb/ka05w00000129sa-00N5w00000Ri7BU-0EM5w000005wL7P.png"/></Frame>
+### Einstellungen für Seitenfilter
+
+Mit den Einstellungen für Seitefilter können Sie nun festlegen, wie Ihre Benutzer mit Karten in Ihrem Dashboard interagieren können. Sie können **Hinzufügen neuer Filter zulassen** deaktivieren, sodass Benutzer nur Karteninteraktionen zum Filtern verwenden können. Sie können die Datenfilter auch deaktivieren, wenn Ihr Dashboard auf einen bestimmten Zeitrahmen ausgelegt ist.Weitere Informationen finden Sie unter [Anwenden von Filtern auf Seitenebene und Filteransichten](/s/article/360042923914 "Anwenden von Filtern auf Seitenebene (mit Filteransichten) (BETA)").
+
+### Sicherheitsoptionen für geplante Berichte
+
+Mit den neuen Sicherheitsoptionen für geplante Berichte verfügen Administratoren nun über die Möglichkeit, die Option **Auf Domo-Benutzer begrenzen** zu aktivieren. Wenn diese Option verwendet wird, werden geplante Berichte für alle externen E-Mail-Adressen von Domo blockiert. Die Berichte gehen nur an die E-Mail-Adressen, die mit dem vorhandenen Konto verknüpft sind. Weitere Informationen finden Sie unter [Zeitplanung von Berichten](/s/article/360043437773 "Zeitplanung von Berichten").
+
+### Dashboards mit automatischer Breite
+
+Mit der Option für die automatische Einstellung der Breite des Dashboards wird der Inhalt des Dashboards so erweitert, dass der gesamte verfügbare Platz genutzt wird. So sind mehr Zeilen/Spalten in der Dashboard-Ansicht verfügbar. Diese Option wird für jedes Dashboard individuell festgelegt, sodass Sie Ihre Geschichten anpassen können. Weitere Informationen finden Sie unter [Erstellen von Domo-Geschichten](/s/article/360043428433 "Erstellen von Domo-Geschichten").
+
+### Neue benutzerdefinierte Diagramm-Importtypen
+
+Mit den neuen benutzerdefinierten Diagramm-Importtypen haben Sie nun die Möglichkeit, benutzerdefinierte Diagramme aus mehr als nur SVG-Dateien zu erstellen.
+
+Die folgenden Formate werden unterstützt:
+
+* **KML (Keyhole Markup Language):** Dateiformat, das für die Anzeige geografischer Daten in einem Earth-Browser (z. B. Google Earth) verwendet wird.
+* **GeoJSON:** Offenes Standardformat für die Darstellung einfacher geografischer Funktionen und ihrer nicht räumlichen Attribute.
+* **TopoJSON:** GeoJSON-Erweiterung, die zum Codieren der Topologie von Geodaten verwendet wird und in der Regel für kleinere Dateigrößen sorgt.
+* **Shape:** Standardmäßiges ESRI-Dateiformat. Umfasst räumliche Vektordaten (Google Earth importieren und als KML exportieren).
+
+Weitere Informationen finden Sie unter [Benutzerdefinierte Diagramme](/s/article/360042924454 "Benutzerdefinierte Diagramme").
+
+### Abweichende Farben
+
+Abweichende Farben ermöglichen Ihnen, schnell und problemlos eine Bereichsverteilung zu erstellen und anzuzeigen, indem Sie mehrere Farbthemen miteinander kombinieren. Sie können eine beliebige Start- und Endfarbe auswählen. Sie können auch die Anzahl der zu verwendenden Bereiche festlegen. Mit abweichenden Farben können Sie außerdem Ihren Mittelpunkt steuern. Sie können den Wert und die Farbe des Mittelpunkts auswählen oder festlegen, den Mittelpunkt nicht einzuschließen. Verwenden Sie abweichende Farben beispielsweise, um Hot- zu Cold-Trends Ihrer Daten besser sichtbar zu machen, indem Sie ein rotes Thema mit einem grünen kombinieren, um einen kompletteren Wertebereich anzuzeigen. Abweichende Farben bieten Flexibilität für Karten und Wärmebild-Karten. Weitere Informationen finden Sie unter [Wärmebild](/s/article/360042924634 "Wärmebild").
+
+<Frame><img alt="Heat_Map_Example.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmu.png"/></Frame>
+### Wochenansicht in Kalenderkarten
+
+Diese neue Option ermöglicht die Anzeige einer Wochenansicht in Kalenderkarten. Sie können wochenweise navigieren und den angezeigten Anfangstag der Woche individuell festlegen. Weitere Informationen finden Sie unter [Kalender](/s/article/360043427973 "Kalender").
+
+<Frame><img alt="Calendar_Week.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnN.png"/></Frame>
+### Gantt-Abhängigkeitsdiagramm
+
+Das Gantt-Abhängigkeitsdiagramm übernimmt die Verarbeitung von Datenänderungen für Sie und bietet zahlreiche neue Anzeigeoptionen für die Kommunikation von Projekt-Timelines, darunter:
+
+* Enddatum aus Abhängigkeitsdaten und Daten zur Dauer berechnen
+* Beziehungen zwischen Abhängigkeitsdaten anzeigen
+* Meilensteine anzeigen
+* Projekte und untergeordnete Projekte als Hierarchie anzeigen
+* Nachverfolgung und Darstellung von Ressourcen im Diagramm zulassen
+* Intelligente Datenberechnungen – Wochenenden können automatisch berücksichtigt oder angezeigt werden
+
+Weitere Informationen finden Sie unter [Gantt-Abhängigkeitsdiagramm](/s/article/1500003419382).
+
+<Frame><img alt="Dependency_Gantt_Chart.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKn6.png"/></Frame>
+### Farbbereiche für Statusanzeige-Diagramme
+
+In Statusanzeige-Diagrammen stehen nun bis zu vier Farbbereiche zur Verfügung, mit denen Sie Ihr Diagramm weiter verbessern können. Sie können für jeden Bereich einen Minimal- und Maximalwert angeben und die jeweilige Farbe auswählen, die angezeigt werden soll. Weitere Informationen finden Sie unter [Fortschrittsindikator](/s/article/360043429493 "Fortschrittsindikator").
+
+<Frame><img alt="Progress_Bar.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmw.png"/></Frame>
+### Erstellen von Trellis-Diagrammen „Oberer n“
+
+Die Trellis-Diagramm-Eigenschaft ermöglicht Ihnen nun, nur den oberen/unteren „n“ einer Kategorie anzuzeigen. Beispiel: Top5-Kunden nach Region. Die Trellis-Diagramm-Eigenschaft ist für die meisten Diagrammtypen verfügbar. Weitere Informationen finden Sie unter [Für die meisten Diagramme verfügbare Eigenschaften](/s/article/360043429793 "Für die meisten Diagramme verfügbare Eigenschaften").
+
+<Frame><img alt="Trellis_Chart.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKmr.png"/></Frame>
+### Verbesserungen der Analyzer-Benutzeroberfläche
+
+Die folgenden Verbesserungen erleichtern das Arbeiten in Analyzer:
+
+* Die Zeilenbegrenzung in Analyzer befindet sich jetzt in „Filtern und Sortieren“.
+* „Filtern und Sortieren“ wurde in einen Bereich zusammengefasst.
+* Das Dropdown-Feld „Sammelnummer“ sowie Formatänderungen werden nun automatisch gespeichert, sodass Sie nicht mehr auf „Anwenden“ klicken müssen.
+
+Weitere Informationen finden Sie unter [Analyzer-Layout](/s/article/360042924034 "Analyzer-Layout").
+
+<Frame><img alt="Analyzer_Improvements_Slow.gif" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnT.gif"/></Frame>
+### Gespeicherte Suche
+
+Mit der Funktion zum Speichern von Suchanfragen können Sie häufige Suchanfragen speichern und problemlos wiederfinden – unabhängig davon, wie komplex sie sind. Weitere Informationen finden Sie unter Suchen in Domo.
+
+<Frame><img alt="Saved_Search_edit.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnJ.png"/></Frame>
+### Regionale Formatierung für multinationale Unternehmen
+
+Die regionale Formatierung ermöglicht Administratoren, das Datums- und Zahlenformat je nach Region global für die Domo-Plattform festzulegen. Benutzer können nun ihre Region und ihre Sprache auswählen. Die Formatierungskonvention basierend auf Ihrer Region wird zur Anzeige von numerischen, finanziellen und Datums-/Zeitwerten basierend auf Ihrer Region verwendet. Weitere Informationen finden Sie unter [Festlegen der Zeitzone und regionalen Formatierung](/s/article/360042934394 "Festlegen der Zeitzone").
+
+<Frame><img alt="Regional_Formatting_User.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnD.png"/></Frame>
+### Unterstützung von Bildschirmleseprogrammen in Geschichten
+
+Bildschirmleseprogramme in Geschichten unterstützen nun mehr Bildschirmleseprogramme und Tastaturen, sodass Kunden Domo-Inhalte besser barrierefrei verfügbar machen können. Die verbesserte Domo-Zugriffsfunktion ermöglicht Kunden, mit Bildschirmleseprogrammen kompatible Karten zu gestalten, Geschichten zu finden, Layouts zu übertragen und Kartendetails zu lesen. Weitere Informationen finden Sie unter [Unterstützung von Bildschirmleseprogrammen in Geschichten](/s/article/1500003263261 "Unterstützung von Bildschirmleseprogrammen in Geschichten").
+
+<Frame><img alt="Screen_Reader.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKn4.png"/></Frame>
+### Buzz-Status
+
+Mit der Funktion „Buzz-Status“ können Sie Ihren Status in Web oder Mobile auf **Verfügbar**, **Beschäftigt**, **Abwesend** oder **Nicht am Arbeitsplatz** festlegen. Wenn Ihnen jemand eine One-on-One-Nachricht sendet oder Sie in einer Konversation @erwähnt werden und Ihr Status nicht „Verfügbar“ ist, sieht die Person eine Warnmeldung mit dem Hinweis, dass Sie nicht verfügbar sind. Sie können auch eine benutzerdefinierte Nachricht zu Ihrer Statusmeldung bei Nichtverfügbarkeit hinzufügen. Ihr aktueller Status wird mit einem Symbol auf Ihrem Avatar angezeigt. Weitere Informationen finden Sie unter [Buzz-Layout](/s/article/360043429973 "Buzz-Layout").
+
+<Frame><img alt="Buzz_Mobile.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnM.png"/></Frame>
+## Premium-Funktionen
+
+Diese Funktionen sind auf Anfrage verfügbar und kostenpflichtig. Wenn Sie möchten, dass diese Funktionen aktiviert werden, kontaktieren Sie Ihren Kundenerfolgsmanager (CSM), technischen Berater (TC) oder Kundenbetreuer (AE) von Domo. Wenn Sie die Kontaktinformationen Ihres CSM, TC oder AE nicht kennen, wenden Sie sich an den technischen Support. Lesen Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern") nach, wie Sie den Support kontaktieren können. Je nach Funktion müssen Sie eventuell eine Schulung abschließen, bevor Sie die Funktion verwenden können.
+
+### Adrenaline-DataFlow
+
+Ein Adrenaline-DataFlow ist ein Adrenaline-unterstütztes, intern entwickeltes, umfassendes Hochleistungstool für die Datentransformation massiver DataSets in Domo. Es ermöglicht Ihnen, die Investitions- und Leistungsverbesserungen der Adrenaline-Engine voll auszunutzen. Adrenaline-DataFlows sind SQL-Skript-basierte Transformationsschnittstellen (vergleichbar mit MySQL- und RedShift-DataFlows). Weitere Informationen finden Sie unter [Erstellen von Adrenaline-DataFlows](/s/article/360063698733 "Erstellen von Adrenaline-DataFlows").
+
+### AutoML (Maschinenlernen)
+
+Mit Domo-AutoML können Sie Dutzende von ML-Modellen mit nur wenigen Klicks schulen und die Modelle mit der besten Leistung bereitstellen. Gelangen Sie schneller von Daten zu Modellen und zu Ergebnissen.
+
+Domo erleichtert Ihnen Folgendes:
+
+* Schulen und stimmen Sie Dutzende von ML-Modellen automatisch ab.
+* Starten Sie Hunderte von Schulungsaufträgen auf einem beliebigen DataSet in Domo, um das Modell zu finden, das die beste Leistung für Ihre Aufgabe erzielt.
+* Stellen Sie das Modell auf Ihrem DataSet mit der neuen AutoML-Kachel in Magic ETL im Handumdrehen bereit.
+* Alles, was Sie für einen erfolgreichen Einsatz von AutoML benötigen, ist ein klar definiertes Problem – Domo kümmert sich um den Rest.
+
+Weitere Informationen finden Sie unter [AutoML (Maschinenlernen)](/s/article/360048127854 "AutoML (Maschinenlernen)").
+
+### Integration Studio
+
+Integration Studio ermöglicht Ihnen, verschiedenartige Geschäftssysteme miteinander zu verknüpfen, die andernfalls nicht in der Lage wären, Daten gemeinsam zu nutzen. Transformieren Sie Daten oder fügen Sie Data Science und AI hinzu, bevor Sie die Daten mit der Writeback-Kachel in Magic ETL freigeben. Weitere Informationen finden Sie unter [Integration Studio](/s/article/360045163773 "Integration Studio (Beta)").
+
+### Campaigns App SMS
+
+Das Campaigns App SMS-Add-on bietet Ihnen die Möglichkeit, SMS-Nachrichten in Domo programmgesteuert zu senden. So können Sie Domo-fremde Benutzer automatisch über verschiedene Wege kontaktieren, um beispielsweise folgende Elemente zu senden: Kunden-Terminerinnerungen, Benachrichtigungen zu Dienstplänen für Personal und Vertragspartner,  Zahlungserinnerungen, Versand-Updates, „Produkt wieder auf Lager“-Mitteilungen usw.
+
+Verwenden Sie das Campaigns App SMS-Add-on für Folgendes:
+
+* Lesen Sie Mobilfunktelefonnummern aus einem Domo-DataSet aus, um Ihre Empfängerliste auszufüllen.
+* Bereiten Sie den Textinhalt von SMS-Nachrichten manuell vor oder lassen Sie ihn programmgesteuert mit Werten aus dem Domo-DataSet ausfüllen.
+* Senden Sie manuell einen SMS-Nachrichten-Blast, planen Sie seine Ausführungszeit oder lösen Sie ihn mithilfe von DataSet-Mitteilungen aus.
+
+Weitere Informationen finden Sie unter [Domo Campaigns App](/s/article/360042933494 "Domo Campaigns App").
+
+<Frame><img alt="Campaigns_App.png" src="/images/kb/ka05w00000129sg-00N5w00000Ri7BU-0EM5w000005wKnL.png"/></Frame>
+## Hilfe anfordern
+
+Sie können die neuesten Versionshinweise im Hilfecenter aufrufen. Auf das Hilfecenter können Sie von Domo aus zugreifen, wenn Sie in der Navigationsleiste oben auf <InlineImage src="/images/kb/ka05w00000126sz-00N5w00000Ri7BU-0EM5w000005vOdd.png" /> klicken.
+
+Bei Fragen zu Domo
+
+* suchen Sie im Hilfecenter nach einem Thema
+* das Training finden Sie in der Domo University unter
+  [http://domo.com/university/](http://www.domo.com/university/ "http://www.domo.com/university/")
+* suchen Sie im AppStore nach Schulungs-Apps
+* erhalten Sie Antworten in der Domo-Community unter
+  [https://dojo.domo.com](https://dojo.domo.com/ "https://dojo.domo.com")
+* wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im Domo-Supportportal einreichen
+* wenden Sie sich an Ihren Domo-Customer Success Manager oder technischen Berater
+
+Ihr Feedback können Sie über Domo übermitteln (**Mehr** > ****Feedback****). Alternativ können Sie eine E-Mail an [product.feedback@domo.com](mailto:product.feedback@domo.com "product.feedback@domo.com") senden.
+
+Weitere Informationen dazu, wie Sie Hilfe erhalten können, finden Sie unter [Hilfe anfordern](/s/article/360042922874 "Hilfe anfordern").
+

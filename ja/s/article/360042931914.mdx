@@ -1,0 +1,185 @@
+---
+title: "CSV SFTPプッシュコネクター"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+## はじめに
+
+文字区切り値（CSV）ファイルは、表形式データをプレーンテキスト形式で保存します。Domoが提供する2つのコネクターを使用すると、SFTP（Secure File Transfer Protocol）サーバーにアップロードされたCSVファイルにアクセスできます。
+
+* DomoのCSV SFTPプルコネクター（旧称は「CSV-SFTP」コネクター）を使用すると、専用のSFTPサーバーにアップロードしたCSVファイルにアクセスできます。
+* Domo CSV SFTPプッシュ Connectorを使うと、Domo自体のSFTPにアップロード済みのCSVファイルを取得し、処理できます。このコネクターを使うと、Domoにより認証情報が発行され、データをDomoに送信できるようになります。
+
+この記事では、CSV SFTPプッシュコネクターについて説明します。CSV SFTPプルコネクターの詳細は、「 [CSV SFTPプルコネクター](/ja/s/article/360042931894 "CSV-SFTPコネクター")
+
+」を参照してください。
+
+CSV SFTPプッシュコネクターは「ファイル」コネクターです。つまり、ファイルを取得してDomoに出力します。Data Centerでこのコネクターやほかのファイルコネクターのページにアクセスするには、ウィンドウ上部のツールバーで **［ファイル］** をクリックします。
+
+CSVファイルにはData Centerから接続します。このトピックでは、CSV SFTPプッシュコネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+Domo側のSFTPサーバーに接続し、CSVファイルをインポートするには、.pem形式のアクセスキーが必要です。キーがない場合は、Domoで生成できます。
+
+## CSVファイルをSFTPサーバーに送信する
+
+このセクションでは 、CSV SFTPプッシュコネクターページの **［認証情報］** ペインと **［詳細］** ペインで接続を設定し、CSVオプションを設定する方法について説明します。このページのほかのペインである **［アップデートモード］** や **［DataSetに名前を付け、説明を入力** ］におけるコンポーネントは、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+****DomoがホストするSFTPサーバーにファイルを送信してCSV DataSetを追加するには：****
+
+1. <InlineImage src="/images/kb/ka05w00000124Tr-00N5w00000Ri7BU-0EM5w000005vPKS.png" /> > ****［Data Center］**** の順に選択します。
+2. ウィンドウ上部のタブ行にある ****［ファイル］**** をクリックします。
+3. コネクターリストで ****［CSV SFTP］**** を探し、クリックします。
+4. **［アカウントに名前を付ける］** フィールドに新しいアカウントの名前を入力します。
+     
+   このアカウントは、 [コネクターの［アカウント］ページ](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") でこの名前によって特定されます。
+5. 以下のいずれかを行います。
+
+   * キーを生成する場合
+
+     1. ****［キーを生成してください］**** を選択します。
+     2. キーファイルは1回しかダウンロードできないことを確認するチェックボックスをオンにします。
+     3. ****［キーを作成］**** をクリックします。
+          
+        キーが.pem形式でダウンロードされます。
+   * 自分のキーを入力する場合
+
+     1. ****［自分のキーを使う］**** を選択します。
+     2. RSAパブリックキーを空白のボックスに貼り付けます。
+     3. ****［キーを保存］**** をクリックします。
+6. （条件付き）CSVファイルの最初の行が見出し行となっていない場合、ヘッダー行番号を **［ヘッダー行］** フィールドに入力します。見出し行となっている場合は、このフィールドを空白のままにします。
+7. ****［区切り文字］**** メニューのCSVファイルで、使う区切り文字を選択します（これを自動的に判断させる場合は、 **［区切り文字を検出］** の設定をこのままにしておきます）。
+8. （条件付き）インポートから除外する行がファイルの終わりに1つまたは複数ある場合は、**［フッター行をスキップ］** に、スキップする行数を入力します。以上に該当しない場合、このフィールドは空白のままにします。
+9. （条件付き）CSVファイル内のデータが、ヘッダー行の次の行以外の行から開始している場合、**［開始データ行］** フィールドに行番号を入力します。以上に該当しない場合、このフィールドは空白のままにします。
+10. エスケープ文字を **［エスケープ文字］** メニューから選択します。
+11. 引用文字を **［引用文字］** メニューから選択します。
+12. （条件付き）Domoを使ってエンコーディングタイプを自動検出する場合は **［エンコードを検出］** チェックボックスをオンのままにしておきます。自動検出が不要な場合はこのチェックボックスをオフにし、 **［エンコード］** メニューで目的のエンコーディングを選択します。
+13. （条件付き）「0123」のように数値の先頭に0（ゼロ）を表示する場合は、このチェックボックスを選択します。
+
+    **注記：** これにより、値がテキストとして解析されます。
+14. **［日付形式］** フィールドで日付形式を選択します。
+15. **［次］** をクリックします。
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+### SFTPクライアントを使用してCSVファイルをアップロードする
+
+SFTPクライアントを使うとCSVファイルをDomo SFTPサーバーにアップロードできます。ここでは、FileZilla SFTPクライアント（ [https://filezilla-project.org](https://filezilla-project.org/ "https://filezilla-project.org") ）を使ってアップロードする方法を説明します。ほかのSFTPクライアントを使うファイルのアップロード方法については、ご使用になっているクライアントのマニュアルを参照するか、Google検索などを利用してください。
+
+****FileZillaを使ってDomo SFTPサーバーにCSVファイルを送信するには：****
+
+1. 「 CSVファイルをSFTPサーバーに送信する 」の説明に従って、CSVコネクターをDomoで設定します。
+2..pemファイルをご使用のマシンのディレクトリに移動します。
+     
+   この例では、/sftpディレクトリを使用しています。
+3. 新しいDataSetのID（DataSetの［詳細］ビューの ****［アップロード方法］**** タブ内に表示）と同じ名前のCSVファイルを/sftpディレクトリ下に作成します。
+     
+   例えば、DataSetのIDがcb4ba6a0-0934-440f-8572-1253b9f7525aの場合、CSVファイルの名前はcb4ba6a0-0934-440f-8572-1253b9f7525a.csvとなります。
+4. FileZillaのサイトマネージャーで新規サイトを作成します。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7N.png"/></Frame>
+
+5. ****［General］**** タブで次のように設定します。
+     
+   <table><thead><tr><th colspan="1" rowspan="1"><p> 設定 </p></th><th colspan="1" rowspan="1"><p> 手順 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> DataSetの［詳細］ビューの <b><b> ［アップロード方法］ </b></b> タブに表示される <b><b> ホスト名 </b></b> のURLを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> 「22」と入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Protocol </p></td><td colspan="1" rowspan="1"><p><b><b> ［SFTP］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Logon Type </p></td><td colspan="1" rowspan="1"><p><b><b> ［Key file］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> User </p></td><td colspan="1" rowspan="1"><p> DataSetの［詳細］ビューの <b><b> ［アップロード方法］ </b></b> タブにある <b><b> ［ユーザー名］ </b></b> の隣に表示される値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Key file </p></td><td colspan="1" rowspan="1"><p> ファイルブラウザで.pemキーを探します。 </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7D.png"/></Frame>
+
+6. 先ほど設定したサイトへの接続を開きます。
+7. ローカルファイルウィンドウからリモートサイトウィンドウに、アップロードするCSVファイルをドラッグします。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7I.png" style={{width: 720, height: 139}}/></Frame>
+
+8. 接続を切るか、FileZillaを終了します。
+
+ここで、ファイルをDomoにアップロード中であると表示されます。
+
+### コマンドラインを使ってCSVファイルをアップロードする
+
+CSVファイルは、コマンドラインクライアントを使ってDomo SFTPサーバーに送信できます。この方法はMacまたはLinuxシステム専用です。Windowsでは機能しない場合があります。
+
+****コマンドラインを使ってCSVファイルをDomo SFTPサーバーに送信するには：****
+
+1. 「 CSVファイルをSFTPサーバーに送信する 」の説明に従って、CSVコネクターをDomoで設定します。
+2..pemファイルをご使用のマシンのディレクトリに移動します。
+     
+   この例では、/sftpディレクトリを使用しています。
+3. 新しいDataSetのID（DataSetの［詳細］ビューの ****［アップロード方法］**** タブ内に表示）と同じ名前のCSVファイルを/sftpディレクトリ下に作成します。
+     
+   例えば、DataSetのIDがcb4ba6a0-0934-440f-8572-1253b9f7525aの場合、CSVファイルの名前はcb4ba6a0-0934-440f-8572-1253b9f7525a.csvとなります。
+4. /sftpディレクトリで次のコマンドを使い、SFTPサーバーに接続します。
+     
+   `sftp –i
+
+   domosftpkey.
+
+   pem
+
+   username @
+
+   mycompany. import.domo.com`
+     
+   ここで **username** は ****［アップロード方法］**** タブの ****［ユーザー名］**** に対応する値、 **domosftpkey.pem** はお使いのキー名、 **mycompany** はお使いのDomoドメイン（お使いのDomoインスタンスのURLで「 http:// 」> のすぐ後に続く部分）です。
+5. CSVファイルをアップロードするときは次のコマンドを使います。
+     
+   `put cb4ba6a0-0934-440f-8572-1253b9f7525a.csv`
+6. サーバーを終了するには「quit」と入力します。
+     
+   サーバーを終了すると、ファイルがDomoで処理中になることがわかります。
+
+サーバーに接続しようとすると、次のメッセージが表示される可能性があります。
+
+<Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7K.png"/></Frame>
+
+その場合は次のコマンドを実行し、再度接続を試みます。
+
+`chmod 600 /sftp/
+
+domosftpkey.pem`
+
+この「 **domosftpkey.pem** 」は、自分のキーの名前です。
+
+### サードパーティのサービスを使用してCSVファイルをアップロードする
+
+CSVファイルは、様々なサードパーティのサービスを使ってDomo SFTPサーバーに送信できます。こちらではAdobe Analyticsを使ってアナリティクスレポートを送信する方法を説明します。ほかのサービスを使ってファイルをアップロードする方法の詳細については、該当するサービスの資料を参照するか、Google検索などを利用してください。
+
+****Adobe Analytics CSVファイルをDomo SFTPサーバーに送信するには：****
+
+1. 「 CSVファイルをSFTPサーバーに送信する 」の説明に従って、CSVコネクターをDomoで設定します。以下のオプションが設定されていることを確認します。
+
+   * ****［キーを生成または選択］**** で ****［自分のキーを使う］**** オプションを選択します。ここでAdobeから受け取ったRSAパブリックキーをテキストフィールドに貼り付けます。
+   * ****［解析オプション］**** で、以下のように設定します。
+
+     + 区切り文字を ****［カンマ］**** に設定します。
+     + Adobeでヘッダー行を除外するよう設定してある場合を除き、****［ヘッダー行を含む］**** チェックボックスをオンのままにします。
+2. Adobe Analyticsに切り替え、アカウントにログインします。
+3. ****［Tools］、［Data Warehouse］**** の順に進みます。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7M.png"/></Frame>
+
+4. ****［Data Warehouse Request］**** タブで、Domoに送信するレポートを定義するとき必要なパラメータをすべて入力します。これに該当するパラメータには、 ****Request Name**** 、 ****Reporting Date**** 、 ****Segments**** 、 ****Items**** 、 ****Breakdowns**** 、 ****Metrics**** などがあります。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7A.png"/></Frame>
+
+5. ページ下部にある ****［Schedule Delivery］**** セクションで ****［Advanced Delivery Options］**** をクリックします。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7J.png"/></Frame>
+
+6. 次のように配信オプションを設定します。
+
+   <table><thead><tr><th colspan="1" rowspan="1"><p> 設定 </p></th><th colspan="1" rowspan="1"><p> 手順 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report file name </p></td><td colspan="1" rowspan="1"><p><b><b> ［Custom］ </b></b> を選択し、Domo DataSet IDに拡張子「.csv」を付けてテキストフィールドに入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Format </p></td><td colspan="1" rowspan="1"><p><b><b> ［CSV］ </b></b> を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Destination </p></td><td colspan="1" rowspan="1"><p><b><b> ［FTP］ </b></b> を選択します。ここでフィールドに以下の情報を入力します。 </p><table><tbody><tr><td colspan="1" rowspan="1"><p> Host </p></td><td colspan="1" rowspan="1"><p> sftp:// <em><em> hostname </em></em> （Domoの <b><b> ［アップロード方法］ </b></b> タブに記載。例：s <a href="ftp://modocorp.import.domo.comな" rel="noopener" target="_blank"> ftp://modocorp.import.domo.comな </a> ど） </p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> 22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Directory </p></td><td colspan="1" rowspan="1"><p> Domoの <b><b> ［アップロード方法］ </b></b> タブにある <b><b> ［ユーザー名］ </b></b> の値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Domoの <b><b> ［アップロード方法］ </b></b> タブにある <b><b> ［ユーザー名］ </b></b> の値を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> 空白のままにします。Adobeは先ほどのステップ1で入力したRSAパブリックキーを使用します。 </p></td></tr></tbody></table><p> 適宜、 <b><b> ［Scheduling Options］ </b></b> タブをクリックし、1回のみ有効の即時配信にするか、定期スケジュールにするかを指定することもできます。 </p></td></tr></tbody></table>
+
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7L.png"/></Frame>
+
+7. アドバンス配信オプションをすべて指定したら、****［Send］**** をクリックします。
+     
+   ****［Data Warehouse Request］**** ページに戻ります。
+8. ****［Request this Report］**** をクリックして、設定をすべて保存します。
+     
+   <Frame><img alt="" src="/images/kb/ka05w00000123Mu-00N5w00000Ri7BU-0EM5w000005vO7C.png"/></Frame>
+
+これでレポートがAdobeのキューに入り、準備ができたところでDomoに配信されます。このリクエストをAdobeが実行完了するまで多少時間がかかる場合があります。
+
+

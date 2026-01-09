@@ -1,0 +1,43 @@
+---
+title: "Yahoo! Japan Search Adsコネクター"
+---
+
+## はじめに
+
+Yahoo! Japan Corporationは、元はアメリカのインターネット企業Yahoo!（現在のAltaba）と日本の企業SoftBankの合弁会社として設立された日本のインターネット企業です。Yahoo! Japan Marketing Solutions APIについての詳細は、ウェブサイト（ [https://biz.marketing.yahoo.co.jp/de...er-en/program/](https://biz.marketing.yahoo.co.jp/developercenter-en/program/ "https://biz.marketing.yahoo.co.jp/developercenter-en/program/") ）を参照してください。
+
+Yahoo! Japan Search Adsコネクターアカウントには、Data Centerから接続します。このトピックでは、Yahoo! Japan Search Adsコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加や更新スケジュールの設定、DataSet情報の編集に関する一般的な情報は、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Yahoo! Japan Search Adsアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* APIアクセス専用アカウントID（アプリケーションアカウントID。形式：xxxx-xxxx-xxxx-xxxx）
+* アプリケーションアカウントIDに設定されたパスワード（onBehalfOfAccountId）
+* スポンサードサーチまたはYahoo! Japan Display Ads NetworkアカウントID（API経由でアクセスするためのもの）
+
+これらの認証情報の入手については、Yahoo! Japanのアカウント担当者にお問い合わせください。
+
+## Yahoo! Japan Search Adsアカウントに接続する
+
+このセクションでは、Yahoo! Japan Search Adsコネクターページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Yahoo! Search Adsアカウントに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Application Account ID </p></td><td colspan="1" rowspan="1"><p> APIアクセス専用アカウントID（アプリケーションアカウントID。形式：xxxx-xxxx-xxxx-xxxx）を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Application Account Password </p></td><td colspan="1" rowspan="1"><p> アプリケーションアカウントパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Account ID </p></td><td colspan="1" rowspan="1"><p> スポンサードサーチまたはYahoo! Japan Display Ads NetworkアカウントIDを入力します。 </p></td></tr></tbody></table>
+
+有効なYahoo! Search Adsの認証情報を一度入力しておくと、随時同じアカウントを利用して新しいYahoo! Search Ads DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、メインの **［Reports］** メニューのほか、レポートを設定するための様々なメニューが含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> 実行するYahoo! Japan Search Adsレポートを選択します。現在利用できるレポートは1つだけです。 </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"> Impossible Field Combinations </td><td colspan="1" rowspan="1"> 選択したレポートタイプに対応する不可能なフィールドの組み合わせデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Report Service </td><td colspan="1" rowspan="1"> Yahoo! Japan Search Adsから、選択したアカウントIDとレポートタイプにもとづくデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Report Type </p></td><td colspan="1" rowspan="1"><p> 目的のレポートタイプを選択します。 </p><table border="1"><tbody><tr><th colspan="1" rowspan="1"> レポートタイプ </th><th colspan="1" rowspan="1"> 説明 </th></tr><tr><td colspan="1" rowspan="1"> Account </td><td colspan="1" rowspan="1"> アカウントに関するデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad </td><td colspan="1" rowspan="1"> 広告データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Display Option </td><td colspan="1" rowspan="1"> 広告表示オプションデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Ad Group </td><td colspan="1" rowspan="1"> 広告グループデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Bidding </td><td colspan="1" rowspan="1"> 入札データを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Campaign </td><td colspan="1" rowspan="1"> キャンペーンデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Geo </td><td colspan="1" rowspan="1"> ジオデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Geo Targeting </td><td colspan="1" rowspan="1"> ジオターゲティングデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Keyword </td><td colspan="1" rowspan="1"> キーワードデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Landing Page </td><td colspan="1" rowspan="1"> ランディングページデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Schedule Targeting </td><td colspan="1" rowspan="1"> スケジュールターゲティングデータを返します。 </td></tr><tr><td colspan="1" rowspan="1"> Search Query </td><td colspan="1" rowspan="1"> 検索クエリデータを返します。 </td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Account ID </p></td><td colspan="1" rowspan="1"><p><span> アカウントIDを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Report Fields </p></td><td colspan="1" rowspan="1"><p> レポートに表示する列を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Language </p></td><td colspan="1" rowspan="1"><p> 結果をフィルターする言語を選択します（デフォルトは英語）。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sort Type </p></td><td colspan="1" rowspan="1"><p> データを昇順または降順で並べ替えるか、並べ替えを行わないかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Sort Field </p></td><td colspan="1" rowspan="1"><p> 並べ替えの基準となる列を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter </p></td><td colspan="1" rowspan="1"><p> レポートにフィルターを設定するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter 1...6 </p></td><td colspan="1" rowspan="1"><p> レポートのフィルターを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Operator 1...6 </p></td><td colspan="1" rowspan="1"><p> レポートの演算子を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Filter Value 1...6 </p></td><td colspan="1" rowspan="1"><p> レポートフィルターの値を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Date Range </p></td><td colspan="1" rowspan="1"><p> 日付範囲を選択します。 </p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+

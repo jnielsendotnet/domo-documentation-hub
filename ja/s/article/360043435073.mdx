@@ -1,0 +1,33 @@
+---
+title: "Trello Connector"
+---
+
+## はじめに
+
+Trello は、ウェブベースの無料プロジェクト管理アプリケーションです。 Domo のTrello Connector を使用すると、組織やそのメンバー、ボード、リスト、そしてカードなどに関するデータを取得することができます。 Trello API に関する詳細は、ウェブサイト(https://trello.com/docs/
+)を参照してください。
+
+Trelloアカウントには、 データセンター から接続します。 このトピックでは、Trello Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。 DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [追加する](/ja/s/article/360042926274 "https://domo-jp-test.mindtouch.us/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector") で説明しています。
+
+## 必要条件
+
+Trello アカウントに接続して DataSet を作成するには、以下が必要です。
+
+* Trello へのサインインに使用するメールアドレスまたはユーザー名
+* Trello のパスワード
+
+## Trello アカウントに接続する
+
+このセクションでは、Trello Connector ページの **認証情報** および **詳細** ペインについて説明します。 このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [追加する](/ja/s/article/360042926274 "https://domo-jp-test.mindtouch.us/Connect/Connecting_to_Data_with_Connectors/General_Guide_to_Connecting_with_Connectors/01Adding_a_DataSet_Using_a_Data_Connector") でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo の Trello Connectorは、接続に OAuth を使用します。 そのため、Domo 内での認証情報の入力は必要ありません。 **接続** （または、Domo に既存の Trello アカウントがある場合は **アカウントを追加** を選択）をクリックすると、Trello OAuth 画面が開き、Trello ユーザ名/メールアドレスとパスワードを入力できます。 有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Trello DataSet を作成することができます。 Connector アカウントは **データセンター** の アカウント タブで管理することができます。 このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+### 詳細ペイン
+
+このペインには、 **レポート** と **フィルター** の2つのメインメニューの他、選択したレポートやフィルターに応じて表示/非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> Trello レポートを選択します。 以下のレポートが利用できます： </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> ボード </p></td><td colspan="1" rowspan="1"><p> 組織内の全てのボード、ご自分のボード、あるいは特定のボードの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カード </p></td><td colspan="1" rowspan="1"><p> 特定のボードの全てのカード、ご自分の全てのカード、あるいは特定のカードの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リスト </p></td><td colspan="1" rowspan="1"><p> 組織内の全てのリスト、特定のボードの全てのリスト、あるいは特定のリストの情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー </p></td><td colspan="1" rowspan="1"><p> 組織内の全てのユーザー、特定のボードの全てのユーザー、あるいは特定のカードの全てのユーザーに関する情報を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 組織 </p></td><td colspan="1" rowspan="1"><p> 全ての組織、あるいは特定の組織に関する情報を返します。 </p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> フィルターをかける </p></td><td colspan="1" rowspan="1"><p> レポートにかけるフィルターを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 組織 </p></td><td colspan="1" rowspan="1"><p> データを取得する組織を選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ボード </p></td><td colspan="1" rowspan="1"><p> データを取得したいボードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カード </p></td><td colspan="1" rowspan="1"><p> データを取得したいカードを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> リスト </p></td><td colspan="1" rowspan="1"><p> データを取得したいリストを選択します。 </p></td></tr></tbody></table>
+
+

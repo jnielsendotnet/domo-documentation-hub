@@ -1,0 +1,266 @@
+---
+title: "2024 | Versionshinweise Januar"
+---
+
+import {InlineImage} from "/snippets/InlineImage.mdx";
+
+---
+
+###### Neue Funktionen
+
+* [Domo.AI](#domo_ai)
+  + [Beast Mode-KI-Assistent](#beast_mode_ai_assistant)
+  + [DataSet-Ansichten Erweiterter SQL-Editor mit KI-Assistent](#advanced_sql_editor)
+* [Arbeitsabläufe](#workflows)
+* [Code-Engine](#code_engine)
+* [Formulare](#domo_forms)
+* [Warteschlangen](#queues)
+* [JSON- und JSON-OAUTH-Konnektoren ohne Code](#json_no_code)
+
+###### Plattformverbesserungen
+
+* [Diagrammansicht in Detailseite von Magic ETL](#graph_view_in_magic_etl)
+* [Diagramme](#charts)
+  + [Indikator „Zwischen“ oder „Im Bereich“](#between_or_in_range_gauge)
+  + [Ringdiagramm-Beschriftungen](#donut_chart_labels)
+  + [Umfangreiche Tabellenrahmen](#table_borders)
+* [Domo Bricks](#domo_bricks)
+  + [Domo Bricks in Monaco](#domo_bricks_on_monaco)
+  + [Arbeitsablauf-Startformular-Brick](#workflow_start_form)
+  + [KI-LLM-Modellvergleich Brick](#model_compare_brick)
+  + [Bricks-Kollaboration](#bricks_collaboration)
+* [Kampagnen – erhöhte DPI-Auflösung](#increased_dpi_resolution)
+* [DomoStats-Bericht für zertifizierte Inhalte](#certified_content_domostats_report)
+* [Domo Everywhere — Kundenerstellung und Routing](#domo_everywhere)
+
+###### Beta-Ankündigungen
+
+* [Verbesserungen bei Domo AI](#ai_enhancements)
+* [App Studio](#app_studio)
+
+###### Unterstützung und Feedback
+
+* [Benötigen Sie Unterstützung?](#support)
+* [Möchten Sie Feedback geben?](#feedback)
+
+---
+
+### [Domo.AI](http://domo.ai/)
+
+**Hinweis zu Sicherheitsüberlegungen —** Domo ist sich bewusst, dass KI gemäß den internen Richtlinien unserer Kunden entsprechend geregelt werden muss. KI-Assistenten senden nur Domo-Metadaten über Domo-Datenquellen an OpenAI.
+
+Um KI-Assistenten in Domo zu verwenden, müssen Administratoren OpenAI-Modelle unter „Administratoreinstellungen“ für den KI-Dienst-Layer aktivieren. Darüber hinaus benötigen Benutzer ohne Administratorberechtigung in Domo eine Rolle mit der Berechtigung „KI-Dienste nutzen“, um KI-Assistenten einsetzen zu können.
+
+In den kommenden Monaten wird Domo eine interne LLM-Option für das Ausführen von KI-Assistenten einführen, die genutzt werden kann, ohne dass Informationen an OpenAI gesendet werden.
+
+# Beast Mode-KI-Assistent
+
+Der Beast Mode-KI-Assistent von Domo.Die KI kann bei der Erstellung von Beast Mode-Berechnungen im Beast Mode-Editor helfen. Um den Beast Mode-KI-Assistenten nutzen zu können, müssen die KI-Dienste für Ihre Rolle aktiviert sein.
+
+Nachfolgend sind einige Beispielaufforderungen angegeben, die Sie ausprobieren können:
+
+* „Gib die Differenz zwischen dem Bestelldatum und dem Versanddatum in Monaten zurück.“
+* „Erstelle ein berechnetes Feld, das bei einer Bestellungspriorität 'Kritisch' oder 'Hoch' als 'Wichtig' eingestuft wird, andernfalls als 'Nicht wichtig'.“
+* „Füge eine Woche zur Spalte 'Bestelldaten' hinzu.“
+* „Berechne die laufende Summe der Gesamtverkäufe nach Bestelldatum.“
+
+Unter [Beast Mode-KI-Assistent](/s/article/000005304) erhalten Sie weitere Informationen.
+
+Weitere Informationen zu den Berechtigungen erhalten Sie unter [Verwalten benutzerdefinierter Rollen](/s/article/360043438973).
+
+Erfahren Sie mehr über [Domo.AI](https://ai.domo.com/) oder informieren Sie sich in der [Domo.AI Dokumentation](https://domo-support.domo.com/s/topic/0TO5w000000ZmGPGA0/domoai?language=en_US) in der Wissensdatenbank.
+
+<Frame><img alt="write with ai.jpeg" src="/images/kb/ka0Vq0000000FBx-00N5w00000Ri7BU-0EM5w000006w5np.jpg" style={{width: 306, height: 431}}/></Frame>
+# DataSet-Ansichten Erweiterter SQL-Editor mit KI-Assistent
+
+Über den erweiterten SQL-Editor im Views Explorer können Sie die SQL einsehen, die jeder DataSet-Ansicht zugrunde liegt. Sie können die SQL-Abfrage bearbeiten, diese anwenden und die Aktualisierung der Abfrage verfolgen.
+
+Außerdem können Sie den KI-Assistenten verwenden, um eine SQL-Abfrage für die Daten zu erstellen, die in der DataSet-Ansicht enthalten sein sollen. Schreiben Sie eine Eingabeaufforderung in natürlicher Sprache, und der KI-Assistent gibt eine SQL-Abfrage zurück.
+
+Nachfolgend sind einige Beispielaufforderungen angegeben, die Sie ausprobieren können:
+
+* „Zeige mir alle Zeilen, in denen die Bestellungspriorität 'Hoch' oder 'Kritisch' ist und TCV größer als 10.000 ist.“
+* „Bereinige die Spalte 'Aktualisiertes Datum' so, dass sie das Format DD.MM.YYYY aufweist.“
+* „Erstelle eine neue berechnete Spalte mit der Bezeichnung 'Gewinn', die den Gesamtumsatz abzüglich der Gesamtkosten enthält.“
+* „Stelle eine Verbindung mit dem DataSet 'Kundendetails' in der Domäne "Kunde" her und beziehe alle Spalten aus beiden DataSets mit ein.“
+
+Erhalten Sie weitere Informationen über den [Erweiterten SQL-Editor mit KI-Assistent](https://domo-support.domo.com/s/article/360046074774?language=en_US#sql_editor_and_text-to-sql).
+
+Erfahren Sie mehr über [Domo.AI](https://ai.domo.com/) oder informieren Sie sich in der [Domo.AI Dokumentation](https://domo-support.domo.com/s/topic/0TO5w000000ZmGPGA0/domoai?language=en_US) in der Wissensdatenbank.
+
+<Frame><img alt="SQL-Editor in dsv.jpeg" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000DJo1.jpg" style={{width: 749, height: 366}}/></Frame>
+### Arbeitsabläufe
+
+Für Arbeitsabläufe werden wirkungsvoll weitere neue Funktionen verwendet, unter anderem [Code-Engine](#code_engine), [Arbeits-Warteschlangen](#queues) und [Formulare](#forms). So wird es Ihnen ermöglicht, ausführbare Arbeitsabläufe und -prozesse mit wenig Code-Kapazitäten zu erstellen und implementieren. Sie können einen Arbeitsablauf manuell, über Mitteilungen, einen Genehmigungsfluss oder eine Zeitschaltuhr starten. Nutzen Sie unsere Vorlagenbibliothek für Arbeitsabläufe, um schnell loszulegen.
+
+Weitere Informationen erhalten Sie unter [Überblick über die Arbeitsabläufe](https://domo-support.domo.com/s/article/000005108?language=en_US) in der Wissensdatenbank.
+
+<Frame><img alt="Screenshot 2023-03-21 at 3.31.45 PM.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006uEKx.jpg" style={{width: 429, height: 429}}/></Frame>
+### Code-Engine
+
+Code-Engine ist eine Domo-native Laufzeit-Umgebung, die JavaScript- oder Python-Code ausführen und mit allen Funktionen innerhalb oder außerhalb von Domo interagieren kann. Sie können die Domo-Bibliothek mit Paketen und Funktionen für gängige Integrationen und Dienste nutzen oder Ihre eigenen Funktionen erstellen und diese in Ihrer Domo-Instanz verwenden. Code-Engine-Funktionen können ohne Kodierung in Arbeitsabläufe integriert werden.
+
+Weitere Informationen finden Sie unter [Code-Engine](https://domo-support.domo.com/s/article/000005173).
+
+<Frame><img alt="CodeEngineScreenShot[99].png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006uK0g.jpg" style={{width: 477, height: 477}}/></Frame>
+### Formulare
+
+Der neue Formular-Editor ermöglicht es Ihnen, Formulare für personalisierte manuelle Interaktionen zu erstellen und veröffentlichen. Formulare lassen sich nahtlos in Arbeitsabläufe integrieren, so dass Sie wiederverwendbare Formulare als Teil von Benutzeraufgaben in einem Arbeitsablauf erstellen und verwalten oder eine Formularübermittlung zur Initiierung eines Arbeitsablaufs verwenden können.
+
+Weitere Informationen finden Sie unter [Formulare](https://domo-support.domo.com/s/article/000005171).
+
+<Frame><img alt="FormScreenShot2.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006uK0R.jpg" style={{width: 594, height: 594}}/></Frame>
+### Warteschlangen
+
+Warteschlangen ermöglicht es Ihnen, manuelle Aufgaben zu organisieren, in verschiedene Warteschlagen einzuteilen und zu kontrollieren, wer auf diese zugreifen kann. Sie können eine Warteschlange so einstellen, dass Aufgaben einer Person oder einer Gruppe angezeigt werden. Jede Aufgabe ist einem Formular zugeordnet, das durch einen Arbeitsablauf generiert wurde, und Sie können bei Warteschlangen Filter anwenden, um die Zuordnung oder den Status von Aufgaben einzusehen, den Umfang einer Warteschlange zu überprüfen und Layouts zu personalisieren.
+
+Weitere Informationen finden Sie unter [Warteschlangen](https://domo-support.domo.com/s/article/000005172).
+
+<Frame><img alt="QueueScreenShot2[49].png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006uK0W.jpg" style={{width: 496, height: 496}}/></Frame>
+### JSON- und JSON-OAuth-Konnektoren ohne Code
+
+Unter Verwendung der JSON- und JSON-OAuth-Konnektoren ohne Code können Sie Domo mit REST-APIs verbinden, die Daten in einem JSON-Standardformat zurückgeben. Beide Konnektoren unterstützen Standardautorisierungsmethoden wie Basic Authentication, API Key, Bearer Token und OAuth 2.0. Jeder Konnektor umfasst drei Hauptbereiche der Konfiguration: Verbindungstyp, Anforderungstyp und optionale erweiterte Einstellungen.<br/>
+Beide Konnektoren können im [Domo- AppStore](https://www.domo.com/appstore/) [<InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> heruntergeladen werden.](https://www.domo.com/appstore/)
+
+Weitere Informationen erhalten Sie unter [JSON-Konnektor ohne Code](/s/article/360043433473) und [JSON-OAuth-Konnektor ohne Code](/s/article/360052105454).
+
+<Frame><img alt="Screenshot 2024-01-15 at 10.23.16 AM.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000CY9B.jpg" style={{width: 899, height: 284}}/></Frame>
+---
+
+### Diagrammansicht in Detailsseite von Magic ETL
+
+Dank der neuen Diagrammansicht in Magic ETL und der verbesserten Aktionsübersicht können Sie genau sehen, an welcher Stelle ein DataFlow fehlgeschlagen ist, und Fehlerinformationen effizient zu überprüfen. Wenn Sie eine Kachel im Vorschaubereich auswählen, wird die entsprechende Zeile in der Aktionsübersicht hervorgehoben, sodass Sie Probleme effektiver lösen können.
+
+Diese Funktion ist nur für Magic ETL DataFlows verfügbar.
+
+Weitere Informationen über [Magic ETL](https://domo-support.domo.com/s/topic/0TO5w000000ZanvGAC/magic-etl?language=en_US) erhalten Sie in der Wissensdatenbank.
+
+<Frame><img alt="Ein Screenshot einer automatisch generierten Computerbeschreibung" src="/images/kb/ka0Vq0000000RMn-00N5w00000Ri7BU-0EMVq000000CzxN.jpg" style={{width: 904, height: 505}}/></Frame>
+### Diagramme
+
+Das folgende neue Diagramm sowie neue Diagrammeigenschaften sind jetzt in Analyzer verfügbar.
+
+# Indikator „Zwischen“ oder „Im Bereich“
+
+Mit dem Indikator „Zwischen“ oder „Im Bereich“ können Sie Ergebnisse visualisieren, die zwischen den unteren und oberen Grenzwerten liegen. Er zeigt an, ob die Ausgabe innerhalb des Zielbereichs liegt, sodass Sie Ausnahmen von den erwarteten Werten schnell erkennen können. Dieses Diagramm ist im Abschnitt „Indikator“ von Analyzer verfügbar.
+  
+Schriftgröße, Balkenbreite und Farben sind anpassbar.
+
+<Frame><img alt="Between or In Range Gauge.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000DEy1.jpg" style={{width: 750, height: 555}}/></Frame>
+# Ringdiagramm-Beschriftungen
+
+Um unsere häufig verwendeten Ringdiagramme noch präsentationsfreundlicher zu gestalten, haben wir Datenbeschriftungen und Hovertext-Optionen für die interaktive Analyse hinzugefügt. Mit den neuen Datenbeschriftungen liefern Ihre Ringdiagramme auch in einem statischen Format aussagekräftige Einblicke.
+
+Um Ihren Ringdiagrammen Datenbeschriftungen hinzuzufügen, suchen Sie in Analyzer unter „Diagrammeigenschaften“ nach den Datenbeschriftungseinstellungen.
+
+<Frame><img alt="donut labels - various.jpg" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000DDFZ.jpg" style={{width: 802, height: 291}}/></Frame>
+# Umfangreiche Tabellenrahmen
+
+Unter Verwendung von Megatabellen und Pivot-Tabellen können Rahmen jetzt besser angepasst werden, einschließlich folgender Optionen:
+
+* Vertikale Rahmendicke und -farbe
+* Horizontale Rahmendicke und -farbe
+* Außenrahmen
+* Überschriftenrahmen
+
+Diese Änderungen haben keine Auswirkungen auf bestehende Tabellen. Die neuen Optionen werden beim Excel-Export unterstützt.
+
+<Frame><img alt="Better—improve table display options.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006wUdT.jpg" style={{width: 800, height: 382}}/></Frame>
+### Domo Bricks
+
+Weiterer Informationen über Domo Bricks erhalten Sie im Thema [Domo Bricks](/s/article/4423762260375) in der Wissensdatenbank.
+
+# Domo Bricks in Monaco
+
+Wir haben ein Upgrade auf den Monaco Editor mit VSCode-Unterstützung vorgenommen, um eine nahtlosere Entwicklung von Domo Bricks zu ermöglichen und die Produktivität Ihres Teams bei der Erstellung von Bricks zu steigern. Nutzen Sie die vertraute Monaco-Oberfläche als Standard-Editor für alle Domo Bricks.
+
+<Frame><img alt="Brick Editor page.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000D0F7.jpg" style={{width: 903, height: 459}}/></Frame>
+# Arbeitsablauf-Startformular-Brick
+
+Starten Sie einen Arbeitsablauf über Ihre Domo-Karte, Ihrem Dashboard oder Ihrer App mit dem Arbeitsablauf-Startformular-Brick. Erfassen Sie Eingaben mit anpassbaren Parametern und übergeben Sie diese, um den Arbeitsablauf zu starten.
+
+Der Arbeitsablauf-Startformular-Brick ist im [Domo-AppStore](https://www.domo.com/appstore/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> verfügbar.
+
+Erfahren Sie mehr dazu, wie Sie den [Arbeitsablauf-Startformular-Brick](/s/article/000005372) konfigurieren.
+
+<Frame><img alt="Workflow Start Form.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000D0NB.jpg" style={{width: 906, height: 560}}/></Frame>
+# KI-LLM-Modellvergleich-Brick
+
+Mit dem KI-LLM-Modellvergleich-Brick haben Sie die Möglichkeit, Large Language Models (LLMs) zu vergleichen, um das beste Modell für Ihre Geschäftsanforderungen zu finden. Mit einer einzigen Eingabeaufforderung können Sie die Ergebnisse verschiedener LLMs nebeneinander vergleichen, um die beste Wahl für Ihren Anwendungsfall zu treffen.
+
+Der KI-LLM-Modellvergleich-Brick ist im [Domo-AppStore](https://www.domo.com/appstore/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> verfügbar.
+
+<Frame><img alt="model compare brick.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000D0Jx.jpg" style={{width: 900, height: 625}}/></Frame>
+# Bricks-Kollaboration
+
+Sie haben jetzt die Möglichkeit, mit anderen Benutzern an Domo Bricks zusammenarbeiten und dabei die Kontrolle über die gemeinsame Nutzung und Bearbeitung behalten.
+
+<Frame><img alt="Brick collaboration.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000D0DV.jpg" style={{width: 901, height: 391}}/></Frame>
+# Kampagnen – erhöhte DPI-Auflösung
+
+<Frame><img alt="campaigns app.jpg" src="/images/kb/ka0Vq0000000cOf-00N5w00000Ri7BU-0EM5w000006vwNs.jpg" style={{width: 90, height: 90}}/></Frame>
+Wir haben ein neues Tag zur Erhöhung der DPI-Auflösung hinzugefügt, damit Sie mehr Kontrolle über die Qualität der Kampagnenbilder haben.
+
+Weitere Informationen erhalten Sie unter [*DPI-Auflösung für gerenderte Inhalte erhöhen*](https://domo-support.domo.com/s/article/360042933514?language=en_US#increase_dpi_resolution).
+
+# DomoStats-Bericht für zertifizierte Inhalte
+
+<Frame><img alt="domostats.jpeg" src="/images/kb/ka0Vq0000000Rcv-00N5w00000Ri7BU-0EM5w000006vKuy.jpg" style={{width: 90, height: 90}}/></Frame>
+Im neuen DomoStats-Bericht zu zertifizierten Inhalten sind Einzelheiten dazu aufgeführt, welche Karten und DataSets in Ihrer Instanz zertifiziert oder nicht zertifiziert wurden und welche Benutzer-ID die Zertifizierung beantragt hat.
+
+Weitere Informationen zum Zertifizieren von Inhalten erhalten Sie unter [Zertifizierung von Karten und DataSets](/s/article/360043430613) in der Wissensdatenbank.
+
+# Domo Everywhere — Kundenerstellung und Routing
+
+Herausgeber können ihre Authentifizierung jetzt in den Domo Identity Broker integrieren, um sicherzustellen, dass externe Benutzer immer an die richtige Instanz gesendet werden. Dadurch bleibt der Zugriff auf die eingebettete Bearbeitungsfunktion sicher, geschützt und nahtlos.​<br/>
+Darüber hinaus ist die Erstellung von Konten für Endkunden über die Domo Everywhere-Administratoreinstellungen jetzt selbständig möglich, was bedeutet, dass Sie Domo Everywhere in wenigen Minuten konfigurieren und die Vorteile der Veröffentlichung in großem Umfang nutzen können.
+
+Weitere Informationen erhalten Sie im Thema [Domo Everywhere](https://domo-support.domo.com/s/topic/0TO5w000000ZanbGAC/domo-everywhere?language=en_US) in unserer  Wissensdatenbank.
+
+<Frame><img alt="domo hosted environment image.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EMVq000000DLLB.jpg" style={{width: 502, height: 306}}/></Frame>
+---
+
+### Beta-Ankündigungen
+
+*Um an einem Betaprogramm teilzunehmen, wenden Sie sich an Ihr Domo-Konto-Team. Wenn Sie keine Kontaktdaten für Ihr Konto-Team haben, wenden Sie sich an den Domo-Support unter [support@domo.com](mailto:support@domo.com). Möglicherweise müssen Sie zunächst eine Schulung absolvieren, bevor Sie die Funktion nutzen können.*
+
+# [Domo.AI](http://domo.ai/) -Verbesserungen
+
+Unter Verwendung der Amazon Bedrock-ML- und Databricks-ML-Konnektoren können Sie Ihre Datenmodelle von Drittanbietern mit der [Domo.AI](http://Domo.AI) -Lösung verwenden. Die Konnektoren benötigen andere Schlüssel als der ursprüngliche Anbieter, um Ihr Konto in Domo einzurichten. Dies kann in Ihren Domo-Administratoreinstellungen erfolgen. Kombinieren Sie Ihre bestehenden Modelle mit der Unterstützung von Domo, um Ihre Daten zu visualisieren, KI-Projekte zu erstellen und vieles mehr.
+
+Um am Betaprogramm für diese Konnektoren teilzunehmen, schreiben Sie eine E-Mail an [ai@domo.com](mailto:ai@domo.com).
+
+# App Studio
+
+Die offene Betaversion von App Studio ist jetzt verfügbar.
+
+App Studio ist ein Low-Code-App-Builder, der die Erstellung, Verteilung und Nutzung von Domo-Apps für alle zugänglich macht. App Studio enthält vorgefertigte Designs und zahllose Möglichkeiten, das Aussehen und Verhalten Ihrer Apps anzupassen, wodurch die Erstellung von Dashboards auf die nächste Stufe gestellt wird. Damit steht Ihnen gleichzeitig das Maß an Präzision und Navigation direkt zur Verfügung, das zuvor das App Dev Framework erforderte. App Studio ist auf dem besten Weg, das ultimative Ziel für Datenpräsentation und überzeugende Datennarrative zu werden – und das alles in einer einzigen App.
+
+  <Frame><img alt="Screenshot 2023-10-02 at 5.38.58 PM.png" src="/images/kb/ka0Vq0000000rAn-00N5w00000Ri7BU-0EM5w000006w1fc.jpg" style={{width: 901, height: 447}}/></Frame>
+  <Frame><img alt="domo_final_RGB_512x512.jpg" src="/images/kb/ka05w0000012AZy-00N5w00000Ri7BU-0EM5w000006vprH.jpg" style={{width: 160, height: 160}}/></Frame>
+
+### Benötigen Sie Unterstützung?
+
+Domo bietet Schulungen, Antworten in der Community und technischen Support an.
+
+* Suchen Sie im
+  [Hilfecenter](https://www.domo.com/help-center) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> nach einem Thema.
+* Erfahren Sie mehr bei der
+  [Domo University](https://www.domo.com/university) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+* Suchen Sie Schulungs-Apps im
+  [AppStore](https://www.domo.com/appstore/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+* Finden Sie Antworten in den
+  [Community-Foren](https://community-forums.domo.com/main) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+* Wenden Sie sich an den technischen Support, indem Sie ein Hilfeticket im
+  [Domo-Supportportal](https://domo-support.domo.com/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> einreichen.
+* Wenden Sie sich an Ihr Domo-Konto-Team.
+
+### Möchten Sie Feedback geben?
+
+Ihr Feedback können Sie aus Domo heraus übermitteln:
+
+Wählen Sie in der Navigationskopfzeile **Mehr** > <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Mcmc.jpg" /> **Feedback** aus.
+
+Wählen Sie im Modal **Kontaktieren Sie Domo** **Produkt-Feedback** > **Go Now** (Jetzt starten) aus.
+
+<Frame><img alt="Screenshot 2024-01-15 at 11.00.19 AM.png" src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000Me3d.jpg" style={{width: 652, height: 466}}/></Frame>

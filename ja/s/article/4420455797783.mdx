@@ -1,0 +1,47 @@
+---
+title: "Simba Spark JDBCコネクター"
+---
+
+## はじめに
+
+Apache Sparkは、オープンソースの分散型汎用クラスターコンピューティングフレームワークです。Sparkは、クラスター全体を暗黙的なデータ並列性とフォールトトレランスでプログラミングするためのインターフェースを提供します。
+  
+Simba Spark JDBCドライバーを使用すると、SQLとHiveQLを使ってApache Sparkに直接アクセスし、Sparkベースのデータでビジネスインテリジェンス（BI）、分析、レポート作成が可能になります。DomoのSimba Spark JDBCコネクターを使用すると、SQLとHiveQLを使ってApache Sparkに直接アクセスでき、効率が向上します。
+
+Simba Spark JDBC は「データベース」コネクターであるため、クエリを使用してデータベースからデータを取得します。Data Centerでは、ウィンドウ上部のツールバーで **［データベース］** をクリックすることで、このコネクターやほかのデータベースコネクターのページにアクセスできます。
+
+Simba Spark サーバーには、Data Centerから接続します。このトピックでは、 Simba Spark JDBC コネクターのユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+## 必要条件
+
+Simba Sparkデータベースに接続してDataSetを作成するには、以下の情報が必要です。
+
+* データベースサーバーのホスト名またはIPアドレス
+* Sparkデータベースのポート番号
+* Sparkデータベースの名前
+* Sparkアカウントのログインに使用するユーザー名とパスワード
+* HTTPパス
+
+## Simba Spark データベースに接続する
+
+このセクションでは、 Simba Spark JDBC コネクターページの **［認証情報］** および **［詳細］** ペインについて説明します。このページのほかのペインの項目である **［スケジュール設定］** や **［DataSetに名前を付け、説明を入力］** に関しては、ほとんどのタイプのコネクターで共通しています。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ ペイン
+
+このペインには、データベースに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドについて説明します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> JDBC Driver </p></td><td colspan="1" rowspan="1"><p><span> 使用するJDBCドライバーを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Server Hostname </p></td><td colspan="1" rowspan="1"><p><span> データベースサーバーのホスト名またはIPアドレスを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> データベース名を入力します。 <code></code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Sparkアカウントのログインに使用するユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Sparkアカウントへのログインに使用するパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"> HTTP Path </td><td colspan="1" rowspan="1"><span> HTTPパスを入力します。 </span></td></tr></tbody></table>
+
+有効な Simba Spark 認証情報を一度入力しておくと、随時同じアカウントを使用して新しい Simba Spark JDBC DataSetを作成することができます。コネクターのアカウントは Data Center の **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインでクエリを作成して、データベースからデータを取得します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p><span> HiveQL Query </span></p></td><td colspan="1" rowspan="1"><p><span> ここにHiveQLクエリを入力します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Database Tables </span></td><td colspan="1" rowspan="1"><p><span> データベーステーブルを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Table Columns </span></td><td colspan="1" rowspan="1"><p><span> 表の列を選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Fetch Size </span></td><td colspan="1" rowspan="1"><p><span> メモリパフォーマンスのフェッチサイズを入力します。フェッチサイズが指定されていない場合、デフォルト値が使用されます。「メモリー不足」エラーが発生した場合、フェッチサイズを小さくしてください。 </span></p></td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

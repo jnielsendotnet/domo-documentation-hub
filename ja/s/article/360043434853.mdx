@@ -1,0 +1,42 @@
+---
+title: "Basecamp Connector"
+---
+
+## はじめに
+
+Basecampはウェブベースのプロジェクト管理ツールです。Basecamp Connectorは、DomoとBasecampを統合してBasecamp APIからデータの抽出を行います。この Connectorを使用して、ドキュメント、添付ファイル、カレンダーイベント、プロジェクト、ユーザーなどのデータを取得できます。Basecamp API に関する詳細は、Github ウェブサイトを参照してください (https://github.com/basecamp/bcx-api/
+)。
+
+Basecampアカウントには、Data Center から接続します。このトピックでは、Basecamp Connectorユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSet の追加、更新スケジュールの設定及び DataSet 情報の編集に関する一般的な情報は、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する")
+
+で説明しています。
+
+## 必要条件
+
+Basecampアカウントに接続してDataSetを作成するには、以下が必要です。
+
+* Basecampへのログインに使用するユーザー名またはメールアドレス
+* Basecampアカウントへのログインに使用するパスワード
+
+## Basecampアカウントに接続する
+
+このセクションでは、Basecamp Connector ページの **認証情報** および **詳細** ペインについて説明します。このページの他のペインの項目である **スケジュール設定** や **DataSet の名前と説明** に関しては、ほとんどのタイプの Connector で共通しており、 [データ Connector を使用して DataSet を追加する](/ja/s/article/360042926274 "データ Connector を使用して DataSet を追加する")
+
+でより詳細に説明しています。
+
+### 認証情報ペイン
+
+Domo Basecamp Connectorは、接続にOAuthを使用します。そのため、Domo内での認証情報の入力は必要ありません。 **接続** （または、Domo に既存の Basecamp アカウントがある場合は **アカウントを追加** を選択）をクリックすると、Basecamp OAuth 画面が開き、Basecamp ユーザー名/メールアドレスとパスワードを入力できます。一度有効なBasecamp認証情報を入力してDomoのBasecampへの接続を認可しておくと、随時同じアカウントを利用して新しいBasecampDataSetを作成することができます。Connector アカウントは Data Center の **アカウント** タブで管理することができます。このタブに関する詳細については、 [Connector のユーザーアカウントを管理する](/ja/s/article/360042926054 "Connector のユーザーアカウントを管理する") を参照してください。
+
+<Note>
+
+**注記：** Domo で接続する際、既に Basecamp にログインしている場合は、 **アカウントを追加** をクリックすると、自動的に認証されます。ログインしているアカウントとは異なるアカウントに接続したい場合は、まずBasecampからログアウトする必要があります。
+</Note>
+
+### 詳細ペイン
+
+このペインには、2 つのメインメニューである **アカウント ID** と **レポート** のほか、選択したレポートタイプに応じて表示／非表示になるその他様々なメニューがあります。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> メニュー </b></span></p></th><th colspan="1" rowspan="1"><p class="p1"><span class="s1"><b> 説明 </b></span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アカウントID </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 情報を取得したいBasecampのアカウントIDを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"> レポート </td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Basecampレポートを選択します。以下のレポートが利用できます： </span></p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アクセス </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定のプロジェクトへのアクセス権を持つユーザー一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 添付ファイル </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全てのプロジェクトの添付ファイルの一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> カレンダー </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全てのカレンダーの一覧をアルファベット順の一覧として返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> カレンダーイベント </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 予定されているカレンダーイベントの一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 過去のカレンダーイベント </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 過去のカレンダーイベントの一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ドキュメント </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全てのプロジェクトのドキュメント一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> イベント </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アカウントの全てのイベントの一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> ユーザー </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アカウントにアクセス権を持つユーザー一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> プロジェクト </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定のプロジェクトタイプの全てのアクティブなプロジェクト一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アーカイブしたプロジェクト </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> アーカイブした全てのプロジェクト一覧を返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> スター </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全てのアクティブなプロジェクトのスターのリストを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> To-Do リスト </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 特定のリストタイプの全てのアクティブなプロジェクトの To-Do リストを返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> To-Do </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全ての To-Do リストにある To-Do アイテムをリストにして返します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> トピック </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> 全てのプロジェクトのトピック一覧を返します。 </span></p></td></tr></tbody></table><p></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> プロジェクトタイプ </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Basecamp のプロジェクトタイプを選択します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> To-Do リストタイプ </span></p></td><td colspan="1" rowspan="1"><p class="p1"><span class="s1"> Basecamp の To-Do リストのタイプを選択します。 </span></p></td></tr></tbody></table>
+
+

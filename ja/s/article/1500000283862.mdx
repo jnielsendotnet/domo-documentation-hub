@@ -1,0 +1,58 @@
+---
+title: "Marketo Writebackコネクター"
+---
+
+## はじめに
+
+Marketoは、メール、モバイル、ソーシャル、デジタル広告、ウェブ管理、アナリティクスなど、アカウントベースのマーケティングオートメーションソフトウェアを提供しています。DomoのMarketo Writebackコネクターを使用して、DomoデータをMarketoリードオブジェクトに送信します。Marketo APIの詳細については、Marketoのページ（ [https://developers.marketo.com/rest-api/](https://developers.marketo.com/rest-api/ "https://developers.marketo.com/rest-api/") ）を参照してください。
+
+MarketoへのDomoデータのエクスポートはData Centerで行います。このトピックでは、Marketo Writebackコネクターユーザーインターフェースに固有のフィールドとメニューについて説明します。DataSetの追加、更新スケジュールの設定、DataSet情報の編集に関する一般的な情報については、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+## 必要条件
+
+このコネクターを構成するには、以下の情報が必要です。
+
+* カスタムサービスを始める際に作成された、クライアントIDとクライアントシークレット。
+* カスタムサービス作成時に提供された、RESETエンドポイントURL。
+* カスタムサービス作成時に提供された、アイデンティティーURL。
+* DomoデベロッパーアカウントのクライアントIDとクライアントシークレット
+
+### DomoデベロッパーのクライアントIDとクライアントシークレットを取得する
+
+新規クライアントを作成するには：
+
+1. [Domoデベロッパーアカウント](https://developer.domo.com/login)
+   にログインします。
+2. 右上の
+   ****［マイアカウント］**** の下にある ****［新規クライアント］**** をクリックします。
+3. アプリケーション名と説明を入力します。
+4. ****［データ」****
+   と ****［ユーザー］**** のチェックボックスを選択して、アプリケーションのスコープを提供します。
+5. ****［作成］****
+   をクリックします。
+
+クライアントを作成したら、 ****［クライアントの管理］**** をクリックするとクライアントを管理できます。 **クライアントシークレット** が **［クライアントの管理］** セクションに表示されます。
+
+## 接続を設定する
+
+このセクションでは、コネクター（サードパーティツール）ページの **［認証情報］** および **［詳細］** ペインのオプションについて説明します。このページのほかのペインの項目にある **［スケジュール設定］** や **［DataSetの名前を付け、説明を入力］** に関しては、ほとんどのコネクタータイプで共通です。詳細については「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274 "コネクターを使用してDataSetを追加する") 」を参照してください。
+
+### ［認証情報］ペイン
+
+このペインには、Marketo とDomoデベロッパーアカウント に接続するための認証情報の入力フィールドがあります。以下の表に、各フィールドに必要な情報を示します。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Client ID］ </td><td colspan="1" rowspan="1"> Marketoでカスタムサービスを始める際に作成された、クライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Client Secret］ </td><td colspan="1" rowspan="1"> カスタムサービスを始める際に作成された、Marketoクライアントシークレットを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Endpoint URL］ </td><td colspan="1" rowspan="1"> カスタムサービス作成時に提供された、 RESTエンドポイントURLを入力します。例： <span class="mt-font-size-18"><span class="mt-font-courier-new"><tt><a href="https://100-AEK-913.mktorest/com/rest" target="_blank" title="https://100-AEK-913.mktorest/com/rest"> https://100-AEK-913.mktorest/com/rest </a></tt></span></span></td></tr><tr><td colspan="1" rowspan="1"> ［Identity URL］ </td><td colspan="1" rowspan="1"> カスタムサービス作成時に提供された、アイデンティティーURLを入力します。例： <span class="mt-font-size-18"><span class="mt-font-courier-new"><tt><a href="https://100-AEK-913.mktorest.com/identity" target="_blank" title="https://100-AEK-913.mktorest.com/identity"> https://100-AEK-913.mktorest.com/identity </a></tt></span></span></td></tr><tr><td colspan="1" rowspan="1"> ［Domo Client ID］ </td><td colspan="1" rowspan="1"> DomoデベロッパーのクライアントIDを入力します。詳細は、「 <a href="#h_01ES6XS75TMYHX84GAMZ8PGWMD" target="_self" title="Marketo Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr><tr><td colspan="1" rowspan="1"> ［Domo Client Secret］ </td><td colspan="1" rowspan="1"> Domoデベロッパーのクライアントシークレットを入力します。詳細は、「 <a href="#h_01ES6XS75TMYHX84GAMZ8PGWMD" target="_self" title="Marketo Writebackコネクター"> 必要条件 </a> 」を参照してください。 </td></tr></tbody></table>
+
+有効な認証情報を一度入力しておくと、いつでも同じアカウントを使用して 新しいDomo-Marketo接続を設定できます。 コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
+
+### ［詳細］ペイン
+
+このペインには、DomoからMarketoアカウントへのリードデータの送信時に必要な詳細が含まれています。
+
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ［Writeback Type］ </td><td colspan="1" rowspan="1"> DomoからMarketoのリードオブジェクトにデータを書き込むリードを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> ［Domo DataSet ID］ </td><td colspan="1" rowspan="1"><p> Marketoに書き込むデータを含むDomo DataSetのIDを入力します。 </p><p> このIDはDataSet URL内にあります。例： <a href="https://customer.domo.com/datasources/" target="_blank" title="https://customer.domo.com/datasources/"> https://customer.domo.com/datasources/ </a><b><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee </b></b> /details/settings </p></td></tr><tr><td colspan="1" rowspan="1"> ［Configuration Mapping - Map dataset fields and Marketo fields］ </td><td colspan="1" rowspan="1"><p> - 自動マッピングを使用するか（DataSetフィールドがMarketoフィールドと一致する場合）、手動でマッピングを定義するかを選択します。 </p><p> - マニュアルマッピングでは、目的のMarketoフィールドとDataSet列を一致させます。 </p><p> - マッピングの自動生成は、MarketoフィールドとDatasetフィールドが完全に一致する場合のみ機能します。 </p><p> - 自動マッピングで期待したフィールドが表示されない場合は、手動マッピングを試してください。 </p><p> - 検索フィールドがMarketoフィールドまたは手動マッピングから選択されていることを確認します。 </p></td></tr><tr><td colspan="1" rowspan="1"> ［Enter a dataset to map the fields here］ </td><td colspan="1" rowspan="1"> このフィールドにDataSetを入力して、Marketoデータをフィールドにマップします。 </td></tr></tbody></table>
+
+### その他のペイン
+
+スケジュール設定、再試行、更新に関するオプションなど、コネクターインターフェースのその他のペインに表示されるオプションについては、「 [コネクターを使用してDataSetを追加する](/ja/s/article/360042926274) 」を参照してください。
+
+

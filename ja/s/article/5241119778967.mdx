@@ -1,0 +1,60 @@
+---
+title: "gBizINFO Connector"
+---
+
+## 概要
+
+gBizINFO API Connector を使用すると gBizINFO API を使用して、
+
+gBizINFO から法人情報を抽出することができます。
+
+gBizINFO API Connector では、法人基本情報にアクセスできます。
+
+gBizINFO の利用申請より発行されたアクセストークンに応じたデータが返されます。
+
+Report を以下の 1 種類から選択します。
+
+1. 法人基本情報
+
+## 前提条件
+
+gBizINFO API Connector を利用するためには、 gBizINFO の利用申請を行い、 gBizINFO API を利用できる状態にしておく必要があります。詳細は以下ページの「情報提供 REST API 」ページをご参照ください。
+
+https://info.gbiz.go.jp/api/index.html
+
+また、 Domo Developer ポータルにて「 Client ID 」「 Secret 」を発行し、 Domo DataSet API を利用できるようにしておく必要があります。
+
+発行の際の「 Scopes 」には「 data 」が必須になります。
+
+詳細は以下のページの「 Important terms 」欄をご参照ください。
+
+https://developer.domo.com/docs/authentication/overview-4#Important%20terms
+
+<Frame><img alt="gBizInfo_JP-1.png" src="/images/kb/ja/ka05w0000012558-00N5w00000Ri7BU-0EM5w000005wLlF.png"/></Frame>
+
+一度 gBizINFO の利用申請のアクセストークン情報を入力すれば、 gBizINFO API Connector のデータセットを新規に作成する際に、同じアカウントを使用することができます。コネクタアカウントは、データセンターの [ アカウント ] タブで管理できます。このタブの詳細については、「 Connector のユーザーアカウントを管理する」を参照してください。
+
+### 詳細（取得できる情報）
+
+#### 1. 法人基本情報
+
+詳細は以下ページの「 gBizINFO から法人基本情報を取得します. 」をご参照ください。
+
+https://info.gbiz.go.jp/hojin/swagger-ui.html#/gBizINFO_REST_API
+
+### FAQ
+
+<AccordionGroup>
+<Accordion title="gBizINFO Connector でどのような情報を取得できますか？">
+
+企業基本情報を取得できます。詳細は https://info.gbiz.go.jp/hojin/swagger-ui.html#!/gBizINFO_REST_API/getUsingGET を参照ください。
+</Accordion>
+<Accordion title="gBizINFO Connector を使用するのにどのような認証情報が必要ですか？">
+
+gBizINFO からアクセストークンを取得する必要があります。
+</Accordion>
+<Accordion title="知っておく必要のある API の制限はありますか？">
+
+10 分間に 6,000 回以上の API 呼び出しを行うと、 10 分間リクエストが制限されます。このコネクターは、企業毎に 1 回のリクエストを行い、リクエスト毎に 1 秒間待機します。
+</Accordion>
+</AccordionGroup>
