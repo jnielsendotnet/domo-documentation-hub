@@ -1,11 +1,12 @@
 ---
-title: "Render KPI Card Chart or Table"
-permalink: "7c67addb308a2-authentication"
-sidebarTitle: "Overview"
+title: 'Render KPI Card Chart or Table'
+permalink: '7c67addb308a2-authentication'
+sidebarTitle: 'Overview'
 ---
+
 ### Authentication
 
-Requests to this endpoint require authentication using an access token. The token must be included in the request header as `X-DOMO-Developer-Token`. For more information on generating an access token, refer to the [Domo Support Documentation](https://domo-support.domo.com/s/article/360042934494?language=en_US).
+Requests to this endpoint require authentication using an access token. The token must be included in the request header as `X-DOMO-Developer-Token`. For more information on generating an access token, refer to the [Domo Support Documentation](/s/article/360042934494?language=en_US).
 
 <Card
   horizontal
@@ -23,7 +24,7 @@ Requests to this endpoint require authentication using an access token. The toke
 
 ### Tags
 
-* `card-kpi-resource`
+- `card-kpi-resource`
 
 ### Summary
 
@@ -33,22 +34,23 @@ This endpoint renders a KPI card chart or table based on the specified `urn`. It
 
 #### Path Parameters
 
-* **`urn`** (required):  
+- **`urn`** (required):  
   The unique resource name (URN) of the KPI card to be rendered.
-  + **Schema:** `$ref: '#/components/schemas/CardURNParam'`
+  - **Schema:** `$ref: '#/components/schemas/CardURNParam'`
 
 #### Query Parameters
 
-* **`locale`** (optional):  
+- **`locale`** (optional):  
   Specifies the locale in which to render the KPI card.
 
-  + **Type:** `string`
-* **`parts`** (required):  
+  - **Type:** `string`
+
+- **`parts`** (required):  
   A list of specific parts of the chart to be rendered. This allows for a customized response that includes only the necessary components.
 
-  + **Type:** `array` (unique items)
-  + **Items:** `string`
-  + **Enum:**
+  - **Type:** `array` (unique items)
+  - **Items:** `string`
+  - **Enum:**
     - `title`
     - `chartType`
     - `queryResult`
@@ -69,8 +71,8 @@ This endpoint renders a KPI card chart or table based on the specified `urn`. It
 
 The request body must be in JSON format and should adhere to the `ChartRequest` schema.
 
-* **Content-Type:** `application/json`
-* **Schema:** `$ref: '#/components/schemas/ChartRequest'`
+- **Content-Type:** `application/json`
+- **Schema:** `$ref: '#/components/schemas/ChartRequest'`
 
 ### Responses
 
@@ -78,8 +80,8 @@ The request body must be in JSON format and should adhere to the `ChartRequest` 
 
 The request was successful, and the KPI card chart or table has been rendered according to the specified parameters. The response will include an array of base64 encoded images.
 
-* **Content-Type:** `application/json`
-* **Schema:** `$ref: '#/components/schemas/ChartResponse'`
+- **Content-Type:** `application/json`
+- **Schema:** `$ref: '#/components/schemas/ChartResponse'`
 
 #### 403 Forbidden
 
@@ -97,19 +99,21 @@ Here’s an example of how to use the API to render a KPI card chart or table:
 async function getPDF(cardID) {
   try {
     const body = {
-  queryOverrides: {},
-  treatLongsAsStrings: true,
-  cardLoadContext: {}
-};;
+      queryOverrides: {},
+      treatLongsAsStrings: true,
+      cardLoadContext: {},
+    };
 
-
-    return await Helpers.handleRequest('put', '/api/content/v1/cards/kpi/'+cardID+'/render?parts=title,imagePDF,', body);
+    return await Helpers.handleRequest(
+      'put',
+      '/api/content/v1/cards/kpi/' + cardID + '/render?parts=title,imagePDF,',
+      body,
+    );
   } catch (error) {
     throw new Error('getPDF: ', error);
   }
 }
 ```
-
 
 ### Example Response
 

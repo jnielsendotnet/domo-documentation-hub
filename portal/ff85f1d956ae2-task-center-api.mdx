@@ -1,11 +1,12 @@
 ---
-title: "Task Center API"
-permalink: "ff85f1d956ae2-task-center-api"
-sidebarTitle: "Overview"
+title: 'Task Center API'
+permalink: 'ff85f1d956ae2-task-center-api'
+sidebarTitle: 'Overview'
 ---
-Task Center allows you to organize manual tasks into different queues of work and control who can access them. They are often used in concert with [Workflows](https://domo-support.domo.com/s/article/000005108?language=en_US).
 
-For more [background on Task Center, please see the Knowledge Base](https://domo-support.domo.com/s/article/000005172?language=en_US).
+Task Center allows you to organize manual tasks into different queues of work and control who can access them. They are often used in concert with [Workflows](/s/article/000005108?language=en_US).
+
+For more [background on Task Center, please see the Knowledge Base](/s/article/000005172?language=en_US).
 
 ### Get Queues
 
@@ -21,27 +22,24 @@ Returns all queues the user has access to.
   href="/api-reference/task-center-api-product/get-queues"
 />
 
-
 #### Code Example
 
 ```javascript
 const getQueues = async (combineAttributes = true, archived = false) => {
-  const queues = await domo.get(`/api/queues/v1/?combineAttributes=${combineAttributes}&archived=${archived}`
+  const queues = await domo.get(
+    `/api/queues/v1/?combineAttributes=${combineAttributes}&archived=${archived}`,
   );
   return queues;
 };
 
-
 const queues = getQueues();
 ```
-
 
 #### HTTP Request
 
 ```http
 GET /api/queues/v1/?combineAttributes={boolean}&archived={boolean}
 ```
-
 
 #### HTTP Response
 
@@ -69,7 +67,6 @@ Content-Type: application/json;charset=UTF-8
 ]
 ```
 
-
 ### Get Queue by ID
 
 ---
@@ -92,17 +89,14 @@ const getQueueByID = async (queueId) => {
   return queue;
 };
 
-
-const queue = getQueueByID("168ecd84-4a15-45f6-89d9-021fbbce0481");
+const queue = getQueueByID('168ecd84-4a15-45f6-89d9-021fbbce0481');
 ```
-
 
 #### HTTP Request
 
 ```http
 GET /api/queues/v1/{queueId}
 ```
-
 
 #### HTTP Response
 
@@ -128,7 +122,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Get Tasks
 
 ---
@@ -147,24 +140,22 @@ Returns tasks based on the filters provided in the body. If the body is an empty
 
 ```javascript
 const body = {
-  queueId: ["168ecd84-4a15-45f6-89d9-021fbbce0481"],
-  displayType: ["ENIGMA_FORM", "EMAIL", "UNKNOWN"],
-  status: ["OPEN", "COMPLETED", "VOIDED"],
-  createdOn: [["2023-10-04T12:22:54.239Z", "2024-01-02T13:22:54.239Z"]],
+  queueId: ['168ecd84-4a15-45f6-89d9-021fbbce0481'],
+  displayType: ['ENIGMA_FORM', 'EMAIL', 'UNKNOWN'],
+  status: ['OPEN', 'COMPLETED', 'VOIDED'],
+  createdOn: [['2023-10-04T12:22:54.239Z', '2024-01-02T13:22:54.239Z']],
 };
 
-
 const getTasks = async (body) => {
-  const queue = await domo.post(`/api/queues/v1/tasks/list?render=true&renderParts=NAME,DESCRIPTION,MAPPING,METADATA,VERSIONS`,
-    body
+  const queue = await domo.post(
+    `/api/queues/v1/tasks/list?render=true&renderParts=NAME,DESCRIPTION,MAPPING,METADATA,VERSIONS`,
+    body,
   );
   return queue;
 };
 
-
 const tasks = getTasks(body);
 ```
-
 
 #### HTTP Request
 
@@ -172,26 +163,25 @@ const tasks = getTasks(body);
 POST /api/queues/v1/tasks/list?render={boolean}&renderParts={NAME, DESCRIPTION, MAPPING, METADATA, VERSIONS}
 ```
 
-
 #### Request Body
 
 The request body accepts an object containing filters to apply to the request for tasks. All properties are optional and the body can be passed as an empty object to return all tasks.
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| queueId | String | Optional | An array of queue ids. |
-| displayType | String | Optional | An array of display types for tasks. Options are `ENIGMA_FORM`, `EMAIL`, `UNKNOWN`. |
-| status | String | Optional | An array of statuses. Options are `OPEN`, `COMPLETED`, `VOIDED`. |
-| assignedBy | String | Optional | An array of user ids corresponding to the user that assigned the task to. |
-| assignedTo | String | Optional | An array of user ids corresponding to the user that the task was assigned to. |
-| createdOn | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the createdOn date range. E.g. `[["2023-10-04T12:22:54.239Z","2024-01-02T13:22:54.239Z"]]` |
-| createdBy | String | Optional | An array of user ids corresponding to the user that created the task. |
-| assignedOn | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the assigedOn date range. |
-| updatedOn | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the updatedOn date range. |
-| completedOn | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the completedOn date range. |
-| completedBy | String | Optional | An array of user ids corresponding to the user that completed the task. |
-| orderByString | String | Optional | An array of strings corresponding to the properties from this body that the list of tasks should be ordered by. |
-| version | String | Optional | An array version numbers to filter by |
+| Property Name | Type     | Required | Description                                                                                                                                                                                    |
+| ------------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| queueId       | String   | Optional | An array of queue ids.                                                                                                                                                                         |
+| displayType   | String   | Optional | An array of display types for tasks. Options are `ENIGMA_FORM`, `EMAIL`, `UNKNOWN`.                                                                                                            |
+| status        | String   | Optional | An array of statuses. Options are `OPEN`, `COMPLETED`, `VOIDED`.                                                                                                                               |
+| assignedBy    | String   | Optional | An array of user ids corresponding to the user that assigned the task to.                                                                                                                      |
+| assignedTo    | String   | Optional | An array of user ids corresponding to the user that the task was assigned to.                                                                                                                  |
+| createdOn     | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the createdOn date range. E.g. `[["2023-10-04T12:22:54.239Z","2024-01-02T13:22:54.239Z"]]` |
+| createdBy     | String   | Optional | An array of user ids corresponding to the user that created the task.                                                                                                                          |
+| assignedOn    | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the assigedOn date range.                                                                  |
+| updatedOn     | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the updatedOn date range.                                                                  |
+| completedOn   | DateTime | Optional | An array containing an array with two elements: a start datetime and and end datetime, which define the completedOn date range.                                                                |
+| completedBy   | String   | Optional | An array of user ids corresponding to the user that completed the task.                                                                                                                        |
+| orderByString | String   | Optional | An array of strings corresponding to the properties from this body that the list of tasks should be ordered by.                                                                                |
+| version       | String   | Optional | An array version numbers to filter by                                                                                                                                                          |
 
 #### HTTP Response
 
@@ -448,7 +438,6 @@ Content-Type: application/json;charset=UTF-8
 ]
 ```
 
-
 ### Get Task by ID
 
 ---
@@ -467,24 +456,23 @@ Returns a task by its id.
 
 ```javascript
 const getTaskByID = async (queueId, taskId) => {
-  const task = await domo.get(`/api/queues/v1/${queueId}/tasks/${taskId}?render=true`
+  const task = await domo.get(
+    `/api/queues/v1/${queueId}/tasks/${taskId}?render=true`,
   );
   return task;
 };
 
-
-const task = getTaskByID("168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "18OCT23_1JUTZM"
+const task = getTaskByID(
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '18OCT23_1JUTZM',
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 GET /api/queues/v1/{queueId}/tasks/{taskId}?render={boolean}
 ```
-
 
 #### HTTP Response
 
@@ -619,7 +607,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Save Task Progress
 
 ---
@@ -636,7 +623,10 @@ Saves current task values given in the body, which contains the key value pairs 
 
 #### Code Example
 
-<Frame>![Screenshot 2024-01-02 at 8.50.40 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-01-02-at-8.50.40-AM.png)</Frame>
+<Frame>
+  ![Screenshot 2024-01-02 at 8.50.40
+  AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
+</Frame>
 
 ```javascript
 const body = {
@@ -645,28 +635,26 @@ const body = {
   Send_to_QA_Team: true,
 };
 
-
 const saveTask = async (queueId, taskId, body) => {
-  const task = await domo.put(`/api/queues/v1/${queueId}/tasks/${taskId}/outputs`,
-    body
+  const task = await domo.put(
+    `/api/queues/v1/${queueId}/tasks/${taskId}/outputs`,
+    body,
   );
   return task;
 };
 
-
-const task = saveTask("168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "18OCT23_1JUTZM",
-  body
+const task = saveTask(
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '18OCT23_1JUTZM',
+  body,
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 PUT /api/queues/v1/{queueId}/tasks/{taskId}/outputs
 ```
-
 
 #### Request Body
 
@@ -752,7 +740,6 @@ The current saved state of the task.
 }
 ```
 
-
 ### Complete Task
 
 ---
@@ -768,8 +755,10 @@ Completes the task with the values given in the body.
 />
 #### Code Example
 
-
-<Frame>![Screenshot 2024-01-02 at 8.50.40 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-01-02-at-8.50.40-AM.png)</Frame>
+<Frame>
+  ![Screenshot 2024-01-02 at 8.50.40
+  AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
+</Frame>
 
 ```javascript
 const body = {
@@ -778,28 +767,26 @@ const body = {
   Send_to_QA_Team: true,
 };
 
-
 const completeTask = async (queueId, taskId, body) => {
-  const task = await domo.post(`/api/queues/v1/${queueId}/tasks/${taskId}/complete?version=1`,
-    body
+  const task = await domo.post(
+    `/api/queues/v1/${queueId}/tasks/${taskId}/complete?version=1`,
+    body,
   );
   return task;
 };
 
-
-const task = completeTask("168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "24OCT23_CI27D1",
-  body
+const task = completeTask(
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '24OCT23_CI27D1',
+  body,
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 POST /api/queues/v1/{queueId}/tasks/{taskId}/complete?version={VERSION}
 ```
-
 
 #### Request Body
 
@@ -827,25 +814,24 @@ Transfer a task to another queue.
 
 ```javascript
 const transferTask = async (currentQueueId, taskId, newQueueId) => {
-  const task = await domo.put(`/api/queues/v1/${currentQueueId}/tasks/${taskId}/move?targetQueueId=${newQueueId}`
+  const task = await domo.put(
+    `/api/queues/v1/${currentQueueId}/tasks/${taskId}/move?targetQueueId=${newQueueId}`,
   );
   return task;
 };
 
-
-const task = transferTask("bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA",
-  "23890539-9543-4507-b68b-12e08094ca09"
+const task = transferTask(
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
+  '23890539-9543-4507-b68b-12e08094ca09',
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 PUT /api/queues/v1/{currentQueueId}/tasks/{taskId}/move?targetQueueId={newQueueId}
 ```
-
 
 #### HTTP Response
 
@@ -870,32 +856,30 @@ Transfer a task to another User.
 ```javascript
 const body = {
   tasksId: [],
-  type: "USER",
-  userId: "700632941",
+  type: 'USER',
+  userId: '700632941',
 };
 
-
 const transferTaskToUser = async (currentQueueId, taskId, body) => {
-  const task = await domo.put(`/api/queues/v1/${queueId}/tasks/${taskId}/assign`,
-    body
+  const task = await domo.put(
+    `/api/queues/v1/${queueId}/tasks/${taskId}/assign`,
+    body,
   );
   return task;
 };
 
-
-const task = transferTaskToUser("bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA",
-  body
+const task = transferTaskToUser(
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
+  body,
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 PUT /api/queues/v1/${queueId}/tasks/${taskId}/assign
 ```
-
 
 #### Request Body
 
@@ -923,24 +907,23 @@ Void a task.
 
 ```javascript
 const voidedTask = async (queueId, taskId) => {
-  const task = await domo.post(`/api/queues/v1/${queueId}/tasks/${taskId}/void`
+  const task = await domo.post(
+    `/api/queues/v1/${queueId}/tasks/${taskId}/void`,
   );
   return task;
 };
 
-
-const task = voidedTask("bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA"
+const task = voidedTask(
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
 );
 ```
-
 
 #### HTTP Request
 
 ```http
 POST /api/queues/v1/{queueId}/tasks/{taskId}/void
 ```
-
 
 #### HTTP Response
 
@@ -965,60 +948,57 @@ Update a queue's user/group permissions.
 ```javascript
 const body = [
   {
-    id: "337992616",
+    id: '337992616',
     permissions: [
-      "ADMIN",
-      "SHARE",
-      "DELETE",
-      "WRITE",
-      "READ",
-      "CREATE_CONTENT",
-      "READ_CONTENT",
-      "UPDATE_CONTENT",
+      'ADMIN',
+      'SHARE',
+      'DELETE',
+      'WRITE',
+      'READ',
+      'CREATE_CONTENT',
+      'READ_CONTENT',
+      'UPDATE_CONTENT',
     ],
-    name: "Daniel Bateman",
-    type: "USER",
+    name: 'Daniel Bateman',
+    type: 'USER',
   },
   {
-    id: "700632923",
-    permissions: ["ADMIN"],
+    id: '700632923',
+    permissions: ['ADMIN'],
     name: "Daniel's Test User",
-    type: "USER",
+    type: 'USER',
   },
   {
-    id: "519150798",
+    id: '519150798',
     permissions: [],
-    name: "Jordan Tiller",
-    type: "USER",
+    name: 'Jordan Tiller',
+    type: 'USER',
   },
   {
-    id: "264236964",
+    id: '264236964',
     name: "Daniel's Test Group",
-    type: "GROUP",
+    type: 'GROUP',
     permissions: [
-      "DELETE",
-      "WRITE",
-      "SHARE",
-      "EXPORT",
-      "EXECUTE",
-      "CREATE_CONTENT",
-      "READ_CONTENT",
-      "UPDATE_CONTENT",
-      "DELETE_CONTENT",
+      'DELETE',
+      'WRITE',
+      'SHARE',
+      'EXPORT',
+      'EXECUTE',
+      'CREATE_CONTENT',
+      'READ_CONTENT',
+      'UPDATE_CONTENT',
+      'DELETE_CONTENT',
     ],
   },
 ];
-
 
 const updatePermissions = async (queueId, body) => {
   const queue = await domo.post(`/api/queues/v1/${queueId}/permissions`, body);
   return queue;
 };
 
-
-const task = updatePermissions("bca21fad-e06b-4905-b43a-ea0929850e47", body);
+const task = updatePermissions('bca21fad-e06b-4905-b43a-ea0929850e47', body);
 ```
-
 
 #### HTTP Request
 
@@ -1026,17 +1006,16 @@ const task = updatePermissions("bca21fad-e06b-4905-b43a-ea0929850e47", body);
 POST /api/queues/v1/{queueId}/permissions
 ```
 
-
 #### HTTP Body
 
 A array of user or group objects containing the updated permissions
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| id | String | Required | The user or group id. |
-| permissions | String | Required | An array of permissions. The array can be empty (Removes an permissions). Options are `ADMIN`, `SHARE`, `DELETE`, `WRITE`, `READ`, `CREATE_CONTENT`, `READ_CONTENT`, `UPDATE_CONTENT`, `DELETE_CONTENT`, `EXPORT`, `EXECUTE`. |
-| name | String | Required | The display name of the user or group. |
-| type | String | Required | The type of entity. Options are `USER` or `GROUP` |
+| Property Name | Type   | Required | Description                                                                                                                                                                                                                   |
+| ------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id            | String | Required | The user or group id.                                                                                                                                                                                                         |
+| permissions   | String | Required | An array of permissions. The array can be empty (Removes an permissions). Options are `ADMIN`, `SHARE`, `DELETE`, `WRITE`, `READ`, `CREATE_CONTENT`, `READ_CONTENT`, `UPDATE_CONTENT`, `DELETE_CONTENT`, `EXPORT`, `EXECUTE`. |
+| name          | String | Required | The display name of the user or group.                                                                                                                                                                                        |
+| type          | String | Required | The type of entity. Options are `USER` or `GROUP`                                                                                                                                                                             |
 
 #### HTTP Response
 

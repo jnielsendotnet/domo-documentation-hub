@@ -1,19 +1,20 @@
 ---
-title: "Code Engine API"
-permalink: "fbhbpt1mt4gog-code-engine-api"
-sidebarTitle: "Overview"
+title: 'Code Engine API'
+permalink: 'fbhbpt1mt4gog-code-engine-api'
+sidebarTitle: 'Overview'
 ---
+
 This API reference is useful if you are wanting to use your Code Engine functions **outside** of your Domo instance.
 
 <Note>
 
-#### Calling From *Inside* Domo
+#### Calling From _Inside_ Domo
 
-To call the Code Engine API from *inside* your Domo instance, you can use
+To call the Code Engine API from _inside_ your Domo instance, you can use
 
-* [a Pro-code app](/portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app)
-* [a Workflow](https://domo-support.domo.com/s/article/000005331?language=en_US#create_workflow_from_template)
-  + You can call that Workflow using [a button in an App Studio app](https://domo-support.domo.com/minasan/s/article/000005295?language=en_US#add_a_button).
+- [a Pro-code app](/portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app)
+- [a Workflow](/s/article/000005331?language=en_US#create_workflow_from_template)
+  - You can call that Workflow using [a button in an App Studio app](https://domo-support.domo.com/minasan/s/article/000005295?language=en_US#add_a_button).
 
 </Note>
 
@@ -30,8 +31,8 @@ If you are unfamiliar, you'll need to familiarize yourself with [how to authenti
   icon="code"
   href="/api-reference/code-engine-api-product/run-function"
 />
-**Method**: `POST`  
-**Endpoint**: `/api/codeengine/v2/packages/{{packageId}}/versions/{{version}}/functions/{{functionName}}`
+**Method**: `POST` **Endpoint**: `/api/codeengine/v2/packages/{{ packageId }}/versions/
+{{ version }}/functions/{{ functionName }}`
 
 **Example**:
 
@@ -51,7 +52,6 @@ If you are unfamiliar, you'll need to familiarize yourself with [how to authenti
   }
 }
 ```
-
 
 **Response**:
 

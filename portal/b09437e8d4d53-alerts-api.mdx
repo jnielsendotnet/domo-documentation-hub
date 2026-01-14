@@ -1,9 +1,10 @@
 ---
-title: "Alerts API"
-permalink: "b09437e8d4d53-alerts-api"
-sidebarTitle: "Overview"
+title: 'Alerts API'
+permalink: 'b09437e8d4d53-alerts-api'
+sidebarTitle: 'Overview'
 ---
-Domo Alerts allow users to subscribe to various events and receive timely notifications as changes occur. Find out more about Alerts by reading [this article](https://domo-support.domo.com/s/article/360043430373?language=en_US). The Alerts API can be used to manage alerts in your Domo instance.
+
+Domo Alerts allow users to subscribe to various events and receive timely notifications as changes occur. Find out more about Alerts by reading [this article](/s/article/360043430373?language=en_US). The Alerts API can be used to manage alerts in your Domo instance.
 
 ## Get alerts
 
@@ -30,26 +31,25 @@ async function getAlerts() {
 }
 ```
 
-
 #### Query Parameters
 
-| Property Name | Type | Required | Default | Description |
-| --- | --- | --- | --- | --- |
-| all | Boolean | Optional |  | Whether to fetch all alerts at once |
-| cardId | Integer | Optional |  | A specific card id to fetch alerts for |
-| currentUserSubscriptions | Boolean | Optional | false | Whether to fetch the alerts subscribed to by the current user |
-| dataSetId | String | Optional |  | A specific dataset id to fetch alerts for |
-| disabled | Boolean | Optional |  | Whether to fetch only disabled alerts |
-| fields | String | Optional | id, category, type, name, description, resourceType, resourceId, createdAt, createdBy, modifiedAt, modifiedBy | Which alert fields to include in the response (can be set to 'all' to fetch all fields) |
-| limit | Integer | Optional | 100 | The query limit |
-| offset | Integer | Optional | 0 | The query offset (for pagination) |
-| ownerId | Integer | Optional |  | A specific user id to fetch owned alerts for |
-| pageId | Integer | Optional |  | A specific page id to fetch alerts for |
-| sort | String | Optional | createdAt | The field to sort by |
-| subscriberId | Integer | Optional |  | A specific user id to fetch subscribed alerts for |
-| subscriptionTypes | String | Optional |  | A list of subscription types to filter the alerts by |
-| suggested | Boolean | Optional |  | Whether to fetch only alerts that are suggested for you |
-| triggered | String | Optional |  | Whether to fetch only alerts that have been triggered |
+| Property Name            | Type    | Required | Default                                                                                                       | Description                                                                             |
+| ------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| all                      | Boolean | Optional |                                                                                                               | Whether to fetch all alerts at once                                                     |
+| cardId                   | Integer | Optional |                                                                                                               | A specific card id to fetch alerts for                                                  |
+| currentUserSubscriptions | Boolean | Optional | false                                                                                                         | Whether to fetch the alerts subscribed to by the current user                           |
+| dataSetId                | String  | Optional |                                                                                                               | A specific dataset id to fetch alerts for                                               |
+| disabled                 | Boolean | Optional |                                                                                                               | Whether to fetch only disabled alerts                                                   |
+| fields                   | String  | Optional | id, category, type, name, description, resourceType, resourceId, createdAt, createdBy, modifiedAt, modifiedBy | Which alert fields to include in the response (can be set to 'all' to fetch all fields) |
+| limit                    | Integer | Optional | 100                                                                                                           | The query limit                                                                         |
+| offset                   | Integer | Optional | 0                                                                                                             | The query offset (for pagination)                                                       |
+| ownerId                  | Integer | Optional |                                                                                                               | A specific user id to fetch owned alerts for                                            |
+| pageId                   | Integer | Optional |                                                                                                               | A specific page id to fetch alerts for                                                  |
+| sort                     | String  | Optional | createdAt                                                                                                     | The field to sort by                                                                    |
+| subscriberId             | Integer | Optional |                                                                                                               | A specific user id to fetch subscribed alerts for                                       |
+| subscriptionTypes        | String  | Optional |                                                                                                               | A list of subscription types to filter the alerts by                                    |
+| suggested                | Boolean | Optional |                                                                                                               | Whether to fetch only alerts that are suggested for you                                 |
+| triggered                | String  | Optional |                                                                                                               | Whether to fetch only alerts that have been triggered                                   |
 
 #### Response
 
@@ -76,7 +76,6 @@ Content-Type: application/json
 }
 ```
 
-
 ## Get an alert
 
 Gets an existing alert by id.
@@ -102,18 +101,17 @@ async function getAlert(alertId) {
 }
 ```
 
-
 #### Path Parameters
 
-| Property Name | Type | Description |
-| --- | --- | --- |
-| alertId | Integer | The id of the alert you want to get |
+| Property Name | Type    | Description                         |
+| ------------- | ------- | ----------------------------------- |
+| alertId       | Integer | The id of the alert you want to get |
 
 #### Query Parameters
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| fields | String | Optional | Which alert fields to include in the response |
+| Property Name | Type   | Required | Description                                   |
+| ------------- | ------ | -------- | --------------------------------------------- |
+| fields        | String | Optional | Which alert fields to include in the response |
 
 #### Response
 
@@ -149,7 +147,6 @@ HTTP/1.1 200 OK
 }
 ```
 
-
 ## Delete an alert
 
 Deletes an existing alert by id.
@@ -177,12 +174,11 @@ async function deleteAlert(alertId) {
 }
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| alertId | Integer | Required | The id of the alert you want to delete |
+| Property Name | Type    | Required | Description                            |
+| ------------- | ------- | -------- | -------------------------------------- |
+| alertId       | Integer | Required | The id of the alert you want to delete |
 
 #### Response
 
@@ -191,7 +187,6 @@ Returns the parameter of success or error based on the alert id being valid.
 ```text
 HTTP/1.1 200 OK
 ```
-
 
 ## Subscribe user to an alert
 
@@ -220,12 +215,11 @@ async function subscribeToAlert(alertId, userId) {
 }
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| alertId | Integer | Required | The id of the alert you want to subscribe the user to |
+| Property Name | Type    | Required | Description                                           |
+| ------------- | ------- | -------- | ----------------------------------------------------- |
+| alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
 #### Response
 
@@ -234,7 +228,6 @@ Returns the parameter of success or error based on the alert id being valid.
 ```text
 HTTP/1.1 200 OK
 ```
-
 
 ## Unsubscribe user from an alert
 
@@ -263,19 +256,18 @@ async function unsubscribeFromAlert(alertId, userId) {
 }
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| alertId | Integer | Required | The id of the alert you want to subscribe the user to |
+| Property Name | Type    | Required | Description                                           |
+| ------------- | ------- | -------- | ----------------------------------------------------- |
+| alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
 #### Query Parameters
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| subscriberId | Integer | Required | The id of the entity unsubscribing from the alert |
-| type | String | Required | The entity type, can be USER, GROUP, BUZZ, DAILY, WEEKLY, or AUTO |
+| Property Name | Type    | Required | Description                                                       |
+| ------------- | ------- | -------- | ----------------------------------------------------------------- |
+| subscriberId  | Integer | Required | The id of the entity unsubscribing from the alert                 |
+| type          | String  | Required | The entity type, can be USER, GROUP, BUZZ, DAILY, WEEKLY, or AUTO |
 
 #### Response
 
@@ -284,7 +276,6 @@ Returns the parameter of success or error based on the alert id being valid.
 ```text
 HTTP/1.1 200 OK
 ```
-
 
 ## Share an alert
 
@@ -319,21 +310,20 @@ async function shareAlert(alertId, userId, message, email) {
 }
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| alertId | Integer | Required | The id of the alert you want to subscribe the user to |
+| Property Name | Type    | Required | Description                                           |
+| ------------- | ------- | -------- | ----------------------------------------------------- |
+| alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
 #### Request Body
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| userMessage | String | Required | The message you want to send to the person |
+| Property Name      | Type     | Required | Description                                                                 |
+| ------------------ | -------- | -------- | --------------------------------------------------------------------------- |
+| userMessage        | String   | Required | The message you want to send to the person                                  |
 | alertSubscriptions | Object[] | Required | The entities you want to share the alert with. See above for entity params. |
-| sendEmail | Boolean |  | Whether or not to send an email to the person once the alert is shared |
-| metaData | Object |  |  |
+| sendEmail          | Boolean  |          | Whether or not to send an email to the person once the alert is shared      |
+| metaData           | Object   |          |                                                                             |
 
 ```json
 {
@@ -343,7 +333,6 @@ async function shareAlert(alertId, userId, message, email) {
   "metaData": {}
 }
 ```
-
 
 #### Response
 

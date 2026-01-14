@@ -1,11 +1,12 @@
 ---
-title: "Workflows API"
+title: 'Workflows API'
 sidebarTitle: Overview
-permalink: "1ay1akbc787jg-workflows-api"
+permalink: '1ay1akbc787jg-workflows-api'
 ---
+
 Domo Workflows allows you to graphically model a business process into an executable workflow using Business Process Management (BPM) notations and flows. Orchestration capabilities offer robust solutions for integrating internal and external systems, configuring decision logic, and automating activities in a workflow.
 
-For more background on Workflows, check out the [Knowledge Base for an overview](https://domo-support.domo.com/s/article/000005108?language=en_US).
+For more background on Workflows, check out the [Knowledge Base for an overview](/s/article/000005108?language=en_US).
 
 If you haven't leveraged Workflows from within Apps before, checkout the guide on hitting a Workflow from an App, which details how to configure your `manifest.json` file and wire up Workflows to your app.
 
@@ -19,18 +20,18 @@ Starts a Workflow and returns details about the Workflow Instance.
 
 ```javascript
 const startWorkflow = async (workflowAlias, body) => {
-  const instance = await domo.post(`/domo/workflow/v1/models/${workflowAlias}/start`,
-    body
+  const instance = await domo.post(
+    `/domo/workflow/v1/models/${workflowAlias}/start`,
+    body,
   );
   return instance;
 };
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
+| Property Name | Type   | Required | Description                                    |
+| ------------- | ------ | -------- | ---------------------------------------------- |
 | workflowAlias | String | Required | The name given to the Workflow in the manifest |
 
 #### HTTP Request
@@ -39,15 +40,13 @@ const startWorkflow = async (workflowAlias, body) => {
 POST /domo/workflow/v1/models/{workflowAlias}/start
 ```
 
-
 #### Request Body
 
 The request body accepts an object containing the start parameters required to run the workflow. These parameters are also defined in the `manifest.json` file and properties in the object should correspond to the `aliasName` of the parameter.
 
 ```json
-{"parameter1": "parameter1", "parameter2": "parameter2"}
+{ "parameter1": "parameter1", "parameter2": "parameter2" }
 ```
-
 
 #### HTTP Response
 
@@ -72,7 +71,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Get Metrics for a Workflow
 
 ---
@@ -83,29 +81,28 @@ Returns key metric information about a Workflow.
 
 ```javascript
 const getWorkflowMetrics = async (workflowAliasedName) => {
-  const metrics = await domo.get(`/domo/workflow/v1/models/${workflowAliasedName}/overall`
+  const metrics = await domo.get(
+    `/domo/workflow/v1/models/${workflowAliasedName}/overall`,
   );
   return metrics;
 };
 ```
 
-
 #### Arguments (query parameters)
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| limit | Long | Optional | limit of instance metrics returns |
-| offset | Long | Optional | offset for pagination |
-| after | Long | Optional | after a certain time |
-| until | Long | Optional | before a certain time |
-| status | String | Optional | Only show instances that have the provided status(es) `IN_PROGRESS`, `CANCELED`, `COMPLETED` |
+| Property Name | Type   | Required | Description                                                                                  |
+| ------------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
+| limit         | Long   | Optional | limit of instance metrics returns                                                            |
+| offset        | Long   | Optional | offset for pagination                                                                        |
+| after         | Long   | Optional | after a certain time                                                                         |
+| until         | Long   | Optional | before a certain time                                                                        |
+| status        | String | Optional | Only show instances that have the provided status(es) `IN_PROGRESS`, `CANCELED`, `COMPLETED` |
 
 #### HTTP Request
 
 ```text
 GET /domo/workflow/v1/models/{workflowAliasedName}/overall
 ```
-
 
 #### HTTP Response
 
@@ -185,7 +182,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Get Workflow Instance
 
 ---
@@ -196,26 +192,25 @@ If you are checking on the status of an existing Workflow instance.
 
 ```javascript
 const getWorkflowInstance = async (workflowAlias, workflowInstanceId) => {
-  const instance = await domo.get(`/domo/workflow/v1/models/${workflowAlias}/instance/${workflowInstanceId}`
+  const instance = await domo.get(
+    `/domo/workflow/v1/models/${workflowAlias}/instance/${workflowInstanceId}`,
   );
   return instance;
 };
 ```
 
-
 #### Arguments
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| workflowAlias | String | Required | The name given to the Workflow in the manifest |
-| workflowInstanceId | String | Required | The UUID of the Workflow instance |
+| Property Name      | Type   | Required | Description                                    |
+| ------------------ | ------ | -------- | ---------------------------------------------- |
+| workflowAlias      | String | Required | The name given to the Workflow in the manifest |
+| workflowInstanceId | String | Required | The UUID of the Workflow instance              |
 
 #### HTTP Request
 
 ```text
 GET /domo/workflow/v1/models/{workflowAlias}/instance/{workflowInstanceId}
 ```
-
 
 #### HTTP Response
 
