@@ -1,0 +1,2391 @@
+{
+  "summary": {
+    "total_analyzed": 160,
+    "new_files": 8,
+    "major_updates": 1,
+    "minor_updates": 10,
+    "content_diff": 149,
+    "unchanged": 0,
+    "unknown": 0
+  },
+  "changes": {
+    "new": [
+      {
+        "source": {
+          "path": "docs/Apps/App-Framework/Tools/da-cli.md",
+          "filename": "da-cli.md",
+          "type": ".md",
+          "title": "DA CLI - Domo Apps Generator",
+          "stoplight_id": null,
+          "size": 6525,
+          "modified": "2026-01-08T08:15:51.367620",
+          "content_hash": "3151f78c4eae8a4a61073e12969c04fa"
+        },
+        "is_new": true,
+        "added_date": "2025-10-13",
+        "commits": [
+          {
+            "hash": "3c834dc91ddd4d6ad916c4374080aac3b517fa40",
+            "date": "2025-10-30",
+            "message": "docs(da-cli.md): add badges for npm version, license, and TypeScript readiness to enhance documentation visibility and provide quick reference information"
+          },
+          {
+            "hash": "d0c08a0f0c13b70fe65e3f2351c325dcf1cc24cb",
+            "date": "2025-10-30",
+            "message": "docs(da-cli.md): remove redundant troubleshooting section to streamline documentation"
+          },
+          {
+            "hash": "5b46277a77fee361b5a2da7cbea7240b2a67edee",
+            "date": "2025-10-30",
+            "message": "docs(da-cli.md): clarify manifest override usage and provide example"
+          },
+          {
+            "hash": "743c564d324f9ffabfe79d5f8efb27cd8dc204ab",
+            "date": "2025-10-28",
+            "message": "docs(da-cli.md): remove outdated maintenance information to reflect current documentation standards"
+          },
+          {
+            "hash": "7fddbf157f131af8ed0efaf0dec43814ba6117f3",
+            "date": "2025-10-28",
+            "message": "docs(da-cli.md): update file structure and support section"
+          },
+          {
+            "hash": "38f56af14bf52f6aa65ec6a1229917e1a736fa95",
+            "date": "2025-10-13",
+            "message": "docs(da-cli.md): remove contributing section to streamline documentation"
+          },
+          {
+            "hash": "20cf92c336314f1a588d932d1357384b7219acaa",
+            "date": "2025-10-13",
+            "message": "docs(da-cli): add comprehensive documentation for DA CLI tool"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Apps/App-Framework/Tools/domo-publish-CICD.md",
+          "filename": "domo-publish-CICD.md",
+          "type": ".md",
+          "title": "Domo Publish - GitHub Action",
+          "stoplight_id": null,
+          "size": 3331,
+          "modified": "2026-01-08T08:15:51.368541",
+          "content_hash": "cb1a3af83850f0419f8fb9ab7c168955"
+        },
+        "is_new": true,
+        "added_date": "2025-10-22",
+        "commits": [
+          {
+            "hash": "a2d73c272e060cc8f262091becaf126dec2a0033",
+            "date": "2025-10-28",
+            "message": "docs(domo-publish-CICD.md): update section title for clarity and conciseness"
+          },
+          {
+            "hash": "cc740f01af1c6fc9be54fc761af3f69155bfd3d6",
+            "date": "2025-10-28",
+            "message": "docs(domo-publish-CICD.md): update instructions for obtaining Domo credentials to reflect new navigation path"
+          },
+          {
+            "hash": "a9c513e9808da71fcffffc5cfc4d935969c0704f",
+            "date": "2025-10-28",
+            "message": "docs: add CLAUDE.md for guidance on repository usage and structure"
+          },
+          {
+            "hash": "eb096a4e308504a0d6e6359cf17bad2b5a94e997",
+            "date": "2025-10-22",
+            "message": "docs: add guide for automating Domo app deployments with GitHub Actions"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI.md",
+          "filename": "Local-Development-with-Domo-CLI.md",
+          "type": ".md",
+          "title": "Local Development with Domo CLI",
+          "stoplight_id": null,
+          "size": 8483,
+          "modified": "2026-01-08T08:15:51.364967",
+          "content_hash": "de7b054ec5e340b76a9ae6aa965115f1"
+        },
+        "is_new": true,
+        "added_date": "2025-10-24",
+        "commits": [
+          {
+            "hash": "fd3ce85bb4d6fad842089bd477194cf79602ee1e",
+            "date": "2025-10-24",
+            "message": "docs(App-Framework): remove unnecessary bullet points in checklist for improved readability"
+          },
+          {
+            "hash": "7693cd03cc4e632a50247ff44866130febd2cec7",
+            "date": "2025-10-24",
+            "message": "docs(App-Framework): adjust checklist formatting for consistency in Local-Development guide"
+          },
+          {
+            "hash": "4b00b8b0bb73f8336d77d2b82e21bbd549a32ade",
+            "date": "2025-10-24",
+            "message": "docs: add spacing between checklist items for better readability in Local-Development-with-Domo-CLI guide"
+          },
+          {
+            "hash": "868e031c049f94a01e23a8035fe0f7b7fd12fd07",
+            "date": "2025-10-24",
+            "message": "docs(App-Framework): clarify live reload feature in Domo CLI guide"
+          },
+          {
+            "hash": "facbd8ed435fadbc90c6af7520eb1dfd0d36d93d",
+            "date": "2025-10-24",
+            "message": "docs: add guide for local development with Domo CLI"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Forms/Advanced-Forms/overview.md",
+          "filename": "overview.md",
+          "type": ".md",
+          "title": "Domo Advanced Forms (BETA)",
+          "stoplight_id": null,
+          "size": 2067,
+          "modified": "2026-01-08T08:15:51.380493",
+          "content_hash": "f8ed62260cfbdf6ab6b6c6053c24497d"
+        },
+        "is_new": true,
+        "added_date": "2025-12-02",
+        "commits": [
+          {
+            "hash": "fea18a00811f9b1037958609e72c7f6c5256c304",
+            "date": "2025-12-12",
+            "message": "feat: images and beta tag"
+          },
+          {
+            "hash": "f7dc38cb06072f1625c26f3f7944808a16be75dc",
+            "date": "2025-12-12",
+            "message": "fix: tightening up docs"
+          },
+          {
+            "hash": "916d1d13e1cceb5908448fe5cd331602888ee611",
+            "date": "2025-12-02",
+            "message": "feat: initial advanced form documentation"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Forms/Advanced-Forms/creating-advanced-forms.md",
+          "filename": "creating-advanced-forms.md",
+          "type": ".md",
+          "title": "Creating an Advanced Form",
+          "stoplight_id": null,
+          "size": 1512,
+          "modified": "2026-01-08T08:15:51.379531",
+          "content_hash": "eb778ed688efc420f024d1ec29e7af53"
+        },
+        "is_new": true,
+        "added_date": "2025-12-02",
+        "commits": [
+          {
+            "hash": "f7dc38cb06072f1625c26f3f7944808a16be75dc",
+            "date": "2025-12-12",
+            "message": "fix: tightening up docs"
+          },
+          {
+            "hash": "916d1d13e1cceb5908448fe5cd331602888ee611",
+            "date": "2025-12-02",
+            "message": "feat: initial advanced form documentation"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Forms/Advanced-Forms/advanced-form-datasets.md",
+          "filename": "advanced-form-datasets.md",
+          "type": ".md",
+          "title": "Advanced Form Datasets",
+          "stoplight_id": null,
+          "size": 1267,
+          "modified": "2026-01-08T08:15:51.378255",
+          "content_hash": "cc6ea5c6ca3a7ce8734be94f1314a91e"
+        },
+        "is_new": true,
+        "added_date": "2025-12-02",
+        "commits": [
+          {
+            "hash": "f7dc38cb06072f1625c26f3f7944808a16be75dc",
+            "date": "2025-12-12",
+            "message": "fix: tightening up docs"
+          },
+          {
+            "hash": "916d1d13e1cceb5908448fe5cd331602888ee611",
+            "date": "2025-12-02",
+            "message": "feat: initial advanced form documentation"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Forms/Advanced-Forms/advanced-form-editor-layout.md",
+          "filename": "advanced-form-editor-layout.md",
+          "type": ".md",
+          "title": "Advanced Form Editor Layout",
+          "stoplight_id": null,
+          "size": 3345,
+          "modified": "2026-01-08T08:15:51.378787",
+          "content_hash": "66b7f0da047769bb4479ea7a2fb358ad"
+        },
+        "is_new": true,
+        "added_date": "2025-12-02",
+        "commits": [
+          {
+            "hash": "f7dc38cb06072f1625c26f3f7944808a16be75dc",
+            "date": "2025-12-12",
+            "message": "fix: tightening up docs"
+          },
+          {
+            "hash": "0cb613930e40de758c734f36389893fa674967f8",
+            "date": "2025-12-02",
+            "message": "fix: styles, labels"
+          },
+          {
+            "hash": "916d1d13e1cceb5908448fe5cd331602888ee611",
+            "date": "2025-12-02",
+            "message": "feat: initial advanced form documentation"
+          }
+        ]
+      },
+      {
+        "source": {
+          "path": "docs/Forms/Advanced-Forms/domo-data-features.md",
+          "filename": "domo-data-features.md",
+          "type": ".md",
+          "title": "Domo Data Features",
+          "stoplight_id": null,
+          "size": 4896,
+          "modified": "2026-01-08T08:15:51.380031",
+          "content_hash": "dbcd48037e9dde2c259e8953d67e9d3b"
+        },
+        "is_new": true,
+        "added_date": "2025-12-02",
+        "commits": [
+          {
+            "hash": "fea18a00811f9b1037958609e72c7f6c5256c304",
+            "date": "2025-12-12",
+            "message": "feat: images and beta tag"
+          },
+          {
+            "hash": "f7dc38cb06072f1625c26f3f7944808a16be75dc",
+            "date": "2025-12-12",
+            "message": "fix: tightening up docs"
+          },
+          {
+            "hash": "916d1d13e1cceb5908448fe5cd331602888ee611",
+            "date": "2025-12-02",
+            "message": "feat: initial advanced form documentation"
+          }
+        ]
+      }
+    ],
+    "major_update": [
+      {
+        "stoplight_id": "e947d87e17547",
+        "source_path": "docs/Apps/App-Framework/Tools/domo.js.md",
+        "migrated_path": "portal/e947d87e17547-domo-js.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "major_update",
+        "reason": "8 commits since July 2025, includes major changes",
+        "commit_count": 8,
+        "latest_commit": {
+          "hash": "9f6112e7f6eef04fb34d08f005beacc4295b3fa9",
+          "date": "2025-10-28",
+          "message": "PR Feedback"
+        },
+        "commits": [
+          {
+            "hash": "9f6112e7f6eef04fb34d08f005beacc4295b3fa9",
+            "date": "2025-10-28",
+            "message": "PR Feedback"
+          },
+          {
+            "hash": "78ee7d8b21c4fdec6840e24dea4624d74660a447",
+            "date": "2025-10-28",
+            "message": "Update Documentation"
+          },
+          {
+            "hash": "21f0f1d0db261fb7d5cd2bf2085f8ed42dcc5e64",
+            "date": "2025-10-17",
+            "message": "Make domo.js accurate again!"
+          },
+          {
+            "hash": "ab71b51283a4b737b84d0e940036adcb40de33d0",
+            "date": "2025-07-29",
+            "message": "uncomment ondataupdated line"
+          },
+          {
+            "hash": "52a2714d19dfca86dc2542a81fb5dc608feb6d38",
+            "date": "2025-07-09",
+            "message": "More improvements"
+          }
+        ]
+      }
+    ],
+    "minor_update": [
+      {
+        "stoplight_id": "d01f63a6ba662",
+        "source_path": "docs/Getting-Started/overview.md",
+        "migrated_path": "portal/d01f63a6ba662-domo-developer-portal.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "1 commits since July 2025",
+        "commit_count": 1,
+        "latest_commit": {
+          "hash": "aeb8f7cc05ef9216b23ac91213a781e9b6ddfa68",
+          "date": "2025-09-12",
+          "message": "Added Slack community and Bryce's Postman collection to community links"
+        },
+        "commits": [
+          {
+            "hash": "aeb8f7cc05ef9216b23ac91213a781e9b6ddfa68",
+            "date": "2025-09-12",
+            "message": "Added Slack community and Bryce's Postman collection to community links"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "e04caa9abb5cc",
+        "source_path": "docs/Getting-Started/sdks.md",
+        "migrated_path": "portal/e04caa9abb5cc-domo-sd-ks.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "1 commits since July 2025",
+        "commit_count": 1,
+        "latest_commit": {
+          "hash": "143fbef44d67bc01bd6aea8e7f0d3300f1cbbce1",
+          "date": "2025-07-02",
+          "message": "docs(Embedded-Analytics/embedded-scheduled-reports.md): new file docs(Getting-Started/sdks.md): update Java and Python SDK sections with improved formatting, add R SDK section"
+        },
+        "commits": [
+          {
+            "hash": "143fbef44d67bc01bd6aea8e7f0d3300f1cbbce1",
+            "date": "2025-07-02",
+            "message": "docs(Embedded-Analytics/embedded-scheduled-reports.md): new file docs(Getting-Started/sdks.md): update Java and Python SDK sections with improved formatting, add R SDK section"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "rmfbkwje8kmqj",
+        "source_path": "docs/Apps/App-Framework/Tools/domo-CLI.md",
+        "migrated_path": "portal/rmfbkwje8kmqj-domo-apps-cli.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "2 commits since July 2025",
+        "commit_count": 2,
+        "latest_commit": {
+          "hash": "3df6050f02fdc0d3cd15e134dc13acfa23cfbb66",
+          "date": "2025-10-24",
+          "message": "docs(domo-CLI.md): update section title and add image for proxy ID location"
+        },
+        "commits": [
+          {
+            "hash": "3df6050f02fdc0d3cd15e134dc13acfa23cfbb66",
+            "date": "2025-10-24",
+            "message": "docs(domo-CLI.md): update section title and add image for proxy ID location"
+          },
+          {
+            "hash": "deb0d5b991ca200c23901ae1bd25e71411c3742f",
+            "date": "2025-10-24",
+            "message": "docs(domo-CLI.md): update installation instructions to deprecate Homebrew and Chocolatey in favor of npm"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "6hlzv1hinkq19",
+        "source_path": "docs/Apps/App-Framework/Quickstart/Setup-and-Installation.md",
+        "migrated_path": "portal/6hlzv1hinkq19-setup-and-installation.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "1 commits since July 2025",
+        "commit_count": 1,
+        "latest_commit": {
+          "hash": "a9df0b179fb21bea9e1652ef54aae9cd43f6886f",
+          "date": "2025-08-02",
+          "message": "Make the language consistent"
+        },
+        "commits": [
+          {
+            "hash": "a9df0b179fb21bea9e1652ef54aae9cd43f6886f",
+            "date": "2025-08-02",
+            "message": "Make the language consistent"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "wjqiqhsvpadon",
+        "source_path": "docs/API-Reference/Domo-App-APIs/AI-Service-Layer-API.md",
+        "migrated_path": "portal/wjqiqhsvpadon-ai-service-layer-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "2 commits since July 2025",
+        "commit_count": 2,
+        "latest_commit": {
+          "hash": "9c479406a3d1351f10403b06a1161ce7a1e24d3e",
+          "date": "2025-12-11",
+          "message": "docs(API): add focus attribute to AI Service Layer API headers for improved documentation clarity"
+        },
+        "commits": [
+          {
+            "hash": "9c479406a3d1351f10403b06a1161ce7a1e24d3e",
+            "date": "2025-12-11",
+            "message": "docs(API): add focus attribute to AI Service Layer API headers for improved documentation clarity"
+          },
+          {
+            "hash": "b0c02b7a251dccecc70d6aeb9360e1ea23531bc5",
+            "date": "2025-11-04",
+            "message": "Update AI-Service-Layer-API.md"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "ffvznqc76b2b5",
+        "source_path": "docs/API-Reference/Product-APIs/AI-Services.md",
+        "migrated_path": "portal/ffvznqc76b2b5-ai-services-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "2 commits since July 2025",
+        "commit_count": 2,
+        "latest_commit": {
+          "hash": "9c479406a3d1351f10403b06a1161ce7a1e24d3e",
+          "date": "2025-12-11",
+          "message": "docs(API): add focus attribute to AI Service Layer API headers for improved documentation clarity"
+        },
+        "commits": [
+          {
+            "hash": "9c479406a3d1351f10403b06a1161ce7a1e24d3e",
+            "date": "2025-12-11",
+            "message": "docs(API): add focus attribute to AI Service Layer API headers for improved documentation clarity"
+          },
+          {
+            "hash": "b520c4f34b6e5552c3ae17d9ee0c07054b0a854b",
+            "date": "2025-11-04",
+            "message": "Update AI-Services.md"
+          }
+        ]
+      },
+      {
+        "stoplight_id": "3989acf1bafff",
+        "source_path": "docs/Connectors/API-Data-Connection/import-and-export-data.md",
+        "migrated_path": "portal/3989acf1bafff-import-and-export-data.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "minor_update",
+        "reason": "2 commits since July 2025",
+        "commit_count": 2,
+        "latest_commit": {
+          "hash": "b04ffa2b95f2db5483fdf931137f2b9c2cccc29f",
+          "date": "2025-09-17",
+          "message": "Fix Issue #175"
+        },
+        "commits": [
+          {
+            "hash": "b04ffa2b95f2db5483fdf931137f2b9c2cccc29f",
+            "date": "2025-09-17",
+            "message": "Fix Issue #175"
+          },
+          {
+            "hash": "822ca4f4024ca47f778c5c07e527233635a733b3",
+            "date": "2025-09-17",
+            "message": "Fix Issue #176"
+          }
+        ]
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Embedded-Analytics/embedded-scheduled-reports.md",
+        "migrated_path": "portal/21f7b5c7ee313-embedded-scheduled-reports-beta.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "minor_update",
+        "reason": "5 commits since July 2025",
+        "commit_count": 5,
+        "latest_commit": {
+          "hash": "8417f302e3e46558cca54d26d4f719fe727656b9",
+          "date": "2025-07-11",
+          "message": "remove tab-end to group examples"
+        },
+        "commits": [
+          {
+            "hash": "8417f302e3e46558cca54d26d4f719fe727656b9",
+            "date": "2025-07-11",
+            "message": "remove tab-end to group examples"
+          },
+          {
+            "hash": "09adc155ec26be89211a76133110ac6bd85fda79",
+            "date": "2025-07-11",
+            "message": "add table of contents record"
+          },
+          {
+            "hash": "2313045a253d18154548928d05e4a8a394d4a1ae",
+            "date": "2025-07-11",
+            "message": "DOMO-433210 Marked as BETA"
+          },
+          {
+            "hash": "279de9942c9bda20335e6c4fb2f87bdd374070f2",
+            "date": "2025-07-11",
+            "message": "DOMO-433210 Added documentation for embed schedule reports, along with screen shots, overview, steps for setup, and use."
+          },
+          {
+            "hash": "305ead11e4061d0a0c1e7bc570e5083a410e76fa",
+            "date": "2025-07-02",
+            "message": "docs(Embedded-Analytics/embedded-scheduled-reports.md): add new guide for utilizing scheduled reports system with HMAC-SHA256 encryption and webhook endpoint configuration"
+          }
+        ]
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/getting-started-pro-code.md",
+        "migrated_path": "portal/3ad3f9b434b10-getting-started-with-the-pro-code-editor.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "minor_update",
+        "reason": "1 commits since July 2025",
+        "commit_count": 1,
+        "latest_commit": {
+          "hash": "c4c042c14eb632e46c233a714748c49b5a0079d6",
+          "date": "2025-11-05",
+          "message": "docs(getting-started-pro-code.md): update image link for asset library docs(getting-started-pro-code.md): change text formatting for emphasis docs(toc.json): reorganize table of contents for Pro-Code Editor section"
+        },
+        "commits": [
+          {
+            "hash": "c4c042c14eb632e46c233a714748c49b5a0079d6",
+            "date": "2025-11-05",
+            "message": "docs(getting-started-pro-code.md): update image link for asset library docs(getting-started-pro-code.md): change text formatting for emphasis docs(toc.json): reorganize table of contents for Pro-Code Editor section"
+          }
+        ]
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/Pro-Code-Editor/Tutorials/pdf-export.md",
+        "migrated_path": "portal/c0859d0c0a941-tutorial-building-a-domo-dashboard-pdf-converter.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "minor_update",
+        "reason": "2 commits since July 2025",
+        "commit_count": 2,
+        "latest_commit": {
+          "hash": "c1ee4e4c23817f39351e4091cf34d229694e0edc",
+          "date": "2025-08-12",
+          "message": "update image tags on bar chart"
+        },
+        "commits": [
+          {
+            "hash": "c1ee4e4c23817f39351e4091cf34d229694e0edc",
+            "date": "2025-08-12",
+            "message": "update image tags on bar chart"
+          },
+          {
+            "hash": "45d96b0db07cd51b5ffeac53025304b3eeaaa19c",
+            "date": "2025-08-11",
+            "message": "update image tags on pdf export page"
+          }
+        ]
+      }
+    ],
+    "content_diff": [
+      {
+        "stoplight_id": "wiemes1rk6atz",
+        "source_path": "docs/Connectors/Overview.md",
+        "migrated_path": "portal/wiemes1rk6atz-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "0mnsejhg5livn",
+        "source_path": "docs/Data-Science/overview.md",
+        "migrated_path": "portal/0mnsejhg5livn-domo-ai-resources-guide.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ftlfegxnudqt7",
+        "source_path": "docs/Data-Science/scripting-tiles.md",
+        "migrated_path": "portal/ftlfegxnudqt7-magic-etl-scripting-tiles.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "pg9t2vdbix5un",
+        "source_path": "docs/Data-Science/accelerators.md",
+        "migrated_path": "portal/pg9t2vdbix5un-data-science-accelerators.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "4cjt7r72bnwlf",
+        "source_path": "docs/Data-Science/jupyter.md",
+        "migrated_path": "portal/4cjt7r72bnwlf-jupyter-workspaces.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "32buc6884v4px",
+        "source_path": "docs/Data-Science/data-science-tiles.md",
+        "migrated_path": "portal/32buc6884v4px-magic-etl-data-science-tiles.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "x2i3bk0w4bwhe",
+        "source_path": "docs/Data-Science/ai-services.md",
+        "migrated_path": "portal/x2i3bk0w4bwhe-domo-ai.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "xw7ienfqq7qrw",
+        "source_path": "docs/Data-Science/autoML.md",
+        "migrated_path": "portal/xw7ienfqq7qrw-automated-machine-learning-auto-ml.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "umqbnyej9jn06",
+        "source_path": "docs/Data-Science/webinars.md",
+        "migrated_path": "portal/umqbnyej9jn06-data-science-webinars.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "n4pswi7dd2azo",
+        "source_path": "docs/GameNightPlannerApp/going-from-brick-to-app.md",
+        "migrated_path": "portal/n4pswi7dd2azo-moving-from-brick-to-app.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "pff92wc4t7vgw",
+        "source_path": "docs/GameNightPlannerApp/adding-advanced-capabilities-to-your-app.md",
+        "migrated_path": "portal/pff92wc4t7vgw-adding-advanced-capabilities-to-your-app.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ndvsmatbqz5gk",
+        "source_path": "docs/GameNightPlannerApp/intro-to-bricks.md",
+        "migrated_path": "portal/ndvsmatbqz5gk-game-night-planner-app-intro-to-domo-bricks.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "05b0hcl6afem2",
+        "source_path": "docs/Other-Resources/Developer-Forum.md",
+        "migrated_path": "portal/05b0hcl6afem2-community-forums.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "7162ed588aa08",
+        "source_path": "docs/Other-Resources/sample-projects.md",
+        "migrated_path": "portal/7162ed588aa08-sample-projects.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "d93cd01e7c739",
+        "source_path": "docs/Other-Resources/api-status.md",
+        "migrated_path": "portal/d93cd01e7c739-api-status.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "8ba9aedad3679",
+        "source_path": "docs/Getting-Started/api-authentication.md",
+        "migrated_path": "portal/8ba9aedad3679-ap-is.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "7zzu6uf05maam",
+        "source_path": "docs/Governance/pdp.md",
+        "migrated_path": "portal/7zzu6uf05maam-pdp.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ncsnoe3fay4df",
+        "source_path": "docs/Embedded-Analytics/overview.md",
+        "migrated_path": "portal/ncsnoe3fay4df-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "541b34bb930ee",
+        "source_path": "docs/Embedded-Analytics/publishing-to-other-domo-users.md",
+        "migrated_path": "portal/541b34bb930ee-publishing-to-other-users.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ed061f0c295c0",
+        "source_path": "docs/Embedded-Analytics/embedded-edit-experiences.md",
+        "migrated_path": "portal/ed061f0c295c0-embedded-capabilities.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "28v6sqz9eslb9",
+        "source_path": "docs/Apps/Overview.md",
+        "migrated_path": "portal/28v6sqz9eslb9-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "d54m2ohkacza0",
+        "source_path": "docs/Apps/App-Framework/Welcome.md",
+        "migrated_path": "portal/d54m2ohkacza0-welcome.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "9l1mzcir4ht5h",
+        "source_path": "docs/Apps/App-Framework/Quickstart/Best-Practices.md",
+        "migrated_path": "portal/9l1mzcir4ht5h-best-practices.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "67dwgt0v6q3w9",
+        "source_path": "docs/Apps/App-Framework/Quickstart/Prerequisites.md",
+        "migrated_path": "portal/67dwgt0v6q3w9-prerequisites.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "u8w475o2245yp",
+        "source_path": "docs/Apps/App-Framework/Quickstart/Starter-Kits.md",
+        "migrated_path": "portal/u8w475o2245yp-starter-kits.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "37rc8izzjzj7z",
+        "source_path": "docs/Apps/App-Framework/Quickstart/Tools.md",
+        "migrated_path": "portal/37rc8izzjzj7z-tools.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "df8b045188694",
+        "source_path": "docs/Apps/App-Framework/Guides/public-assets.md",
+        "migrated_path": "portal/df8b045188694-public-assets.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "6fa7587d4c2ea",
+        "source_path": "docs/Apps/App-Framework/Guides/querying-data.md",
+        "migrated_path": "portal/6fa7587d4c2ea-querying-data.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "2a14dd34496e7",
+        "source_path": "docs/Apps/App-Framework/Guides/handling-data-updates.md",
+        "migrated_path": "portal/2a14dd34496e7-handling-data-updates.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "4w40o03817vij",
+        "source_path": "docs/Apps/App-Framework/Guides/hitting-code-engine-from-an-app.md",
+        "migrated_path": "portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "af407395c766b",
+        "source_path": "docs/Apps/App-Framework/Guides/manifest.md",
+        "migrated_path": "portal/af407395c766b-the-manifest-file.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "6a5d7a2870145",
+        "source_path": "docs/Apps/App-Framework/Guides/getting-data.md",
+        "migrated_path": "portal/6a5d7a2870145-getting-data.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "xma9hezmttvid",
+        "source_path": "docs/Apps/App-Framework/Guides/app-sessions.md",
+        "migrated_path": "portal/xma9hezmttvid-app-sessions.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "omi6lzvpm47ei",
+        "source_path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow.md",
+        "migrated_path": "portal/omi6lzvpm47ei-return-flow.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "a2bd06daaff7e",
+        "source_path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce.md",
+        "migrated_path": "portal/a2bd06daaff7e-sugar-force.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "atp50e7pzs4yd",
+        "source_path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic.md",
+        "migrated_path": "portal/atp50e7pzs4yd-creating-dynamic-infographics.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "0037739ab3747",
+        "source_path": "docs/Apps/DDX-Bricks/Quickstart/overview.md",
+        "migrated_path": "portal/0037739ab3747-domo-bricks-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ec60c4980e1b5",
+        "source_path": "docs/Apps/DDX-Bricks/Quickstart/getting-started.md",
+        "migrated_path": "portal/ec60c4980e1b5-getting-started-using-domo-bricks.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "2efe8599c6ad9",
+        "source_path": "docs/Apps/DDX-Bricks/Guides/getting-data.md",
+        "migrated_path": "portal/2efe8599c6ad9-getting-data-in-domo-bricks.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "81edeb860659b",
+        "source_path": "docs/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro.md",
+        "migrated_path": "portal/81edeb860659b-video-guides.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "4soguofca8clp",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples.md",
+        "migrated_path": "portal/4soguofca8clp-code-examples.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "9698njvvxz8f9",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/overview.md",
+        "migrated_path": "portal/9698njvvxz8f9-getting-started.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "nt3co7oh36g5s",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height.md",
+        "migrated_path": "portal/nt3co7oh36g5s-dynamic-iframe-height.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "wbwvwmq9rd714",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options.md",
+        "migrated_path": "portal/wbwvwmq9rd714-filtering-options.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "j83p65ecrjtr1",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching.md",
+        "migrated_path": "portal/j83p65ecrjtr1-dataset-switching.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "1yafxad1u8azv",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering.md",
+        "migrated_path": "portal/1yafxad1u8azv-programmatic-filtering.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "buk5zwk1pvjwh",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content.md",
+        "migrated_path": "portal/buk5zwk1pvjwh-url-parameters-in-embedded-content.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "1cleirjemoy6i",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication.md",
+        "migrated_path": "portal/1cleirjemoy6i-app-embed-authentication.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "5ueroz175c0jl",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals.md",
+        "migrated_path": "portal/5ueroz175c0jl-embedding-into-sites-and-web-portals.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "5u0f5ugttqixq",
+        "source_path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies.md",
+        "migrated_path": "portal/5u0f5ugttqixq-necessary-dependencies.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "1sirxqzlsb4sk",
+        "source_path": "docs/Automate-Actions/Code-Engine/overview.md",
+        "migrated_path": "portal/1sirxqzlsb4sk-code-engine.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "n7f7swo7h29wg",
+        "source_path": "docs/API-Reference/Domo-App-APIs/User-API.md",
+        "migrated_path": "portal/n7f7swo7h29wg-user-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "eeoadx67i6h46",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Files-API.md",
+        "migrated_path": "portal/eeoadx67i6h46-files-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "2hwa98wx7kdm4",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Groups-API.md",
+        "migrated_path": "portal/2hwa98wx7kdm4-groups-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "1l1fm2g0sfm69",
+        "source_path": "docs/API-Reference/Domo-App-APIs/AppDB-API.md",
+        "migrated_path": "portal/1l1fm2g0sfm69-app-db-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "k2vv2vir3c8ry",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Queues-and-Tasks-API.md",
+        "migrated_path": "portal/k2vv2vir3c8ry-task-center-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "1ay1akbc787jg",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Workflows-API.md",
+        "migrated_path": "portal/1ay1akbc787jg-workflows-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "p48phjy7wwtw8",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Code-Engine-API.md",
+        "migrated_path": "portal/p48phjy7wwtw8-code-engine-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "8s3y9eldnjq8d",
+        "source_path": "docs/API-Reference/Domo-App-APIs/Data-API.md",
+        "migrated_path": "portal/8s3y9eldnjq8d-data-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "kspv2orr3oi30",
+        "source_path": "docs/API-Reference/Product-APIs/Workflows.md",
+        "migrated_path": "portal/kspv2orr3oi30-workflows-product-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "u3ejmw0namdxf",
+        "source_path": "docs/API-Reference/Product-APIs/Federated-V1-to-V2-Migration-APIs.md",
+        "migrated_path": "portal/u3ejmw0namdxf-federated-v1-to-v2-migration-ap-is.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "fbhbpt1mt4gog",
+        "source_path": "docs/API-Reference/Product-APIs/Code-Engine.md",
+        "migrated_path": "portal/fbhbpt1mt4gog-code-engine-api.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "prt23r0zqw1vq",
+        "source_path": "docs/API-Reference/Product-APIs/Managing-Dataset-History.md",
+        "migrated_path": "portal/prt23r0zqw1vq-managing-dataset-history.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "600e2b5914564",
+        "source_path": "docs/Partner-Developers/Domo-Marketplace/overview.md",
+        "migrated_path": "portal/600e2b5914564-domo-appstore.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "6ea9fcd9e478c",
+        "source_path": "docs/Partner-Developers/Domo-Marketplace/marketplace-data-resources.md",
+        "migrated_path": "portal/6ea9fcd9e478c-appstore-data-resources.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "c9db4daa8edfe",
+        "source_path": "docs/Partner-Developers/Domo-Marketplace/marketplace-requirements.md",
+        "migrated_path": "portal/c9db4daa8edfe-appstore-requirements.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "6505d9ad61fd0",
+        "source_path": "docs/Partner-Developers/Domo-Marketplace/marketplace-support.md",
+        "migrated_path": "portal/6505d9ad61fd0-appstore-help-and-support.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "d4f8eee792eb6",
+        "source_path": "docs/Partner-Developers/Domo-Marketplace/marketplace-submission.md",
+        "migrated_path": "portal/d4f8eee792eb6-appstore-submission.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "b836f5593ab26",
+        "source_path": "docs/Partner-Developers/Guides/getting-data-overview.md",
+        "migrated_path": "portal/b836f5593ab26-getting-data.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "da7996a8b2338",
+        "source_path": "docs/Partner-Developers/Guides/building-an-app-overview.md",
+        "migrated_path": "portal/da7996a8b2338-building-an-app-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "ea5c42f66c4e6",
+        "source_path": "docs/Connectors/API-Data-Connection/personalized-data-permissions.md",
+        "migrated_path": "portal/ea5c42f66c4e6-create-personalized-data-permissions-pdp.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "816ca1b6d137d",
+        "source_path": "docs/Connectors/API-Data-Connection/managing-datasets.md",
+        "migrated_path": "portal/816ca1b6d137d-managing-datasets.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "e0a20a74a7754",
+        "source_path": "docs/Connectors/API-Data-Connection/overview.md",
+        "migrated_path": "portal/e0a20a74a7754-data-connection-via-api-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "278e9d611eaa6",
+        "source_path": "docs/Connectors/API-Data-Connection/quickstart.md",
+        "migrated_path": "portal/278e9d611eaa6-quickstart.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "eb00606e6f114",
+        "source_path": "docs/Connectors/API-Data-Connection/format-data-to-import.md",
+        "migrated_path": "portal/eb00606e6f114-format-data-to-import.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "cf8902150aae4",
+        "source_path": "docs/Connectors/Writeback-Connectors/writeback-connectors.md",
+        "migrated_path": "portal/cf8902150aae4-writeback-connectors.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "d2309f6f9be66",
+        "source_path": "docs/Connectors/Custom-Connectors/help-and-support.md",
+        "migrated_path": "portal/d2309f6f9be66-help-and-support.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "9f2fe40b1bdb9",
+        "source_path": "docs/Connectors/Custom-Connectors/examples.md",
+        "migrated_path": "portal/9f2fe40b1bdb9-examples.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "e415bb99d21b2",
+        "source_path": "docs/Connectors/Custom-Connectors/reference.md",
+        "migrated_path": "portal/e415bb99d21b2-reference.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "66b06bf6ac52d",
+        "source_path": "docs/Connectors/Custom-Connectors/ide-limitations.md",
+        "migrated_path": "portal/66b06bf6ac52d-ide-limitations.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "5d8f965eb3469",
+        "source_path": "docs/Connectors/Custom-Connectors/overview.md",
+        "migrated_path": "portal/5d8f965eb3469-overview.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "edfe96df76c42",
+        "source_path": "docs/Connectors/Custom-Connectors/publish-connector.md",
+        "migrated_path": "portal/edfe96df76c42-publish-connector.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "3cfe84d925633",
+        "source_path": "docs/Connectors/Custom-Connectors/connector-dev-studio.md",
+        "migrated_path": "portal/3cfe84d925633-custom-connectors.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "11ea6c8039f80",
+        "source_path": "docs/Connectors/Custom-Connectors/process-data.md",
+        "migrated_path": "portal/11ea6c8039f80-process-data.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "71ec34a2958fe",
+        "source_path": "docs/Connectors/Custom-Connectors/configure-authentication.md",
+        "migrated_path": "portal/71ec34a2958fe-configure-authentication.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": "306e246057d3c",
+        "source_path": "docs/Connectors/Custom-Connectors/configure-reports.md",
+        "migrated_path": "portal/306e246057d3c-configure-reports.mdx",
+        "confidence": "high",
+        "match_method": "stoplight_id",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Connectors/on-premises-data.md",
+        "migrated_path": "portal/cb2e07663deaf-on-premises-data.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Connectors/federated-queries.md",
+        "migrated_path": "portal/2bd2767928a2e-federated-queries.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/overview.md",
+        "migrated_path": "portal/d3f552e6ba34b-automate-actions-with-workflows-and-code-engine.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/overview.md",
+        "migrated_path": "portal/4bf73dd1c69d8-overview.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/user-management.md",
+        "migrated_path": "portal/e492bc8b3d9ee-user-management.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/data-management.md",
+        "migrated_path": "portal/6a1dd9d565f05-managing-data-sets-in-domo.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/activity-log.md",
+        "migrated_path": "portal/80b418fba449e-activity-log.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/sso.md",
+        "migrated_path": "portal/6924667fba790-sso.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/content-management.md",
+        "migrated_path": "portal/e138903b113ee-organize-manage-and-share-content-to-other-users-in-domo-using-the-page-api.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Governance/security.md",
+        "migrated_path": "portal/459eb69d51e78-security-and-governance.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tools/phoenix.md",
+        "migrated_path": "portal/52cc03a1e3100-domo-phoenix.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tools/toolkit.md",
+        "migrated_path": "portal/bdae44e540d37-toolkit.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tools/query.md",
+        "migrated_path": "portal/d5da72027f4a1-query.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Quickstart/Key-Terminology.md",
+        "migrated_path": "portal/17229f5001f95-key-terminology.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/clearing-out-collections.md",
+        "migrated_path": "portal/f3c595d1d1e28-deleting-all-documents-from-a-collection.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/hitting-a-workflow.md",
+        "migrated_path": "portal/81056f6209bfc-start-a-workflow-from-an-app.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/swap-designs.md",
+        "migrated_path": "portal/942c89811d9df-change-which-asset-powers-the-card.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/copy-assets-to-other-instances.md",
+        "migrated_path": "portal/fecb7159f62f2-copy-assets-to-a-different-instance.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/workflow-appdb-sync.md",
+        "migrated_path": "portal/34d8713d17282-sync-app-db-only-once-a-day.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/manage-save-pro-code.md",
+        "migrated_path": "portal/5a51d83c82822-managing-editing-and-saving-your-app-in-the-pro-code-editor.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Guides/design-guide.md",
+        "migrated_path": "portal/f5c93c4320ad4-app-developer-design-guide.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Help/Troubleshooting.md",
+        "migrated_path": "portal/e3bddcb552199-troubleshooting.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Help/faq.md",
+        "migrated_path": "portal/5478529c8ed0a-faq.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tutorials/React/Todo-App.md",
+        "migrated_path": "portal/7657a3402ae5e-to-do-app-tutorial.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tutorials/React/Mapbox-World-App.md",
+        "migrated_path": "portal/cf7d0861d9e10-mapbox-world-map-react-app-tutorial.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/App-Framework/Tutorials/React/AI-Book-Recommender.md",
+        "migrated_path": "portal/c07d31c752348-ai-book-recommender-app-tutorial.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Apps/DDX-Bricks/Guides/DDX-Pro-Code.md",
+        "migrated_path": "portal/5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/javascript-libraries.md",
+        "migrated_path": "portal/c887b1e09fb75-code-engine-java-script-libraries-reference.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/limitations-and-troubleshooting.md",
+        "migrated_path": "portal/d214359cae381-key-limitations.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/global-vs-custom-packages.md",
+        "migrated_path": "portal/fef84c05d5245-global-vs-custom-packages.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/python-packages.md",
+        "migrated_path": "portal/cf888b03e570a-code-engine-python-packages-reference.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/common-use-cases.md",
+        "migrated_path": "portal/115bc93a8bde3-common-code-engine-use-cases.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Workflows/authentication.md",
+        "migrated_path": "portal/6e7b0fdc99bdd-authentication-and-permissions.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Workflows/overview.md",
+        "migrated_path": "portal/55d3b6dfcfddd-domo-workflows.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Workflows/troubleshooting.md",
+        "migrated_path": "portal/6e7f610416ea1-troubleshooting-tips.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/Packages/Cards-to-PDF.md",
+        "migrated_path": "portal/7d56134a3c629-export-domo-cards-to-pdf.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Automate-Actions/Code-Engine/Packages/Instance-Management.md",
+        "migrated_path": "portal/32ff35cdb141e-domo-instance-management.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Domo-App-APIs/Scheduled-Reports-API.md",
+        "migrated_path": "portal/8137c64d316f1-scheduled-reports-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Domo-App-APIs/AppStudio-API.md",
+        "migrated_path": "portal/c0c8604e2d275-app-db-api.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Domo-App-APIs/Filesets-API.md",
+        "migrated_path": "portal/7e8654dedb1c8-file-set-api-beta.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Search.md",
+        "migrated_path": "portal/fce416aea276f-search-product-api.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Roles-Governance.md",
+        "migrated_path": "portal/6ebb96cd8be53-roles-governance-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Filesets.md",
+        "migrated_path": "portal/b939448cde9d5-file-sets-api-beta.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Remote-Domostats.md",
+        "migrated_path": "portal/7e3ff9fe17fb4-remote-domostats-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Beast-Modes.md",
+        "migrated_path": "portal/bff3ab39f7a6b-beast-modes.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Connectors.md",
+        "migrated_path": "portal/1e640de669b27-connectors.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Activity-Log.md",
+        "migrated_path": "portal/b90c3866dbc26-activity-log-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Users.md",
+        "migrated_path": "portal/98ab364f4848f-users-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Federated-V2-to-Amplifier-Migration-APIs.md",
+        "migrated_path": "portal/e253b923bb4db-federated-v2-to-amplifier-migration-ap-is.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Alerts.md",
+        "migrated_path": "portal/b09437e8d4d53-alerts-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Task-Center.md",
+        "migrated_path": "portal/ff85f1d956ae2-task-center-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Files.md",
+        "migrated_path": "portal/9850f1f9ca01b-files-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Certified-Content.md",
+        "migrated_path": "portal/3c41213d16bb5-certified-content.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Pages-API.md",
+        "migrated_path": "portal/0e5a684c5d309-pages-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Datasets.md",
+        "migrated_path": "portal/35115c5c48927-datasets-api.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Get-Dataset-Schema.md",
+        "migrated_path": "portal/df451bfc35913-return-the-schema-for-a-specified-dataset.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Groups.md",
+        "migrated_path": "portal/9cb3d1d12bb26-group-documentation.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/API-Reference/Product-APIs/Data-Accounts.md",
+        "migrated_path": "portal/17a8df3265783-data-accounts.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Partner-Developers/Guides/start-a-remote-workflow.md",
+        "migrated_path": "portal/f1debac8fb029-guide-to-using-the-global-code-engine-package-start-workflow-in-remote-instance.mdx",
+        "confidence": "low",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Partner-Developers/Guides/video-recording.md",
+        "migrated_path": "portal/4e6a52eafd2d3-video-recording-guide.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Partner-Developers/Guides/getting-paid.md",
+        "migrated_path": "portal/ccdff47e23e23-getting-paid-guide.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Partner-Developers/Guides/paid-apps.md",
+        "migrated_path": "portal/ea88871bcc736-paid-apps-guide.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      },
+      {
+        "stoplight_id": null,
+        "source_path": "docs/Partner-Developers/Guides/partner-app-submission.md",
+        "migrated_path": "portal/1420c2fd93550-partner-app-submission-guide.mdx",
+        "confidence": "medium",
+        "match_method": "fuzzy",
+        "change_type": "content_diff",
+        "reason": "Content differs but no recent git history",
+        "commit_count": 0,
+        "latest_commit": null,
+        "commits": []
+      }
+    ],
+    "unchanged": [],
+    "unknown": []
+  }
+}

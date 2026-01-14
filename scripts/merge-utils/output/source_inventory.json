@@ -1,0 +1,4012 @@
+[
+  {
+    "path": "docs/Misc/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Misc",
+    "stoplight_id": null,
+    "size": 171,
+    "modified": "2025-06-03T14:50:11.058631",
+    "content_hash": "96624eb2e2126cf19f84099e2c973385"
+  },
+  {
+    "path": "docs/Connectors/IPaaS.md",
+    "filename": "IPaaS.md",
+    "type": ".md",
+    "title": "IPaaS",
+    "stoplight_id": null,
+    "size": 1826,
+    "modified": "2025-06-03T14:50:11.026611",
+    "content_hash": "729c9ae8aa33d95a0ca5c2a9ab2b0d1e"
+  },
+  {
+    "path": "docs/Connectors/Overview.md",
+    "filename": "Overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": "wiemes1rk6atz",
+    "size": 3161,
+    "modified": "2025-06-03T14:50:11.026795",
+    "content_hash": "34553da84fbd4bad2278c724f34dad42"
+  },
+  {
+    "path": "docs/Connectors/iot.md",
+    "filename": "iot.md",
+    "type": ".md",
+    "title": "IoT",
+    "stoplight_id": null,
+    "size": 1197,
+    "modified": "2025-06-03T14:50:11.027032",
+    "content_hash": "ea6312be04ec2384cc40590c66faeee2"
+  },
+  {
+    "path": "docs/Connectors/on-premises-data.md",
+    "filename": "on-premises-data.md",
+    "type": ".md",
+    "title": "On-Premises Data",
+    "stoplight_id": null,
+    "size": 6719,
+    "modified": "2025-06-03T14:50:11.027185",
+    "content_hash": "c843443ca0ac3f892b5344a51f0d868f"
+  },
+  {
+    "path": "docs/Connectors/federated-queries.md",
+    "filename": "federated-queries.md",
+    "type": ".md",
+    "title": "Federated Queries",
+    "stoplight_id": null,
+    "size": 1459,
+    "modified": "2025-06-03T14:50:11.026921",
+    "content_hash": "7373f8d5d7c3ebef93f2a1c33ff843fd"
+  },
+  {
+    "path": "docs/Data-Science/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo AI Resources Guide",
+    "stoplight_id": "0mnsejhg5livn",
+    "size": 1047,
+    "modified": "2024-12-16T14:26:39.706913",
+    "content_hash": "0e6dbc48191bb154e04be4334549615a"
+  },
+  {
+    "path": "docs/Data-Science/scripting-tiles.md",
+    "filename": "scripting-tiles.md",
+    "type": ".md",
+    "title": "Magic ETL Scripting Tiles",
+    "stoplight_id": "ftlfegxnudqt7",
+    "size": 1894,
+    "modified": "2025-06-03T14:50:11.027930",
+    "content_hash": "659c568599a8b8b092abd2f3731ff093"
+  },
+  {
+    "path": "docs/Data-Science/accelerators.md",
+    "filename": "accelerators.md",
+    "type": ".md",
+    "title": "Data Science Accelerators",
+    "stoplight_id": "pg9t2vdbix5un",
+    "size": 2651,
+    "modified": "2025-06-03T14:50:11.027310",
+    "content_hash": "4b70f24ed579e7ab001a26cca90128d2"
+  },
+  {
+    "path": "docs/Data-Science/jupyter.md",
+    "filename": "jupyter.md",
+    "type": ".md",
+    "title": "Jupyter Workspaces ",
+    "stoplight_id": "4cjt7r72bnwlf",
+    "size": 1571,
+    "modified": "2025-06-03T14:50:11.027819",
+    "content_hash": "8dd950d2ff6a2cacc9aced9f783dc691"
+  },
+  {
+    "path": "docs/Data-Science/data-science-tiles.md",
+    "filename": "data-science-tiles.md",
+    "type": ".md",
+    "title": "Magic ETL Data Science Tiles",
+    "stoplight_id": "32buc6884v4px",
+    "size": 469,
+    "modified": "2025-06-03T14:50:11.027714",
+    "content_hash": "3c4cff38b68655d509a3c8607e9328b8"
+  },
+  {
+    "path": "docs/Data-Science/ai-services.md",
+    "filename": "ai-services.md",
+    "type": ".md",
+    "title": "Domo.AI",
+    "stoplight_id": "x2i3bk0w4bwhe",
+    "size": 8890,
+    "modified": "2025-06-16T08:50:21.915641",
+    "content_hash": "a2d8c8757738a2b447cc211623de857c"
+  },
+  {
+    "path": "docs/Data-Science/autoML.md",
+    "filename": "autoML.md",
+    "type": ".md",
+    "title": "Automated Machine Learning (AutoML)",
+    "stoplight_id": "xw7ienfqq7qrw",
+    "size": 1249,
+    "modified": "2025-06-03T14:50:11.027608",
+    "content_hash": "adef908d7998b3f237cca6eacfed75a8"
+  },
+  {
+    "path": "docs/Data-Science/webinars.md",
+    "filename": "webinars.md",
+    "type": ".md",
+    "title": "Data Science Webinars",
+    "stoplight_id": "umqbnyej9jn06",
+    "size": 5630,
+    "modified": "2025-06-03T14:50:11.028082",
+    "content_hash": "0c2b79fc432e575fac6c652682323aea"
+  },
+  {
+    "path": "docs/Security/Integration with SIEM.md",
+    "filename": "Integration with SIEM.md",
+    "type": ".md",
+    "title": "Shipping Logs to SIEM",
+    "stoplight_id": null,
+    "size": 4330,
+    "modified": "2025-06-03T14:50:11.059843",
+    "content_hash": "45cc690117d5c4a1c2c40e4f834732b7"
+  },
+  {
+    "path": "docs/Automate-Actions/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Automate Actions with Workflows and Code Engine",
+    "stoplight_id": null,
+    "size": 2003,
+    "modified": "2025-06-03T14:50:11.024869",
+    "content_hash": "5ff212756298cb1149441f9d1cd87072"
+  },
+  {
+    "path": "docs/GameNightPlannerApp/going-from-brick-to-app.md",
+    "filename": "going-from-brick-to-app.md",
+    "type": ".md",
+    "title": "Moving from Brick to App",
+    "stoplight_id": "n4pswi7dd2azo",
+    "size": 27578,
+    "modified": "2025-06-03T14:50:11.032374",
+    "content_hash": "9a317d0d7d07ab8d7ffe23de224e7703"
+  },
+  {
+    "path": "docs/GameNightPlannerApp/adding-advanced-capabilities-to-your-app.md",
+    "filename": "adding-advanced-capabilities-to-your-app.md",
+    "type": ".md",
+    "title": "Adding Advanced Capabilities to Your App",
+    "stoplight_id": "pff92wc4t7vgw",
+    "size": 13679,
+    "modified": "2025-06-03T14:50:11.032213",
+    "content_hash": "9c4ec2ab1b40e472090edaa001e335dd"
+  },
+  {
+    "path": "docs/GameNightPlannerApp/intro-to-bricks.md",
+    "filename": "intro-to-bricks.md",
+    "type": ".md",
+    "title": "Game Night Planner App - Intro to Domo Bricks",
+    "stoplight_id": "ndvsmatbqz5gk",
+    "size": 15078,
+    "modified": "2025-06-03T14:50:11.032564",
+    "content_hash": "29618752d502fb1e97487f4d2aa9ea5a"
+  },
+  {
+    "path": "docs/Installation-Guides/Convert-and-Close.md",
+    "filename": "Convert-and-Close.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "7mj6wwlql1f41",
+    "size": 26324,
+    "modified": "2025-06-03T14:50:11.041257",
+    "content_hash": "fb5695e6aafee4b12633e5a8163e1acd"
+  },
+  {
+    "path": "docs/Installation-Guides/Annual-Contract-Value.md",
+    "filename": "Annual-Contract-Value.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "4k2pssd4x5qdw",
+    "size": 4474,
+    "modified": "2025-06-03T14:50:11.034610",
+    "content_hash": "b70c9a2be3b1b71076198d65d65510d8"
+  },
+  {
+    "path": "docs/Installation-Guides/Dealer-Assortment.md",
+    "filename": "Dealer-Assortment.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "g828vhbvoiz02",
+    "size": 11178,
+    "modified": "2025-06-03T14:50:11.041862",
+    "content_hash": "ee2e3e36d1ea799b26877112a21a74c7"
+  },
+  {
+    "path": "docs/Installation-Guides/Labor-Cost-Optimization.md",
+    "filename": "Labor-Cost-Optimization.md",
+    "type": ".md",
+    "title": "Labor Cost Optimization",
+    "stoplight_id": "pjbou30kykl8z",
+    "size": 65,
+    "modified": "2024-11-12T08:08:07.679271",
+    "content_hash": "8502eb8a2e5cd94cffcd3c474fa253e6"
+  },
+  {
+    "path": "docs/Installation-Guides/Snapshot-Spend.md",
+    "filename": "Snapshot-Spend.md",
+    "type": ".md",
+    "title": "Snapshot Spend",
+    "stoplight_id": "14hre197oon7i",
+    "size": 55,
+    "modified": "2024-11-12T08:08:07.685853",
+    "content_hash": "670267497086d17e7c1b3d3736378f05"
+  },
+  {
+    "path": "docs/Installation-Guides/Trial-Customer-Management.md",
+    "filename": "Trial-Customer-Management.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ticugbun01w97",
+    "size": 4614,
+    "modified": "2025-06-03T14:50:11.057432",
+    "content_hash": "7d8839bba3cdc39e5c3ea6f402c933a0"
+  },
+  {
+    "path": "docs/Installation-Guides/Contracts-Gain-and-Loss.md",
+    "filename": "Contracts-Gain-and-Loss.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "8kbf8rci33ual",
+    "size": 4024,
+    "modified": "2025-06-03T14:50:11.040830",
+    "content_hash": "45f26662e69f9f420671056c95b18aa1"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-User-Growth.md",
+    "filename": "Domo-User-Growth.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "rpzsts30y53k5",
+    "size": 3723,
+    "modified": "2025-06-03T14:50:11.043529",
+    "content_hash": "fbca111e70852d91f678c14f26949674"
+  },
+  {
+    "path": "docs/Installation-Guides/Market-Basket.md",
+    "filename": "Market-Basket.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "v2jbhjk3yl9my",
+    "size": 9831,
+    "modified": "2025-06-03T14:50:11.051016",
+    "content_hash": "0ae17fc87c117b556f87ac5653f9457f"
+  },
+  {
+    "path": "docs/Installation-Guides/Installation-Guide-Template.md",
+    "filename": "Installation-Guide-Template.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "qosb8bvjtrepd",
+    "size": 5087,
+    "modified": "2025-06-03T14:50:11.048951",
+    "content_hash": "b69dae9690377f433c4e84d0f8e6d1d7"
+  },
+  {
+    "path": "docs/Installation-Guides/Go-Live-Dashboard-Search-Discovery.md",
+    "filename": "Go-Live-Dashboard-Search-Discovery.md",
+    "type": ".md",
+    "title": "Go Live Dashboard Search Discovery",
+    "stoplight_id": "8kkj4ibq9y9qh",
+    "size": 74,
+    "modified": "2024-11-12T08:08:07.676394",
+    "content_hash": "86ab217517b53138317ec5942b47e4f4"
+  },
+  {
+    "path": "docs/Installation-Guides/Talent-Pipeline.md",
+    "filename": "Talent-Pipeline.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "w6x79t1z8mgaq",
+    "size": 21935,
+    "modified": "2025-06-03T14:50:11.056096",
+    "content_hash": "124ab4bedc43cd1f268c5fb25cae1dcb"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Rep-Activity.md",
+    "filename": "Sales-Rep-Activity.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "i1nlojqurk7kv",
+    "size": 14089,
+    "modified": "2025-06-03T14:50:11.054905",
+    "content_hash": "7b9297ad0c0ccbfd49a88ad8787e0521"
+  },
+  {
+    "path": "docs/Installation-Guides/Grid-Builder-Walkthrough.md",
+    "filename": "Grid-Builder-Walkthrough.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "iqd31a2msdhon",
+    "size": 42063,
+    "modified": "2024-11-12T08:08:07.677433",
+    "content_hash": "d06282f7a68591f9a4e379c0f6689b4b"
+  },
+  {
+    "path": "docs/Installation-Guides/Birthdays-and-Anniversaries.md",
+    "filename": "Birthdays-and-Anniversaries.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "gqkm15cw71yug",
+    "size": 5740,
+    "modified": "2025-06-03T14:50:11.037686",
+    "content_hash": "86b1857efa14240fefef1b267de82f00"
+  },
+  {
+    "path": "docs/Installation-Guides/Email-Lists-for-Marketo.md",
+    "filename": "Email-Lists-for-Marketo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "1l1fn1rwf92sj",
+    "size": 7172,
+    "modified": "2025-06-03T14:50:11.044197",
+    "content_hash": "3a8de15d9be0b75fb2ace3e75d3eee81"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Magic-ETL-Success.md",
+    "filename": "Domo-Magic-ETL-Success.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "wq8nx4ybr70d0",
+    "size": 4007,
+    "modified": "2025-06-03T14:50:11.042778",
+    "content_hash": "43c7d854c4564c248ea2a0f80b33bc83"
+  },
+  {
+    "path": "docs/Installation-Guides/Labor-Statistics-Lite.md",
+    "filename": "Labor-Statistics-Lite.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "wae6u1wjgadra",
+    "size": 8408,
+    "modified": "2025-06-03T14:50:11.049599",
+    "content_hash": "8ac2b357f52c551100c8df3bdfbf189a"
+  },
+  {
+    "path": "docs/Installation-Guides/DomoBuzz-Collaboration-Usage.md",
+    "filename": "DomoBuzz-Collaboration-Usage.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "mnqc0tftittrn",
+    "size": 3933,
+    "modified": "2025-06-03T14:50:11.043754",
+    "content_hash": "a36d2e2790e7efd62186e99509335708"
+  },
+  {
+    "path": "docs/Installation-Guides/Ecommerce-Financials.md",
+    "filename": "Ecommerce-Financials.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ltsgioa3eavuk",
+    "size": 3861,
+    "modified": "2025-06-03T14:50:11.043872",
+    "content_hash": "30ee36a67919cea5438fc61e2fe404e2"
+  },
+  {
+    "path": "docs/Installation-Guides/Help-Desk-Ticket-Analysis-Zendesk.md",
+    "filename": "Help-Desk-Ticket-Analysis-Zendesk.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "r41d5txggjpzw",
+    "size": 15972,
+    "modified": "2025-06-03T14:50:11.047611",
+    "content_hash": "9d2deeb21eb2c01fe3e7168ece899203"
+  },
+  {
+    "path": "docs/Installation-Guides/Helpdesk-Scorecard.md",
+    "filename": "Helpdesk-Scorecard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "c6h4c0cikhton",
+    "size": 33022,
+    "modified": "2025-06-03T14:50:11.047770",
+    "content_hash": "58ad704bef2a239dd9b9ca5e2b2bd099"
+  },
+  {
+    "path": "docs/Installation-Guides/Instagram-Insights.md",
+    "filename": "Instagram-Insights.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "fpn1x1lnzt63p",
+    "size": 7306,
+    "modified": "2025-06-03T14:50:11.048511",
+    "content_hash": "3a0142032d3a2198b912ff94e9b8317e"
+  },
+  {
+    "path": "docs/Installation-Guides/Average-Deal-Size.md",
+    "filename": "Average-Deal-Size.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "nm8g5lavqj545",
+    "size": 5531,
+    "modified": "2025-06-03T14:50:11.036652",
+    "content_hash": "8687d32dd63b2a0c9606977131757b49"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Profile-Completeness.md",
+    "filename": "Domo-Profile-Completeness.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "y0s6ovzr65txd",
+    "size": 3812,
+    "modified": "2025-06-03T14:50:11.042885",
+    "content_hash": "865e865cf6a1eb0d89121abb44ad0162"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-and-Cost-of-Sales.md",
+    "filename": "Sales-and-Cost-of-Sales.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "7p93eucqv73ol",
+    "size": 4513,
+    "modified": "2025-06-03T14:50:11.055437",
+    "content_hash": "7fa6c919016de1b43a03838982123c68"
+  },
+  {
+    "path": "docs/Installation-Guides/Overstocked-Inventory.md",
+    "filename": "Overstocked-Inventory.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "djduhmvk39xgs",
+    "size": 8351,
+    "modified": "2025-06-03T14:50:11.052463",
+    "content_hash": "40671a5152711ef6b18fb9b31852ce40"
+  },
+  {
+    "path": "docs/Installation-Guides/Employee-Satisfaction-Ratings.md",
+    "filename": "Employee-Satisfaction-Ratings.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "6rk92uj731o1j",
+    "size": 4131,
+    "modified": "2025-06-03T14:50:11.044696",
+    "content_hash": "7727c41c3303a8f52e8a7c7814def90b"
+  },
+  {
+    "path": "docs/Installation-Guides/Social-Insights.md",
+    "filename": "Social-Insights.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "2mlcmd08opvly",
+    "size": 15796,
+    "modified": "2025-06-03T14:50:11.055815",
+    "content_hash": "8932e60a85483d7e0589793fd1525959"
+  },
+  {
+    "path": "docs/Installation-Guides/SDI-Product-Performance-Google-Analytics.md",
+    "filename": "SDI-Product-Performance-Google-Analytics.md",
+    "type": ".md",
+    "title": "SDI Product Performance - Google Analytics",
+    "stoplight_id": "2591eup2gvjxy",
+    "size": 83,
+    "modified": "2024-11-12T08:08:07.684453",
+    "content_hash": "efd1633a9bf98a10768a5b09c2d34ae0"
+  },
+  {
+    "path": "docs/Installation-Guides/Birthdays-This-Week.md",
+    "filename": "Birthdays-This-Week.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "7leamrj4ltmnc",
+    "size": 4035,
+    "modified": "2025-06-03T14:50:11.037530",
+    "content_hash": "5aa9c19eb9ee8645787feec2df185973"
+  },
+  {
+    "path": "docs/Installation-Guides/Top-20-Domo-Users.md",
+    "filename": "Top-20-Domo-Users.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ebwamcw982o4v",
+    "size": 3923,
+    "modified": "2025-06-03T14:50:11.056672",
+    "content_hash": "0f98253aa90beccf18d068b10df8f9fc"
+  },
+  {
+    "path": "docs/Installation-Guides/Connected-Domo-Profiles.md",
+    "filename": "Connected-Domo-Profiles.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "3k2dkgavxkqr3",
+    "size": 3764,
+    "modified": "2025-06-03T14:50:11.040185",
+    "content_hash": "da6050671106a0a50f67b8f7cef6a226"
+  },
+  {
+    "path": "docs/Installation-Guides/Boost-Sales.md",
+    "filename": "Boost-Sales.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "x0a66m9go3jwo",
+    "size": 4630,
+    "modified": "2025-06-03T14:50:11.037988",
+    "content_hash": "d3a4b81a113a415252a06759ae27bc4c"
+  },
+  {
+    "path": "docs/Installation-Guides/Snowflake-Native-App.md",
+    "filename": "Snowflake-Native-App.md",
+    "type": ".md",
+    "title": "Snowflake Native App",
+    "stoplight_id": null,
+    "size": 6251,
+    "modified": "2025-06-03T14:50:11.055693",
+    "content_hash": "556aa0f4138d6c535d47b03de475a248"
+  },
+  {
+    "path": "docs/Installation-Guides/Retail-Scorecard.md",
+    "filename": "Retail-Scorecard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "96ie4a270v0wk",
+    "size": 32171,
+    "modified": "2025-06-03T14:50:11.054362",
+    "content_hash": "8449d671351c4ad3e2786a1ad64e6d43"
+  },
+  {
+    "path": "docs/Installation-Guides/Top-Search-Campaigns.md",
+    "filename": "Top-Search-Campaigns.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "v4pyggia1botg",
+    "size": 5069,
+    "modified": "2025-06-03T14:50:11.057120",
+    "content_hash": "a8debac0d9680d8d5b4313a390220385"
+  },
+  {
+    "path": "docs/Installation-Guides/Facebook-Fan-Sentiment-2.md",
+    "filename": "Facebook-Fan-Sentiment-2.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "w1ktzfoqoyxfd",
+    "size": 15449,
+    "modified": "2025-06-03T14:50:11.045298",
+    "content_hash": "9b8ba3ae00a748909c7290f6888676b8"
+  },
+  {
+    "path": "docs/Installation-Guides/Top-Performers-for-Jira.md",
+    "filename": "Top-Performers-for-Jira.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "jnu52rweyhslx",
+    "size": 40907,
+    "modified": "2025-06-03T14:50:11.056937",
+    "content_hash": "9c45b59eca7103efbb04dde05ce3171b"
+  },
+  {
+    "path": "docs/Installation-Guides/Call-Center-(Inbound)-Team-Performance.md",
+    "filename": "Call-Center-(Inbound)-Team-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "kg6ueyd36q5cc",
+    "size": 6308,
+    "modified": "2025-06-03T14:50:11.039060",
+    "content_hash": "b31254b184e648aa803b80104a8ea599"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-SolutionStream.md",
+    "filename": "Apps-by-SolutionStream.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "luaqbslxdlgws",
+    "size": 982,
+    "modified": "2025-06-03T14:50:11.035855",
+    "content_hash": "2f7834fc6fcc673a2db2692eb46e20a1"
+  },
+  {
+    "path": "docs/Installation-Guides/Installation-Guide-Digital-Traffic.md",
+    "filename": "Installation-Guide-Digital-Traffic.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "l297mtf2k8wrm",
+    "size": 17664,
+    "modified": "2025-06-03T14:50:11.048645",
+    "content_hash": "ce102f4657e8f30d4ee803583d16ac24"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Profile-Contact-Completeness.md",
+    "filename": "Domo-Profile-Contact-Completeness.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "4sfkyytu1gz6d",
+    "size": 3905,
+    "modified": "2025-06-03T14:50:11.043000",
+    "content_hash": "dd7a9791c0cd224c21d7386e9b540e0f"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-Analytics-Insights-(Custom).md",
+    "filename": "Google-Analytics-Insights-(Custom).md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "w3zjb2pej4m58",
+    "size": 16965,
+    "modified": "2025-06-03T14:50:11.046206",
+    "content_hash": "99ba9dc4667269850c88d9d75206555d"
+  },
+  {
+    "path": "docs/Installation-Guides/Content-for-Webtrends.md",
+    "filename": "Content-for-Webtrends.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "8bpfbnh5vw5c6",
+    "size": 17050,
+    "modified": "2025-06-03T14:50:11.040716",
+    "content_hash": "d7e63f101189ae1c452536febfc59245"
+  },
+  {
+    "path": "docs/Installation-Guides/Quote-to-Cash.md",
+    "filename": "Quote-to-Cash.md",
+    "type": ".md",
+    "title": "Quote-to-Cash",
+    "stoplight_id": "kfslmqfv8dk1o",
+    "size": 55,
+    "modified": "2024-11-12T08:08:07.683513",
+    "content_hash": "a8f4a619cba9238c61f039b47b712fb9"
+  },
+  {
+    "path": "docs/Installation-Guides/Dental-Expenses.md",
+    "filename": "Dental-Expenses.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "zbauw2wbartpu",
+    "size": 4057,
+    "modified": "2025-06-03T14:50:11.042139",
+    "content_hash": "73fd87360b108dde0b8aa064e5f192b4"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-AdWords-Keywords-Performance.md",
+    "filename": "Google-AdWords-Keywords-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "dcaaaz3tdd01c",
+    "size": 6020,
+    "modified": "2025-06-03T14:50:11.046082",
+    "content_hash": "3504c8dbb7a60b46af6ee954f7f40456"
+  },
+  {
+    "path": "docs/Installation-Guides/Warranty-Status.md",
+    "filename": "Warranty-Status.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "xcupifhomeb8y",
+    "size": 5672,
+    "modified": "2025-06-03T14:50:11.057824",
+    "content_hash": "23403f2df08d46fd4bf0d4fb88007c69"
+  },
+  {
+    "path": "docs/Installation-Guides/Call-Volume.md",
+    "filename": "Call-Volume.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "pxrutrtzdcmzc",
+    "size": 5888,
+    "modified": "2025-06-03T14:50:11.039196",
+    "content_hash": "b58e4b3b4214ad35c8ffd543bc37470d"
+  },
+  {
+    "path": "docs/Installation-Guides/Content-Engagement-for-Marketo.md",
+    "filename": "Content-Engagement-for-Marketo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ldrb353sps6vu",
+    "size": 7187,
+    "modified": "2025-06-03T14:50:11.040587",
+    "content_hash": "ec0947d059467d07b4d970f3375c2ba6"
+  },
+  {
+    "path": "docs/Installation-Guides/Inv-Monitoring.md",
+    "filename": "Inv-Monitoring.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "c5gj7mkicncer",
+    "size": 8338,
+    "modified": "2025-06-03T14:50:11.049075",
+    "content_hash": "42de9aa52e451b337162c7ef06533580"
+  },
+  {
+    "path": "docs/Installation-Guides/SDI-Product-Performance-Adobe-Analytics.md",
+    "filename": "SDI-Product-Performance-Adobe-Analytics.md",
+    "type": ".md",
+    "title": "SDI Product Performance - Adobe Analytics",
+    "stoplight_id": "c47da1sp9abku",
+    "size": 82,
+    "modified": "2024-11-12T08:08:07.684380",
+    "content_hash": "05782b4a844581734b7bd95168eda56f"
+  },
+  {
+    "path": "docs/Installation-Guides/SDI-Mobile-Dashboard-Google-Analytics.md",
+    "filename": "SDI-Mobile-Dashboard-Google-Analytics.md",
+    "type": ".md",
+    "title": "SDI Mobile Dashboard - Google Analytics",
+    "stoplight_id": "872vd0lgkeocp",
+    "size": 79,
+    "modified": "2024-11-12T08:08:07.684317",
+    "content_hash": "9c040868424ef5c4482f1987438a1259"
+  },
+  {
+    "path": "docs/Installation-Guides/Win-Ratio.md",
+    "filename": "Win-Ratio.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "j63547f2zwng5",
+    "size": 10322,
+    "modified": "2025-06-03T14:50:11.058087",
+    "content_hash": "f43fce8430a9d7c8101ec693b32999b2"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-Analytics-Insights.md",
+    "filename": "Google-Analytics-Insights.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "wqocqy5hc3bkk",
+    "size": 14974,
+    "modified": "2025-06-03T14:50:11.046347",
+    "content_hash": "759f06d0f50dcfe45dd6fc60d550e159"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Scorecard.md",
+    "filename": "Sales-Scorecard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "a1iyqntxocm4n",
+    "size": 32144,
+    "modified": "2025-06-03T14:50:11.055019",
+    "content_hash": "dd1a43fa85e984399811a631f63c4226"
+  },
+  {
+    "path": "docs/Installation-Guides/Executive-Dashboard.md",
+    "filename": "Executive-Dashboard.md",
+    "type": ".md",
+    "title": "Executive-Dashboard",
+    "stoplight_id": "xoaazrh1bkf7h",
+    "size": 1522,
+    "modified": "2024-11-12T08:08:07.675589",
+    "content_hash": "e0a91f6e2de9850d1f8818c685ba98f2"
+  },
+  {
+    "path": "docs/Installation-Guides/Campaign-Scorecard.md",
+    "filename": "Campaign-Scorecard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "9zh38odojiini",
+    "size": 32283,
+    "modified": "2025-06-03T14:50:11.039653",
+    "content_hash": "29616781ebf308ce782e1c111335dbad"
+  },
+  {
+    "path": "docs/Installation-Guides/Calls-Win-Ratio.md",
+    "filename": "Calls-Win-Ratio.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ltt2ztrs2q0bt",
+    "size": 9642,
+    "modified": "2025-06-03T14:50:11.039360",
+    "content_hash": "1c6e6b3aa7e2e4d9e7b565e209ef9ee5"
+  },
+  {
+    "path": "docs/Installation-Guides/You-Need-a-Vacation.md",
+    "filename": "You-Need-a-Vacation.md",
+    "type": ".md",
+    "title": "You Need a Vacation",
+    "stoplight_id": "5xcfh51f3h774",
+    "size": 1079,
+    "modified": "2025-06-03T14:50:11.058353",
+    "content_hash": "e1d34e34a2b38e1b5b9fd705f57b45cf"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Search-Discovery.md",
+    "filename": "Apps-by-Search-Discovery.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "30k53h135rkdr",
+    "size": 1499,
+    "modified": "2025-06-03T14:50:11.035647",
+    "content_hash": "c6283101e695dd20887caf50588ac9a2"
+  },
+  {
+    "path": "docs/Installation-Guides/Call-Center-(Inbound)-Staffing.md",
+    "filename": "Call-Center-(Inbound)-Staffing.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "eocboy4vvotuv",
+    "size": 6291,
+    "modified": "2025-06-03T14:50:11.038919",
+    "content_hash": "7f32f746682ce8fc02597dbf1ef6ffbe"
+  },
+  {
+    "path": "docs/Installation-Guides/Customer-Behavior.md",
+    "filename": "Customer-Behavior.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "gtx6bf86vz4j5",
+    "size": 4825,
+    "modified": "2025-06-03T14:50:11.041562",
+    "content_hash": "1873601173e31556eec373b2f13b31a4"
+  },
+  {
+    "path": "docs/Installation-Guides/Email-Subscription-App.md",
+    "filename": "Email-Subscription-App.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ijastv07aoo7o",
+    "size": 6513,
+    "modified": "2025-06-03T14:50:11.044373",
+    "content_hash": "f5ee8945774a1dbd47a1f79f50bdd91a"
+  },
+  {
+    "path": "docs/Installation-Guides/BambooHR-Churn.md",
+    "filename": "BambooHR-Churn.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "oy0ni8wj8fumc",
+    "size": 9571,
+    "modified": "2025-06-03T14:50:11.037211",
+    "content_hash": "45f2cb4a94df18817d27eeec394512e6"
+  },
+  {
+    "path": "docs/Installation-Guides/Taser-Incidents.md",
+    "filename": "Taser-Incidents.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "sjitmuggs6988",
+    "size": 4657,
+    "modified": "2025-06-03T14:50:11.056260",
+    "content_hash": "4052e195719fe5483da0b2310d441968"
+  },
+  {
+    "path": "docs/Installation-Guides/Competitive-Momentum.md",
+    "filename": "Competitive-Momentum.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "u4d3ex5y6pi20",
+    "size": 20248,
+    "modified": "2025-06-03T14:50:11.040052",
+    "content_hash": "418bc107546f464c27335020212ea58b"
+  },
+  {
+    "path": "docs/Installation-Guides/Marketing-Attribution.md",
+    "filename": "Marketing-Attribution.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "1tru5m1rh6z2n",
+    "size": 20003,
+    "modified": "2025-06-03T14:50:11.051164",
+    "content_hash": "cf682cd8795fa9e4565edea505e80666"
+  },
+  {
+    "path": "docs/Installation-Guides/Facebook-Impressions.md",
+    "filename": "Facebook-Impressions.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "vce4rf3kspkwi",
+    "size": 16314,
+    "modified": "2025-06-03T14:50:11.045613",
+    "content_hash": "641698c575c10af665428cd9fbe379c3"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Thermo-King.md",
+    "filename": "Apps-by-Thermo-King.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "zru0jsiusn8vb",
+    "size": 1008,
+    "modified": "2025-06-03T14:50:11.036168",
+    "content_hash": "cce9f8761aade1eec24aec3d439aa1ad"
+  },
+  {
+    "path": "docs/Installation-Guides/Traffic-Conversions.md",
+    "filename": "Traffic-Conversions.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ccruakogssxxs",
+    "size": 7968,
+    "modified": "2025-06-03T14:50:11.057278",
+    "content_hash": "cf1c3a2bbd2a16c7c6040a0e815c78ab"
+  },
+  {
+    "path": "docs/Installation-Guides/Correct-Routing.md",
+    "filename": "Correct-Routing.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "or94unl8edg9b",
+    "size": 4651,
+    "modified": "2025-06-03T14:50:11.041423",
+    "content_hash": "a296c1b3ca18f9bb539aeebdebe08ad4"
+  },
+  {
+    "path": "docs/Installation-Guides/Calendar-and-Events.md",
+    "filename": "Calendar-and-Events.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "18i9fhf04nrpi",
+    "size": 14527,
+    "modified": "2025-06-03T14:50:11.038464",
+    "content_hash": "0219b48cf2c2e60b1eaa1b23af95ab3c"
+  },
+  {
+    "path": "docs/Installation-Guides/Lead-Sources-for-Marketo.md",
+    "filename": "Lead-Sources-for-Marketo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "qyj2x6xknk7ow",
+    "size": 17578,
+    "modified": "2025-06-03T14:50:11.049925",
+    "content_hash": "e636f5e21ac101a4f7c99bffe3440981"
+  },
+  {
+    "path": "docs/Installation-Guides/Fleet-Revenue.md",
+    "filename": "Fleet-Revenue.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "z7rgw9jn3k0gc",
+    "size": 4947,
+    "modified": "2025-06-03T14:50:11.045938",
+    "content_hash": "acf8a18655a90bf69595dfae70c413b9"
+  },
+  {
+    "path": "docs/Installation-Guides/Aged-Trial-Balance.md",
+    "filename": "Aged-Trial-Balance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "hkidvx8xhbsj9",
+    "size": 8186,
+    "modified": "2025-06-03T14:50:11.034317",
+    "content_hash": "c38f0f413ef662aaef6ff51db028f2f0"
+  },
+  {
+    "path": "docs/Installation-Guides/Recruiting-Interviews-Taleo.md",
+    "filename": "Recruiting-Interviews-Taleo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "98kol5dewxzv1",
+    "size": 4087,
+    "modified": "2025-06-03T14:50:11.053797",
+    "content_hash": "4e8e3540d8c9a4ead131fd26c856de7b"
+  },
+  {
+    "path": "docs/Installation-Guides/Initiative-Status.md",
+    "filename": "Initiative-Status.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "hk112ojvqp84v",
+    "size": 5403,
+    "modified": "2025-06-03T14:50:11.048360",
+    "content_hash": "0a4137cdffb0ba8cd230df83178fee6f"
+  },
+  {
+    "path": "docs/Installation-Guides/Sentiment-Insight.md",
+    "filename": "Sentiment-Insight.md",
+    "type": ".md",
+    "title": "Sentiment Insight",
+    "stoplight_id": "ujdculg8ya69s",
+    "size": 59,
+    "modified": "2024-11-12T08:08:07.685675",
+    "content_hash": "d7b629fdad23d9e34ce751fcfcbc0d8c"
+  },
+  {
+    "path": "docs/Installation-Guides/Skyword-Awareness-and-Engagement.md",
+    "filename": "Skyword-Awareness-and-Engagement.md",
+    "type": ".md",
+    "title": "Skyword Awareness & Engagement",
+    "stoplight_id": "irt9itaewcr69",
+    "size": 71,
+    "modified": "2024-11-12T08:08:07.685777",
+    "content_hash": "8665fa94bc65935cda9ed0e9e5401f08"
+  },
+  {
+    "path": "docs/Installation-Guides/Lead-to-Opportunity-Conversion-Rate.md",
+    "filename": "Lead-to-Opportunity-Conversion-Rate.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "4antv8qj3mq4a",
+    "size": 4462,
+    "modified": "2025-06-03T14:50:11.050101",
+    "content_hash": "f73abc7ed4170c98f3c06d311d1bd8fa"
+  },
+  {
+    "path": "docs/Installation-Guides/Reports-Migrated-to-Domo.md",
+    "filename": "Reports-Migrated-to-Domo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "88laz7jtdwwif",
+    "size": 4178,
+    "modified": "2025-06-03T14:50:11.054066",
+    "content_hash": "faed34a5f769d06b96bd0182c77529cb"
+  },
+  {
+    "path": "docs/Installation-Guides/Demo-Completion-Rates.md",
+    "filename": "Demo-Completion-Rates.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "a6qpeepdyvnlp",
+    "size": 6317,
+    "modified": "2025-06-03T14:50:11.042017",
+    "content_hash": "403a68f926903bb4bd54088dd1de9eb5"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-BigSquid.md",
+    "filename": "Apps-by-BigSquid.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "m3d5zgzewst20",
+    "size": 1002,
+    "modified": "2025-06-03T14:50:11.035134",
+    "content_hash": "c67156c95ab173f7e83dc384f8dc3971"
+  },
+  {
+    "path": "docs/Installation-Guides/Consulting-Hourly-Rate.md",
+    "filename": "Consulting-Hourly-Rate.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "hhzpsqg9pwwv5",
+    "size": 4240,
+    "modified": "2025-06-03T14:50:11.040435",
+    "content_hash": "6cbecc362df01afcdb2d959bc3636e05"
+  },
+  {
+    "path": "docs/Installation-Guides/Increase-Fleet-Miles.md",
+    "filename": "Increase-Fleet-Miles.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "svnveupiwmca6",
+    "size": 4548,
+    "modified": "2025-06-03T14:50:11.048209",
+    "content_hash": "307398b510a2dfc669ee376c74f89c23"
+  },
+  {
+    "path": "docs/Installation-Guides/Ice-Cream-Sales.md",
+    "filename": "Ice-Cream-Sales.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "1n9wl328c3ryq",
+    "size": 4121,
+    "modified": "2025-06-03T14:50:11.047947",
+    "content_hash": "cefe0dd9f61705dbefcb3ea017f612d7"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Scheduled-Report-Success.md",
+    "filename": "Domo-Scheduled-Report-Success.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "sqhou0qq3uvm5",
+    "size": 3802,
+    "modified": "2025-06-03T14:50:11.043125",
+    "content_hash": "ea7f58dc5a2fe3567f7777ae71948307"
+  },
+  {
+    "path": "docs/Installation-Guides/Customer-Growth.md",
+    "filename": "Customer-Growth.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "xmbmgaiyabrqk",
+    "size": 13178,
+    "modified": "2025-06-03T14:50:11.041685",
+    "content_hash": "923fb915c50a8c79d40548c546885a00"
+  },
+  {
+    "path": "docs/Installation-Guides/App-Installation-Guides.md",
+    "filename": "App-Installation-Guides.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "e3m9anmorrlpu",
+    "size": 1005,
+    "modified": "2024-11-12T08:08:07.666576",
+    "content_hash": "5f9866c25d50097fe36276b9d9d8109e"
+  },
+  {
+    "path": "docs/Installation-Guides/Qualified-Opportunity-Detail.md",
+    "filename": "Qualified-Opportunity-Detail.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "909tbsowaewkh",
+    "size": 4221,
+    "modified": "2025-06-03T14:50:11.053534",
+    "content_hash": "c1bd406b0449b9882db6c502bd532497"
+  },
+  {
+    "path": "docs/Installation-Guides/SDI-Mobile-Dashboard-Adobe-Analytics.md",
+    "filename": "SDI-Mobile-Dashboard-Adobe-Analytics.md",
+    "type": ".md",
+    "title": "SDI Mobile Dashboard - Adobe Analytics",
+    "stoplight_id": "ya9mk00sb3drb",
+    "size": 80,
+    "modified": "2024-11-12T08:08:07.684222",
+    "content_hash": "31578988881660582aa77bc9ded9d0a4"
+  },
+  {
+    "path": "docs/Installation-Guides/Net-Promoter-Score-(NPS).md",
+    "filename": "Net-Promoter-Score-(NPS).md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "3fpnl75cwqig9",
+    "size": 6107,
+    "modified": "2025-06-03T14:50:11.052050",
+    "content_hash": "ebead49bb3468521dbe9749690843ee5"
+  },
+  {
+    "path": "docs/Installation-Guides/BambooHR-Diversity.md",
+    "filename": "BambooHR-Diversity.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "r2c0c5yymg63t",
+    "size": 9578,
+    "modified": "2025-06-03T14:50:11.037406",
+    "content_hash": "0de9f245835fc93afdb655a2f69fb19b"
+  },
+  {
+    "path": "docs/Installation-Guides/Anaplan-Sales-Forecast.md",
+    "filename": "Anaplan-Sales-Forecast.md",
+    "type": ".md",
+    "title": "Anaplan Sales Forecast",
+    "stoplight_id": "64l73jpdnhjlt",
+    "size": 3686,
+    "modified": "2025-06-03T14:50:11.034451",
+    "content_hash": "e7b873f3f20f80a5986bf6e47dfb6e84"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Data-Source-Update-Frequency.md",
+    "filename": "Domo-Data-Source-Update-Frequency.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "5hub87rinfj6a",
+    "size": 4419,
+    "modified": "2025-06-03T14:50:11.042426",
+    "content_hash": "0efe1c60d00cdc368443ce6bcb32dd54"
+  },
+  {
+    "path": "docs/Installation-Guides/Patient-Quality-of-Care.md",
+    "filename": "Patient-Quality-of-Care.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "kly4t6k5oa2vc",
+    "size": 4296,
+    "modified": "2025-06-03T14:50:11.052871",
+    "content_hash": "375eab1b5047dce61958b2fafb35232e"
+  },
+  {
+    "path": "docs/Installation-Guides/Installation-Guide-Template-(App-Factory).md",
+    "filename": "Installation-Guide-Template-(App-Factory).md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "n79swxf8s4ccv",
+    "size": 5267,
+    "modified": "2025-06-03T14:50:11.048805",
+    "content_hash": "59e0fc2c28b1811ef85f8d22a37ad518"
+  },
+  {
+    "path": "docs/Installation-Guides/Product-Returns-Square.md",
+    "filename": "Product-Returns-Square.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "n2bp1d76dvhnc",
+    "size": 10997,
+    "modified": "2025-06-03T14:50:11.053387",
+    "content_hash": "6db0c790c22c812821f131b8035fa35c"
+  },
+  {
+    "path": "docs/Installation-Guides/Call-Center-(Inbound)-Customer-Experience.md",
+    "filename": "Call-Center-(Inbound)-Customer-Experience.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "tvq0zyqj78glz",
+    "size": 6314,
+    "modified": "2025-06-03T14:50:11.038618",
+    "content_hash": "ad3eac276d524bf94444dc2b111d9e02"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-StrategyBox.md",
+    "filename": "Apps-by-StrategyBox.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "e8ia3qqmqroeo",
+    "size": 1007,
+    "modified": "2025-06-03T14:50:11.035957",
+    "content_hash": "2ff846f2fe88f62f52f23406b84998b8"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Tealium.md",
+    "filename": "Apps-by-Tealium.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "mhxujp4kozn04",
+    "size": 1000,
+    "modified": "2025-06-03T14:50:11.036067",
+    "content_hash": "f3bcebd5b49a258b4e8accbdbed6e149"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-CPQ-Solutions.md",
+    "filename": "Apps-by-CPQ-Solutions.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "s0d3jnjv57vb5",
+    "size": 980,
+    "modified": "2025-06-03T14:50:11.035340",
+    "content_hash": "30d1fc7250ca88542cfbce1c50edb29b"
+  },
+  {
+    "path": "docs/Installation-Guides/Lost-Sales-(OOS).md",
+    "filename": "Lost-Sales-(OOS).md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ty8j4zs6fnunc",
+    "size": 4333,
+    "modified": "2025-06-03T14:50:11.050518",
+    "content_hash": "32e6d7fcbc4f87a4eca9b814726ea2cc"
+  },
+  {
+    "path": "docs/Installation-Guides/Ad-Sales-Revenue.md",
+    "filename": "Ad-Sales-Revenue.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "504b8d8aknqa8",
+    "size": 3952,
+    "modified": "2025-06-03T14:50:11.034163",
+    "content_hash": "99c8471c720aaff0b2a031d630121426"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Card-Creators.md",
+    "filename": "Domo-Card-Creators.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "90wj6qp0mmovr",
+    "size": 4359,
+    "modified": "2025-06-03T14:50:11.042278",
+    "content_hash": "4df10304396c7895c46e22da1628466b"
+  },
+  {
+    "path": "docs/Installation-Guides/Car-Sales-Performance.md",
+    "filename": "Car-Sales-Performance.md",
+    "type": ".md",
+    "title": "Car Sales Performance",
+    "stoplight_id": "g8v1gbkjyd1sd",
+    "size": 62,
+    "modified": "2024-11-12T08:08:07.670734",
+    "content_hash": "142f003b9eadbc2c093980cf04a261f3"
+  },
+  {
+    "path": "docs/Installation-Guides/App-Development.md",
+    "filename": "App-Development.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "v1fb0x08s8t37",
+    "size": 4720,
+    "modified": "2025-06-03T14:50:11.034910",
+    "content_hash": "6f6dc2c25faf0cf28e20c10a81235394"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Datasource-Usage.md",
+    "filename": "Domo-Datasource-Usage.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "eg6ti3o38maed",
+    "size": 5492,
+    "modified": "2025-06-03T14:50:11.042678",
+    "content_hash": "658bb6c387b71bf0b9d8d24a5233330f"
+  },
+  {
+    "path": "docs/Installation-Guides/Most-Favorited-Domo-Content.md",
+    "filename": "Most-Favorited-Domo-Content.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "4hjffuapr5e3v",
+    "size": 5069,
+    "modified": "2025-06-03T14:50:11.051758",
+    "content_hash": "020c683fd5ea4beee1b73bc564bc7b30"
+  },
+  {
+    "path": "docs/Installation-Guides/Call-Center-(Inbound)-Staff-Performance.md",
+    "filename": "Call-Center-(Inbound)-Staff-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "svb8vr9p11yhe",
+    "size": 6309,
+    "modified": "2025-06-03T14:50:11.038768",
+    "content_hash": "04c43a1993d7572196bf2df66498715d"
+  },
+  {
+    "path": "docs/Installation-Guides/Post-Timeframes-for-Google-Plus.md",
+    "filename": "Post-Timeframes-for-Google-Plus.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "1e543275h2khl",
+    "size": 6876,
+    "modified": "2025-06-03T14:50:11.053259",
+    "content_hash": "d3a75df41bdd3531494f0b74fbf95178"
+  },
+  {
+    "path": "docs/Installation-Guides/Season-Passes.md",
+    "filename": "Season-Passes.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "caweq9kkqvahx",
+    "size": 4281,
+    "modified": "2025-06-03T14:50:11.055585",
+    "content_hash": "41590ab0b90c03057db3d64c0e87a18b"
+  },
+  {
+    "path": "docs/Installation-Guides/Inactive-Domo-Users.md",
+    "filename": "Inactive-Domo-Users.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "v5dwfqazobx1w",
+    "size": 3943,
+    "modified": "2025-06-03T14:50:11.048063",
+    "content_hash": "d8f0d177a8c27a07c28e927ab4d817c3"
+  },
+  {
+    "path": "docs/Installation-Guides/Pipeline-Velocity.md",
+    "filename": "Pipeline-Velocity.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "xs4ipft93fc3o",
+    "size": 22553,
+    "modified": "2025-06-03T14:50:11.053117",
+    "content_hash": "7a2f05013de34c83b3f7623e6a3a3cb7"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Beyond-Payroll.md",
+    "filename": "Apps-by-Beyond-Payroll.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "s4prrlvbn9zb7",
+    "size": 1014,
+    "modified": "2025-06-03T14:50:11.035023",
+    "content_hash": "bf34f87684bd4b07289af3db0158d518"
+  },
+  {
+    "path": "docs/Installation-Guides/Community-Growth.md",
+    "filename": "Community-Growth.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "uehp00pai8ote",
+    "size": 3805,
+    "modified": "2025-06-03T14:50:11.039912",
+    "content_hash": "592314b233cbff0cf707faaefe13e8b2"
+  },
+  {
+    "path": "docs/Installation-Guides/MailChimp-Lite.md",
+    "filename": "MailChimp-Lite.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "xt16azgrc7tsa",
+    "size": 78289,
+    "modified": "2025-06-03T14:50:11.050698",
+    "content_hash": "092091ca31575bd3ee7fa488a5a17461"
+  },
+  {
+    "path": "docs/Installation-Guides/Facebook-Fan-Sentiment.md",
+    "filename": "Facebook-Fan-Sentiment.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "nnbtrcttoml2q",
+    "size": 32378,
+    "modified": "2025-06-03T14:50:11.045460",
+    "content_hash": "7cbb74e4422ec57f684071ca53dc8c79"
+  },
+  {
+    "path": "docs/Installation-Guides/Bottlenecks-for-Salesforce-Service-Cloud.md",
+    "filename": "Bottlenecks-for-Salesforce-Service-Cloud.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "x49bsafhvvz07",
+    "size": 6109,
+    "modified": "2025-06-03T14:50:11.038143",
+    "content_hash": "d622c1193a869bb79b9f78184fe338c4"
+  },
+  {
+    "path": "docs/Installation-Guides/Personal-Banking.md",
+    "filename": "Personal-Banking.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "9zjkrop1au46j",
+    "size": 5065,
+    "modified": "2025-06-03T14:50:11.052999",
+    "content_hash": "b1cd9ec511b48d4593599975c28313e9"
+  },
+  {
+    "path": "docs/Installation-Guides/anaplan.md",
+    "filename": "anaplan.md",
+    "type": ".md",
+    "title": "anaplan",
+    "stoplight_id": "ydxofuu6gag6n",
+    "size": 49,
+    "modified": "2024-11-12T08:08:07.688484",
+    "content_hash": "864721fc61a445670a7d926fc481b1fe"
+  },
+  {
+    "path": "docs/Installation-Guides/Active-Traders-Exchanges.md",
+    "filename": "Active-Traders-Exchanges.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "jbr0mpzr162vq",
+    "size": 4169,
+    "modified": "2025-06-03T14:50:11.034040",
+    "content_hash": "91e8dd2203ddb5a2fa6204aee84fe175"
+  },
+  {
+    "path": "docs/Installation-Guides/Inventory-Space-Utilization.md",
+    "filename": "Inventory-Space-Utilization.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "267vfor0jbwng",
+    "size": 8522,
+    "modified": "2025-06-03T14:50:11.049355",
+    "content_hash": "3d9dde7b1d276c7c3e06a7fb70789edd"
+  },
+  {
+    "path": "docs/Installation-Guides/Bonus-Compensation-Competition.md",
+    "filename": "Bonus-Compensation-Competition.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "cbrw5bk2xoprg",
+    "size": 4404,
+    "modified": "2025-06-03T14:50:11.037845",
+    "content_hash": "7923e0054fe106774c248aec6b9dfaa9"
+  },
+  {
+    "path": "docs/Installation-Guides/Theme-Park-Season-Passes.md",
+    "filename": "Theme-Park-Season-Passes.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "yjfe3mtp0mf1r",
+    "size": 4381,
+    "modified": "2025-06-03T14:50:11.056414",
+    "content_hash": "23705bb187f77d9bcbc64bcfba6bbc49"
+  },
+  {
+    "path": "docs/Installation-Guides/Marketing-Funnel-App.md",
+    "filename": "Marketing-Funnel-App.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "kz5n5l9225uc1",
+    "size": 5803,
+    "modified": "2025-06-03T14:50:11.051338",
+    "content_hash": "4de85ccbc863da95131e5fd6b3a5547e"
+  },
+  {
+    "path": "docs/Installation-Guides/Opportunity-Center.md",
+    "filename": "Opportunity-Center.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "wb1o0otfk16ag",
+    "size": 25316,
+    "modified": "2025-06-03T14:50:11.052176",
+    "content_hash": "521366f137815fe8f3a023cff8f88a50"
+  },
+  {
+    "path": "docs/Installation-Guides/Lithium-Lite.md",
+    "filename": "Lithium-Lite.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "wxg6yicyy1h4r",
+    "size": 9995,
+    "modified": "2025-06-03T14:50:11.050372",
+    "content_hash": "5ba000d0dcaaa98c5401c85d84bda63f"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Skyword.md",
+    "filename": "Apps-by-Skyword.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "si71ui4zoa2ng",
+    "size": 999,
+    "modified": "2025-06-03T14:50:11.035750",
+    "content_hash": "ea0e725e0976c74e6beeb7ed77f42f44"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Usage.md",
+    "filename": "Domo-Usage.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "qlj6yl3gg3d37",
+    "size": 9272,
+    "modified": "2025-06-03T14:50:11.043300",
+    "content_hash": "e7e1f3fc97ebe630fbdb4f8e10ef735b"
+  },
+  {
+    "path": "docs/Installation-Guides/Convention-Sales.md",
+    "filename": "Convention-Sales.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "6tceby1h9gkl5",
+    "size": 4999,
+    "modified": "2025-06-03T14:50:11.041121",
+    "content_hash": "c933776424e354ba2b5908d345d14cd8"
+  },
+  {
+    "path": "docs/Installation-Guides/Cases-for-Salesforce-Service-Cloud.md",
+    "filename": "Cases-for-Salesforce-Service-Cloud.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "rp21sqccm34ej",
+    "size": 6097,
+    "modified": "2025-06-03T14:50:11.039808",
+    "content_hash": "ad048f61c75eafe4f46c348cd906fa48"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Trends.md",
+    "filename": "Sales-Trends.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "43c1o923hjije",
+    "size": 17342,
+    "modified": "2025-06-03T14:50:11.055286",
+    "content_hash": "307bf1a972eca21205200d7e46c89647"
+  },
+  {
+    "path": "docs/Installation-Guides/Employee-Demographics.md",
+    "filename": "Employee-Demographics.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "whkq6ubv1vcpv",
+    "size": 4545,
+    "modified": "2025-06-03T14:50:11.044533",
+    "content_hash": "9e5e782c0b9b0b9b7722e53c45d9a4ec"
+  },
+  {
+    "path": "docs/Installation-Guides/Fleet-Driving-Infractions.md",
+    "filename": "Fleet-Driving-Infractions.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "dyuxeqfjhxzdo",
+    "size": 8370,
+    "modified": "2025-06-03T14:50:11.045786",
+    "content_hash": "cec47b0d1ecfbd55613837b7b424002c"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-User-Group-Growth.md",
+    "filename": "Domo-User-Group-Growth.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "h4sfg3ams60o0",
+    "size": 3491,
+    "modified": "2025-06-03T14:50:11.043411",
+    "content_hash": "0872caf149e5c209392777a0d8a6aa1d"
+  },
+  {
+    "path": "docs/Installation-Guides/Lead-Engagement-Lite.md",
+    "filename": "Lead-Engagement-Lite.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ivjla1n2e4fwe",
+    "size": 5410,
+    "modified": "2025-06-03T14:50:11.049784",
+    "content_hash": "5a782b4da321b906a3676cdb4a64a3be"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Brandwatch.md",
+    "filename": "Apps-by-Brandwatch.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "fyzhm06ut2k3s",
+    "size": 1006,
+    "modified": "2025-06-03T14:50:11.035241",
+    "content_hash": "1dd636b1e6e460b2d8cefb6a42635980"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Vroozi.md",
+    "filename": "Apps-by-Vroozi.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "a05ostm1si7f3",
+    "size": 966,
+    "modified": "2025-06-03T14:50:11.036380",
+    "content_hash": "41db8dbb1a7eea8075ab4f760af91b67"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-Analytics-Revenue-and-Goals.md",
+    "filename": "Google-Analytics-Revenue-and-Goals.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "bmyk9lpjpag35",
+    "size": 11892,
+    "modified": "2025-06-03T14:50:11.046931",
+    "content_hash": "33fda76606a22b1fa72605caeddfa62d"
+  },
+  {
+    "path": "docs/Installation-Guides/Employees-with-Disabilities.md",
+    "filename": "Employees-with-Disabilities.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "apfps2r9t0mso",
+    "size": 4046,
+    "modified": "2025-06-03T14:50:11.045003",
+    "content_hash": "bc21edc2f5eeee4ffe9a5e185e3cbe3d"
+  },
+  {
+    "path": "docs/Installation-Guides/SugarCRM-Top-Performers.md",
+    "filename": "SugarCRM-Top-Performers.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "c50zj4kaw172b",
+    "size": 6665,
+    "modified": "2025-06-03T14:50:11.055965",
+    "content_hash": "f27c848cff43b85d1d9c3ca1afc9ae12"
+  },
+  {
+    "path": "docs/Installation-Guides/Units-Per-Transaction-Square.md",
+    "filename": "Units-Per-Transaction-Square.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "d2ib3cat11m7f",
+    "size": 15799,
+    "modified": "2025-06-03T14:50:11.057557",
+    "content_hash": "3d569a8511fed27f241ed709b5e4e826"
+  },
+  {
+    "path": "docs/Installation-Guides/Most-Viewed-Domo-Content.md",
+    "filename": "Most-Viewed-Domo-Content.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "u5fx3tj6vdxsd",
+    "size": 5012,
+    "modified": "2025-06-03T14:50:11.051905",
+    "content_hash": "f4016321644728482ca58bd483a6bb6f"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Leaderboard-2.md",
+    "filename": "Sales-Leaderboard-2.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "lg90juvy85xd5",
+    "size": 21503,
+    "modified": "2025-06-03T14:50:11.054623",
+    "content_hash": "ee749f1db7dc2976403e0facfb10a4c0"
+  },
+  {
+    "path": "docs/Installation-Guides/Connector-Based-App.md",
+    "filename": "Connector-Based-App.md",
+    "type": ".md",
+    "title": "Connector-Based App Installation Guide",
+    "stoplight_id": "0aa7kg1lpq69v",
+    "size": 690,
+    "modified": "2025-06-03T14:50:11.040292",
+    "content_hash": "0b4d1ade969e506d47c9a171d7dca9a8"
+  },
+  {
+    "path": "docs/Installation-Guides/Overtime-Analysis.md",
+    "filename": "Overtime-Analysis.md",
+    "type": ".md",
+    "title": "Overtime Analysis",
+    "stoplight_id": "sijccaynadtc2",
+    "size": 7141,
+    "modified": "2025-06-03T14:50:11.052605",
+    "content_hash": "5e1f6b80db212acc1031e38bdb931357"
+  },
+  {
+    "path": "docs/Installation-Guides/Inventory-Low-Stock.md",
+    "filename": "Inventory-Low-Stock.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "zx42od9ahck2z",
+    "size": 4844,
+    "modified": "2025-06-03T14:50:11.049230",
+    "content_hash": "0edd525b1e43866a4796f5da469dc4e2"
+  },
+  {
+    "path": "docs/Installation-Guides/Apartment-Vacancy.md",
+    "filename": "Apartment-Vacancy.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "ir0b3rigqftjz",
+    "size": 4116,
+    "modified": "2025-06-03T14:50:11.034754",
+    "content_hash": "b4ee9d75c66a5ed981c6f4bb1d062958"
+  },
+  {
+    "path": "docs/Installation-Guides/Opportunity-Explorer.md",
+    "filename": "Opportunity-Explorer.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "sqjtafoz4h66v",
+    "size": 29221,
+    "modified": "2025-06-03T14:50:11.052320",
+    "content_hash": "1902e3987579d6ab8442b04a9fbac0d3"
+  },
+  {
+    "path": "docs/Installation-Guides/Email-Insights.md",
+    "filename": "Email-Insights.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "6h41pv2ha0rkq",
+    "size": 11493,
+    "modified": "2025-06-03T14:50:11.044048",
+    "content_hash": "07e729942d5ebc7070bc671645d54c0f"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Targets.md",
+    "filename": "Sales-Targets.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "w3irkxobd4dvq",
+    "size": 5327,
+    "modified": "2025-06-03T14:50:11.055163",
+    "content_hash": "8271f83a6e278228ad47d1848179e948"
+  },
+  {
+    "path": "docs/Installation-Guides/Resolutions-for-Salesforce-Service-Cloud.md",
+    "filename": "Resolutions-for-Salesforce-Service-Cloud.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "6jv3ko4w8o4ct",
+    "size": 6109,
+    "modified": "2025-06-03T14:50:11.054212",
+    "content_hash": "be89527babe3a55b87b39510c25a1910"
+  },
+  {
+    "path": "docs/Installation-Guides/Top-Domo-Alerts.md",
+    "filename": "Top-Domo-Alerts.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "sd6eiqeb4yh1d",
+    "size": 3694,
+    "modified": "2025-06-03T14:50:11.056791",
+    "content_hash": "6b7d3f8d4f8a7d69bcaf176663e2c30f"
+  },
+  {
+    "path": "docs/Installation-Guides/Quota-Performance.md",
+    "filename": "Quota-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "i934k5dz20euj",
+    "size": 5360,
+    "modified": "2025-06-03T14:50:11.053685",
+    "content_hash": "846635db00c19e42ad6107c74ae81ac6"
+  },
+  {
+    "path": "docs/Installation-Guides/Web-Insights.md",
+    "filename": "Web-Insights.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "77982iytyt2my",
+    "size": 12065,
+    "modified": "2025-06-03T14:50:11.057950",
+    "content_hash": "ed5fa7276caa80021fa1e0d0f66eb4af"
+  },
+  {
+    "path": "docs/Installation-Guides/Recruiting-New-Hires-Bamboo-HR.md",
+    "filename": "Recruiting-New-Hires-Bamboo-HR.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "0uafq73jrk4py",
+    "size": 4079,
+    "modified": "2025-06-03T14:50:11.053916",
+    "content_hash": "d3dc5ec77d738e25318be972b13e17fe"
+  },
+  {
+    "path": "docs/Installation-Guides/Marketing-ROI.md",
+    "filename": "Marketing-ROI.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "lpt9ibe7diiov",
+    "size": 19345,
+    "modified": "2025-06-03T14:50:11.051479",
+    "content_hash": "9bc6a934de6bbc7ae495f40b76b33afc"
+  },
+  {
+    "path": "docs/Installation-Guides/LinkedIn-Impressions.md",
+    "filename": "LinkedIn-Impressions.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "2zz12rc7oxc5f",
+    "size": 6040,
+    "modified": "2025-06-03T14:50:11.050244",
+    "content_hash": "1734372d009e583518c152fc1bfba96e"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Domo.md",
+    "filename": "Apps-by-Domo.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "mtqlmqwgk77a3",
+    "size": 934,
+    "modified": "2025-06-03T14:50:11.035439",
+    "content_hash": "786df7b7a328933eece7f22150e96d51"
+  },
+  {
+    "path": "docs/Installation-Guides/Broadcast-Revenue.md",
+    "filename": "Broadcast-Revenue.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "sv62zwixar9gu",
+    "size": 11422,
+    "modified": "2025-06-03T14:50:11.038333",
+    "content_hash": "b09baa026a54682676785df1811a4343"
+  },
+  {
+    "path": "docs/Installation-Guides/Sales-Leaderboard.md",
+    "filename": "Sales-Leaderboard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "zo8lewivru14m",
+    "size": 5531,
+    "modified": "2025-06-03T14:50:11.054784",
+    "content_hash": "f129c7756c158f5a121b98a43c6d4a77"
+  },
+  {
+    "path": "docs/Installation-Guides/Convention-Inventory.md",
+    "filename": "Convention-Inventory.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "imwqcfecck31j",
+    "size": 6700,
+    "modified": "2025-06-03T14:50:11.040973",
+    "content_hash": "582b48a0f1a0d483ffa76b08035e4214"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-User-Privileges.md",
+    "filename": "Domo-User-Privileges.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "gdj7nyxjhi3tg",
+    "size": 3737,
+    "modified": "2025-06-03T14:50:11.043642",
+    "content_hash": "7ae9c61fb17d3da18cf78c205135ce89"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-ROI-DNA.md",
+    "filename": "Apps-by-ROI-DNA.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "9p8iv3d2ljils",
+    "size": 999,
+    "modified": "2025-06-03T14:50:11.035540",
+    "content_hash": "632846320ef456be127e29cb19fe53e1"
+  },
+  {
+    "path": "docs/Installation-Guides/Domo-Dataflow-ETL-Success.md",
+    "filename": "Domo-Dataflow-ETL-Success.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "a14m4d53nroc1",
+    "size": 4038,
+    "modified": "2025-06-03T14:50:11.042537",
+    "content_hash": "e73f9afcd79e5dadde40b9c4e96daa47"
+  },
+  {
+    "path": "docs/Installation-Guides/Worldwide-Beverage.md",
+    "filename": "Worldwide-Beverage.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "0vrkcz9rmmxgs",
+    "size": 4395,
+    "modified": "2025-06-03T14:50:11.058242",
+    "content_hash": "635f4207ffc7934d6e5a9439fedf923a"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-Maps-Pinboard.md",
+    "filename": "Google-Maps-Pinboard.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "t96yq1sjeh4br",
+    "size": 28340,
+    "modified": "2025-06-03T14:50:11.047457",
+    "content_hash": "93c1bdc9b4fd493d5fc4ad4d3eacf9ce"
+  },
+  {
+    "path": "docs/Installation-Guides/Accounts-Payable-Trend.md",
+    "filename": "Accounts-Payable-Trend.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "96kniv3o7g8aq",
+    "size": 3812,
+    "modified": "2025-06-03T14:50:11.033908",
+    "content_hash": "9c5d885591c790fdbd5f3461b36e2925"
+  },
+  {
+    "path": "docs/Installation-Guides/Top-20-Domo-Contributors.md",
+    "filename": "Top-20-Domo-Contributors.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "7hlmjb05766oc",
+    "size": 4151,
+    "modified": "2025-06-03T14:50:11.056560",
+    "content_hash": "eb42876308747d12ac826daf37eae965"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-DFP-Performance.md",
+    "filename": "Google-DFP-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "p0niyqytv5idx",
+    "size": 6936,
+    "modified": "2025-06-03T14:50:11.047143",
+    "content_hash": "93d81d5080f5ce2ad61703945da9145b"
+  },
+  {
+    "path": "docs/Installation-Guides/Apps-by-Voiant.md",
+    "filename": "Apps-by-Voiant.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "a0tfnxcze8oud",
+    "size": 966,
+    "modified": "2025-06-03T14:50:11.036270",
+    "content_hash": "25168085dbf00d90a31a939fba5f2830"
+  },
+  {
+    "path": "docs/Installation-Guides/Athletic-Event-Performance.md",
+    "filename": "Athletic-Event-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "hz9ux4v87eubc",
+    "size": 4451,
+    "modified": "2025-06-03T14:50:11.036518",
+    "content_hash": "8b85e1f9793cb16da740ca665d1e28d4"
+  },
+  {
+    "path": "docs/Installation-Guides/Rows-of-Domo-Data.md",
+    "filename": "Rows-of-Domo-Data.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "t6w7fpoaf1wcy",
+    "size": 3570,
+    "modified": "2025-06-03T14:50:11.054488",
+    "content_hash": "5ff1e7cd9e4aa881512274b1ed1cc21b"
+  },
+  {
+    "path": "docs/Installation-Guides/Marketing-Spend-Tracking.md",
+    "filename": "Marketing-Spend-Tracking.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "k0gdw0ecyyybi",
+    "size": 14853,
+    "modified": "2025-06-03T14:50:11.051616",
+    "content_hash": "7a0876ed145ab73b0d44c9078db8b94c"
+  },
+  {
+    "path": "docs/Installation-Guides/Volunteer-Employees.md",
+    "filename": "Volunteer-Employees.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "i8ec7zw9micku",
+    "size": 3972,
+    "modified": "2025-06-03T14:50:11.057678",
+    "content_hash": "69d2276f4d2430ee04c3c6a8e09b3428"
+  },
+  {
+    "path": "docs/Installation-Guides/Energy-Supply-Social-Programs.md",
+    "filename": "Energy-Supply-Social-Programs.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "hpt7xvs213gpv",
+    "size": 4608,
+    "modified": "2025-06-03T14:50:11.045161",
+    "content_hash": "67d3422b8b3084c67e2a488b4abfdd00"
+  },
+  {
+    "path": "docs/Installation-Guides/Google-DFP-Small-Business-Performance.md",
+    "filename": "Google-DFP-Small-Business-Performance.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "javq7oienai1j",
+    "size": 5777,
+    "modified": "2025-06-03T14:50:11.047303",
+    "content_hash": "73f2d9a5724c64212122f80f359ff170"
+  },
+  {
+    "path": "docs/Installation-Guides/Patient-Access.md",
+    "filename": "Patient-Access.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "opsesd7n54qnx",
+    "size": 4885,
+    "modified": "2025-06-03T14:50:11.052737",
+    "content_hash": "7312b77e0f41d6eed2e4b2a56d795eae"
+  },
+  {
+    "path": "docs/Installation-Guides/BambooHR-Benefits.md",
+    "filename": "BambooHR-Benefits.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "u5io66upogebj",
+    "size": 9577,
+    "modified": "2025-06-03T14:50:11.036807",
+    "content_hash": "c13523f07013424df4fefd321cff0351"
+  },
+  {
+    "path": "docs/Installation-Guides/Campaign-Reach.md",
+    "filename": "Campaign-Reach.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "whhxqcbltn6nd",
+    "size": 5431,
+    "modified": "2025-06-03T14:50:11.039505",
+    "content_hash": "754b5b3ed7770ff123bdefb198f589e3"
+  },
+  {
+    "path": "docs/Other-Resources/Developer-Forum.md",
+    "filename": "Developer-Forum.md",
+    "type": ".md",
+    "title": "Community Forums",
+    "stoplight_id": "05b0hcl6afem2",
+    "size": 497,
+    "modified": "2025-06-03T14:50:11.058741",
+    "content_hash": "0727a62029665a5c8e50187ade2360d2"
+  },
+  {
+    "path": "docs/Other-Resources/sample-projects.md",
+    "filename": "sample-projects.md",
+    "type": ".md",
+    "title": "Sample Projects",
+    "stoplight_id": "7162ed588aa08",
+    "size": 2022,
+    "modified": "2024-11-12T08:08:07.688792",
+    "content_hash": "a237e31a2c751442e56b129c63bc554b"
+  },
+  {
+    "path": "docs/Other-Resources/api-status.md",
+    "filename": "api-status.md",
+    "type": ".md",
+    "title": "API Status",
+    "stoplight_id": "d93cd01e7c739",
+    "size": 382,
+    "modified": "2025-06-03T14:50:11.058844",
+    "content_hash": "5a580ef585cbba8879eaf931d9911727"
+  },
+  {
+    "path": "docs/Getting-Started/api-authentication.md",
+    "filename": "api-authentication.md",
+    "type": ".md",
+    "title": "APIs",
+    "stoplight_id": "8ba9aedad3679",
+    "size": 8284,
+    "modified": "2025-06-16T08:50:21.915917",
+    "content_hash": "32d0339b2252db37ea767a09cbd6220b"
+  },
+  {
+    "path": "docs/Getting-Started/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo Developer Portal",
+    "stoplight_id": "d01f63a6ba662",
+    "size": 5326,
+    "modified": "2026-01-08T08:15:51.381025",
+    "content_hash": "636243239379bfebd3d956992051fad9"
+  },
+  {
+    "path": "docs/Getting-Started/sdks.md",
+    "filename": "sdks.md",
+    "type": ".md",
+    "title": "Domo SDKs",
+    "stoplight_id": "e04caa9abb5cc",
+    "size": 1773,
+    "modified": "2026-01-08T08:15:51.381927",
+    "content_hash": "8722f6c443d3632b93c684185941166c"
+  },
+  {
+    "path": "docs/Governance/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": null,
+    "size": 3547,
+    "modified": "2024-11-12T08:08:07.664760",
+    "content_hash": "eee43214f3ad8d0a7884973cd63e8126"
+  },
+  {
+    "path": "docs/Governance/user-management.md",
+    "filename": "user-management.md",
+    "type": ".md",
+    "title": "User Management",
+    "stoplight_id": null,
+    "size": 4427,
+    "modified": "2025-06-03T14:50:11.033799",
+    "content_hash": "15bfed1c65cdcaf5fdfae5a21167b7fb"
+  },
+  {
+    "path": "docs/Governance/data-management.md",
+    "filename": "data-management.md",
+    "type": ".md",
+    "title": "Managing DataSets in Domo",
+    "stoplight_id": null,
+    "size": 5214,
+    "modified": "2025-06-03T14:50:11.033444",
+    "content_hash": "f0956c2d63ba69fbec18decf6a7638c0"
+  },
+  {
+    "path": "docs/Governance/activity-log.md",
+    "filename": "activity-log.md",
+    "type": ".md",
+    "title": "Activity Log",
+    "stoplight_id": null,
+    "size": 2560,
+    "modified": "2025-06-03T14:50:11.033150",
+    "content_hash": "78609147049c91a01aab205c9660028b"
+  },
+  {
+    "path": "docs/Governance/sso.md",
+    "filename": "sso.md",
+    "type": ".md",
+    "title": "SSO",
+    "stoplight_id": null,
+    "size": 769,
+    "modified": "2025-06-03T14:50:11.033672",
+    "content_hash": "aa4a2e1ce5a4f64b6787c60c63d40cbe"
+  },
+  {
+    "path": "docs/Governance/pdp.md",
+    "filename": "pdp.md",
+    "type": ".md",
+    "title": "PDP",
+    "stoplight_id": "7zzu6uf05maam",
+    "size": 5842,
+    "modified": "2025-06-03T14:50:11.033578",
+    "content_hash": "b3e403df7ab11fe653c660fa53ba4acb"
+  },
+  {
+    "path": "docs/Governance/content-management.md",
+    "filename": "content-management.md",
+    "type": ".md",
+    "title": "Organize, manage, and share content to other users in Domo using the Page API",
+    "stoplight_id": null,
+    "size": 7060,
+    "modified": "2025-06-03T14:50:11.033301",
+    "content_hash": "fc8ede7874ec17300a3870ed4d5cc636"
+  },
+  {
+    "path": "docs/Governance/security.md",
+    "filename": "security.md",
+    "type": ".md",
+    "title": "Security and Governance",
+    "stoplight_id": null,
+    "size": 5249,
+    "modified": "2024-11-12T08:08:07.665093",
+    "content_hash": "05fb43461f1000a9841fb6f6ec90cb8f"
+  },
+  {
+    "path": "docs/Embedded-Analytics/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": "ncsnoe3fay4df",
+    "size": 1386,
+    "modified": "2025-07-02T08:37:16.380384",
+    "content_hash": "aa4153076f4e13be9c1261ee3230237d"
+  },
+  {
+    "path": "docs/Embedded-Analytics/embedded-scheduled-reports.md",
+    "filename": "embedded-scheduled-reports.md",
+    "type": ".md",
+    "title": "Embedded Scheduled Reports (BETA)",
+    "stoplight_id": null,
+    "size": 11663,
+    "modified": "2026-01-08T08:15:51.377268",
+    "content_hash": "90fc2d03001014a227eb9830b08caec4"
+  },
+  {
+    "path": "docs/Embedded-Analytics/publishing-to-other-domo-users.md",
+    "filename": "publishing-to-other-domo-users.md",
+    "type": ".md",
+    "title": "Publishing to Other Users",
+    "stoplight_id": "541b34bb930ee",
+    "size": 1445,
+    "modified": "2025-07-02T08:37:16.380470",
+    "content_hash": "c5b32b7a30d909740511a30d405de6d1"
+  },
+  {
+    "path": "docs/Embedded-Analytics/embedded-edit-experiences.md",
+    "filename": "embedded-edit-experiences.md",
+    "type": ".md",
+    "title": "Embedded Capabilities",
+    "stoplight_id": "ed061f0c295c0",
+    "size": 7411,
+    "modified": "2025-07-02T08:37:16.380262",
+    "content_hash": "52bced35641f2d41d59d0b6b695ee4a0"
+  },
+  {
+    "path": "docs/Embedded-Analytics/embedded-edit-experiences - copy.md",
+    "filename": "embedded-edit-experiences - copy.md",
+    "type": ".md",
+    "title": "Embedded Capabilities",
+    "stoplight_id": "dc6vadk2yrjcw",
+    "size": 10246,
+    "modified": "2025-07-02T08:37:16.380029",
+    "content_hash": "c266891625e908019d3ee9c9d2621ea3"
+  },
+  {
+    "path": "docs/Apps/Overview.md",
+    "filename": "Overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": "28v6sqz9eslb9",
+    "size": 9528,
+    "modified": "2025-06-16T08:50:21.910232",
+    "content_hash": "1ff443d87327c64a0c5327f7d290edbc"
+  },
+  {
+    "path": "docs/Apps/App-Catalyst.md",
+    "filename": "App-Catalyst.md",
+    "type": ".md",
+    "title": "App Catalyst: User Guide",
+    "stoplight_id": null,
+    "size": 9461,
+    "modified": "2026-01-08T08:15:51.364475",
+    "content_hash": "89c8a7f12ef14737842bb16ed7654f5d"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Welcome.md",
+    "filename": "Welcome.md",
+    "type": ".md",
+    "title": "Welcome",
+    "stoplight_id": "d54m2ohkacza0",
+    "size": 1718,
+    "modified": "2024-12-16T14:26:39.701730",
+    "content_hash": "ba904d2a462c7372b4979181ae95d284"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/phoenix.md",
+    "filename": "phoenix.md",
+    "type": ".md",
+    "title": "Domo Phoenix",
+    "stoplight_id": null,
+    "size": 9437,
+    "modified": "2025-06-16T08:50:21.903986",
+    "content_hash": "679f2a4f1b54ab6cd487d285de7c590c"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/toolkit.md",
+    "filename": "toolkit.md",
+    "type": ".md",
+    "title": "Toolkit",
+    "stoplight_id": null,
+    "size": 2874,
+    "modified": "2025-06-16T08:50:21.908393",
+    "content_hash": "225139f366a601e6915dbf209097a47e"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/domo.js.md",
+    "filename": "domo.js.md",
+    "type": ".md",
+    "title": "ryuu.js",
+    "stoplight_id": "e947d87e17547",
+    "size": 36364,
+    "modified": "2026-01-08T08:15:51.369243",
+    "content_hash": "41fb2e2eb67fd85d65addfbb610fe515"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/da-cli.md",
+    "filename": "da-cli.md",
+    "type": ".md",
+    "title": "DA CLI - Domo Apps Generator",
+    "stoplight_id": null,
+    "size": 6525,
+    "modified": "2026-01-08T08:15:51.367620",
+    "content_hash": "3151f78c4eae8a4a61073e12969c04fa"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/query.md",
+    "filename": "query.md",
+    "type": ".md",
+    "title": "Query",
+    "stoplight_id": null,
+    "size": 11406,
+    "modified": "2025-06-16T08:50:21.904255",
+    "content_hash": "cae02ba369992f902e4d0a815a951de6"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/domo-publish-CICD.md",
+    "filename": "domo-publish-CICD.md",
+    "type": ".md",
+    "title": "Domo Publish - GitHub Action",
+    "stoplight_id": null,
+    "size": 3331,
+    "modified": "2026-01-08T08:15:51.368541",
+    "content_hash": "cb1a3af83850f0419f8fb9ab7c168955"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tools/domo-CLI.md",
+    "filename": "domo-CLI.md",
+    "type": ".md",
+    "title": "Domo Apps CLI",
+    "stoplight_id": "rmfbkwje8kmqj",
+    "size": 17262,
+    "modified": "2026-01-08T08:15:51.368124",
+    "content_hash": "d9e008be202c4680dadc2cbf1ebcaa25"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Best-Practices.md",
+    "filename": "Best-Practices.md",
+    "type": ".md",
+    "title": "Best Practices",
+    "stoplight_id": "9l1mzcir4ht5h",
+    "size": 1899,
+    "modified": "2024-12-16T14:26:39.698956",
+    "content_hash": "38f05f339bb4a5e1cd8ea8dff1917e22"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Key-Terminology.md",
+    "filename": "Key-Terminology.md",
+    "type": ".md",
+    "title": "Key Terminology",
+    "stoplight_id": null,
+    "size": 3406,
+    "modified": "2025-06-16T08:50:21.902955",
+    "content_hash": "8f9e141f83b1f9533f1edb445b761f49"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Setup-and-Installation.md",
+    "filename": "Setup-and-Installation.md",
+    "type": ".md",
+    "title": "Setup and Installation",
+    "stoplight_id": "6hlzv1hinkq19",
+    "size": 3714,
+    "modified": "2026-01-08T08:15:51.366718",
+    "content_hash": "5557881a20724429f6f7aace40bb7b91"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Prerequisites.md",
+    "filename": "Prerequisites.md",
+    "type": ".md",
+    "title": "Prerequisites",
+    "stoplight_id": "67dwgt0v6q3w9",
+    "size": 1423,
+    "modified": "2025-06-03T14:50:11.021243",
+    "content_hash": "74058f970ffdd6c311ef8d13a1a40e60"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Starter-Kits.md",
+    "filename": "Starter-Kits.md",
+    "type": ".md",
+    "title": "Starter Kits",
+    "stoplight_id": "u8w475o2245yp",
+    "size": 5706,
+    "modified": "2025-06-03T14:50:11.021405",
+    "content_hash": "f24b99118bed413a6a43dc4cc6c4502c"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Quickstart/Tools.md",
+    "filename": "Tools.md",
+    "type": ".md",
+    "title": "Tools",
+    "stoplight_id": "37rc8izzjzj7z",
+    "size": 1587,
+    "modified": "2025-06-03T14:50:11.021515",
+    "content_hash": "531d8a3fe7edd79a795ff56c161ecb4c"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/clearing-out-collections.md",
+    "filename": "clearing-out-collections.md",
+    "type": ".md",
+    "title": "Deleting all documents from a collection",
+    "stoplight_id": null,
+    "size": 1664,
+    "modified": "2024-12-16T14:26:39.695263",
+    "content_hash": "55773b1c46fcb8484dfbe347a1c9da7c"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/public-assets.md",
+    "filename": "public-assets.md",
+    "type": ".md",
+    "title": "Public Assets",
+    "stoplight_id": "df8b045188694",
+    "size": 1913,
+    "modified": "2024-11-12T08:08:07.651160",
+    "content_hash": "2a39a34dc172a2ca32894382179dece4"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/querying-data.md",
+    "filename": "querying-data.md",
+    "type": ".md",
+    "title": "Querying Data",
+    "stoplight_id": "6fa7587d4c2ea",
+    "size": 4029,
+    "modified": "2025-06-16T08:50:21.901139",
+    "content_hash": "2823944c5263b3abdaf1249ff44e092f"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/hitting-a-workflow.md",
+    "filename": "hitting-a-workflow.md",
+    "type": ".md",
+    "title": "Start a workflow from an app",
+    "stoplight_id": null,
+    "size": 3829,
+    "modified": "2025-06-03T14:50:11.020168",
+    "content_hash": "159b5dc0863dfce008558a689e7981b2"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/swap-designs.md",
+    "filename": "swap-designs.md",
+    "type": ".md",
+    "title": "Change which asset powers the card",
+    "stoplight_id": null,
+    "size": 762,
+    "modified": "2025-06-03T14:50:11.020638",
+    "content_hash": "796f82fbca0db7dc05fe58dda3e7413a"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/handling-data-updates.md",
+    "filename": "handling-data-updates.md",
+    "type": ".md",
+    "title": "Handling Data Updates",
+    "stoplight_id": "2a14dd34496e7",
+    "size": 3488,
+    "modified": "2024-11-12T08:08:07.650345",
+    "content_hash": "e9ed3e34fa6a82cc4b9af971366ecf4b"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/hitting-code-engine-from-an-app.md",
+    "filename": "hitting-code-engine-from-an-app.md",
+    "type": ".md",
+    "title": "Hitting a Code Engine Function from an App",
+    "stoplight_id": "4w40o03817vij",
+    "size": 4741,
+    "modified": "2025-06-03T14:50:11.020360",
+    "content_hash": "93af1db9f02e5428cdee83f174d778a9"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/manifest.md",
+    "filename": "manifest.md",
+    "type": ".md",
+    "title": "The Manifest File",
+    "stoplight_id": "af407395c766b",
+    "size": 18181,
+    "modified": "2025-06-16T08:50:21.900924",
+    "content_hash": "a0055780244ebd5cbdf675c957bcee4d"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/copy-assets-to-other-instances.md",
+    "filename": "copy-assets-to-other-instances.md",
+    "type": ".md",
+    "title": "Copy Assets to a Different Instance",
+    "stoplight_id": null,
+    "size": 767,
+    "modified": "2025-06-03T14:50:11.019767",
+    "content_hash": "75d205f3047b5666c4a380fe52323389"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/getting-started-pro-code.md",
+    "filename": "getting-started-pro-code.md",
+    "type": ".md",
+    "title": "Getting Started with the Pro-Code Editor",
+    "stoplight_id": null,
+    "size": 3904,
+    "modified": "2026-01-09T14:45:14.791409",
+    "content_hash": "8e3927566038dfb7db66c24725203ef8"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/workflow-appdb-sync.md",
+    "filename": "workflow-appdb-sync.md",
+    "type": ".md",
+    "title": "Sync AppDB Only Once a Day",
+    "stoplight_id": null,
+    "size": 2153,
+    "modified": "2025-06-03T14:50:11.020708",
+    "content_hash": "4bc79bfb14029adc916e4dc68af4f110"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/manage-save-pro-code.md",
+    "filename": "manage-save-pro-code.md",
+    "type": ".md",
+    "title": "Managing, Editing, and Saving Your App in the Pro-Code Editor",
+    "stoplight_id": null,
+    "size": 2770,
+    "modified": "2025-06-03T14:50:11.020429",
+    "content_hash": "ba5a980792357e0bea36c3b2fc149161"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/getting-data.md",
+    "filename": "getting-data.md",
+    "type": ".md",
+    "title": "Getting Data",
+    "stoplight_id": "6a5d7a2870145",
+    "size": 2713,
+    "modified": "2024-12-16T14:26:39.696374",
+    "content_hash": "57e31be2f9c1a10fd624a12d518bf071"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI.md",
+    "filename": "Local-Development-with-Domo-CLI.md",
+    "type": ".md",
+    "title": "Local Development with Domo CLI",
+    "stoplight_id": null,
+    "size": 8483,
+    "modified": "2026-01-08T08:15:51.364967",
+    "content_hash": "de7b054ec5e340b76a9ae6aa965115f1"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/design-guide.md",
+    "filename": "design-guide.md",
+    "type": ".md",
+    "title": "App Developer Design Guide",
+    "stoplight_id": null,
+    "size": 12787,
+    "modified": "2025-06-03T14:50:11.019895",
+    "content_hash": "59b87d0a0af6b5f4da0351073bc48d65"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Guides/app-sessions.md",
+    "filename": "app-sessions.md",
+    "type": ".md",
+    "title": "App Sessions",
+    "stoplight_id": "xma9hezmttvid",
+    "size": 4741,
+    "modified": "2025-06-03T14:50:11.019661",
+    "content_hash": "2d22ee32eae845d2bc10e240ff147961"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Overview.md",
+    "filename": "Overview.md",
+    "type": ".md",
+    "title": "Tutorials",
+    "stoplight_id": null,
+    "size": 13,
+    "modified": "2024-11-12T08:08:07.652740",
+    "content_hash": "4e5569b4b5dfa0b1ba4bd49bbb0cf996"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Help/Troubleshooting.md",
+    "filename": "Troubleshooting.md",
+    "type": ".md",
+    "title": "Troubleshooting",
+    "stoplight_id": null,
+    "size": 3237,
+    "modified": "2025-06-16T08:50:21.901391",
+    "content_hash": "832aca602cd0fa5e11d848374d00ddc0"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Help/faq.md",
+    "filename": "faq.md",
+    "type": ".md",
+    "title": "FAQ",
+    "stoplight_id": null,
+    "size": 8484,
+    "modified": "2025-06-03T14:50:11.021024",
+    "content_hash": "a58e185deef6f671a02a084152f03473"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow.md",
+    "filename": "ReturnFlow.md",
+    "type": ".md",
+    "title": "Return Flow",
+    "stoplight_id": "omi6lzvpm47ei",
+    "size": 32114,
+    "modified": "2025-06-16T08:50:21.909281",
+    "content_hash": "f14a821835341468ae727b326047fbe0"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce.md",
+    "filename": "SugarForce.md",
+    "type": ".md",
+    "title": "SugarForce",
+    "stoplight_id": "a2bd06daaff7e",
+    "size": 21577,
+    "modified": "2025-06-16T08:50:21.909523",
+    "content_hash": "28d94106fe9f34ba8ad20cf5add78f82"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/HelloWorld.md",
+    "filename": "HelloWorld.md",
+    "type": ".md",
+    "title": "Hello World Tutorial",
+    "stoplight_id": null,
+    "size": 18023,
+    "modified": "2024-11-12T08:08:07.653431",
+    "content_hash": "b11dda809e81091c777c84c84aad95bf"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/AppDB.md",
+    "filename": "AppDB.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 0,
+    "modified": "2024-11-12T08:08:07.653196",
+    "content_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic.md",
+    "filename": "DynamicInfographic.md",
+    "type": ".md",
+    "title": "Creating Dynamic Infographics",
+    "stoplight_id": "atp50e7pzs4yd",
+    "size": 25224,
+    "modified": "2025-06-16T08:50:21.909049",
+    "content_hash": "0af2a725eec925613b2423831015f835"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/React/Bar-Code-Scanner-PWA.md",
+    "filename": "Bar-Code-Scanner-PWA.md",
+    "type": ".md",
+    "title": "Reactjs Barcode Scanner Tutorial",
+    "stoplight_id": null,
+    "size": 12344,
+    "modified": "2024-11-12T08:08:07.652964",
+    "content_hash": "105a5bb75b5f5afe187b3d57d26d2321"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/React/Todo-App.md",
+    "filename": "Todo-App.md",
+    "type": ".md",
+    "title": "To-do App Tutorial",
+    "stoplight_id": null,
+    "size": 25454,
+    "modified": "2025-06-16T08:50:21.908773",
+    "content_hash": "09b08f1c937f0884cd301b0c53530849"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/React/Mapbox-World-App.md",
+    "filename": "Mapbox-World-App.md",
+    "type": ".md",
+    "title": "Mapbox World Map React App Tutorial",
+    "stoplight_id": null,
+    "size": 23147,
+    "modified": "2026-01-08T08:15:51.370485",
+    "content_hash": "fc60a76f0b0fb7db42bcff3c12698587"
+  },
+  {
+    "path": "docs/Apps/App-Framework/Tutorials/React/AI-Book-Recommender.md",
+    "filename": "AI-Book-Recommender.md",
+    "type": ".md",
+    "title": "AI Book Recommender App Tutorial",
+    "stoplight_id": null,
+    "size": 34105,
+    "modified": "2026-01-08T08:15:51.369982",
+    "content_hash": "bcb815291efb3ae0e912d84aeb0d3293"
+  },
+  {
+    "path": "docs/Apps/Pro-Code-Editor/Tutorials/pdf-export.md",
+    "filename": "pdf-export.md",
+    "type": ".md",
+    "title": "**Tutorial: Building a Domo Dashboard PDF Converter**",
+    "stoplight_id": null,
+    "size": 18564,
+    "modified": "2026-01-08T08:15:51.371044",
+    "content_hash": "1f84457bf1a1b763917a5665109de4e9"
+  },
+  {
+    "path": "docs/Apps/Pro-Code-Editor/Tutorials/stacked-bars.md",
+    "filename": "stacked-bars.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 12689,
+    "modified": "2026-01-08T08:15:51.371763",
+    "content_hash": "9dd1df4857bd5782f5d2973a5a7db31d"
+  },
+  {
+    "path": "docs/Apps/DDX-Bricks/Quickstart/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo Bricks Overview",
+    "stoplight_id": "0037739ab3747",
+    "size": 6594,
+    "modified": "2025-06-03T14:50:11.023282",
+    "content_hash": "157b7a7b221424539c1a7515e3ff4678"
+  },
+  {
+    "path": "docs/Apps/DDX-Bricks/Quickstart/getting-started.md",
+    "filename": "getting-started.md",
+    "type": ".md",
+    "title": "Getting Started Using Domo Bricks",
+    "stoplight_id": "ec60c4980e1b5",
+    "size": 5790,
+    "modified": "2025-06-16T08:50:21.909967",
+    "content_hash": "f5ae290c0c6e4a745abac51bc239f531"
+  },
+  {
+    "path": "docs/Apps/DDX-Bricks/Guides/getting-data.md",
+    "filename": "getting-data.md",
+    "type": ".md",
+    "title": "Getting Data in Domo Bricks",
+    "stoplight_id": "2efe8599c6ad9",
+    "size": 1398,
+    "modified": "2025-06-16T08:50:21.909725",
+    "content_hash": "0a46967c8ca339c488e9256394959903"
+  },
+  {
+    "path": "docs/Apps/DDX-Bricks/Guides/DDX-Pro-Code.md",
+    "filename": "DDX-Pro-Code.md",
+    "type": ".md",
+    "title": "Converting a Brick into a Pro-Code App",
+    "stoplight_id": null,
+    "size": 4933,
+    "modified": "2025-06-03T14:50:11.022966",
+    "content_hash": "23002a2630c62bf0ca53229b7075d742"
+  },
+  {
+    "path": "docs/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro.md",
+    "filename": "intro.md",
+    "type": ".md",
+    "title": "Video Guides",
+    "stoplight_id": "81edeb860659b",
+    "size": 350,
+    "modified": "2024-11-12T08:08:07.655084",
+    "content_hash": "d78917e5022bb383e1ed4fd34361cd35"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples.md",
+    "filename": "code-examples.md",
+    "type": ".md",
+    "title": "Code Examples",
+    "stoplight_id": "4soguofca8clp",
+    "size": 7605,
+    "modified": "2025-07-02T08:37:16.377713",
+    "content_hash": "d75c09a31389b1fa969ac78d24cf3d66"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Getting Started",
+    "stoplight_id": "9698njvvxz8f9",
+    "size": 785,
+    "modified": "2025-07-02T08:37:16.378999",
+    "content_hash": "82e3fce0a390790788ef5b790965fb6a"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height.md",
+    "filename": "dynamic-iframe-height.md",
+    "type": ".md",
+    "title": "Dynamic Iframe Height",
+    "stoplight_id": "nt3co7oh36g5s",
+    "size": 2678,
+    "modified": "2025-07-02T08:37:16.378381",
+    "content_hash": "7744e3200e582f99323a0d08cb4c8a19"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content - copy.md",
+    "filename": "url-parameters-in-embedded-content - copy.md",
+    "type": ".md",
+    "title": "URL Parameters in Embedded Content",
+    "stoplight_id": "9k5nqhgffv7wq",
+    "size": 5235,
+    "modified": "2025-07-02T08:37:16.379431",
+    "content_hash": "14b6bc8d1fc409509d9f1eb04e453fea"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options.md",
+    "filename": "filtering-options.md",
+    "type": ".md",
+    "title": "Filtering Options",
+    "stoplight_id": "wbwvwmq9rd714",
+    "size": 11383,
+    "modified": "2025-07-02T08:37:16.378826",
+    "content_hash": "ed4765fd92be050634d0f43fec964d7b"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching.md",
+    "filename": "dataset-switching.md",
+    "type": ".md",
+    "title": "Dataset Switching",
+    "stoplight_id": "j83p65ecrjtr1",
+    "size": 1439,
+    "modified": "2025-07-02T08:37:16.378089",
+    "content_hash": "c16f341ca7a09bd1c885a8ef7b4f6512"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering.md",
+    "filename": "programmatic-filtering.md",
+    "type": ".md",
+    "title": "Programmatic Filtering",
+    "stoplight_id": "1yafxad1u8azv",
+    "size": 14361,
+    "modified": "2025-07-02T08:37:16.379122",
+    "content_hash": "eb4d55c7d74a1669d778aaa501f08d46"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content.md",
+    "filename": "url-parameters-in-embedded-content.md",
+    "type": ".md",
+    "title": "URL Parameters in Embedded Content",
+    "stoplight_id": "buk5zwk1pvjwh",
+    "size": 5527,
+    "modified": "2025-07-02T08:37:16.379740",
+    "content_hash": "673bfc719871059b7b6845f34bcdee4f"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication.md",
+    "filename": "app-embed-authentication.md",
+    "type": ".md",
+    "title": "App Embed Authentication",
+    "stoplight_id": "1cleirjemoy6i",
+    "size": 3449,
+    "modified": "2025-07-02T08:37:16.377158",
+    "content_hash": "8f086ae97d31b3b1c44d10e080be02a7"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/embedded-analytics-in-a-world-without-cookies - copy.md",
+    "filename": "embedded-analytics-in-a-world-without-cookies - copy.md",
+    "type": ".md",
+    "title": "Embedded Analytics in a World Without Cookies",
+    "stoplight_id": "nldrdylitc11u",
+    "size": 6838,
+    "modified": "2025-07-02T08:37:16.378598",
+    "content_hash": "6440d1394f5da6356839cb25f1286655"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals.md",
+    "filename": "embedding-into-sites-and-web-portals.md",
+    "type": ".md",
+    "title": "Embedding Into Sites and Web Portals",
+    "stoplight_id": "5ueroz175c0jl",
+    "size": 2270,
+    "modified": "2025-07-02T08:37:16.378700",
+    "content_hash": "fe59bd9b5a66bd8ef2e48feafa6007aa"
+  },
+  {
+    "path": "docs/Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies.md",
+    "filename": "necessary-dependencies.md",
+    "type": ".md",
+    "title": "Necessary dependencies",
+    "stoplight_id": "5u0f5ugttqixq",
+    "size": 308,
+    "modified": "2025-07-02T08:37:16.378906",
+    "content_hash": "99f150cb1f3835d546f8bfbb5c178998"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/creating-packages.md",
+    "filename": "creating-packages.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 2730,
+    "modified": "2026-01-08T08:15:51.373390",
+    "content_hash": "c85bd0a93d02a4b7238a6db6a8df3600"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Code Engine",
+    "stoplight_id": "1sirxqzlsb4sk",
+    "size": 1563,
+    "modified": "2026-01-08T08:15:51.374786",
+    "content_hash": "f4315c6d1a4754965d6bfe488e220e8d"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/javascript-libraries.md",
+    "filename": "javascript-libraries.md",
+    "type": ".md",
+    "title": "Code Engine JavaScript Libraries Reference",
+    "stoplight_id": null,
+    "size": 2612,
+    "modified": "2025-06-03T14:50:11.024358",
+    "content_hash": "fff44bc047229f46eb69fa929a8a8fb2"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/code-editor-overview.md",
+    "filename": "code-editor-overview.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 2657,
+    "modified": "2026-01-08T08:15:51.372344",
+    "content_hash": "1a0a7f17eed615f4d8b782c9c14c2a11"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/limitations-and-troubleshooting.md",
+    "filename": "limitations-and-troubleshooting.md",
+    "type": ".md",
+    "title": "Key Limitations",
+    "stoplight_id": null,
+    "size": 1699,
+    "modified": "2026-01-08T08:15:51.374294",
+    "content_hash": "5d9e55dfffac50d81e155a84d9e19838"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/global-vs-custom-packages.md",
+    "filename": "global-vs-custom-packages.md",
+    "type": ".md",
+    "title": "Global vs. Custom Packages",
+    "stoplight_id": null,
+    "size": 1906,
+    "modified": "2026-01-08T08:15:51.373877",
+    "content_hash": "d663f733725efb1ada327a42f0ad7b93"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/python-packages.md",
+    "filename": "python-packages.md",
+    "type": ".md",
+    "title": "Code Engine Python Packages Reference",
+    "stoplight_id": null,
+    "size": 6283,
+    "modified": "2025-06-03T14:50:11.024564",
+    "content_hash": "fa9221141b24211732e1e96e3c7b8ec0"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/common-use-cases.md",
+    "filename": "common-use-cases.md",
+    "type": ".md",
+    "title": "Common Code Engine Use Cases",
+    "stoplight_id": null,
+    "size": 956,
+    "modified": "2026-01-08T08:15:51.372858",
+    "content_hash": "b4bc4b878c9583bd3af9e1d94bf15e2f"
+  },
+  {
+    "path": "docs/Automate-Actions/Workflows/authentication.md",
+    "filename": "authentication.md",
+    "type": ".md",
+    "title": "Authentication & Permissions",
+    "stoplight_id": null,
+    "size": 2250,
+    "modified": "2026-01-08T08:15:51.375204",
+    "content_hash": "2ff877985df360b96d0ab3214aa0ca73"
+  },
+  {
+    "path": "docs/Automate-Actions/Workflows/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo Workflows",
+    "stoplight_id": null,
+    "size": 2032,
+    "modified": "2026-01-08T08:15:51.375890",
+    "content_hash": "0fd0d42e2753bf08e9090cc9130d8859"
+  },
+  {
+    "path": "docs/Automate-Actions/Workflows/troubleshooting.md",
+    "filename": "troubleshooting.md",
+    "type": ".md",
+    "title": "Troubleshooting Tips",
+    "stoplight_id": null,
+    "size": 1220,
+    "modified": "2026-01-08T08:15:51.376255",
+    "content_hash": "ee8937dc17e6bfeb9f087c4da30112a2"
+  },
+  {
+    "path": "docs/Automate-Actions/Tutorials/Cards-to-PDF.md",
+    "filename": "Cards-to-PDF.md",
+    "type": ".md",
+    "title": "Return All Content of a Page as PDFs",
+    "stoplight_id": null,
+    "size": 3645,
+    "modified": "2025-06-16T08:50:21.910755",
+    "content_hash": "4323216290ab6d40d7436f2457dda0a0"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/Packages/Cards-to-PDF.md",
+    "filename": "Cards-to-PDF.md",
+    "type": ".md",
+    "title": "Export Domo cards to PDF",
+    "stoplight_id": null,
+    "size": 3533,
+    "modified": "2025-06-03T14:50:11.024167",
+    "content_hash": "216f6905da51230c8a7ee74da9a3a30f"
+  },
+  {
+    "path": "docs/Automate-Actions/Code-Engine/Packages/Instance-Management.md",
+    "filename": "Instance-Management.md",
+    "type": ".md",
+    "title": "Domo Instance Management",
+    "stoplight_id": null,
+    "size": 3471,
+    "modified": "2025-06-03T14:50:11.024287",
+    "content_hash": "75c5200e3240c385e966d7366d0e54df"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Scheduled-Reports-API.md",
+    "filename": "Scheduled-Reports-API.md",
+    "type": ".md",
+    "title": "Scheduled Reports API",
+    "stoplight_id": null,
+    "size": 32153,
+    "modified": "2025-06-16T08:50:21.900313",
+    "content_hash": "836a72160a079522b579be908d3cb110"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/User-API.md",
+    "filename": "User-API.md",
+    "type": ".md",
+    "title": "User API",
+    "stoplight_id": "n7f7swo7h29wg",
+    "size": 2963,
+    "modified": "2025-06-16T08:50:21.900450",
+    "content_hash": "2539d44ae847409079960abb3650f0b8"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Files-API.md",
+    "filename": "Files-API.md",
+    "type": ".md",
+    "title": "Files API",
+    "stoplight_id": "eeoadx67i6h46",
+    "size": 20279,
+    "modified": "2025-06-24T09:14:05.991360",
+    "content_hash": "14477e7c5a8b6f11a65e2638c9c80b4d"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Groups-API.md",
+    "filename": "Groups-API.md",
+    "type": ".md",
+    "title": "Groups API",
+    "stoplight_id": "2hwa98wx7kdm4",
+    "size": 3938,
+    "modified": "2025-06-16T08:50:21.899956",
+    "content_hash": "b4539d180ecde8da4efe4a55f6a4b763"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Overview.md",
+    "filename": "Overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": "frpucb6la2r4o",
+    "size": 88,
+    "modified": "2025-06-16T08:50:21.900041",
+    "content_hash": "86946b69b725d17758df0a797ed7b059"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/AI-Service-Layer-API.md",
+    "filename": "AI-Service-Layer-API.md",
+    "type": ".md",
+    "title": "AI Service Layer API <!-- focus: false --> ![AI Pro](../../../assets/images/pro.png)",
+    "stoplight_id": "wjqiqhsvpadon",
+    "size": 12641,
+    "modified": "2026-01-08T08:15:51.361442",
+    "content_hash": "8408b3ad25707c91ce1ab8b0bc796a32"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Analytics.md",
+    "filename": "Analytics.md",
+    "type": ".md",
+    "title": "Analytics API",
+    "stoplight_id": null,
+    "size": 6467,
+    "modified": "2025-06-16T08:50:21.898566",
+    "content_hash": "3df4745266c02eb35211ffe1df114450"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/AppDB-API.md",
+    "filename": "AppDB-API.md",
+    "type": ".md",
+    "title": "AppDB API",
+    "stoplight_id": "1l1fm2g0sfm69",
+    "size": 45628,
+    "modified": "2025-06-16T08:50:21.898843",
+    "content_hash": "a258fea972db0802ab4a52a376e36c9a"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Queues-and-Tasks-API.md",
+    "filename": "Queues-and-Tasks-API.md",
+    "type": ".md",
+    "title": "Task Center API",
+    "stoplight_id": "k2vv2vir3c8ry",
+    "size": 25407,
+    "modified": "2025-06-16T08:50:21.900140",
+    "content_hash": "ac417a8814232e29fa0b391c42774087"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Workflows-API.md",
+    "filename": "Workflows-API.md",
+    "type": ".md",
+    "title": "Workflows API",
+    "stoplight_id": "1ay1akbc787jg",
+    "size": 8426,
+    "modified": "2026-01-08T08:15:51.362436",
+    "content_hash": "2c0fd88b267e89d0bd84468ae9e4a35a"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/AppStudio-API.md",
+    "filename": "AppStudio-API.md",
+    "type": ".md",
+    "title": "App Studio API",
+    "stoplight_id": null,
+    "size": 7445,
+    "modified": "2025-06-16T08:50:21.899201",
+    "content_hash": "a956a1252b84d87d4dc5e9fdc2fe5ec0"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Buzz-API.md",
+    "filename": "Buzz-API.md",
+    "type": ".md",
+    "title": "Buzz API",
+    "stoplight_id": "0rss4j81nqj1a",
+    "size": 12335,
+    "modified": "2025-06-16T08:50:21.899379",
+    "content_hash": "ebf246752888251f8e7c94fe62014f24"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Code-Engine-API.md",
+    "filename": "Code-Engine-API.md",
+    "type": ".md",
+    "title": "Code Engine API",
+    "stoplight_id": "p48phjy7wwtw8",
+    "size": 2313,
+    "modified": "2025-06-16T08:50:21.899488",
+    "content_hash": "50920a1a487624cd8f823f3f0d95934b"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Data-API.md",
+    "filename": "Data-API.md",
+    "type": ".md",
+    "title": "Data API",
+    "stoplight_id": "8s3y9eldnjq8d",
+    "size": 10184,
+    "modified": "2025-06-16T08:50:21.899684",
+    "content_hash": "d75b3ca2dcddf99a34e4e78f6e43727a"
+  },
+  {
+    "path": "docs/API-Reference/Domo-App-APIs/Filesets-API.md",
+    "filename": "Filesets-API.md",
+    "type": ".md",
+    "title": "FileSet API (BETA)",
+    "stoplight_id": null,
+    "size": 27578,
+    "modified": "2026-01-08T08:15:51.361986",
+    "content_hash": "0ce31abb806c13b967907c42cd24d7a9"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Workflows.md",
+    "filename": "Workflows.md",
+    "type": ".md",
+    "title": "Workflows Product API",
+    "stoplight_id": "kspv2orr3oi30",
+    "size": 6019,
+    "modified": "2025-06-03T14:50:11.019487",
+    "content_hash": "2a5f7820fed21464dfa4397b2a13ac80"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Search.md",
+    "filename": "Search.md",
+    "type": ".md",
+    "title": "Search Product API",
+    "stoplight_id": null,
+    "size": 10339,
+    "modified": "2025-06-03T14:50:11.019072",
+    "content_hash": "eaf2b62c328af665d2971f98e1a165be"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/App-DB.md",
+    "filename": "App-DB.md",
+    "type": ".md",
+    "title": "App DB API",
+    "stoplight_id": null,
+    "size": 9217,
+    "modified": "2025-06-03T14:50:11.016324",
+    "content_hash": "1fd1ed07670488fcbfcbd74b81450627"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Federated-V1-to-V2-Migration-APIs.md",
+    "filename": "Federated-V1-to-V2-Migration-APIs.md",
+    "type": ".md",
+    "title": "Federated V1 to V2 Migration APIs",
+    "stoplight_id": "u3ejmw0namdxf",
+    "size": 10624,
+    "modified": "2025-06-03T14:50:11.017559",
+    "content_hash": "df1e43595ccb281987f6fbb217f37a5a"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Roles-Governance.md",
+    "filename": "Roles-Governance.md",
+    "type": ".md",
+    "title": "Roles Governance API",
+    "stoplight_id": null,
+    "size": 4393,
+    "modified": "2025-06-13T10:41:00.573308",
+    "content_hash": "cb0200cf3d8bc3e430a7d3d280a4f996"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Schedule-Report-Run-Now.md",
+    "filename": "Schedule-Report-Run-Now.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 461,
+    "modified": "2025-06-03T14:50:11.018838",
+    "content_hash": "4b8104f4aef0148805f53ebb6040eb33"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Filesets.md",
+    "filename": "Filesets.md",
+    "type": ".md",
+    "title": "FileSets API (BETA)",
+    "stoplight_id": null,
+    "size": 33343,
+    "modified": "2026-01-08T08:15:51.363976",
+    "content_hash": "8cd51d8636f706b3c78205d68ba60361"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Code-Engine.md",
+    "filename": "Code-Engine.md",
+    "type": ".md",
+    "title": "Code Engine API",
+    "stoplight_id": "fbhbpt1mt4gog",
+    "size": 2351,
+    "modified": "2025-06-03T14:50:11.016776",
+    "content_hash": "6215169bd7a366f6e6933593b4084806"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Export-to-S3.md",
+    "filename": "Export-to-S3.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 4278,
+    "modified": "2025-06-13T10:41:00.572771",
+    "content_hash": "3874e019026320a7c34dce68913a6862"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Content-Sharing.md",
+    "filename": "Content-Sharing.md",
+    "type": ".md",
+    "title": "Content Sharing",
+    "stoplight_id": null,
+    "size": 3672,
+    "modified": "2025-06-03T14:50:11.016942",
+    "content_hash": "a3baab8fd01e33fc428eccc034d9a2e4"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Query-Data.md",
+    "filename": "Query-Data.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 673,
+    "modified": "2025-06-03T14:50:11.018285",
+    "content_hash": "c9592579a95a0fa78b962b80496ab124"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/AI-Services.md",
+    "filename": "AI-Services.md",
+    "type": ".md",
+    "title": "AI Service Layer API <!-- focus: false --> ![AI Pro](../../../assets/images/pro.png)",
+    "stoplight_id": "ffvznqc76b2b5",
+    "size": 9999,
+    "modified": "2026-01-08T08:15:51.362838",
+    "content_hash": "95190ec0ce33e73480f62cfa591b50d0"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Remote-Domostats.md",
+    "filename": "Remote-Domostats.md",
+    "type": ".md",
+    "title": "Remote Domostats API",
+    "stoplight_id": null,
+    "size": 4794,
+    "modified": "2025-06-03T14:50:11.018432",
+    "content_hash": "4470ff1c979d369e276e7f8ad3dc1840"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Beast-Modes.md",
+    "filename": "Beast-Modes.md",
+    "type": ".md",
+    "title": "Beast Modes",
+    "stoplight_id": null,
+    "size": 11820,
+    "modified": "2025-06-03T14:50:11.016478",
+    "content_hash": "9d52ce0b245febc528133cf415e9d3df"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Connectors.md",
+    "filename": "Connectors.md",
+    "type": ".md",
+    "title": "Connectors",
+    "stoplight_id": null,
+    "size": 2055,
+    "modified": "2025-06-03T14:50:11.016834",
+    "content_hash": "a8c3a494cc5be360dde6619738c94e52"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Activity-Log.md",
+    "filename": "Activity-Log.md",
+    "type": ".md",
+    "title": "Activity Log API",
+    "stoplight_id": null,
+    "size": 2919,
+    "modified": "2025-06-03T14:50:11.015988",
+    "content_hash": "072b557136961d6408c5f06532c6df3b"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Users.md",
+    "filename": "Users.md",
+    "type": ".md",
+    "title": "Users API",
+    "stoplight_id": null,
+    "size": 4007,
+    "modified": "2025-06-03T14:50:11.019286",
+    "content_hash": "4765086e23e8492a477a040d7af8f74a"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Federated-V2-to-Amplifier-Migration-APIs.md",
+    "filename": "Federated-V2-to-Amplifier-Migration-APIs.md",
+    "type": ".md",
+    "title": "Federated V2 to Amplifier Migration APIs",
+    "stoplight_id": null,
+    "size": 12914,
+    "modified": "2024-12-16T14:26:39.692561",
+    "content_hash": "fdf9beefa43e8ddaf6229a596fa47442"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Alerts.md",
+    "filename": "Alerts.md",
+    "type": ".md",
+    "title": "Alerts API",
+    "stoplight_id": "",
+    "size": 11994,
+    "modified": "2025-06-03T14:50:11.016163",
+    "content_hash": "10964605a612828843c7114d98a90d5b"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Task-Center.md",
+    "filename": "Task-Center.md",
+    "type": ".md",
+    "title": "Task Center API",
+    "stoplight_id": "",
+    "size": 31481,
+    "modified": "2025-06-13T10:41:00.574058",
+    "content_hash": "79afd7a40796ffab046dad931e452dce"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Files.md",
+    "filename": "Files.md",
+    "type": ".md",
+    "title": "Files API",
+    "stoplight_id": "",
+    "size": 19632,
+    "modified": "2025-06-03T14:50:11.017681",
+    "content_hash": "6024c791747b924873d61de949bf901b"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Managing-Dataset-History.md",
+    "filename": "Managing-Dataset-History.md",
+    "type": ".md",
+    "title": "Managing Dataset History",
+    "stoplight_id": "prt23r0zqw1vq",
+    "size": 2754,
+    "modified": "2025-06-03T14:50:11.018106",
+    "content_hash": "75f44591bc20dc5ebdb32424943aabaa"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Certified-Content.md",
+    "filename": "Certified-Content.md",
+    "type": ".md",
+    "title": "Certified Content",
+    "stoplight_id": null,
+    "size": 2547,
+    "modified": "2025-06-03T14:50:11.016665",
+    "content_hash": "402b70d8f4713b91a3cb57488eba9df4"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Pages-API.md",
+    "filename": "Pages-API.md",
+    "type": ".md",
+    "title": "Pages API",
+    "stoplight_id": null,
+    "size": 3375,
+    "modified": "2025-06-13T10:59:08.627573",
+    "content_hash": "911fbe3a0c9ed1b81954bf60fdf1c4f4"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Datasets.md",
+    "filename": "Datasets.md",
+    "type": ".md",
+    "title": "Datasets API",
+    "stoplight_id": null,
+    "size": 48518,
+    "modified": "2025-10-08T08:25:21.578139",
+    "content_hash": "cc32205f33714a98b44fbdf3d08eb809"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Get-Dataset-Schema.md",
+    "filename": "Get-Dataset-Schema.md",
+    "type": ".md",
+    "title": "Return the schema for a specified Dataset",
+    "stoplight_id": null,
+    "size": 857,
+    "modified": "2025-06-03T14:50:11.017795",
+    "content_hash": "49e5b05a2a9613ed1abc987eb3487891"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Render-KPI-Card-Chart.md",
+    "filename": "Render-KPI-Card-Chart.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 4232,
+    "modified": "2025-06-03T14:50:11.018580",
+    "content_hash": "ba31010a6360324a7ff269b5e758c947"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Groups.md",
+    "filename": "Groups.md",
+    "type": ".md",
+    "title": "Group Documentation",
+    "stoplight_id": null,
+    "size": 5109,
+    "modified": "2025-06-03T14:50:11.017949",
+    "content_hash": "d22ad3111ea096ce619d1ff28af83720"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Cards.md",
+    "filename": "Cards.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 748,
+    "modified": "2025-06-13T10:41:00.571883",
+    "content_hash": "80fc583d8f4016226c283d5e82dda7d3"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Dataflows.md",
+    "filename": "Dataflows.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 0,
+    "modified": "2024-11-12T08:08:07.649252",
+    "content_hash": "d41d8cd98f00b204e9800998ecf8427e"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Data-Accounts.md",
+    "filename": "Data-Accounts.md",
+    "type": ".md",
+    "title": "Data Accounts",
+    "stoplight_id": null,
+    "size": 5088,
+    "modified": "2025-06-03T14:50:11.017050",
+    "content_hash": "e59d97f4d0c4b5958ba0cfd94a71e42c"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Programmatically-Create-a-Client.md",
+    "filename": "Programmatically-Create-a-Client.md",
+    "type": ".md",
+    "title": "Programmatically Create a Client",
+    "stoplight_id": "3c6pp23q82y90",
+    "size": 3173,
+    "modified": "2025-06-03T14:50:11.015288",
+    "content_hash": "3fb139b918009692e62565ecd3676c48"
+  },
+  {
+    "path": "docs/Forms/Advanced-Forms/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo Advanced Forms (BETA)",
+    "stoplight_id": null,
+    "size": 2067,
+    "modified": "2026-01-08T08:15:51.380493",
+    "content_hash": "f8ed62260cfbdf6ab6b6c6053c24497d"
+  },
+  {
+    "path": "docs/Forms/Advanced-Forms/creating-advanced-forms.md",
+    "filename": "creating-advanced-forms.md",
+    "type": ".md",
+    "title": "Creating an Advanced Form",
+    "stoplight_id": null,
+    "size": 1512,
+    "modified": "2026-01-08T08:15:51.379531",
+    "content_hash": "eb778ed688efc420f024d1ec29e7af53"
+  },
+  {
+    "path": "docs/Forms/Advanced-Forms/advanced-form-datasets.md",
+    "filename": "advanced-form-datasets.md",
+    "type": ".md",
+    "title": "Advanced Form Datasets",
+    "stoplight_id": null,
+    "size": 1267,
+    "modified": "2026-01-08T08:15:51.378255",
+    "content_hash": "cc6ea5c6ca3a7ce8734be94f1314a91e"
+  },
+  {
+    "path": "docs/Forms/Advanced-Forms/advanced-form-editor-layout.md",
+    "filename": "advanced-form-editor-layout.md",
+    "type": ".md",
+    "title": "Advanced Form Editor Layout",
+    "stoplight_id": null,
+    "size": 3345,
+    "modified": "2026-01-08T08:15:51.378787",
+    "content_hash": "66b7f0da047769bb4479ea7a2fb358ad"
+  },
+  {
+    "path": "docs/Forms/Advanced-Forms/domo-data-features.md",
+    "filename": "domo-data-features.md",
+    "type": ".md",
+    "title": "Domo Data Features",
+    "stoplight_id": null,
+    "size": 4896,
+    "modified": "2026-01-08T08:15:51.380031",
+    "content_hash": "dbcd48037e9dde2c259e8953d67e9d3b"
+  },
+  {
+    "path": "docs/Partner-Developers/Domo-Marketplace/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Domo Appstore",
+    "stoplight_id": "600e2b5914564",
+    "size": 2865,
+    "modified": "2025-06-03T14:50:11.059461",
+    "content_hash": "41b614dd003109ea38e1a678f266ba23"
+  },
+  {
+    "path": "docs/Partner-Developers/Domo-Marketplace/marketplace-data-resources.md",
+    "filename": "marketplace-data-resources.md",
+    "type": ".md",
+    "title": "Appstore Data Resources",
+    "stoplight_id": "6ea9fcd9e478c",
+    "size": 6704,
+    "modified": "2025-06-03T14:50:11.059012",
+    "content_hash": "4738a495b5eb832a033fb082291bf3c5"
+  },
+  {
+    "path": "docs/Partner-Developers/Domo-Marketplace/marketplace-requirements.md",
+    "filename": "marketplace-requirements.md",
+    "type": ".md",
+    "title": "Appstore Requirements",
+    "stoplight_id": "c9db4daa8edfe",
+    "size": 31581,
+    "modified": "2025-06-03T14:50:11.059179",
+    "content_hash": "8f245b93d093b1d72f22654ed37db3bf"
+  },
+  {
+    "path": "docs/Partner-Developers/Domo-Marketplace/marketplace-support.md",
+    "filename": "marketplace-support.md",
+    "type": ".md",
+    "title": "Appstore Help and Support",
+    "stoplight_id": "6505d9ad61fd0",
+    "size": 1107,
+    "modified": "2024-11-12T08:08:07.689344",
+    "content_hash": "fd4cec5a7c98323a0c4a6d9a28c2a8a5"
+  },
+  {
+    "path": "docs/Partner-Developers/Domo-Marketplace/marketplace-submission.md",
+    "filename": "marketplace-submission.md",
+    "type": ".md",
+    "title": "Appstore Submission",
+    "stoplight_id": "d4f8eee792eb6",
+    "size": 11009,
+    "modified": "2025-06-03T14:50:11.059347",
+    "content_hash": "a54bc850e779a748c59ffa97c266b71f"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/getting-data-overview.md",
+    "filename": "getting-data-overview.md",
+    "type": ".md",
+    "title": "Getting Data",
+    "stoplight_id": "b836f5593ab26",
+    "size": 3998,
+    "modified": "2024-11-12T08:08:07.689609",
+    "content_hash": "9ff71f25808cd1f3f532b142ac100762"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/submission-checklist.md",
+    "filename": "submission-checklist.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 3132,
+    "modified": "2024-11-12T08:08:07.690011",
+    "content_hash": "080419600f0c77ee143944de1edf0efc"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/start-a-remote-workflow.md",
+    "filename": "start-a-remote-workflow.md",
+    "type": ".md",
+    "title": "Guide to Using the Global Code Engine Package `Start Workflow in Remote Instance`",
+    "stoplight_id": null,
+    "size": 2484,
+    "modified": "2025-06-03T14:50:11.059532",
+    "content_hash": "76f20ffe69212e421aedf9e444a3aeac"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/building-an-app-overview.md",
+    "filename": "building-an-app-overview.md",
+    "type": ".md",
+    "title": "Building an App Overview",
+    "stoplight_id": "da7996a8b2338",
+    "size": 3766,
+    "modified": "2024-11-12T08:08:07.689532",
+    "content_hash": "be269d7fdf32d23ed13a1013455cacd9"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/video-recording.md",
+    "filename": "video-recording.md",
+    "type": ".md",
+    "title": "Video Recording Guide",
+    "stoplight_id": null,
+    "size": 5390,
+    "modified": "2025-06-03T14:50:11.059685",
+    "content_hash": "86f52e4ed08d15d25004c88787d78aa0"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/snowflake-mmds-quickstart.md",
+    "filename": "snowflake-mmds-quickstart.md",
+    "type": ".md",
+    "title": "Snowflake MMDS QuickStart",
+    "stoplight_id": null,
+    "size": 4081,
+    "modified": "2024-12-16T14:26:39.752923",
+    "content_hash": "2ca494581c0d34fa4de9a0afb9972ac6"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/getting-paid.md",
+    "filename": "getting-paid.md",
+    "type": ".md",
+    "title": "Getting Paid Guide",
+    "stoplight_id": null,
+    "size": 1944,
+    "modified": "2024-11-12T08:08:07.689703",
+    "content_hash": "0716f1cadc4002e5c2578094b69dbbee"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/paid-apps.md",
+    "filename": "paid-apps.md",
+    "type": ".md",
+    "title": "Paid Apps Guide",
+    "stoplight_id": null,
+    "size": 1381,
+    "modified": "2024-12-16T14:26:39.752519",
+    "content_hash": "3b1f4381ace4a018ef299f87e27304ac"
+  },
+  {
+    "path": "docs/Partner-Developers/Guides/partner-app-submission.md",
+    "filename": "partner-app-submission.md",
+    "type": ".md",
+    "title": "Partner App Submission Guide",
+    "stoplight_id": null,
+    "size": 4654,
+    "modified": "2024-12-16T14:26:39.752672",
+    "content_hash": "b39a602c4a268e67f397c421c5be00e9"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/personalized-data-permissions.md",
+    "filename": "personalized-data-permissions.md",
+    "type": ".md",
+    "title": "Create Personalized Data Permissions (PDP)",
+    "stoplight_id": "ea5c42f66c4e6",
+    "size": 6532,
+    "modified": "2025-06-03T14:50:11.025498",
+    "content_hash": "a008fbaabb196018fbb1b0090c21ca9d"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/managing-datasets.md",
+    "filename": "managing-datasets.md",
+    "type": ".md",
+    "title": "Managing Datasets",
+    "stoplight_id": "816ca1b6d137d",
+    "size": 5222,
+    "modified": "2025-06-03T14:50:11.025349",
+    "content_hash": "14cdf3133b39fe30977b56d6c84913b0"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Data Connection via API Overview",
+    "stoplight_id": "e0a20a74a7754",
+    "size": 2697,
+    "modified": "2024-11-12T08:08:07.655835",
+    "content_hash": "197455daada9db943c31b90e18b97b52"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/quickstart.md",
+    "filename": "quickstart.md",
+    "type": ".md",
+    "title": "Quickstart",
+    "stoplight_id": "278e9d611eaa6",
+    "size": 5985,
+    "modified": "2025-06-03T14:50:11.025653",
+    "content_hash": "2198675dab68969dbe307889ab807055"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/import-and-export-data.md",
+    "filename": "import-and-export-data.md",
+    "type": ".md",
+    "title": "Import and Export Data",
+    "stoplight_id": "3989acf1bafff",
+    "size": 20772,
+    "modified": "2026-01-08T08:15:51.376824",
+    "content_hash": "15753c3e5cb356c164260b2410e51330"
+  },
+  {
+    "path": "docs/Connectors/API-Data-Connection/format-data-to-import.md",
+    "filename": "format-data-to-import.md",
+    "type": ".md",
+    "title": "Format Data to Import",
+    "stoplight_id": "eb00606e6f114",
+    "size": 4614,
+    "modified": "2025-06-03T14:50:11.025046",
+    "content_hash": "93d6425b7160a65b9bd5128486afa40f"
+  },
+  {
+    "path": "docs/Connectors/Writeback-Connectors/domo-api-actions.md",
+    "filename": "domo-api-actions.md",
+    "type": ".md",
+    "title": "Start leveraging Domo's API Actions",
+    "stoplight_id": "842ac09f65853",
+    "size": 5426,
+    "modified": "2024-11-12T08:08:07.658037",
+    "content_hash": "759299c21741093502dd1b384a19d285"
+  },
+  {
+    "path": "docs/Connectors/Writeback-Connectors/domo-actions.md",
+    "filename": "domo-actions.md",
+    "type": ".md",
+    "title": "Domo Actions (Beta)",
+    "stoplight_id": "fc62ced09f56e",
+    "size": 11598,
+    "modified": "2024-11-12T08:08:07.657874",
+    "content_hash": "402426643b94987b962d9d1ef7e5f0d7"
+  },
+  {
+    "path": "docs/Connectors/Writeback-Connectors/writeback-connectors.md",
+    "filename": "writeback-connectors.md",
+    "type": ".md",
+    "title": "Writeback Connectors",
+    "stoplight_id": "cf8902150aae4",
+    "size": 5432,
+    "modified": "2024-11-12T08:08:07.658210",
+    "content_hash": "32c4c136e5a8a70fe7e93e870c051e59"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/help-and-support.md",
+    "filename": "help-and-support.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": "d2309f6f9be66",
+    "size": 3328,
+    "modified": "2025-06-30T09:29:15.525780",
+    "content_hash": "4715dec5d8e066204c1da164f0339e33"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/examples.md",
+    "filename": "examples.md",
+    "type": ".md",
+    "title": "Examples",
+    "stoplight_id": "9f2fe40b1bdb9",
+    "size": 20836,
+    "modified": "2025-06-03T14:50:11.026147",
+    "content_hash": "7d18e384bc1d918597a2a51b357999af"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/reference.md",
+    "filename": "reference.md",
+    "type": ".md",
+    "title": "Reference",
+    "stoplight_id": "e415bb99d21b2",
+    "size": 46486,
+    "modified": "2024-11-12T08:08:07.657537",
+    "content_hash": "e68021dbc291f6b3ba6db70354624043"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/ide-limitations.md",
+    "filename": "ide-limitations.md",
+    "type": ".md",
+    "title": "IDE Limitations",
+    "stoplight_id": "66b06bf6ac52d",
+    "size": 1752,
+    "modified": "2024-11-12T08:08:07.656973",
+    "content_hash": "1e50edb0a2e4781ed5a14630233ad139"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/overview.md",
+    "filename": "overview.md",
+    "type": ".md",
+    "title": "Overview",
+    "stoplight_id": "5d8f965eb3469",
+    "size": 11379,
+    "modified": "2025-06-03T14:50:11.026480",
+    "content_hash": "af57102ea3fb945518f55221f5e7a797"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/publish-connector.md",
+    "filename": "publish-connector.md",
+    "type": ".md",
+    "title": "Publish Connector",
+    "stoplight_id": "edfe96df76c42",
+    "size": 5877,
+    "modified": "2024-11-12T08:08:07.657426",
+    "content_hash": "e7b62f7fde4dbd24ab3e15bfdca715ec"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/connector-dev-studio.md",
+    "filename": "connector-dev-studio.md",
+    "type": ".md",
+    "title": "Custom Connectors",
+    "stoplight_id": "3cfe84d925633",
+    "size": 2008,
+    "modified": "2025-06-03T14:50:11.025986",
+    "content_hash": "0a39c328df2ab76fb15d29b5be6fa45a"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/process-data.md",
+    "filename": "process-data.md",
+    "type": ".md",
+    "title": "Process Data",
+    "stoplight_id": "11ea6c8039f80",
+    "size": 13783,
+    "modified": "2024-11-12T08:08:07.657273",
+    "content_hash": "c0480c4384c23560b23f4e8b02a8ec88"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/build-your-own-writeback-connector.md",
+    "filename": "build-your-own-writeback-connector.md",
+    "type": ".md",
+    "title": "Build Your Own Writeback Connector (Beta)",
+    "stoplight_id": "7145a85ea3589",
+    "size": 5650,
+    "modified": "2024-11-12T08:08:07.656398",
+    "content_hash": "18a09cc84228316d52efda9dc03e2a41"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/configure-authentication.md",
+    "filename": "configure-authentication.md",
+    "type": ".md",
+    "title": "Configure Authentication",
+    "stoplight_id": "71ec34a2958fe",
+    "size": 11157,
+    "modified": "2024-12-16T14:26:39.705024",
+    "content_hash": "f6b9ef163b8a569f962e47f759c24095"
+  },
+  {
+    "path": "docs/Connectors/Custom-Connectors/configure-reports.md",
+    "filename": "configure-reports.md",
+    "type": ".md",
+    "title": "Configure Reports",
+    "stoplight_id": "306e246057d3c",
+    "size": 10306,
+    "modified": "2025-06-03T14:50:11.025860",
+    "content_hash": "8b81bbd00474ebe9ac6abbc5eb311618"
+  },
+  {
+    "path": "docs/Misc/MagicETL/JsonExpand.md",
+    "filename": "JsonExpand.md",
+    "type": ".md",
+    "title": "",
+    "stoplight_id": null,
+    "size": 6110,
+    "modified": "2025-06-03T14:50:11.058518",
+    "content_hash": "61adb01a7cc8612efd24abff79958277"
+  },
+  {
+    "path": "docs/Automate-Actions/Workflows/Workflows.yaml",
+    "filename": "Workflows.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 5825,
+    "modified": "2025-06-16T08:50:21.911074",
+    "content_hash": "a80dcefd061206966aab8f313bb863e5"
+  },
+  {
+    "path": "docs/API-Reference/Product-APIs/Filesets-API.yaml",
+    "filename": "Filesets-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 20790,
+    "modified": "2026-01-08T08:15:51.363384",
+    "content_hash": "d27158498f9cf53cb786ea392fad9e37"
+  },
+  {
+    "path": "docs/API-Reference/Embed-APIs/Embed-Token-API.yaml",
+    "filename": "Embed-Token-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 13264,
+    "modified": "2024-11-12T08:08:07.648997",
+    "content_hash": "2555e7c89ffe57bbe5ebba88bfb430ee"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Client-API.yaml",
+    "filename": "Client-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 4447,
+    "modified": "2024-12-16T14:26:39.689658",
+    "content_hash": "783e43743bf91d3282431b9c76ade4ee"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Group-API.yaml",
+    "filename": "Group-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 10003,
+    "modified": "2024-11-12T08:08:07.647940",
+    "content_hash": "69d311f2032af3834801fd6a3c432b94"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Projects-And-Tasks-API.yaml",
+    "filename": "Projects-And-Tasks-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 54705,
+    "modified": "2024-11-12T08:08:07.648273",
+    "content_hash": "790a52bf58b1e2557f193a17d4a79afc"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/User-API.yaml",
+    "filename": "User-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 17010,
+    "modified": "2026-01-08T08:15:51.360468",
+    "content_hash": "516357460738f6986bc60043c6a9a785"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/S3-Export-API.yaml",
+    "filename": "S3-Export-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 6892,
+    "modified": "2024-12-16T14:26:39.691261",
+    "content_hash": "7c9f9bb804189d99120a1e6402e4e72c"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Simple-API.yaml",
+    "filename": "Simple-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 9816,
+    "modified": "2025-06-03T14:50:11.015518",
+    "content_hash": "5f69e511b87c2c3c1f4476794fdcf4bc"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Account-API.yaml",
+    "filename": "Account-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 15493,
+    "modified": "2024-11-12T08:08:07.647421",
+    "content_hash": "d3496a27fc10d629c3ec073403110bc2"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/DataSet-API.yaml",
+    "filename": "DataSet-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 55423,
+    "modified": "2025-06-03T14:50:11.014832",
+    "content_hash": "8f46af5a84da89674f30033143125c5e"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Card-API.yaml",
+    "filename": "Card-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 14635,
+    "modified": "2025-06-03T14:50:11.014622",
+    "content_hash": "0eeae6b664232282ec6578711462aa41"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Activity-Log-API.yaml",
+    "filename": "Activity-Log-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 5319,
+    "modified": "2024-11-12T08:08:07.647609",
+    "content_hash": "e81e09354e05551dbd957c2e2f5cd5e8"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/API-Authentication.yaml",
+    "filename": "API-Authentication.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 14663,
+    "modified": "2025-06-03T14:50:11.014540",
+    "content_hash": "de482337857568b7743c6d8ddd5d8f1c"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Page-API.yaml",
+    "filename": "Page-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 22324,
+    "modified": "2026-01-08T08:15:51.359850",
+    "content_hash": "56ee50655950b8dd09a13e3ac163f0ec"
+  },
+  {
+    "path": "docs/API-Reference/Domo-APIs/Stream-API.yaml",
+    "filename": "Stream-API.yaml",
+    "type": ".yaml",
+    "title": "",
+    "stoplight_id": null,
+    "size": 31519,
+    "modified": "2025-06-03T14:50:11.015666",
+    "content_hash": "2a634c78b2359d6343422369f232c126"
+  }
+]

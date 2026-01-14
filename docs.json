@@ -3369,6 +3369,8 @@
                             "group": "Tools",
                             "pages": [
                               "/portal/rmfbkwje8kmqj-domo-apps-cli",
+                              "/portal/da-cli",
+                              "/portal/domo-publish-cicd",
                               "/portal/e947d87e17547-domo-js",
                               "/portal/d5da72027f4a1-query",
                               "/portal/52cc03a1e3100-domo-phoenix",
@@ -3379,6 +3381,7 @@
                             "group": "Guides",
                             "pages": [
                               "/portal/3ad3f9b434b10-getting-started-with-the-pro-code-editor",
+                              "/portal/local-development-domo-cli",
                               "/portal/5a51d83c82822-managing-editing-and-saving-your-app-in-the-pro-code-editor",
                               "/portal/af407395c766b-the-manifest-file",
                               "/portal/df8b045188694-public-assets",
@@ -3427,6 +3430,16 @@
                               "/portal/5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app"
                             ]
                           }
+                        ]
+                      },
+                      {
+                        "group": "Advanced Forms",
+                        "pages": [
+                          "/portal/advanced-forms-overview",
+                          "/portal/advanced-forms-creating",
+                          "/portal/advanced-forms-datasets",
+                          "/portal/advanced-forms-editor-layout",
+                          "/portal/advanced-forms-domo-data-features"
                         ]
                       }
                     ]
