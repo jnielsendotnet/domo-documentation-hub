@@ -107,9 +107,7 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": [
-                              "s/article/000005139"
-                            ]
+                            "pages": ["s/article/000005139"]
                           },
                           {
                             "group": "Google BigQuery",
@@ -1598,9 +1596,7 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": [
-                          "s/article/360042923754"
-                        ]
+                        "pages": ["s/article/360042923754"]
                       }
                     ]
                   },
@@ -2021,9 +2017,7 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": [
-                      "s/article/360043437773"
-                    ]
+                    "pages": ["s/article/360043437773"]
                   },
                   {
                     "group": "Alerts",
@@ -2196,10 +2190,7 @@
                       "s/article/000005510",
                       {
                         "group": "Credit Consumption",
-                        "pages": [
-                          "s/article/000005492",
-                          "s/article/000005280"
-                        ]
+                        "pages": ["s/article/000005492", "s/article/000005280"]
                       },
                       {
                         "group": "Governance",
@@ -2386,10 +2377,7 @@
                       },
                       {
                         "group": "Publish on the Appstore",
-                        "pages": [
-                          "s/article/000005184",
-                          "s/article/000005183"
-                        ]
+                        "pages": ["s/article/000005184", "s/article/000005183"]
                       },
                       {
                         "group": "Available Apps",
@@ -2493,9 +2481,7 @@
                       "/portal/d01f63a6ba662-domo-developer-portal",
                       {
                         "group": "Developer Tools",
-                        "pages": [
-                          "/portal/e04caa9abb5cc-domo-sd-ks"
-                        ]
+                        "pages": ["/portal/e04caa9abb5cc-domo-sd-ks"]
                       }
                     ]
                   },
@@ -2506,207 +2492,16 @@
                       {
                         "group": "App Framework APIs",
                         "pages": [
-                          {
-                            "group": "AI Service Layer API",
-                            "pages": [
-                              "portal/wjqiqhsvpadon-ai-service-layer-api",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/text/generation",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/text/sql",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/image/text"
-                            ]
-                          },
-                          {
-                            "group": "AppDB API",
-                            "pages": [
-                              "portal/1l1fm2g0sfm69-app-db-api",
-                              {
-                                "group": "Documents",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections/{collectionName}/documents",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/update"
-                                ]
-                              },
-                              {
-                                "group": "Collections",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}"
-                                ]
-                              },
-                              {
-                                "group": "Query",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents/query"
-                                ]
-                              },
-                              {
-                                "group": "Bulk Operations",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents/bulk",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/bulk",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/documents/bulk"
-                                ]
-                              },
-                              {
-                                "group": "Export",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/export"
-                                ]
-                              },
-                              {
-                                "group": "Permissions",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/permission/{entity}/{entityId}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/permission/{entity}/{entityId}"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Code Engine API",
-                            "pages": [
-                              "portal/p48phjy7wwtw8-code-engine-api",
-                              "openapi/framework/codeengine.yaml POST /domo/codeengine/v2/packages/{functionAlias}"
-                            ]
-                          },
-                          {
-                            "group": "Data API",
-                            "pages": [
-                              "portal/8s3y9eldnjq8d-data-api",
-                              "openapi/framework/data.yaml GET /data/v1/{alias}",
-                              "openapi/framework/data.yaml POST /sql/v1/{alias}"
-                            ]
-                          },
-                          {
-                            "group": "Files API",
-                            "pages": [
-                              "portal/eeoadx67i6h46-files-api",
-                              {
-                                "group": "Files",
-                                "pages": [
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/{dataFileId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/details",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/details",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/revisions/{revisionId}",
-                                  "openapi/framework/files.yaml DELETE /domo/data-files/v1/{dataFileId}/revisions/{revisionId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/permissions",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/{dataFileId}/permissions"
-                                ]
-                              },
-                              {
-                                "group": "Multi-part Files",
-                                "pages": [
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/{fileId}/multipart",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/multipart/{sessionId}/part/{index}",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart/{sessionId}/commit",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart/{sessionId}/abort"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "FileSet API (BETA)",
-                            "pages": [
-                              "portal/7e8654dedb1c8-file-set-api-beta",
-                              {
-                                "group": "Files",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/path",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}/path",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/files/{fileId}",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}/files/{fileId}",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/files/{fileId}/download",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/files"
-                                ]
-                              },
-                              {
-                                "group": "FileSets",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}"
-                                ]
-                              },
-                              {
-                                "group": "Search",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/query",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/files/search",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/search"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Groups API",
-                            "pages": [
-                              "portal/2hwa98wx7kdm4-groups-api",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/name",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/{groupId}",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/user/{userId}"
-                            ]
-                          },
-                          {
-                            "group": "Task Center API",
-                            "pages": [
-                              "portal/k2vv2vir3c8ry-task-center-api",
-                              {
-                                "group": "Queues",
-                                "pages": [
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/",
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/{queueId}"
-                                ]
-                              },
-                              {
-                                "group": "Tasks",
-                                "pages": [
-                                  "openapi/framework/taskcenter.yaml POST /domo/queues/v1/tasks/list",
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/{queueId}/tasks/{taskId}",
-                                  "openapi/framework/taskcenter.yaml PUT /domo/queues/v1/{queueId}/tasks/{taskId}/outputs",
-                                  "openapi/framework/taskcenter.yaml POST /domo/queues/v1/{queueId}/tasks/{taskId}/complete"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "User API",
-                            "pages": [
-                              "portal/n7f7swo7h29wg-user-api",
-                              {
-                                "group": "Users",
-                                "pages": [
-                                  "openapi/framework/user.yaml GET /domo/users/v1",
-                                  "openapi/framework/user.yaml GET /domo/users/v1/{userId}"
-                                ]
-                              },
-                              {
-                                "group": "Avatar",
-                                "pages": [
-                                  "openapi/framework/user.yaml GET /domo/avatars/v2/{entityType}/{entityId}"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Workflows API",
-                            "pages": [
-                              "portal/1ay1akbc787jg-workflows-api",
-                              "openapi/framework/workflows.yaml POST /domo/workflow/v1/models/{workflowAlias}/start",
-                              "openapi/framework/workflows.yaml GET /domo/workflow/v1/models/{workflowAliasedName}/overall",
-                              "openapi/framework/workflows.yaml GET /domo/workflow/v1/models/{workflowAlias}/instance/{workflowInstanceId}"
-                            ]
-                          }
+                          "portal/API-Reference/Domo-App-APIs/AI-Service-Layer-API",
+                          "portal/API-Reference/Domo-App-APIs/AppDB-API",
+                          "portal/API-Reference/Domo-App-APIs/Code-Engine-API",
+                          "portal/API-Reference/Domo-App-APIs/Data-API",
+                          "portal/API-Reference/Domo-App-APIs/Files-API",
+                          "portal/API-Reference/Domo-App-APIs/Filesets-API",
+                          "portal/API-Reference/Domo-App-APIs/Groups-API",
+                          "portal/API-Reference/Domo-App-APIs/Queues-and-Tasks-API",
+                          "portal/API-Reference/Domo-App-APIs/User-API",
+                          "portal/API-Reference/Domo-App-APIs/Workflows-API"
                         ]
                       },
                       {
@@ -3419,9 +3214,7 @@
                           },
                           {
                             "group": "Tutorials",
-                            "pages": [
-                              "/portal/81edeb860659b-video-guides"
-                            ]
+                            "pages": ["/portal/81edeb860659b-video-guides"]
                           },
                           {
                             "group": "Guides",
@@ -3541,7 +3334,7 @@
                               "/portal/71ec34a2958fe-configure-authentication",
                               "/portal/306e246057d3c-configure-reports",
                               "/portal/11ea6c8039f80-process-data",
-                              "/portal/edfe96df76c42-publish-connector",
+                              "/portal/Connectors/Custom-Connectors/publish-connector",
                               "/portal/9f2fe40b1bdb9-examples"
                             ]
                           },
@@ -3744,9 +3537,7 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": [
-                  "ja/s/article/360043427193"
-                ]
+                "pages": ["ja/s/article/360043427193"]
               },
               {
                 "group": "Domo Free",
@@ -3798,9 +3589,7 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": [
-                              "ja/s/article/000005139"
-                            ]
+                            "pages": ["ja/s/article/000005139"]
                           },
                           {
                             "group": "Google BigQuery",
@@ -4539,9 +4328,7 @@
                           },
                           {
                             "group": "Sage Intacct",
-                            "pages": [
-                              "ja/s/article/000005099"
-                            ]
+                            "pages": ["ja/s/article/000005099"]
                           },
                           {
                             "group": "Salesforce",
@@ -4658,9 +4445,7 @@
                           },
                           {
                             "group": "USGS",
-                            "pages": [
-                              "ja/s/article/360043432433"
-                            ]
+                            "pages": ["ja/s/article/360043432433"]
                           },
                           {
                             "group": "Vertica",
@@ -4891,9 +4676,7 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": [
-                          "ja/s/article/360042923754"
-                        ]
+                        "pages": ["ja/s/article/360042923754"]
                       }
                     ]
                   },
@@ -5310,9 +5093,7 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": [
-                      "ja/s/article/360043437773"
-                    ]
+                    "pages": ["ja/s/article/360043437773"]
                   },
                   {
                     "group": "Alerts",
