@@ -1,8 +1,9 @@
 ---
-title: "Workflows Product API"
-permalink: "kspv2orr3oi30-workflows-product-api"
-sidebarTitle: "Overview"
+title: 'Workflows Product API'
+permalink: 'kspv2orr3oi30-workflows-product-api'
+sidebarTitle: 'Overview'
 ---
+
 This API reference is useful if you are trying to hit workflows from:
 
 1. An external Domo Instance
@@ -13,7 +14,7 @@ If you are looking to hit a workflow from a Domo App, see the [App Framework API
 
 If you are unfamiliar with how to authenticate against Product APIs, please see this overview page.
 
-For more background on Workflows, check out the [Knowledge Base for an overview](https://domo-support.domo.com/s/article/000005108?language=en_US).
+For more background on Workflows, check out the [Knowledge Base for an overview](/s/article/000005108?language=en_US).
 
 ### Start a Workflow
 
@@ -34,12 +35,12 @@ Starts a Workflow and returns details about the Workflow Instance.
 
 #### Request Body
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| messageName | String | Required | Message passed to start the Workflow Instance, usually `"Start {workflow_name}` |
-| version | String | Required | The version identifier e.g. `0.0.1` |
-| modelId | String | Required | The id of the Workflow |
-| data | Object | Required | The start parameters required to kick off the Workflow. |
+| Property Name | Type   | Required | Description                                                                     |
+| ------------- | ------ | -------- | ------------------------------------------------------------------------------- |
+| messageName   | String | Required | Message passed to start the Workflow Instance, usually `"Start {workflow_name}` |
+| version       | String | Required | The version identifier e.g. `0.0.1`                                             |
+| modelId       | String | Required | The id of the Workflow                                                          |
+| data          | Object | Required | The start parameters required to kick off the Workflow.                         |
 
 <Note>
 
@@ -49,18 +50,18 @@ For the `data` object containing the start parameters required to run the workfl
 
 The valid input type options are:
 
-* `boolean`
-* `date`
-* `dateTime`
-* `decimal`
-* `duration`
-* `number`
-* `object`
-* `person`
-* `dataset`
-* `group`
-* `text`
-* `time`
+- `boolean`
+- `date`
+- `dateTime`
+- `decimal`
+- `duration`
+- `number`
+- `object`
+- `person`
+- `dataset`
+- `group`
+- `text`
+- `time`
 
 You may pass in lists containing the above types and may also nest additional information in `object` type inputs.
 
@@ -71,7 +72,6 @@ A simple example of a workflow that takes two numerical inputs, might look like 
 ```json
 { "parameter1": 13, "parameter2": 7 }
 ```
-
 
 #### Example
 
@@ -91,7 +91,6 @@ A simple example of a workflow that takes two numerical inputs, might look like 
   }
 }
 ```
-
 
 #### HTTP Response
 
@@ -117,13 +116,11 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Canceling a Workflow
 
 ---
 
 Cancels an in progress Workflow. If you are unfamiliar with how to authenticate against Product APIs, please see this overview page.
-
 
 <Card
   horizontal
@@ -137,9 +134,9 @@ Cancels an in progress Workflow. If you are unfamiliar with how to authenticate 
 **Endpoint**: `/api/workflow/v1/instances/${instanceId}/cancel`
 **Path Parameters**:
 
-* `id` - The ID of the Workflow instance to cancel
-  + String
-  + Required
+- `id` - The ID of the Workflow instance to cancel
+  - String
+  - Required
 
 **Example**
 
@@ -153,7 +150,6 @@ Cancels an in progress Workflow. If you are unfamiliar with how to authenticate 
   }
 }
 ```
-
 
 **Response**:
 
@@ -177,7 +173,6 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 ### Changing a Workflow's Permissions
 
 ---
@@ -197,9 +192,9 @@ Changes the permissions of a workflow.
 
 #### Request Body
 
-| Property Name | Type | Required | Description |
-| --- | --- | --- | --- |
-| modelId | String | Required | The id of the workflow model. |
+| Property Name | Type   | Required | Description                   |
+| ------------- | ------ | -------- | ----------------------------- |
+| modelId       | String | Required | The id of the workflow model. |
 
 #### Example
 
@@ -240,7 +235,6 @@ Changes the permissions of a workflow.
   }
 }
 ```
-
 
 #### HTTP Response
 

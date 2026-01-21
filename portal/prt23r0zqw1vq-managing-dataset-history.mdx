@@ -1,22 +1,23 @@
 ---
-title: "Managing Dataset History"
-permalink: "prt23r0zqw1vq-managing-dataset-history"
-sidebarTitle: "Overview"
+title: 'Managing Dataset History'
+permalink: 'prt23r0zqw1vq-managing-dataset-history'
+sidebarTitle: 'Overview'
 ---
+
 ### Authentication
 
-Requests to the endpoints in this document should be authenticated using an access token. The token should be passed using the `X-DOMO-Developer-Token` header. For information about generating an access token see [https://domo-support.domo.com/s/article/360042934494?language=en_US](https://domo-support.domo.com/s/article/360042934494?language=en_US).
+Requests to the endpoints in this document should be authenticated using an access token. The token should be passed using the `X-DOMO-Developer-Token` header. For information about generating an access token see [/s/article/360042934494?language=en_US](/s/article/360042934494?language=en_US).
 
 ### Listing Dataset Versions
 
 This endpoint lists the data versions that are available for a dataset. Each dataversion records includes metadata indicating the following:
 
-* uploadStatus - success, error, processing
-* numRows - the number of rows in the upload
-* numBytes - the size of the upload in bytes
-* schemaId - the schema associated with the data
-* recordedDate - the time at which the data was made available to the system
-* uploadCompletedDate - the time the upload finished uploading
+- uploadStatus - success, error, processing
+- numRows - the number of rows in the upload
+- numBytes - the size of the upload in bytes
+- schemaId - the schema associated with the data
+- recordedDate - the time at which the data was made available to the system
+- uploadCompletedDate - the time the upload finished uploading
 
 <Card
   horizontal
@@ -64,7 +65,6 @@ curl --request GET \
   }
 ]
 ```
-
 
 ### Deleting Dataset Versions
 
