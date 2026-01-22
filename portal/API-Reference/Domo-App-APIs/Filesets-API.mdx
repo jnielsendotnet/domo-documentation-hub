@@ -1,4 +1,7 @@
-# FileSet API (BETA)
+---
+title: 'FileSet API (BETA)'
+permalink: fileset-api-beta
+---
 
 This API reference documents the endpoints for managing FileSets and Files in Domo from within a Domo app.
 
@@ -19,8 +22,8 @@ This API reference documents the endpoints for managing FileSets and Files in Do
 | filesetId | String | Yes      | The ID of the FileSet                   |
 | path      | String | Yes      | The path to the File within the FileSet |
 
-{/* type: tab
-title: Javascript (domo.get) */}
+<Tabs>
+<Tab title="Javascript (domo.get)">
 
 ```js
 domo
@@ -33,8 +36,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(
@@ -47,7 +50,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -84,8 +88,8 @@ fetch(
 | filesetId | String | Yes      | The ID of the FileSet |
 | fileId    | String | Yes      | The ID of the File    |
 
-{/* type: tab
-title: Javascript (domo.get) */}
+<Tabs>
+<Tab title="Javascript (domo.get)">
 
 ```js
 domo
@@ -94,8 +98,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`)
@@ -104,7 +108,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`)
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -143,8 +148,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`)
 
 > **Note:** Use `fetch` for File downloads. `domo.get` does not support binary downloads.
 
-{/* type: tab
-title: Javascript (fetch) */}
+<Tabs>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}/download`)
@@ -162,7 +167,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}/download`)
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -189,8 +195,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}/download`)
 | directoryPath | String  | No       | Limit search to a specific directory |
 | topK          | Integer | No       | Maximum number of results to return  |
 
-{/* type: tab
-title: Javascript (domo.post) */}
+<Tabs>
+<Tab title="Javascript (domo.post)">
 
 ```js
 domo
@@ -203,8 +209,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}/query`, {
@@ -221,7 +227,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/query`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -255,8 +262,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/query`, {
 
 > **Note:** Use `fetch` for file uploads. Always set the file content type to `text/plain` for text files, as in the app code.
 
-{/* type: tab
-title: Javascript (fetch) */}
+<Tabs>
+<Tab title="Javascript (fetch)">
 
 ```js
 const file = fileInput.files[0];
@@ -277,7 +284,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -349,8 +357,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files`, {
 | end      | String  | End timestamp as ISO string                  |
 | not      | Boolean | If true, inverts the date filter match       |
 
-{/* type: tab
-title: Javascript (domo.post) */}
+<Tabs>
+<Tab title="Javascript (domo.post)">
 
 ```js
 // Example 1: List all files
@@ -393,8 +401,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 // Example 1: List all files
@@ -445,7 +453,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -483,8 +492,8 @@ fetch(
 | filesetId | String | Yes      | The ID of the FileSet                   |
 | filePath  | String | Yes      | The path to the File within the FileSet |
 
-{/* type: tab
-title: Javascript (domo.delete) */}
+<Tabs>
+<Tab title="Javascript (domo.delete)">
 
 ```js
 domo
@@ -503,8 +512,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(
@@ -526,7 +535,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -551,8 +561,8 @@ fetch(
 | filesetId | String | Yes      | The ID of the FileSet |
 | fileId    | String | Yes      | The ID of the File    |
 
-{/* type: tab
-title: Javascript (domo.delete) */}
+<Tabs>
+<Tab title="Javascript (domo.delete)">
 
 ```js
 domo
@@ -567,8 +577,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`, {
@@ -585,7 +595,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -645,8 +656,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}/files/${fileId}`, {
 | end      | String  | End timestamp as ISO string                  |
 | not      | Boolean | If true, inverts the date filter match       |
 
-{/* type: tab
-title: Javascript (domo.post) */}
+<Tabs>
+<Tab title="Javascript (domo.post)">
 
 ```js
 // Example 1: List all FileSets (empty search)
@@ -686,8 +697,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 // Example 1: List all FileSets (empty search)
@@ -735,7 +746,8 @@ fetch('/domo/files/v1/filesets/search?limit=50&offset=0', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -776,8 +788,8 @@ fetch('/domo/files/v1/filesets/search?limit=50&offset=0', {
 | connector    | String | Yes      | The connector key                          |
 | relativePath | String | No       | Relative path for the connector (nullable) |
 
-{/* type: tab
-title: Javascript (domo.post) */}
+<Tabs>
+<Tab title="Javascript (domo.post)">
 
 ```js
 domo
@@ -791,8 +803,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch('/domo/files/v1/filesets', {
@@ -810,7 +822,8 @@ fetch('/domo/files/v1/filesets', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -837,8 +850,8 @@ fetch('/domo/files/v1/filesets', {
 | --------- | ------ | -------- | --------------------- |
 | filesetId | String | Yes      | The ID of the FileSet |
 
-{/* type: tab
-title: Javascript (domo.get) */}
+<Tabs>
+<Tab title="Javascript (domo.get)">
 
 ```js
 domo
@@ -847,8 +860,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}`)
@@ -857,7 +870,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}`)
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -889,8 +903,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}`)
 | name        | String | No       | The new name for the FileSet        |
 | description | String | No       | The new description for the FileSet |
 
-{/* type: tab
-title: Javascript (domo.post) */}
+<Tabs>
+<Tab title="Javascript (domo.post)">
 
 ```js
 domo
@@ -902,8 +916,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}`, {
@@ -919,7 +933,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -946,8 +961,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}`, {
 | --------- | ------ | -------- | --------------------- |
 | filesetId | String | Yes      | The ID of the FileSet |
 
-{/* type: tab
-title: Javascript (domo.delete) */}
+<Tabs>
+<Tab title="Javascript (domo.delete)">
 
 ```js
 domo
@@ -956,8 +971,8 @@ domo
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Javascript (fetch) */}
+</Tab>
+<Tab title="Javascript (fetch)">
 
 ```js
 fetch(`/domo/files/v1/filesets/${filesetId}`, {
@@ -968,7 +983,8 @@ fetch(`/domo/files/v1/filesets/${filesetId}`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
