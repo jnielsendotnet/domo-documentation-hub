@@ -1,13 +1,15 @@
 ---
+title: 'Moving from Brick to App'
+permalink: n4pswi7dd2azo-game-night-planner-app
 stoplight-id: n4pswi7dd2azo
 ---
-
-# Moving from Brick to App
 
 We're going to be migrating the Domo Brick that [we built in part one](intro-to-bricks.md) into a full custom application. In particular, this part will highlight some of the capabilities that moving from bricks to apps will unlock, especially around leveraging AppDB and handling CRUD functionality.
 
 ### Key steps and learning objectives
+
 ---
+
 1. Initializing a Domo App
 2. Configuring the `manifest.json` file and publishing Domo Apps (`domo publish`)
 3. Developing Apps Locally (`domo dev`)
@@ -16,8 +18,8 @@ We're going to be migrating the Domo Brick that [we built in part one](intro-to-
 6. Writing data to AppDB
 7. Displaying data from AppDB
 
-
 ### Initializing a Domo App
+
 ---
 
 You should already have the `Domo Apps CLI` and a VS Code editor installed on your machine. To verify that you have it installed, please:
@@ -35,7 +37,6 @@ To initialize a new Domo App, you can use the `domo init` command. A wizard shou
 1. Give your App Design a unique name - mine is `GameNightPlannerNF`
 2. Select the `hello world` starter template
 3. Don't connect any datasets for now (type `n`)
-
 
 ![Screenshot 2024-03-22 at 5.57.51 PM.png](../../assets/images/Screenshot%202024-03-22%20at%205.57.51%20PM.png)
 
@@ -65,7 +66,6 @@ Let's explore these files briefly.
     <script src="app.js"></script>
   </body>
 </html>
-
 ```
 
 Bricks handle this file linkage in the background so this is one of the first big differences. Exposing this flexibility to you means that you can add more files in your directory and load them into `index.html`
@@ -79,8 +79,8 @@ Now that we have our bearings, we can see that there isn't that much of a differ
 
 The major difference is that we have access to the `manifest.json` file that defines all the configuration options for our Domo App.
 
-
 ### Configuring the `manifest.json` file and publishing Domo Apps (`domo publish`)
+
 ---
 
 Open up the `manifest.json` file and have a quick look at what we're starting with.
@@ -93,13 +93,11 @@ Open up the `manifest.json` file and have a quick look at what we're starting wi
     "width": 1,
     "height": 1
   },
-  "mapping": [
-    
-  ]
+  "mapping": []
 }
 ```
 
-It's pretty bare bones initially. We have the `name` of our App Design (think Brick Template), the `version` number of our App Design, the default size of cards built from our App Design, and an empty `mapping` array. This `mapping` object will let us define which Datasets we want to connect to our app as well as what  `alias` they use.
+It's pretty bare bones initially. We have the `name` of our App Design (think Brick Template), the `version` number of our App Design, the default size of cards built from our App Design, and an empty `mapping` array. This `mapping` object will let us define which Datasets we want to connect to our app as well as what `alias` they use.
 
 Let's leave this blank for now and just publish the very bare-bones version of our Hello World app.
 
@@ -115,7 +113,7 @@ This command should launch a window in your browser to authenticate against our 
 
 ![Screenshot 2024-03-22 at 7.04.25 PM.png](../../assets/images/Screenshot%202024-03-22%20at%207.04.25%20PM.png)
 
-Your terminal should include this welcome message: 
+Your terminal should include this welcome message:
 
 ![Screenshot 2024-03-22 at 7.05.07 PM.png](../../assets/images/Screenshot%202024-03-22%20at%207.05.07%20PM.png)
 
@@ -187,7 +185,6 @@ Update your `manifest.json` so that the `mapping` list looks like the following.
   "fileName": "manifest.json",
   "id": "[YOUR_APP_DESIGN_ID]"
 }
-
 ```
 
 Run `domo publish` again and you should see a big difference on the Wiring Screen of your App. Click "Edit Card" for the "App Instance" (aka card) you created a moment ago.
@@ -199,6 +196,7 @@ Notice, you now have a single Dataset connected to your App with the alias `boar
 ![Screenshot 2024-03-22 at 7.28.47 PM.png](../../assets/images/Screenshot%202024-03-22%20at%207.28.47%20PM.png)
 
 ### Developing Apps Locally (`domo dev`)
+
 ---
 
 Now that we have the minimum setup required to recreate our brick, let's start developing!
@@ -226,7 +224,6 @@ Update your `index.html` file with a new title.
     <script src="app.js"></script>
   </body>
 </html>
-
 ```
 
 Save the file -- and look at localhost:3000 in your browser.
@@ -236,6 +233,7 @@ Save the file -- and look at localhost:3000 in your browser.
 Your title should have changed.
 
 ### Migrating our Domo Brick Code
+
 ---
 
 Our App is still pretty boring. Just a lonely `<h1>`. Let's copy the code that we had in our brick from earlier with only very minor changes.
@@ -245,13 +243,15 @@ Our HTML code, can be copied in our `index.html` file. Your updated `index.html`
 ```html
 <html>
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.0.1/dist/css/tabulator.min.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/tabulator-tables@6.0.1/dist/css/tabulator.min.css"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="app.css" />
   </head>
   <body>
     <h1>Game Night Planner</h1>
     <div id="tabulator-table"></div>
-    
 
     {/* domo.js optional utils */}
     <script src="domo.js"></script>
@@ -259,29 +259,27 @@ Our HTML code, can be copied in our `index.html` file. Your updated `index.html`
     <script src="app.js"></script>
   </body>
 </html>
-
 ```
 
 Next, replace the entire `app.css` file with the CSS from your brick code.
 
 ```css
 /*Theme the Tabulator element*/
-#tabulator-table{
-  background-color:#888888;
+#tabulator-table {
+  background-color: #888888;
   border: 1px solid #333;
   border-radius: 10px;
 }
 
 /*Theme the header*/
 #tabulator-table .tabulator-header {
-  background-color:#99CCEE;
-  color:#555555;
+  background-color: #99ccee;
+  color: #555555;
 }
 
 #tabulator-table .tabulator-col {
-  background-color:#99CCEE;
+  background-color: #99ccee;
 }
-
 
 /*Allow column header names to wrap lines*/
 #etabulator-table .tabulator-header .tabulator-col,
@@ -290,16 +288,18 @@ Next, replace the entire `app.css` file with the CSS from your brick code.
 }
 
 /*Color the table rows*/
-#tabulator-table .tabulator-tableholder .tabulator-table .tabulator-row{
-  color:#fff;
+#tabulator-table .tabulator-tableholder .tabulator-table .tabulator-row {
+  color: #fff;
   background-color: #666;
 }
 
 /*Color even rows*/
-#tabulator-table .tabulator-tableholder .tabulator-table .tabulator-row:nth-child(even) {
+#tabulator-table
+  .tabulator-tableholder
+  .tabulator-table
+  .tabulator-row:nth-child(even) {
   background-color: #555555;
 }
-
 ```
 
 You can also copy your JS code into `app.js` however a couple minor changes are required.
@@ -307,42 +307,45 @@ You can also copy your JS code into `app.js` however a couple minor changes are 
 - You no longer need to load in the `domo.js` library since that's covered by the script tag in the `index.html` file.
 - The `datasets` alias array is now based on what you defined in your manifest. So I've set `var datasets = ['boardgames']` to match the alias we gave our dataset.
 
-
 Everything else can remain the same.
 
-```js 
+```js
 var datasets = ['boardgames'];
 
 // Query your dataset(s): https://developer.domo.com/docs/dev-studio-references/data-api
 var fields = [];
 var groupby = [];
-var query = `/data/v1/${datasets[0]}?fields=${fields.join()}&groupby=${groupby.join()}`;
+var query = `/data/v1/${
+  datasets[0]
+}?fields=${fields.join()}&groupby=${groupby.join()}`;
 domo.get(query).then(handleResult);
 
-
-
 //Step 3. Do something with the data from the query result
-function handleResult(data){
+function handleResult(data) {
   console && console.log(data);
 
-  var table = new Tabulator("#tabulator-table", {
-      data:data,
-      columns:[
-          {title:"Ranking", field:"Board Game Rank"},
-          {title:"Image", field:"thumbnail", formatter: "image"},
-          {title:"Name", field:"primary", headerFilter:"input"},
-          {title:"Description", field:"description", headerFilter:"input"},
-          {title:"Stars", field:"average", formatter: "star"},
-          {title:"Own", field:"owned", hozAlign:"center", editor:true, formatter:"tickCross"},
-
-      ],
-      layout:"fitColumns",
-      pagination:"local",
-      paginationSize:10,
-      paginationSizeSelector:[10, 25, 50, 100],
+  var table = new Tabulator('#tabulator-table', {
+    data: data,
+    columns: [
+      { title: 'Ranking', field: 'Board Game Rank' },
+      { title: 'Image', field: 'thumbnail', formatter: 'image' },
+      { title: 'Name', field: 'primary', headerFilter: 'input' },
+      { title: 'Description', field: 'description', headerFilter: 'input' },
+      { title: 'Stars', field: 'average', formatter: 'star' },
+      {
+        title: 'Own',
+        field: 'owned',
+        hozAlign: 'center',
+        editor: true,
+        formatter: 'tickCross',
+      },
+    ],
+    layout: 'fitColumns',
+    pagination: 'local',
+    paginationSize: 10,
+    paginationSizeSelector: [10, 25, 50, 100],
   });
 }
-
 ```
 
 Now check out localhost again.
@@ -358,7 +361,8 @@ Only thing is that it looks a bit too small. Adjust the size property in your `m
   },
 ```
 
-Quit your local server and restart it to apply the changes from the `manifest.json` file. 
+Quit your local server and restart it to apply the changes from the `manifest.json` file.
+
 - `ctrl-C` in your Terminal
 - `domo dev` again.
 
@@ -367,13 +371,14 @@ Quit your local server and restart it to apply the changes from the `manifest.js
 There we go! Much nicer. `domo publish` again -- and we've successfully converted our brick to an App. Now the fun can begin!
 
 ### Configuring our new AppDB collection
+
 ---
 
-Configuring a new AppDB collection is just like configuring a Dataset in an App. For our AppDB collection, we just want to be able to track whether the currently signed-in user has marked a given row as "Owned" or not. 
+Configuring a new AppDB collection is just like configuring a Dataset in an App. For our AppDB collection, we just want to be able to track whether the currently signed-in user has marked a given row as "Owned" or not.
 
 This will allow our users to track which games they currently own, which will help them plan a successful game night. Can't plan a game night if you don't know which games you can play!
 
-We'll define a new `ownership` AppDB collection so that each document in the collection has a property for `boardGameId` and `owned`. 
+We'll define a new `ownership` AppDB collection so that each document in the collection has a property for `boardGameId` and `owned`.
 
 To do that, we add a `collections` list to the `manifest.json` file.
 
@@ -395,10 +400,12 @@ To do that, we add a `collections` list to the `manifest.json` file.
   "collections": [
     {
       "name": "ownership",
-      "schema": {"columns": 
-            [{"name": "boardGameId", "type": "LONG"}, 
-              {"name": "owned", "type": "STRING"}]
-        },
+      "schema": {
+        "columns": [
+          { "name": "boardGameId", "type": "LONG" },
+          { "name": "owned", "type": "STRING" }
+        ]
+      },
       "syncEnabled": true
     }
   ],
@@ -422,17 +429,16 @@ Click on it and you should see an empty array and some additional information ab
 One last thing we need to do so that we can develop against our new collection locally is to add a `proxyId` to our `manifest.json` file. This `proxyId` corresponds to the App Card and can be found by:
 
 - Go to the "Asset Library" under the "More" menu in Domo.
-![Screenshot 2024-03-22 at 8.17.05 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.17.05%20PM.png)
+  ![Screenshot 2024-03-22 at 8.17.05 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.17.05%20PM.png)
 
 - Click on the App Design for your App
- ![Screenshot 2024-03-22 at 8.17.35 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.17.35%20PM.png)
+  ![Screenshot 2024-03-22 at 8.17.35 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.17.35%20PM.png)
 
 - Navigate to "Cards"
-![Screenshot 2024-03-22 at 8.18.20 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.18.20%20PM.png)
+  ![Screenshot 2024-03-22 at 8.18.20 PM.png](../../assets/images/Screenshot%202024-03-22%20at%208.18.20%20PM.png)
 - Copy the "Proxy Id" listed for you card.
 
 - Add it to your `manifest.json` file.
-
 
 ```json
 {
@@ -445,8 +451,8 @@ One last thing we need to do so that we can develop against our new collection l
 
 We're now ready to actually write data to our collection.
 
-
 ### Writing data to AppDB
+
 ---
 
 Remember when we click the editable field in our Tabulator table, nothing persists. We'll now just need to hook up that click action to write a new document in our AppDB collection if one doesn't exist for that board game yet, or update a document if one does.
@@ -459,39 +465,46 @@ In the [documentation for Editable Data](https://tabulator.info/examples/6.0#edi
 
 First lets just get something to print in the console to verify that the callback is triggering as expected.
 
-Update the table configuration to add the `cellEdited` callback function for the `own` column. 
+Update the table configuration to add the `cellEdited` callback function for the `own` column.
 
 ```js
-var table = new Tabulator("#tabulator-table", {
-      data:data,
-      columns:[
-          {title:"Ranking", field:"Board Game Rank"},
-          {title:"Image", field:"thumbnail", formatter: "image"},
-          {title:"Name", field:"primary", headerFilter:"input"},
-          {title:"Description", field:"description", headerFilter:"input"},
-          {title:"Stars", field:"average", formatter: "star"},
-          {title:"Own", field:"owned", hozAlign:"center", editor: true, cellEdited: handleCellEdited, formatter:"tickCross"},
+var table = new Tabulator('#tabulator-table', {
+  data: data,
+  columns: [
+    { title: 'Ranking', field: 'Board Game Rank' },
+    { title: 'Image', field: 'thumbnail', formatter: 'image' },
+    { title: 'Name', field: 'primary', headerFilter: 'input' },
+    { title: 'Description', field: 'description', headerFilter: 'input' },
+    { title: 'Stars', field: 'average', formatter: 'star' },
+    {
+      title: 'Own',
+      field: 'owned',
+      hozAlign: 'center',
+      editor: true,
+      cellEdited: handleCellEdited,
+      formatter: 'tickCross',
+    },
+  ],
+  layout: 'fitColumns',
+  pagination: 'local',
+  paginationSize: 10,
+  paginationSizeSelector: [10, 25, 50, 100],
+});
+```
 
-      ],
-      layout:"fitColumns",
-      pagination:"local",
-      paginationSize:10,
-      paginationSizeSelector:[10, 25, 50, 100],
-  });
-  ```
 Then just define the callback function - in this case I've called it `handleCellEdited`.
 
 ```js
 const handleCellEdited = (cell) => {
-
-    const rowData = cell._cell.row.data;
-    const boardGameId = rowData.id;
-    const ownedValue = rowData.owned;
-    console.log("cell edited")
-    console.log(rowData);
-    debugger;
-}
+  const rowData = cell._cell.row.data;
+  const boardGameId = rowData.id;
+  const ownedValue = rowData.owned;
+  console.log('cell edited');
+  console.log(rowData);
+  debugger;
+};
 ```
+
 I've added a debugger statement to make it easier to see exactly what data we have access to when the handleCellEdited callback function runs.
 
 In localhost, you should see something like this when you try to edit the `own` field now.
@@ -506,27 +519,26 @@ Update the `handleCellEdited` callback to create a new AppDB document on edit.
 
 ```js
 const handleCellEdited = (cell) => {
+  const rowData = cell._cell.row.data;
+  const boardGameId = rowData.id;
+  const ownedValue = rowData.owned;
 
-    const rowData = cell._cell.row.data;
-    const boardGameId = rowData.id;
-    const ownedValue = rowData.owned;
+  const document = {
+    content: {
+      boardGameId: boardGameId,
+      owned: ownedValue,
+    },
+  };
 
-    const document = {
-        "content": {
-            "boardGameId": boardGameId,
-            "owned": ownedValue
-        }
-    }
-
-    domo.post(`/domo/datastores/v1/collections/ownership/documents/`, document)
-    .then(data => console.log(data));
-}
+  domo
+    .post(`/domo/datastores/v1/collections/ownership/documents/`, document)
+    .then((data) => console.log(data));
+};
 ```
 
 This code is creating a new document with the properties we defined in our `manifest.json` file and making a POST request to the `ownership` collection.
 
 Now try editing a record in your localhost environment. If successful, you'll see the AppDB document that you just created print to the console.
-
 
 ![Screenshot 2024-03-22 at 9.03.43 PM.png](../../assets/images/Screenshot%202024-03-22%20at%209.03.43%20PM.png)
 
@@ -542,50 +554,55 @@ While we now have a way to store whether a user owns a particular board game, we
 
 Update your `handleCellEdited` callback function to handle this case.
 
-
 ```js
 const handleCellEdited = async (cell) => {
-    const collectionAlias = 'ownership';
+  const collectionAlias = 'ownership';
 
-    const rowData = cell._cell.row.data;
-    const boardGameId = rowData.id;
-    const ownedValue = rowData.owned;
-    const userId = domo.env.userId;
+  const rowData = cell._cell.row.data;
+  const boardGameId = rowData.id;
+  const ownedValue = rowData.owned;
+  const userId = domo.env.userId;
 
-    // check if a document already exists in AppDB for the current user and board game.
+  // check if a document already exists in AppDB for the current user and board game.
 
-    const appDBQuery = `{
+  const appDBQuery = `{
         "owner": {
             "$eq": ${userId}
         },
         "content.boardGameId": {
             "$eq": ${boardGameId}
         }
-    }`
+    }`;
 
+  const existingAppDBDocument = await domo.post(
+    `/domo/datastores/v1/collections/${collectionAlias}/documents/query`,
+    appDBQuery,
+  );
 
-    const existingAppDBDocument = await domo.post(`/domo/datastores/v1/collections/${collectionAlias}/documents/query`, appDBQuery)
+  const document = {
+    content: {
+      boardGameId: boardGameId,
+      owned: ownedValue,
+    },
+  };
 
-    const document = {
-        "content": {
-            "boardGameId": boardGameId,
-            "owned": ownedValue
-        }
-    }
-    
-    if (existingAppDBDocument.length > 0) {
-        // update existing document
-        const existingDocumentId = existingAppDBDocument[0].id;
-        const updatedDocument = await domo.put(`/domo/datastores/v1/collections/${collectionAlias}/documents/${existingDocumentId}`, document)
-        console.log("updatedDocument", updatedDocument);
-        
-
-    } else {
-        // create new document
-        const newDocument = await domo.post(`/domo/datastores/v1/collections/${collectionAlias}/documents/`, document);
-        console.log("newDocument", newDocument);
-    }
-}
+  if (existingAppDBDocument.length > 0) {
+    // update existing document
+    const existingDocumentId = existingAppDBDocument[0].id;
+    const updatedDocument = await domo.put(
+      `/domo/datastores/v1/collections/${collectionAlias}/documents/${existingDocumentId}`,
+      document,
+    );
+    console.log('updatedDocument', updatedDocument);
+  } else {
+    // create new document
+    const newDocument = await domo.post(
+      `/domo/datastores/v1/collections/${collectionAlias}/documents/`,
+      document,
+    );
+    console.log('newDocument', newDocument);
+  }
+};
 ```
 
 Now as you start to check the owned field in the table for each row, it should create a new document only when one doesn't already exist.
@@ -600,8 +617,8 @@ I can see in AppDB Admin, that I've successfully tracked ownership for 5 of my f
 
 ![Screenshot 2024-03-22 at 9.31.26 PM.png](../../assets/images/Screenshot%202024-03-22%20at%209.31.26%20PM.png)
 
-
 ### Displaying data from AppDB
+
 ---
 
 There's at least one thing still missing from our App to complete the data collection functionality. We aren't displaying the stored values in our Tabulator table.
@@ -609,7 +626,8 @@ There's at least one thing still missing from our App to complete the data colle
 To do that, we'll need to fetch all the AppDB documents for the current user and join them by boardGameId on the client-side before rendering the table.
 
 Here's how we can do that. Let's refactor our code a bit to be more reusable.
-- Create a new function`fetchData` where we'll fetch data from both the Dataset and our AppDB collection. 
+
+- Create a new function`fetchData` where we'll fetch data from both the Dataset and our AppDB collection.
 - Before handling results and rendering the table, merge AppDB collection data with Dataset on `boardGameId`
 - Call the `fetchData` function when the `<body>` of our app loads.
 
@@ -621,129 +639,130 @@ const collectionAlias = 'ownership';
 const userId = domo.env.userId;
 
 async function fetchData() {
-    console.log("fetching data");
-    // Query your dataset(s): https://developer.domo.com/docs/dev-studio-references/data-api
-    const boardGameDataQuery = `/data/v1/${datasets[0]}`;
-    const boardGameOwnershipDataQuery = {
-        "owner": {
-            "$eq": userId
-        }
-    }
+  console.log('fetching data');
+  // Query your dataset(s): https://developer.domo.com/docs/dev-studio-references/data-api
+  const boardGameDataQuery = `/data/v1/${datasets[0]}`;
+  const boardGameOwnershipDataQuery = {
+    owner: {
+      $eq: userId,
+    },
+  };
 
-    const boardGameData = await domo.get(boardGameDataQuery);
-    const boardGameOwnershipData = await domo.post(`/domo/datastores/v1/collections/${collectionAlias}/documents/query`, boardGameOwnershipDataQuery)
+  const boardGameData = await domo.get(boardGameDataQuery);
+  const boardGameOwnershipData = await domo.post(
+    `/domo/datastores/v1/collections/${collectionAlias}/documents/query`,
+    boardGameOwnershipDataQuery,
+  );
 
-    const data = mergeGameData(boardGameData, boardGameOwnershipData);
+  const data = mergeGameData(boardGameData, boardGameOwnershipData);
 
-    handleResult(data);
-
+  handleResult(data);
 }
 
 function mergeGameData(inputData, mergeList) {
-    // Step 1: Add an 'owner' field to every item in inputData, defaulting to false
-    inputData.forEach(item => {
-        item.owned = false;
-    });
+  // Step 1: Add an 'owner' field to every item in inputData, defaulting to false
+  inputData.forEach((item) => {
+    item.owned = false;
+  });
 
-    // Step 2: Create a mapping from boardGameId to 'owned' status from the mergeList
-    const ownershipMap = mergeList.reduce((acc, cur) => {
-        const boardGameId = cur.content.boardGameId;
-        const ownedStatus = cur.content.owned;
-        acc[boardGameId] = ownedStatus;
-        return acc;
-    }, {});
+  // Step 2: Create a mapping from boardGameId to 'owned' status from the mergeList
+  const ownershipMap = mergeList.reduce((acc, cur) => {
+    const boardGameId = cur.content.boardGameId;
+    const ownedStatus = cur.content.owned;
+    acc[boardGameId] = ownedStatus;
+    return acc;
+  }, {});
 
-    // Step 3: Update the 'owner' field in inputData based on the mergeList 'owned' status
-    inputData.forEach(item => {
-        if (ownershipMap.hasOwnProperty(item.id)) {
-            item.owned = ownershipMap[item.id];
-        }
-    });
+  // Step 3: Update the 'owner' field in inputData based on the mergeList 'owned' status
+  inputData.forEach((item) => {
+    if (ownershipMap.hasOwnProperty(item.id)) {
+      item.owned = ownershipMap[item.id];
+    }
+  });
 
-    return inputData;
+  return inputData;
 }
 
-
 const handleCellEdited = async (cell) => {
-    const rowData = cell._cell.row.data;
-    const boardGameId = rowData.id;
-    const ownedValue = rowData.owned;
+  const rowData = cell._cell.row.data;
+  const boardGameId = rowData.id;
+  const ownedValue = rowData.owned;
 
-    // check if a document already exists in AppDB for the current user and board game.
-    const appDBQuery = `{
+  // check if a document already exists in AppDB for the current user and board game.
+  const appDBQuery = `{
         "owner": {
             "$eq": ${userId}
         },
         "content.boardGameId": {
             "$eq": ${boardGameId}
         }
-    }`
+    }`;
 
+  const existingAppDBDocument = await domo.post(
+    `/domo/datastores/v1/collections/${collectionAlias}/documents/query`,
+    appDBQuery,
+  );
 
-    const existingAppDBDocument = await domo.post(`/domo/datastores/v1/collections/${collectionAlias}/documents/query`, appDBQuery)
+  const document = {
+    content: {
+      boardGameId: boardGameId,
+      owned: ownedValue,
+    },
+  };
 
-    const document = {
-        "content": {
-            "boardGameId": boardGameId,
-            "owned": ownedValue
-        }
-    }
-    
-    if (existingAppDBDocument.length > 0) {
-        // update existing document
-        const existingDocumentId = existingAppDBDocument[0].id;
-        const updatedDocument = await domo.put(`/domo/datastores/v1/collections/${collectionAlias}/documents/${existingDocumentId}`, document)
-        console.log("updatedDocument", updatedDocument);
-        
+  if (existingAppDBDocument.length > 0) {
+    // update existing document
+    const existingDocumentId = existingAppDBDocument[0].id;
+    const updatedDocument = await domo.put(
+      `/domo/datastores/v1/collections/${collectionAlias}/documents/${existingDocumentId}`,
+      document,
+    );
+    console.log('updatedDocument', updatedDocument);
+  } else {
+    // create new document
+    const newDocument = await domo.post(
+      `/domo/datastores/v1/collections/${collectionAlias}/documents/`,
+      document,
+    );
+    console.log('newDocument', newDocument);
+  }
+};
 
-    } else {
-        // create new document
-        const newDocument = await domo.post(`/domo/datastores/v1/collections/${collectionAlias}/documents/`, document);
-        console.log("newDocument", newDocument);
-    }
-}
-
-
-
-function handleResult(data){
+function handleResult(data) {
   console && console.log(data);
 
-  var table = new Tabulator("#tabulator-table", {
-      data:data,
-      columns:[
-          {title:"Ranking", field:"Board Game Rank"},
-          {title:"Image", field:"thumbnail", formatter: "image"},
-          {title:"Name", field:"primary", headerFilter:"input"},
-          {title:"Description", field:"description", headerFilter:"input"},
-          {title:"Stars", field:"average", formatter: "star"},
-          {title:"Own", field:"owned", hozAlign:"center", editor: true, cellEdited: handleCellEdited, formatter:"tickCross", headerFilter:"tickCross"},
-
-      ],
-      layout:"fitColumns",
-      pagination:"local",
-      paginationSize:10,
-      paginationSizeSelector:[10, 25, 50, 100],
+  var table = new Tabulator('#tabulator-table', {
+    data: data,
+    columns: [
+      { title: 'Ranking', field: 'Board Game Rank' },
+      { title: 'Image', field: 'thumbnail', formatter: 'image' },
+      { title: 'Name', field: 'primary', headerFilter: 'input' },
+      { title: 'Description', field: 'description', headerFilter: 'input' },
+      { title: 'Stars', field: 'average', formatter: 'star' },
+      {
+        title: 'Own',
+        field: 'owned',
+        hozAlign: 'center',
+        editor: true,
+        cellEdited: handleCellEdited,
+        formatter: 'tickCross',
+        headerFilter: 'tickCross',
+      },
+    ],
+    layout: 'fitColumns',
+    pagination: 'local',
+    paginationSize: 10,
+    paginationSizeSelector: [10, 25, 50, 100],
   });
 }
-
 ```
 
 And just a minor addition to `index.html` to update the body tag:
 
 ```html
-<body onload="fetchData()">
+<body onload="fetchData()"></body>
 ```
 
 Go ahead and `domo publish` and we should have a fairly functional app that lets us track which games we own so we can better plan a game night.
 
-
-
 Next up: Getting even more advanced. In part 3, we'll have AI write a game night agenda based on the games we own.
-
-
-
-
-
-
-
-

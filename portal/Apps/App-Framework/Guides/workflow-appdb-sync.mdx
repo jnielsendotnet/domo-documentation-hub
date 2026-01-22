@@ -1,20 +1,26 @@
+---
+title: "Sync AppDB Only Once a Day"
+permalink: workflow-sync-appdb-only-once-a-day
+sidebarTitle: "Sync AppDB Only Once a Day"
+stoplight-id: workflow
+---
 
 # Sync AppDB Only Once a Day
 
 Since Domo doesn't currently allow you to specify sync intervals, AppDB can **only** be set to either 1) not sync at all or 2) sync every 15 minutes. If you would like to **conserve credits** on syncs, you can create a Workflow to **sync on your schedule**.
 
-This guide leverages Workflows. Please make sure you are familiar with [Workflows](https://domo-support.domo.com/s/article/000005108?language=en_US) and [Code Engine](https://domo-support.domo.com/s/article/000005173?language=en_US) first. 
+This guide leverages Workflows. Please make sure you are familiar with [Workflows](/s/article/000005108?language=en_US) and [Code Engine](/s/article/000005173?language=en_US) first. 
 
 {/* theme: info */}
 > #### Links to documentation
-> - Workflow Documentation (https://domo-support.domo.com/s/article/000005108?language=en_US) 
-> - Code Engine Documentation (https://domo-support.domo.com/s/article/000005173?language=en_US)
+> - Workflow Documentation (/s/article/000005108?language=en_US) 
+> - Code Engine Documentation (/s/article/000005173?language=en_US)
 
 
-1. [Create a Workflow](https://domo-support.domo.com/s/article/000005331?language=en_US) that runs at the time you want to sync the collection
+1. [Create a Workflow](/s/article/000005331?language=en_US) that runs at the time you want to sync the collection
 2. Specify which collection you want to sync
-    - You can [specify it as a variable](https://domo-support.domo.com/s/article/000005331?language=en_US#add_a_variable) in the Workflow
-3. [Create a Code Engine function](https://domo-support.domo.com/s/article/000005173?language=en_US#create_custom_package) to execute a sync, which could be written like this:
+    - You can [specify it as a variable](/s/article/000005331?language=en_US#add_a_variable) in the Workflow
+3. [Create a Code Engine function](/s/article/000005173?language=en_US#create_custom_package) to execute a sync, which could be written like this:
 ```js
 const codeengine = require("codeengine");
 

@@ -1,8 +1,8 @@
 ---
+title: Setup and Installation
+permalink: 6hlzv1hinkq19-quickstart
 stoplight-id: 6hlzv1hinkq19
 ---
-
-# Setup and Installation
 
 ### Step 1: Install the Domo Apps CLI
 
@@ -10,8 +10,8 @@ stoplight-id: 6hlzv1hinkq19
 
 The [Domo Apps CLI](../Tools/domo-CLI.md) is the command line tool you can use to authenticate against your Domo Instance and publish your apps there.
 
-{/* type: tab
-title: npm */}
+<Tabs>
+<Tab title="npm">
 
 The DomoApps CLI is now distributed **only** through npm (Node Package Manager). Homebrew and Chocolatey are no longer supported and will not receive updates.  
 If you have previously installed the DomoApps CLI using Homebrew or Chocolatey, please uninstall those versions before installing via npm.
@@ -24,11 +24,13 @@ npm install -g ryuu
 
 Confirm that `domo` has been installed successfully by running `domo --version` from the terminal. If a version number is returned then you have successfully installed the CLI.
 
-{/* type: tab
-title: Mac OSX / Linux */}
+</Tab>
+<Tab title="Mac OSX / Linux">
 
 <div style="background-color:#ffdddd; color:#a94442; border:1px solid #a94442; padding:10px; margin-bottom:16px;">
-<strong>Notice:</strong> As of June 18th, 2025, the Homebrew installation method is no longer supported. Please use the npm installation method in the "npm" tab above.
+  <strong>Notice:</strong> As of June 18th, 2025, the Homebrew installation
+  method is no longer supported. Please use the npm installation method in the
+  "npm" tab above.
 </div>
 
 If you previously installed the CLI with Homebrew, uninstall it with:
@@ -39,11 +41,14 @@ brew uninstall domo
 
 Then, install using npm as shown in the npm tab.
 
-{/* type: tab
-title: Windows */}
+</Tab>
+
+<Tab title="Windows">
 
 <div style="background-color:#ffdddd; color:#a94442; border:1px solid #a94442; padding:10px; margin-bottom:16px;">
-<strong>Notice:</strong> As of June 18th, 2025, the Chocolatey installation method is no longer supported. Please use the npm installation method in the "npm" tab above.
+  <strong>Notice:</strong> As of June 18th, 2025, the Chocolatey installation
+  method is no longer supported. Please use the npm installation method in the
+  "npm" tab above.
 </div>
 
 If you previously installed the CLI with Chocolatey, uninstall it with:
@@ -54,7 +59,8 @@ choco uninstall domo
 
 Then, install using npm as shown in the npm tab.
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 ### Step 2: Login to your Domo Instance
 

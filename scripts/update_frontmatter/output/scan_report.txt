@@ -1,10 +1,10 @@
 Portal Files Scan Report
 ======================================================================
 
-Total files: 664
-Files needing update: 497
-Files with stoplight-id: 600
-Files without frontmatter: 184
+Total files: 478
+Files needing update: 310
+Files with stoplight-id: 417
+Files without frontmatter: 181
 
 
 Files Needing Update:
@@ -325,1932 +325,997 @@ Files Needing Update:
   H1 Title: None
   Reason: no frontmatter
 
-AI-Service-Layer-API.mdx
-  Stoplight ID: None
-  H1 Title: AI Service Layer API [AI Pro](../../../assets/images/pro.png)
-  Reason: missing sidebarTitle
-
-API-Reference/Domo-APIs/Programmatically-Create-a-Client.md
+API-Reference/Domo-APIs/Programmatically-Create-a-Client.mdx
   Stoplight ID: 3c6pp23q82y90
   H1 Title: Programmatically Create a Client
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/AI-Service-Layer-API.md
-  Stoplight ID: wjqiqhsvpadon
-  H1 Title: AI Service Layer API {/* focus: false */} ![AI Pro](../../../assets/images/pro.png)
-  Reason: missing title, missing permalink, missing sidebarTitle
+API-Reference/Domo-App-APIs/AI-Service-Layer-API.mdx
+  Stoplight ID: None
+  H1 Title: None
+  Reason: missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Analytics.md
+API-Reference/Domo-App-APIs/Analytics.mdx
   Stoplight ID: None
   H1 Title: Analytics API
   Reason: no frontmatter
 
-API-Reference/Domo-App-APIs/AppDB-API.md
+API-Reference/Domo-App-APIs/AppDB-API.mdx
   Stoplight ID: 1l1fm2g0sfm69
   H1 Title: AppDB API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/AppStudio-API.md
+API-Reference/Domo-App-APIs/AppStudio-API.mdx
   Stoplight ID: None
   H1 Title: App Studio API
   Reason: no frontmatter
 
-API-Reference/Domo-App-APIs/Buzz-API.md
+API-Reference/Domo-App-APIs/Buzz-API.mdx
   Stoplight ID: 0rss4j81nqj1a
   H1 Title: Buzz API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Code-Engine-API.md
+API-Reference/Domo-App-APIs/Code-Engine-API.mdx
   Stoplight ID: p48phjy7wwtw8
   H1 Title: Code Engine API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Data-API.md
+API-Reference/Domo-App-APIs/Data-API.mdx
   Stoplight ID: 8s3y9eldnjq8d
   H1 Title: Data API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Files-API.md
+API-Reference/Domo-App-APIs/Files-API.mdx
   Stoplight ID: eeoadx67i6h46
   H1 Title: Files API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Filesets-API.md
+API-Reference/Domo-App-APIs/Filesets-API.mdx
   Stoplight ID: None
   H1 Title: FileSet API (BETA)
   Reason: no frontmatter
 
-API-Reference/Domo-App-APIs/Groups-API.md
+API-Reference/Domo-App-APIs/Groups-API.mdx
   Stoplight ID: 2hwa98wx7kdm4
   H1 Title: Groups API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Overview.md
+API-Reference/Domo-App-APIs/Overview.mdx
   Stoplight ID: frpucb6la2r4o
   H1 Title: Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Queues-and-Tasks-API.md
+API-Reference/Domo-App-APIs/Queues-and-Tasks-API.mdx
   Stoplight ID: k2vv2vir3c8ry
   H1 Title: Task Center API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Scheduled-Reports-API.md
+API-Reference/Domo-App-APIs/Scheduled-Reports-API.mdx
   Stoplight ID: None
   H1 Title: Scheduled Reports API
   Reason: no frontmatter
 
-API-Reference/Domo-App-APIs/User-API.md
+API-Reference/Domo-App-APIs/User-API.mdx
   Stoplight ID: n7f7swo7h29wg
   H1 Title: User API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Domo-App-APIs/Workflows-API.md
+API-Reference/Domo-App-APIs/Workflows-API.mdx
   Stoplight ID: 1ay1akbc787jg
   H1 Title: Workflows API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/AI-Services.md
+API-Reference/Product-APIs/AI-Services.mdx
   Stoplight ID: ffvznqc76b2b5
   H1 Title: AI Service Layer API {/* focus: false */} ![AI Pro](../../../assets/images/pro.png)
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Activity-Log.md
+API-Reference/Product-APIs/Activity-Log.mdx
   Stoplight ID: None
   H1 Title: Activity Log API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Alerts.md
+API-Reference/Product-APIs/Alerts.mdx
   Stoplight ID: None
   H1 Title: Alerts API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/App-DB.md
+API-Reference/Product-APIs/App-DB.mdx
   Stoplight ID: None
   H1 Title: App DB API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Beast-Modes.md
+API-Reference/Product-APIs/Beast-Modes.mdx
   Stoplight ID: None
   H1 Title: Beast Modes
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Cards.md
+API-Reference/Product-APIs/Cards.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Certified-Content.md
+API-Reference/Product-APIs/Certified-Content.mdx
   Stoplight ID: None
   H1 Title: Certified Content
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Code-Engine.md
+API-Reference/Product-APIs/Code-Engine.mdx
   Stoplight ID: fbhbpt1mt4gog
   H1 Title: Code Engine API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Connectors.md
+API-Reference/Product-APIs/Connectors.mdx
   Stoplight ID: None
   H1 Title: Connectors
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Content-Sharing.md
+API-Reference/Product-APIs/Content-Sharing.mdx
   Stoplight ID: None
   H1 Title: Content Sharing
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Data-Accounts.md
+API-Reference/Product-APIs/Data-Accounts.mdx
   Stoplight ID: None
   H1 Title: Data Accounts
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Dataflows.md
+API-Reference/Product-APIs/Dataflows.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Datasets.md
+API-Reference/Product-APIs/Datasets.mdx
   Stoplight ID: None
   H1 Title: Datasets API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Export-to-S3.md
+API-Reference/Product-APIs/Export-to-S3.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Federated-V1-to-V2-Migration-APIs.md
+API-Reference/Product-APIs/Federated-V1-to-V2-Migration-APIs.mdx
   Stoplight ID: u3ejmw0namdxf
   H1 Title: Federated V1 to V2 Migration APIs
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Federated-V2-to-Amplifier-Migration-APIs.md
+API-Reference/Product-APIs/Federated-V2-to-Amplifier-Migration-APIs.mdx
   Stoplight ID: None
   H1 Title: Federated V2 to Amplifier Migration APIs
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Files.md
+API-Reference/Product-APIs/Files.mdx
   Stoplight ID: None
   H1 Title: Files API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Filesets.md
+API-Reference/Product-APIs/Filesets.mdx
   Stoplight ID: None
   H1 Title: FileSets API (BETA)
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Get-Dataset-Schema.md
+API-Reference/Product-APIs/Get-Dataset-Schema.mdx
   Stoplight ID: None
   H1 Title: Return the schema for a specified Dataset
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Groups.md
+API-Reference/Product-APIs/Groups.mdx
   Stoplight ID: None
   H1 Title: Group Documentation
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Managing-Dataset-History.md
+API-Reference/Product-APIs/Managing-Dataset-History.mdx
   Stoplight ID: prt23r0zqw1vq
   H1 Title: Managing Dataset History
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Pages-API.md
+API-Reference/Product-APIs/Pages-API.mdx
   Stoplight ID: None
   H1 Title: Pages API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Query-Data.md
+API-Reference/Product-APIs/Query-Data.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Remote-Domostats.md
+API-Reference/Product-APIs/Remote-Domostats.mdx
   Stoplight ID: None
   H1 Title: Remote Domostats API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Render-KPI-Card-Chart.md
+API-Reference/Product-APIs/Render-KPI-Card-Chart.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Roles-Governance.md
+API-Reference/Product-APIs/Roles-Governance.mdx
   Stoplight ID: None
   H1 Title: Roles Governance API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Schedule-Report-Run-Now.md
+API-Reference/Product-APIs/Schedule-Report-Run-Now.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Search.md
+API-Reference/Product-APIs/Search.mdx
   Stoplight ID: None
   H1 Title: Search Product API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Task-Center.md
+API-Reference/Product-APIs/Task-Center.mdx
   Stoplight ID: None
   H1 Title: Task Center API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-API-Reference/Product-APIs/Users.md
+API-Reference/Product-APIs/Users.mdx
   Stoplight ID: None
   H1 Title: Users API
   Reason: no frontmatter
 
-API-Reference/Product-APIs/Workflows.md
+API-Reference/Product-APIs/Workflows.mdx
   Stoplight ID: kspv2orr3oi30
   H1 Title: Workflows Product API
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Catalyst.md
+Apps/App-Catalyst.mdx
   Stoplight ID: None
   H1 Title: App Catalyst: User Guide
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/Local-Development-with-Domo-CLI.md
+Apps/App-Framework/Guides/Local-Development-with-Domo-CLI.mdx
   Stoplight ID: None
   H1 Title: Local Development with Domo CLI
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/app-sessions.md
+Apps/App-Framework/Guides/app-sessions.mdx
   Stoplight ID: xma9hezmttvid
   H1 Title: App Sessions
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/clearing-out-collections.md
+Apps/App-Framework/Guides/clearing-out-collections.mdx
   Stoplight ID: clearing
   H1 Title: Deleting all documents from a collection
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/copy-assets-to-other-instances.md
+Apps/App-Framework/Guides/copy-assets-to-other-instances.mdx
   Stoplight ID: copy
   H1 Title: Copy Assets to a Different Instance
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/design-guide.md
+Apps/App-Framework/Guides/design-guide.mdx
   Stoplight ID: design
   H1 Title: App Developer Design Guide
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/getting-data.md
+Apps/App-Framework/Guides/getting-data.mdx
   Stoplight ID: 6a5d7a2870145
   H1 Title: Getting Data
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/getting-started-pro-code.md
+Apps/App-Framework/Guides/getting-started-pro-code.mdx
   Stoplight ID: getting
   H1 Title: Getting Started with the Pro-Code Editor
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/handling-data-updates.md
+Apps/App-Framework/Guides/handling-data-updates.mdx
   Stoplight ID: 2a14dd34496e7
   H1 Title: Handling Data Updates
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/hitting-a-workflow.md
+Apps/App-Framework/Guides/hitting-a-workflow.mdx
   Stoplight ID: hitting
   H1 Title: Start a workflow from an app
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/hitting-code-engine-from-an-app.md
+Apps/App-Framework/Guides/hitting-code-engine-from-an-app.mdx
   Stoplight ID: 4w40o03817vij
   H1 Title: Hitting a Code Engine Function from an App
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/manage-save-pro-code.md
+Apps/App-Framework/Guides/manage-save-pro-code.mdx
   Stoplight ID: manage
   H1 Title: Managing, Editing, and Saving Your App in the Pro-Code Editor
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/manifest.md
+Apps/App-Framework/Guides/manifest.mdx
   Stoplight ID: af407395c766b
   H1 Title: The Manifest File
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/public-assets.md
+Apps/App-Framework/Guides/public-assets.mdx
   Stoplight ID: df8b045188694
   H1 Title: Public Assets
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/querying-data.md
+Apps/App-Framework/Guides/querying-data.mdx
   Stoplight ID: 6fa7587d4c2ea
   H1 Title: Querying Data
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Guides/swap-designs.md
+Apps/App-Framework/Guides/swap-designs.mdx
   Stoplight ID: swap
   H1 Title: Change which asset powers the card
   Reason: no frontmatter
 
-Apps/App-Framework/Guides/workflow-appdb-sync.md
+Apps/App-Framework/Guides/workflow-appdb-sync.mdx
   Stoplight ID: workflow
   H1 Title: Sync AppDB Only Once a Day
   Reason: no frontmatter
 
-Apps/App-Framework/Help/Troubleshooting.md
+Apps/App-Framework/Help/Troubleshooting.mdx
   Stoplight ID: None
   H1 Title: Troubleshooting
   Reason: no frontmatter
 
-Apps/App-Framework/Help/faq.md
+Apps/App-Framework/Help/faq.mdx
   Stoplight ID: None
   H1 Title: FAQ
   Reason: no frontmatter
 
-Apps/App-Framework/Quickstart/Best-Practices.md
+Apps/App-Framework/Quickstart/Best-Practices.mdx
   Stoplight ID: 9l1mzcir4ht5h
   H1 Title: Best Practices
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Quickstart/Key-Terminology.md
+Apps/App-Framework/Quickstart/Key-Terminology.mdx
   Stoplight ID: None
   H1 Title: Key Terminology
   Reason: no frontmatter
 
-Apps/App-Framework/Quickstart/Prerequisites.md
+Apps/App-Framework/Quickstart/Prerequisites.mdx
   Stoplight ID: 67dwgt0v6q3w9
   H1 Title: Prerequisites
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Quickstart/Setup-and-Installation.md
+Apps/App-Framework/Quickstart/Setup-and-Installation.mdx
   Stoplight ID: 6hlzv1hinkq19
   H1 Title: Setup and Installation
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Quickstart/Starter-Kits.md
+Apps/App-Framework/Quickstart/Starter-Kits.mdx
   Stoplight ID: u8w475o2245yp
   H1 Title: Starter Kits
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Quickstart/Tools.md
+Apps/App-Framework/Quickstart/Tools.mdx
   Stoplight ID: 37rc8izzjzj7z
   H1 Title: Tools
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tools/da-cli.md
+Apps/App-Framework/Tools/da-cli.mdx
   Stoplight ID: da
   H1 Title: DA CLI - Domo Apps Generator
   Reason: no frontmatter
 
-Apps/App-Framework/Tools/domo-CLI.md
+Apps/App-Framework/Tools/domo-CLI.mdx
   Stoplight ID: rmfbkwje8kmqj
   H1 Title: Domo Apps CLI
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tools/domo-publish-CICD.md
+Apps/App-Framework/Tools/domo-publish-CICD.mdx
   Stoplight ID: domo
   H1 Title: Domo Publish - GitHub Action
   Reason: no frontmatter
 
-Apps/App-Framework/Tools/domo.js.md
+Apps/App-Framework/Tools/domo.js.mdx
   Stoplight ID: e947d87e17547
   H1 Title: ryuu.js
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tools/phoenix.md
+Apps/App-Framework/Tools/phoenix.mdx
   Stoplight ID: None
   H1 Title: Domo Phoenix
   Reason: no frontmatter
 
-Apps/App-Framework/Tools/query.md
+Apps/App-Framework/Tools/query.mdx
   Stoplight ID: None
   H1 Title: Query
   Reason: no frontmatter
 
-Apps/App-Framework/Tools/toolkit.md
+Apps/App-Framework/Tools/toolkit.mdx
   Stoplight ID: None
   H1 Title: Toolkit
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/Overview.md
+Apps/App-Framework/Tutorials/Overview.mdx
   Stoplight ID: None
   H1 Title: Tutorials
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/React/AI-Book-Recommender.md
+Apps/App-Framework/Tutorials/React/AI-Book-Recommender.mdx
   Stoplight ID: None
   H1 Title: AI Book Recommender App Tutorial
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/React/Bar-Code-Scanner-PWA.md
+Apps/App-Framework/Tutorials/React/Bar-Code-Scanner-PWA.mdx
   Stoplight ID: None
   H1 Title: Reactjs Barcode Scanner Tutorial
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tutorials/React/Mapbox-World-App.md
+Apps/App-Framework/Tutorials/React/Mapbox-World-App.mdx
   Stoplight ID: None
   H1 Title: Mapbox World Map React App Tutorial
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/React/Todo-App.md
+Apps/App-Framework/Tutorials/React/Todo-App.mdx
   Stoplight ID: None
   H1 Title: To-do App Tutorial
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/Vanilla-Javascript/AppDB.md
+Apps/App-Framework/Tutorials/Vanilla-Javascript/AppDB.mdx
   Stoplight ID: None
   H1 Title: None
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic.md
+Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic.mdx
   Stoplight ID: atp50e7pzs4yd
   H1 Title: Creating Dynamic Infographics
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tutorials/Vanilla-Javascript/HelloWorld.md
+Apps/App-Framework/Tutorials/Vanilla-Javascript/HelloWorld.mdx
   Stoplight ID: None
   H1 Title: Hello World Tutorial
   Reason: no frontmatter
 
-Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow.md
+Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow.mdx
   Stoplight ID: omi6lzvpm47ei
   H1 Title: Return Flow
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce.md
+Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce.mdx
   Stoplight ID: a2bd06daaff7e
   H1 Title: SugarForce
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/App-Framework/Welcome.md
+Apps/App-Framework/Welcome.mdx
   Stoplight ID: d54m2ohkacza0
   H1 Title: Welcome
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/DDX-Bricks/Guides/DDX-Pro-Code.md
+Apps/DDX-Bricks/Guides/DDX-Pro-Code.mdx
   Stoplight ID: None
   H1 Title: Converting a Brick into a Pro-Code App
   Reason: no frontmatter
 
-Apps/DDX-Bricks/Guides/getting-data.md
+Apps/DDX-Bricks/Guides/getting-data.mdx
   Stoplight ID: 2efe8599c6ad9
   H1 Title: Getting Data in Domo Bricks
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/DDX-Bricks/Quickstart/getting-started.md
+Apps/DDX-Bricks/Quickstart/getting-started.mdx
   Stoplight ID: ec60c4980e1b5
   H1 Title: Getting Started Using Domo Bricks
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/DDX-Bricks/Quickstart/overview.md
+Apps/DDX-Bricks/Quickstart/overview.mdx
   Stoplight ID: 0037739ab3747
   H1 Title: Domo Bricks Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro.md
+Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro.mdx
   Stoplight ID: 81edeb860659b
   H1 Title: Video Guides
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/Overview.md
+Apps/Overview.mdx
   Stoplight ID: 28v6sqz9eslb9
   H1 Title: Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Apps/Pro-Code-Editor/Tutorials/pdf-export.md
+Apps/Pro-Code-Editor/Tutorials/pdf-export.mdx
   Stoplight ID: pdf
   H1 Title: **Tutorial: Building a Domo Dashboard PDF Converter**
   Reason: no frontmatter
 
-Apps/Pro-Code-Editor/Tutorials/stacked-bars.md
+Apps/Pro-Code-Editor/Tutorials/stacked-bars.mdx
   Stoplight ID: stacked
   H1 Title: None
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/Packages/Cards-to-PDF.md
+Automate-Actions/Code-Engine/Packages/Cards-to-PDF.mdx
   Stoplight ID: None
   H1 Title: Export Domo cards to PDF
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/Packages/Instance-Management.md
+Automate-Actions/Code-Engine/Packages/Instance-Management.mdx
   Stoplight ID: None
   H1 Title: Domo Instance Management
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/code-editor-overview.md
+Automate-Actions/Code-Engine/code-editor-overview.mdx
   Stoplight ID: code
   H1 Title: None
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/common-use-cases.md
+Automate-Actions/Code-Engine/common-use-cases.mdx
   Stoplight ID: common
   H1 Title: Common Code Engine Use Cases
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/creating-packages.md
+Automate-Actions/Code-Engine/creating-packages.mdx
   Stoplight ID: creating
   H1 Title: None
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/global-vs-custom-packages.md
+Automate-Actions/Code-Engine/global-vs-custom-packages.mdx
   Stoplight ID: global
   H1 Title: Global vs. Custom Packages
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/javascript-libraries.md
+Automate-Actions/Code-Engine/javascript-libraries.mdx
   Stoplight ID: javascript
   H1 Title: Code Engine JavaScript Libraries Reference
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/limitations-and-troubleshooting.md
+Automate-Actions/Code-Engine/limitations-and-troubleshooting.mdx
   Stoplight ID: limitations
   H1 Title: Key Limitations
   Reason: no frontmatter
 
-Automate-Actions/Code-Engine/overview.md
+Automate-Actions/Code-Engine/overview.mdx
   Stoplight ID: 1sirxqzlsb4sk
   H1 Title: Code Engine
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Automate-Actions/Code-Engine/python-packages.md
+Automate-Actions/Code-Engine/python-packages.mdx
   Stoplight ID: python
   H1 Title: Code Engine Python Packages Reference
   Reason: no frontmatter
 
-Automate-Actions/Tutorials/Cards-to-PDF.md
+Automate-Actions/Tutorials/Cards-to-PDF.mdx
   Stoplight ID: None
   H1 Title: Return All Content of a Page as PDFs
   Reason: no frontmatter
 
-Automate-Actions/Workflows/authentication.md
+Automate-Actions/Workflows/authentication.mdx
   Stoplight ID: None
   H1 Title: Authentication & Permissions
   Reason: no frontmatter
 
-Automate-Actions/Workflows/overview.md
+Automate-Actions/Workflows/overview.mdx
   Stoplight ID: None
   H1 Title: Domo Workflows
   Reason: no frontmatter
 
-Automate-Actions/Workflows/troubleshooting.md
+Automate-Actions/Workflows/troubleshooting.mdx
   Stoplight ID: None
   H1 Title: Troubleshooting Tips
   Reason: no frontmatter
 
-Automate-Actions/overview.md
+Automate-Actions/overview.mdx
   Stoplight ID: None
   H1 Title: Automate Actions with Workflows and Code Engine
   Reason: no frontmatter
 
-Connectors/API-Data-Connection/format-data-to-import.md
+Connectors/API-Data-Connection/format-data-to-import.mdx
   Stoplight ID: eb00606e6f114
   H1 Title: Format Data to Import
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/API-Data-Connection/import-and-export-data.md
+Connectors/API-Data-Connection/import-and-export-data.mdx
   Stoplight ID: 3989acf1bafff
   H1 Title: Import and Export Data
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/API-Data-Connection/managing-datasets.md
+Connectors/API-Data-Connection/managing-datasets.mdx
   Stoplight ID: 816ca1b6d137d
   H1 Title: Managing Datasets
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/API-Data-Connection/overview.md
+Connectors/API-Data-Connection/overview.mdx
   Stoplight ID: e0a20a74a7754
   H1 Title: Data Connection via API Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/API-Data-Connection/personalized-data-permissions.md
+Connectors/API-Data-Connection/personalized-data-permissions.mdx
   Stoplight ID: ea5c42f66c4e6
   H1 Title: Create Personalized Data Permissions (PDP)
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/API-Data-Connection/quickstart.md
+Connectors/API-Data-Connection/quickstart.mdx
   Stoplight ID: 278e9d611eaa6
   H1 Title: Quickstart
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/build-your-own-writeback-connector.md
+Connectors/Custom-Connectors/build-your-own-writeback-connector.mdx
   Stoplight ID: 7145a85ea3589
   H1 Title: Build Your Own Writeback Connector (Beta)
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/configure-authentication.md
+Connectors/Custom-Connectors/configure-authentication.mdx
   Stoplight ID: 71ec34a2958fe
   H1 Title: Configure Authentication
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/configure-reports.md
+Connectors/Custom-Connectors/configure-reports.mdx
   Stoplight ID: 306e246057d3c
   H1 Title: Configure Reports
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/connector-dev-studio.md
+Connectors/Custom-Connectors/connector-dev-studio.mdx
   Stoplight ID: 3cfe84d925633
   H1 Title: Custom Connectors
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/examples.md
+Connectors/Custom-Connectors/examples.mdx
   Stoplight ID: 9f2fe40b1bdb9
   H1 Title: Examples
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/help-and-support.md
+Connectors/Custom-Connectors/help-and-support.mdx
   Stoplight ID: d2309f6f9be66
   H1 Title: None
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/ide-limitations.md
+Connectors/Custom-Connectors/ide-limitations.mdx
   Stoplight ID: 66b06bf6ac52d
   H1 Title: IDE Limitations
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/overview.md
+Connectors/Custom-Connectors/overview.mdx
   Stoplight ID: 5d8f965eb3469
   H1 Title: Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/process-data.md
+Connectors/Custom-Connectors/process-data.mdx
   Stoplight ID: 11ea6c8039f80
   H1 Title: Process Data
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Custom-Connectors/publish-connector.md
-  Stoplight ID: edfe96df76c42
-  H1 Title: Publish Connector
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Connectors/Custom-Connectors/reference.md
+Connectors/Custom-Connectors/reference.mdx
   Stoplight ID: e415bb99d21b2
   H1 Title: Reference
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/IPaaS.md
+Connectors/IPaaS.mdx
   Stoplight ID: None
   H1 Title: IPaaS
   Reason: no frontmatter
 
-Connectors/Overview.md
+Connectors/Overview.mdx
   Stoplight ID: wiemes1rk6atz
   H1 Title: Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Writeback-Connectors/domo-actions.md
+Connectors/Writeback-Connectors/domo-actions.mdx
   Stoplight ID: fc62ced09f56e
   H1 Title: Domo Actions (Beta)
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Writeback-Connectors/domo-api-actions.md
+Connectors/Writeback-Connectors/domo-api-actions.mdx
   Stoplight ID: 842ac09f65853
   H1 Title: Start leveraging Domo's API Actions
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/Writeback-Connectors/writeback-connectors.md
+Connectors/Writeback-Connectors/writeback-connectors.mdx
   Stoplight ID: cf8902150aae4
   H1 Title: Writeback Connectors
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Connectors/federated-queries.md
+Connectors/federated-queries.mdx
   Stoplight ID: federated
   H1 Title: Federated Queries
   Reason: no frontmatter
 
-Connectors/iot.md
+Connectors/iot.mdx
   Stoplight ID: None
   H1 Title: IoT
   Reason: no frontmatter
 
-Connectors/on-premises-data.md
+Connectors/on-premises-data.mdx
   Stoplight ID: on
   H1 Title: On-Premises Data
   Reason: no frontmatter
 
-Data-Science/accelerators.md
+Data-Science/accelerators.mdx
   Stoplight ID: pg9t2vdbix5un
   H1 Title: Data Science Accelerators
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/ai-services.md
+Data-Science/ai-services.mdx
   Stoplight ID: x2i3bk0w4bwhe
   H1 Title: Domo.AI
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/autoML.md
+Data-Science/autoML.mdx
   Stoplight ID: xw7ienfqq7qrw
   H1 Title: Automated Machine Learning (AutoML)
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/data-science-tiles.md
+Data-Science/data-science-tiles.mdx
   Stoplight ID: 32buc6884v4px
   H1 Title: Magic ETL Data Science Tiles
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/jupyter.md
+Data-Science/jupyter.mdx
   Stoplight ID: 4cjt7r72bnwlf
   H1 Title: Jupyter Workspaces
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/overview.md
+Data-Science/overview.mdx
   Stoplight ID: 0mnsejhg5livn
   H1 Title: Domo AI Resources Guide
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/scripting-tiles.md
+Data-Science/scripting-tiles.mdx
   Stoplight ID: ftlfegxnudqt7
   H1 Title: Magic ETL Scripting Tiles
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Data-Science/webinars.md
+Data-Science/webinars.mdx
   Stoplight ID: umqbnyej9jn06
   H1 Title: Data Science Webinars
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication.mdx
   Stoplight ID: 1cleirjemoy6i
   H1 Title: App Embed Authentication
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples.mdx
   Stoplight ID: 4soguofca8clp
   H1 Title: Code Examples
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching.mdx
   Stoplight ID: j83p65ecrjtr1
   H1 Title: Dataset Switching
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height.mdx
   Stoplight ID: nt3co7oh36g5s
   H1 Title: Dynamic Iframe Height
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/embedded-analytics-in-a-world-without-cookies - copy.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/embedded-analytics-in-a-world-without-cookies - copy.mdx
   Stoplight ID: nldrdylitc11u
   H1 Title: Embedded Analytics in a World Without Cookies
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals.mdx
   Stoplight ID: 5ueroz175c0jl
   H1 Title: Embedding Into Sites and Web Portals
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options.mdx
   Stoplight ID: wbwvwmq9rd714
   H1 Title: Filtering Options
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies.mdx
   Stoplight ID: 5u0f5ugttqixq
   H1 Title: Necessary dependencies
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/overview.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/overview.mdx
   Stoplight ID: 9698njvvxz8f9
   H1 Title: Getting Started
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering.mdx
   Stoplight ID: 1yafxad1u8azv
   H1 Title: Programmatic Filtering
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content - copy.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content - copy.mdx
   Stoplight ID: 9k5nqhgffv7wq
   H1 Title: URL Parameters in Embedded Content
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content.md
+Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content.mdx
   Stoplight ID: buk5zwk1pvjwh
   H1 Title: URL Parameters in Embedded Content
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/embedded-edit-experiences - copy.md
+Embedded-Analytics/embedded-edit-experiences - copy.mdx
   Stoplight ID: dc6vadk2yrjcw
   H1 Title: Embedded Capabilities
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/embedded-edit-experiences.md
+Embedded-Analytics/embedded-edit-experiences.mdx
   Stoplight ID: ed061f0c295c0
   H1 Title: Embedded Capabilities
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/embedded-scheduled-reports.md
+Embedded-Analytics/embedded-scheduled-reports.mdx
   Stoplight ID: embedded
   H1 Title: Embedded Scheduled Reports (BETA)
   Reason: no frontmatter
 
-Embedded-Analytics/overview.md
+Embedded-Analytics/overview.mdx
   Stoplight ID: ncsnoe3fay4df
   H1 Title: Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Embedded-Analytics/publishing-to-other-domo-users.md
+Embedded-Analytics/publishing-to-other-domo-users.mdx
   Stoplight ID: 541b34bb930ee
   H1 Title: Publishing to Other Users
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Forms/Advanced-Forms/advanced-form-datasets.md
+Forms/Advanced-Forms/advanced-form-datasets.mdx
   Stoplight ID: advanced
   H1 Title: Advanced Form Datasets
   Reason: no frontmatter
 
-Forms/Advanced-Forms/advanced-form-editor-layout.md
+Forms/Advanced-Forms/advanced-form-editor-layout.mdx
   Stoplight ID: advanced
   H1 Title: Advanced Form Editor Layout
   Reason: no frontmatter
 
-Forms/Advanced-Forms/creating-advanced-forms.md
+Forms/Advanced-Forms/creating-advanced-forms.mdx
   Stoplight ID: creating
   H1 Title: Creating an Advanced Form
   Reason: no frontmatter
 
-Forms/Advanced-Forms/domo-data-features.md
+Forms/Advanced-Forms/domo-data-features.mdx
   Stoplight ID: domo
   H1 Title: Domo Data Features
   Reason: no frontmatter
 
-Forms/Advanced-Forms/overview.md
+Forms/Advanced-Forms/overview.mdx
   Stoplight ID: None
   H1 Title: Domo Advanced Forms (BETA)
   Reason: no frontmatter
 
-GameNightPlannerApp/adding-advanced-capabilities-to-your-app.md
+GameNightPlannerApp/adding-advanced-capabilities-to-your-app.mdx
   Stoplight ID: pff92wc4t7vgw
   H1 Title: Adding Advanced Capabilities to Your App
   Reason: missing title, missing permalink, missing sidebarTitle
 
-GameNightPlannerApp/going-from-brick-to-app.md
+GameNightPlannerApp/going-from-brick-to-app.mdx
   Stoplight ID: n4pswi7dd2azo
   H1 Title: Moving from Brick to App
   Reason: missing title, missing permalink, missing sidebarTitle
 
-GameNightPlannerApp/intro-to-bricks.md
+GameNightPlannerApp/intro-to-bricks.mdx
   Stoplight ID: ndvsmatbqz5gk
   H1 Title: Game Night Planner App - Intro to Domo Bricks
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Getting-Started/api-authentication.md
+Getting-Started/api-authentication.mdx
   Stoplight ID: 8ba9aedad3679
   H1 Title: APIs
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Getting-Started/overview.md
+Getting-Started/overview.mdx
   Stoplight ID: d01f63a6ba662
   H1 Title: Domo Developer Portal
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Getting-Started/sdks.md
+Getting-Started/sdks.mdx
   Stoplight ID: e04caa9abb5cc
   H1 Title: Domo SDKs
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Governance/activity-log.md
+Governance/activity-log.mdx
   Stoplight ID: activity
   H1 Title: Activity Log
   Reason: no frontmatter
 
-Governance/content-management.md
+Governance/content-management.mdx
   Stoplight ID: content
   H1 Title: Organize, manage, and share content to other users in Domo using the Page API
   Reason: no frontmatter
 
-Governance/data-management.md
+Governance/data-management.mdx
   Stoplight ID: data
   H1 Title: Managing DataSets in Domo
   Reason: no frontmatter
 
-Governance/overview.md
+Governance/overview.mdx
   Stoplight ID: None
   H1 Title: Overview
   Reason: no frontmatter
 
-Governance/pdp.md
+Governance/pdp.mdx
   Stoplight ID: 7zzu6uf05maam
   H1 Title: PDP
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Governance/security.md
+Governance/security.mdx
   Stoplight ID: None
   H1 Title: Security and Governance
   Reason: no frontmatter
 
-Governance/sso.md
+Governance/sso.mdx
   Stoplight ID: None
   H1 Title: SSO
   Reason: no frontmatter
 
-Governance/user-management.md
+Governance/user-management.mdx
   Stoplight ID: user
   H1 Title: User Management
   Reason: no frontmatter
 
-Installation-Guides/Accounts-Payable-Trend.md
-  Stoplight ID: 96kniv3o7g8aq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Active-Traders-Exchanges.md
-  Stoplight ID: jbr0mpzr162vq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Ad-Sales-Revenue.md
-  Stoplight ID: 504b8d8aknqa8
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Aged-Trial-Balance.md
-  Stoplight ID: hkidvx8xhbsj9
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Anaplan-Sales-Forecast.md
-  Stoplight ID: 64l73jpdnhjlt
-  H1 Title: Anaplan Sales Forecast
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Annual-Contract-Value.md
-  Stoplight ID: 4k2pssd4x5qdw
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apartment-Vacancy.md
-  Stoplight ID: ir0b3rigqftjz
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/App-Development.md
-  Stoplight ID: v1fb0x08s8t37
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/App-Installation-Guides.md
-  Stoplight ID: e3m9anmorrlpu
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Beyond-Payroll.md
-  Stoplight ID: s4prrlvbn9zb7
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-BigSquid.md
-  Stoplight ID: m3d5zgzewst20
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Brandwatch.md
-  Stoplight ID: fyzhm06ut2k3s
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-CPQ-Solutions.md
-  Stoplight ID: s0d3jnjv57vb5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Domo.md
-  Stoplight ID: mtqlmqwgk77a3
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-ROI-DNA.md
-  Stoplight ID: 9p8iv3d2ljils
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Search-Discovery.md
-  Stoplight ID: 30k53h135rkdr
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Skyword.md
-  Stoplight ID: si71ui4zoa2ng
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-SolutionStream.md
-  Stoplight ID: luaqbslxdlgws
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-StrategyBox.md
-  Stoplight ID: e8ia3qqmqroeo
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Tealium.md
-  Stoplight ID: mhxujp4kozn04
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Thermo-King.md
-  Stoplight ID: zru0jsiusn8vb
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Voiant.md
-  Stoplight ID: a0tfnxcze8oud
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Apps-by-Vroozi.md
-  Stoplight ID: a05ostm1si7f3
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Athletic-Event-Performance.md
-  Stoplight ID: hz9ux4v87eubc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Average-Deal-Size.md
-  Stoplight ID: nm8g5lavqj545
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/BambooHR-Benefits.md
-  Stoplight ID: u5io66upogebj
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/BambooHR-Churn.md
-  Stoplight ID: oy0ni8wj8fumc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/BambooHR-Diversity.md
-  Stoplight ID: r2c0c5yymg63t
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Birthdays-This-Week.md
-  Stoplight ID: 7leamrj4ltmnc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Birthdays-and-Anniversaries.md
-  Stoplight ID: gqkm15cw71yug
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Bonus-Compensation-Competition.md
-  Stoplight ID: cbrw5bk2xoprg
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Boost-Sales.md
-  Stoplight ID: x0a66m9go3jwo
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Bottlenecks-for-Salesforce-Service-Cloud.md
-  Stoplight ID: x49bsafhvvz07
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Broadcast-Revenue.md
-  Stoplight ID: sv62zwixar9gu
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Calendar-and-Events.md
-  Stoplight ID: 18i9fhf04nrpi
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Call-Center-(Inbound)-Customer-Experience.md
-  Stoplight ID: tvq0zyqj78glz
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Call-Center-(Inbound)-Staff-Performance.md
-  Stoplight ID: svb8vr9p11yhe
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Call-Center-(Inbound)-Staffing.md
-  Stoplight ID: eocboy4vvotuv
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Call-Center-(Inbound)-Team-Performance.md
-  Stoplight ID: kg6ueyd36q5cc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Call-Volume.md
-  Stoplight ID: pxrutrtzdcmzc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Calls-Win-Ratio.md
-  Stoplight ID: ltt2ztrs2q0bt
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Campaign-Reach.md
-  Stoplight ID: whhxqcbltn6nd
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Campaign-Scorecard.md
-  Stoplight ID: 9zh38odojiini
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Car-Sales-Performance.md
-  Stoplight ID: g8v1gbkjyd1sd
-  H1 Title: Car Sales Performance
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Cases-for-Salesforce-Service-Cloud.md
-  Stoplight ID: rp21sqccm34ej
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Community-Growth.md
-  Stoplight ID: uehp00pai8ote
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Competitive-Momentum.md
-  Stoplight ID: u4d3ex5y6pi20
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Connected-Domo-Profiles.md
-  Stoplight ID: 3k2dkgavxkqr3
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Connector-Based-App.md
-  Stoplight ID: 0aa7kg1lpq69v
-  H1 Title: Connector-Based App Installation Guide
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Consulting-Hourly-Rate.md
-  Stoplight ID: hhzpsqg9pwwv5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Content-Engagement-for-Marketo.md
-  Stoplight ID: ldrb353sps6vu
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Content-for-Webtrends.md
-  Stoplight ID: 8bpfbnh5vw5c6
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Contracts-Gain-and-Loss.md
-  Stoplight ID: 8kbf8rci33ual
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Convention-Inventory.md
-  Stoplight ID: imwqcfecck31j
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Convention-Sales.md
-  Stoplight ID: 6tceby1h9gkl5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Convert-and-Close.md
-  Stoplight ID: 7mj6wwlql1f41
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Correct-Routing.md
-  Stoplight ID: or94unl8edg9b
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Customer-Behavior.md
-  Stoplight ID: gtx6bf86vz4j5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Customer-Growth.md
-  Stoplight ID: xmbmgaiyabrqk
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Dealer-Assortment.md
-  Stoplight ID: g828vhbvoiz02
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Demo-Completion-Rates.md
-  Stoplight ID: a6qpeepdyvnlp
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Dental-Expenses.md
-  Stoplight ID: zbauw2wbartpu
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Card-Creators.md
-  Stoplight ID: 90wj6qp0mmovr
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Data-Source-Update-Frequency.md
-  Stoplight ID: 5hub87rinfj6a
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Dataflow-ETL-Success.md
-  Stoplight ID: a14m4d53nroc1
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Datasource-Usage.md
-  Stoplight ID: eg6ti3o38maed
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Magic-ETL-Success.md
-  Stoplight ID: wq8nx4ybr70d0
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Profile-Completeness.md
-  Stoplight ID: y0s6ovzr65txd
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Profile-Contact-Completeness.md
-  Stoplight ID: 4sfkyytu1gz6d
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Scheduled-Report-Success.md
-  Stoplight ID: sqhou0qq3uvm5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-Usage.md
-  Stoplight ID: qlj6yl3gg3d37
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-User-Group-Growth.md
-  Stoplight ID: h4sfg3ams60o0
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-User-Growth.md
-  Stoplight ID: rpzsts30y53k5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Domo-User-Privileges.md
-  Stoplight ID: gdj7nyxjhi3tg
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/DomoBuzz-Collaboration-Usage.md
-  Stoplight ID: mnqc0tftittrn
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Ecommerce-Financials.md
-  Stoplight ID: ltsgioa3eavuk
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Email-Insights.md
-  Stoplight ID: 6h41pv2ha0rkq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Email-Lists-for-Marketo.md
-  Stoplight ID: 1l1fn1rwf92sj
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Email-Subscription-App.md
-  Stoplight ID: ijastv07aoo7o
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Employee-Demographics.md
-  Stoplight ID: whkq6ubv1vcpv
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Employee-Satisfaction-Ratings.md
-  Stoplight ID: 6rk92uj731o1j
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Employees-with-Disabilities.md
-  Stoplight ID: apfps2r9t0mso
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Energy-Supply-Social-Programs.md
-  Stoplight ID: hpt7xvs213gpv
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Executive-Dashboard.md
-  Stoplight ID: xoaazrh1bkf7h
-  H1 Title: Executive-Dashboard
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Facebook-Fan-Sentiment-2.md
-  Stoplight ID: w1ktzfoqoyxfd
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Facebook-Fan-Sentiment.md
-  Stoplight ID: nnbtrcttoml2q
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Facebook-Impressions.md
-  Stoplight ID: vce4rf3kspkwi
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Fleet-Driving-Infractions.md
-  Stoplight ID: dyuxeqfjhxzdo
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Fleet-Revenue.md
-  Stoplight ID: z7rgw9jn3k0gc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Go-Live-Dashboard-Search-Discovery.md
-  Stoplight ID: 8kkj4ibq9y9qh
-  H1 Title: Go Live Dashboard Search Discovery
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-AdWords-Keywords-Performance.md
-  Stoplight ID: dcaaaz3tdd01c
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-Analytics-Insights-(Custom).md
-  Stoplight ID: w3zjb2pej4m58
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-Analytics-Insights.md
-  Stoplight ID: wqocqy5hc3bkk
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-Analytics-Revenue-and-Goals.md
-  Stoplight ID: bmyk9lpjpag35
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-DFP-Performance.md
-  Stoplight ID: p0niyqytv5idx
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-DFP-Small-Business-Performance.md
-  Stoplight ID: javq7oienai1j
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Google-Maps-Pinboard.md
-  Stoplight ID: t96yq1sjeh4br
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Grid-Builder-Walkthrough.md
-  Stoplight ID: iqd31a2msdhon
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Help-Desk-Ticket-Analysis-Zendesk.md
-  Stoplight ID: r41d5txggjpzw
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Helpdesk-Scorecard.md
-  Stoplight ID: c6h4c0cikhton
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Ice-Cream-Sales.md
-  Stoplight ID: 1n9wl328c3ryq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Inactive-Domo-Users.md
-  Stoplight ID: v5dwfqazobx1w
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Increase-Fleet-Miles.md
-  Stoplight ID: svnveupiwmca6
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Initiative-Status.md
-  Stoplight ID: hk112ojvqp84v
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Instagram-Insights.md
-  Stoplight ID: fpn1x1lnzt63p
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Installation-Guide-Digital-Traffic.md
-  Stoplight ID: l297mtf2k8wrm
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Installation-Guide-Template-(App-Factory).md
-  Stoplight ID: n79swxf8s4ccv
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Installation-Guide-Template.md
-  Stoplight ID: qosb8bvjtrepd
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Inv-Monitoring.md
-  Stoplight ID: c5gj7mkicncer
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Inventory-Low-Stock.md
-  Stoplight ID: zx42od9ahck2z
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Inventory-Space-Utilization.md
-  Stoplight ID: 267vfor0jbwng
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Labor-Cost-Optimization.md
-  Stoplight ID: pjbou30kykl8z
-  H1 Title: Labor Cost Optimization
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Labor-Statistics-Lite.md
-  Stoplight ID: wae6u1wjgadra
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Lead-Engagement-Lite.md
-  Stoplight ID: ivjla1n2e4fwe
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Lead-Sources-for-Marketo.md
-  Stoplight ID: qyj2x6xknk7ow
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Lead-to-Opportunity-Conversion-Rate.md
-  Stoplight ID: 4antv8qj3mq4a
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/LinkedIn-Impressions.md
-  Stoplight ID: 2zz12rc7oxc5f
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Lithium-Lite.md
-  Stoplight ID: wxg6yicyy1h4r
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Lost-Sales-(OOS).md
-  Stoplight ID: ty8j4zs6fnunc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/MailChimp-Lite.md
-  Stoplight ID: xt16azgrc7tsa
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Market-Basket.md
-  Stoplight ID: v2jbhjk3yl9my
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Marketing-Attribution.md
-  Stoplight ID: 1tru5m1rh6z2n
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Marketing-Funnel-App.md
-  Stoplight ID: kz5n5l9225uc1
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Marketing-ROI.md
-  Stoplight ID: lpt9ibe7diiov
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Marketing-Spend-Tracking.md
-  Stoplight ID: k0gdw0ecyyybi
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Most-Favorited-Domo-Content.md
-  Stoplight ID: 4hjffuapr5e3v
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Most-Viewed-Domo-Content.md
-  Stoplight ID: u5fx3tj6vdxsd
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Net-Promoter-Score-(NPS).md
-  Stoplight ID: 3fpnl75cwqig9
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Opportunity-Center.md
-  Stoplight ID: wb1o0otfk16ag
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Opportunity-Explorer.md
-  Stoplight ID: sqjtafoz4h66v
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Overstocked-Inventory.md
-  Stoplight ID: djduhmvk39xgs
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Overtime-Analysis.md
-  Stoplight ID: sijccaynadtc2
-  H1 Title: Overtime Analysis
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Patient-Access.md
-  Stoplight ID: opsesd7n54qnx
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Patient-Quality-of-Care.md
-  Stoplight ID: kly4t6k5oa2vc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Personal-Banking.md
-  Stoplight ID: 9zjkrop1au46j
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Pipeline-Velocity.md
-  Stoplight ID: xs4ipft93fc3o
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Post-Timeframes-for-Google-Plus.md
-  Stoplight ID: 1e543275h2khl
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Product-Returns-Square.md
-  Stoplight ID: n2bp1d76dvhnc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Qualified-Opportunity-Detail.md
-  Stoplight ID: 909tbsowaewkh
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Quota-Performance.md
-  Stoplight ID: i934k5dz20euj
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Quote-to-Cash.md
-  Stoplight ID: kfslmqfv8dk1o
-  H1 Title: Quote-to-Cash
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Recruiting-Interviews-Taleo.md
-  Stoplight ID: 98kol5dewxzv1
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Recruiting-New-Hires-Bamboo-HR.md
-  Stoplight ID: 0uafq73jrk4py
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Reports-Migrated-to-Domo.md
-  Stoplight ID: 88laz7jtdwwif
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Resolutions-for-Salesforce-Service-Cloud.md
-  Stoplight ID: 6jv3ko4w8o4ct
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Retail-Scorecard.md
-  Stoplight ID: 96ie4a270v0wk
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Rows-of-Domo-Data.md
-  Stoplight ID: t6w7fpoaf1wcy
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/SDI-Mobile-Dashboard-Adobe-Analytics.md
-  Stoplight ID: ya9mk00sb3drb
-  H1 Title: SDI Mobile Dashboard - Adobe Analytics
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/SDI-Mobile-Dashboard-Google-Analytics.md
-  Stoplight ID: 872vd0lgkeocp
-  H1 Title: SDI Mobile Dashboard - Google Analytics
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/SDI-Product-Performance-Adobe-Analytics.md
-  Stoplight ID: c47da1sp9abku
-  H1 Title: SDI Product Performance - Adobe Analytics
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/SDI-Product-Performance-Google-Analytics.md
-  Stoplight ID: 2591eup2gvjxy
-  H1 Title: SDI Product Performance - Google Analytics
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Leaderboard-2.md
-  Stoplight ID: lg90juvy85xd5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Leaderboard.md
-  Stoplight ID: zo8lewivru14m
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Rep-Activity.md
-  Stoplight ID: i1nlojqurk7kv
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Scorecard.md
-  Stoplight ID: a1iyqntxocm4n
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Targets.md
-  Stoplight ID: w3irkxobd4dvq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-Trends.md
-  Stoplight ID: 43c1o923hjije
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sales-and-Cost-of-Sales.md
-  Stoplight ID: 7p93eucqv73ol
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Season-Passes.md
-  Stoplight ID: caweq9kkqvahx
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Sentiment-Insight.md
-  Stoplight ID: ujdculg8ya69s
-  H1 Title: Sentiment Insight
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Skyword-Awareness-and-Engagement.md
-  Stoplight ID: irt9itaewcr69
-  H1 Title: Skyword Awareness & Engagement
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Snapshot-Spend.md
-  Stoplight ID: 14hre197oon7i
-  H1 Title: Snapshot Spend
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Snowflake-Native-App.md
-  Stoplight ID: None
-  H1 Title: Snowflake Native App
-  Reason: no frontmatter
-
-Installation-Guides/Social-Insights.md
-  Stoplight ID: 2mlcmd08opvly
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/SugarCRM-Top-Performers.md
-  Stoplight ID: c50zj4kaw172b
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Talent-Pipeline.md
-  Stoplight ID: w6x79t1z8mgaq
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Taser-Incidents.md
-  Stoplight ID: sjitmuggs6988
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Theme-Park-Season-Passes.md
-  Stoplight ID: yjfe3mtp0mf1r
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Top-20-Domo-Contributors.md
-  Stoplight ID: 7hlmjb05766oc
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Top-20-Domo-Users.md
-  Stoplight ID: ebwamcw982o4v
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Top-Domo-Alerts.md
-  Stoplight ID: sd6eiqeb4yh1d
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Top-Performers-for-Jira.md
-  Stoplight ID: jnu52rweyhslx
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Top-Search-Campaigns.md
-  Stoplight ID: v4pyggia1botg
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Traffic-Conversions.md
-  Stoplight ID: ccruakogssxxs
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Trial-Customer-Management.md
-  Stoplight ID: ticugbun01w97
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Units-Per-Transaction-Square.md
-  Stoplight ID: d2ib3cat11m7f
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Volunteer-Employees.md
-  Stoplight ID: i8ec7zw9micku
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Warranty-Status.md
-  Stoplight ID: xcupifhomeb8y
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Web-Insights.md
-  Stoplight ID: 77982iytyt2my
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Win-Ratio.md
-  Stoplight ID: j63547f2zwng5
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/Worldwide-Beverage.md
-  Stoplight ID: 0vrkcz9rmmxgs
-  H1 Title: None
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/You-Need-a-Vacation.md
-  Stoplight ID: 5xcfh51f3h774
-  H1 Title: You Need a Vacation
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Installation-Guides/anaplan.md
-  Stoplight ID: ydxofuu6gag6n
-  H1 Title: anaplan
-  Reason: missing title, missing permalink, missing sidebarTitle
-
-Misc/MagicETL/JsonExpand.md
-  Stoplight ID: None
-  H1 Title: None
-  Reason: no frontmatter
-
-Misc/overview.md
-  Stoplight ID: None
-  H1 Title: Misc
-  Reason: no frontmatter
-
-Other-Resources/Developer-Forum.md
+Other-Resources/Developer-Forum.mdx
   Stoplight ID: 05b0hcl6afem2
   H1 Title: Community Forums
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Other-Resources/api-status.md
+Other-Resources/api-status.mdx
   Stoplight ID: d93cd01e7c739
   H1 Title: API Status
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Other-Resources/sample-projects.md
+Other-Resources/sample-projects.mdx
   Stoplight ID: 7162ed588aa08
   H1 Title: Sample Projects
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Domo-Marketplace/marketplace-data-resources.md
+Partner-Developers/Domo-Marketplace/marketplace-data-resources.mdx
   Stoplight ID: 6ea9fcd9e478c
   H1 Title: Appstore Data Resources
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Domo-Marketplace/marketplace-requirements.md
+Partner-Developers/Domo-Marketplace/marketplace-requirements.mdx
   Stoplight ID: c9db4daa8edfe
   H1 Title: Appstore Requirements
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Domo-Marketplace/marketplace-submission.md
+Partner-Developers/Domo-Marketplace/marketplace-submission.mdx
   Stoplight ID: d4f8eee792eb6
   H1 Title: Appstore Submission
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Domo-Marketplace/marketplace-support.md
+Partner-Developers/Domo-Marketplace/marketplace-support.mdx
   Stoplight ID: 6505d9ad61fd0
   H1 Title: Appstore Help and Support
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Domo-Marketplace/overview.md
+Partner-Developers/Domo-Marketplace/overview.mdx
   Stoplight ID: 600e2b5914564
   H1 Title: Domo Appstore
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Guides/building-an-app-overview.md
+Partner-Developers/Guides/building-an-app-overview.mdx
   Stoplight ID: da7996a8b2338
   H1 Title: Building an App Overview
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Guides/getting-data-overview.md
+Partner-Developers/Guides/getting-data-overview.mdx
   Stoplight ID: b836f5593ab26
   H1 Title: Getting Data
   Reason: missing title, missing permalink, missing sidebarTitle
 
-Partner-Developers/Guides/getting-paid.md
+Partner-Developers/Guides/getting-paid.mdx
   Stoplight ID: getting
   H1 Title: Getting Paid Guide
   Reason: no frontmatter
 
-Partner-Developers/Guides/paid-apps.md
+Partner-Developers/Guides/paid-apps.mdx
   Stoplight ID: paid
   H1 Title: Paid Apps Guide
   Reason: no frontmatter
 
-Partner-Developers/Guides/partner-app-submission.md
+Partner-Developers/Guides/partner-app-submission.mdx
   Stoplight ID: partner
   H1 Title: Partner App Submission Guide
   Reason: no frontmatter
 
-Partner-Developers/Guides/snowflake-mmds-quickstart.md
+Partner-Developers/Guides/snowflake-mmds-quickstart.mdx
   Stoplight ID: snowflake
   H1 Title: Snowflake MMDS QuickStart
   Reason: no frontmatter
 
-Partner-Developers/Guides/start-a-remote-workflow.md
+Partner-Developers/Guides/start-a-remote-workflow.mdx
   Stoplight ID: start
   H1 Title: Guide to Using the Global Code Engine Package `Start Workflow in Remote Instance`
   Reason: no frontmatter
 
-Partner-Developers/Guides/submission-checklist.md
+Partner-Developers/Guides/submission-checklist.mdx
   Stoplight ID: submission
   H1 Title: None
   Reason: no frontmatter
 
-Partner-Developers/Guides/video-recording.md
+Partner-Developers/Guides/video-recording.mdx
   Stoplight ID: video
   H1 Title: Video Recording Guide
   Reason: no frontmatter
 
-Security/Integration with SIEM.md
+Security/Integration with SIEM.mdx
   Stoplight ID: None
   H1 Title: Shipping Logs to SIEM
   Reason: no frontmatter

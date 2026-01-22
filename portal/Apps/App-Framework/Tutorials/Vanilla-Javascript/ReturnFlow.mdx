@@ -1,8 +1,8 @@
 ---
+title: 'Return Flow'
+permalink: omi6lzvpm47ei-vanilla-js
 stoplight-id: omi6lzvpm47ei
 ---
-
-# Return Flow
 
 ### Intro
 
@@ -12,9 +12,13 @@ Being able to collect user feedback that provides additional color and context t
 
 You can check out complete code examples of the Return Flow app **[here](https://github.com/DomoApps/returns-walkthrough/tree/final)**.
 
-![Screen Shot 2023-08-06 at 3.57.12 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 3.57.12 PM.png>)
+![Screen Shot 2023-08-06 at 3.57.12 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 3.57.12 PM.png)
 
-<span style="text-decoration: underline;">Before beginning make sure you've completed the [Quick Start](../../Quickstart/Prerequisites.md), which includes setup and installation and the prerequisites for building on the Domo App Platform.</span>
+<span style="text-decoration: underline;">
+  Before beginning make sure you've completed the [Quick
+  Start](../../Quickstart/Prerequisites.md), which includes setup and
+  installation and the prerequisites for building on the Domo App Platform.
+</span>
 
 ### Step 1: Get the Data
 
@@ -37,11 +41,11 @@ Store Number | Customer Name | SKU | Item Returned | Reason for Return
 
 To get this data into Domo you can copy and paste the above directly into Domo using a webform.
 
-![Screen Shot 2023-08-06 at 4.15.45 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.15.45 PM.png>)
+![Screen Shot 2023-08-06 at 4.15.45 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.15.45 PM.png)
 
 I've named my DataSet `Return Flow Sample`, but you can name yours whatever you'd like.
 
-![Screen Shot 2023-08-06 at 4.25.52 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.25.52 PM.png>)
+![Screen Shot 2023-08-06 at 4.25.52 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.25.52 PM.png)
 
 Click 'Save and Continue.'
 
@@ -59,11 +63,11 @@ You'll be prompted to:
 
 Please use the same configuration as the image below, replacing the `dataset id` with the `id` of your DataSet.
 
-![Screen Shot 2023-08-06 at 4.38.28 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.38.28 PM.png>)
+![Screen Shot 2023-08-06 at 4.38.28 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.38.28 PM.png)
 
 Once the files have been initialized in a new directory, you can navigate to that directory with the `cd` command and explore the basic file structure of your App. It should look like the following:
 
-![Screen Shot 2023-08-06 at 4.42.44 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.42.44 PM.png>)
+![Screen Shot 2023-08-06 at 4.42.44 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.42.44 PM.png)
 
 If you open up the `manifest.json` file you can see that we have some default configuration set for our app.
 
@@ -113,15 +117,15 @@ Make sure your `manifest.json` file now looks something like this:
 
 You can find a link to your new App Design in the terminal output.
 
-![Screen Shot 2023-08-06 at 4.56.16 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.56.16 PM.png>)
+![Screen Shot 2023-08-06 at 4.56.16 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.56.16 PM.png)
 
 Go ahead and click on that link and then create a new Card.
 
-![Screen Shot 2023-08-06 at 4.58.27 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.58.27 PM.png>)
+![Screen Shot 2023-08-06 at 4.58.27 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.58.27 PM.png)
 
 When you create a new Card (also known as an "App Instance"), you should see the App Wiring Screen that looks like the below. Our app has a simple `h1` element and is successfully wired up to a DataSet with the alias `returns`, which we've set by default to the Return Flow Sample DataSet we setup in Step 1.
 
-![Screen Shot 2023-08-06 at 4.58.58 PM.png](<../../../../../assets/images/Screen Shot 2023-08-06 at 4.58.58 PM.png>)
+![Screen Shot 2023-08-06 at 4.58.58 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-06 at 4.58.58 PM.png)
 
 Click 'Save and Finish' and we're ready to start writing the code to build our App.
 
@@ -159,11 +163,11 @@ This starter code uses Domo's [Data API](../../../../API-Reference/Domo-App-APIs
 
 Let's confirm that this is working by running the `domo dev` command to launch a hot-reloading local server. You should see a window open in your browser at `localhost:3000`.
 
-![Screen Shot 2023-08-07 at 12.41.41 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 12.41.41 PM.png>)
+![Screen Shot 2023-08-07 at 12.41.41 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 12.41.41 PM.png)
 
 Next, right-click in your browser and click "Inspect", the navigate to the console to see if the `domo.get` request is logging data from your DataSet.
 
-![Screen Shot 2023-08-07 at 12.44.33 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 12.44.33 PM.png>)
+![Screen Shot 2023-08-07 at 12.44.33 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 12.44.33 PM.png)
 
 Great! We have a nice development environment ready to go and it's connected directy to data in Domo.
 
@@ -188,7 +192,7 @@ To pull in the Bootstrap library via CDN, add the following code to the `<head>`
 
 You should notice the font used in the App to change slightly.
 
-![Screen Shot 2023-08-07 at 12.55.12 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 12.55.12 PM.png>)
+![Screen Shot 2023-08-07 at 12.55.12 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 12.55.12 PM.png)
 
 We can override the default Bootstrap styles with some custom CSS of our own. To do that, add the following to the `app.css` file.
 
@@ -324,7 +328,7 @@ There's just one more update we need to make to the `manifest.json` file to ensu
 
 You can find the `proxyId` of your App Instance in the Cards tab of the App Design. Go ahead and copy that id and add it to your `manifest.json` file.
 
-![ReturnFlow ProxyID.gif](<../../../../../assets/images/ReturnFlow ProxyID.gif>)
+![ReturnFlow ProxyID.gif](../../../../images/dev/stoplight.io/imagesimages/ReturnFlow ProxyID.gif)
 
 Your final `manifest.json` file should now look something like this:
 
@@ -400,7 +404,7 @@ Stop the local server with `Command-C` (Mac) or `Control-C` (Windows). Then run 
 
 If you look at your App Design, go to the Card where you App Instance lives, and then click "Edit Card" you can see that the Mapping on the Wiring Screen has changed. You can now select which columns in your connected DataSet map to which column aliases. You should also see a new AppDB collection called `comments`, which has and empty array of data to start `[]`.
 
-![ReturnFlow Card Mapping.gif](<../../../../../assets/images/ReturnFlow Card Mapping.gif>)
+![ReturnFlow Card Mapping.gif](../../../../images/dev/stoplight.io/imagesimages/ReturnFlow Card Mapping.gif)
 
 ### Step 6: Add some boilerplate HTML structure
 
@@ -432,7 +436,7 @@ Then, replace the `<h1>` tag in the `index.html` file with the following code:
 
 This will setup the structure of our grid table that will display the data that we will be fetching from the sample returns dataset.
 
-![Screen Shot 2023-08-07 at 1.37.50 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 1.37.50 PM.png>)
+![Screen Shot 2023-08-07 at 1.37.50 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 1.37.50 PM.png)
 
 ### Step 7: Fetch Returns Data
 
@@ -482,7 +486,7 @@ To see these functions being called by your app, you will need to add the `loadD
 
 Your App should now look like this:
 
-![Screen Shot 2023-08-07 at 1.53.44 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 1.53.44 PM.png>)
+![Screen Shot 2023-08-07 at 1.53.44 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 1.53.44 PM.png)
 
 However, the "Add Comments" link doesn't do anything yet. Let's work on that next.
 
@@ -642,7 +646,7 @@ a {
 
 You should now be able to show and hide the comments section for each row.
 
-![Screen Shot 2023-08-07 at 3.28.38 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 3.28.38 PM.png>)
+![Screen Shot 2023-08-07 at 3.28.38 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 3.28.38 PM.png)
 
 ### Step 9: Create Comment Data
 
@@ -732,7 +736,7 @@ function generateRow(item, index) {
 
 You should now be able to type some text into the comment box and hit Submit and see the comment appear in the comments section for that row. However, this text will not appear if you refresh the app. We need to fetch that data from the server on load. We’ll do that next.
 
-![ReturnFlow Add Comment.gif](<../../../../../assets/images/ReturnFlow Add Comment.gif>)
+![ReturnFlow Add Comment.gif](../../../../images/dev/stoplight.io/imagesimages/ReturnFlow Add Comment.gif)
 
 ### Step 10: Fetch comment data
 
@@ -864,7 +868,7 @@ function generateRow(item, index, commentDocuments) {
 }
 ```
 
-![Screen Shot 2023-08-07 at 4.00.25 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 4.00.25 PM.png>)
+![Screen Shot 2023-08-07 at 4.00.25 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 4.00.25 PM.png)
 
 ### Step 11 - Add Avatars
 
@@ -883,7 +887,7 @@ function generateCommentElement(commentDocument) {
 }
 ```
 
-![Screen Shot 2023-08-07 at 4.03.03 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 4.03.03 PM.png>)
+![Screen Shot 2023-08-07 at 4.03.03 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 4.03.03 PM.png)
 
 ### Step 12: Add Attachments
 
@@ -1008,7 +1012,7 @@ You should now be able to submit a comment with an attachment, see that attachme
 
 Finally, let's `domo publish` one more time to update the App in our Domo instance.
 
-![Screen Shot 2023-08-07 at 4.28.14 PM.png](<../../../../../assets/images/Screen Shot 2023-08-07 at 4.28.14 PM.png>)
+![Screen Shot 2023-08-07 at 4.28.14 PM.png](../../../../images/dev/stoplight.io/imagesimages/Screen Shot 2023-08-07 at 4.28.14 PM.png)
 
 ### Next Steps
 

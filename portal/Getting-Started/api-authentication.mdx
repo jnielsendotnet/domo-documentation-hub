@@ -1,7 +1,9 @@
 ---
+title: "API Reference"
+permalink: 8ba9aedad3679-api-reference
+sidebarTitle: "API Reference"
 stoplight-id: 8ba9aedad3679
 ---
-
 # APIs
 
 Domo's APIs provide programmatic access to the powerful features of the Domo platform, enabling developers and data professionals to automate workflows, integrate external systems, and build custom data applications. Depending on the specific API and the tools you're using, authentication methods may vary — but in every case, your data's security is our top priority. Whether you're pulling data, pushing updates, or managing Users and DataSets, Domo’s APIs offer the flexibility and control you need to extend the value of your data.
@@ -20,7 +22,7 @@ Domo offers several authentication methods, and the APIs available to you will v
 | ------------- | ----------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | App Framework | App Session Token | [App Sessions Guide](../Apps/App-Framework/Guides/app-sessions.md)                                               | Limited to endpoints explicitly allowed by the App Framework.                   |
 | Platform      | API Client        | [Creating a Developer Client and Auth Token](https://developer.domo.com/portal/1845fc11bbe5d-api-authentication) | Limited to a subset of all Product endpoints that can be given scopes.          |
-| Product       | Access Token      | [Managing Access Tokens](https://domo-support.domo.com/s/article/360042934494?language=en_US)                    | Access to all APIs corresponding to an action that can be taken in the Domo UI. |
+| Product       | Access Token      | [Managing Access Tokens](/s/article/360042934494?language=en_US)                    | Access to all APIs corresponding to an action that can be taken in the Domo UI. |
 
 If you're developing in the context of the [Domo App Framework](../Apps/App-Framework/Welcome.md), then you should use the App Framework APIs. This use-case includes both:
 
@@ -29,7 +31,7 @@ If you're developing in the context of the [Domo App Framework](../Apps/App-Fram
 
 If you're developing against Domo outside of the Domo App context, you'll want to use either the Platform (OAuth) APIs or the Product APIs. This use-case may include:
 
-- [Writing Code Engine Functions](https://domo-support.domo.com/s/article/000005173?language=en_US)
+- [Writing Code Engine Functions](/s/article/000005173?language=en_US)
 - [Scripting in Jupyter Workspaces](../Data-Science/jupyter.md)
 - Scripting from outside of Domo
 
@@ -37,7 +39,7 @@ The Platform APIs require using a client to regularly generate a refreshed acces
 
 The Product APIs are much more expansive in what they enable you to do, but you'll need to be more careful managing access to them.
 
-In either case, admins have the ability to [revoke clients for the Platform APIs](https://domo-support.domo.com/s/article/000005240?language=en_US) or [tokens for the Product APIs](https://domo-support.domo.com/s/article/360042934494?language=en_US) at any time.
+In either case, admins have the ability to [revoke clients for the Platform APIs](/s/article/000005240?language=en_US) or [tokens for the Product APIs](/s/article/360042934494?language=en_US) at any time.
 
 ## App Framework APIs
 
@@ -80,7 +82,7 @@ these APIs require creating and managing clients (which include a `client id`, `
 
 ---
 
-Product APIs allow you to programmatically do anything you could do as your user in the Domo UI. It requires [generating an access token in Domo](https://domo-support.domo.com/s/article/360042934494?language=en_US) that you pass to each request via the `X-DOMO-Developer-Token` header, which simulates the same request that the Domo product makes.
+Product APIs allow you to programmatically do anything you could do as your user in the Domo UI. It requires [generating an access token in Domo](/s/article/360042934494?language=en_US) that you pass to each request via the `X-DOMO-Developer-Token` header, which simulates the same request that the Domo product makes.
 
 {/* theme: warning */}
 

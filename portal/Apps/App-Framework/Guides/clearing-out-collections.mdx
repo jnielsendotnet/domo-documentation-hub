@@ -1,17 +1,22 @@
-
-
-# Deleting all documents from a collection
+---
+title: 'Deleting all documents from a collection'
+permalink: clearing-deleting-all-documents-from-a-collection
+sidebarTitle: 'Clearing a Collection'
+stoplight-id: clearing
+---
 
 Use the following script to delete all the documents from a collection.
 
 {/* theme: warning */}
+
 > #### Danger!
-> **Note**: This action is destructive and is not reversible.<br/>
-> **Note**: If you ***really*** need to reverse this action please contact Domo Support. However, please be careful - we may not be able to restore this action and in cases where we can, there are costs associated with it.
+>
+> **Note**: This action is destructive and is not reversible.<br/> > **Note**: If you **_really_** need to reverse this action please contact Domo Support. However, please be careful - we may not be able to restore this action and in cases where we can, there are costs associated with it.
 
 Just copy this code to your browser console, set up your `collectionId` and press enter.
 
 ---
+
 ```js
 const collectionToDeleteId = {{collectionId}};
 
@@ -32,7 +37,7 @@ const purgeRecords = async(collectionId)=>{
         });
     }
 
-    if (data.length === 10000) { 
+    if (data.length === 10000) {
       purgeRecords(collectionId);
     }
 }
@@ -50,4 +55,3 @@ const getCollectionContent = async(collectionId)=>{
 purgeRecords(collectionToDeleteId);
 }
 ```
-

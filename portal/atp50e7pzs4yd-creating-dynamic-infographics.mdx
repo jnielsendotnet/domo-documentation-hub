@@ -27,7 +27,7 @@ To do this only requires three steps:
 
 For this example, lets say you're in real estate and want to regularly share key insights on the housing market in your area. You could create an infographic in a great tool like [Canva](https://www.canva.com/), duplicate it for each zip code, and manually update the data for each as it changes as shown below.
 
-<Frame>![canva-infographics-duplication.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/canva-infographics-duplication.gif)</Frame>
+<Frame>![canva-infographics-duplication.gif](/images/dev/stoplight.io/images/canva-infographics-duplication.gif)</Frame>
 
 However, by combining the power of Domo and Canva in a Domo App, you can create one infographic and tie it to data in Domo for a dynamic experience.
 
@@ -37,11 +37,11 @@ To prepare your infographic template, you'll want to delete all the pieces of th
 
 For example, we'll want to replicate the font and text alignment properties set in Canva for the title as well as the description components of our initial infographic. Let's note these down.
 
-<Frame>![Screenshot 2024-04-19 at 12.35.51 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-12.35.51-PM.png)</Frame>
-<Frame>![Screenshot 2024-04-19 at 12.35.13 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-12.35.13-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 12.35.51 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-12.35.51-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 12.35.13 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-12.35.13-PM.png)</Frame>
 
-<Frame>![Screenshot 2024-04-19 at 12.39.12 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-12.39.12-PM.png)</Frame>
-<Frame>![Screenshot 2024-04-19 at 12.38.49 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-12.38.49-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 12.39.12 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-12.39.12-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 12.38.49 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-12.38.49-PM.png)</Frame>
 
 * **Title**:
   + Font: Moontime
@@ -54,7 +54,7 @@ For example, we'll want to replicate the font and text alignment properties set 
 
 Now I can delete the parts of the infographic that I want to make dynamic.
 
-<Frame>![Screenshot 2024-04-19 at 12.40.29 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-12.40.29-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 12.40.29 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-12.40.29-PM.png)</Frame>
 
 Finally, export this template infographic as a `.png` file. If you'd like to follow along for the next steps, [you can download this infographic template here](https://github.com/DomoApps/canva-infographic-walkthrough/blob/step-03/make-dynamic-data/infographic.png).
 
@@ -66,7 +66,7 @@ In this example, we will setup data in a Domo Webform that we can edit whenever 
 
 To add data to a Domo Webform, just navigate to "Data" > "Connectors" > Search "Webform".
 
-<Frame>![Screenshot 2024-04-19 at 1.00.35 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-1.00.35-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 1.00.35 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-1.00.35-PM.png)</Frame>
 
 You can then paste the following data in your Webform. NOTE: to match the code below, you will want all your column names to be lower-case.
 
@@ -83,7 +83,7 @@ You can then paste the following data in your Webform. NOTE: to match the code b
 | Sisters | 97759 | 40 | 164 | 1225000 | 38 | 35 |
 | Madras | 97741 | 41 | 128 | 470000 | 32 | 33 |
 
-<Frame>![Screenshot 2024-04-19 at 1.08.12 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-1.08.12-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 1.08.12 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-1.08.12-PM.png)</Frame>
 
 Once, you've added this data to Domo, click "Save & Continue".
 
@@ -107,15 +107,15 @@ You'll be prompted to:
 
 Please use the same configuration as the image below, replacing the `dataset id` with the `id` of your DataSet. You can find the `dataset id` by navigating to your Dataset in Domo and copying it from the url.
 
-<Frame>![Screenshot 2024-04-19 at 1.18.39 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-1.18.39-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 1.18.39 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-1.18.39-PM.png)</Frame>
 
 
 
-<Frame>![image (1).png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/image-(1).png)</Frame>
+<Frame>![image (1).png](/images/dev/stoplight.io/images/image-(1).png)</Frame>
 
 Once the files have been initialized in a new directory, you can navigate to that directory with the `cd` command and explore the basic file structure of your App. It should look like the following:
 
-<Frame>![files.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/files-2.png)</Frame>
+<Frame>![files.png](/images/dev/stoplight.io/images/files-2.png)</Frame>
 
 If you open up the `manifest.json` file you can see that we have some default configuration set for our app.
 
@@ -167,15 +167,15 @@ Make sure your `manifest.json` file now looks something like this:
 
 You can find a link to your new App Design in the terminal output.
 
-<Frame>![publish.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/publish.png)</Frame>
+<Frame>![publish.png](/images/dev/stoplight.io/images/publish.png)</Frame>
 
 Go ahead and click on that link and then create a new Card.
 
-<Frame>![design.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/design.png)</Frame>
+<Frame>![design.png](/images/dev/stoplight.io/images/design.png)</Frame>
 
 When you create a new Card (also known as an "App Instance"), you should see the App Wiring Screen that looks like the below. Our app has a simple `h1` element and is successfully wired up to a DataSet with the alias `infographicData`, which we've set by default to the sample DataSet we setup in Step 1.
 
-<Frame>![card.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/card.png)</Frame>
+<Frame>![card.png](/images/dev/stoplight.io/images/card.png)</Frame>
 
 Click 'Save and Finish' and we're ready to start writing the code to build our App.
 
@@ -211,11 +211,11 @@ This starter code uses Domo's [Data API](/portal/8s3y9eldnjq8d-data-api) to get 
 
 Let's confirm that this is working by running the `domo dev` command to launch a hot-reloading local server. You should see a window open in your browser at `localhost:3000`.
 
-<Frame>![running.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/running.png)</Frame>
+<Frame>![running.png](/images/dev/stoplight.io/images/running.png)</Frame>
 
 Next, right-click in your browser and click "Inspect", the navigate to the console to see if the `domo.get` request is logging data from your DataSet.
 
-<Frame>![show-data.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/show-data-2.png)</Frame>
+<Frame>![show-data.png](/images/dev/stoplight.io/images/show-data-2.png)</Frame>
 
 Great! We have a nice development environment ready to go and it's connected directy to data in Domo.
 
@@ -223,7 +223,7 @@ Great! We have a nice development environment ready to go and it's connected dir
 
 First of all, let's add to our project the infographic `.png` image that we created in the step 1. Name this file `infographic.png` and place it in the same directory as the rest of your app files.
 
-<Frame>![add-png.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/add-png-2.png)</Frame>
+<Frame>![add-png.png](/images/dev/stoplight.io/images/add-png-2.png)</Frame>
 
 The next step is to work on the infographic template by editing the HTML code in the `index.html` file; let's create a simple structure that we can use to display the infographic information.
 
@@ -353,7 +353,7 @@ body {
 
 After styling the application, Let's confirm that this is working by running the `domo dev` command again, please remember to open a window in your browser at `localhost:3000`.
 
-<Frame>![look&feel.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/look-feel.png)</Frame>
+<Frame>![look&feel.png](/images/dev/stoplight.io/images/look-feel.png)</Frame>
 
 Great! Our application looks much better and reflects all the work we did on the HTML and CSS files.
 
@@ -589,7 +589,7 @@ Great! We have our Javascript code ready to fetch data from the dataset and add 
 
 Now, let's run our application again using the `domo dev` command to see if is working well and including our dataset data in the HTML code:
 
-<Frame>![Screenshot 2024-04-19 at 1.56.05 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-19-at-1.56.05-PM.png)</Frame>
+<Frame>![Screenshot 2024-04-19 at 1.56.05 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-19-at-1.56.05-PM.png)</Frame>
 
 Congrats! The application is working well and adding the data from our infographic dataset dynamically.
 
@@ -613,13 +613,13 @@ Let's start by creating an App Studio canvas in Domo, which will provide a place
 
 You can create an App Studio canvas by navigating to "Apps" > "Create App" > Select Theme > "Apply" as shown below.
 
-<Frame>![create app studio gif.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/create-app-studio-gif.gif)</Frame>
+<Frame>![create app studio gif.gif](/images/dev/stoplight.io/images/create-app-studio-gif.gif)</Frame>
 
 Once you are in the edit view of your new App Studio canvas, you can add our custom dynamic infographic component.
 
 Click the "+" button on the left navigation menu and drag the "Card" icon to your canvas. Search for your dynamic infographic component. Select it and size the component to your liking.
 
-<Frame>![add component to app studio.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/add-component-to-app-studio.gif)</Frame>
+<Frame>![add component to app studio.gif](/images/dev/stoplight.io/images/add-component-to-app-studio.gif)</Frame>
 
 #### Pro-code and No-code Components
 
@@ -638,7 +638,7 @@ To create a filter card, we'll:
 * create a Beast Mode (`city_zip`) that we can use to display both city and zip in our filter
 * Size our filter component on the App Studio canvas
 
-<Frame>![adding filter to app.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/adding-filter-to-app.gif)</Frame>
+<Frame>![adding filter to app.gif](/images/dev/stoplight.io/images/adding-filter-to-app.gif)</Frame>
 
 **Adding a bar chart**
 
@@ -651,11 +651,11 @@ You can follow a similar pattern to add the bar chart:
 * select the bar chart card visual
 * adjust the y and x axes as well as the sorting settings
 
-<Frame>![adding chart to app.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/adding-chart-to-app.gif)</Frame>
+<Frame>![adding chart to app.gif](/images/dev/stoplight.io/images/adding-chart-to-app.gif)</Frame>
 
 You can see that both our bar chart and dynamic infographic inherit the filter on our App. However, since we'd like the chart to provide more global context, we can disable filtering for that component.
 
-<Frame>![adjust filter exceptions.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/adjust-filter-exceptions.gif)</Frame>
+<Frame>![adjust filter exceptions.gif](/images/dev/stoplight.io/images/adjust-filter-exceptions.gif)</Frame>
 
 Great! Before sharing our app with the world, we can make some small quality of life improvements.
 
@@ -665,7 +665,7 @@ Great! Before sharing our app with the world, we can make some small quality of 
 
 After those small tweaks, the final app looks like the following:
 
-<Frame>![Screenshot 2024-04-24 at 10.52.29 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-04-24-at-10.52.29-AM.png)</Frame>
+<Frame>![Screenshot 2024-04-24 at 10.52.29 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-04-24-at-10.52.29-AM.png)</Frame>
 
 #### Sharing our App
 
@@ -676,6 +676,6 @@ One of the major benefits of building our solution on Domo is that we can now ea
 * configure the embed settings
 * copy the Iframe (for embedding in other places) or just the link to your app
 
-<Frame>![public embedding app.gif](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/public-embedding-app.gif)</Frame>
+<Frame>![public embedding app.gif](/images/dev/stoplight.io/images/public-embedding-app.gif)</Frame>
 
 If you'd like to see [the final solution live, you can do so here](https://public.domo.com/embed/pages/rRvmp)!

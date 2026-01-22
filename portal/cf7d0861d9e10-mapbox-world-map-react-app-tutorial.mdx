@@ -148,7 +148,7 @@ If you're not already running your local development environment, run the start 
 
 Check your browser at `localhost:3000`, where your app should be running. You should see an interactive globe map. You can use your scroll wheel to zoom in and out, and you can drag the globe to rotate it.
 
-<Frame>![mapbox-globe.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/mapbox-globe.png)</Frame>
+<Frame>![mapbox-globe.png](/images/dev/stoplight.io/tutorials/mapbox-globe.png)</Frame>
 
 ### Step 5: Style map and add a few points
 
@@ -181,7 +181,7 @@ mapRef.current = new mapboxgl.Map({
 
 If you return to your browser, your app should now look like this:
 
-<Frame>![mapbox-cartesian.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/mapbox-cartesian.png)</Frame>
+<Frame>![mapbox-cartesian.png](/images/dev/stoplight.io/tutorials/mapbox-cartesian.png)</Frame>
 
 Our custom style converts the map from a globe to a cartesian map, where it appears to be laying flat. We also set some dark colors for the land and sea.
 
@@ -331,7 +331,7 @@ useEffect(() => {
 
 Save your changes and check the browser. You should see our 10 U.S. cities on the map as little magenta circles.
 
-<Frame>![mapbox-sample-points.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/mapbox-sample-points.png)</Frame>
+<Frame>![mapbox-sample-points.png](/images/dev/stoplight.io/tutorials/mapbox-sample-points.png)</Frame>
 
 ### Step 6: Wire data to our app
 
@@ -391,7 +391,7 @@ Now, return to your app and open the `manifest.json` file. We're going to add an
 
 Replace `YOUR_DATASET_ID` with the unique ID for the dataset you created in your Domo instance a moment ago. You can find the ID in the URL bar when viewing the dataset.
 
-<Frame>![dataset-id-example.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/dataset-id-example.png)</Frame>
+<Frame>![dataset-id-example.png](/images/dev/stoplight.io/tutorials/dataset-id-example.png)</Frame>
 
 Before we can query this dataset locally, we'll need to upload our app to Domo in order to establish the connection we've added to the `manifest.json` file. Let's do that now.
 
@@ -405,11 +405,11 @@ Next, run `yarn upload` or `npm upload`.
 
 This will build your project and create a new app Design in your Domo instance. If the command runs successfully, you'll see something like this in your terminal when it's finished:
 
-<Frame>![app-upload-success.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/app-upload-success.png)</Frame>
+<Frame>![app-upload-success.png](/images/dev/stoplight.io/tutorials/app-upload-success.png)</Frame>
 
 Now, let's find the newly created Design in your Domo instance. Return to Domo in the browser, click on the `MORE` option at the top, and select `Asset Library`. You should be able to find your World Map App here. Click on the asset to open its details. Below the name of the asset, you'll see a `Design Id`. Copy that.
 
-<Frame>![asset-example.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/asset-example.png)</Frame>
+<Frame>![asset-example.png](/images/dev/stoplight.io/tutorials/asset-example.png)</Frame>
 
 Return to your app so we can add the `Design Id` to the `manifest.json` file. After the closing square brackets of your `mapping` property, add a comma and a new line. Then, add this line of code:
 
@@ -426,7 +426,7 @@ Click `Save & Finish` in the top right to save your new Card.
 
 Now, return to the `Asset Library` and find your Design again. Click on the `Cards` tab at the top and you should see your newly created card. Find the `Proxy Id` property and copy that value.
 
-<Frame>![asset-card-example.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/asset-card-example.png)</Frame>
+<Frame>![asset-card-example.png](/images/dev/stoplight.io/tutorials/asset-card-example.png)</Frame>
 
 Return to the `manifest.json` file in your app and add another line below the previous addition:
 
@@ -725,7 +725,7 @@ export default App;
 
 Return to the browser and look at your finished map (you may need to refresh). You should see thousands of points all over the map, where the size and color of each point is determined by the population size of the city. How beautiful and interesting!
 
-<Frame>![mapbox-finished.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/tutorials/mapbox-world-app/mapbox-finished.png)</Frame>
+<Frame>![mapbox-finished.png](/images/dev/stoplight.io/tutorials/mapbox-finished.png)</Frame>
 
 Congratulations! You've completed this tutorial. Now that you know how to wire an app to a DataSet and how to render a map from Mapbox, you might have more ideas of how you could use these features to your benefit. A map like this can be further iterated on to add hover interactions to display data, to give one example.
 

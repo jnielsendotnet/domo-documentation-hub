@@ -28,7 +28,7 @@ You can convert your Brick **semi-automatically** with the “Convert to App” 
 1. **Edit** your Brick
 2. Click the “**Convert to App**” button in the header.
 
-<Frame>![The button is in the header of the brick editor, next to the COLLABORATORS button.](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/where_to_find_convert_to_app_button.png)</Frame>
+<Frame>![The button is in the header of the brick editor, next to the COLLABORATORS button.](/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png)</Frame>
 
 <Note>
 
@@ -80,22 +80,22 @@ As long as you've kept the order the same, that should be sufficient.
 * Select the “manifest.json” file and use the “+ Add Dataset” button.
 * Click the icon in the dataset ID input field.
 
-<Frame>![choosemanifest.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_choosemanifest.png)</Frame>
+<Frame>![choosemanifest.png](/images/dev/stoplight.io/images/_assets_images_choosemanifest.png)</Frame>
 
 ### 4. Select your dataset from the modal:
-<Frame>![choosedataset.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_choosedataset.png)</Frame>
+<Frame>![choosedataset.png](/images/dev/stoplight.io/images/_assets_images_choosedataset.png)</Frame>
 
 ### 5. Create an alias for the dataset ID
 * This will be used to humanize your API calls to the [DataSet endpoint(s)](/portal/8s3y9eldnjq8d-data-api). 
-<Frame>![mapping.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_mapping.png)</Frame>
+<Frame>![mapping.png](/images/dev/stoplight.io/images/_assets_images_mapping.png)</Frame>
 * In this example, the alias we chose was “mapData” – you will need to update your API calls to use this alias for your dataset.
-<Frame>![callalias.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_callalias.png)</Frame>
+<Frame>![callalias.png](/images/dev/stoplight.io/images/_assets_images_callalias.png)</Frame>
 
 ### 6. Create an alias for each Column Name that you will be using.
 _Note: It is not required to have all columns listed. Additionally, the Pro-Code Editor includes a 'sync' feature that will automatically populate the list of columns and their aliases for you!_
 
 * Ensure that your new aliases do not have any spaces or special characters in them, as the Pro-Code Editor will not allow it.
-<Frame>![manifestalias.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_manifestalias.png)</Frame>
+<Frame>![manifestalias.png](/images/dev/stoplight.io/images/_assets_images_manifestalias.png)</Frame>
 
 ### 7. Update the dataset references
 * Ensure all API calls now reference the corresponding alias for that dataset.
@@ -103,8 +103,8 @@ _Note: It is not required to have all columns listed. Additionally, the Pro-Code
 
 Here is an example from a common Brick Template. In this example the original code is on the top with the updated code on the bottom:
 
-<Frame>![codebefore.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_codebefore.png)</Frame>
-<Frame>![codeafter.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/_assets_images_codeafter.png)</Frame>
+<Frame>![codebefore.png](/images/dev/stoplight.io/images/_assets_images_codebefore.png)</Frame>
+<Frame>![codeafter.png](/images/dev/stoplight.io/images/_assets_images_codeafter.png)</Frame>
 
 You won’t need any references to `window.datasets`, so be sure to remove that reference!
 

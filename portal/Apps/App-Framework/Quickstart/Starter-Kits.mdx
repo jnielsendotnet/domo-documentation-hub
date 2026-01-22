@@ -1,20 +1,23 @@
 ---
+title: Starter Kits
+permalink: u8w475o2245yp-quickstart
 stoplight-id: u8w475o2245yp
 ---
 
-# Starter Kits
-
 ### Bring Your Own Stack (BYOS)
+
 ---
+
 Does `domo init` not give you enough of what you’re used to for starting new projects If you have a generator or starter kit you’re partial to, you can still use it. All you have to do is update your local development server to handle requests for data from Domo. Here are a few examples of how you can leverage the <a href="https://www.npmjs.com/package/@domoinc/ryuu-proxy">ryuu-proxy</a> module to turn any existing web application into a Domo App.
 
-{/* type: tab
-title: React */}
+<Tabs>
+<Tab title="React">
 
 {/* theme: info */}
+
 > #### Advanced React Template
 >
-> In addition to the **basic template below**, Domo also has a more advanced template available that Domo teams use when building apps. Contact your Account Executive for more information on how to obtain access to the Advanced App Platform Package. 
+> In addition to the **basic template below**, Domo also has a more advanced template available that Domo teams use when building apps. Contact your Account Executive for more information on how to obtain access to the Advanced App Platform Package.
 
 #### Basic Create React App
 
@@ -25,17 +28,11 @@ DomoApps has a basic create-react-app template that can be installed that includ
 Replace the word `my-app` in the following commands with the app name of your choice.
 
 <strong>yarn</strong>
-```
-yarn create react-app my-app --template @domoinc
-```
+``` yarn create react-app my-app --template @domoinc ```
 <strong>npx</strong>
-```
-npx create-react-app my-app --template @domoinc
-```
+``` npx create-react-app my-app --template @domoinc ```
 <strong>npm</strong>
-```
-npm init react-app my-app -- --template @domoinc
-```
+``` npm init react-app my-app -- --template @domoinc ```
 
 These commands will create your project in a `my-app` folder with the following included:
 
@@ -53,12 +50,10 @@ These commands will create your project in a `my-app` folder with the followin
 
 #### Local Development
 
-
 Run the `yarn start` (or `npm start`) command (after you've uploaded your app at least once) to start developing locally.
 
-
-{/* type: tab
-title: Angular */}
+</Tab>
+<Tab title="Angular">
 
 #### Prerequisites
 
@@ -78,6 +73,7 @@ Select NO when prompted whether SSR should be enabled for the new project.
 ```
 $ ng add @domoinc/ryuu-angular
 ```
+
 This will add the following:
 
 - Domo `manifest.json` and `thumbnail.png` to a new `domo` directory at the root of the project
@@ -90,13 +86,12 @@ In order for the proxy to work in local development you need to have uploaded yo
 
 After this you should be able to run `ng serve` like normal and you'll be able to proxy domo requests in your local development.
 
-{/* type: tab
-title: Vue */}
+</Tab>
+<Tab title="Vue">
 
 #### Prerequisites
 
 Install <a href="https://github.com/vuejs/vue-cli">Vue CLI</a>
-
 
 #### Create new project
 
@@ -123,6 +118,7 @@ npm install --save-dev @domoinc/ryuu-proxy
 ```
 
 Add the following to `./config/index.js`
+
 ```
 var { Proxy } = require('@domoinc/ryuu-proxy')
 var manifest = require('../domo/manifest.json')
@@ -130,6 +126,7 @@ var domoProxy = new Proxy({ manifest })
 ```
 
 Now add the following to `dev:{}` within the same file `./config/index.js`
+
 ```
 dev: {
     // existing scaffolded options
@@ -140,6 +137,7 @@ dev: {
 ```
 
 Open `./build/webpack.dev.conf.js` and add the following to the end of `devServer: {}`
+
 ```
 devServer: {
     // existing scaffolded options
@@ -150,8 +148,10 @@ devServer: {
 ```
 
 Add `id` to `manifest.json` if not already done, and run:
+
 ```
 domo publish
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
