@@ -412,124 +412,124 @@
     "images": [
       {
         "type": "markdown",
-        "path": "/images/dev/asset-library-tutorial.png",
+        "path": "/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "alt": "asset-library.png",
         "title": "",
         "line": 14,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/asset-library-tutorial.png",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/template.png",
+        "path": "/images/dev/stoplight.io/images/template.png",
         "alt": "template.png",
         "title": "",
         "line": 20,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/template.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/template.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/save-template.png",
+        "path": "/images/dev/stoplight.io/images/save-template.png",
         "alt": "save-template.png",
         "title": "",
         "line": 28,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/save-template.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/save-template.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/workspace-options.png",
+        "path": "/images/dev/stoplight.io/images/workspace-options.png",
         "alt": "workspace-options.png",
         "title": "",
         "line": 37,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/workspace-options.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/workspace-options.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/keyboard.png",
+        "path": "/images/dev/stoplight.io/images/keyboard.png",
         "alt": "keyboard.png",
         "title": "",
         "line": 41,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/keyboard.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/keyboard.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/file-explorer.png",
+        "path": "/images/dev/stoplight.io/images/file-explorer.png",
         "alt": "file-explorer.png",
         "title": "",
         "line": 49,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/file-explorer.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/file-explorer.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/open-preview.png",
+        "path": "/images/dev/stoplight.io/images/open-preview.png",
         "alt": "open-preview.png",
         "title": "",
         "line": 53,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/open-preview.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/open-preview.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/preview.png",
+        "path": "/images/dev/stoplight.io/images/preview.png",
         "alt": "preview.png",
         "title": "",
         "line": 57,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/preview.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/preview.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/resize-preview.png",
+        "path": "/images/dev/stoplight.io/images/resize-preview.png",
         "alt": "resize-preview.png",
         "title": "",
         "line": 63,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/resize-preview.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/resize-preview.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/refresh.png",
+        "path": "/images/dev/stoplight.io/images/refresh.png",
         "alt": "refresh.png",
         "title": "",
         "line": 69,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/refresh.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/refresh.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "/images/dev/custom-size.png",
+        "path": "/images/dev/stoplight.io/images/custom-size.png",
         "alt": "custom-size.png",
         "title": "",
         "line": 75,
         "path_type": "absolute",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/custom-size.png",
-        "exists": false,
-        "status": "File not found"
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/custom-size.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7339,14 +7339,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/advanced-form-overview.png",
+        "path": "/images/dev/stoplight.io/images/advanced-form-overview.png",
         "alt": "advanced-form-overview.png",
         "title": "",
         "line": 11,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/advanced-form-overview.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/advanced-form-overview.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7356,36 +7356,36 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/advanced-form-dropdown.png",
+        "path": "/images/dev/stoplight.io/images/advanced-form-dropdown.png",
         "alt": "advanced-form-dropdown.png",
         "title": "",
         "line": 16,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/advanced-form-dropdown.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/advanced-form-dropdown.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/advanced-form-build-variables.png",
+        "path": "/images/dev/stoplight.io/images/advanced-form-build-variables.png",
         "alt": "advanced-form-build-variables.png",
         "title": "",
         "line": 68,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/advanced-form-build-variables.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/advanced-form-build-variables.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/advanced-form-set-value.png",
+        "path": "/images/dev/stoplight.io/images/advanced-form-set-value.png",
         "alt": "advanced-form-set-value.png",
         "title": "",
         "line": 92,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/advanced-form-set-value.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/advanced-form-set-value.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7440,14 +7440,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../assets/images/Forecasting_Domo_App.png",
+        "path": "/images/dev/stoplight.io/images/Forecasting_Domo_App.png",
         "alt": "My Image",
         "title": "",
         "line": 40,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/Forecasting_Domo_App.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/Forecasting_Domo_App.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7457,25 +7457,25 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../assets/images/AutoML_pic1.png",
+        "path": "/images/dev/stoplight.io/images/AutoML_pic1.png",
         "alt": "My Image",
         "title": "",
         "line": 11,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/AutoML_pic1.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/AutoML_pic1.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../assets/images/AutoML_pic2.png",
+        "path": "/images/dev/stoplight.io/images/AutoML_pic2.png",
         "alt": "My Image",
         "title": "",
         "line": 15,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/AutoML_pic2.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/AutoML_pic2.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7785,47 +7785,47 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/image-2024-4-25_8-21-5.png",
+        "path": "/images/dev/stoplight.io/images/image-2024-4-25_8-21-5.png",
         "alt": "Dataset navigation example",
         "title": "",
         "line": 23,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/image-2024-4-25_8-21-5.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-2024-4-25_8-21-5.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/image-2024-4-25_8-23-51.png",
+        "path": "/images/dev/stoplight.io/images/image-2024-4-25_8-23-51.png",
         "alt": "Federated integration example",
         "title": "",
         "line": 26,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/image-2024-4-25_8-23-51.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-2024-4-25_8-23-51.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/image-2024-4-25_8-26-24.png",
+        "path": "/images/dev/stoplight.io/images/image-2024-4-25_8-26-24.png",
         "alt": "Federated see more example",
         "title": "",
         "line": 29,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/image-2024-4-25_8-26-24.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-2024-4-25_8-26-24.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/image-2024-4-25_8-28-9.png",
+        "path": "/images/dev/stoplight.io/images/image-2024-4-25_8-28-9.png",
         "alt": "add new account example",
         "title": "",
         "line": 32,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/image-2024-4-25_8-28-9.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-2024-4-25_8-28-9.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7952,14 +7952,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/Picture1.jpg",
+        "path": "/images/dev/stoplight.io/images/Picture1.jpg",
         "alt": "Picture1.jpg",
         "title": "",
         "line": 12,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/Picture1.jpg",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/Picture1.jpg",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -7989,14 +7989,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../images/dev/stoplight.io/images/images/Picture1.png",
+        "path": "/images/dev/stoplight.io/images/Picture1.png",
         "alt": "Picture1.png",
         "title": "",
         "line": 14,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/images/Picture1.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/Picture1.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -8046,14 +8046,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../assets/images/boardgametablebrick-2.gif",
+        "path": "/images/dev/stoplight.io/images/boardgametablebrick-2.gif",
         "alt": "boardgametablebrick.gif",
         "title": "",
         "line": 11,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/boardgametablebrick-2.gif",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/boardgametablebrick-2.gif",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
@@ -8233,14 +8233,14 @@
       },
       {
         "type": "markdown",
-        "path": "../../assets/images/bricks-or-app-framework.png",
+        "path": "/images/dev/stoplight.io/images/bricks-or-app-framework.png",
         "alt": "bricks-or-app-framework.png",
         "title": "",
         "line": 393,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/bricks-or-app-framework.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/bricks-or-app-framework.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -8498,14 +8498,14 @@
       },
       {
         "type": "markdown",
-        "path": "../../assets/images/thumbnail.png",
+        "path": "/images/dev/stoplight.io/images/thumbnail.png",
         "alt": "thumbnail.png",
         "title": "",
         "line": 146,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/thumbnail.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/thumbnail.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
@@ -8889,36 +8889,36 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../assets/images/domo-everywhere-settings-scheduled-reports.png",
+        "path": "/images/dev/stoplight.io/images/domo-everywhere-settings-scheduled-reports.png",
         "alt": "Domo Everywhere Settings - Generate Secret",
         "title": "",
         "line": 206,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/domo-everywhere-settings-scheduled-reports.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/domo-everywhere-settings-scheduled-reports.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../assets/images/domo-everywhere-embed-schedule-reports-setup.png",
+        "path": "/images/dev/stoplight.io/images/domo-everywhere-embed-schedule-reports-setup.png",
         "alt": "Embed Scheduled Reports Setup",
         "title": "",
         "line": 214,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/domo-everywhere-embed-schedule-reports-setup.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/domo-everywhere-embed-schedule-reports-setup.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../assets/images/domo-everywhere-bademail-embed-schedule-reports.png",
+        "path": "/images/dev/stoplight.io/images/domo-everywhere-bademail-embed-schedule-reports.png",
         "alt": "Invalid Email Error Example",
         "title": "",
         "line": 228,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/domo-everywhere-bademail-embed-schedule-reports.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/domo-everywhere-bademail-embed-schedule-reports.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -9533,14 +9533,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../assets/images/bricks-or-app-framework.png",
+        "path": "/images/dev/stoplight.io/images/bricks-or-app-framework.png",
         "alt": "bricks-or-app-framework.png",
         "title": "",
         "line": 19,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/bricks-or-app-framework.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/bricks-or-app-framework.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "html",
@@ -9776,58 +9776,58 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/domo-form-brick-3.png",
+        "path": "/images/dev/stoplight.io/images/domo-form-brick-3.png",
         "alt": "domo-form-brick.png",
         "title": "",
         "line": 74,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/domo-form-brick-3.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/domo-form-brick-3.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/todo-brick-2.png",
+        "path": "/images/dev/stoplight.io/images/todo-brick-2.png",
         "alt": "todo-brick.png",
         "title": "",
         "line": 79,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/todo-brick-2.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/todo-brick-2.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/calendar-brick-2.png",
+        "path": "/images/dev/stoplight.io/images/calendar-brick-2.png",
         "alt": "calendar-brick.png",
         "title": "",
         "line": 84,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/calendar-brick-2.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/calendar-brick-2.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/gantt-brick-2.png",
+        "path": "/images/dev/stoplight.io/images/gantt-brick-2.png",
         "alt": "gantt-brick.png",
         "title": "",
         "line": 90,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/gantt-brick-2.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/gantt-brick-2.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/sugarforcebrick-2.png",
+        "path": "/images/dev/stoplight.io/images/sugarforcebrick-2.png",
         "alt": "sugarforcebrick.png",
         "title": "",
         "line": 135,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/sugarforcebrick-2.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/sugarforcebrick-2.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "html",
@@ -9925,14 +9925,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/where_to_find_convert_to_app_button.png",
+        "path": "/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png",
         "alt": "The button is in the header of the brick editor, next to the COLLABORATORS button.",
         "title": "",
         "line": 31,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/where_to_find_convert_to_app_button.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
@@ -10024,146 +10024,146 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/asset-library-tutorial.png",
+        "path": "/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "alt": "asset_library",
         "title": "",
         "line": 27,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/asset-library-tutorial.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/asset-library-tutorial.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/procode-button.png",
+        "path": "/images/dev/stoplight.io/images/procode-button.png",
         "alt": "pro_code_button",
         "title": "",
         "line": 31,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/procode-button.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/procode-button.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/procode-editor.png",
+        "path": "/images/dev/stoplight.io/images/procode-editor.png",
         "alt": "pro_code_editor",
         "title": "",
         "line": 34,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/procode-editor.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/procode-editor.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/code-engine-manifest.png",
+        "path": "/images/dev/stoplight.io/images/code-engine-manifest.png",
         "alt": "code-engine-manifest",
         "title": "",
         "line": 103,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/code-engine-manifest.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/code-engine-manifest.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/workflows-navigate.png",
+        "path": "/images/dev/stoplight.io/images/workflows-navigate.png",
         "alt": "workflows-navigate",
         "title": "",
         "line": 113,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/workflows-navigate.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/workflows-navigate.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/code-engine-navigate.png",
+        "path": "/images/dev/stoplight.io/images/code-engine-navigate.png",
         "alt": "code-engine-navigate",
         "title": "",
         "line": 114,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/code-engine-navigate.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/code-engine-navigate.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/create-code-engine.png",
+        "path": "/images/dev/stoplight.io/images/create-code-engine.png",
         "alt": "create-code-engine",
         "title": "",
         "line": 118,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/create-code-engine.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/create-code-engine.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/name-language-code.png",
+        "path": "/images/dev/stoplight.io/images/name-language-code.png",
         "alt": "name-language-code",
         "title": "",
         "line": 119,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/name-language-code.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/name-language-code.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/deploy.png",
+        "path": "/images/dev/stoplight.io/images/deploy.png",
         "alt": "deploy",
         "title": "",
         "line": 123,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/deploy.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/deploy.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/get-cards.png",
+        "path": "/images/dev/stoplight.io/images/get-cards.png",
         "alt": "get-cards",
         "title": "",
         "line": 182,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/get-cards.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/get-cards.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/get-pdf.png",
+        "path": "/images/dev/stoplight.io/images/get-pdf.png",
         "alt": "get-pdf",
         "title": "",
         "line": 214,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/get-pdf.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/get-pdf.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/page-pdf.png",
+        "path": "/images/dev/stoplight.io/images/page-pdf.png",
         "alt": "page-pdf",
         "title": "",
         "line": 317,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/page-pdf.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/page-pdf.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/final-app.png",
+        "path": "/images/dev/stoplight.io/images/final-app.png",
         "alt": "final-app",
         "title": "",
         "line": 619,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/final-app.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/final-app.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10173,69 +10173,69 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/asset-library-tutorial.png",
+        "path": "/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "alt": "asset_library",
         "title": "",
         "line": 14,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/asset-library-tutorial.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/asset-library-tutorial.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/procode-button.png",
+        "path": "/images/dev/stoplight.io/images/procode-button.png",
         "alt": "pro_code_button",
         "title": "",
         "line": 17,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/procode-button.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/procode-button.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/procode-editor.png",
+        "path": "/images/dev/stoplight.io/images/procode-editor.png",
         "alt": "pro_code_editor",
         "title": "",
         "line": 19,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/procode-editor.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/procode-editor.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/manifestGui.png",
+        "path": "/images/dev/stoplight.io/images/manifestGui.png",
         "alt": "Manifest GUI",
         "title": "",
         "line": 109,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/manifestGui.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/manifestGui.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/bar-label.png",
+        "path": "/images/dev/stoplight.io/images/bar-label.png",
         "alt": "Bar Label",
         "title": "",
         "line": 364,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/bar-label.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/bar-label.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/stacked-bars.gif",
+        "path": "/images/dev/stoplight.io/images/stacked-bars.gif",
         "alt": "Stacked Bars",
         "title": "",
         "line": 384,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/stacked-bars.gif",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/stacked-bars.gif",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10375,91 +10375,91 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/domoinstance.png",
+        "path": "/images/dev/stoplight.io/images/domoinstance.png",
         "alt": "domoinstance.png",
         "title": "",
         "line": 12,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/domoinstance.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/domoinstance.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/datasources.png",
+        "path": "/images/dev/stoplight.io/images/datasources.png",
         "alt": "datasources.png",
         "title": "",
         "line": 18,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/datasources.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/datasources.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/dataset.png",
+        "path": "/images/dev/stoplight.io/images/dataset.png",
         "alt": "dataset.png",
         "title": "",
         "line": 24,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/dataset.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/dataset.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/datacenter.png",
+        "path": "/images/dev/stoplight.io/images/datacenter.png",
         "alt": "datacenter.png",
         "title": "",
         "line": 30,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/datacenter.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/datacenter.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/appdesign.png",
+        "path": "/images/dev/stoplight.io/images/appdesign.png",
         "alt": "appdesign.png",
         "title": "",
         "line": 36,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/appdesign.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/appdesign.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/appinstances.png",
+        "path": "/images/dev/stoplight.io/images/appinstances.png",
         "alt": "appinstances.png",
         "title": "",
         "line": 42,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/appinstances.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/appinstances.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/wiringscreen.png",
+        "path": "/images/dev/stoplight.io/images/wiringscreen.png",
         "alt": "wiringscreen.png",
         "title": "",
         "line": 98,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/wiringscreen.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/wiringscreen.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/appdb.png",
+        "path": "/images/dev/stoplight.io/images/appdb.png",
         "alt": "appdb.png",
         "title": "",
         "line": 104,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/appdb.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/appdb.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10494,121 +10494,121 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/asset-library-tutorial.png",
+        "path": "/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "alt": "asset-library.png",
         "title": "",
         "line": 18,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/asset-library-tutorial.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/template.png",
+        "path": "/images/dev/stoplight.io/images/template.png",
         "alt": "template.png",
         "title": "",
         "line": 24,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/template.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/save-template.png",
+        "path": "/images/dev/stoplight.io/images/save-template.png",
         "alt": "save-template.png",
         "title": "",
         "line": 32,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/save-template.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/workspace-options.png",
+        "path": "/images/dev/stoplight.io/images/workspace-options.png",
         "alt": "workspace-options.png",
         "title": "",
         "line": 41,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/workspace-options.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/keyboard.png",
+        "path": "/images/dev/stoplight.io/images/keyboard.png",
         "alt": "keyboard.png",
         "title": "",
         "line": 45,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/keyboard.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/file-explorer.png",
+        "path": "/images/dev/stoplight.io/images/file-explorer.png",
         "alt": "file-explorer.png",
         "title": "",
         "line": 53,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/file-explorer.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/open-preview.png",
+        "path": "/images/dev/stoplight.io/images/open-preview.png",
         "alt": "open-preview.png",
         "title": "",
         "line": 57,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/open-preview.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/preview.png",
+        "path": "/images/dev/stoplight.io/images/preview.png",
         "alt": "preview.png",
         "title": "",
         "line": 61,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/preview.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/resize-preview.png",
+        "path": "/images/dev/stoplight.io/images/resize-preview.png",
         "alt": "resize-preview.png",
         "title": "",
         "line": 67,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/resize-preview.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/refresh.png",
+        "path": "/images/dev/stoplight.io/images/refresh.png",
         "alt": "refresh.png",
         "title": "",
         "line": 73,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/refresh.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../images/dev/stoplight.io/images/custom-size.png",
+        "path": "/images/dev/stoplight.io/images/custom-size.png",
         "alt": "custom-size.png",
         "title": "",
         "line": 79,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/custom-size.png",
         "exists": true,
         "status": "OK"
@@ -10668,14 +10668,14 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/asset-download-screenshot.png",
+        "path": "/images/dev/stoplight.io/images/asset-download-screenshot.png",
         "alt": "asset-download-screenshot.png",
         "title": "",
         "line": 19,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/asset-download-screenshot.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/asset-download-screenshot.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10685,47 +10685,47 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/image-90.png",
+        "path": "/images/dev/stoplight.io/images/image-90.png",
         "alt": "image.png",
         "title": "",
         "line": 106,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/image-90.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-90.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/image-92.png",
+        "path": "/images/dev/stoplight.io/images/image-92.png",
         "alt": "image.png",
         "title": "",
         "line": 110,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/image-92.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-92.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/image-94.png",
+        "path": "/images/dev/stoplight.io/images/image-94.png",
         "alt": "image.png",
         "title": "",
         "line": 114,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/image-94.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-94.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/image-96.png",
+        "path": "/images/dev/stoplight.io/images/image-96.png",
         "alt": "image.png",
         "title": "",
         "line": 119,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/image-96.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/image-96.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10740,69 +10740,69 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/edit-app.png",
+        "path": "/images/dev/stoplight.io/images/edit-app.png",
         "alt": "edit-app.png",
         "title": "",
         "line": 17,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/edit-app.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/edit-app.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/edit-design.png",
+        "path": "/images/dev/stoplight.io/images/edit-design.png",
         "alt": "edit-design.png",
         "title": "",
         "line": 23,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/edit-design.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/edit-design.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/file-attach.png",
+        "path": "/images/dev/stoplight.io/images/file-attach.png",
         "alt": "file-attach.png",
         "title": "",
         "line": 29,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/file-attach.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/file-attach.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/folder-attach.png",
+        "path": "/images/dev/stoplight.io/images/folder-attach.png",
         "alt": "folder-attach.png",
         "title": "",
         "line": 30,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/folder-attach.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/folder-attach.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/versions.png",
+        "path": "/images/dev/stoplight.io/images/versions.png",
         "alt": "versions.png",
         "title": "",
         "line": 41,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/versions.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/versions.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/switch-versions.png",
+        "path": "/images/dev/stoplight.io/images/switch-versions.png",
         "alt": "switch-versions.png",
         "title": "",
         "line": 47,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/switch-versions.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/switch-versions.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10812,47 +10812,47 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../assets/images/card-edit-screenshot.png",
+        "path": "/images/dev/stoplight.io/images/card-edit-screenshot.png",
         "alt": "card-edit-screenshot.png",
         "title": "",
         "line": 13,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/card-edit-screenshot.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/card-edit-screenshot.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/edit-card-screen.png",
+        "path": "/images/dev/stoplight.io/images/edit-card-screen.png",
         "alt": "edit-card-screen.png",
         "title": "",
         "line": 16,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/edit-card-screen.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/edit-card-screen.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/back-to-assets.png",
+        "path": "/images/dev/stoplight.io/images/back-to-assets.png",
         "alt": "back-to-assets.png",
         "title": "",
         "line": 19,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/back-to-assets.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/back-to-assets.png",
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../assets/images/select-a-new-asset.png",
+        "path": "/images/dev/stoplight.io/images/select-a-new-asset.png",
         "alt": "select-a-new-asset.png",
         "title": "",
         "line": 22,
-        "path_type": "relative",
-        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/assets/images/select-a-new-asset.png",
-        "exists": false,
-        "status": "File not found"
+        "path_type": "absolute",
+        "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/select-a-new-asset.png",
+        "exists": true,
+        "status": "OK"
       }
     ]
   },
@@ -10872,88 +10872,88 @@
     "images": [
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/canva-infographics-duplication.gif",
+        "path": "/images/dev/stoplight.io/images/canva-infographics-duplication.gif",
         "alt": "canva-infographics-duplication.gif",
         "title": "",
         "line": 29,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/canva-infographics-duplication.gif",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/files-2.png",
+        "path": "/images/dev/stoplight.io/images/files-2.png",
         "alt": "files.png",
         "title": "",
         "line": 115,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/files-2.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/publish.png",
+        "path": "/images/dev/stoplight.io/images/publish.png",
         "alt": "publish.png",
         "title": "",
         "line": 165,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/publish.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/design.png",
+        "path": "/images/dev/stoplight.io/images/design.png",
         "alt": "design.png",
         "title": "",
         "line": 169,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/design.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/card.png",
+        "path": "/images/dev/stoplight.io/images/card.png",
         "alt": "card.png",
         "title": "",
         "line": 173,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/card.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/running.png",
+        "path": "/images/dev/stoplight.io/images/running.png",
         "alt": "running.png",
         "title": "",
         "line": 207,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/running.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/show-data-2.png",
+        "path": "/images/dev/stoplight.io/images/show-data-2.png",
         "alt": "show-data.png",
         "title": "",
         "line": 211,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/show-data-2.png",
         "exists": true,
         "status": "OK"
       },
       {
         "type": "markdown",
-        "path": "../../../../../images/dev/stoplight.io/images/add-png-2.png",
+        "path": "/images/dev/stoplight.io/images/add-png-2.png",
         "alt": "add-png.png",
         "title": "",
         "line": 219,
-        "path_type": "relative",
+        "path_type": "absolute",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/add-png-2.png",
         "exists": true,
         "status": "OK"
@@ -10966,8 +10966,8 @@
         "line": 338,
         "path_type": "relative",
         "resolved_path": "/Users/jon.tiritilli/dev/domo-documentation-hub/images/dev/stoplight.io/images/look&feel.png",
-        "exists": false,
-        "status": "File not found"
+        "exists": true,
+        "status": "OK"
       },
       {
         "type": "html",

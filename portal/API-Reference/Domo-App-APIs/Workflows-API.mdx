@@ -2,13 +2,13 @@
 title: Workflows API
 permalink: 1ay1akbc787jg-workflows-api
 stoplight-id: 1ay1akbc787jg
-
 ---
+
 Domo Workflows allows you to graphically model a business process into an executable workflow using Business Process Management (BPM) notations and flows. Orchestration capabilities offer robust solutions for integrating internal and external systems, configuring decision logic, and automating activities in a workflow.
 
 For more background on Workflows, check out the [Knowledge Base for an overview](/s/article/000005108?language=en_US).
 
-If you haven't leveraged Workflows from within Apps before, checkout [the guide on hitting a Workflow from an App](../Apps/App-Framework/Guides/hitting-a-workflow.md), which details how to configure your `manifest.json` file and wire up Workflows to your app.
+If you haven't leveraged Workflows from within Apps before, checkout [the guide on hitting a Workflow from an App](/Apps/App-Framework/Guides/hitting-a-workflow), which details how to configure your `manifest.json` file and wire up Workflows to your app.
 
 ### Start a Workflow
 
@@ -22,7 +22,7 @@ Starts a Workflow and returns details about the Workflow Instance.
 const startWorkflow = async (workflowAlias, body) => {
   const instance = await domo.post(
     `/domo/workflow/v1/models/${workflowAlias}/start`,
-    body
+    body,
   );
   return instance;
 };
@@ -82,7 +82,7 @@ Returns key metric information about a Workflow.
 ```js
 const getWorkflowMetrics = async (workflowAliasedName) => {
   const metrics = await domo.get(
-    `/domo/workflow/v1/models/${workflowAliasedName}/overall`
+    `/domo/workflow/v1/models/${workflowAliasedName}/overall`,
   );
   return metrics;
 };
@@ -193,7 +193,7 @@ If you are checking on the status of an existing Workflow instance.
 ```js
 const getWorkflowInstance = async (workflowAlias, workflowInstanceId) => {
   const instance = await domo.get(
-    `/domo/workflow/v1/models/${workflowAlias}/instance/${workflowInstanceId}`
+    `/domo/workflow/v1/models/${workflowAlias}/instance/${workflowInstanceId}`,
   );
   return instance;
 };

@@ -1,8 +1,9 @@
 ---
-title: "SugarForce"
-permalink: "a2bd06daaff7e-sugar-force"
-sidebarTitle: "Sugar Force"
+title: 'SugarForce'
+permalink: 'a2bd06daaff7e-sugar-force'
+sidebarTitle: 'Sugar Force'
 ---
+
 ### Intro
 
 ---
@@ -35,7 +36,6 @@ Run the following commands from your command line to set up a new Domo App proje
 domo init
 ```
 
-
 Name your design "SugarForce". You'll then be asked which starter kit to use. Choose `sugarforce`.
 
 When asked to connect a dataset, select yes (`y`) and then paste the dataset ID from the previous step. Use "leads" for the dataset alias.
@@ -65,7 +65,6 @@ manifest.json
 thumbnail.png
 ```
 
-
 #### Deploy for Testing
 
 In order to test your app with the sample dataset you just created, you'll need to publish your app to your Domo instance. Publishing does not make your app public, it simply sets up the connections between your app, your Domo instance, and your data.
@@ -76,13 +75,11 @@ Publish your app by running the following
 domo publish
 ```
 
-
 Once your app is published, you can run
 
 ```text
 domo dev
 ```
-
 
 to launch a hot-reloading preview of your app useful for seeing changes you make as you develop it. Let's use this to see changes we make to the code.
 
@@ -100,7 +97,9 @@ To make the sample data available to your app, you need to create the dataset in
 
 Once your dataset is created, copy and save the dataset ID displayed in the URL as we’ll need this for the next section.
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-setup-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-setup-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-setup-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-setup-1.png)
+</Frame>
 
 #### Get Data
 
@@ -115,10 +114,11 @@ domo.get('/data/v1/leads?limit=10')
     });
 ```
 
-
 Domo is getting the dataset we've aliased as `leads` in `manifest.json` and returning the last 10 rows. Click the "Leads" tab. You'll see the response output to `console.log` which is viewable by opening your developer console in your browser. If you're not familiar with the developer tools, this is where you can see console logs, errors in your code, and other useful things like network responses, etc. More information about Chrome developer tools [can be found here](https://developers.google.com/web/tools/chrome-devtools/open) and Firefox developer tools [can be found here.](https://developer.mozilla.org/en-US/docs/Tools/Web_Console)
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-1.png)
+</Frame>
 
 #### Select Fields
 
@@ -130,7 +130,6 @@ domo.get('/data/v1/leads?fields=id,name,title,company_name,city,state&limit=10')
       console.log("leads", leads);
     });
 ```
-
 
 This will limit the result set to the columns specified.
 
@@ -144,7 +143,6 @@ Now that we have the data response the way we'd like from Domo, output the data 
 <table id="leads-table"></table>
 ```
 
-
 Then update your code in `leads.js`
 
 ```text
@@ -152,10 +150,11 @@ domo.get('/data/v1/leads?fields=id,name,title,company_name,city,state&limit=10')
     .then(data => drawTable(data, 'leads-table'));
 ```
 
-
 Now when you go to the "Leads" section, you should see the following
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-2.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-2-2.png)
+</Frame>
 
 #### Additional resources
 
@@ -165,7 +164,7 @@ For more examples on how to create complex queries of your data refer to the [Da
 
 ---
 
-To visualize data, you can use Domo’s charting library called Phoenix. Phoenix allows you to leverage all of Domo’s native chart types and add custom styles. If needed, you can check out Phoenix’s full documentation  [here.](https://domoapps.github.io/domo-phoenix/)
+To visualize data, you can use Domo’s charting library called Phoenix. Phoenix allows you to leverage all of Domo’s native chart types and add custom styles. If needed, you can check out Phoenix’s full documentation [here.](https://domoapps.github.io/domo-phoenix/)
 
 #### Create a Map
 
@@ -207,7 +206,6 @@ domo.get('/data/v1/leads?filter=state in ["CA","OR","WA"]&groupby=state&unique=c
     });
 ```
 
-
 You'll also need to add a target and header to `reports.html`. Append the following
 
 ```html
@@ -215,57 +213,56 @@ You'll also need to add a target and header to `reports.html`. Append the follow
 <div id="map"></div>
 ```
 
-
 Let's take a moment to explain each part of that code.
 
 ```text
 domo.get('/data/v1/leads?filter=state in ["CA","OR","WA"]&groupby=state&unique=company_name')
 ```
 
-
-We're already familiar with Domo's Data API. In the above example, we've added a filter to include only rows where the state is in California, Oregon, or Washington. We've also added a `groupby` to aggregate the data. By default, values that are not part of the grouping are counted. That is, `company_name` is a count of all `company_name`values *grouped by* `state`. Finally we added a `unique` parameter to make that count distinct.
+We're already familiar with Domo's Data API. In the above example, we've added a filter to include only rows where the state is in California, Oregon, or Washington. We've also added a `groupby` to aggregate the data. By default, values that are not part of the grouping are counted. That is, `company_name` is a count of all `company_name`values _grouped by_ `state`. Finally we added a `unique` parameter to make that count distinct.
 
 ```javascript
 const columns = [
   {
     type: DomoPhoenix.DATA_TYPE.STRING,
     name: 'State',
-    mapping: DomoPhoenix.MAPPING.ITEM
+    mapping: DomoPhoenix.MAPPING.ITEM,
   },
   {
     type: DomoPhoenix.DATA_TYPE.DOUBLE,
     name: 'Companies',
-    mapping: DomoPhoenix.MAPPING.VALUE
-  }
+    mapping: DomoPhoenix.MAPPING.VALUE,
+  },
 ];
 ```
-
 
 Domo’s Phoenix charting library expects an explicit definition of columns. The `type` attribute uses one of Phoenix’s pre-defined data types. `name` is the identifier of the charted dimension. `mapping` is specific to the chart type used, and more details can be found in the [official Phoenix documentation](https://domoapps.github.io/domo-phoenix/).
 
 ```javascript
 const data = {
   columns: columns,
-  rows: resultSet.map(row => [row.state, row.company_name])
-}
+  rows: resultSet.map((row) => [row.state, row.company_name]),
+};
 ```
-
 
 Phoenix expects chart data to be formatted as an object with two attributes, `columns`, and `rows`. `columns` is an array of columns as defined in the previous example. `rows` is an array of arrays, each representing a single row. The code example is simply converting our result set to the expected format.
 
 ```javascript
 const options = {
   width: 650,
-  height: 400
+  height: 400,
 };
 
-const chart = new DomoPhoenix.Chart(DomoPhoenix.CHART_TYPE.MAP_UNITED_STATES, data, options);
+const chart = new DomoPhoenix.Chart(
+  DomoPhoenix.CHART_TYPE.MAP_UNITED_STATES,
+  data,
+  options,
+);
 
 document.getElementById('map').appendChild(chart.canvas);
 
 chart.render();
 ```
-
 
 Chart options we'll look at a little in more detail in the next section, but can be used to customize the style of a chart. The `chart` variable is assigned a new instance of the Phoenix chart which is then rendered as a child of the element specified.
 
@@ -278,33 +275,27 @@ In `reports.js`, replace
 ```javascript
 const options = {
   width: 650,
-  height: 400
+  height: 400,
 };
 ```
-
 
 with
 
 ```javascript
-const customColors = [
-  '#002159',
-  '#03449E',
-  '#0967D2',
-  '#47A3F3',
-  '#BAE3FF'
-];
+const customColors = ['#002159', '#03449E', '#0967D2', '#47A3F3', '#BAE3FF'];
 
 const options = {
   width: 650,
   height: 400,
-  colors: customColors
+  colors: customColors,
 };
 ```
 
-
 Your final result should look like this:
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-3-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-3-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-3-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-3-1.png)
+</Frame>
 
 ### Step 4: Use AppDB for Data Storage
 
@@ -327,7 +318,6 @@ Notes
 Attachment
 ```
 
-
 Now we need to add a reference to the collection in our `manifest.json`. Add the following
 
 ```yaml
@@ -335,7 +325,6 @@ Now we need to add a reference to the collection in our `manifest.json`. Add the
   "name": "opportunities"
 }],
 ```
-
 
 Your `manifest.json` will look something like the following
 
@@ -347,9 +336,11 @@ Your `manifest.json` will look something like the following
     "width": 5,
     "height": 3
   },
-  "collections": [{
-    "name": "opportunities"
-  }],
+  "collections": [
+    {
+      "name": "opportunities"
+    }
+  ],
   "mapping": [
     {
       "dataSetId": "d6906ec6-9a23-40d2-b93c-7bb53f231bce",
@@ -362,7 +353,6 @@ Your `manifest.json` will look something like the following
 }
 ```
 
-
 #### Set Up Your Proxy
 
 You'll be making advanced requests to use AppDB, so in order to make these requests in your development environment, you'll need to publish your app in your Domo instance and use the published version as a proxy.
@@ -370,33 +360,45 @@ You'll be making advanced requests to use AppDB, so in order to make these reque
 Publish your current work by closing your dev server and publishing your app. (Use CTRL+C to stop your dev server).
 Use `domo publish`, which returns a URL which is where you can view your design in Domo.
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-1.png)
+</Frame>
 
 You can also find these designs by going to the “Asset Library” from your “More” menu
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-2.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-2.png)
+</Frame>
 
 From your Asset Library, you can now find and instantiate your app design as a card. Click on the “New Card” button for SugarForce.
 
-<Frame>![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-1.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-1.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-1.png)
+</Frame>
 
 You’ll be taken to a screen where you can name your card and wire up data. Give your card a new name up top then click on the Collections tab in the bottom left (it’ll have a red dot next to it).
 
-<Frame>![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-2.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-2.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-2.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-2.png)
+</Frame>
 
 After clicking the Collections tab look for the “Automatically create un-configured collections with app defaults” toggle and click that to enable it.
 
-<Frame>![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-3.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-3.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-3.png](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/06/Sugarforce-New-3.png)
+</Frame>
 
 After enabling that toggle click “SAVE & FINISH” in the top right.
 
 When the page refreshes, you'll see your app displayed on a page. You need to copy the app ID from the iframe source URL. It will be of the form XXXXXXXX-XXXX-4XXX-XXXX-XXXXXXXXXXXX. To find the ID:
 
-* Right-click anywhere in the card and choose "View Frame source"
-* When the frame source opens in a new tab, the URL should be of the form...//\{HASH\}.domoapps.prodX.domo.com?userId=...
-* Copy the ID found between // and.domoapps. That is your app's ID.
+- Right-click anywhere in the card and choose "View Frame source"
+- When the frame source opens in a new tab, the URL should be of the form...//\{HASH\}.domoapps.prodX.domo.com?userId=...
+- Copy the ID found between // and.domoapps. That is your app's ID.
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-5.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-5.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-5.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-4-5.png)
+</Frame>
 
 <Note>
 
@@ -412,7 +414,6 @@ Now add this to your `manifest.json`
 "proxyId": "024071f5-f67e-4e0a-9caa-2b1f5d74da91",
 ```
 
-
 Your entire manifest file will look like this
 
 ```json
@@ -423,9 +424,11 @@ Your entire manifest file will look like this
     "width": 5,
     "height": 3
   },
-  "collections": [{
-    "name": "opportunities"
-  }],
+  "collections": [
+    {
+      "name": "opportunities"
+    }
+  ],
   "mapping": [
     {
       "dataSetId": "d6906ec6-9a23-40d2-b93c-7bb53f231bce",
@@ -439,7 +442,6 @@ Your entire manifest file will look like this
 }
 ```
 
-
 #### Create a Document
 
 Now we're ready to create a new document.
@@ -448,38 +450,45 @@ Open `opportunities.js` and add the following
 
 ```javascript
 function getOpportunities() {
-  domo.get(`/domo/datastores/v1/collections/opportunities/documents/`)
-    .then(opportunities => {
-
-      const rows = opportunities.map(opportunity => ({id: opportunity.id,...opportunity.content}));
+  domo
+    .get(`/domo/datastores/v1/collections/opportunities/documents/`)
+    .then((opportunities) => {
+      const rows = opportunities.map((opportunity) => ({
+        id: opportunity.id,
+        ...opportunity.content,
+      }));
 
       const options = {
         editable: true,
-        action: updateOpportunity
+        action: updateOpportunity,
       };
 
-      drawTable(rows, 'opportunities-table', options)
+      drawTable(rows, 'opportunities-table', options);
     });
 }
 
 function updateOpportunity(id, document) {
-  domo.put(`/domo/datastores/v1/collections/opportunities/documents/${id}`, { content: document })
+  domo
+    .put(`/domo/datastores/v1/collections/opportunities/documents/${id}`, {
+      content: document,
+    })
     .then(getOpportunities);
 }
 
 function createOpportunity(document) {
-  domo.post(`/domo/datastores/v1/collections/opportunities/documents/`, { content: document })
+  domo
+    .post(`/domo/datastores/v1/collections/opportunities/documents/`, {
+      content: document,
+    })
     .then(getOpportunities);
 }
 ```
-
 
 These functions get, update, and create opportunities respectively. Each function sends a request to the AppDB API and then uses a callback to handle the response. The `getOpportunities` callback is a function that first transforms the data returned from AppDB into rows we can use to populate our table, and then sets the objects to be editable and defines what function to use to edit an opportunity. Finally it renders the table to a table element with the ID `opportunities-table`. Let's add that to `opportunities.html` now by appending the following
 
 ```html
 <table id="opportunities-table"></table>
 ```
-
 
 We need to create some content in AppDB and then render it.
 
@@ -495,7 +504,6 @@ createOpportunity({
 })
 ```
 
-
 Notice that we've excluded an attachment as we'll test that later.
 
 Now load the page on our dev server (run by executing `domo dev` in the command line).
@@ -510,7 +518,6 @@ function getLeads() {
 }
 ```
 
-
 This code should look familiar. We are querying our leads dataset and getting a list of distinct company names from which users can select.
 
 Now let's create our form. We'll use some components included in your template. Replace
@@ -523,29 +530,27 @@ createOpportunity({
 })
 ```
 
-
 with the following in `opportunities.js`
 
 ```javascript
-(function() {
-
+(function () {
   const opportunity = {
     company_name: new AutoComplete(getLeads),
     amount: 0,
-    notes: ''
+    notes: '',
   };
 
-  addButton(opportunity, createOpportunity)
+  addButton(opportunity, createOpportunity);
 
   getOpportunities();
-
 })();
 ```
 
-
 This code defines how the opportunities will be displayed in the form and adds a button to the bottom-right corner which opens the form. Finally it triggers `getOpportunities` when the page loads.
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-Step4-7.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-Step4-7.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-Step4-7.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-Step4-7.png)
+</Frame>
 
 #### Additional Resources
 
@@ -568,7 +573,6 @@ functionuploadFile(file) {
 }
 ```
 
-
 In this example, the [Files API](/portal/eeoadx67i6h46-files-api) is receiving a multipart upload based on the File object passed in as the argument `file`. It will return a promise that yields a file ID which we'll store in AppDB to access these attachments later.
 
 Example response:
@@ -582,37 +586,36 @@ Content-Type: application/json;charset=UTF-8
 }
 ```
 
-
 Also add this to your form by replacing
 
 ```javascript
 const opportunity = {
-    company_name:new AutoComplete(getLeads),
-    amount: 0,
-    notes: ''
-  };
+  company_name: new AutoComplete(getLeads),
+  amount: 0,
+  notes: '',
+};
 ```
-
 
 with
 
 ```javascript
 const opportunity = {
-    company_name:new AutoComplete(getLeads),
-    amount: 0,
-    notes: '',
-    attachment:new FileUpload(uploadFile)
-  };
+  company_name: new AutoComplete(getLeads),
+  amount: 0,
+  notes: '',
+  attachment: new FileUpload(uploadFile),
+};
 ```
-
 
 Your form now allows you to add attachments to Opportunities. Those files will be stored in Domo and can be accessed by your app with a specific URL. This URL is stored in AppDB along with the rest of the Opportunity data.
 
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-1.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-1.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-1.png)
+</Frame>
 
-
-
-<Frame>![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-2.png)</Frame>
+<Frame>
+  ![/image/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-2.png](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-step-5-2.png)
+</Frame>
 
 ### Publish and Share
 
@@ -623,6 +626,5 @@ We publish our final product to Domo using
 ```text
 domo publish
 ```
-
 
 Once your app is deployed as a card, you can share it like you would any other content in Domo. Congratulations on building your first Domo app! Don't step here! Keep building.

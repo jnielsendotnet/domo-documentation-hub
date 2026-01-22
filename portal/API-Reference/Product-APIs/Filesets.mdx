@@ -1,8 +1,8 @@
 ---
 title: FileSets API (BETA)
 permalink: filesets-api-beta
-
 ---
+
 > **BETA:** This API is currently in BETA and is subject to change. Endpoints, request/response formats, and functionality may change without notice.
 
 This API reference documents the endpoints for managing FileSets and Files in Domo. These endpoints allow you to upload, download, query, and manage Files and FileSets programmatically.
@@ -22,8 +22,8 @@ This API reference documents the endpoints for managing FileSets and Files in Do
 
 - `path` (String, required): The path to the File within the FileSet.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch(
@@ -41,8 +41,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -58,7 +58,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -93,8 +94,8 @@ with httpx.Client() as client:
 - `filesetId` (String, required): The ID of the FileSet.
 - `fileId` (String, required): The ID of the file.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch(
@@ -112,8 +113,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -129,7 +130,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -164,8 +166,8 @@ with httpx.Client() as client:
 - `filesetId` (String, required): The ID of the FileSet.
 - `fileId` (String, required): The ID of the file.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch(
@@ -193,8 +195,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -212,7 +214,8 @@ with httpx.Client() as client:
     print('File downloaded as filename.ext')
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -241,8 +244,8 @@ with httpx.Client() as client:
 | directoryPath | String  | No       | Limit search to a specific directory |
 | topK          | Integer | No       | Maximum number of results to return  |
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 // Example: Search for text in documents, limited to 5 results
@@ -268,8 +271,8 @@ fetch(`https://{instance}.domo.com/api/files/v1/filesets/${filesetId}/query`, {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -294,7 +297,8 @@ with httpx.Client() as client:
         print(f"- {match['node']['name']} (Score: {match['score']})")
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -344,8 +348,8 @@ with httpx.Client() as client:
 
 - `filesetId` (String, required): The ID of the FileSet.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 // Prepare the file and metadata for upload
@@ -372,8 +376,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -393,7 +397,8 @@ with open('rules.txt', 'rb') as file_obj:
         print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -460,8 +465,8 @@ with open('rules.txt', 'rb') as file_obj:
 
 > **Note:** The Filter, FieldSort, and DateFilter objects have the same structure as in the Search FileSets endpoint.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 // Example 1: List all files in FileSet
@@ -522,8 +527,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -581,7 +586,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -636,8 +642,8 @@ with httpx.Client() as client:
 
 - `path` (String, required): The path to the File within the FileSet.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch(
@@ -655,8 +661,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -672,7 +678,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -695,8 +702,8 @@ with httpx.Client() as client:
 - `filesetId` (String, required): The ID of the FileSet.
 - `fileId` (String, required): The ID of the File.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch(
@@ -714,8 +721,8 @@ fetch(
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -731,7 +738,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -793,8 +801,8 @@ with httpx.Client() as client:
 
 > **Note:** To list all FileSets, send an empty object as the body. To filter, provide filter parameters in the body.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 // Example 1: List all FileSets (empty search)
@@ -852,8 +860,8 @@ fetch('https://{instance}.domo.com/api/files/v1/filesets/search', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -905,7 +913,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -948,8 +957,6 @@ with httpx.Client() as client:
     response = client.post(url, headers=headers, json=data)
     print(response.json())
 ```
-
-{/* type: tab-end */}
 
 **Response:**
 
@@ -998,8 +1005,8 @@ with httpx.Client() as client:
 | connector    | String | Yes      | The connector key                          |
 | relativePath | String | No       | Relative path for the connector (nullable) |
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch('https://{instance}.domo.com/api/files/v1/filesets', {
@@ -1020,8 +1027,8 @@ fetch('https://{instance}.domo.com/api/files/v1/filesets', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -1043,7 +1050,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -1068,8 +1076,8 @@ with httpx.Client() as client:
 
 - `filesetId` (String, required): The ID of the FileSet.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
@@ -1084,8 +1092,8 @@ fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -1101,7 +1109,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -1131,8 +1140,8 @@ with httpx.Client() as client:
 | name        | String | No       | The new name for the FileSet    |
 | description | String | No       | The new description for FileSet |
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
@@ -1151,8 +1160,8 @@ fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -1172,7 +1181,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 
@@ -1197,8 +1207,8 @@ with httpx.Client() as client:
 
 - `filesetId` (String, required): The ID of the FileSet.
 
-{/* type: tab
-title: Javascript */}
+<Tabs>
+<Tab title="Javascript">
 
 ```js
 fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
@@ -1213,8 +1223,8 @@ fetch('https://{instance}.domo.com/api/files/v1/filesets/{filesetId}', {
   .catch((error) => console.error(`Error: ${error}`));
 ```
 
-{/* type: tab
-title: Python */}
+</Tab>
+<Tab title="Python">
 
 ```python
 import httpx
@@ -1230,7 +1240,8 @@ with httpx.Client() as client:
     print(response.json())
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 **Response:**
 

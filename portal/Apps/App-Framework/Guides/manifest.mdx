@@ -1,10 +1,7 @@
 ---
-title: Guides
-permalink: af407395c766b-guides
-sidebarTitle: Guides
-stoplight-id: af407395c766b
+title: The Manifest File
+permalink: af407395c766b-the-manifest-file
 ---
-# The Manifest File
 
 The manifest file is the configuration file used to provide meta-data about an App Design and the resources that it needs access to in Domo. The manifest file should be placed in the base directory of the App Design and should be named <strong>manifest.json</strong>.
 
@@ -173,96 +170,150 @@ const version = await fetch('./manifest.json')
 The size of the app cannot be defined in pixels. It can only be defined in Domo card sizes. To better understand how card sizing relates to pixels, see the chart below:
 
 <table class="t1" cellspacing="0" cellpadding="0">
-<tbody>
-<tr>
-<td class="td1" valign="middle">
-<p class="p1"><span class="s1"><b>Card Size</b></span></p>
-</td>
-<td class="td2" valign="middle">
-<p class="p1"><span class="s1"><b>Width (px)</b></span></p>
-</td>
-<td class="td3" valign="middle">
-<p class="p1"><span class="s1"><b>Height (px)</b></span></p>
-</td>
-</tr>
-<tr>
-<td class="td1" valign="middle">
-<p class="p1"><span class="s1">6</span></p>
-</td>
-<td class="td2" valign="middle">
-<p class="p1"><span class="s1">1400</span></p>
-</td>
-<td class="td3" valign="middle">
-<p class="p1"><span class="s1">1700</span></p>
-</td>
-</tr>
-<tr>
-<td class="td4" valign="middle">
-<p class="p1"><span class="s1">5</span></p>
-</td>
-<td class="td5" valign="middle">
-<p class="p1"><span class="s1">1165</span></p>
-</td>
-<td class="td6" valign="middle">
-<p class="p1"><span class="s1">1410</span></p>
-</td>
-</tr>
-<tr>
-<td class="td1" valign="middle">
-<p class="p1"><span class="s1">4</span></p>
-</td>
-<td class="td2" valign="middle">
-<p class="p1"><span class="s1">930</span></p>
-</td>
-<td class="td3" valign="middle">
-<p class="p1"><span class="s1">1120</span></p>
-</td>
-</tr>
-<tr>
-<td class="td4" valign="middle">
-<p class="p1"><span class="s1">3</span></p>
-</td>
-<td class="td5" valign="middle">
-<p class="p1"><span class="s1">695</span></p>
-</td>
-<td class="td6" valign="middle">
-<p class="p1"><span class="s1">830</span></p>
-</td>
-</tr>
-<tr>
-<td class="td1" valign="middle">
-<p class="p1"><span class="s1">2</span></p>
-</td>
-<td class="td2" valign="middle">
-<p class="p1"><span class="s1">460</span></p>
-</td>
-<td class="td3" valign="middle">
-<p class="p1"><span class="s1">540</span></p>
-</td>
-</tr>
-<tr>
-<td class="td4" valign="middle">
-<p class="p1"><span class="s1">1</span></p>
-</td>
-<td class="td5" valign="middle">
-<p class="p1"><span class="s1">225</span></p>
-</td>
-<td class="td6" valign="middle">
-<p class="p1"><span class="s1">250</span></p>
-</td>
-</tr>
-<tr>
-<td class="td1" valign="middle">
-<p class="p1"><span class="s1">0.5</span></p>
-</td>
-<td class="td2" valign="middle">
-<p class="p1"><span class="s1">NA</span></p>
-</td>
-<td class="td3" valign="middle">
-<p class="p1"><span class="s1">105</span></p>
-</td>
-</tr>
-</tbody>
+  <tbody>
+    <tr>
+      <td class="td1" valign="middle">
+        <p class="p1">
+          <span class="s1">
+            <b>Card Size</b>
+          </span>
+        </p>
+      </td>
+      <td class="td2" valign="middle">
+        <p class="p1">
+          <span class="s1">
+            <b>Width (px)</b>
+          </span>
+        </p>
+      </td>
+      <td class="td3" valign="middle">
+        <p class="p1">
+          <span class="s1">
+            <b>Height (px)</b>
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td1" valign="middle">
+        <p class="p1">
+          <span class="s1">6</span>
+        </p>
+      </td>
+      <td class="td2" valign="middle">
+        <p class="p1">
+          <span class="s1">1400</span>
+        </p>
+      </td>
+      <td class="td3" valign="middle">
+        <p class="p1">
+          <span class="s1">1700</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td4" valign="middle">
+        <p class="p1">
+          <span class="s1">5</span>
+        </p>
+      </td>
+      <td class="td5" valign="middle">
+        <p class="p1">
+          <span class="s1">1165</span>
+        </p>
+      </td>
+      <td class="td6" valign="middle">
+        <p class="p1">
+          <span class="s1">1410</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td1" valign="middle">
+        <p class="p1">
+          <span class="s1">4</span>
+        </p>
+      </td>
+      <td class="td2" valign="middle">
+        <p class="p1">
+          <span class="s1">930</span>
+        </p>
+      </td>
+      <td class="td3" valign="middle">
+        <p class="p1">
+          <span class="s1">1120</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td4" valign="middle">
+        <p class="p1">
+          <span class="s1">3</span>
+        </p>
+      </td>
+      <td class="td5" valign="middle">
+        <p class="p1">
+          <span class="s1">695</span>
+        </p>
+      </td>
+      <td class="td6" valign="middle">
+        <p class="p1">
+          <span class="s1">830</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td1" valign="middle">
+        <p class="p1">
+          <span class="s1">2</span>
+        </p>
+      </td>
+      <td class="td2" valign="middle">
+        <p class="p1">
+          <span class="s1">460</span>
+        </p>
+      </td>
+      <td class="td3" valign="middle">
+        <p class="p1">
+          <span class="s1">540</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td4" valign="middle">
+        <p class="p1">
+          <span class="s1">1</span>
+        </p>
+      </td>
+      <td class="td5" valign="middle">
+        <p class="p1">
+          <span class="s1">225</span>
+        </p>
+      </td>
+      <td class="td6" valign="middle">
+        <p class="p1">
+          <span class="s1">250</span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td class="td1" valign="middle">
+        <p class="p1">
+          <span class="s1">0.5</span>
+        </p>
+      </td>
+      <td class="td2" valign="middle">
+        <p class="p1">
+          <span class="s1">NA</span>
+        </p>
+      </td>
+      <td class="td3" valign="middle">
+        <p class="p1">
+          <span class="s1">105</span>
+        </p>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 {/* theme: warning */}
@@ -460,12 +511,25 @@ This is the actual name of the column in the DataSet that the field alias gets m
 Apps using DQL, writeback, or oAuth features are required to supply an proxyId as part of the proxy configuration. This includes use of AppDB, Workflows, and Code Engine. The `proxyId` allows the proxy to know how to properly route requests. The `proxyId` can be found as part of the URL for the iframe in which your app is displayed. It will be of the form XXXXXXXX-XXXX-4XXX-XXXX-XXXXXXXXXXXX. To find the ID:
 
 <ol>
- 	<li>Make sure the app has been published at least once with Domo Publish</li>
- 	<li>Publish a new card based on your app design, or navigate to an existing card made from your app design</li>
- 	<li>Right-click anywhere in the card and choose "Inspect element"</li>
- 	<li>Find the &lt;iframe&gt;that contains your app's code. The URL should be of the form //{HASH}.domoapps.prodX.domo.com?userId=...</li>
- 	<li>Copy the ID found between //and .domoapps. That is your app's proxyId
-proxyIds tie apps to cards. If you delete the card from which you retrieved the proxyId, you will have to get a new one from another card created from your app design.</li>
- 	<li>Add proxyId=”XXXXXXXX-XXXX-4XXX-XXXX-XXXXXXXXXXXX” to your manifest after your designId.</li>
+  <li>Make sure the app has been published at least once with Domo Publish</li>
+  <li>
+    Publish a new card based on your app design, or navigate to an existing card
+    made from your app design
+  </li>
+  <li>Right-click anywhere in the card and choose "Inspect element"</li>
+  <li>
+    Find the &lt;iframe&gt;that contains your app's code. The URL should be of
+    the form //{HASH}.domoapps.prodX.domo.com?userId=...
+  </li>
+  <li>
+    Copy the ID found between //and .domoapps. That is your app's proxyId
+    proxyIds tie apps to cards. If you delete the card from which you retrieved
+    the proxyId, you will have to get a new one from another card created from
+    your app design.
+  </li>
+  <li>
+    Add proxyId=”XXXXXXXX-XXXX-4XXX-XXXX-XXXXXXXXXXXX” to your manifest after
+    your designId.
+  </li>
 </ol>
 &nbsp;

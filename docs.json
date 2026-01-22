@@ -3123,13 +3123,6 @@
                             "group": "Tutorials",
                             "pages": [
                               {
-                                "group": "Pro-Code Editor",
-                                "pages": [
-                                  "portal/Apps/Pro-Code-Editor/Tutorials/pdf-export",
-                                  "portal/Apps/Pro-Code-Editor/Tutorials/stacked-bars"
-                                ]
-                              },
-                              {
                                 "group": "React",
                                 "pages": [
                                   "portal/Apps/App-Framework/Tutorials/React/Todo-App",
@@ -3170,9 +3163,7 @@
                           {
                             "group": "Guides",
                             "pages": [
-                              "portal/Apps/App-Framework/Guides/getting-started-pro-code",
                               "portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI",
-                              "portal/Apps/App-Framework/Guides/manage-save-pro-code",
                               "portal/Apps/App-Framework/Guides/manifest",
                               "portal/Apps/App-Framework/Guides/public-assets",
                               "portal/Apps/App-Framework/Guides/swap-designs",
@@ -3198,6 +3189,30 @@
                         ]
                       },
                       {
+                        "group": "Pro-Code Editor",
+                        "pages": [
+                          "portal/Apps/Pro-Code-Editor/getting-started-pro-code",
+                          {
+                            "group": "Tutorials",
+                            "pages": [
+                              "portal/Apps/Pro-Code-Editor/Tutorials/manage-save-pro-code",
+                              "portal/Apps/Pro-Code-Editor/Tutorials/pdf-export",
+                              "portal/Apps/Pro-Code-Editor/Tutorials/stacked-bars"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Advanced Forms",
+                        "pages": [
+                          "portal/Forms/Advanced-Forms/overview",
+                          "portal/Forms/Advanced-Forms/creating-advanced-forms",
+                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
+                          "portal/Forms/Advanced-Forms/domo-data-features",
+                          "portal/Forms/Advanced-Forms/advanced-form-datasets"
+                        ]
+                      },
+                      {
                         "group": "Domo Bricks",
                         "pages": [
                           {
@@ -3207,12 +3222,7 @@
                               "portal/Apps/DDX-Bricks/Quickstart/getting-started"
                             ]
                           },
-                          {
-                            "group": "Tutorials",
-                            "pages": [
-                              "portal/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro"
-                            ]
-                          },
+                          "portal/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro",
                           {
                             "group": "Guides",
                             "pages": [
@@ -3220,16 +3230,6 @@
                               "portal/Apps/DDX-Bricks/Guides/DDX-Pro-Code"
                             ]
                           }
-                        ]
-                      },
-                      {
-                        "group": "Advanced Forms",
-                        "pages": [
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout"
                         ]
                       }
                     ]

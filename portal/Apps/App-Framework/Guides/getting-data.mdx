@@ -1,10 +1,7 @@
 ---
-title: Guides
-permalink: 6a5d7a2870145-guides
-sidebarTitle: Guides
-stoplight-id: 6a5d7a2870145
+title: Getting Data
+permalink: 6a5d7a2870145-getting-data
 ---
-# Getting Data
 
 Custom Apps can request data by making an HTTP GET or POST request. The manifest.json file helps manage the data that your app is using.
 
@@ -13,7 +10,9 @@ Learn more in the manifest [reference](manifest.md) documentation.
 &nbsp;
 
 ### Sample Mapping
+
 ---
+
 Data is requested by making XHR requests to the following data API endpoint:
 
 ```
@@ -42,8 +41,8 @@ For the examples in this section, we will consider a design using the following 
 
 The following data fetching examples show how one could compute the sum of the `amount` column in the `sales` DataSet from the above sample mapping.
 
-
 ### SQL API
+
 ---
 
 You can also query your DataSet with the SQL API using the following endpoint:
@@ -61,20 +60,28 @@ POST /data/v1/sales
 To get compute the sum of the `amount` column in the `sales` DataSet from the above sample mapping you could make a request with the [domo.js library](domo.js.md) in the following way:
 
 ```js
-domo.post('/sql/v1/sales', "SELECT SUM(amount) FROM sales", {contentType: 'text/plain'}).then(function(total) { console.log({total}); });
+domo
+  .post('/sql/v1/sales', 'SELECT SUM(amount) FROM sales', {
+    contentType: 'text/plain',
+  })
+  .then(function (total) {
+    console.log({ total });
+  });
 ```
 
 ### Examples
+
 ---
+
 #### [domo.js](domo.js.md) (recommended)
 
 ```js
-domo.get('/data/v1/sales').then(function(sales){
+domo.get('/data/v1/sales').then(function (sales) {
   var salesSum = 0;
-  sales.forEach(function(sale){
+  sales.forEach(function (sale) {
     salesSum += sale.amount;
   });
-})
+});
 ```
 
 #### XHR
@@ -82,12 +89,12 @@ domo.get('/data/v1/sales').then(function(sales){
 ```javascript
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '/data/v1/sales', true);
-xhr.onload = function(e) {
+xhr.onload = function (e) {
   if (this.status === 200) {
     var json = JSON.parse(xhr.response);
     var salesSum = 0;
-    for(var i = 0; i < json.length; i++) {
-      salesSum += json[i].amount
+    for (var i = 0; i < json.length; i++) {
+      salesSum += json[i].amount;
     }
   }
 };
@@ -97,9 +104,9 @@ xhr.send();
 #### jQuery
 
 ```javascript
-$.get( '/data/v1/sales', function(json) {
+$.get('/data/v1/sales', function (json) {
   var salesSum = 0;
-  for(var i = 0; i < json.length; i++) {
+  for (var i = 0; i < json.length; i++) {
     salesSum += json[i].amount;
   }
 });
@@ -108,19 +115,16 @@ $.get( '/data/v1/sales', function(json) {
 #### Oboe.js
 
 ```javascript
-  var salesSum = 0;
-  oboe('/data/v1/sales')
-    .node('!.*', function(obj) {
-      salesSum += obj.amount;
-    });
+var salesSum = 0;
+oboe('/data/v1/sales').node('!.*', function (obj) {
+  salesSum += obj.amount;
+});
 ```
 
 #### Angular
 
 ```javascript
-$http.get('/data/v1/sales').
-  success(function(data, status, headers, config) {
-    for(var i = 0; i < data.length; i++)
-      $scope.salesSum += data[i].amount;
-  });
+$http.get('/data/v1/sales').success(function (data, status, headers, config) {
+  for (var i = 0; i < data.length; i++) $scope.salesSum += data[i].amount;
+});
 ```

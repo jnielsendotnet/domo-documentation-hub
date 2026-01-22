@@ -6,20 +6,20 @@ Total files scanned: 476
 Total images found: 810
 
 IMAGE STATUS:
-  ✓ Valid local images: 386
-  ✗ Broken images: 211
+  ✓ Valid local images: 465
+  ✗ Broken images: 132
   → External URLs: 213
 
 PATH TYPES:
-  Relative paths: 208
-  Absolute paths: 389
+  Relative paths: 121
+  Absolute paths: 476
   External URLs: 213
   Data URIs: 0
 
 ================================================================================
 ACTION REQUIRED
 ================================================================================
-Found 211 broken image references.
+Found 132 broken image references.
 See broken_images.txt for details.
 
 FILES WITH MOST IMAGES (top 10):

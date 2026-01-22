@@ -1,9 +1,9 @@
 ---
-title: Query
-permalink: query
-sidebarTitle: Query
+title: Query Library
+permalink: d5da72027f4a1-query
 ---
-# Query
+
+[![npm version](https://img.shields.io/npm/v/@domoinc/query.svg)](https://www.npmjs.com/package/@domoinc/query)
 
 This is a simple library to create data query URLs for [Getting Domo data](../Guides/getting-data.md). Use in conjunction with [domo.js](./domo.js.md)).
 
@@ -39,8 +39,8 @@ npm install @domoinc/query
 
 ## Examples
 
-{/* type: tab
-title: Basic Query */}
+<Tabs>
+<Tab title="Basic Query">
 
 ```typescript
 const datasetAlias = 'sales';
@@ -59,8 +59,8 @@ const response = await new Query()
 ...
 ```
 
-{/* type: tab
-title: Max Date */}
+</Tab>
+<Tab title="Max Date">
 
 ```typescript
 /**
@@ -82,8 +82,8 @@ async function getMaxDate() {
 console.log(await getMaxDate());
 ```
 
-{/* type: tab
-title: With Domo.js */}
+</Tab>
+<Tab title="With Domo.js">
 
 ```typescript
 /**
@@ -107,7 +107,8 @@ getEngagementSegmentBrands('Loyals').then((data) => {
 });
 ```
 
-{/* type: tab-end */}
+</Tab>
+</Tabs>
 
 ## Usage
 
@@ -153,8 +154,6 @@ Use `select` to specify the column names for the columns you want returned.
 ```typescript
 query.select(['col1', 'col2', 'col3']);
 ```
-
-{/* type: tab-end */}
 
 ### Data Filtering
 
