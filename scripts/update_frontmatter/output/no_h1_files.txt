@@ -1,0 +1,920 @@
+Files without H1 header (manual review needed):
+
+portal/k2vv2vir3c8ry-task-center-api.mdx
+  Current title: Task Center API
+
+portal/459eb69d51e78-security-and-governance.mdx
+  Current title: Security and Governance
+
+portal/fc90d28305384-get-account-type.mdx
+  Current title: Get Account Type
+
+portal/9698njvvxz8f9-getting-started.mdx
+  Current title: Getting Started
+
+portal/af407395c766b-the-manifest-file.mdx
+  Current title: The Manifest File
+
+portal/3cfe84d925633-custom-connectors.mdx
+  Current title: Custom Connectors
+
+portal/07d7b4130e96f-creating-a-custom-package.mdx
+  Current title: Creating Custom Packages
+
+portal/42d54af2095ac-get-chart-card-definition.mdx
+  Current title: Get Chart Card Definition
+
+portal/72ae9b3e80374-list-data-sets.mdx
+  Current title: List DataSets
+
+portal/bff3ab39f7a6b-beast-modes.mdx
+  Current title: Beast Modes
+
+portal/2f759304cdacc-update-a-list.mdx
+  Current title: Update a list
+
+portal/nt3co7oh36g5s-dynamic-iframe-height.mdx
+  Current title: Dynamic Iframe Height
+
+portal/df8b045188694-public-assets.mdx
+  Current title: Public Assets
+
+portal/d984e2fec9b18-import-data-into-data-set.mdx
+  Current title: Import data into DataSet
+
+portal/ea210df52a8a1-retrieve-data-set-details.mdx
+  Current title: Retrieve DataSet Details
+
+portal/xw7ienfqq7qrw-automated-machine-learning-auto-ml.mdx
+  Current title: Automated Machine Learning (AutoML)
+
+portal/advanced-forms-creating.mdx
+  Current title: Creating an Advanced Form
+
+portal/1cleirjemoy6i-app-embed-authentication.mdx
+  Current title: App Embed Authentication
+
+portal/c857e329cd0a1-create-a-list.mdx
+  Current title: Create a list
+
+portal/c671f2af967a0-create-an-embed-token-dashboard.mdx
+  Current title: Create an embed token (Dashboard)
+
+portal/4bf73dd1c69d8-overview.mdx
+  Current title: Overview
+
+portal/fecb7159f62f2-copy-assets-to-a-different-instance.mdx
+  Current title: Copy Assets to a Different Instance
+
+portal/7e83a189873d6-create-an-account.mdx
+  Current title: Create An Account
+
+portal/4cab29aca0fd3-list-personalized-data-permission-pdp-policies.mdx
+  Current title: List Personalized Data Permission (PDP) Policies
+
+portal/ea5c42f66c4e6-create-personalized-data-permissions-pdp.mdx
+  Current title: Create Personalized Data Permissions (PDP)
+
+portal/0fce9616dfe5c-create-a-page.mdx
+  Current title: Create a page
+
+portal/38324ee605641-delete-a-list.mdx
+  Current title: Delete a list
+
+portal/1e640de669b27-connectors.mdx
+  Current title: Connectors
+
+portal/local-development-domo-cli.mdx
+  Current title: Local Development with Domo CLI
+
+portal/17229f5001f95-key-terminology.mdx
+  Current title: Key Terminology
+
+portal/21f7b5c7ee313-embedded-scheduled-reports-beta.mdx
+  Current title: Embedded Scheduled Reports (BETA)
+
+portal/3ad3f9b434b10-getting-started-with-the-pro-code-editor.mdx
+  Current title: Getting Started with the Pro-Code Editor
+
+portal/da-cli.mdx
+  Current title: Domo App Generator CLI (DA CLI)
+
+portal/prt23r0zqw1vq-managing-dataset-history.mdx
+  Current title: Managing Dataset History
+
+portal/1f17fb4f14577-retrieve-a-group.mdx
+  Current title: Retrieve a group
+
+portal/0mnsejhg5livn-domo-ai-resources-guide.mdx
+  Current title: Domo AI Resources Guide
+
+portal/816ca1b6d137d-managing-datasets.mdx
+  Current title: Managing Datasets
+
+portal/948e6067198db-export-to-s3.mdx
+  Current title: Export To S3 API
+
+portal/f5c93c4320ad4-app-developer-design-guide.mdx
+  Current title: App Developer Design Guide
+
+portal/55d3b6dfcfddd-domo-workflows.mdx
+  Current title: Domo Workflows
+
+portal/2bd2767928a2e-federated-queries.mdx
+  Current title: Federated Queries
+
+portal/bdae44e540d37-toolkit.mdx
+  Current title: Toolkit
+
+portal/d9520f5752d56-get-access-token.mdx
+  Current title: Get Access Token
+
+portal/a2bd06daaff7e-sugar-force.mdx
+  Current title: SugarForce
+
+portal/d2309f6f9be66-help-and-support.mdx
+  Current title: Help & Support
+
+portal/5u0f5ugttqixq-necessary-dependencies.mdx
+  Current title: Necessary dependencies
+
+portal/37rc8izzjzj7z-tools.mdx
+  Current title: Tools
+
+portal/jaqelzzxpee3e-simple-api.mdx
+  Current title: Simple API
+
+portal/e492bc8b3d9ee-user-management.mdx
+  Current title: User Management
+
+portal/d54m2ohkacza0-welcome.mdx
+  Current title: Welcome
+
+portal/bc780d297a0d6-update-a-project.mdx
+  Current title: Update a project
+
+portal/dcdf6cd230d61-update-a-personalized-data-permission-pdp-policy.mdx
+  Current title: Update a Personalized Data Permission (PDP) policy
+
+portal/5bba626873010-create-chart-card.mdx
+  Current title: Create Chart Card
+
+portal/xma9hezmttvid-app-sessions.mdx
+  Current title: App Sessions
+
+portal/rmfbkwje8kmqj-domo-apps-cli.mdx
+  Current title: Domo Apps CLI
+
+portal/7162ed588aa08-sample-projects.mdx
+  Current title: Sample Projects
+
+portal/631f21c3c5f5f-retrieve-all-projects.mdx
+  Current title: Retrieve all projects
+
+portal/83ef8a4d71450-export-data-from-data-set.mdx
+  Current title: Export Data from DataSet
+
+portal/5d8f965eb3469-overview.mdx
+  Current title: Overview
+
+portal/5478529c8ed0a-faq.mdx
+  Current title: FAQ
+
+portal/8c76f9c74e6b8-get-card.mdx
+  Current title: Get Card
+
+portal/7f71f4aa90726-create-a-stream.mdx
+  Current title: Create a Stream
+
+portal/c0859d0c0a941-tutorial-building-a-domo-dashboard-pdf-converter.mdx
+  Current title: **Tutorial: Building a Domo Dashboard PDF Converter**
+
+portal/ed061f0c295c0-embedded-capabilities.mdx
+  Current title: Embedded Capabilities
+
+portal/5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app.mdx
+  Current title: Converting a Brick into a Pro-Code App
+
+portal/d3f552e6ba34b-automate-actions-with-workflows-and-code-engine.mdx
+  Current title: Automate Actions with Workflows and Code Engine
+
+portal/b836f5593ab26-getting-data.mdx
+  Current title: Getting Data
+
+portal/03c865271e614-retrieve-a-page-collection.mdx
+  Current title: Retrieve a page collection
+
+portal/541b34bb930ee-publishing-to-other-users.mdx
+  Current title: Publishing to Other Users
+
+portal/7657a3402ae5e-to-do-app-tutorial.mdx
+  Current title: To-do App Tutorial
+
+portal/b90c3866dbc26-activity-log-api.mdx
+  Current title: Activity Log API
+
+portal/17a8df3265783-data-accounts.mdx
+  Current title: Data Accounts
+
+portal/95de1a11dfe97-add-a-user-to-a-group.mdx
+  Current title: Add a user to a group
+
+portal/wjqiqhsvpadon-ai-service-layer-api.mdx
+  Current title: AI Service Layer API
+
+portal/242dd31d0746d-create-a-stream-execution.mdx
+  Current title: Create a Stream execution
+
+portal/6hlzv1hinkq19-setup-and-installation.mdx
+  Current title: Setup and Installation
+
+portal/28v6sqz9eslb9-overview.mdx
+  Current title: Overview
+
+portal/32buc6884v4px-magic-etl-data-science-tiles.mdx
+  Current title: Magic ETL Data Science Tiles
+
+portal/6tw2454j0zttg-group-api.mdx
+  Current title: Group API
+
+portal/7c67addb308a2-authentication.mdx
+  Current title: Render KPI Card Chart or Table
+
+portal/5s59dpkk1hmx6-start-a-workflow.mdx
+  Current title: Start a Workflow
+
+portal/cf7d0861d9e10-mapbox-world-map-react-app-tutorial.mdx
+  Current title: Mapbox World Map React App Tutorial
+
+portal/3989acf1bafff-import-and-export-data.mdx
+  Current title: Import and Export Data
+
+portal/6a5d7a2870145-getting-data.mdx
+  Current title: Getting Data
+
+portal/ec60c4980e1b5-getting-started-using-domo-bricks.mdx
+  Current title: Getting Started Using Domo Bricks
+
+portal/daf88698611f8-query-dataset.mdx
+  Current title: Query Dataset API
+
+portal/80b418fba449e-activity-log.mdx
+  Current title: Activity Log
+
+portal/ea34b968c5164-add-attachment.mdx
+  Current title: Add attachment
+
+portal/atp50e7pzs4yd-creating-dynamic-infographics.mdx
+  Current title: Creating Dynamic Infographics
+
+portal/a9c700565ffba-update-a-task.mdx
+  Current title: Update a Task
+
+portal/4e6a52eafd2d3-video-recording-guide.mdx
+  Current title: Video Recording Guide
+
+portal/7d56134a3c629-export-domo-cards-to-pdf.mdx
+  Current title: Export Domo cards to PDF
+
+portal/1420c2fd93550-partner-app-submission-guide.mdx
+  Current title: Partner App Submission Guide
+
+portal/7ee46a3107052-code-editor-overview.mdx
+  Current title: Code Editor
+
+portal/5a51d83c82822-managing-editing-and-saving-your-app-in-the-pro-code-editor.mdx
+  Current title: Managing, Editing, and Saving Your App in the Pro-Code Editor
+
+portal/c887b1e09fb75-code-engine-java-script-libraries-reference.mdx
+  Current title: Code Engine JavaScript Libraries Reference
+
+portal/9f1f3440e3943-list-accounts.mdx
+  Current title: List An Account
+
+portal/n7f7swo7h29wg-user-api.mdx
+  Current title: User API
+
+portal/fef84c05d5245-global-vs-custom-packages.mdx
+  Current title: Global vs. Custom Packages
+
+portal/81056f6209bfc-start-a-workflow-from-an-app.mdx
+  Current title: Start a workflow from an app
+
+portal/52fd0777839f4-query-a-data-set.mdx
+  Current title: Query a DataSet
+
+portal/35115c5c48927-datasets-api.mdx
+  Current title: Datasets API
+
+portal/c0c101d8e5d89-list-account-types.mdx
+  Current title: List Account Type
+
+portal/domo-publish-cicd.mdx
+  Current title: Domo Publish Action - CI/CD
+
+portal/b179db1f44cfe-retrieve-an-account.mdx
+  Current title: Retrive An Account
+
+portal/7e6100b8c7ac9-retrieve-individual-task.mdx
+  Current title: Retrieve individual task
+
+portal/i19jain6fvwjj-activity-log-api.mdx
+  Current title: Activity Log API
+
+portal/2a14dd34496e7-handling-data-updates.mdx
+  Current title: Handling Data Updates
+
+portal/da7996a8b2338-building-an-app-overview.mdx
+  Current title: Building an App Overview
+
+portal/fbhbpt1mt4gog-code-engine-api.mdx
+  Current title: Code Engine API
+
+portal/278e9d611eaa6-quickstart.mdx
+  Current title: Quickstart
+
+portal/975aea6d35782-retrieve-individual-project.mdx
+  Current title: Retrieve individual project
+
+portal/98ab364f4848f-users-api.mdx
+  Current title: Users API
+
+portal/8defca123ffc4-update-an-account.mdx
+  Current title: Update An Account
+
+portal/2hwa98wx7kdm4-groups-api.mdx
+  Current title: Groups API
+
+portal/600e2b5914564-domo-appstore.mdx
+  Current title: Domo Appstore
+
+portal/d4f8eee792eb6-appstore-submission.mdx
+  Current title: Appstore Submission
+
+portal/3b1e3a7d5f420-data-set-api.mdx
+  Current title: DataSet API
+
+portal/942c89811d9df-change-which-asset-powers-the-card.mdx
+  Current title: Change which asset powers the card
+
+portal/advanced-forms-editor-layout.mdx
+  Current title: Advanced Form Editor Layout
+
+portal/1sirxqzlsb4sk-code-engine.mdx
+  Current title: Code Engine
+
+portal/e04caa9abb5cc-domo-sd-ks.mdx
+  Current title: Domo SDKs
+
+portal/advanced-forms-datasets.mdx
+  Current title: Advanced Form Datasets
+
+portal/df451bfc35913-return-the-schema-for-a-specified-dataset.mdx
+  Current title: Return the schema for a specified Dataset
+
+portal/u3ejmw0namdxf-federated-v1-to-v2-migration-ap-is.mdx
+  Current title: Federated V1 to V2 Migration APIs
+
+portal/1d5e64ae6ce1a-delete-a-personlized-data-permission-pdp-policy.mdx
+  Current title: Delete a Personlized Data Permission (PDP) Policy
+
+portal/cb2e07663deaf-on-premises-data.mdx
+  Current title: On-Premises Data
+
+portal/1ce9b0022073a-list-users-in-a-group.mdx
+  Current title: List users in a group
+
+portal/9l1mzcir4ht5h-best-practices.mdx
+  Current title: Best Practices
+
+portal/c0c8604e2d275-app-db-api.mdx
+  Current title: App DB API
+
+portal/e7bc2fce783cd-list-pages.mdx
+  Current title: List pages
+
+portal/uc9ls4li6ny8s-embed-token-api.mdx
+  Current title: Embed Token API
+
+portal/x2i3bk0w4bwhe-domo-ai.mdx
+  Current title: Domo.AI
+
+portal/a571924a55d11-retrieve-list-of-attachments.mdx
+  Current title: Retrieve list of attachments
+
+portal/6e7f610416ea1-troubleshooting-tips.mdx
+  Current title: Troubleshooting Tips
+
+portal/f95f2f9dc8c0f-create-a-page-collection.mdx
+  Current title: Create a page collection
+
+portal/6fa7587d4c2ea-querying-data.mdx
+  Current title: Querying Data
+
+portal/9cb3d1d12bb26-group-documentation.mdx
+  Current title: Group Documentation
+
+portal/babeff860ab02-tutorial-building-a-stacked-bar-chart-with-a-trended-line-in-domo-s-pro-code-editor.mdx
+  Current title: Stacked Bars
+
+portal/8s3y9eldnjq8d-data-api.mdx
+  Current title: Data API
+
+portal/e253b923bb4db-federated-v2-to-amplifier-migration-ap-is.mdx
+  Current title: Federated V2 to Amplifier Migration APIs
+
+portal/7e8654dedb1c8-file-set-api-beta.mdx
+  Current title: FileSet API (BETA)
+
+portal/ftlfegxnudqt7-magic-etl-scripting-tiles.mdx
+  Current title: Magic ETL Scripting Tiles
+
+portal/a4e18ca6a0c0b-retrieve-activity-log-entries.mdx
+  Current title: Retrieve Activity Log Entries
+
+portal/7da043cf6d454-submission-checklist.mdx
+  Current title: Submission Checklist
+
+portal/4soguofca8clp-code-examples.mdx
+  Current title: Code Examples
+
+portal/4cjt7r72bnwlf-jupyter-workspaces.mdx
+  Current title: Jupyter Workspaces
+
+portal/buk5zwk1pvjwh-url-parameters-in-embedded-content.mdx
+  Current title: URL Parameters in Embedded Content
+
+portal/7e3ff9fe17fb4-remote-domostats-api.mdx
+  Current title: Remote Domostats API
+
+portal/9f2fe40b1bdb9-examples.mdx
+  Current title: Examples
+
+portal/v91hopqk7ki3b-user-api.mdx
+  Current title: User API
+
+portal/32ff35cdb141e-domo-instance-management.mdx
+  Current title: Domo Instance Management
+
+portal/ffabd623e9b45-share-account.mdx
+  Current title: Share Account
+
+portal/w8dk0f75hetfk-account-api.mdx
+  Current title: Account API
+
+portal/c07d31c752348-ai-book-recommender-app-tutorial.mdx
+  Current title: AI Book Recommender App Tutorial
+
+portal/05b0hcl6afem2-community-forums.mdx
+  Current title: Community Forums
+
+portal/advanced-forms-domo-data-features.mdx
+  Current title: Domo Data Features in Advanced Forms
+
+portal/11ea6c8039f80-process-data.mdx
+  Current title: Process Data
+
+portal/b09437e8d4d53-alerts-api.mdx
+  Current title: Alerts API
+
+portal/6ea9fcd9e478c-appstore-data-resources.mdx
+  Current title: Appstore Data Resources
+
+portal/193cb98fe288b-retrieve-project-members.mdx
+  Current title: Retrieve project members
+
+portal/e3bddcb552199-troubleshooting.mdx
+  Current title: Troubleshooting
+
+portal/0d0517e6b6830-create-a-data-set.mdx
+  Current title: Create a DataSet
+
+portal/115bc93a8bde3-common-code-engine-use-cases.mdx
+  Current title: Common Code Engine Use Cases
+
+portal/57eb007324b49-create-a-personalized-data-permission-pdp-policy.mdx
+  Current title: Create a Personalized Data Permission (PDP) Policy
+
+portal/1l1fm2g0sfm69-app-db-api.mdx
+  Current title: AppDB API
+
+portal/1845fc11bbe5d-api-authentication.mdx
+  Current title: API Authentication
+
+portal/3259632a2c091-update-project-members.mdx
+  Current title: Update project members
+
+portal/1yafxad1u8azv-programmatic-filtering.mdx
+  Current title: Programmatic Filtering
+
+portal/22d11898c7994-update-card-title.mdx
+  Current title: Cards API
+
+portal/abc4b606acabc-delete-an-attachment.mdx
+  Current title: Delete an attachment
+
+portal/4dc767f205764-update-a-page-collection.mdx
+  Current title: Update a page collection
+
+portal/u8w475o2245yp-starter-kits.mdx
+  Current title: Starter Kits
+
+portal/66b06bf6ac52d-ide-limitations.mdx
+  Current title: IDE Limitations
+
+portal/gcl6cvkh1x5nk-page-api.mdx
+  Current title: Page API
+
+portal/omi6lzvpm47ei-return-flow.mdx
+  Current title: Return Flow
+
+portal/4wu6c4ddtn4m3-workflows-product-api.mdx
+  Current title: Workflows Product API
+
+portal/d88967f3c2bd5-create-a-group.mdx
+  Current title: Create a group
+
+portal/d01f63a6ba662-domo-developer-portal.mdx
+  Current title: Domo Developer Portal
+
+portal/ff85f1d956ae2-task-center-api.mdx
+  Current title: Task Center API
+
+portal/306e246057d3c-configure-reports.mdx
+  Current title: Configure Reports
+
+portal/f186ddf30fca9-upload-a-data-part.mdx
+  Current title: Upload a data part
+
+portal/4ba1c85b30ae1-import-data-into-data-set.mdx
+  Current title: Import data into DataSet
+
+portal/ab38f0e6a67ac-abort-a-stream-execution.mdx
+  Current title: Abort a Stream execution
+
+portal/p48phjy7wwtw8-code-engine-api.mdx
+  Current title: Code Engine API
+
+portal/b939448cde9d5-file-sets-api-beta.mdx
+  Current title: FileSets API (BETA)
+
+portal/e0a20a74a7754-data-connection-via-api-overview.mdx
+  Current title: Data Connection via API Overview
+
+portal/e138903b113ee-organize-manage-and-share-content-to-other-users-in-domo-using-the-page-api.mdx
+  Current title: Organize, manage, and share content to other users in Domo using the Page API
+
+portal/7036c8cbcf865-retrieve-a-user.mdx
+  Current title: Retrieve a user
+
+portal/ea88871bcc736-paid-apps-guide.mdx
+  Current title: Paid Apps Guide
+
+portal/5ueroz175c0jl-embedding-into-sites-and-web-portals.mdx
+  Current title: Embedding Into Sites and Web Portals
+
+portal/pg9t2vdbix5un-data-science-accelerators.mdx
+  Current title: Data Science Accelerators
+
+portal/5fd5b9d881e6b-retrieve-a-page.mdx
+  Current title: Retrieve a page
+
+portal/wbwvwmq9rd714-filtering-options.mdx
+  Current title: Filtering Options
+
+portal/c3d806f0562b9-add-drill-view.mdx
+  Current title: Add Drill View
+
+portal/7f5648bdd673e-list-users.mdx
+  Current title: List users
+
+portal/0945428d284ab-get-drill-properties.mdx
+  Current title: Get Drill Properties
+
+portal/8ba9aedad3679-ap-is.mdx
+  Current title: APIs
+
+portal/ncsnoe3fay4df-overview.mdx
+  Current title: Overview
+
+portal/9193184aa6047-create-data-set.mdx
+  Current title: Create DataSet
+
+portal/68dc8d9f70b3d-list-streams.mdx
+  Current title: List Streams
+
+portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app.mdx
+  Current title: Hitting a Code Engine Function from an App
+
+portal/52cc03a1e3100-domo-phoenix.mdx
+  Current title: Domo Phoenix
+
+portal/f3c595d1d1e28-deleting-all-documents-from-a-collection.mdx
+  Current title: Deleting all documents from a collection
+
+portal/8260c0e561f08-cards-api.mdx
+  Current title: Cards API
+
+portal/b96e1dbabff23-update-data-set-details.mdx
+  Current title: Update DataSet Details
+
+portal/e5d77a7e640ac-create-a-task.mdx
+  Current title: Create a task
+
+portal/7zzu6uf05maam-pdp.mdx
+  Current title: PDP
+
+portal/abaea94e18a2f-create-a-project.mdx
+  Current title: Create a project
+
+portal/0e5a684c5d309-pages-api.mdx
+  Current title: Pages API
+
+portal/67dwgt0v6q3w9-prerequisites.mdx
+  Current title: Prerequisites
+
+portal/8137c64d316f1-scheduled-reports-api.mdx
+  Current title: Scheduled Reports API
+
+portal/6e7b0fdc99bdd-authentication-and-permissions.mdx
+  Current title: Authentication & Permissions
+
+portal/9850f1f9ca01b-files-api.mdx
+  Current title: Files API
+
+portal/6875057565875-delete-a-stream.mdx
+  Current title: Delete a Stream
+
+portal/b342ce1054c3a-retrieve-a-personalized-data-permission-pdp-policy.mdx
+  Current title: Retrieve a Personalized Data Permission (PDP) policy
+
+portal/pff92wc4t7vgw-adding-advanced-capabilities-to-your-app.mdx
+  Current title: Adding Advanced Capabilities to Your App
+
+portal/cf888b03e570a-code-engine-python-packages-reference.mdx
+  Current title: Code Engine Python Packages Reference
+
+portal/d7c166334953f-delete-a-page.mdx
+  Current title: Delete a page
+
+portal/6924667fba790-sso.mdx
+  Current title: SSO
+
+portal/608c69894df01-remove-a-user-from-a-group.mdx
+  Current title: Remove a user from a group
+
+portal/lw7cqi3lqufah-stream-api.mdx
+  Current title: Stream API
+
+portal/advanced-forms-overview.mdx
+  Current title: Domo Advanced Forms (BETA)
+
+portal/42402e303b375-delete-a-page-collection.mdx
+  Current title: Delete a page collection
+
+portal/wiemes1rk6atz-overview.mdx
+  Current title: Overview
+
+portal/456b2b958eb45-retrieve-individual-list.mdx
+  Current title: Retrieve Individual List
+
+portal/34d8713d17282-sync-app-db-only-once-a-day.mdx
+  Current title: Sync AppDB Only Once a Day
+
+portal/ffvznqc76b2b5-ai-services-api.mdx
+  Current title: AI Services API
+
+portal/6fc40f66c26e2-create-a-user.mdx
+  Current title: Create a user
+
+portal/fce416aea276f-search-product-api.mdx
+  Current title: Search Product API
+
+portal/ce5767e6694f4-update-chart-card-definition.mdx
+  Current title: Update Chart Card Definition
+
+portal/81edeb860659b-video-guides.mdx
+  Current title: Video Guides
+
+portal/cf1cad1dc8fe5-retrieve-all-project-tasks.mdx
+  Current title: Retrieve all project tasks
+
+portal/ndvsmatbqz5gk-game-night-planner-app-intro-to-domo-bricks.mdx
+  Current title: Game Night Planner App - Intro to Domo Bricks
+
+portal/3104e81ceff46-retrieve-a-stream.mdx
+  Current title: Retrieve a Stream
+
+portal/71ec34a2958fe-configure-authentication.mdx
+  Current title: Configure Authentication
+
+portal/2efe8599c6ad9-getting-data-in-domo-bricks.mdx
+  Current title: Getting Data in Domo Bricks
+
+portal/umqbnyej9jn06-data-science-webinars.mdx
+  Current title: Data Science Webinars
+
+portal/e415bb99d21b2-reference.mdx
+  Current title: Reference
+
+portal/6ebb96cd8be53-roles-governance-api.mdx
+  Current title: Roles Governance API
+
+portal/edfe96df76c42-publish-connector.mdx
+  Current title: Publish Connector
+
+portal/38e89edd950ec-retrieve-all-project-lists.mdx
+  Current title: Retrieve all project lists
+
+portal/f1debac8fb029-guide-to-using-the-global-code-engine-package-start-workflow-in-remote-instance.mdx
+  Current title: Guide to Using the Global Code Engine Package `Start Workflow in Remote Instance`
+
+portal/c9db4daa8edfe-appstore-requirements.mdx
+  Current title: Appstore Requirements
+
+portal/3c41213d16bb5-certified-content.mdx
+  Current title: Certified Content
+
+portal/n4pswi7dd2azo-moving-from-brick-to-app.mdx
+  Current title: Moving from Brick to App
+
+portal/23a93e85362a3-retrieve-all-list-tasks.mdx
+  Current title: Retrieve all List tasks
+
+portal/kspv2orr3oi30-workflows-product-api.mdx
+  Current title: Workflows Product API
+
+portal/59ffe3ee390a6-delete-an-account.mdx
+  Current title: Delete An Account
+
+portal/f884f3d008a49-delete-a-project.mdx
+  Current title: Delete a project
+
+portal/4ebc56e4e9771-list-stream-executions.mdx
+  Current title: List Stream executions
+
+portal/b268da0278c85-delete-a-group.mdx
+  Current title: Delete a group
+
+portal/6b0b830a02e85-download-attachment.mdx
+  Current title: Download attachment
+
+portal/eb00606e6f114-format-data-to-import.mdx
+  Current title: Format Data to Import
+
+portal/45cd8599748b5-create-an-embed-token-cards.mdx
+  Current title: Create an embed token (Cards)
+
+portal/270fc7c8d702b-update-a-group.mdx
+  Current title: Update a group
+
+portal/93a60be5d5965-update-a-page.mdx
+  Current title: Update a page
+
+portal/d5da72027f4a1-query.mdx
+  Current title: Query
+
+portal/e326a44633f4c-commit-a-stream-execution.mdx
+  Current title: Commit a Stream execution
+
+portal/0037739ab3747-domo-bricks-overview.mdx
+  Current title: Domo Bricks Overview
+
+portal/4930370cad24c-update-a-stream.mdx
+  Current title: Update a Stream
+
+portal/cf8902150aae4-writeback-connectors.mdx
+  Current title: Writeback Connectors
+
+portal/41db49e09d006-search-streams.mdx
+  Current title: Search Streams
+
+portal/1ay1akbc787jg-workflows-api.mdx
+  Current title: Workflows API
+
+portal/d93cd01e7c739-api-status.mdx
+  Current title: API Status
+
+portal/j83p65ecrjtr1-dataset-switching.mdx
+  Current title: Dataset Switching
+
+portal/e947d87e17547-domo-js.mdx
+  Current title: domo.js
+
+portal/e3d90b95387e7-retrieve-a-stream-execution.mdx
+  Current title: Retrieve a Stream execution
+
+portal/8e96d3ae1061d-delete-a-data-set.mdx
+  Current title: Delete a DataSet
+
+portal/6505d9ad61fd0-appstore-help-and-support.mdx
+  Current title: Appstore Help and Support
+
+portal/d7364df8a5f06-list-groups.mdx
+  Current title: List groups
+
+portal/80e9ecc922752-list-cards.mdx
+  Current title: List Cards
+
+portal/wnn8cxurat78o-projects-and-tasks-api.mdx
+  Current title: Projects And Tasks API
+
+portal/ccdff47e23e23-getting-paid-guide.mdx
+  Current title: Getting Paid Guide
+
+portal/6a1dd9d565f05-managing-data-sets-in-domo.mdx
+  Current title: Managing DataSets in Domo
+
+portal/6d07be3b66fad-update-a-user.mdx
+  Current title: Update a user
+
+portal/Connectors/Custom-Connectors/help-and-support.mdx
+  Current title: Custom Connectors
+
+portal/Partner-Developers/Guides/building-an-app-overview.mdx
+  Current title: Building an App
+
+portal/Partner-Developers/Guides/submission-checklist.mdx
+  Current title: Submission Checklist
+
+portal/Partner-Developers/Guides/getting-data-overview.mdx
+  Current title: Getting Data
+
+portal/API-Reference/Domo-App-APIs/AI-Service-Layer-API.mdx
+  Current title: AI Service Layer API
+
+portal/API-Reference/Domo-App-APIs/Filesets-API.mdx
+  Current title: FileSet API (BETA)
+
+portal/API-Reference/Product-APIs/Export-to-S3.mdx
+  Current title: Export To S3
+
+portal/API-Reference/Product-APIs/Query-Data.mdx
+  Current title: Query Data
+
+portal/API-Reference/Product-APIs/Render-KPI-Card-Chart.mdx
+  Current title: Render Kpi Card Chart
+
+portal/API-Reference/Product-APIs/Dataflows.mdx
+  Current title: Dataflows
+
+portal/API-Reference/Product-APIs/Schedule-Report-Run-Now.mdx
+  Current title: Schedule Report Run Now
+
+portal/API-Reference/Product-APIs/Cards.mdx
+  Current title: Cards
+
+portal/Automate-Actions/Code-Engine/creating-packages.mdx
+  Current title: Creating Packages
+
+portal/Automate-Actions/Code-Engine/code-editor-overview.mdx
+  Current title: Code Editor Overview
+
+portal/GameNightPlannerApp/intro-to-bricks.mdx
+  Current title: Intro to Domo Bricks
+
+portal/GameNightPlannerApp/adding-advanced-capabilities-to-your-app.mdx
+  Current title: Advanced Capabilities
+
+portal/GameNightPlannerApp/going-from-brick-to-app.mdx
+  Current title: Moving from Brick to App
+
+portal/Getting-Started/overview.mdx
+  Current title: Domo Developer Portal
+
+portal/Apps/Pro-Code-Editor/Tutorials/stacked-bars.mdx
+  Current title: Stacked Bars
+
+portal/Apps/App-Framework/Welcome.mdx
+  Current title: Welcome
+
+portal/Apps/App-Framework/Tools/domo-CLI.mdx
+  Current title: Domo Apps CLI
+
+portal/Apps/App-Framework/Quickstart/Tools.mdx
+  Current title: Tools
+
+portal/Apps/App-Framework/Quickstart/Starter-Kits.mdx
+  Current title: Starter Kits
+
+portal/Apps/App-Framework/Quickstart/Prerequisites.mdx
+  Current title: Prerequisites
+
+portal/Apps/App-Framework/Quickstart/Best-Practices.mdx
+  Current title: Best Practices
+
+portal/Apps/App-Framework/Quickstart/Setup-and-Installation.mdx
+  Current title: Setup and Installation
+
+portal/Apps/App-Framework/Guides/clearing-out-collections.mdx
+  Current title: Deleting all documents from a collection
+
+portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic.mdx
+  Current title: Creating Dynamic Infographics
+
+portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow.mdx
+  Current title: Return Flow
+
+portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce.mdx
+  Current title: SugarForce
+

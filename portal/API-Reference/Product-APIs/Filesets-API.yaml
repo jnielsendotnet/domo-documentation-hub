@@ -1,0 +1,833 @@
+openapi: 3.0.0
+info:
+  title: FileSets API
+  description: |
+    ## The FileSet Object
+
+    The FileSets API allows you to create, query, update, and manage FileSets and their Files within Domo
+
+    <!-- theme: info -->
+    > #### Permissions
+    >
+    > To update or write to a FileSet via API, you must have the appropriate grants enabled.
+  version: 1.0.0
+servers:
+  - url: 'https://api.domo.com'
+    description: Domo API
+security:
+  - bearerAuth: []
+paths:
+  /api/files/v1/filesets:
+    post:
+      summary: Create a FileSet
+      description: Creates a new FileSet in your Domo instance.
+      operationId: createFileSet
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateFileSetRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+  /api/files/v1/filesets/{fileSetId}:
+    get:
+      summary: Retrieve FileSet Details
+      description: Retrieves the details of an existing FileSet.
+      operationId: getFileSet
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+    post:
+      summary: Update FileSet Details
+      description: Updates the specified FileSet’s metadata by providing values to parameters passed.
+      operationId: updateFileSet
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateFileSetRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSet'
+    delete:
+      summary: Delete a FileSet
+      description: Permanently deletes a FileSet from your Domo instance. This is destructive and cannot be reversed.
+      operationId: deleteFileSet
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+  /api/files/v1/filesets/{fileSetId}/query:
+    post:
+      summary: Query a FileSet
+      description: Queries the files and directories within a FileSet using a search query.
+      operationId: queryFileSet
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/QueryFileSetRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryFileSetResponse'
+  /api/files/v1/filesets/{fileSetId}/ownership:
+    post:
+      summary: Update FileSet Ownership
+      description: Updates the owner of a FileSet to a new user.
+      operationId: updateOwnership
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OwnershipUpdateRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+  /api/files/v1/filesets/{fileSetId}/files:
+    post:
+      summary: Upload a File to FileSet
+      description: Uploads a new File to the specified FileSet.
+      operationId: createFile
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: createFileRequest
+          in: query
+          required: true
+          schema:
+            type: string
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  nullable: true
+          application/json:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  nullable: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSystemEntity'
+  /api/files/v1/filesets/{fileSetId}/files/search:
+    post:
+      summary: Search Files in FileSet
+      description: Lists Files and directories within a FileSet, optionally filtered by directory path or other criteria.
+      operationId: listFilesForFileSet
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: directoryPath
+          in: query
+          required: false
+          schema:
+            type: string
+        - name: immediateChildren
+          in: query
+          required: false
+          schema:
+            type: boolean
+            default: false
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 100
+        - name: next
+          in: query
+          required: false
+          schema:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FilePage'
+  /api/files/v1/filesets/{fileSetId}/access:
+    get:
+      summary: Get FileSet Access
+      description: Retrieves the access permissions for the specified FileSet.
+      operationId: getAccess_1
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+    post:
+      summary: Update FileSet Access
+      description: Updates the access permissions for the specified FileSet.
+      operationId: updateAccess_1
+      parameters:
+        - name: fileSetId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessResponse'
+  /api/files/v1/filesets/search:
+    post:
+      summary: Search FileSets
+      description: Searches for FileSets in your Domo instance using filters and criteria.
+      operationId: listFileSets
+      parameters:
+        - name: limit
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 100
+        - name: offset
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 0
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+        required: true
+      responses:
+        '413':
+          description: Payload Too Large
+          content:
+            '*/*':
+              schema:
+                type: object
+        '409':
+          description: Conflict
+        '403':
+          description: Forbidden
+          content:
+            '*/*':
+              schema:
+                type: string
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FileSetPage'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    CreateFileSetRequest:
+      type: object
+      required: [name]
+      properties:
+        name:
+          type: string
+        accountId:
+          type: integer
+          nullable: true
+        connectorContext:
+          $ref: '#/components/schemas/ConnectorContext'
+          nullable: true
+    FileSet:
+      type: object
+      required: [id, name]
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        created:
+          type: integer
+        updated:
+          type: integer
+        owner:
+          type: string
+        fileCount:
+          type: integer
+    UpdateFileSetRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    QueryFileSetRequest:
+      type: object
+      properties:
+        query:
+          type: string
+        topK:
+          type: integer
+        directoryPath:
+          type: string
+    QueryFileSetResponse:
+      type: object
+      properties:
+        matches:
+          type: array
+          items:
+            $ref: '#/components/schemas/Match'
+    OwnershipUpdateRequest:
+      type: object
+      required: [userId]
+      properties:
+        userId:
+          type: integer
+    AccessResponse:
+      type: object
+      required: [fileSetId, fileSetAccess]
+      properties:
+        fileSetId:
+          type: string
+        fileSetAccess:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileSetAccess'
+    FileSystemEntity:
+      required:
+        - fileType
+      type: object
+      properties:
+        fileType:
+          type: string
+      discriminator:
+        propertyName: fileType
+    SearchRequest:
+      type: object
+      properties:
+        fieldSort:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/FieldSort'
+        filters:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/Filter'
+        dateFilters:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/DateFilter'
+    DateFilter:
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: true
+        start:
+          type: integer
+          format: int64
+          nullable: true
+        end:
+          type: integer
+          format: int64
+          nullable: true
+        not:
+          type: boolean
+          nullable: true
+    FieldSort:
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: true
+        order:
+          type: string
+          nullable: true
+          enum:
+            - ASC
+            - DESC
+    Filter:
+      type: object
+      properties:
+        field:
+          type: string
+          nullable: true
+        value:
+          type: array
+          nullable: true
+          items:
+            type: object
+        not:
+          type: boolean
+          nullable: true
+        operator:
+          type: string
+          nullable: true
+          enum:
+            - EQUALS
+            - GREATER_THAN
+            - GREATER_THAN_OR_EQUAL
+            - LESS_THAN
+            - LESS_THAN_OR_EQUAL
+            - IN
+            - IS_NULL
+            - LIKE
+    FilePage:
+      type: object
+      properties:
+        files:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/FileSystemEntity'
+        pageContext:
+          $ref: '#/components/schemas/PageCursorContext_Nullable'
+    PageCursorContext_Nullable:
+      nullable: true
+      allOf:
+        - $ref: '#/components/schemas/PageCursorContext'
+    PageCursorContext:
+      type: object
+      properties:
+        next:
+          type: string
+          nullable: true
+    FileSetPage:
+      type: object
+      properties:
+        fileSets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FileSet'
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          format: int32
+          nullable: true
+        statusReason:
+          type: string
+          nullable: true
+        exception:
+          type: string
+          nullable: true
+        path:
+          type: string
+          nullable: true
+        message:
+          type: string
+          nullable: true
+        toe:
+          type: string
+          nullable: true
+        userId:
+          type: string
+          nullable: true
+    ConnectorContext:
+      required:
+        - connector
+      type: object
+      properties:
+        relativePath:
+          type: string
+          nullable: true
+        connector:
+          type: string
+      discriminator:
+        propertyName: connector
+    FileSetAccess:
+      type: object
+      properties:
+        entityId:
+          type: integer
+          format: int64
+          nullable: true
+        entityType:
+          type: string
+          nullable: true
+          enum:
+            - USER
+            - GROUP
+        permission:
+          type: string
+          nullable: true
+          enum:
+            - OWNER
+            - EDIT
+            - READ
+            - NONE
+    AccessUpdateRequest:
+      type: object
+      properties:
+        indexAccess:
+          type: array
+          nullable: true
+          items:
+            $ref: '#/components/schemas/IndexAccess'
+    IndexAccess:
+      type: object
+      properties:
+        entityId:
+          type: integer
+          format: int64
+          nullable: true
+        entityType:
+          type: string
+          nullable: true
+          enum:
+            - UNKNOWN
+            - SYSTEM
+            - USER
+            - VIRTUAL_USER
+            - GROUP
+            - CUSTOMER
+            - DOMO_ROLE
+            - CUSTOMER_ROLE
+            - AUTHORITY
+            - CARD
+            - PAGE
+            - DATA_APP_VIEW
+            - REPORT_VIEW_PAGE
+            - REPORT_VIEW
+            - DOMOTALK
+            - BUZZ_CHANNEL
+            - BUZZ_INTEGRATION
+            - PROJECT
+            - PROJECT_TASK
+            - FILE
+            - DATA_SOURCE
+            - METRIC
+            - DATA_MODEL
+            - ACCOUNT
+            - ACCOUNT_TEMPLATE
+            - CREDENTIAL_REQUEST
+            - STREAM
+            - DATAFLOW
+            - DATAFLOW_RECIPE
+            - DATAFLOW_RECIPE_VERSION
+            - DATAFLOW_ENV_IMAGE
+            - ADC_POLICY
+            - ADC_POLICY_GROUP
+            - APPROVAL
+            - APPROVAL_TEMPLATE
+            - CERTIFICATION
+            - ALERT
+            - CONTROL_GROUP
+            - FUSION
+            - BEAST_MODE
+            - DATA_DEFINITION
+            - STORY
+            - SS_SPEC
+            - SS_ACCESS_GROUP
+            - SS_SSO_GROUP
+            - DATA_SCIENCE_NOTEBOOK
+            - FILESHARE
+            - DATA_SCIENCE_PROJECT
+            - DATA_SCIENCE_MODEL
+            - VECTOR_INDEX
+            - FILE_SET
+            - CONVERSATIONAL_AGENT
+            - CONVERSATIONAL_AGENT_PACKAGE
+            - MAGNUM_COLLECTION
+            - RYUU_APP
+            - RYUU_DESIGN
+            - ODYSSEY_WORKFLOW_MODEL
+            - ODYSSEY_WORKFLOW_DEPLOYMENT
+            - ODYSSEY_BUCKET
+            - PIPELINE_EXECUTOR_JOB
+            - REPOSITORY
+            - VERSION_DEPLOYMENT
+            - CODEENGINE_FUNCTION
+            - ENIGMA_FORM
+            - ENIGMA_FORM_INSTANCE
+            - ENIGMA_ADVANCED_FORM
+            - HOPPER_QUEUE
+            - DATA_APP
+            - WORKBENCH_JOB
+            - WORKBENCH_GROUP
+            - WORKBENCH_CREDENTIAL
+            - CONFIG_APP_CONFIGURATION
+            - CONFIG_APP
+            - WORKSPACE
+        permission:
+          type: string
+          nullable: true
+          enum:
+            - OWNER
+            - EDIT
+            - READ
+            - NONE
+    Match:
+      type: object
+      properties:
+        id:
+          type: string
+          nullable: true
+        node:
+          $ref: '#/components/schemas/ReadNodeInterfaceObject_Nullable'
+        score:
+          type: number
+          format: double
+          nullable: true
+    ReadNodeInterfaceObject_Nullable:
+      nullable: true
+      allOf:
+        - $ref: '#/components/schemas/ReadNodeInterfaceObject'
+    ReadNodeInterfaceObject:
+      type: object
+      properties:
+        created:
+          type: integer
+          format: int64
+          nullable: true
+        updated:
+          type: integer
+          format: int64
+          nullable: true
+        type:
+          type: string
+          nullable: true
+          enum:
+            - TEXT
+            - IMAGE
+            - DATASET
+            - UNKNOWN
+        embedding:
+          type: array
+          nullable: true
+          items:
+            type: number
+            format: double

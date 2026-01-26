@@ -1,0 +1,3491 @@
+Old Article to New Portal Mapping Report
+======================================================================
+
+Total old article references in docs.json: 1734
+Successfully mapped: 3
+Unmapped: 1731
+
+
+MAPPED ARTICLES
+----------------------------------------------------------------------
+
+000005173
+  Old: Code Engine
+  New: 07d7b4130e96f-creating-a-custom-package
+  Title: Code Engine
+
+360042934574
+  Old: Activity Log
+  New: 80b418fba449e-activity-log
+  Title: Activity Log
+
+6305057013527
+  Old: User Management
+  New: e492bc8b3d9ee-user-management
+  Title: User Management
+
+
+UNMAPPED ARTICLES
+----------------------------------------------------------------------
+
+360042930854: MapQuest Traffic Connector
+
+4421871310103: VaultRE Connector
+
+360043435653: Brightcove Connector
+
+360043433973: Microsoft Exchange Metrics REST Connector
+
+360042927714: Bidlogix Connector
+
+360043434213: inContact Connector
+
+360042930434: Harvest Connector
+
+360042936554: Python SDKs
+
+360043431373: iContact Connector
+
+4578278680855: Getting Started With Goals
+
+360042933314: Adobe Analytics Dashboard App
+
+360043439313: DomoStats - Projects and Tasks
+
+360043436573: File Upload Connector
+
+000005303: Workbench Enterprise | Implementation Guide
+
+360042931214: Vimeo Connector
+
+360043430273: Adding a Bot to Buzz
+
+360043435133: Wrike Connector
+
+000005710: Facebook Ads Advanced Multi Accounts Connector
+
+360046864274: Replacing a Column Value in Workbench 4
+
+360042923334: Stacked Bar Chart
+
+000005143: Domo Add-ins for Microsoft Office 365 Apps | User Guide
+
+7963308557463: GitHub Enterprise
+
+360042923734: Installing the R SDK
+
+360043439853: 2018 Release 4 | April
+
+360043435713: YouTube Enterprise Advanced Connector
+
+360042931834: Snowflake Unload V2 Connector
+
+360042933954: NOAA QuickStart App
+
+000005365: Amazon RDS connector
+
+1500009366622: Cornerstone OnDemand Connector
+
+360043427593: Encrypting Data with Domo's Bring Your Own Key (BYOK)
+
+360043433993: Mixpanel Connector
+
+360043436793: Microsoft SQL Server Reporting Service Connector
+
+4403489663127: Aggregated Filters
+
+360060595673: Amazon Kendra Writeback Connector
+
+360043431033: Commission Junction Connector
+
+9240951363095: Coupa OAuth Connector
+
+360043432013: SpyFu Connector
+
+000005080: Update and Switch Card Assets
+
+360042923554: Domo Mobile Best Practices
+
+360043438013: Appstore | Overview
+
+1500011202222: Google Ads Connector
+
+360042931154: Ooyala Connector
+
+360043435153: Dial800 Connector
+
+360042929934: Pinterest Enterprise Connector
+
+360043434133: SocialFlow Connector
+
+360056828174: Jama Connector
+
+4411277235351: Cvent REST Connector
+
+360042933854: MailChimp Dashboard App
+
+360043433033: Workday Connector
+
+360043431253: Google Ads via Google BigQuery Service Connector
+
+360043434033: New Relic Connector
+
+360042924954: Range Selector Card
+
+000005763: Amazon Web Service (AWS) EC2 Monitoring Connector
+
+000005548: Wireless Glue IoT Connector
+
+000005280: What Are Consumption Credits and How Do They Work?
+
+360042925734: Configuring Notifications for a Buzz Conversation
+
+360042929694: Zendesk Connector
+
+360043436553: Dropbox File Advanced Connector
+
+1500001388361: Amazon Redshift SSH Writeback Connector
+
+1500000888261: Snowflake KeyPair Partition Connector
+
+360042928214: Humanity Connector
+
+360043435393: Google Directions Connector
+
+4420455797783: Simba Spark JDBC Connector
+
+360043437393: Workbench 5 Security Options
+
+000005123: Denodo Connector
+
+360042931994: Glu Connector
+
+360042924494: Donut Chart
+
+360042927354: Skimlinks Connector
+
+360042931694: Hive Connector
+
+360043437853: Yammer Dashboard App
+
+360042932394: MongoDB Writeback Connector
+
+360042930014: ProBusinessTools Connector
+
+000005740: US Census Connector
+
+360042926314: Act-On Connector
+
+000005616: Submit a Support Ticket
+
+360043429233: Line Chart
+
+360042928014: Showpad Connector
+
+360043440653: 2017 Release 3 | February
+
+000005442: Custom Date & Timestamp Formatting in Analyzer
+
+360043439293: DomoStats - DataSets and DataFlows
+
+4415792998935: DataSet Backup
+
+360056826934: DoubleClick Campaign Manager Service Account via DTV2 Service Connector
+
+360043433913: Kissmetrics Connector
+
+360042934394: Time Zone Formatting
+
+360043431573: Maropost Connector
+
+360042931474: Fluxx Connector
+
+360043434313: Salesforce Desk Connector
+
+360042933514: Using the Domo Campaign Markup Language
+
+360042927754: Magento Connector
+
+360042923854: 100 Percent Stacked Bar with Line Chart
+
+360043437433: Replacing a Column Value in Workbench 5
+
+360043430593: Submitting or Approving a Request
+
+000005174: 2022 Release 3 | October
+
+9055998801815: Webex REST Connector
+
+360042928694: GitHub Connector
+
+360057028134: Azure DataLake Gen2 SAS Token Writeback Connector
+
+1500000283862: Marketo Writeback Connector
+
+000005759: Lingotek Connector
+
+360042926194: Deleting DataSets
+
+000005377: 2023 Release 3 | October
+
+360042932294: Google Drive Enterprise Writeback Connector
+
+360043433133: AppNeta AppView Connector
+
+360042927234: Salesforce Radian6 Advanced Connector
+
+360042923234: Data Cleaning Operations Using SQL and Magic ETL DataFlows
+
+360042928234: Montage Connector
+
+360042931614: Amazon Redshift SSH Connector
+
+360042928594: BlackDuck Hub Connector
+
+360043434233: Jive Connector
+
+000005677: SharePoint Online Writeback Connector
+
+360051563094: GinzaMetrics Connector
+
+4405765083543: HarvestApp Connector
+
+360044363813: Domo Finance | Implementation Guide
+
+000005386: Microsoft Dynamics 365 Finance & Operations Connector
+
+360043435073: Trello Connector
+
+360042924154: Bullet Chart
+
+7506837994007: Risk Heat Map
+
+360043430833: Adobe Advertising Cloud Connector
+
+360042924094: Add a Drill Path to Your Chart
+
+360042925994: Create an Alert for a DataSet
+
+360043430493: Projects and Tasks Best Practices
+
+000005331: Create a Workflow
+
+360043212294: Scheduling a Job in Workbench 5
+
+360042923614: Rearranging Cards on a Page
+
+360043435253: Twilio Connector
+
+360043437413: Encrypting, Decrypting, and Hashing Workbench 5 Data
+
+360043429673: Changing the Legend Position in Your Chart
+
+000005815: Pass-Through SQL in Magic ETL
+
+360043436193: MySQL Connector
+
+360043436373: Amazon S3 AssumeRole Connector
+
+360042935314: Best Practices for Designing and Structuring Your Domo Instance
+
+4405764653847: Neo4j Connector
+
+360042932254: Firebase Writeback Connector
+
+000005326: Credit Monitoring
+
+360042935414: Dashboard Optimization Best Practices
+
+360042925434: Bucketing Data Using Beast Mode
+
+360042929054: RemedyForce Connector
+
+360042926154: Best Practices for Managing DataSets
+
+360042927174: Sailthru Advanced Connector
+
+360043429753: Setting the Minimum or Maximum Value for Your Chart
+
+360043430973: Celtra Connector
+
+000005699: Freemium Overview
+
+000005090: e-Stat Third Party Connector
+
+360042925274: Specifying the Number of Value Scale Gridlines in Your Chart
+
+360044296573: Writing a Filter Formula in Magic ETL
+
+360043438933: Change User Information
+
+360042929074: Sentry Connector
+
+360042930834: DataGov Connector
+
+1500004736262: Amazon S3 Partition Connector
+
+360042923034: Running a DataFlow
+
+360043431633: Moz Connector
+
+360043431673: OpenX Connector
+
+360043432553: Drchrono Connector
+
+360042929474: STAT Search Analytics Connector
+
+360042924814: Outliers Chart
+
+000005619: Azure Synapse Partition Connector
+
+1500003942781: Tune Advertiser Connector
+
+360052722114: AWS Data Exchange V2 Connector
+
+360043433633: Sysomos Connector
+
+360042932934: Connect to Informatica Cloud in Domo
+
+000005254: Qualtrics Upsert Connector
+
+360042927014: Marketo Bulk API Connector
+
+360043436973: Azure Blob Storage Writeback Connector
+
+360043434593: OpenAir Connector
+
+000005680: Adobe Customer Journey Analytics Connector
+
+360060598413: Machine Learning Concepts to Help You be More Successful
+
+360042927494: Taboola Connector
+
+4402405213975: Microsoft Exchange Mailbox Only Connector
+
+360043435273: HuffPost Pollster Connector
+
+000005814: Partner Upgrade Path (Beta)
+
+360043429113: Funnel Chart
+
+8255638008343: QuickBooks Connector
+
+000005059: Domo Sandbox: Linked Repositories
+
+360044876094: Magic ETL Tiles: Aggregate
+
+360042934214: Zendesk Support App
+
+360043872854: Mandrill Connector
+
+360043429873: Powering a Visualization Card with Data
+
+360043429533: Stream Chart
+
+000005241: SCIM (System for Cross-domain Identity Management) in Domo
+
+360042925874: Creating and Assigning Project Tasks
+
+4403778037399: Presto Connector
+
+360043429353: Spark Line Chart
+
+4415800746391: PDP Automation
+
+360042931914: CSV SFTP Push Connector
+
+000005911: Vibe Connector
+
+000005849: Use FileSets to Gather Information from Unstructured Data (Beta)
+
+360043436513: CSV Advanced Connector
+
+360043439133: Configure Language Settings
+
+000005353: DOMO's List of Writeback Connectors
+
+360043428793: Creating a Map with Regions
+
+360061905054: Podium Connector
+
+360042930154: Adaptive Insights Connector
+
+360051270214: Changing a Job from Upsert to Replace in Workbench 5
+
+000005437: Google Bid Manager Connector
+
+000005243: LYNX Fleet Connector
+
+000005434: SAP Connector
+
+000005688: Kintone Enterprise OAuth Connector
+
+1500009295041: Scheduler App
+
+360042930194: DocuSign Connector
+
+000005457: Amazon S3 High Bandwidth Connector
+
+360042923014: Optimizing a SQL DataFlow
+
+360042925334: Properties for Data Science Charts
+
+360043427453: Glossary
+
+360042928774: Google Cloud Storage Service Connector
+
+360043428853: Viewing the Lineage of a DataSet in Analyzer
+
+360043436473: Box Advanced Connector
+
+360042929034: Qubole Unload Connector
+
+360043429333: Spark Bar Chart
+
+000005906: NetSuite JDBC OAuth
+
+360043430253: Opening a Sumo Card for Editing
+
+360043437933: Use the (Legacy) Domo Excel Plugin
+
+360042929674: Zendesk Chat Connector
+
+360043431513: Mapp Digital Connector
+
+360043429773: Syncing Value Scales in a Dual-Scale Chart
+
+360043430773: AD EBiS Connector
+
+360043436953: MariaDB Writeback Connector
+
+360042928474: Square V2 Connector
+
+360042934274: Add Users to Domo
+
+360043428873: > Area Charts
+
+360042928934: Oracle Autonomous Data Warehouse Cloud Connector
+
+360042928354: FreshBooks Connector
+
+360042926914: Klaviyo Connector
+
+000005675: Migrate from Federated to Cloud Amplifier
+
+360047499333: Connecting to Excel Data in Workbench 4
+
+000005546: AD EBiS REST Connector
+
+360043435213: GoToMeeting Connector
+
+360043430953: Cake Connector
+
+1500010669841: AWS Data Exchange for Burbio Connector
+
+360042932074: Microsoft Excel SFTP Connector
+
+360042932274: Google Cloud Storage Writeback Connector
+
+360043427893: Separating Staging and Production Data
+
+360061854834: Square Multi Account Connector
+
+4403099754903: Google BigQuery Enterprise OAuth Writeback Connector
+
+360042931494: JSON Webhook Connector
+
+360043428973: > Filter Charts
+
+360043438953: System Roles | Reference
+
+360042932214: Dropbox Writeback Connector
+
+360042926894: Kenshoo Connector
+
+4409682973463: Amazon Redshift Connector
+
+360043437893: Exporting Dashboards to PDF or PowerPoint
+
+000005176: Google BigQuery Workload Identity Federation Connector
+
+360042931434: Docebo Connector
+
+000005503: Microsoft SharePoint Online Rest Tenant Connector
+
+360057087393: Creating a Recursive/Snapshot DataFlow in Magic ETL
+
+360043434873: BIM 360 Connector
+
+360042926114: Setting the Expected Update Frequency for a DataSet
+
+000005510: Receive Domo System Messages
+
+360052122394: Amazon Athena Partition Connector
+
+360042929994: Stack Exchange Connector
+
+360043436653: HTML Table Connector
+
+360042924614: Grouped Bar Chart
+
+000005515: Amazon S3 Connector
+
+360052583893: Troubleshooting for Custom Apps
+
+360043438313: CA Agile Central QuickStart App
+
+1500011371462: MongoDB Partition Connector
+
+360042923974: Adding Chart Annotations
+
+000005842: Workflows Test Run
+
+360043431753: Salesforce ExactTarget Connector
+
+360046861014: Combining DataSets in Workbench 4
+
+8276764172951: Handling Memory Limits with Python and R Scripting Tiles in Magic ETL v2
+
+8125387098135: AzureIotHub Connector
+
+360043428253: Manage Dashboards
+
+000005768: DANS DBF Connector
+
+360043427773: Old Magic ETL Tiles: Scripting
+
+360042926274: Adding a DataSet Using a Connector
+
+360042923314: Standard Pages and Card Collections
+
+360043437793: Sharing Content Using Slideshows
+
+360056826694: MySQL Partition Connector
+
+360043432893: Open Exchange Connector
+
+360043429553: Symbol Chart
+
+360043434433: Facebook Connector
+
+360043427713: Old Magic ETL Tiles: DataSets
+
+360043428693: Understanding Chart Data
+
+360042929334: Matomo Connector
+
+360043434633: Podio Connector
+
+000005416: Salesforce ExactTarget (Marketing Cloud) OAuth Connector
+
+360042934674: Explore the User Profile
+
+360042926074: Change the Owner of a DataSet
+
+360042926054: Manage Connector/Adapter Accounts
+
+360047496273: Connecting to an OLAP Cube in Workbench 4
+
+360043436413: Amazon S3 User Specific Permissions Connector
+
+360043432513: Bullhorn REST Connector
+
+9221297758615: AppDB Admin User Interface
+
+360042924174: Editing the Name or Description of a Visualization Card
+
+4415975374231: Star Wars Connector
+
+000005807: Microsoft Dynamics CRM Rest Enterprise OAuth Connector
+
+360042927954: Saleshood Connector
+
+360042930374: Clarizen Connector
+
+000005400: Reuters Connector
+
+360043429573: Table Charts
+
+360043431493: SearchForce Connector
+
+360042929174: Adobe Analytics Real Time API Connector
+
+360046074774: Manage DataSet Views
+
+000005567: Forecasting Universal Model
+
+360043436273: PostgreSQL Connector
+
+360043432193: ClickPoint Connector
+
+5729516441367: Backing Up Workbench 5.1  Settings
+
+360043438673: Salesforce Pardot QuickStart App
+
+5428851518999: Brand Kit
+
+1500001575002: YouTube Reporting Enterprise Partition Connector
+
+000005497: Snowflake Domo Managed High Bandwidth Connector
+
+360043439573: 2016 Release 2 | March
+
+360043436293: SAP ASE Connector
+
+1500000555201: Snowflake KeyPair Unload V2 Connector
+
+360042930494: Teamwork Connector
+
+360042924314: > Period-over-Period Charts
+
+360043428073: Archiving Historical Data Using a DataFlow
+
+7579340458903: 2022 Release 1 | March
+
+360042925634: Permitted File Types for Attachments
+
+360043433113: Apache Kafka REST Connector
+
+4423762260375: | Domo Bricks | Overview
+
+360043438253: Asset Manager
+
+5714345629207: Weathernews Connector
+
+000005697: ServiceNow Enterprise OAuth Configuration Connector
+
+360043434953: Google Calendar Connector
+
+360043428313: Edit a DataFusion
+
+360060508773: Zendesk Support Connector with Upsert
+
+360043439793: Domo APIs
+
+360043428673: Analyzer Overview
+
+360043433213: CloudHealth Connector
+
+360042931594: Amazon Athena/Amazon Athena JDBC 2.0 Connector
+
+360060905774: Salesforce with Upsert Connector
+
+360042932854: Setting the Time Zone for a Workbench 5 Job
+
+4404322668951: Magento2 Connector
+
+360042926994: Marin Social Connector
+
+360043429713: Projecting the Last Value in Your Chart
+
+360043432933: Quandl Stock Reports Connector
+
+000005681: Explore Data with Table Elements in App Studio
+
+360043435613: Booker Connector
+
+000005610: Adding a Microsoft Sharepoint Online Rest OAuth Config
+
+360043437993: Embed Content Outside of Domo
+
+360042922914: Standard Domo Support
+
+360042927394: SpringServe Connector
+
+000005796: Litmos Connector
+
+000005396: Task Center Mobile App
+
+360042927654: Zendesk Sell Connector
+
+360043436113: IBM DB2 Connector
+
+360043439993: Best Practices for Standardizing Visualization Cards
+
+360061691114: Snowflake High Bandwidth With Advanced Partitions Connector
+
+360045163773: Integration Studio
+
+1500003993182: Domo Finance
+
+360042925574: Use Buzz
+
+1500001383741: USGS Wildfires Connector
+
+360042930454: Kintone Connector
+
+000005397: Atara glu Connector
+
+360043427693: Magic ETL DataFlows Checklist
+
+4407032210199: Understanding the Workbench 5.1 User Interface
+
+360042936254: 2016 Release 3 | April
+
+360046864074: Filtering Columns in Workbench 4
+
+360043435993: Amazon DynamoDB Connector
+
+360043428013: SPC Charts
+
+360043431073: DemandMetrics Connector
+
+000005409: Convert Content from MS Office Legacy Plugins to MS Office Domo Add-ins
+
+360042931174: Sportradar Connector
+
+1500000572542: Retail Express Connector
+
+360042930914: OpenWeatherMap Connector
+
+8275510785559: Observability Metrics
+
+000005860: Use the Meta Select and Get Schema Tiles
+
+4409199658263: PII Vault Protection and Compliance
+
+360043434373: Totango Connector
+
+360042929854: Lithium Advanced Connector
+
+360061873754: 2020 Release 3 | October
+
+4409812099735: Figma Connector
+
+360044408153: Scorecard App | Implementation Guide
+
+000005281: Raiser's Edge Connector
+
+360056318074: Domo Governance Datasets Connector
+
+360043430533: Manage Your Alerts
+
+360042931074: Weather Underground Connector
+
+000005826: Subset Processing for Magic ETL on Snowflake (Beta)
+
+360042931674: Azure Synapse SQL Connector
+
+360042927114: RevContent Connector
+
+360042925214: Changing the Font Size in Your Chart
+
+000005559: Use Non-aggregated Columns in Aggregated Beast Modes
+
+360043433613: Adobe Analytics Data Feed Connector
+
+1500008921782: Sprinklr V2 Connector
+
+4421037429271: IntelliShift Connector
+
+360042925914: Moving Tasks Through a Project Workflow
+
+360043428913: > Pie-Type Charts
+
+360043884834: Google Maps Pinboard | Implementation Guide
+
+1500000974662: MySQL SSH Writeback Connector
+
+360043440673: 2017 Release 2 | January
+
+360043436673: JSON Connector with Custom Parsing
+
+000005877: 2025 Release 3 | May
+
+360044289573: Supported Functions in Magic ETL Reference Guide
+
+360043433273: Google Admin SDK Reports Connector
+
+360042923174: Changing the Owner of a DataFlow
+
+4662034775319: Requesting Custom Environments
+
+000005298: Packed Bubble Chart
+
+360049429094: Snowflake Federated Data Setup
+
+5761015577879: data.world Writeback Connector
+
+000005907: Google Sheets Metadata Connector
+
+360042924194: Editing the Column Header Labels for Your Chart Table View
+
+000005370: Google Analytics 4 Enterprise connector
+
+360043437953: Use the (Legacy) Domo PowerPoint Plugin
+
+360043439273: DomoStats - People
+
+360042924374: > Data Science Charts
+
+360043439693: 2018 Release 10 | November
+
+360043438993: Setting Up Publication Groups
+
+360042928894: NetSuite App TBA Connector
+
+360046752694: Sumo Editor Layout
+
+360042929574: Intercom Connector
+
+360043437773: Scheduled Reports | Overview
+
+360043429953: Date Format Specifier Characters for Beast Mode
+
+360043431193: Engine Ready Connector
+
+000005347: New Relic NerdGraph Connector
+
+360042930654: WordPress Connector
+
+360042924674: Running Total Stacked Bar Chart
+
+6594082161687: DataSet Copy Connector Access Token Only
+
+360042932014: Google Drive Service Connector
+
+000005532: freee Enterprise Connector
+
+360042930234: Microsoft Sharepoint ADFS Connector
+
+360042934094: Salesforce ExactTarget Dashboard App
+
+360045402313: Magic ETL Tiles: Dates and Numbers
+
+000005754: Cin7 Connector
+
+360042929154: Adobe Analytics 1.4 Server to Server OAuth Connector
+
+000005295: App Studio | Overview
+
+1500000662341: Mambu Connector
+
+000005179: Manage Workflows
+
+4663374299031: Managing Your Goals and Metrics
+
+360042922894: Finding Solutions Using the Community Forum
+
+360043435293: Alchemer Connector
+
+000005480: File Upload Legacy Connector
+
+360042926974: Mailjet Connector
+
+360057028154: Azure Data Lake Storage Gen2 WriteBack
+
+6210794830999: Brainshark Connector
+
+1500000196942: Facebook Ad Library Connector
+
+360043429893: Updating or Refreshing the DataSet for a Visualization Card
+
+000005829: Deliver Customized Reports with App Studio Report Builder
+
+360042932474: SFTP Writeback Connector
+
+360042932054: Microsoft Excel Connector
+
+360042923154: Configuring Notifications for Failed DataFlows
+
+360043437813: Export Visualization Cards
+
+360043434753: Yammer Connector
+
+360043438773: SurveyMonkey QuickStart App
+
+360042923814: Lock and Unlock Dashboard Content
+
+360061648033: Clavis Edge Digital Shelf Connector
+
+360043432993: SAP Ariba Connector
+
+360043430893: Bing Ads Connector
+
+360043436173: Microsoft SQL Server Connector
+
+360042931774: SAP ASE SSH Connector
+
+360043427993: Candlestick Chart
+
+360057014014: Vertica Partition Connector
+
+360042924974: Running Total Bar Chart
+
+360042924774: Multi-Value Gauge
+
+360042925194: Adding Scale Markers to Your Charts
+
+360058570934: Google Sheets Enterprise WriteBack Connector
+
+1500000200561: Zendesk Talk Connector
+
+360042925234: Filtering Outliers in a Line Chart
+
+000005909: JSON Connector
+
+360042928994: Pingdom Connector
+
+360042928794: Google Search Console Connector
+
+360042929734: Foursquare Connector
+
+000005812: 2025 Release 1 | January
+
+4415839139863: Tag Management
+
+360043428553: Get Started with Dashboards
+
+360043436033: Amazon Redshift Advanced Connector
+
+360045179713: Spreaker Connector
+
+000005536: IoT Device Management Connector
+
+360043435453: Netatmo Connector
+
+360042931514: Particle Connector
+
+360042924394: Category Scatter Chart
+
+360047538593: Setting Up Direct Upload in Workbench
+
+360042928114: BambooHR Connector
+
+360043431733: Sailthru Connector
+
+000005764: WuFoo Connector
+
+4402801176471: Hubspot Engagement Connector
+
+360042934794: 2016 Release 4 | May
+
+000005334: SmartDB Third Party Connector
+
+360057014874: LiveChat V3 Connector
+
+1500000521362: Palace Connector
+
+000005875: Sign into Domo
+
+5063710836247: QuickBooks Multi Account Connector
+
+360042923294: Removing Cards from a Page
+
+000005522: Databricks using Personal Access Token Authentication V2
+
+360042932714: Connecting to JSON Data in Workbench 5
+
+360042927774: Microsoft Dynamics Navision Connector
+
+5395550067095: Asana Personal Access Token Connector
+
+9030981562519: Amazon Redshift Domo Managed Unload
+
+360043432653: Jobvite Connector
+
+000005832: Snowflake Key Pair High Bandwidth Advanced Partitions Connector
+
+360042930974: Atom RSS Connector
+
+4420447636887: Microsoft SQL SSH Connector
+
+360058903653: IBM Informix Partition Connector
+
+000005502: Manage AI Models and Projects
+
+000005491: Amazon Ads Advanced Connector
+
+360042924134: Format Values in Your Chart
+
+360042926594: Constant Contact Connector
+
+000005478: DocuSign OAuth Connector
+
+360042929354: Mist Connector
+
+360042932114: Microsoft Exchange Mailbox Connector
+
+360043431533: Marchex Connector
+
+360043433313: Google Cloud Storage Connector OAuth
+
+360042929914: Pinterest Connector
+
+360048127854: Train and Deploy Models with AutoML (Automated Machine Learning)
+
+360042930874: NOAA Historical Weather Connector
+
+000005543: Design with App Studio Themes
+
+360043434293: PlayVox Connector
+
+360058685594: OnBrand360 Connector
+
+360043439453: Viewing and Entering Peers in Your Company Org Chart
+
+360043428453: 3-Metric Bar Charts
+
+360042932354: JSON Post Writeback Connector
+
+360043433193: Cloudability Connector
+
+360043432873: Open Exchange Rates Advanced Connector
+
+360043435093: Workfront Advanced Connector
+
+360043431653: Nativo Connector
+
+360043430413: Using the Data Warehouse to Manage Data
+
+9301034807575: Triggered Reports
+
+360043435013: Procore Connector
+
+360042924854: Pie Chart
+
+360045485833: Magic ETL Tiles: Scripting
+
+360042933734: Hubspot QuickStart App
+
+360044365013: Marketing ROI | Implementation Guide
+
+6918172885143: Agentbox Connector
+
+360043432953: QuickBooks Online Reports Connector
+
+360042931854: Snowflake Key Pair Authentication Connector
+
+360051709994: Deprecated Chart Properties
+
+360043432253: Outreach Connector
+
+000005279: AI Service Layer Settings
+
+4406661839895: AirNow Connector
+
+4530782510871: Drag-and-Drop Apps
+
+8677917495959: Amazon Vendor Partner Connector
+
+360042925814: Configuring Notification and Alert Settings
+
+000005739: Amazon Web Services IoT Analytics Connector
+
+360043433933: LKQD Connector
+
+000005848: 2025 Release 2 | March
+
+360043427493: FAQs
+
+000005481: JSON Easy Connector
+
+360042935034: 2018 Release 5 | May
+
+360043431093: District M Connector
+
+360043428053: Stacked Bar with Line Chart
+
+000005747: Marin Connector
+
+360046750913: Group Scheduling for Workbench 5 Jobs
+
+6814561223959: Schema Management
+
+360043429393: Nested Bar with Line Chart
+
+360043436753: Microsoft OneDrive for Business Connector
+
+360043427973: Calendar
+
+000005178: ADLS Gen 2 OAuth Writeback Connector
+
+360042923494: Pulling a Segment of Text from a Text String
+
+360042927594: Voluum Connector
+
+000005389: Infusionsoft by Keap Rest Connector
+
+360042926234: Viewing the Impact of Changes to DataSets
+
+360043434393: Zendesk Sunshine Connector
+
+360042926394: Apple News Publisher Connector
+
+000005364: Google Search Ads 360 Enterprise Connector
+
+360042934714: Managing Your Personal Photos
+
+000005477: Snowflake Enterprise OAuth Connector
+
+360042925154: Applying and Resetting Chart Properties
+
+360042935374: Card, Data, and Page Best Practices
+
+000005091: Applying CSS to Domo Card Images in the Campaigns App
+
+360042933634: Google Adwords Keyword Performance App
+
+000005399: Quandl Connector
+
+360042929314: Google Tag Manager Connector
+
+360043437013: Microsoft SQL Writeback Connector
+
+360043429153: Grouped Bar with Line Chart
+
+000005274: SellerCenter Connector
+
+360042924054: Opening Analyzer
+
+360043428813: Setting Color Rules for a Chart
+
+000005744: Domo on Amazon Athena
+
+360043430993: Centro Connector
+
+360043428153: Date Difference for Business Days
+
+360043437833: Exporting Sumo Data
+
+360043433053: Xero Connector
+
+360047504553: Setting a Custom Date Format on a Column in Workbench 4
+
+360043436773: Microsoft SharePoint Online REST Connector
+
+360042931234: YouTube Reporting Connector
+
+360043434273: PestRoutes Connector
+
+1500011338741: Snowflake OAuth Writeback Connector
+
+000005507: Google Ads
+
+4416740193303: MYOB Connector
+
+360042929094: ServiceNow Connector
+
+1500000281902: data.world Connector
+
+1500011035281: Aha! Connector
+
+8285678562327: Box file Watch
+
+360042930674: FluidSurveys Connector
+
+000005533: LiveRail Connector
+
+360042925774: Seeing Online Users in Domo
+
+360042930314: Asana Connector
+
+360043435033: Toggl Connector
+
+360048116074: 2015 Release 2 | November
+
+360043434853: Basecamp V3 Connector
+
+000005870: Quickbooks Multi Account V2 Connector
+
+360042932334: Google Sheets Writeback Connector
+
+360043429433: Pareto Chart
+
+4482007928983: Talkdesk Connector
+
+360043432313: SalesExec Connector
+
+4410615812759: Close.io Connector
+
+360042926554: comScore Connector
+
+360052884873: Amazon Redshift Partition Connector
+
+000005256: 2023 Release 1 | March
+
+360042933894: Marketo Dashboard App
+
+360042928554: AppNexus Log Level Data Connector
+
+360042928814: Jamf Connector
+
+360044195574: Zendesk Guide Connector
+
+000005557: Magic ETL on BigQuery (Beta)
+
+360042930934: PatentsView Connector
+
+1500000281502: Amazon Athena Unload Connector
+
+360061224493: Snowflake KeyPair Internal Managed Unload Connector
+
+360043428653: Using Card Interaction Tools in a Card Details View
+
+360043436153: Microsoft Dynamics CRM REST Connector
+
+360042934194: Trello Dashboard App
+
+360042930754: SurveyMonkey Advanced Connector
+
+000005404: Sumo Logic Advanced Connector
+
+360043430193: Downloading a Document from Domo
+
+1500007660641: Azure Data Lake Storage Gen2 Using AAD Connector
+
+360042926294: Connector FAQs and Troubleshooting
+
+360042928434: Square Connector
+
+360043428753: Configuring Your Chart Summary Number
+
+1500002644442: Azure DevOps Connector
+
+360043441853: Campaigns API
+
+360042931094: Unleashed Connector
+
+360042932154: Microsoft Word Connector
+
+360043433693: Aspectiva Connector
+
+7617841459223: Google Analytics 4 connector
+
+1500003956542: HealthData Connector
+
+000005309: Domo Free | Overview
+
+360042934994: 2018 Release 8 | September
+
+360043437913: Google Sheets Add-On
+
+360047406653: Workbench 4 Release Notes
+
+360043437593: Vimeo Dashboard App
+
+360043433433: Loggly Connector
+
+360043437173: Workbench 5 Training Topics
+
+360042923534: Removing White Space from Text Strings
+
+360042932674: Creating a Job for Uploading Data Using Workbench 5
+
+360042934114: Salesforce Dashboard App
+
+360043434553: Pinterest Ads Connector
+
+360051062653: Magic ETL DataFlow Auto Append Processing
+
+000005918: Domo AI Pro
+
+360043428413: Adding Dashboards as Favorites
+
+360058714813: Microsoft Reports Connector
+
+360042925074: U.S. State and County Maps
+
+360042931014: USGS Advanced Connector
+
+1500008509361: Microsoft Reporting Service Connector
+
+000005108: Workflows | Overview
+
+360043436453: Anaplan Audit Service Connector
+
+360042932814: Filtering Columns in Workbench 5
+
+360043435513: Pocket Connector
+
+360042928374: Sage Intacct Connector
+
+1500000216821: Amazon S3 AssumeRole Advanced V2 Connector
+
+360042923594: Resize Cards on a Standard Page
+
+000005726: KnowBe4 Connector
+
+360043437453: Rolling Back from Workbench 5 to Workbench 4 on ODBC Jobs with Connection Parameters
+
+360043434973: JIRA Rest API Connector
+
+360042934154: Strava QuickStart App
+
+4405337525783: Data Fundamentals: Understanding Relational Data, Domo Architecture, and Data Pipeline Optimization
+
+360043429473: Pivot Table
+
+360043433073: Xero Payroll Connector
+
+360046763254: Workbench 4 Training Topics
+
+360043429253: Running Total Line Chart
+
+360042928074: ADP Connector
+
+000005793: Microsoft OneDrive Business Enterprise OAuth Configuration Connector
+
+360043435973: Amazon Aurora Connector
+
+360043433493: Okta Connector
+
+360058755394: Zoom Phone Enterprise Connector
+
+360043433813: DomoStats Connector
+
+360057013754: Snowflake Partition Connector
+
+360042924454: Custom Charts
+
+000005797: Workflows | Reference
+
+360043439593: 2017 Release 1 | January
+
+360043434153: Spredfast Connector
+
+360043438973: Manage User Roles and Grants
+
+360043433413: IBM Informix SSH Connector
+
+000005455: Magic ETL on Snowflake (Beta)
+
+360043427373: Old Magic ETL Tiles: Edit Data
+
+360043438273: Balance Sheet: Assets App
+
+360043433713: Box Analytics Connector
+
+000005519: ABLSoft Connector
+
+360047411473: Migrating to Workbench 4 from Previous Versions
+
+000005112: PPO Domo Connector
+
+360046761214: Workbench 4 FAQs
+
+000005504: 2024 Release 3 | May
+
+360047416513: Adding an Account in Workbench 4
+
+4546378883863: Multi Radial Progress Gauge
+
+360042929494: Yieldex Connector
+
+000005715: JSON Advanced Writeback Connector
+
+360042932754: Connecting to QuickBooks Data in Workbench 5
+
+4408174643607: Beast Mode FIXED Functions
+
+360043431353: HubSpot Webhook Connector
+
+360042929014: Qubole Connector
+
+360042931254: YouTube Reporting Enterprise Connector
+
+360042925854: Adding a Task List to a Project
+
+360042932634: Add an Account in Workbench 5
+
+360042926674: Google Campaign Manager Enterprise Connector
+
+360058757134: Snowflake Managed Unload Connector
+
+000005930: Use Sub Flow to Streamline Your Automations in Workflow
+
+000005048: Flex Map v2 | User Guide
+
+4577172785559: Configuring Goals Settings
+
+4404246789783: Scheduling a Job in Workbench 5.1
+
+000005663: Microsoft Fabric Connector
+
+360042927574: VerticalResponse Connector
+
+360043429693: Formatting Data Label and Hover Text in Your Chart
+
+360042926634: Criteo Connector
+
+000005528: Google Search Ads 360 Connector
+
+000005813: Teads Connector
+
+360045402873: Magic ETL Tiles: Text
+
+360043433333: Google PageSpeed Insights Connector
+
+360042924574: Grouped and Stacked Bar Chart
+
+000005343: Clari Connector
+
+360043432793: Coupa Connector
+
+360043427653: Editing a Magic ETL DataFlow
+
+360042931794: SAP HANA Connector
+
+1500003094902: Snapchat Ads OAuth Connector
+
+360043427353: Old Magic ETL Tiles: Edit Columns
+
+360042935714: Creating and Importing CourseBuilder Apps
+
+000005307: Nested Calculations
+
+360043432673: Zenefits Connector
+
+360043433373: Heroku Connector
+
+360042936134: 2016 Release 1 | January
+
+000005535: Microsoft SharePoint Online Rest Enterprise OAuth Connector
+
+360043427733: Old Magic ETL Tiles: Combine Data
+
+360042932774: Connecting to XML Data in Workbench 5
+
+360046864794: Common Workbench 4 Errors
+
+360043434413: Facebook Advanced Connector
+
+360042923134: Copying a DataFlow
+
+360042934974: 2018 Release 9 | October
+
+360043038714: Using Upsert in Workbench 5.1
+
+360043427933: Join DataSets by Adding a Unique Key Column
+
+360042924414: Comparative Fill Gauge (Basic and Advanced)
+
+000005402: Magento Connector
+
+000005841: Snowflake OAuth Unload V2 Connector
+
+000005473: Google BigQuery Workload Identity Federation Data Connector
+
+360043430933: BuzzStream Connector
+
+360043439893: 2019 Release 2 | March
+
+360043439173: Allowlist IP Addresses in Domo
+
+360043438693: Scorecard V2 | Implementation Guide
+
+360042932594: Running Workbench 5
+
+360044258533: Writing Formulas in Magic ETL
+
+360043429613: Waterfall Chart
+
+1500010195881: Apache Impala SSH Connector
+
+360043430453: Dayforce Connector
+
+360043427573: Understanding the Customer Support Portal
+
+360042933334: Asset Viewer
+
+4414026824471: OrthoFi Connector
+
+360042933434: CNN Dashboard App
+
+000005351: RealPage Connector
+
+360042933614: Form Viewer App
+
+360043430513: Create an Alert for a Visualization Card
+
+360043433473: JSON No Code Connector
+
+360043434653: Tumblr Connector
+
+360043432493: BrassRing Connector
+
+360043434013: Netbase Connector
+
+360042927934: Salesfusion Connector
+
+360058903853: Microsoft Teams Connector
+
+360043433773: CallTrackingMetrics Connector
+
+360042929514: Cordial Connector
+
+000005183: Manage Subscriptions to Appstore Listings
+
+360043430333: Creating a Project
+
+4415826269335: Virtual DataSets
+
+000005283: PopChart®
+
+360043437213: Connecting to an OLAP Cube in Workbench 5
+
+4409676591127: Cloudability V3 Connector
+
+360043430613: Certify Cards and DataSets
+
+360043429973: Buzz Layout
+
+360043437153: Starting, Stopping, and Restarting the Workbench 5 Service
+
+360042930714: InMoment Connector
+
+360052105454: JSON No Code OAuth Connector
+
+360042933374: Bing Ads Analytics App
+
+360044365593: Pipeline Velocity | Implementation Guide
+
+360042925354: Properties for Gauges
+
+1500010196881: Snowflake OAuth Internal Unload V2 Connector
+
+360042925394: Properties for Miscellaneous Charts
+
+6568218044055: Kafka SASL Connector
+
+4662511363351: Troubleshooting Scripting Tiles Memory Errors
+
+4434784751767: Optimizing Data Performance
+
+000005492: Data Refresh Permissions
+
+360042924274: > Line Charts
+
+000005100: Shopify Custom App Connector
+
+360042925894: Editing Project Tasks
+
+360042927634: YouGov Connector
+
+7508982399767: Faceted Bar Chart
+
+360042931454: Domo Dimensions Connector
+
+360042925934: Archiving Project Tasks and Lists
+
+4421855169943: PostgreSQL Advanced Connector
+
+360042928634: Database.com Connector
+
+360043431693: Percolate Connector
+
+000005603: Azure Data Lake Gen2 OAuth Writeback Connector
+
+360042931294: MINDBODY Online Connector
+
+000005459: 2024 Release 2 | March
+
+360042928334: Expensify Connector
+
+4404652354583: DataFlows Disabled Due to Extended Inactivity
+
+360043433093: Amazon CloudWatch Connector
+
+360043428893: > Lollipop Charts
+
+360042934494: Manage Access Tokens
+
+360043430653: Connecting Cards to a Different DataSet
+
+7561566413463: Migrating from Workbench 4 to Workbench 5: Troubleshooting Guide
+
+360060653773: Adobe Analytics Data Feed V2 Connector
+
+360043434513: LinkedIn V2 Connector
+
+360043431433: Jomablue Connector
+
+360042932434: Oracle Database Writeback Connector
+
+000005794: Google Drive Enterprise OAuth Connector
+
+4418999855639: Filter Options for the Embedded View Experience
+
+360042928914: Atlassian OpsGenie Connector
+
+360043431473: MailChimp Connector
+
+000005350: SimilarWeb Connector
+
+000005903: Consensus Connector
+
+360043432033: Sysomos Heartbeat Connector
+
+000005732: OLAP Connector
+
+000005240: Manage API Clients
+
+000005349: Connect And Sell Connector
+
+360042932514: Smartsheet Writeback Connector
+
+360043438593: RunKeeper Dashboard App
+
+360042923994: Drilling into Data
+
+360043428513: Bubble Chart (Deprecated)
+
+360052122574: Amazon Aurora Partition Connector
+
+000005184: List on the Appstore
+
+000005720: AI Agents | Frequently Asked Questions
+
+8182790816791: Couchbase connector
+
+360042925034: Symbol Overlay Chart
+
+360043434533: Meetup Connector
+
+000005236: Domo AI Playground
+
+000005246: Amazon DynamoDB Assume Role Connector
+
+360060476953: Awardco Connector
+
+360043429033: Country Map
+
+000005150: Data Selection in Magic ETL
+
+360043434353: Teckst Connector
+
+1500009135201: Zendesk Sell Firehose Connector
+
+000005432: Session Management
+
+360042926734: Engagio Connector
+
+000005304: Beast Mode AI Assistant
+
+000005105: DataSet Watchdog
+
+000005378: MQTT Connector
+
+360042928674: FreshService Connector
+
+360043428773: Adding a Goal Line to Your Chart
+
+360043429933: Beast Mode Functions Reference Guide
+
+360043436593: Google BigQuery Service Connector
+
+360043428113: Creating a Recursive/Snapshot Old Magic ETL DataFlow
+
+360043437613: Webtrends Dashboard App
+
+000005587: Launch Workbench Enterprise Jobs with Third-Party Tools Using JWT
+
+360042929434: Predix Connector
+
+360042924694: Scatter Plot Chart
+
+000005827: Domo SSO
+
+360043440693: 2019 Release 4 | July
+
+1500000197562: TrustYou Connector
+
+360043427753: Old Magic ETL Tiles: Data Science
+
+360043428033: Stacked Area Chart
+
+360042927474: Sysomos Expion Connector
+
+360043432373: Seismic Connector
+
+000005471: Domo on Azure SQL (Beta)
+
+360043433573: Zabbix Connector
+
+360042925494: Sample Beast Mode Calculations: Date Transforms
+
+360043430133: Sample Beast Mode Calculations: Period-over-Period Transforms
+
+360042931934: CSV Upload Connector
+
+360043431453: Listrak Connector
+
+000005214: Changes in Account Configuration Requirements for Connectors
+
+360042929714: Zoho CRM Connector
+
+000005342: inContact CxOne Oauth Connector
+
+4770992455575: Seismic Connector for Direct Sign-On
+
+360043192634: Configuring a DataSync Folder in Workbench 5
+
+360047553253: Data Center Layout
+
+360045402273: Magic ETL Tiles: DataSets
+
+1500007028582: Mobile Enterprise Security
+
+1500012226542: Google Analytics Mgmt Service Account Connector
+
+360043437233: Connecting to CSV Data in Workbench 5
+
+4926944153367: MySQL SSH MultiStatement Connector
+
+000005500: Build Domo Apps with the Pro-code Editor
+
+4409045382935: 2021 Release 2 | July
+
+000005902: How to Configure the Domo Mobile App with Microsoft Intune for Mobile SSO and Policy Management
+
+360042928574: ArcSight Connector
+
+360043435233: Twilio Advanced Connector
+
+360043434813: Dropbox for Business Advanced Connector
+
+360042935674: Why Use CourseBuilder?
+
+360050912013: 2020 Release 1 | March
+
+000005648: Customize Domo Mobile App
+
+000005742: Nagios Connector
+
+9338871306135: Duplicating a Job in Workbench 5.2
+
+360042924714: Shape Gauge
+
+360042929794: Klout Connector
+
+4407650069527: Google BigQuery High Bandwidth OAuth Enterprise Connector
+
+360042926574: Conductor Searchlight Connector
+
+360042935234: 2018 Release 2 | February
+
+360043436133: Microsoft Dynamics CRM Connector
+
+360058713713: CSV SFTP Advanced Security Connector
+
+360043429853: Properties for Maps
+
+360043435833: Rent Manager Connector
+
+360043436993: Microsoft OneDrive Writeback Connector
+
+360042925794: Unfollowing a Buzz Conversation
+
+4410213098903: Adrenaline DataFlow Functions Reference Guide
+
+360045259294: Magic ETL Tiles: Data Science
+
+360043435953: Sample Data Connector
+
+360042934594: DomoStats - Activity Log App
+
+000005784: 2024 Release 6 | November
+
+000005302: Data Science Charts: Correlation and Confusion Matrix
+
+360042927154: Rubicon Project Connector
+
+360042924894: Predictive Modeling Chart
+
+360042931814: Snowflake Connector
+
+360043429813: Properties for Bar Charts
+
+000005879: Build Your First Dashboard | Tutorial
+
+360043436253: Oracle Database SSH Connector
+
+360058713473: MongoDB V2 Connector
+
+360042932494: Sharepoint Online Writeback Connector
+
+360043436533: DataSet Copy Connector
+
+360042929874: Lithium LiQL Connector
+
+360043438473: Best Practices for Using CourseBuilder
+
+360043438553: Pipeline Velocity App
+
+4402322966807: > Domo on Snowflake (RECOMMENDED)
+
+360043429373: Lollipop Chart
+
+000005468: Google Sheets Service Connector
+
+000005469: Dynamics 365 Business Central Connector
+
+360043432593: SAP Fieldglass Connector
+
+360043430293: Downloading and Running the Buzz Desktop Version (Deprecated)
+
+360043436093: Domo Dataset Query Connector
+
+360043440713: 2017 Release 10 | October
+
+360043431553: Marketo Connector
+
+360043432773: CCC One Connector
+
+360043438213: Troubleshoot Single Sign-On Using SAML
+
+360042932974: Manage Your Federated Data Connection
+
+360043435673: Ooyala Advanced Connector
+
+360058892613: HL7 Writeback Connector
+
+1500000281802: Azure SQL Data Warehouse Connector
+
+360042928714: Google Admin SDK Reports Connector OAuth
+
+360043428433: Creating Domo Stories
+
+360043431313: Hearsay Social Connector
+
+000005276: Xero Custom Connector
+
+360042932614: Common Workbench 5 Errors
+
+360042928414: QuickBooks Online Reports Advanced Connector
+
+4407012139287: Configure the CData Driver for SAP in Workbench 5.1
+
+360043430233: Adding a Notebook Card
+
+7440921035671: Jupyter Troubleshooting Guide
+
+360043431213: Facebook Ads Connector
+
+360043428953: > Miscellaneous Charts
+
+360043429593: Textbox
+
+360043432533: Bullhorn SOAP Connector
+
+360043429453: Percent of Total Chart
+
+360043433173: Cisco Prime Connector
+
+360058903093: Google BigQuery Enterprise Data Connector
+
+360043430313: Downloading Files from Buzz
+
+000005371: HipChat
+
+360058792094: How to Create a Date or DateTime Format Tag in Campaigns
+
+360045120554: Publish Content to a Subscriber Instance
+
+360042925474: Beast Mode Manager
+
+000005447: Snapchat Ads Connector
+
+360042924734: Marimekko Chart
+
+360043436693: Microsoft Azure Blob Storage Connector
+
+360042931574: You've Got Leads Connector
+
+360043439773: Building Custom Connectors in Domo
+
+360043441593: Publication Groups and You: The Not Quite Definitive Primer
+
+000005332: Update Payment Details for Domo Free
+
+000005348: Auth0 Connector
+
+360043430073: Sample Beast Mode Calculations: Basic Transforms
+
+360042924594: Grouped and Stacked Bar with Line Chart
+
+360043431913: Sizmek SAS Connector
+
+1500001012441: Hubspot Writeback Connector
+
+360042930214: Dropbox for Business Connector
+
+360042933794: JIRA Dashboard App
+
+1500000199961: Google Tag Manager Service Connector
+
+360043438053: Enabling SSO with Google
+
+000005448: Xero Custom Multi Account Connector
+
+1500000161782: WooCommerce Connector
+
+4402689409687: Hive Project Manager Connector
+
+360043432833: Kounta Connector
+
+4416224124439: Social Studio Connector
+
+360042934534: Specifying Authorized Domains for Invited Users
+
+360042933554: Facebook (Business) QuickStart App
+
+360042924334: > Gauges
+
+360044876614: Magic ETL Tiles: Filter
+
+360042927454: Synthesio Connector
+
+000005131: Backlog Third Party Connector
+
+360052376053: MongoDB SSH Connector
+
+360043438433: LinkedIn QuickStart App
+
+360046860474: Connecting to XML Data in Workbench 4
+
+000005866: Amazon S3 Parquet Connector
+
+000005756: > Domo on PostgreSQL (RECOMMENDED)
+
+4422351866519: Amazon Athena High Bandwidth Connector
+
+360042935734: Add and Design App Pages in CourseBuilder
+
+360042923874: Box Plot Chart
+
+000005904: 2025 Release 4 | July
+
+360042931894: CSV SFTP Pull Connector
+
+360042926854: Integrate Cloud Connector
+
+360042927854: PipelineDeals Connector
+
+360042927274: Silverpop Connector
+
+000005901: Magic ETL Tiles: Disable Tiles
+
+360058904553: Kontakt Connector
+
+360043431613: Mongoose Metrics Connector
+
+360042924794: Nested Bar Chart
+
+000005255: TikTok Third Party Connector
+
+360042925314: Properties for Pie-Type Charts
+
+360042925254: Setting Options for Gauges
+
+360042930534: Apache Kafka Connector
+
+360042930414: ForeSee Connector
+
+360043435693: Rotten Tomatoes Connector
+
+360042935354: Best Practices for Sharing Content in Domo
+
+360042927294: Simpli.fi Connector
+
+360042926694: DCM via Google Cloud Storage Connector
+
+360042930474: Smartsheet Connector
+
+9485049422103: Understanding Form Response Data
+
+360043434713: VoiceStorm Connector
+
+000005107: MongoDB ReplicaSet Connector
+
+360042927674: Bazaarvoice Connector
+
+360052884153: JIRA Cloud Connector
+
+4407412515991: Emarsys Contacts Writeback Connector
+
+360043431773: Salesforce Radian6 Connector
+
+4410301215127: Emarsys Sales Writeback Connector
+
+360058892493: Limble CMMS Connector
+
+360043873654: AWS Data Exchange Connector
+
+360043430113: Sample Beast Mode Calculations: Miscellaneous Transforms
+
+4408794063639: Upgrade to Magic ETL v2
+
+360042935014: 2018 Release 6 | June
+
+360042928294: Taleo Connector
+
+360042931634: Amazon Redshift Unload V2 Connector
+
+1500000162442: Yahoo! JAPAN Display Ad Network (YDN) Connector
+
+360042932794: Creating Columns in Workbench 5 Using Calculations
+
+360058708833: Lenos Connector
+
+000005372: Workflow Start Form Brick
+
+360043430353: Projects and Tasks Layout
+
+360043435933: Owler Connector
+
+000005095: XML Advanced Connector
+
+7938129701527: Anaplan Audit Service Advanced Connector
+
+4403089503383: Create Segments in Analyzer
+
+360044356293: Back Up Workbench 5 Jobs
+
+360043436393: Amazon S3 Connector
+
+4402638182935: Snowflake OAuth High Bandwidth With Advanced Partitions Connector
+
+360042930994: Sunlight Labs Congress Connector
+
+000005770: Google Drive Metadata Connector
+
+360042927614: Webtrends Connector
+
+360043428293: Combine DataSets Using DataFusion (Deprecated)
+
+000005806: Shopify Multi Accounts Connector
+
+000005905: Microsoft Fabric Service Principal Authentication Connector
+
+360043435853: AdvancedMD Connector
+
+360042934614: Personalized Data Permissions (PDP)
+
+360042925514: Sample Beast Mode Calculations: Mathematical Transforms
+
+360047496473: Connecting to CSV Data in Workbench 4
+
+360043428633: Taking Snapshots of Cards
+
+360042932414: NetSuite Writeback Connector
+
+360042925134: XY Line Chart
+
+360060597953: Workfront Writeback Connector
+
+360042926474: BrightEdge Connector
+
+4529227357975: Using Smart Text
+
+360043434113: Shareablee Connector
+
+360059173794: Snowflake KeyPair Unload Connector
+
+1500000214222: Google Calendar Service Connector
+
+360042932094: Microsoft Exchange Connector
+
+360043433453: NetSuite SuiteAnalytics Connector
+
+360043429413: Overlay Bar Chart
+
+360042934294: Create and Manage User Groups
+
+360042930134: Yelp Reporting Connector
+
+360042925594: Deleting a Document Version
+
+360043439393: Adding or Changing Your Profile Picture
+
+360047400113: Workbench 4 Overview
+
+4420450699415: Dialpad Enterprise Connector
+
+360043430093: Sample Beast Mode Calculations: Card Element Transforms
+
+360043430373: Alerts Center Overview
+
+360043429193: Histogram
+
+000005237: > Domo on Google BigQuery (RECOMMENDED)
+
+360042927994: Shopify Connector
+
+360043436833: Workiva Connector
+
+360043438293: Bureau of Labor Statistics Dashboard App
+
+360055663713: FedEx Writeback Connector
+
+000005803: Lithium Connector
+
+000005320: Instructor-Led Courses in Japan
+
+360043432913: Paydirt Connector
+
+360043428173: Dealing with Attribution Windows
+
+000005146: Domo Add-ins for Microsoft Office 365 | Manual Installation Guide
+
+360043435373: CNN RSS Connector
+
+000005352: Freshservice V2 Connector
+
+360043429653: Changing the Default Colors in Your Chart
+
+360043428593: Deleting Cards from Domo
+
+6643231704471: LINE MUSIC Analytics Connector
+
+360056826894: Oracle Database Partition Connector
+
+360043433393: IBM Informix Connector
+
+4624885410583: OfficeRnD Connector
+
+360048717414: Domo Snowflake Partner Connect
+
+360043433153: AppNeta TraceView Connector
+
+360043433233: Datadog Connector
+
+360043435873: Aventri Connector
+
+000005430: 2024 Release 1 | January
+
+360043439953: Best Practices for Creating Visualization Cards
+
+360046856934: Scheduling a Job in Workbench 4
+
+360042926034: Create a Request Template
+
+360043435493: NOAA Weather Alerts Connector
+
+360042926354: Adobe Target Connector
+
+360042928854: Microsoft Azure Data Factory Connector
+
+000005427: Microsoft Access SFTP Connector
+
+000005242: Reddit Ads Connector
+
+360042936194: 2017 Release 7 | July
+
+4492108625687: Exporting Embedded Content
+
+360042923774: Linking Related Cards
+
+360043435733: Fitbit Connector
+
+000005839: Role Settings: Default Role and Roles Allowlist
+
+360042927534: Uberflip Connector
+
+360043433793: Chartbeat Connector
+
+360043429273: Sankey Chart
+
+360043433353: Graylog Connector
+
+360058716553: Microsoft SQL Server Partition Connector
+
+360042933754: Inline Editing | User Guide
+
+360042929954: Reddit Connector
+
+4407026238487: Updating Your Workbench 5.1
+
+360043430913: BrightRoll Connector
+
+360042928134: GetThere Connector
+
+000005431: Session Settings
+
+360042933354: BambooHR Dashboard App
+
+360043427953: DataFlow and DataFusion Troubleshooting and FAQs
+
+360051558694: Understanding the Connector Options Menu Items
+
+000005538: Box Advanced Connector
+
+1500009323241: Scheduler | Implementation Guide
+
+360043431053: Comscore MMX Connector
+
+360042924834: Period-over-Period Charts
+
+360042923074: Viewing the Version History for a DataFlow
+
+360042931394: Zillow Connector
+
+360047501293: Encrypting and Decrypting Workbench 4 Data
+
+360043436633: Google Sheets Connector
+
+360057028694: MariaDB Partition Connector
+
+000005921: Snowflake Key Pair Domo Managed Unload connector
+
+360042930814: CDC Connector
+
+360043431333: HubSpot Connector
+
+360043435793: Neurio Connector
+
+000005724: IBM Watson Adapter
+
+360043427833: Disabling or Deleting a DataFlow
+
+360042924474: Date Selector Card
+
+7591715386391: freee Third Party Connector
+
+360042925374: Properties for Tables
+
+4577793742615: Accessing Goals Data
+
+360042926514: BuzzSumo Connector
+
+360043429133: Gantt Chart
+
+360043433893: IBM Digital Analytics Connector
+
+360042934634: PDP and Alerts
+
+360042931054: Weather Source Connector
+
+360043431993: Sprinklr Connector
+
+360043432213: Infusionsoft/Infusionsoft Enterprise Connector
+
+360056727214: Non-queryable DataSets
+
+000005373: In Range Gauge
+
+360042924514: Dynamic Textbox
+
+360043434733: WeChat Connector
+
+360047496013: Managing Plugins in Workbench 4
+
+000005534: Snowflake Enterprise OAuth Connector
+
+000005853: Getting Started With AI Agents
+
+360043433013: Stripe Connector
+
+000005892: Adobe Analytics v2 OAuth Partition Connector
+
+360042934514: Disabling Username Autocomplete in the Login Screen
+
+360042934934: 2016 Release 8 | September
+
+360043430213: Previewing a Document
+
+360043436893: Amazon Redshift Writeback Connector
+
+360044876874: Magic ETL Tiles: Utility
+
+360058759074: DHL Writeback Connector
+
+360043434053: New Relic NRQL Connector
+
+360042922814: Old Magic ETL Tiles: Rank and Window
+
+4418190973335: SiteLink Reporting Connector
+
+000005910: Aprimo Connector
+
+000005425: delphi-epidata GBTW Score connector
+
+360047504673: Setting the Time Zone for a Workbench 4 Job
+
+000005919: Magic ETL Tiles: Split Join and Split Filter
+
+360043435473: NHTSA Connector
+
+4402426477719: Snowflake Dashboard | Installation Guide
+
+360052122294: About Partition Connectors
+
+360044351913: HasOffers Connector
+
+4546361976087: Radial Progress Gauge
+
+360043431793: Searchmetrics Connector
+
+7508267092119: Bump Chart
+
+360043435193: Gmail Service Connector
+
+000005809: SQL Expressions in Magic ETL | Reference
+
+4407023681559: Simplified Server Migration in Workbench 5.1
+
+000005561: AI Readiness
+
+1500009771882: Apple Search Ads OAuth Connector
+
+360063090013: Power BI MSAL Writeback Connector
+
+360043427193: System Requirements
+
+360043433593: Adobe Analytics Advanced Legacy Connector
+
+360047416773: Backing Up Workbench 4 Jobs
+
+360043433873: GTmetrix Connector
+
+360042926214: Executing DataSets
+
+6618986293271: Mindbody Online REST Connector
+
+360043429213: Latitude-Longitude Map
+
+1500012178021: Oracle Database Connector
+
+360043438033: Enable SSO with Entra ID Directory
+
+360055244114: 2020 Release 2 | July
+
+360042925974: Viewing a Visualization Card with a Triggered Alert
+
+360042933834: Lithium Dashboard App
+
+360042934054: QuickBooks Online Reports QuickStart App
+
+360043432053: The Trade Desk Connector
+
+000005162: Azure Data Lake Gen2 OAuth Connector
+
+360043434613: Pivotal Tracker Connector
+
+360043439713: 2018 Release 7 | August
+
+360042933494: Campaigns App | User Guide
+
+000005375: Kintone OAuth Connector
+
+360043435113: Workfront Connector
+
+360047499793: Connecting to ODBC Data in Workbench 4
+
+360043438573: Retail Store Performance
+
+360046861474: Creating Columns in Workbench 4 Using Calculations
+
+000005289: > Domo on Databricks (RECOMMENDED)
+
+360043435893: Instructure Bridge Connector
+
+360042925114: World Map
+
+4405652887191: Old Magic ETL Tiles: Performance
+
+360043439413: Specifying Your Personal Profile Information
+
+4415839663639: Group Management
+
+360046860134: Connecting to JSON Data in Workbench 4
+
+360042929634: Oracle CRM on Demand Connector
+
+000005155: Circular Sankey Chart
+
+360043429173: High Low Chart
+
+7593173476759: Amazon Kendra Connector
+
+360042923754: Enterprise Stacker
+
+360042931114: iSpot.TV Connector
+
+000005556: TikTok Business Connector
+
+360042924034: Analyzer Layout
+
+360042929754: Instagram Business Connector
+
+360043436493: Box Connector
+
+360043431113: Dotmailer Connector
+
+360042928174: Greenhouse Connector
+
+360042934814: 2017 Release 5 | May
+
+4423536836631: Tableau Connector
+
+360042931134: Nielsen Music Connect Connector
+
+360042929974: SlideShare Connector
+
+360042922974: Restrict Access to a SQL DataFlow
+
+360043429293: Single Value Gauge
+
+360043433833: Flurry Connector
+
+360042928614: Compose Connector
+
+360042927734: KarmaCRM Connector
+
+000005216: Advanced DataFlow Triggering
+
+360043428373: Adding Cards as Favorites
+
+360042923274: Duplicating Cards (\"Save As\")
+
+360043438713: Shopify Dashboard App
+
+360043428613: Restricting Edit Capability for a Card
+
+360058529933: Location Readiness
+
+360042924234: Creating County and Zip Code Drilldown in a U.S. Map
+
+360042931974: Dropbox File Connector
+
+360043436073: Amazon Redshift Unload Connector
+
+7802172134807: Amazon S3 Analytics Connector
+
+360043437733: Domo CLI (Command Line Interface) Tool
+
+000005408: SFTP Connector
+
+360043427473: Troubleshoot Domo
+
+360057028494: OData Connector
+
+360043435913: OmegaFi Connector
+
+360042926934: Kochava Connector
+
+000005762: Verizon ThingSpace IoT Connector
+
+360043430053: Beast Mode FAQs
+
+000005825: Powering Up Multi Account Connectors
+
+000005741: Magic ETL Tiles: AI Services
+
+360043436313: Snowflake Unload Connector
+
+360043432453: Automatic Connector
+
+000005851: AI Reporting
+
+360062526733: Salesforce Pardot to Salesforce Pardot SSO Connector Migration
+
+360043432233: InsideSales Connector
+
+360042931734: MongoDB Connector
+
+360042932534: Workiva Writeback Connector
+
+360055259374: Code Block Apps
+
+360043431713: Performance Horizon Connector
+
+360042933714: Google Maps Pinboard App
+
+360043435353: Bureau of Labor Statistics Connector
+
+360042931554: XTM Cloud Connector
+
+360042923414: Creating a Rank or Row Count
+
+360043439153: Specify Default Overview Content for Users
+
+360042925294: Specifying the Size of Bars in Bar Charts
+
+000005171: Forms
+
+1500000406641: Inline Editing | Implementation Guide
+
+360043440733: 2017 Release 9 | September
+
+4409575159191: Setting User-Specific Landing Pages
+
+1500003263261: Support for Screen Readers on Dashboards
+
+360042931034: USGS Earthquakes Connector
+
+360043428833: Understanding the Data Table in Analyzer
+
+4416129543063: MySQL Advanced Writeback Connector
+
+5068225409175: Magento2 Advanced Connector
+
+360042927254: SendGrid Connector
+
+360043440373: Customizing or Branding Your CourseBuilder App
+
+000005521: PostgreSQL Connector
+
+000005405: XML Connector
+
+360043427533: Creating a New List in the Customer Portal
+
+7695619925271: Microsoft SQL Server Writeback connector
+
+1500003419382: Dependency Gantt Chart
+
+360043434173: BrandIndex Connector
+
+000005529: Sage Intacct Enterprise Connector
+
+1500000279922: Zoom Phone Connector
+
+360056826394: Microsoft Azure Storage Data Lake Gen2 Connector
+
+8657306040855: Dataset Copy Advanced Connector
+
+360042930174: Box Governance Connector
+
+360043437673: Connecting to SAP ECC Data in Domo
+
+9133993462167: CDK Global Connector
+
+360042925954: Receiving and Viewing Notifications
+
+000005586: Set Up Domo on Oracle Cloud
+
+000005698: 2024 Release 5 | September
+
+360043438513: Outbrain Dashboard App
+
+5241119778967: gBizINFO Connector
+
+360043436873: Amazon Aurora Writeback Connector
+
+360042931874: Vertica Connector
+
+360043428713: Applying DataSet Columns to Your Chart
+
+360042936274: 2017 Release 4 | April
+
+360042922994: Create a SQL DataFlow
+
+360057013414: PostgreSQL Partition Connector
+
+360042929114: Splunk Connector
+
+360043931814: Sample DataSets
+
+000005345: Google Campaign Manager Connector
+
+000005834: Linkedin Connector
+
+1500000218261: Tiktok Ads Connector
+
+000005403: DV 360 Connector
+
+000005361: Airtable OAuth Connector
+
+000005509: Jamf V2 Connector
+
+000005275: Zalando Connector
+
+360042924934: Radial Gauge
+
+360042935754: Instructor-Led Courses
+
+360043433673: Data.ai Connector
+
+000005917: Sage Intacct Rest Connector
+
+360046762634: Workbench 4 Security Options
+
+360042924534: Face Gauge
+
+1500000316201: Triggering a Campaign from a Domo DataSet Alert
+
+4662355030423: Requesting Memory Upgrades
+
+360058759794: Azure Data Lake Storage Gen2 Using AAD WriteBack Connector
+
+360042926454: Bitly Connector
+
+360042925694: Add a Poll Card to Domo (Deprecated)
+
+360043439873: 2019 Release 1 | January
+
+360043432973: Recurly Connector
+
+360043428273: Duplicating Dashboards (\"Save As\")
+
+360042926954: LinkedIn Ads Connector
+
+000005541: DataSet Update Methods in Magic ETL
+
+1500000216941: Open FEC Connector
+
+360043432573: eQuest Connector
+
+1500011014942: Oracle Sales Cloud Connector
+
+4403442101143: Asset Library
+
+000005560: Tableau WDC 3.0 connector
+
+000005544: Use AI Prompts in Jupyter
+
+360042928654: Firebase Connector
+
+360043440393: Previewing and Exporting Your CourseBuilder App
+
+9645646505111: 2022 Release 2 | July
+
+360043437713: Installing Salesforce's Domo Connector Package
+
+360043437353: Manage Plugins in Workbench 5
+
+360043432093: WhatCounts Connector
+
+360048116854: 2015 Release 1 | October
+
+4407020896663: Connecting to QuickBooks Data in Workbench 5.1
+
+360043435173: Google Contacts Connector
+
+000005140: Azure Storage Blob SAS Token Connector
+
+360052122814: IBM DB2 Partition Connector
+
+000005441: Gong Domo Connector
+
+360042927514: X Ads Connector
+
+4403895116823: Google BigQuery High Bandwidth Connector
+
+000005749: OpenText Media Management Connector
+
+360043429793: Properties Available for Most Charts
+
+360042933994: Profit and Loss
+
+360042930594: Google Gmail Connector
+
+4402058407191: Analyzer and DataSet Views Integration
+
+360043437033: MySQL Writeback Connector
+
+360043431273: Google AdSense Connector
+
+000005265: BCD Travel Connector
+
+360043429913: Create a Beast Mode Calculation
+
+360043428493: Bar Chart
+
+9355841270167: Using Story Presentation Mode
+
+360042927794: Nutshell Connector
+
+360042926834: Infusionsoft REST Hook Connector
+
+360043428393: Adding an Existing Card to a Dashboard
+
+360043434793: Adobe Sign Connector
+
+360043431953: SpotX Connector
+
+000005235: Google Analytics 4 Real Time Connector
+
+360047403773: Understanding the Workbench 4 User Interface
+
+360042925054: Tree Map
+
+360043433653: Adobe Analytics v2 OAuth Partition Connector - Server to Server
+
+360042925094: Word Cloud Chart
+
+5563069185815: Splunk Writeback Connector
+
+360042934134: Square Dashboard App
+
+360042923094: Creating a Rolling Average Period-over-Period DataFlow
+
+4412849158167: - Cloud Amplifier Overview -
+
+360042930574: Google Contacts Service Connector
+
+1500002094122: Connector Permissioning in Domo
+
+360042928974: PagerDuty Connector
+
+360042931334: Strava Connector
+
+360043432433: Velocify Advanced Connector
+
+360043429833: Properties for Line Charts
+
+7903767835031: Variables | Overview
+
+360042927054: Outbrain Connector
+
+360042925414: Assigning Users to Power Up Template Visualization Cards
+
+8230241776791: CSV SFTP Traverse Connector
+
+360043435573: US Census Building Permits Connector
+
+000005766: Campaigner Connector
+
+360043431393: Influitive Connector
+
+360042927874: PriceSpider Connector
+
+360043437273: Connecting to JIRA Data in Workbench 5
+
+000005925: Google Sheets OAuth Writeback WIF Connector
+
+1500010172542: Editing a Dashboard's Mobile Layout
+
+1500000280482: Amazon AQUA Connector
+
+360043432113: Yahoo! Japan Search Ads Connector
+
+000005782: MongoDB Advanced Connector
+
+360042930554: Cvent Connector
+
+000005828: Cvent Supplier Network - Planners
+
+360043436933: Google BigQuery Writeback Connector
+
+7964629384087: Amazon Selling Partner
+
+360042934414: Adding Company Pages
+
+000005391: SendGrid Webhook Connector
+
+000005385: InfusionSoft Connector
+
+360043435533: Public DataSet Connectors
+
+360043435313: Associated Press Connector
+
+360042925674: Adding a Sumo Card
+
+360043432293: RetailNext Connector
+
+360060507713: Google BigQuery High Bandwidth Service Connector
+
+360042925174: Adding Scale Labels to Your Charts
+
+360042930894: NOAA Weather Connector
+
+360042936294: 2016 Release 7 | August
+
+4408834497431: Anonomatic Augmented Writeback Connector
+
+000005760: JIRA On Prem Writeback Connector
+
+360042925834: Editing or Deleting a Project
+
+360042924914: Radar Chart
+
+360043436353: Amazon S3 Advanced Connector
+
+360042935294: Best Practices for Choosing Chart Types
+
+360042926134: Exporting DataSets
+
+360043630093: Allow Domo IP Addresses for Network Connections
+
+000005645: ModMed Connector
+
+360042927974: SalesLoft Connector
+
+4403367344023: Domo Sandbox
+
+4404148803479: DataSet Copy Unload Connector
+
+000005117: Magic ETL v2 Scripting Tile Environments
+
+360045186294: Configuring the CData Driver for SAP in Workbench 5
+
+1500000339801: Salesforce Marketing Cloud Rest Connector
+
+360043436053: Amazon Redshift
+
+4404766005655: COVID-19 Connector
+
+4744010382871: ServiceDesk Plus Domo Connector
+
+000005824: PubExchange Connector
+
+1500002454002: Salesforce Chatter Connector
+
+360042930274: MindTouch Connector
+
+360060270674: Google Ads Connector
+
+360044951294: Magic ETL Tiles: Pivot
+
+360043427513: Change Your Password
+
+360043431853: SharpSpring Connector
+
+360043438373: Form Builder App
+
+000005266: Persistent Filters Widget User Guide
+
+360046860834: Using the External Process File Provider in Workbench 4
+
+000005517: Ad-Juster Connector
+
+360043437473: Setting a Custom Date Format on a Column in Workbench 5
+
+000005387: ServiceNow OAuth Connector
+
+360043432333: Salesforce Advanced Connector
+
+360043434193: Freshdesk Connector
+
+360058904853: Accellion Connector
+
+000005422: Magazine Manager Connector
+
+360043435633: Cargowatch Connector
+
+360043436233: Oracle Database Connector
+
+360042934034: Quandl Dashboard App
+
+360042925654: Editing a Notebook Card
+
+360043437193: Combining DataSets in Workbench 5
+
+360043440353: Importing Files into Your CourseBuilder App Project
+
+360042927434: Sprinklr Advanced Connector
+
+360063698733: Adrenaline DataFlows
+
+360055259234: Create a Magic ETL DataFlow
+
+1500000216241: NetSuite SuiteAnalytics Partition Connector
+
+360042928194: HireVue Connector
+
+360042932734: Connecting to ODBC Data in Workbench 5
+
+360042926754: Facebook Ads Advanced Connector
+
+360042923834: Reporting Issues with Cards
+
+360042924554: Filled Gauge
+
+360043432073: Urban Airship Connector
+
+5885581953047: Snapchat Publisher Connector
+
+360043437513: Connecting to Clicktale Data in Domo
+
+000005172: Monitor Queues in Task Center
+
+360043437053: PostgreSQL Writeback Connector
+
+000005452: Sprout Social Connector
+
+4415872970647: Silent Passenger Connector
+
+000005154: Slope Chart
+
+360043437693: Domo ODBC Data Driver
+
+000005751: CanvasData Connector
+
+360042934774: 2017 Release 6 | June
+
+000005106: DANSDBF Data Connector
+
+000005553: 2024 Release 4 | July
+
+360042927834: Pipedrive Connector
+
+360042925014: Sunburst Chart
+
+360042932554: Workbench 5 Overview
+
+360047787514: Behavior Changes and Feature Updates in Magic ETL
+
+4425111066903: 2021 Release 3 | October
+
+360042929454: SEMRush Connector
+
+360058760154: Snowflake Key Pair Authentication Writeback Connector
+
+360042927814: EDGE^ By Ascential Connector
+
+360043430713: Share a DataSet
+
+360047494393: Setting Notifications in Workbench 4
+
+360043437873: Emailing a Visualization Card
+
+360044358473: Properties for Filter Chart Types
+
+000005073: Flex Map v2 | Implementation Guide
+
+360043430853: AvidTrak Connector
+
+7884725265559: Amazon S3 Analytics Assume Role Connector
+
+000005166: Use Jupyter Workspaces with GitHub
+
+360043431013: CheetahMail Connector
+
+360043431593: Moat Connector
+
+360042932874: Connecting to Adobe Analytics Data Warehouse
+
+360057028474: Meltwater Connector
+
+360042930694: HappyOrNot Connector
+
+360043434573: Mavenlink Connector
+
+360042929214: Clavis Connector
+
+360042950514: Decipher Connector
+
+360042933574: Fitbit Dashboard App
+
+000005831: Elevation for Sensitive Changes
+
+360043433513: PagerDuty V2 Connector
+
+000005745: Google Cloud Storage - FileWatch Connector
+
+360042932314: Google Drive Writeback Connector
+
+360042928494: TaxView Pro Connector
+
+360042932194: Amazon S3 Writeback Connector
+
+360042927134: Rival IQ Connector
+
+4405156517527: Magic ETL Tiles: Performance
+
+000005103: Upgrade to Workbench 5.2
+
+1500009571721: Amazon Advertising Connector
+
+360043431133: Google Ad Manager Connector
+
+360043428733: Sorting the Data in Your Chart
+
+360042930634: Openfire Connector
+
+360042924994: Running Total Grouped Bar Chart
+
+4405318926231: Excel to Domo Matrix (EDM)
+
+000005355: Microsoft SQL Server Connector
+
+000005758: Sitelink Connector
+
+4533903600407: Dropdown Selector Card
+
+4403501587607: Advanced Tools Launch Center
+
+360058685834: OfficeSpace Connector
+
+360043439613: 2016 Release 9 | October
+
+360042932654: Understanding the Workbench 5 User Interface
+
+000005138: Workbench 5.2 Overview
+
+000005900: Access and Start Creating Content through Domo's Navigation and Main Menu
+
+360058904893: ALTR JDBC Connector
+
+6523741250455: Routing, Creation, and Mapping
+
+360042924214: Card Building FAQs
+
+000005750: Podio Simplified Connector
+
+360043433553: Sumo Logic Connector
+
+360043430473: Filtering Project Tasks
+
+360043436913: Box Writeback Connector
+
+000005920: YouTube Multi Account Connector
+
+360043428133: Creating a Recursive/Snapshot SQL DataFlow
+
+000005654: Image Chart
+
+360043434933: Deltek Vision Connector
+
+000005197: Enterprise Data Copy
+
+000005182: Deploy, Request, and Remove Apps
+
+360042930334: Basecamp Connector
+
+360042934254: Control Access to Cards and Dashboards
+
+360043434893: BitBucket V2 Connector
+
+1500002835162: ElasticSearch Connector
+
+360042932954: Writing Amazon Kinesis Data to Domo
+
+360043427793: Editing a SQL DataFlow
+
+360043436733: Microsoft Excel SFTP Push Connector
+
+360043429013: Continental and Regional Maps
+
+7160786911639: Intercom OAuth Connector
+
+7938701190807: ApacheImpala Connector
+
+360043431153: Eloqua Connector
+
+4410240311447: inContact OAuth 2 Connector
+
+000005249: RMS Third Party Connector
+
+000005514: Salesforce Connector
+
+360042929274: Google Analytics Management Connector
+
+360043429633: Changing the Date Format in Your Chart
+
+360043429093: Forecasting Chart
+
+000005451: > Domo on MySQL (Beta - RECOMMENDED)
+
+360042934234: Admin Settings
+
+360044876194: Magic ETL Tiles: Combine Data
+
+000005761: VK Connector
+
+360043433253: Domo JSON Connector
+
+360042927894: RetailOps Connector
+
+000005549: Azure Synapse Active Directory Service Principal Connector
+
+000005516: BigCommerce Writeback Connector
+
+9337403057943: Cloud Amplifier Support in Workbench 5.2
+
+360043432133: Zift Solutions Connector
+
+000005308: 2023 Release 2 | July
+
+4407026671767: Workbench 5.1 FAQs
+
+8656674995991: IBM DB2 Partition Connector
+
+360042932914: Connecting to InContact Echo Data in Domo
+
+360057020834: Microsoft Project Online Connector
+
+360043438893: Inviting Others to Join Domo
+
+000005466: Mega Table
+
+360043437753: Data Assembler Usage Guidelines (Legacy)
+
+360043434073: NUVI Connector
+
+000005694: DTCC Connector
+
+360042935694: Understanding the CourseBuilder Layout
+
+360043432473: BambooHR Advanced Connector
+
+360042928954: PagerDuty Advanced Connector
+
+360043429073: Flex Table
+
+360042931654: Amazon Redshift Upsert Connector
+
+360043442453: Domo Platform Tour
+
+000005337: Responsys Connector
+
+360046864914: Resolving Issues with Failing Jobs in Workbench 4
+
+360043433533: QuickBase Connector
+
+360042930354: CA Agile Central Connector
+
+360043438533: Pipedrive QuickStart App
+
+360042928274: SmartRecruiters Connector
+
+360043878994: Advanced Chart Properties Quick Reference
+
+360043434253: Medallia Connector
+
+1500002456742: Salesforce Pardot Connector with Single Sign-On support
+
+360043437493: Setting Up Direct Upload in Workbench 5
+
+000005811: Relocate and Rename Tables Using Cloud Amplifier
+
+360043432353: SalesSeek Connector
+
+4929230727319: MySQL SSH Partition Connector
+
+360046860074: Connecting to JIRA Data in Workbench 4
+
+360043438633: Sales Scorecard App
+
+360042931314: RunKeeper Connector
+
+360042922954: Easy Indexing
+
+4546335931031: Waffle Gauge
+
+4422644650519: Magic ETL Scripting Tile Environments
+
+360042933034: Workfront Dashboard App
+
+360042924074: Adding Filters to Your Chart
+
+360042924654: Latitude-Longitude Route Map
+
+360042933094: Use the (Legacy) Domo Word Plugin
+
+000005651: Amazon Kendra Connector
+
+360046857074: Creating a Schedule Group in Workbench 4
+
+000005844: Entrata Via API Key Connector
+
+360043433753: CallRail Connector
+
+360042923794: Changing a Card Owner
+
+000005864: Create and Customize App Components in App Studio
+
+360043439913: 2018 Release 1 | January
+
+360042929134: Treasure Data Connector
+
+360042928154: GradLeaders Connector
+
+5366610360983: Domo Connector for Sansan
+
+000005795: Google Ads Multi Accounts Connector
+
+360043432693: Amazon Web Services Billing Connector
+
+360042925614: Updating a Doc Card
+
+1500009781442: Workshop Connector
+
+360042923254: Moving or Copying Cards to Other Dashboards
+
+360042933974: Open Exchange Rates Dashboard App
+
+360042934334: Remove Users from Domo
+
+360042934834: 2019 Release 5 | October
+
+000005381: Sizmek Connector
+
+360043437253: Connecting to Excel Data in Workbench 5
+
+360043432733: BlackLine Connector
+
+000005786: Use Instance Templates
+
+360042931714: IBM DB2 SSH Connector
+
+360060592813: Microsoft Teams Webhook Connector
+
+360043440793: 2019 Release 3 | April
+
+360042933054: Printing a Visualization Card
+
+360043873854: Greenhouse Demographic Connector
+
+000005360: Connecting with the JSON No Code and JSON No Code OAuth connectors
+
+360043432173: ChannelAdvisor Connector
+
+360042924434: Comparative Gauge
+
+360042923054: Viewing DataFlow Details
+
+000005291: Create a Model in Jupyter Workspaces
+
+360042922874: Getting Help
+
+360046773094: Starting, Stopping, and Restarting the Workbench 4 Service
+
+360042930034: StumbleUpon Connector
+
+4403581093527: Workday Adaptive Planning Writeback Connector
+
+360042931194: Twitch.tv Connector
+
+360043437333: Setting Notifications in Workbench 5
+
+360056826634: National Resources Conservation Service Connector
+
+360043440333: Installing CourseBuilder
+
+360043437133: Updating Your Workbench 5
+
+000005169: Google Sheets Writeback Workload Identity Federation Connector
+
+360043428233: Domo Mobile Security
+
+360042936174: 2016 Release 6 | July
+
+360043437373: Workbench 5 FAQs
+
+4578049721495: Enhancing Your Goals
+
+360058716313: HubSpot Upsert Connector
+
+4410071437335: MySQL Advanced Security Connector
+
+360042934014: Qualtrics Dashboard App
+
+360042931754: PostgreSQL SSH Connector
+
+360043430733: DataSet Update Methods
+
+360043434493: LinkedIn Connector
+
+360042927374: Spredfast Conversations Connector
+
+360043428333: DataFusion Performance Recommendations
+
+4403173731863: 2021 Release 1 | March
+
+000005114: Spotify Third Party Connector
+
+360042928874: Monitis Connector
+
+360042924754: Multi-Line Chart
+
+360042932134: Microsoft OneDrive Connector
+
+360042932454: Outreach Writeback Connector
+
+000005863: Zoho Desk Connector
+
+4407033576471: Workbench 5.1 Training Topics
+
+000005781: Cvent REST Writeback Connector
+
+360042929654: SugarCRM Connector
+
+360042929554: GetSatisfaction Connector
+
+360043439093: Set the Default Landing Page
+
+4434678124695: Publishing DataSet Views
+
+360043439553: 2016 Release 5 | June
+
+360043429513: Stream Funnel Chart
+
+000005484: BLS Unemployment by State Count Connector
+
+360042925754: Importing an Email Thread into Buzz
+
+360043434333: SugarCRM Connector
+
+360044406813: Mobile Widgets
+
+360042926654: DoubleClick Ad Exchange for Sellers Connector
+
+360042926874: Kapost Connector
+
+000005139: Domo on Dremio
+
+000005513: Box Analytics Advanced Connector
+
+360043438493: CourseBuilder FAQs
+
+000005865: Build an AI Agent Task in Workflows
+
+360058716453: Gong Connector
+
+000005472: JSON Webhook Advanced Connector
+
+360042924014: Filtering Data in a Card Details View
+
+360046856414: Creating a Job for Uploading Data Using Workbench 4
+
+360042929594: Ivinex Connector
+
+360043430753: 10,000ft Connector
+
+360042931954: DataSet via Email Connector
+
+000005450: Adobe Analytics Real Time API Connector - Server to Server
+
+360042928834: Loggly Advanced Connector
+
+360042923914: Page Filters and Filter Views on Dashboards
+
+360043430153: Troubleshooting Beast Mode Calculations
+
+360043436213: MySQL SSH Connector
+
+000005600: Google Ads BigQuery Connector
+
+360042923934: Card Details View Layout
+
+360043428933: > Map Charts
+
+360042927214: Salesforce Pardot Connector
+
+000005506: Slido Connector
+
+360042933414: Cash Flow App
+
+360042930774: SurveyMonkey Connector
+
+000005731: RoviTracker Connector
+
+360042933014: Publications Page Layout
+
+360058903753: MariaDB Connector
+
+360046860414: Connecting to QuickBooks Data in Workbench 4
+
+360042929614: LiveChat Connector
+
+360042924254: Using a Fiscal Calendar
+
+360042930514: Wrike Enterprise Connector
+
+360043428473: Area Overlay Chart
+
+8283005822103: Box
+
+360043429493: Progress Bar Gauge
+
+360042929234: Crimson Hexagon Connector
+
+8231039188375: Aurora Connector
+
+1500000285042: Connecting to SAP HANA Data in Workbench 5
+
+360043432813: Encompass REST Connector
+
+360045929334: Zoom Connector
+
+360042926334: Adalyser Connector
+
+000005539: Use AI Chat
+
+360043438453: Meetup Dashboard App
+
+360042934474: Setting Password Requirements
+
+360042936214: 2017 Release 11 | November
+
+360058762534: Simplified Server Migration in Workbench 5
+
+360043437093: Snowflake Writeback Connector
+
+360043429313: Slicer, Checkbox Selector, and Radio Button Selector Cards
+
+360042926434: AppNexus Connector
+
+360046772834: Running Workbench 4
+
+360042934454: Adding User Licenses in Domo
+
+000005874: > Introduction to Domo: A Comprehensive Overview
+
+360042923434: SAP Concur Connector
+
+000005312: > Domo on Amazon Redshift (RECOMMENDED)
+
+36004740075: Data Center Layout
+
+360057028974: Amazon S3 AssumeRole Writeback Connector
+
+360043439433: Changing Your Profile Background Image
+
+360042936234: 2017 Release 8 | August
+
+360057013954: Sybase Partition Connector
+
+000005346: SharePoint Online Rest Certificate Auth Connector
+
+360043434913: Changepoint Connector
+
+000005245: JIRA Cloud Write Back Connector
+
+360043433733: Brandwatch Connector
+
+000005156: Variance Chart
+
+360042931354: Zingfit Connector
+
+360042924294: > Bar Charts
+
+360043434093: Pendo Connector
+
+360043437073: Salesforce Writeback Connector
+
+8041126473367: Databricks using Personal Access Token Authentication Connector
+
+1500003318001: Build Your Own Writeback Connector
+
+360044352333: Anaplan Advanced V2 Connector
+
+360042927314: Simply Measured Connector
+
+000005878: First 5 Things to Do in Domo
+
+360042935214: 2018 Release 3 | March
+
+000005099: Sage Intacct Advanced connector
+
+360042928094: Agemni Connector
+
+1500008535702: On-Premise SharePoint Data Provider Plugin (Beta)
+
+360042929534: Five9 Connector
+
+360043438133: Enabling SSO with Okta
+
+360042930734: Qualtrics Connector
+
+360042932034: JSON Advanced Connector
+
+360042932234: Eloqua Writeback Connector
+
+000005145: Domo Add-ins for Microsoft Office 365 | Manual Installation Guide for Enterprise
+
+360043439193: Enable Multi-factor Authentication
+
+360042928454: Square DataSet Union Connector
+
+000005164: Attributes
+
+360043435433: NASA Connector
+
+360043431833: Sensor Tower Connector
+
+360061552054: Snowflake OAuth Connector
+
+360044353933: Snowflake Federated Agent

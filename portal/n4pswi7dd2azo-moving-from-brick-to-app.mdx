@@ -29,7 +29,7 @@ You should already have the `Domo Apps CLI` and a VS Code editor installed on yo
 
 You should see a list of all the available commands in the Domo Apps CLI.
 
-<Frame>![Screenshot 2024-03-22 at 5.52.48 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-5.52.48-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 5.52.48 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-5.52.48-PM.png)</Frame>
 
 To initialize a new Domo App, you can use the `domo init` command. A wizard should walk you through the following steps. Please:
 
@@ -37,17 +37,17 @@ To initialize a new Domo App, you can use the `domo init` command. A wizard shou
 2. Select the `hello world` starter template
 3. Don't connect any datasets for now (type `n`)
 
-<Frame>![Screenshot 2024-03-22 at 5.57.51 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-5.57.51-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 5.57.51 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-5.57.51-PM.png)</Frame>
 
 You should see that the `domo init` command has successfully created the initial app files you'll need.
 
 Next, you'll want to navigate to the directory where these new app files live. You can navigate to "Open Folder" in VS Code and find the directory where the App was newly created. For me it is the `GameNightPlannerNF` directory.
 
-<Frame>![Screenshot 2024-03-22 at 6.00.22 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-6.00.22-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 6.00.22 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-6.00.22-PM.png)</Frame>
 
 You should see 5 files now in VS Code. They should look very familiar to the files you start with in a Domo Brick.
 
-<Frame>![Screenshot 2024-03-22 at 6.01.37 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-6.01.37-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 6.01.37 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-6.01.37-PM.png)</Frame>
 
 Let's explore these files briefly.
 
@@ -110,15 +110,15 @@ First, make sure you are authenticated against the Domo instance. To do this ope
 
 Select `new instance` and type in the url of the Domo instance you are developing against. In my case, it's `domo-training-apps.domo.com`.
 
-<Frame>![Screenshot 2024-03-22 at 7.03.11 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.03.11-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.03.11 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.03.11-PM.png)</Frame>
 
 This command should launch a window in your browser to authenticate against our training Domo instance.
 
-<Frame>![Screenshot 2024-03-22 at 7.04.25 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.04.25-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.04.25 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.04.25-PM.png)</Frame>
 
 Your terminal should include this welcome message:
 
-<Frame>![Screenshot 2024-03-22 at 7.05.07 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.05.07-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.05.07 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.05.07-PM.png)</Frame>
 
 Now that we've made the connection between our command line and our Domo instance, we can publish the first version of our App.
 
@@ -143,23 +143,23 @@ Type the command `domo publish` in your Terminal. You should see an `id` propert
 
 In our Terminal output we should see that our App Design has been successfully published to Domo, but there is a warning message about a missing `thumbnail.png` file.
 
-<Frame>![Screenshot 2024-03-22 at 7.08.51 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.08.51-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.08.51 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.08.51-PM.png)</Frame>
 
 Domo requires a `thumbnail.png` file to display as an icon for your App. Go ahead and take a moment to pick any image you'd like to use as an icon and drag it into your App directory and name it `thumbnail.png`. I'll be using this chatGPT generated image - feel free to use it as well if you'd like.
 
-<Frame>![thumbnail.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/thumbnail.png)</Frame>
+<Frame>![thumbnail.png](/images/dev/stoplight.io/images/thumbnail.png)</Frame>
 
 Now go ahead and run the `domo publish` command one more time.
 
-<Frame>![Screenshot 2024-03-22 at 7.14.03 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.14.03-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.14.03 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.14.03-PM.png)</Frame>
 
 Click on the link in the Terminal output to locate your App Design in Domo. You should be taken to a page like this one:
 
-<Frame>![Screenshot 2024-03-22 at 7.14.44 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.14.44-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.14.44 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.14.44-PM.png)</Frame>
 
 App Designs are really just the template for an App Instance (or "Card" in Domo terminology). Let's go ahead a click "Create New Card" to create our first App Instance.
 
-<Frame>![Screenshot 2024-03-22 at 7.16.10 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.16.10-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.16.10 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.16.10-PM.png)</Frame>
 
 Notice, this looks a lot like the Brick Editor screen, but much more bare-bones. With custom Apps, we have control over the options displayed on this screen.
 
@@ -194,11 +194,11 @@ Update your `manifest.json` so that the `mapping` list looks like the following.
 
 Run `domo publish` again and you should see a big difference on the Wiring Screen of your App. Click "Edit Card" for the "App Instance" (aka card) you created a moment ago.
 
-<Frame>![Screenshot 2024-03-22 at 7.27.05 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.27.05-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.27.05 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.27.05-PM.png)</Frame>
 
 Notice, you now have a single Dataset connected to your App with the alias `boardgames` and the default Dataset for your card is tied to the Dataset we would expect. You can swap this Dataset out just like you would in a Brick if you want to power this App Instance with different data.
 
-<Frame>![Screenshot 2024-03-22 at 7.28.47 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.28.47-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.28.47 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.28.47-PM.png)</Frame>
 
 ### Developing Apps Locally (`domo dev`)
 
@@ -208,11 +208,11 @@ Now that we have the minimum setup required to recreate our brick, let's start d
 
 Back in your Terminal, go ahead and type the `domo dev` command. This will launch a hot-reloading local server so you can develop your App locally and only publish to Domo when you're ready to either overwrite the existing version of an App or publish to a new version.
 
-<Frame>![Screenshot 2024-03-22 at 7.31.42 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.31.42-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.31.42 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.31.42-PM.png)</Frame>
 
 Your App is now running locally!
 
-<Frame>![Screenshot 2024-03-22 at 7.32.21 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.32.21-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.32.21 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.32.21-PM.png)</Frame>
 
 Let's change the title of the App so you can see what happens in your local server.
 Update your `index.html` file with a new title.
@@ -234,7 +234,7 @@ Update your `index.html` file with a new title.
 
 Save the file -- and look at localhost:3000 in your browser.
 
-<Frame>![Screenshot 2024-03-22 at 7.34.32 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.34.32-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.34.32 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.34.32-PM.png)</Frame>
 
 Your title should have changed.
 
@@ -363,7 +363,7 @@ function handleResult(data){
 
 Now check out localhost again.
 
-<Frame>![Screenshot 2024-03-22 at 7.47.25 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.47.25-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.47.25 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.47.25-PM.png)</Frame>
 
 Only thing is that it looks a bit too small. Adjust the size property in your `manifest.json` file to be 6x6 instead of 1x1.
 
@@ -380,7 +380,7 @@ Quit your local server and restart it to apply the changes from the `manifest.js
 * `ctrl-C` in your Terminal
 * `domo dev` again.
 
-<Frame>![Screenshot 2024-03-22 at 7.49.42 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-7.49.42-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 7.49.42 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-7.49.42-PM.png)</Frame>
 
 There we go! Much nicer. `domo publish` again -- and we've successfully converted our brick to an App. Now the fun can begin!
 
@@ -433,25 +433,25 @@ Once you've updated your `manifest.json` file, run the `domo publish` command ag
 
 Open up your App's card to see the updated Wiring Screen. Notice a new tab on the left
 
-<Frame>![Screenshot 2024-03-22 at 8.02.59 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.02.59-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.02.59 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.02.59-PM.png)</Frame>
 
 Click on it and you should see an empty array and some additional information about your new AppDB collection in the wiring screen.
 
-<Frame>![Screenshot 2024-03-22 at 8.03.54 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.03.54-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.03.54 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.03.54-PM.png)</Frame>
 
 One last thing we need to do so that we can develop against our new collection locally is to add a `proxyId` to our `manifest.json` file. This `proxyId` corresponds to the App Card and can be found by:
 
 * Go to the "Asset Library" under the "More" menu in Domo.
 
-<Frame>![Screenshot 2024-03-22 at 8.17.05 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.17.05-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.17.05 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.17.05-PM.png)</Frame>
 
 * Click on the App Design for your App
 
-<Frame>![Screenshot 2024-03-22 at 8.17.35 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.17.35-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.17.35 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.17.35-PM.png)</Frame>
 
 * Navigate to "Cards"
 
-<Frame>![Screenshot 2024-03-22 at 8.18.20 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.18.20-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.18.20 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.18.20-PM.png)</Frame>
 
 * Copy the "Proxy Id" listed for you card.
 * Add it to your `manifest.json` file.
@@ -525,7 +525,7 @@ I've added a debugger statement to make it easier to see exactly what data we ha
 
 In localhost, you should see something like this when you try to edit the `own` field now.
 
-<Frame>![Screenshot 2024-03-22 at 8.34.31 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-8.34.31-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 8.34.31 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-8.34.31-PM.png)</Frame>
 
 We now have access to the `boardGameId` for the row we clicked on and the value for game ownership.
 
@@ -560,11 +560,11 @@ This code is creating a new document with the properties we defined in our `mani
 
 Now try editing a record in your localhost environment. If successful, you'll see the AppDB document that you just created print to the console.
 
-<Frame>![Screenshot 2024-03-22 at 9.03.43 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-9.03.43-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 9.03.43 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-9.03.43-PM.png)</Frame>
 
 Even better, if you go check the Wiring Screen of your App in Domo you should be able to see the data in the AppDB collection.
 
-<Frame>![Screenshot 2024-03-22 at 9.05.01 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-9.05.01-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 9.05.01 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-9.05.01-PM.png)</Frame>
 
 Note that AppDB tracks metadata on every request including the users Domo id (`owner`), which we'll be able to use to personalize our table based on who is looking at it.
 
@@ -637,7 +637,7 @@ Go ahead and click a few. You can even share your App card with your neighbor to
 
 I can see in AppDB Admin, that I've successfully tracked ownership for 5 of my favorite games.
 
-<Frame>![Screenshot 2024-03-22 at 9.31.26 PM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-22-at-9.31.26-PM.png)</Frame>
+<Frame>![Screenshot 2024-03-22 at 9.31.26 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-9.31.26-PM.png)</Frame>
 
 ### Displaying data from AppDB
 

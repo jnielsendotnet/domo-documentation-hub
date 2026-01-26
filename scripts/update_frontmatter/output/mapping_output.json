@@ -1,0 +1,2090 @@
+{
+  "d01f63a6ba662": {
+    "label": "Getting Started",
+    "path": "/portal/d01f63a6ba662-domo-developer-portal",
+    "stoplight_id": "d01f63a6ba662",
+    "title_from_path": "Domo Developer Portal",
+    "permalink_suffix": "domo-developer-portal",
+    "context": "Getting Started"
+  },
+  "e04caa9abb5cc": {
+    "label": "Developer Tools",
+    "path": "/portal/e04caa9abb5cc-domo-sd-ks",
+    "stoplight_id": "e04caa9abb5cc",
+    "title_from_path": "Domo Sd Ks",
+    "permalink_suffix": "domo-sd-ks",
+    "context": "Getting Started > Developer Tools"
+  },
+  "8ba9aedad3679": {
+    "label": "API Reference",
+    "path": "/portal/8ba9aedad3679-ap-is",
+    "stoplight_id": "8ba9aedad3679",
+    "title_from_path": "Ap Is",
+    "permalink_suffix": "ap-is",
+    "context": "API Reference"
+  },
+  "1845fc11bbe5d": {
+    "label": "API Authentication",
+    "path": "/portal/1845fc11bbe5d-api-authentication",
+    "stoplight_id": "1845fc11bbe5d",
+    "title_from_path": "Api Authentication",
+    "permalink_suffix": "api-authentication",
+    "context": "API Reference > Platform (OAuth) APIs > API Authentication"
+  },
+  "d9520f5752d56": {
+    "label": "API Authentication",
+    "path": "/portal/d9520f5752d56-get-access-token",
+    "stoplight_id": "d9520f5752d56",
+    "title_from_path": "Get Access Token",
+    "permalink_suffix": "get-access-token",
+    "context": "API Reference > Platform (OAuth) APIs > API Authentication"
+  },
+  "w8dk0f75hetfk": {
+    "label": "Account API",
+    "path": "/portal/w8dk0f75hetfk-account-api",
+    "stoplight_id": "w8dk0f75hetfk",
+    "title_from_path": "Account Api",
+    "permalink_suffix": "account-api",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "9f1f3440e3943": {
+    "label": "Account API",
+    "path": "/portal/9f1f3440e3943-list-accounts",
+    "stoplight_id": "9f1f3440e3943",
+    "title_from_path": "List Accounts",
+    "permalink_suffix": "list-accounts",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "7e83a189873d6": {
+    "label": "Account API",
+    "path": "/portal/7e83a189873d6-create-an-account",
+    "stoplight_id": "7e83a189873d6",
+    "title_from_path": "Create An Account",
+    "permalink_suffix": "create-an-account",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "b179db1f44cfe": {
+    "label": "Account API",
+    "path": "/portal/b179db1f44cfe-retrieve-an-account",
+    "stoplight_id": "b179db1f44cfe",
+    "title_from_path": "Retrieve An Account",
+    "permalink_suffix": "retrieve-an-account",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "8defca123ffc4": {
+    "label": "Account API",
+    "path": "/portal/8defca123ffc4-update-an-account",
+    "stoplight_id": "8defca123ffc4",
+    "title_from_path": "Update An Account",
+    "permalink_suffix": "update-an-account",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "59ffe3ee390a6": {
+    "label": "Account API",
+    "path": "/portal/59ffe3ee390a6-delete-an-account",
+    "stoplight_id": "59ffe3ee390a6",
+    "title_from_path": "Delete An Account",
+    "permalink_suffix": "delete-an-account",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "c0c101d8e5d89": {
+    "label": "Account API",
+    "path": "/portal/c0c101d8e5d89-list-account-types",
+    "stoplight_id": "c0c101d8e5d89",
+    "title_from_path": "List Account Types",
+    "permalink_suffix": "list-account-types",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "fc90d28305384": {
+    "label": "Account API",
+    "path": "/portal/fc90d28305384-get-account-type",
+    "stoplight_id": "fc90d28305384",
+    "title_from_path": "Get Account Type",
+    "permalink_suffix": "get-account-type",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "ffabd623e9b45": {
+    "label": "Account API",
+    "path": "/portal/ffabd623e9b45-share-account",
+    "stoplight_id": "ffabd623e9b45",
+    "title_from_path": "Share Account",
+    "permalink_suffix": "share-account",
+    "context": "API Reference > Platform (OAuth) APIs > Account API"
+  },
+  "i19jain6fvwjj": {
+    "label": "Activity Log API",
+    "path": "/portal/i19jain6fvwjj-activity-log-api",
+    "stoplight_id": "i19jain6fvwjj",
+    "title_from_path": "Activity Log Api",
+    "permalink_suffix": "activity-log-api",
+    "context": "API Reference > Platform (OAuth) APIs > Activity Log API"
+  },
+  "a4e18ca6a0c0b": {
+    "label": "Activity Log API",
+    "path": "/portal/a4e18ca6a0c0b-retrieve-activity-log-entries",
+    "stoplight_id": "a4e18ca6a0c0b",
+    "title_from_path": "Retrieve Activity Log Entries",
+    "permalink_suffix": "retrieve-activity-log-entries",
+    "context": "API Reference > Platform (OAuth) APIs > Activity Log API"
+  },
+  "8260c0e561f08": {
+    "label": "Cards API",
+    "path": "/portal/8260c0e561f08-cards-api",
+    "stoplight_id": "8260c0e561f08",
+    "title_from_path": "Cards Api",
+    "permalink_suffix": "cards-api",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "80e9ecc922752": {
+    "label": "Cards API",
+    "path": "/portal/80e9ecc922752-list-cards",
+    "stoplight_id": "80e9ecc922752",
+    "title_from_path": "List Cards",
+    "permalink_suffix": "list-cards",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "8c76f9c74e6b8": {
+    "label": "Cards API",
+    "path": "/portal/8c76f9c74e6b8-get-card",
+    "stoplight_id": "8c76f9c74e6b8",
+    "title_from_path": "Get Card",
+    "permalink_suffix": "get-card",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "5bba626873010": {
+    "label": "Cards API",
+    "path": "/portal/5bba626873010-create-chart-card",
+    "stoplight_id": "5bba626873010",
+    "title_from_path": "Create Chart Card",
+    "permalink_suffix": "create-chart-card",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "42d54af2095ac": {
+    "label": "Cards API",
+    "path": "/portal/42d54af2095ac-get-chart-card-definition",
+    "stoplight_id": "42d54af2095ac",
+    "title_from_path": "Get Chart Card Definition",
+    "permalink_suffix": "get-chart-card-definition",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "ce5767e6694f4": {
+    "label": "Cards API",
+    "path": "/portal/ce5767e6694f4-update-chart-card-definition",
+    "stoplight_id": "ce5767e6694f4",
+    "title_from_path": "Update Chart Card Definition",
+    "permalink_suffix": "update-chart-card-definition",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "c3d806f0562b9": {
+    "label": "Cards API",
+    "path": "/portal/c3d806f0562b9-add-drill-view",
+    "stoplight_id": "c3d806f0562b9",
+    "title_from_path": "Add Drill View",
+    "permalink_suffix": "add-drill-view",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "0945428d284ab": {
+    "label": "Cards API",
+    "path": "/portal/0945428d284ab-get-drill-properties",
+    "stoplight_id": "0945428d284ab",
+    "title_from_path": "Get Drill Properties",
+    "permalink_suffix": "get-drill-properties",
+    "context": "API Reference > Platform (OAuth) APIs > Cards API"
+  },
+  "3b1e3a7d5f420": {
+    "label": "DataSet API",
+    "path": "/portal/3b1e3a7d5f420-data-set-api",
+    "stoplight_id": "3b1e3a7d5f420",
+    "title_from_path": "Data Set Api",
+    "permalink_suffix": "data-set-api",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "ea210df52a8a1": {
+    "label": "DataSet API",
+    "path": "/portal/ea210df52a8a1-retrieve-data-set-details",
+    "stoplight_id": "ea210df52a8a1",
+    "title_from_path": "Retrieve Data Set Details",
+    "permalink_suffix": "retrieve-data-set-details",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "b96e1dbabff23": {
+    "label": "DataSet API",
+    "path": "/portal/b96e1dbabff23-update-data-set-details",
+    "stoplight_id": "b96e1dbabff23",
+    "title_from_path": "Update Data Set Details",
+    "permalink_suffix": "update-data-set-details",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "8e96d3ae1061d": {
+    "label": "DataSet API",
+    "path": "/portal/8e96d3ae1061d-delete-a-data-set",
+    "stoplight_id": "8e96d3ae1061d",
+    "title_from_path": "Delete A Data Set",
+    "permalink_suffix": "delete-a-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "0d0517e6b6830": {
+    "label": "DataSet API",
+    "path": "/portal/0d0517e6b6830-create-a-data-set",
+    "stoplight_id": "0d0517e6b6830",
+    "title_from_path": "Create A Data Set",
+    "permalink_suffix": "create-a-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "72ae9b3e80374": {
+    "label": "DataSet API",
+    "path": "/portal/72ae9b3e80374-list-data-sets",
+    "stoplight_id": "72ae9b3e80374",
+    "title_from_path": "List Data Sets",
+    "permalink_suffix": "list-data-sets",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "52fd0777839f4": {
+    "label": "DataSet API",
+    "path": "/portal/52fd0777839f4-query-a-data-set",
+    "stoplight_id": "52fd0777839f4",
+    "title_from_path": "Query A Data Set",
+    "permalink_suffix": "query-a-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "4ba1c85b30ae1": {
+    "label": "DataSet API",
+    "path": "/portal/4ba1c85b30ae1-import-data-into-data-set",
+    "stoplight_id": "4ba1c85b30ae1",
+    "title_from_path": "Import Data Into Data Set",
+    "permalink_suffix": "import-data-into-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "83ef8a4d71450": {
+    "label": "DataSet API",
+    "path": "/portal/83ef8a4d71450-export-data-from-data-set",
+    "stoplight_id": "83ef8a4d71450",
+    "title_from_path": "Export Data From Data Set",
+    "permalink_suffix": "export-data-from-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "b342ce1054c3a": {
+    "label": "DataSet API",
+    "path": "/portal/b342ce1054c3a-retrieve-a-personalized-data-permission-pdp-policy",
+    "stoplight_id": "b342ce1054c3a",
+    "title_from_path": "Retrieve A Personalized Data Permission Pdp Policy",
+    "permalink_suffix": "retrieve-a-personalized-data-permission-pdp-policy",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "dcdf6cd230d61": {
+    "label": "DataSet API",
+    "path": "/portal/dcdf6cd230d61-update-a-personalized-data-permission-pdp-policy",
+    "stoplight_id": "dcdf6cd230d61",
+    "title_from_path": "Update A Personalized Data Permission Pdp Policy",
+    "permalink_suffix": "update-a-personalized-data-permission-pdp-policy",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "1d5e64ae6ce1a": {
+    "label": "DataSet API",
+    "path": "/portal/1d5e64ae6ce1a-delete-a-personlized-data-permission-pdp-policy",
+    "stoplight_id": "1d5e64ae6ce1a",
+    "title_from_path": "Delete A Personlized Data Permission Pdp Policy",
+    "permalink_suffix": "delete-a-personlized-data-permission-pdp-policy",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "57eb007324b49": {
+    "label": "DataSet API",
+    "path": "/portal/57eb007324b49-create-a-personalized-data-permission-pdp-policy",
+    "stoplight_id": "57eb007324b49",
+    "title_from_path": "Create A Personalized Data Permission Pdp Policy",
+    "permalink_suffix": "create-a-personalized-data-permission-pdp-policy",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "4cab29aca0fd3": {
+    "label": "DataSet API",
+    "path": "/portal/4cab29aca0fd3-list-personalized-data-permission-pdp-policies",
+    "stoplight_id": "4cab29aca0fd3",
+    "title_from_path": "List Personalized Data Permission Pdp Policies",
+    "permalink_suffix": "list-personalized-data-permission-pdp-policies",
+    "context": "API Reference > Platform (OAuth) APIs > DataSet API"
+  },
+  "uc9ls4li6ny8s": {
+    "label": "Embed Token API",
+    "path": "/portal/uc9ls4li6ny8s-embed-token-api",
+    "stoplight_id": "uc9ls4li6ny8s",
+    "title_from_path": "Embed Token Api",
+    "permalink_suffix": "embed-token-api",
+    "context": "API Reference > Platform (OAuth) APIs > Embed Token API"
+  },
+  "45cd8599748b5": {
+    "label": "Embed Token API",
+    "path": "/portal/45cd8599748b5-create-an-embed-token-cards",
+    "stoplight_id": "45cd8599748b5",
+    "title_from_path": "Create An Embed Token Cards",
+    "permalink_suffix": "create-an-embed-token-cards",
+    "context": "API Reference > Platform (OAuth) APIs > Embed Token API"
+  },
+  "c671f2af967a0": {
+    "label": "Embed Token API",
+    "path": "/portal/c671f2af967a0-create-an-embed-token-dashboard",
+    "stoplight_id": "c671f2af967a0",
+    "title_from_path": "Create An Embed Token Dashboard",
+    "permalink_suffix": "create-an-embed-token-dashboard",
+    "context": "API Reference > Platform (OAuth) APIs > Embed Token API"
+  },
+  "6tw2454j0zttg": {
+    "label": "Group API",
+    "path": "/portal/6tw2454j0zttg-group-api",
+    "stoplight_id": "6tw2454j0zttg",
+    "title_from_path": "Group Api",
+    "permalink_suffix": "group-api",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "1f17fb4f14577": {
+    "label": "Group API",
+    "path": "/portal/1f17fb4f14577-retrieve-a-group",
+    "stoplight_id": "1f17fb4f14577",
+    "title_from_path": "Retrieve A Group",
+    "permalink_suffix": "retrieve-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "270fc7c8d702b": {
+    "label": "Group API",
+    "path": "/portal/270fc7c8d702b-update-a-group",
+    "stoplight_id": "270fc7c8d702b",
+    "title_from_path": "Update A Group",
+    "permalink_suffix": "update-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "b268da0278c85": {
+    "label": "Group API",
+    "path": "/portal/b268da0278c85-delete-a-group",
+    "stoplight_id": "b268da0278c85",
+    "title_from_path": "Delete A Group",
+    "permalink_suffix": "delete-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "d7364df8a5f06": {
+    "label": "Group API",
+    "path": "/portal/d7364df8a5f06-list-groups",
+    "stoplight_id": "d7364df8a5f06",
+    "title_from_path": "List Groups",
+    "permalink_suffix": "list-groups",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "d88967f3c2bd5": {
+    "label": "Group API",
+    "path": "/portal/d88967f3c2bd5-create-a-group",
+    "stoplight_id": "d88967f3c2bd5",
+    "title_from_path": "Create A Group",
+    "permalink_suffix": "create-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "95de1a11dfe97": {
+    "label": "Group API",
+    "path": "/portal/95de1a11dfe97-add-a-user-to-a-group",
+    "stoplight_id": "95de1a11dfe97",
+    "title_from_path": "Add A User To A Group",
+    "permalink_suffix": "add-a-user-to-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "608c69894df01": {
+    "label": "Group API",
+    "path": "/portal/608c69894df01-remove-a-user-from-a-group",
+    "stoplight_id": "608c69894df01",
+    "title_from_path": "Remove A User From A Group",
+    "permalink_suffix": "remove-a-user-from-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "1ce9b0022073a": {
+    "label": "Group API",
+    "path": "/portal/1ce9b0022073a-list-users-in-a-group",
+    "stoplight_id": "1ce9b0022073a",
+    "title_from_path": "List Users In A Group",
+    "permalink_suffix": "list-users-in-a-group",
+    "context": "API Reference > Platform (OAuth) APIs > Group API"
+  },
+  "gcl6cvkh1x5nk": {
+    "label": "Page API",
+    "path": "/portal/gcl6cvkh1x5nk-page-api",
+    "stoplight_id": "gcl6cvkh1x5nk",
+    "title_from_path": "Page Api",
+    "permalink_suffix": "page-api",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "5fd5b9d881e6b": {
+    "label": "Page API",
+    "path": "/portal/5fd5b9d881e6b-retrieve-a-page",
+    "stoplight_id": "5fd5b9d881e6b",
+    "title_from_path": "Retrieve A Page",
+    "permalink_suffix": "retrieve-a-page",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "93a60be5d5965": {
+    "label": "Page API",
+    "path": "/portal/93a60be5d5965-update-a-page",
+    "stoplight_id": "93a60be5d5965",
+    "title_from_path": "Update A Page",
+    "permalink_suffix": "update-a-page",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "d7c166334953f": {
+    "label": "Page API",
+    "path": "/portal/d7c166334953f-delete-a-page",
+    "stoplight_id": "d7c166334953f",
+    "title_from_path": "Delete A Page",
+    "permalink_suffix": "delete-a-page",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "e7bc2fce783cd": {
+    "label": "Page API",
+    "path": "/portal/e7bc2fce783cd-list-pages",
+    "stoplight_id": "e7bc2fce783cd",
+    "title_from_path": "List Pages",
+    "permalink_suffix": "list-pages",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "0fce9616dfe5c": {
+    "label": "Page API",
+    "path": "/portal/0fce9616dfe5c-create-a-page",
+    "stoplight_id": "0fce9616dfe5c",
+    "title_from_path": "Create A Page",
+    "permalink_suffix": "create-a-page",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "03c865271e614": {
+    "label": "Page API",
+    "path": "/portal/03c865271e614-retrieve-a-page-collection",
+    "stoplight_id": "03c865271e614",
+    "title_from_path": "Retrieve A Page Collection",
+    "permalink_suffix": "retrieve-a-page-collection",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "f95f2f9dc8c0f": {
+    "label": "Page API",
+    "path": "/portal/f95f2f9dc8c0f-create-a-page-collection",
+    "stoplight_id": "f95f2f9dc8c0f",
+    "title_from_path": "Create A Page Collection",
+    "permalink_suffix": "create-a-page-collection",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "4dc767f205764": {
+    "label": "Page API",
+    "path": "/portal/4dc767f205764-update-a-page-collection",
+    "stoplight_id": "4dc767f205764",
+    "title_from_path": "Update A Page Collection",
+    "permalink_suffix": "update-a-page-collection",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "42402e303b375": {
+    "label": "Page API",
+    "path": "/portal/42402e303b375-delete-a-page-collection",
+    "stoplight_id": "42402e303b375",
+    "title_from_path": "Delete A Page Collection",
+    "permalink_suffix": "delete-a-page-collection",
+    "context": "API Reference > Platform (OAuth) APIs > Page API"
+  },
+  "wnn8cxurat78o": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/wnn8cxurat78o-projects-and-tasks-api",
+    "stoplight_id": "wnn8cxurat78o",
+    "title_from_path": "Projects And Tasks Api",
+    "permalink_suffix": "projects-and-tasks-api",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "631f21c3c5f5f": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/631f21c3c5f5f-retrieve-all-projects",
+    "stoplight_id": "631f21c3c5f5f",
+    "title_from_path": "Retrieve All Projects",
+    "permalink_suffix": "retrieve-all-projects",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "abaea94e18a2f": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/abaea94e18a2f-create-a-project",
+    "stoplight_id": "abaea94e18a2f",
+    "title_from_path": "Create A Project",
+    "permalink_suffix": "create-a-project",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "975aea6d35782": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/975aea6d35782-retrieve-individual-project",
+    "stoplight_id": "975aea6d35782",
+    "title_from_path": "Retrieve Individual Project",
+    "permalink_suffix": "retrieve-individual-project",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "bc780d297a0d6": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/bc780d297a0d6-update-a-project",
+    "stoplight_id": "bc780d297a0d6",
+    "title_from_path": "Update A Project",
+    "permalink_suffix": "update-a-project",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "f884f3d008a49": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/f884f3d008a49-delete-a-project",
+    "stoplight_id": "f884f3d008a49",
+    "title_from_path": "Delete A Project",
+    "permalink_suffix": "delete-a-project",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "abc4b606acabc": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/abc4b606acabc-delete-an-attachment",
+    "stoplight_id": "abc4b606acabc",
+    "title_from_path": "Delete An Attachment",
+    "permalink_suffix": "delete-an-attachment",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "193cb98fe288b": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/193cb98fe288b-retrieve-project-members",
+    "stoplight_id": "193cb98fe288b",
+    "title_from_path": "Retrieve Project Members",
+    "permalink_suffix": "retrieve-project-members",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "3259632a2c091": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/3259632a2c091-update-project-members",
+    "stoplight_id": "3259632a2c091",
+    "title_from_path": "Update Project Members",
+    "permalink_suffix": "update-project-members",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "38e89edd950ec": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/38e89edd950ec-retrieve-all-project-lists",
+    "stoplight_id": "38e89edd950ec",
+    "title_from_path": "Retrieve All Project Lists",
+    "permalink_suffix": "retrieve-all-project-lists",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "c857e329cd0a1": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/c857e329cd0a1-create-a-list",
+    "stoplight_id": "c857e329cd0a1",
+    "title_from_path": "Create A List",
+    "permalink_suffix": "create-a-list",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "456b2b958eb45": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/456b2b958eb45-retrieve-individual-list",
+    "stoplight_id": "456b2b958eb45",
+    "title_from_path": "Retrieve Individual List",
+    "permalink_suffix": "retrieve-individual-list",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "2f759304cdacc": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/2f759304cdacc-update-a-list",
+    "stoplight_id": "2f759304cdacc",
+    "title_from_path": "Update A List",
+    "permalink_suffix": "update-a-list",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "38324ee605641": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/38324ee605641-delete-a-list",
+    "stoplight_id": "38324ee605641",
+    "title_from_path": "Delete A List",
+    "permalink_suffix": "delete-a-list",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "cf1cad1dc8fe5": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/cf1cad1dc8fe5-retrieve-all-project-tasks",
+    "stoplight_id": "cf1cad1dc8fe5",
+    "title_from_path": "Retrieve All Project Tasks",
+    "permalink_suffix": "retrieve-all-project-tasks",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "23a93e85362a3": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/23a93e85362a3-retrieve-all-list-tasks",
+    "stoplight_id": "23a93e85362a3",
+    "title_from_path": "Retrieve All List Tasks",
+    "permalink_suffix": "retrieve-all-list-tasks",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "7e6100b8c7ac9": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/7e6100b8c7ac9-retrieve-individual-task",
+    "stoplight_id": "7e6100b8c7ac9",
+    "title_from_path": "Retrieve Individual Task",
+    "permalink_suffix": "retrieve-individual-task",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "a9c700565ffba": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/a9c700565ffba-update-a-task",
+    "stoplight_id": "a9c700565ffba",
+    "title_from_path": "Update A Task",
+    "permalink_suffix": "update-a-task",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "e5d77a7e640ac": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/e5d77a7e640ac-create-a-task",
+    "stoplight_id": "e5d77a7e640ac",
+    "title_from_path": "Create A Task",
+    "permalink_suffix": "create-a-task",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "a571924a55d11": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/a571924a55d11-retrieve-list-of-attachments",
+    "stoplight_id": "a571924a55d11",
+    "title_from_path": "Retrieve List Of Attachments",
+    "permalink_suffix": "retrieve-list-of-attachments",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "ea34b968c5164": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/ea34b968c5164-add-attachment",
+    "stoplight_id": "ea34b968c5164",
+    "title_from_path": "Add Attachment",
+    "permalink_suffix": "add-attachment",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "6b0b830a02e85": {
+    "label": "Projects and Tasks API",
+    "path": "/portal/6b0b830a02e85-download-attachment",
+    "stoplight_id": "6b0b830a02e85",
+    "title_from_path": "Download Attachment",
+    "permalink_suffix": "download-attachment",
+    "context": "API Reference > Platform (OAuth) APIs > Projects and Tasks API"
+  },
+  "jaqelzzxpee3e": {
+    "label": "Simple API",
+    "path": "/portal/jaqelzzxpee3e-simple-api",
+    "stoplight_id": "jaqelzzxpee3e",
+    "title_from_path": "Simple Api",
+    "permalink_suffix": "simple-api",
+    "context": "API Reference > Platform (OAuth) APIs > Simple API"
+  },
+  "9193184aa6047": {
+    "label": "Simple API",
+    "path": "/portal/9193184aa6047-create-data-set",
+    "stoplight_id": "9193184aa6047",
+    "title_from_path": "Create Data Set",
+    "permalink_suffix": "create-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > Simple API"
+  },
+  "d984e2fec9b18": {
+    "label": "Simple API",
+    "path": "/portal/d984e2fec9b18-import-data-into-data-set",
+    "stoplight_id": "d984e2fec9b18",
+    "title_from_path": "Import Data Into Data Set",
+    "permalink_suffix": "import-data-into-data-set",
+    "context": "API Reference > Platform (OAuth) APIs > Simple API"
+  },
+  "lw7cqi3lqufah": {
+    "label": "Stream API",
+    "path": "/portal/lw7cqi3lqufah-stream-api",
+    "stoplight_id": "lw7cqi3lqufah",
+    "title_from_path": "Stream Api",
+    "permalink_suffix": "stream-api",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "3104e81ceff46": {
+    "label": "Stream API",
+    "path": "/portal/3104e81ceff46-retrieve-a-stream",
+    "stoplight_id": "3104e81ceff46",
+    "title_from_path": "Retrieve A Stream",
+    "permalink_suffix": "retrieve-a-stream",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "4930370cad24c": {
+    "label": "Stream API",
+    "path": "/portal/4930370cad24c-update-a-stream",
+    "stoplight_id": "4930370cad24c",
+    "title_from_path": "Update A Stream",
+    "permalink_suffix": "update-a-stream",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "6875057565875": {
+    "label": "Stream API",
+    "path": "/portal/6875057565875-delete-a-stream",
+    "stoplight_id": "6875057565875",
+    "title_from_path": "Delete A Stream",
+    "permalink_suffix": "delete-a-stream",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "7f71f4aa90726": {
+    "label": "Stream API",
+    "path": "/portal/7f71f4aa90726-create-a-stream",
+    "stoplight_id": "7f71f4aa90726",
+    "title_from_path": "Create A Stream",
+    "permalink_suffix": "create-a-stream",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "68dc8d9f70b3d": {
+    "label": "Stream API",
+    "path": "/portal/68dc8d9f70b3d-list-streams",
+    "stoplight_id": "68dc8d9f70b3d",
+    "title_from_path": "List Streams",
+    "permalink_suffix": "list-streams",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "41db49e09d006": {
+    "label": "Stream API",
+    "path": "/portal/41db49e09d006-search-streams",
+    "stoplight_id": "41db49e09d006",
+    "title_from_path": "Search Streams",
+    "permalink_suffix": "search-streams",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "e3d90b95387e7": {
+    "label": "Stream API",
+    "path": "/portal/e3d90b95387e7-retrieve-a-stream-execution",
+    "stoplight_id": "e3d90b95387e7",
+    "title_from_path": "Retrieve A Stream Execution",
+    "permalink_suffix": "retrieve-a-stream-execution",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "242dd31d0746d": {
+    "label": "Stream API",
+    "path": "/portal/242dd31d0746d-create-a-stream-execution",
+    "stoplight_id": "242dd31d0746d",
+    "title_from_path": "Create A Stream Execution",
+    "permalink_suffix": "create-a-stream-execution",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "4ebc56e4e9771": {
+    "label": "Stream API",
+    "path": "/portal/4ebc56e4e9771-list-stream-executions",
+    "stoplight_id": "4ebc56e4e9771",
+    "title_from_path": "List Stream Executions",
+    "permalink_suffix": "list-stream-executions",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "f186ddf30fca9": {
+    "label": "Stream API",
+    "path": "/portal/f186ddf30fca9-upload-a-data-part",
+    "stoplight_id": "f186ddf30fca9",
+    "title_from_path": "Upload A Data Part",
+    "permalink_suffix": "upload-a-data-part",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "e326a44633f4c": {
+    "label": "Stream API",
+    "path": "/portal/e326a44633f4c-commit-a-stream-execution",
+    "stoplight_id": "e326a44633f4c",
+    "title_from_path": "Commit A Stream Execution",
+    "permalink_suffix": "commit-a-stream-execution",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "ab38f0e6a67ac": {
+    "label": "Stream API",
+    "path": "/portal/ab38f0e6a67ac-abort-a-stream-execution",
+    "stoplight_id": "ab38f0e6a67ac",
+    "title_from_path": "Abort A Stream Execution",
+    "permalink_suffix": "abort-a-stream-execution",
+    "context": "API Reference > Platform (OAuth) APIs > Stream API"
+  },
+  "v91hopqk7ki3b": {
+    "label": "User API",
+    "path": "/portal/v91hopqk7ki3b-user-api",
+    "stoplight_id": "v91hopqk7ki3b",
+    "title_from_path": "User Api",
+    "permalink_suffix": "user-api",
+    "context": "API Reference > Platform (OAuth) APIs > User API"
+  },
+  "7036c8cbcf865": {
+    "label": "User API",
+    "path": "/portal/7036c8cbcf865-retrieve-a-user",
+    "stoplight_id": "7036c8cbcf865",
+    "title_from_path": "Retrieve A User",
+    "permalink_suffix": "retrieve-a-user",
+    "context": "API Reference > Platform (OAuth) APIs > User API"
+  },
+  "6d07be3b66fad": {
+    "label": "User API",
+    "path": "/portal/6d07be3b66fad-update-a-user",
+    "stoplight_id": "6d07be3b66fad",
+    "title_from_path": "Update A User",
+    "permalink_suffix": "update-a-user",
+    "context": "API Reference > Platform (OAuth) APIs > User API"
+  },
+  "6fc40f66c26e2": {
+    "label": "User API",
+    "path": "/portal/6fc40f66c26e2-create-a-user",
+    "stoplight_id": "6fc40f66c26e2",
+    "title_from_path": "Create A User",
+    "permalink_suffix": "create-a-user",
+    "context": "API Reference > Platform (OAuth) APIs > User API"
+  },
+  "7f5648bdd673e": {
+    "label": "User API",
+    "path": "/portal/7f5648bdd673e-list-users",
+    "stoplight_id": "7f5648bdd673e",
+    "title_from_path": "List Users",
+    "permalink_suffix": "list-users",
+    "context": "API Reference > Platform (OAuth) APIs > User API"
+  },
+  "b90c3866dbc26": {
+    "label": "Activity Log API",
+    "path": "portal/b90c3866dbc26-activity-log-api",
+    "stoplight_id": "b90c3866dbc26",
+    "title_from_path": "Activity Log Api",
+    "permalink_suffix": "activity-log-api",
+    "context": "API Reference > Product APIs > Activity Log API"
+  },
+  "ffvznqc76b2b5": {
+    "label": "AI Services API",
+    "path": "portal/ffvznqc76b2b5-ai-services-api",
+    "stoplight_id": "ffvznqc76b2b5",
+    "title_from_path": "Ai Services Api",
+    "permalink_suffix": "ai-services-api",
+    "context": "API Reference > Product APIs > AI Services API"
+  },
+  "b09437e8d4d53": {
+    "label": "Alerts API",
+    "path": "portal/b09437e8d4d53-alerts-api",
+    "stoplight_id": "b09437e8d4d53",
+    "title_from_path": "Alerts Api",
+    "permalink_suffix": "alerts-api",
+    "context": "API Reference > Product APIs > Alerts API"
+  },
+  "c0c8604e2d275": {
+    "label": "AppDb API",
+    "path": "portal/c0c8604e2d275-app-db-api",
+    "stoplight_id": "c0c8604e2d275",
+    "title_from_path": "App Db Api",
+    "permalink_suffix": "app-db-api",
+    "context": "API Reference > Product APIs > AppDb API"
+  },
+  "bff3ab39f7a6b": {
+    "label": "Beast Modes API",
+    "path": "portal/bff3ab39f7a6b-beast-modes",
+    "stoplight_id": "bff3ab39f7a6b",
+    "title_from_path": "Beast Modes",
+    "permalink_suffix": "beast-modes",
+    "context": "API Reference > Product APIs > Beast Modes API"
+  },
+  "22d11898c7994": {
+    "label": "Cards",
+    "path": "portal/22d11898c7994-update-card-title",
+    "stoplight_id": "22d11898c7994",
+    "title_from_path": "Update Card Title",
+    "permalink_suffix": "update-card-title",
+    "context": "API Reference > Product APIs > Cards"
+  },
+  "3c41213d16bb5": {
+    "label": "Certified Content API",
+    "path": "portal/3c41213d16bb5-certified-content",
+    "stoplight_id": "3c41213d16bb5",
+    "title_from_path": "Certified Content",
+    "permalink_suffix": "certified-content",
+    "context": "API Reference > Product APIs > Certified Content API"
+  },
+  "fbhbpt1mt4gog": {
+    "label": "Code Engine API",
+    "path": "/portal/fbhbpt1mt4gog-code-engine-api",
+    "stoplight_id": "fbhbpt1mt4gog",
+    "title_from_path": "Code Engine Api",
+    "permalink_suffix": "code-engine-api",
+    "context": "API Reference > Product APIs > Code Engine API"
+  },
+  "1e640de669b27": {
+    "label": "Connectors",
+    "path": "portal/1e640de669b27-connectors",
+    "stoplight_id": "1e640de669b27",
+    "title_from_path": "Connectors",
+    "permalink_suffix": "connectors",
+    "context": "API Reference > Product APIs > Connectors"
+  },
+  "17a8df3265783": {
+    "label": "Data Accounts API",
+    "path": "portal/17a8df3265783-data-accounts",
+    "stoplight_id": "17a8df3265783",
+    "title_from_path": "Data Accounts",
+    "permalink_suffix": "data-accounts",
+    "context": "API Reference > Product APIs > Data Accounts API"
+  },
+  "35115c5c48927": {
+    "label": "DataSets API",
+    "path": "portal/35115c5c48927-datasets-api",
+    "stoplight_id": "35115c5c48927",
+    "title_from_path": "Datasets Api",
+    "permalink_suffix": "datasets-api",
+    "context": "API Reference > Product APIs > DataSets API"
+  },
+  "df451bfc35913": {
+    "label": "Dataset Schema API",
+    "path": "portal/df451bfc35913-return-the-schema-for-a-specified-dataset",
+    "stoplight_id": "df451bfc35913",
+    "title_from_path": "Return The Schema For A Specified Dataset",
+    "permalink_suffix": "return-the-schema-for-a-specified-dataset",
+    "context": "API Reference > Product APIs > Dataset Schema API"
+  },
+  "948e6067198db": {
+    "label": "Export to S3 API",
+    "path": "portal/948e6067198db-export-to-s3",
+    "stoplight_id": "948e6067198db",
+    "title_from_path": "Export To S3",
+    "permalink_suffix": "export-to-s3",
+    "context": "API Reference > Product APIs > Export to S3 API"
+  },
+  "u3ejmw0namdxf": {
+    "label": "Federated V1 to V2 Migration APIs",
+    "path": "portal/u3ejmw0namdxf-federated-v1-to-v2-migration-ap-is",
+    "stoplight_id": "u3ejmw0namdxf",
+    "title_from_path": "Federated V1 To V2 Migration Ap Is",
+    "permalink_suffix": "federated-v1-to-v2-migration-ap-is",
+    "context": "API Reference > Product APIs > Federated V1 to V2 Migration APIs"
+  },
+  "e253b923bb4db": {
+    "label": "Federated V2 to V1 Migration APIs",
+    "path": "portal/e253b923bb4db-federated-v2-to-amplifier-migration-ap-is",
+    "stoplight_id": "e253b923bb4db",
+    "title_from_path": "Federated V2 To Amplifier Migration Ap Is",
+    "permalink_suffix": "federated-v2-to-amplifier-migration-ap-is",
+    "context": "API Reference > Product APIs > Federated V2 to V1 Migration APIs"
+  },
+  "9850f1f9ca01b": {
+    "label": "Files API",
+    "path": "portal/9850f1f9ca01b-files-api",
+    "stoplight_id": "9850f1f9ca01b",
+    "title_from_path": "Files Api",
+    "permalink_suffix": "files-api",
+    "context": "API Reference > Product APIs > Files API"
+  },
+  "b939448cde9d5": {
+    "label": "FileSets API (BETA)",
+    "path": "portal/b939448cde9d5-file-sets-api-beta",
+    "stoplight_id": "b939448cde9d5",
+    "title_from_path": "File Sets Api Beta",
+    "permalink_suffix": "file-sets-api-beta",
+    "context": "API Reference > Product APIs > FileSets API (BETA)"
+  },
+  "9cb3d1d12bb26": {
+    "label": "Groups API",
+    "path": "portal/9cb3d1d12bb26-group-documentation",
+    "stoplight_id": "9cb3d1d12bb26",
+    "title_from_path": "Group Documentation",
+    "permalink_suffix": "group-documentation",
+    "context": "API Reference > Product APIs > Groups API"
+  },
+  "prt23r0zqw1vq": {
+    "label": "Managing Dataset History",
+    "path": "portal/prt23r0zqw1vq-managing-dataset-history",
+    "stoplight_id": "prt23r0zqw1vq",
+    "title_from_path": "Managing Dataset History",
+    "permalink_suffix": "managing-dataset-history",
+    "context": "API Reference > Product APIs > Managing Dataset History"
+  },
+  "0e5a684c5d309": {
+    "label": "Pages API",
+    "path": "portal/0e5a684c5d309-pages-api",
+    "stoplight_id": "0e5a684c5d309",
+    "title_from_path": "Pages Api",
+    "permalink_suffix": "pages-api",
+    "context": "API Reference > Product APIs > Pages API"
+  },
+  "daf88698611f8": {
+    "label": "Query Dataset API",
+    "path": "portal/daf88698611f8-query-dataset",
+    "stoplight_id": "daf88698611f8",
+    "title_from_path": "Query Dataset",
+    "permalink_suffix": "query-dataset",
+    "context": "API Reference > Product APIs > Query Dataset API"
+  },
+  "7c67addb308a2": {
+    "label": "Get KPI Card Image API",
+    "path": "portal/7c67addb308a2-authentication",
+    "stoplight_id": "7c67addb308a2",
+    "title_from_path": "Authentication",
+    "permalink_suffix": "authentication",
+    "context": "API Reference > Product APIs > Get KPI Card Image API"
+  },
+  "6ebb96cd8be53": {
+    "label": "Roles Governance API",
+    "path": "portal/6ebb96cd8be53-roles-governance-api",
+    "stoplight_id": "6ebb96cd8be53",
+    "title_from_path": "Roles Governance Api",
+    "permalink_suffix": "roles-governance-api",
+    "context": "API Reference > Product APIs > Roles Governance API"
+  },
+  "7e3ff9fe17fb4": {
+    "label": "Remote Domostats API",
+    "path": "portal/7e3ff9fe17fb4-remote-domostats-api",
+    "stoplight_id": "7e3ff9fe17fb4",
+    "title_from_path": "Remote Domostats Api",
+    "permalink_suffix": "remote-domostats-api",
+    "context": "API Reference > Product APIs > Remote Domostats API"
+  },
+  "8137c64d316f1": {
+    "label": "Scheduled Reports API",
+    "path": "portal/8137c64d316f1-scheduled-reports-api",
+    "stoplight_id": "8137c64d316f1",
+    "title_from_path": "Scheduled Reports Api",
+    "permalink_suffix": "scheduled-reports-api",
+    "context": "API Reference > Product APIs > Scheduled Reports API"
+  },
+  "fce416aea276f": {
+    "label": "Search API",
+    "path": "portal/fce416aea276f-search-product-api",
+    "stoplight_id": "fce416aea276f",
+    "title_from_path": "Search Product Api",
+    "permalink_suffix": "search-product-api",
+    "context": "API Reference > Product APIs > Search API"
+  },
+  "ff85f1d956ae2": {
+    "label": "Task Center API",
+    "path": "portal/ff85f1d956ae2-task-center-api",
+    "stoplight_id": "ff85f1d956ae2",
+    "title_from_path": "Task Center Api",
+    "permalink_suffix": "task-center-api",
+    "context": "API Reference > Product APIs > Task Center API"
+  },
+  "98ab364f4848f": {
+    "label": "User API",
+    "path": "portal/98ab364f4848f-users-api",
+    "stoplight_id": "98ab364f4848f",
+    "title_from_path": "Users Api",
+    "permalink_suffix": "users-api",
+    "context": "API Reference > Product APIs > User API"
+  },
+  "kspv2orr3oi30": {
+    "label": "Workflows API",
+    "path": "portal/kspv2orr3oi30-workflows-product-api",
+    "stoplight_id": "kspv2orr3oi30",
+    "title_from_path": "Workflows Product Api",
+    "permalink_suffix": "workflows-product-api",
+    "context": "API Reference > Product APIs > Workflows API"
+  },
+  "28v6sqz9eslb9": {
+    "label": "Build Apps",
+    "path": "/portal/28v6sqz9eslb9-overview",
+    "stoplight_id": "28v6sqz9eslb9",
+    "title_from_path": "Overview",
+    "permalink_suffix": "overview",
+    "context": "Build Apps"
+  },
+  "d54m2ohkacza0": {
+    "label": "App Framework",
+    "path": "/portal/d54m2ohkacza0-welcome",
+    "stoplight_id": "d54m2ohkacza0",
+    "title_from_path": "Welcome",
+    "permalink_suffix": "welcome",
+    "context": "Build Apps > App Framework"
+  },
+  "67dwgt0v6q3w9": {
+    "label": "Quickstart",
+    "path": "/portal/67dwgt0v6q3w9-prerequisites",
+    "stoplight_id": "67dwgt0v6q3w9",
+    "title_from_path": "Prerequisites",
+    "permalink_suffix": "prerequisites",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "17229f5001f95": {
+    "label": "Quickstart",
+    "path": "/portal/17229f5001f95-key-terminology",
+    "stoplight_id": "17229f5001f95",
+    "title_from_path": "Key Terminology",
+    "permalink_suffix": "key-terminology",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "6hlzv1hinkq19": {
+    "label": "Quickstart",
+    "path": "/portal/6hlzv1hinkq19-setup-and-installation",
+    "stoplight_id": "6hlzv1hinkq19",
+    "title_from_path": "Setup And Installation",
+    "permalink_suffix": "setup-and-installation",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "u8w475o2245yp": {
+    "label": "Quickstart",
+    "path": "/portal/u8w475o2245yp-starter-kits",
+    "stoplight_id": "u8w475o2245yp",
+    "title_from_path": "Starter Kits",
+    "permalink_suffix": "starter-kits",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "37rc8izzjzj7z": {
+    "label": "Quickstart",
+    "path": "/portal/37rc8izzjzj7z-tools",
+    "stoplight_id": "37rc8izzjzj7z",
+    "title_from_path": "Tools",
+    "permalink_suffix": "tools",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "9l1mzcir4ht5h": {
+    "label": "Quickstart",
+    "path": "/portal/9l1mzcir4ht5h-best-practices",
+    "stoplight_id": "9l1mzcir4ht5h",
+    "title_from_path": "Best Practices",
+    "permalink_suffix": "best-practices",
+    "context": "Build Apps > App Framework > Quickstart"
+  },
+  "c0859d0c0a941": {
+    "label": "Pro-Code Editor",
+    "path": "/portal/c0859d0c0a941-tutorial-building-a-domo-dashboard-pdf-converter",
+    "stoplight_id": "c0859d0c0a941",
+    "title_from_path": "Tutorial Building A Domo Dashboard Pdf Converter",
+    "permalink_suffix": "tutorial-building-a-domo-dashboard-pdf-converter",
+    "context": "Build Apps > App Framework > Tutorials > Pro-Code Editor"
+  },
+  "babeff860ab02": {
+    "label": "Pro-Code Editor",
+    "path": "/portal/babeff860ab02-tutorial-building-a-stacked-bar-chart-with-a-trended-line-in-domo-s-pro-code-editor",
+    "stoplight_id": "babeff860ab02",
+    "title_from_path": "Tutorial Building A Stacked Bar Chart With A Trended Line In Domo S Pro Code Editor",
+    "permalink_suffix": "tutorial-building-a-stacked-bar-chart-with-a-trended-line-in-domo-s-pro-code-editor",
+    "context": "Build Apps > App Framework > Tutorials > Pro-Code Editor"
+  },
+  "7657a3402ae5e": {
+    "label": "React",
+    "path": "/portal/7657a3402ae5e-to-do-app-tutorial",
+    "stoplight_id": "7657a3402ae5e",
+    "title_from_path": "To Do App Tutorial",
+    "permalink_suffix": "to-do-app-tutorial",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > React"
+  },
+  "cf7d0861d9e10": {
+    "label": "React",
+    "path": "/portal/cf7d0861d9e10-mapbox-world-map-react-app-tutorial",
+    "stoplight_id": "cf7d0861d9e10",
+    "title_from_path": "Mapbox World Map React App Tutorial",
+    "permalink_suffix": "mapbox-world-map-react-app-tutorial",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > React"
+  },
+  "c07d31c752348": {
+    "label": "React",
+    "path": "/portal/c07d31c752348-ai-book-recommender-app-tutorial",
+    "stoplight_id": "c07d31c752348",
+    "title_from_path": "Ai Book Recommender App Tutorial",
+    "permalink_suffix": "ai-book-recommender-app-tutorial",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > React"
+  },
+  "ndvsmatbqz5gk": {
+    "label": "Game Night Planner App",
+    "path": "/portal/ndvsmatbqz5gk-game-night-planner-app-intro-to-domo-bricks",
+    "stoplight_id": "ndvsmatbqz5gk",
+    "title_from_path": "Game Night Planner App Intro To Domo Bricks",
+    "permalink_suffix": "game-night-planner-app-intro-to-domo-bricks",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS > Game Night Planner App"
+  },
+  "n4pswi7dd2azo": {
+    "label": "Game Night Planner App",
+    "path": "/portal/n4pswi7dd2azo-moving-from-brick-to-app",
+    "stoplight_id": "n4pswi7dd2azo",
+    "title_from_path": "Moving From Brick To App",
+    "permalink_suffix": "moving-from-brick-to-app",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS > Game Night Planner App"
+  },
+  "pff92wc4t7vgw": {
+    "label": "Game Night Planner App",
+    "path": "/portal/pff92wc4t7vgw-adding-advanced-capabilities-to-your-app",
+    "stoplight_id": "pff92wc4t7vgw",
+    "title_from_path": "Adding Advanced Capabilities To Your App",
+    "permalink_suffix": "adding-advanced-capabilities-to-your-app",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS > Game Night Planner App"
+  },
+  "a2bd06daaff7e": {
+    "label": "Vanilla JS",
+    "path": "/portal/a2bd06daaff7e-sugar-force",
+    "stoplight_id": "a2bd06daaff7e",
+    "title_from_path": "Sugar Force",
+    "permalink_suffix": "sugar-force",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS"
+  },
+  "omi6lzvpm47ei": {
+    "label": "Vanilla JS",
+    "path": "/portal/omi6lzvpm47ei-return-flow",
+    "stoplight_id": "omi6lzvpm47ei",
+    "title_from_path": "Return Flow",
+    "permalink_suffix": "return-flow",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS"
+  },
+  "atp50e7pzs4yd": {
+    "label": "Vanilla JS",
+    "path": "/portal/atp50e7pzs4yd-creating-dynamic-infographics",
+    "stoplight_id": "atp50e7pzs4yd",
+    "title_from_path": "Creating Dynamic Infographics",
+    "permalink_suffix": "creating-dynamic-infographics",
+    "context": "Build Apps > App Framework > Tutorials > App Framework > Vanilla JS"
+  },
+  "rmfbkwje8kmqj": {
+    "label": "Tools",
+    "path": "/portal/rmfbkwje8kmqj-domo-apps-cli",
+    "stoplight_id": "rmfbkwje8kmqj",
+    "title_from_path": "Domo Apps Cli",
+    "permalink_suffix": "domo-apps-cli",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "da": {
+    "label": "Tools",
+    "path": "/portal/da-cli",
+    "stoplight_id": "da",
+    "title_from_path": "Cli",
+    "permalink_suffix": "cli",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "domo": {
+    "label": "Tools",
+    "path": "/portal/domo-publish-cicd",
+    "stoplight_id": "domo",
+    "title_from_path": "Publish Cicd",
+    "permalink_suffix": "publish-cicd",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "e947d87e17547": {
+    "label": "Tools",
+    "path": "/portal/e947d87e17547-domo-js",
+    "stoplight_id": "e947d87e17547",
+    "title_from_path": "Domo Js",
+    "permalink_suffix": "domo-js",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "d5da72027f4a1": {
+    "label": "Tools",
+    "path": "/portal/d5da72027f4a1-query",
+    "stoplight_id": "d5da72027f4a1",
+    "title_from_path": "Query",
+    "permalink_suffix": "query",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "52cc03a1e3100": {
+    "label": "Tools",
+    "path": "/portal/52cc03a1e3100-domo-phoenix",
+    "stoplight_id": "52cc03a1e3100",
+    "title_from_path": "Domo Phoenix",
+    "permalink_suffix": "domo-phoenix",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "bdae44e540d37": {
+    "label": "Tools",
+    "path": "/portal/bdae44e540d37-toolkit",
+    "stoplight_id": "bdae44e540d37",
+    "title_from_path": "Toolkit",
+    "permalink_suffix": "toolkit",
+    "context": "Build Apps > App Framework > Tools"
+  },
+  "3ad3f9b434b10": {
+    "label": "Guides",
+    "path": "/portal/3ad3f9b434b10-getting-started-with-the-pro-code-editor",
+    "stoplight_id": "3ad3f9b434b10",
+    "title_from_path": "Getting Started With The Pro Code Editor",
+    "permalink_suffix": "getting-started-with-the-pro-code-editor",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "local": {
+    "label": "Guides",
+    "path": "/portal/local-development-domo-cli",
+    "stoplight_id": "local",
+    "title_from_path": "Development Domo Cli",
+    "permalink_suffix": "development-domo-cli",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "5a51d83c82822": {
+    "label": "Guides",
+    "path": "/portal/5a51d83c82822-managing-editing-and-saving-your-app-in-the-pro-code-editor",
+    "stoplight_id": "5a51d83c82822",
+    "title_from_path": "Managing Editing And Saving Your App In The Pro Code Editor",
+    "permalink_suffix": "managing-editing-and-saving-your-app-in-the-pro-code-editor",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "af407395c766b": {
+    "label": "Guides",
+    "path": "/portal/af407395c766b-the-manifest-file",
+    "stoplight_id": "af407395c766b",
+    "title_from_path": "The Manifest File",
+    "permalink_suffix": "the-manifest-file",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "df8b045188694": {
+    "label": "Guides",
+    "path": "/portal/df8b045188694-public-assets",
+    "stoplight_id": "df8b045188694",
+    "title_from_path": "Public Assets",
+    "permalink_suffix": "public-assets",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "942c89811d9df": {
+    "label": "Guides",
+    "path": "/portal/942c89811d9df-change-which-asset-powers-the-card",
+    "stoplight_id": "942c89811d9df",
+    "title_from_path": "Change Which Asset Powers The Card",
+    "permalink_suffix": "change-which-asset-powers-the-card",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "xma9hezmttvid": {
+    "label": "Guides",
+    "path": "/portal/xma9hezmttvid-app-sessions",
+    "stoplight_id": "xma9hezmttvid",
+    "title_from_path": "App Sessions",
+    "permalink_suffix": "app-sessions",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "6a5d7a2870145": {
+    "label": "Guides",
+    "path": "/portal/6a5d7a2870145-getting-data",
+    "stoplight_id": "6a5d7a2870145",
+    "title_from_path": "Getting Data",
+    "permalink_suffix": "getting-data",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "6fa7587d4c2ea": {
+    "label": "Guides",
+    "path": "/portal/6fa7587d4c2ea-querying-data",
+    "stoplight_id": "6fa7587d4c2ea",
+    "title_from_path": "Querying Data",
+    "permalink_suffix": "querying-data",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "2a14dd34496e7": {
+    "label": "Guides",
+    "path": "/portal/2a14dd34496e7-handling-data-updates",
+    "stoplight_id": "2a14dd34496e7",
+    "title_from_path": "Handling Data Updates",
+    "permalink_suffix": "handling-data-updates",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "81056f6209bfc": {
+    "label": "Guides",
+    "path": "/portal/81056f6209bfc-start-a-workflow-from-an-app",
+    "stoplight_id": "81056f6209bfc",
+    "title_from_path": "Start A Workflow From An App",
+    "permalink_suffix": "start-a-workflow-from-an-app",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "4w40o03817vij": {
+    "label": "Guides",
+    "path": "/portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app",
+    "stoplight_id": "4w40o03817vij",
+    "title_from_path": "Hitting A Code Engine Function From An App",
+    "permalink_suffix": "hitting-a-code-engine-function-from-an-app",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "f5c93c4320ad4": {
+    "label": "Guides",
+    "path": "/portal/f5c93c4320ad4-app-developer-design-guide",
+    "stoplight_id": "f5c93c4320ad4",
+    "title_from_path": "App Developer Design Guide",
+    "permalink_suffix": "app-developer-design-guide",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "34d8713d17282": {
+    "label": "Guides",
+    "path": "/portal/34d8713d17282-sync-app-db-only-once-a-day",
+    "stoplight_id": "34d8713d17282",
+    "title_from_path": "Sync App Db Only Once A Day",
+    "permalink_suffix": "sync-app-db-only-once-a-day",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "f3c595d1d1e28": {
+    "label": "Guides",
+    "path": "/portal/f3c595d1d1e28-deleting-all-documents-from-a-collection",
+    "stoplight_id": "f3c595d1d1e28",
+    "title_from_path": "Deleting All Documents From A Collection",
+    "permalink_suffix": "deleting-all-documents-from-a-collection",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "fecb7159f62f2": {
+    "label": "Guides",
+    "path": "/portal/fecb7159f62f2-copy-assets-to-a-different-instance",
+    "stoplight_id": "fecb7159f62f2",
+    "title_from_path": "Copy Assets To A Different Instance",
+    "permalink_suffix": "copy-assets-to-a-different-instance",
+    "context": "Build Apps > App Framework > Guides"
+  },
+  "e3bddcb552199": {
+    "label": "Help",
+    "path": "/portal/e3bddcb552199-troubleshooting",
+    "stoplight_id": "e3bddcb552199",
+    "title_from_path": "Troubleshooting",
+    "permalink_suffix": "troubleshooting",
+    "context": "Build Apps > App Framework > Help"
+  },
+  "5478529c8ed0a": {
+    "label": "Help",
+    "path": "/portal/5478529c8ed0a-faq",
+    "stoplight_id": "5478529c8ed0a",
+    "title_from_path": "Faq",
+    "permalink_suffix": "faq",
+    "context": "Build Apps > App Framework > Help"
+  },
+  "0037739ab3747": {
+    "label": "Quickstart",
+    "path": "/portal/0037739ab3747-domo-bricks-overview",
+    "stoplight_id": "0037739ab3747",
+    "title_from_path": "Domo Bricks Overview",
+    "permalink_suffix": "domo-bricks-overview",
+    "context": "Build Apps > Domo Bricks > Quickstart"
+  },
+  "ec60c4980e1b5": {
+    "label": "Quickstart",
+    "path": "/portal/ec60c4980e1b5-getting-started-using-domo-bricks",
+    "stoplight_id": "ec60c4980e1b5",
+    "title_from_path": "Getting Started Using Domo Bricks",
+    "permalink_suffix": "getting-started-using-domo-bricks",
+    "context": "Build Apps > Domo Bricks > Quickstart"
+  },
+  "81edeb860659b": {
+    "label": "Tutorials",
+    "path": "/portal/81edeb860659b-video-guides",
+    "stoplight_id": "81edeb860659b",
+    "title_from_path": "Video Guides",
+    "permalink_suffix": "video-guides",
+    "context": "Build Apps > Domo Bricks > Tutorials"
+  },
+  "2efe8599c6ad9": {
+    "label": "Guides",
+    "path": "/portal/2efe8599c6ad9-getting-data-in-domo-bricks",
+    "stoplight_id": "2efe8599c6ad9",
+    "title_from_path": "Getting Data In Domo Bricks",
+    "permalink_suffix": "getting-data-in-domo-bricks",
+    "context": "Build Apps > Domo Bricks > Guides"
+  },
+  "5db95ad6cc1a1": {
+    "label": "Guides",
+    "path": "/portal/5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app",
+    "stoplight_id": "5db95ad6cc1a1",
+    "title_from_path": "Converting A Brick Into A Pro Code App",
+    "permalink_suffix": "converting-a-brick-into-a-pro-code-app",
+    "context": "Build Apps > Domo Bricks > Guides"
+  },
+  "advanced": {
+    "label": "Advanced Forms",
+    "path": "/portal/advanced-forms-overview",
+    "stoplight_id": "advanced",
+    "title_from_path": "Forms Overview",
+    "permalink_suffix": "forms-overview",
+    "context": "Build Apps > Advanced Forms"
+  },
+  "d3f552e6ba34b": {
+    "label": "Automate Actions",
+    "path": "/portal/d3f552e6ba34b-automate-actions-with-workflows-and-code-engine",
+    "stoplight_id": "d3f552e6ba34b",
+    "title_from_path": "Automate Actions With Workflows And Code Engine",
+    "permalink_suffix": "automate-actions-with-workflows-and-code-engine",
+    "context": "Automate Actions"
+  },
+  "55d3b6dfcfddd": {
+    "label": "Workflows",
+    "path": "/portal/55d3b6dfcfddd-domo-workflows",
+    "stoplight_id": "55d3b6dfcfddd",
+    "title_from_path": "Domo Workflows",
+    "permalink_suffix": "domo-workflows",
+    "context": "Automate Actions > Workflows"
+  },
+  "6e7b0fdc99bdd": {
+    "label": "Workflows",
+    "path": "/portal/6e7b0fdc99bdd-authentication-and-permissions",
+    "stoplight_id": "6e7b0fdc99bdd",
+    "title_from_path": "Authentication And Permissions",
+    "permalink_suffix": "authentication-and-permissions",
+    "context": "Automate Actions > Workflows"
+  },
+  "4wu6c4ddtn4m3": {
+    "label": "Workflow API",
+    "path": "/portal/4wu6c4ddtn4m3-workflows-product-api",
+    "stoplight_id": "4wu6c4ddtn4m3",
+    "title_from_path": "Workflows Product Api",
+    "permalink_suffix": "workflows-product-api",
+    "context": "Automate Actions > Workflows > Workflow API"
+  },
+  "5s59dpkk1hmx6": {
+    "label": "Workflow API",
+    "path": "/portal/5s59dpkk1hmx6-start-a-workflow",
+    "stoplight_id": "5s59dpkk1hmx6",
+    "title_from_path": "Start A Workflow",
+    "permalink_suffix": "start-a-workflow",
+    "context": "Automate Actions > Workflows > Workflow API"
+  },
+  "6e7f610416ea1": {
+    "label": "Workflows",
+    "path": "/portal/6e7f610416ea1-troubleshooting-tips",
+    "stoplight_id": "6e7f610416ea1",
+    "title_from_path": "Troubleshooting Tips",
+    "permalink_suffix": "troubleshooting-tips",
+    "context": "Automate Actions > Workflows"
+  },
+  "1sirxqzlsb4sk": {
+    "label": "Code Engine",
+    "path": "/portal/1sirxqzlsb4sk-code-engine",
+    "stoplight_id": "1sirxqzlsb4sk",
+    "title_from_path": "Code Engine",
+    "permalink_suffix": "code-engine",
+    "context": "Automate Actions > Code Engine"
+  },
+  "fef84c05d5245": {
+    "label": "Code Engine",
+    "path": "/portal/fef84c05d5245-global-vs-custom-packages",
+    "stoplight_id": "fef84c05d5245",
+    "title_from_path": "Global Vs Custom Packages",
+    "permalink_suffix": "global-vs-custom-packages",
+    "context": "Automate Actions > Code Engine"
+  },
+  "07d7b4130e96f": {
+    "label": "Code Engine",
+    "path": "/portal/07d7b4130e96f-creating-a-custom-package",
+    "stoplight_id": "07d7b4130e96f",
+    "title_from_path": "Creating A Custom Package",
+    "permalink_suffix": "creating-a-custom-package",
+    "context": "Automate Actions > Code Engine"
+  },
+  "7ee46a3107052": {
+    "label": "Code Engine",
+    "path": "/portal/7ee46a3107052-code-editor-overview",
+    "stoplight_id": "7ee46a3107052",
+    "title_from_path": "Code Editor Overview",
+    "permalink_suffix": "code-editor-overview",
+    "context": "Automate Actions > Code Engine"
+  },
+  "c887b1e09fb75": {
+    "label": "Code Engine",
+    "path": "/portal/c887b1e09fb75-code-engine-java-script-libraries-reference",
+    "stoplight_id": "c887b1e09fb75",
+    "title_from_path": "Code Engine Java Script Libraries Reference",
+    "permalink_suffix": "code-engine-java-script-libraries-reference",
+    "context": "Automate Actions > Code Engine"
+  },
+  "cf888b03e570a": {
+    "label": "Code Engine",
+    "path": "/portal/cf888b03e570a-code-engine-python-packages-reference",
+    "stoplight_id": "cf888b03e570a",
+    "title_from_path": "Code Engine Python Packages Reference",
+    "permalink_suffix": "code-engine-python-packages-reference",
+    "context": "Automate Actions > Code Engine"
+  },
+  "115bc93a8bde3": {
+    "label": "Code Engine",
+    "path": "/portal/115bc93a8bde3-common-code-engine-use-cases",
+    "stoplight_id": "115bc93a8bde3",
+    "title_from_path": "Common Code Engine Use Cases",
+    "permalink_suffix": "common-code-engine-use-cases",
+    "context": "Automate Actions > Code Engine"
+  },
+  "32ff35cdb141e": {
+    "label": "Useful Packages",
+    "path": "/portal/32ff35cdb141e-domo-instance-management",
+    "stoplight_id": "32ff35cdb141e",
+    "title_from_path": "Domo Instance Management",
+    "permalink_suffix": "domo-instance-management",
+    "context": "Automate Actions > Code Engine > Useful Packages"
+  },
+  "7d56134a3c629": {
+    "label": "Useful Packages",
+    "path": "/portal/7d56134a3c629-export-domo-cards-to-pdf",
+    "stoplight_id": "7d56134a3c629",
+    "title_from_path": "Export Domo Cards To Pdf",
+    "permalink_suffix": "export-domo-cards-to-pdf",
+    "context": "Automate Actions > Code Engine > Useful Packages"
+  },
+  "d214359cae381": {
+    "label": "Code Engine",
+    "path": "/portal/d214359cae381-key-limitations",
+    "stoplight_id": "d214359cae381",
+    "title_from_path": "Key Limitations",
+    "permalink_suffix": "key-limitations",
+    "context": "Automate Actions > Code Engine"
+  },
+  "600e2b5914564": {
+    "label": "Domo Appstore",
+    "path": "/portal/600e2b5914564-domo-appstore",
+    "stoplight_id": "600e2b5914564",
+    "title_from_path": "Domo Appstore",
+    "permalink_suffix": "domo-appstore",
+    "context": "Partner Developers > Domo Appstore"
+  },
+  "d4f8eee792eb6": {
+    "label": "Domo Appstore",
+    "path": "/portal/d4f8eee792eb6-appstore-submission",
+    "stoplight_id": "d4f8eee792eb6",
+    "title_from_path": "Appstore Submission",
+    "permalink_suffix": "appstore-submission",
+    "context": "Partner Developers > Domo Appstore"
+  },
+  "c9db4daa8edfe": {
+    "label": "Domo Appstore",
+    "path": "/portal/c9db4daa8edfe-appstore-requirements",
+    "stoplight_id": "c9db4daa8edfe",
+    "title_from_path": "Appstore Requirements",
+    "permalink_suffix": "appstore-requirements",
+    "context": "Partner Developers > Domo Appstore"
+  },
+  "6ea9fcd9e478c": {
+    "label": "Domo Appstore",
+    "path": "/portal/6ea9fcd9e478c-appstore-data-resources",
+    "stoplight_id": "6ea9fcd9e478c",
+    "title_from_path": "Appstore Data Resources",
+    "permalink_suffix": "appstore-data-resources",
+    "context": "Partner Developers > Domo Appstore"
+  },
+  "6505d9ad61fd0": {
+    "label": "Domo Appstore",
+    "path": "/portal/6505d9ad61fd0-appstore-help-and-support",
+    "stoplight_id": "6505d9ad61fd0",
+    "title_from_path": "Appstore Help And Support",
+    "permalink_suffix": "appstore-help-and-support",
+    "context": "Partner Developers > Domo Appstore"
+  },
+  "7da043cf6d454": {
+    "label": "Guides",
+    "path": "/portal/7da043cf6d454-submission-checklist",
+    "stoplight_id": "7da043cf6d454",
+    "title_from_path": "Submission Checklist",
+    "permalink_suffix": "submission-checklist",
+    "context": "Partner Developers > Guides"
+  },
+  "4e6a52eafd2d3": {
+    "label": "Guides",
+    "path": "/portal/4e6a52eafd2d3-video-recording-guide",
+    "stoplight_id": "4e6a52eafd2d3",
+    "title_from_path": "Video Recording Guide",
+    "permalink_suffix": "video-recording-guide",
+    "context": "Partner Developers > Guides"
+  },
+  "1420c2fd93550": {
+    "label": "Guides",
+    "path": "/portal/1420c2fd93550-partner-app-submission-guide",
+    "stoplight_id": "1420c2fd93550",
+    "title_from_path": "Partner App Submission Guide",
+    "permalink_suffix": "partner-app-submission-guide",
+    "context": "Partner Developers > Guides"
+  },
+  "ea88871bcc736": {
+    "label": "Guides",
+    "path": "/portal/ea88871bcc736-paid-apps-guide",
+    "stoplight_id": "ea88871bcc736",
+    "title_from_path": "Paid Apps Guide",
+    "permalink_suffix": "paid-apps-guide",
+    "context": "Partner Developers > Guides"
+  },
+  "ccdff47e23e23": {
+    "label": "Guides",
+    "path": "/portal/ccdff47e23e23-getting-paid-guide",
+    "stoplight_id": "ccdff47e23e23",
+    "title_from_path": "Getting Paid Guide",
+    "permalink_suffix": "getting-paid-guide",
+    "context": "Partner Developers > Guides"
+  },
+  "da7996a8b2338": {
+    "label": "Guides",
+    "path": "/portal/da7996a8b2338-building-an-app-overview",
+    "stoplight_id": "da7996a8b2338",
+    "title_from_path": "Building An App Overview",
+    "permalink_suffix": "building-an-app-overview",
+    "context": "Partner Developers > Guides"
+  },
+  "b836f5593ab26": {
+    "label": "Guides",
+    "path": "/portal/b836f5593ab26-getting-data",
+    "stoplight_id": "b836f5593ab26",
+    "title_from_path": "Getting Data",
+    "permalink_suffix": "getting-data",
+    "context": "Partner Developers > Guides"
+  },
+  "f1debac8fb029": {
+    "label": "Guides",
+    "path": "/portal/f1debac8fb029-guide-to-using-the-global-code-engine-package-start-workflow-in-remote-instance",
+    "stoplight_id": "f1debac8fb029",
+    "title_from_path": "Guide To Using The Global Code Engine Package Start Workflow In Remote Instance",
+    "permalink_suffix": "guide-to-using-the-global-code-engine-package-start-workflow-in-remote-instance",
+    "context": "Partner Developers > Guides"
+  },
+  "0mnsejhg5livn": {
+    "label": "AI Resources Guide",
+    "path": "/portal/0mnsejhg5livn-domo-ai-resources-guide",
+    "stoplight_id": "0mnsejhg5livn",
+    "title_from_path": "Domo Ai Resources Guide",
+    "permalink_suffix": "domo-ai-resources-guide",
+    "context": "AI Resources Guide"
+  },
+  "x2i3bk0w4bwhe": {
+    "label": "AI Resources Guide",
+    "path": "/portal/x2i3bk0w4bwhe-domo-ai",
+    "stoplight_id": "x2i3bk0w4bwhe",
+    "title_from_path": "Domo Ai",
+    "permalink_suffix": "domo-ai",
+    "context": "AI Resources Guide"
+  },
+  "4cjt7r72bnwlf": {
+    "label": "AI Resources Guide",
+    "path": "/portal/4cjt7r72bnwlf-jupyter-workspaces",
+    "stoplight_id": "4cjt7r72bnwlf",
+    "title_from_path": "Jupyter Workspaces",
+    "permalink_suffix": "jupyter-workspaces",
+    "context": "AI Resources Guide"
+  },
+  "pg9t2vdbix5un": {
+    "label": "AI Resources Guide",
+    "path": "/portal/pg9t2vdbix5un-data-science-accelerators",
+    "stoplight_id": "pg9t2vdbix5un",
+    "title_from_path": "Data Science Accelerators",
+    "permalink_suffix": "data-science-accelerators",
+    "context": "AI Resources Guide"
+  },
+  "ftlfegxnudqt7": {
+    "label": "AI Resources Guide",
+    "path": "/portal/ftlfegxnudqt7-magic-etl-scripting-tiles",
+    "stoplight_id": "ftlfegxnudqt7",
+    "title_from_path": "Magic Etl Scripting Tiles",
+    "permalink_suffix": "magic-etl-scripting-tiles",
+    "context": "AI Resources Guide"
+  },
+  "32buc6884v4px": {
+    "label": "AI Resources Guide",
+    "path": "/portal/32buc6884v4px-magic-etl-data-science-tiles",
+    "stoplight_id": "32buc6884v4px",
+    "title_from_path": "Magic Etl Data Science Tiles",
+    "permalink_suffix": "magic-etl-data-science-tiles",
+    "context": "AI Resources Guide"
+  },
+  "xw7ienfqq7qrw": {
+    "label": "AI Resources Guide",
+    "path": "/portal/xw7ienfqq7qrw-automated-machine-learning-auto-ml",
+    "stoplight_id": "xw7ienfqq7qrw",
+    "title_from_path": "Automated Machine Learning Auto Ml",
+    "permalink_suffix": "automated-machine-learning-auto-ml",
+    "context": "AI Resources Guide"
+  },
+  "umqbnyej9jn06": {
+    "label": "AI Resources Guide",
+    "path": "/portal/umqbnyej9jn06-data-science-webinars",
+    "stoplight_id": "umqbnyej9jn06",
+    "title_from_path": "Data Science Webinars",
+    "permalink_suffix": "data-science-webinars",
+    "context": "AI Resources Guide"
+  },
+  "wiemes1rk6atz": {
+    "label": "Connect Data",
+    "path": "/portal/wiemes1rk6atz-overview",
+    "stoplight_id": "wiemes1rk6atz",
+    "title_from_path": "Overview",
+    "permalink_suffix": "overview",
+    "context": "Connect Data"
+  },
+  "5d8f965eb3469": {
+    "label": "Standard Connectors",
+    "path": "/portal/5d8f965eb3469-overview",
+    "stoplight_id": "5d8f965eb3469",
+    "title_from_path": "Overview",
+    "permalink_suffix": "overview",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "3cfe84d925633": {
+    "label": "Standard Connectors",
+    "path": "/portal/3cfe84d925633-custom-connectors",
+    "stoplight_id": "3cfe84d925633",
+    "title_from_path": "Custom Connectors",
+    "permalink_suffix": "custom-connectors",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "71ec34a2958fe": {
+    "label": "Standard Connectors",
+    "path": "/portal/71ec34a2958fe-configure-authentication",
+    "stoplight_id": "71ec34a2958fe",
+    "title_from_path": "Configure Authentication",
+    "permalink_suffix": "configure-authentication",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "306e246057d3c": {
+    "label": "Standard Connectors",
+    "path": "/portal/306e246057d3c-configure-reports",
+    "stoplight_id": "306e246057d3c",
+    "title_from_path": "Configure Reports",
+    "permalink_suffix": "configure-reports",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "11ea6c8039f80": {
+    "label": "Standard Connectors",
+    "path": "/portal/11ea6c8039f80-process-data",
+    "stoplight_id": "11ea6c8039f80",
+    "title_from_path": "Process Data",
+    "permalink_suffix": "process-data",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "9f2fe40b1bdb9": {
+    "label": "Standard Connectors",
+    "path": "/portal/9f2fe40b1bdb9-examples",
+    "stoplight_id": "9f2fe40b1bdb9",
+    "title_from_path": "Examples",
+    "permalink_suffix": "examples",
+    "context": "Connect Data > Custom Connectors > Standard Connectors"
+  },
+  "cf8902150aae4": {
+    "label": "Custom Connectors",
+    "path": "/portal/cf8902150aae4-writeback-connectors",
+    "stoplight_id": "cf8902150aae4",
+    "title_from_path": "Writeback Connectors",
+    "permalink_suffix": "writeback-connectors",
+    "context": "Connect Data > Custom Connectors"
+  },
+  "e415bb99d21b2": {
+    "label": "Custom Connectors",
+    "path": "/portal/e415bb99d21b2-reference",
+    "stoplight_id": "e415bb99d21b2",
+    "title_from_path": "Reference",
+    "permalink_suffix": "reference",
+    "context": "Connect Data > Custom Connectors"
+  },
+  "66b06bf6ac52d": {
+    "label": "Custom Connectors",
+    "path": "/portal/66b06bf6ac52d-ide-limitations",
+    "stoplight_id": "66b06bf6ac52d",
+    "title_from_path": "Ide Limitations",
+    "permalink_suffix": "ide-limitations",
+    "context": "Connect Data > Custom Connectors"
+  },
+  "d2309f6f9be66": {
+    "label": "Custom Connectors",
+    "path": "/portal/d2309f6f9be66-help-and-support",
+    "stoplight_id": "d2309f6f9be66",
+    "title_from_path": "Help And Support",
+    "permalink_suffix": "help-and-support",
+    "context": "Connect Data > Custom Connectors"
+  },
+  "e0a20a74a7754": {
+    "label": "Connect via API",
+    "path": "/portal/e0a20a74a7754-data-connection-via-api-overview",
+    "stoplight_id": "e0a20a74a7754",
+    "title_from_path": "Data Connection Via Api Overview",
+    "permalink_suffix": "data-connection-via-api-overview",
+    "context": "Connect Data > Connect via API"
+  },
+  "278e9d611eaa6": {
+    "label": "Connect via API",
+    "path": "/portal/278e9d611eaa6-quickstart",
+    "stoplight_id": "278e9d611eaa6",
+    "title_from_path": "Quickstart",
+    "permalink_suffix": "quickstart",
+    "context": "Connect Data > Connect via API"
+  },
+  "eb00606e6f114": {
+    "label": "Connect via API",
+    "path": "/portal/eb00606e6f114-format-data-to-import",
+    "stoplight_id": "eb00606e6f114",
+    "title_from_path": "Format Data To Import",
+    "permalink_suffix": "format-data-to-import",
+    "context": "Connect Data > Connect via API"
+  },
+  "3989acf1bafff": {
+    "label": "Connect via API",
+    "path": "/portal/3989acf1bafff-import-and-export-data",
+    "stoplight_id": "3989acf1bafff",
+    "title_from_path": "Import And Export Data",
+    "permalink_suffix": "import-and-export-data",
+    "context": "Connect Data > Connect via API"
+  },
+  "6a1dd9d565f05": {
+    "label": "Connect via API",
+    "path": "/portal/6a1dd9d565f05-managing-data-sets-in-domo",
+    "stoplight_id": "6a1dd9d565f05",
+    "title_from_path": "Managing Data Sets In Domo",
+    "permalink_suffix": "managing-data-sets-in-domo",
+    "context": "Connect Data > Connect via API"
+  },
+  "7zzu6uf05maam": {
+    "label": "Connect via API",
+    "path": "/portal/7zzu6uf05maam-pdp",
+    "stoplight_id": "7zzu6uf05maam",
+    "title_from_path": "Pdp",
+    "permalink_suffix": "pdp",
+    "context": "Connect Data > Connect via API"
+  },
+  "cb2e07663deaf": {
+    "label": "Other Connection Approaches",
+    "path": "/portal/cb2e07663deaf-on-premises-data",
+    "stoplight_id": "cb2e07663deaf",
+    "title_from_path": "On Premises Data",
+    "permalink_suffix": "on-premises-data",
+    "context": "Connect Data > Other Connection Approaches"
+  },
+  "2bd2767928a2e": {
+    "label": "Other Connection Approaches",
+    "path": "/portal/2bd2767928a2e-federated-queries",
+    "stoplight_id": "2bd2767928a2e",
+    "title_from_path": "Federated Queries",
+    "permalink_suffix": "federated-queries",
+    "context": "Connect Data > Other Connection Approaches"
+  },
+  "ncsnoe3fay4df": {
+    "label": "Embed Domo Everywhere",
+    "path": "/portal/ncsnoe3fay4df-overview",
+    "stoplight_id": "ncsnoe3fay4df",
+    "title_from_path": "Overview",
+    "permalink_suffix": "overview",
+    "context": "Embed Domo Everywhere"
+  },
+  "21f7b5c7ee313": {
+    "label": "Embed Domo Everywhere",
+    "path": "/portal/21f7b5c7ee313-embedded-scheduled-reports-beta",
+    "stoplight_id": "21f7b5c7ee313",
+    "title_from_path": "Embedded Scheduled Reports Beta",
+    "permalink_suffix": "embedded-scheduled-reports-beta",
+    "context": "Embed Domo Everywhere"
+  },
+  "541b34bb930ee": {
+    "label": "Embed Domo Everywhere",
+    "path": "/portal/541b34bb930ee-publishing-to-other-users",
+    "stoplight_id": "541b34bb930ee",
+    "title_from_path": "Publishing To Other Users",
+    "permalink_suffix": "publishing-to-other-users",
+    "context": "Embed Domo Everywhere"
+  },
+  "9698njvvxz8f9": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/9698njvvxz8f9-getting-started",
+    "stoplight_id": "9698njvvxz8f9",
+    "title_from_path": "Getting Started",
+    "permalink_suffix": "getting-started",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "1yafxad1u8azv": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/1yafxad1u8azv-programmatic-filtering",
+    "stoplight_id": "1yafxad1u8azv",
+    "title_from_path": "Programmatic Filtering",
+    "permalink_suffix": "programmatic-filtering",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "1cleirjemoy6i": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/1cleirjemoy6i-app-embed-authentication",
+    "stoplight_id": "1cleirjemoy6i",
+    "title_from_path": "App Embed Authentication",
+    "permalink_suffix": "app-embed-authentication",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "j83p65ecrjtr1": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/j83p65ecrjtr1-dataset-switching",
+    "stoplight_id": "j83p65ecrjtr1",
+    "title_from_path": "Dataset Switching",
+    "permalink_suffix": "dataset-switching",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "wbwvwmq9rd714": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/wbwvwmq9rd714-filtering-options",
+    "stoplight_id": "wbwvwmq9rd714",
+    "title_from_path": "Filtering Options",
+    "permalink_suffix": "filtering-options",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "buk5zwk1pvjwh": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/buk5zwk1pvjwh-url-parameters-in-embedded-content",
+    "stoplight_id": "buk5zwk1pvjwh",
+    "title_from_path": "Url Parameters In Embedded Content",
+    "permalink_suffix": "url-parameters-in-embedded-content",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "nt3co7oh36g5s": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/nt3co7oh36g5s-dynamic-iframe-height",
+    "stoplight_id": "nt3co7oh36g5s",
+    "title_from_path": "Dynamic Iframe Height",
+    "permalink_suffix": "dynamic-iframe-height",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "4soguofca8clp": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/4soguofca8clp-code-examples",
+    "stoplight_id": "4soguofca8clp",
+    "title_from_path": "Code Examples",
+    "permalink_suffix": "code-examples",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "5u0f5ugttqixq": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/5u0f5ugttqixq-necessary-dependencies",
+    "stoplight_id": "5u0f5ugttqixq",
+    "title_from_path": "Necessary Dependencies",
+    "permalink_suffix": "necessary-dependencies",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "5ueroz175c0jl": {
+    "label": "Embed In Sites and Software",
+    "path": "/portal/5ueroz175c0jl-embedding-into-sites-and-web-portals",
+    "stoplight_id": "5ueroz175c0jl",
+    "title_from_path": "Embedding Into Sites And Web Portals",
+    "permalink_suffix": "embedding-into-sites-and-web-portals",
+    "context": "Embed Domo Everywhere > Embed In Sites and Software"
+  },
+  "ed061f0c295c0": {
+    "label": "Embed Domo Everywhere",
+    "path": "/portal/ed061f0c295c0-embedded-capabilities",
+    "stoplight_id": "ed061f0c295c0",
+    "title_from_path": "Embedded Capabilities",
+    "permalink_suffix": "embedded-capabilities",
+    "context": "Embed Domo Everywhere"
+  },
+  "4bf73dd1c69d8": {
+    "label": "Govern Your Domo Instance",
+    "path": "/portal/4bf73dd1c69d8-overview",
+    "stoplight_id": "4bf73dd1c69d8",
+    "title_from_path": "Overview",
+    "permalink_suffix": "overview",
+    "context": "Govern Your Domo Instance"
+  },
+  "459eb69d51e78": {
+    "label": "Security",
+    "path": "/portal/459eb69d51e78-security-and-governance",
+    "stoplight_id": "459eb69d51e78",
+    "title_from_path": "Security And Governance",
+    "permalink_suffix": "security-and-governance",
+    "context": "Govern Your Domo Instance > Security"
+  },
+  "6924667fba790": {
+    "label": "Security",
+    "path": "/portal/6924667fba790-sso",
+    "stoplight_id": "6924667fba790",
+    "title_from_path": "Sso",
+    "permalink_suffix": "sso",
+    "context": "Govern Your Domo Instance > Security"
+  },
+  "e138903b113ee": {
+    "label": "Administration",
+    "path": "/portal/e138903b113ee-organize-manage-and-share-content-to-other-users-in-domo-using-the-page-api",
+    "stoplight_id": "e138903b113ee",
+    "title_from_path": "Organize Manage And Share Content To Other Users In Domo Using The Page Api",
+    "permalink_suffix": "organize-manage-and-share-content-to-other-users-in-domo-using-the-page-api",
+    "context": "Govern Your Domo Instance > Administration"
+  },
+  "e492bc8b3d9ee": {
+    "label": "Administration",
+    "path": "/portal/e492bc8b3d9ee-user-management",
+    "stoplight_id": "e492bc8b3d9ee",
+    "title_from_path": "User Management",
+    "permalink_suffix": "user-management",
+    "context": "Govern Your Domo Instance > Administration"
+  },
+  "80b418fba449e": {
+    "label": "Administration",
+    "path": "/portal/80b418fba449e-activity-log",
+    "stoplight_id": "80b418fba449e",
+    "title_from_path": "Activity Log",
+    "permalink_suffix": "activity-log",
+    "context": "Govern Your Domo Instance > Administration"
+  },
+  "d93cd01e7c739": {
+    "label": "Other Resources",
+    "path": "/portal/d93cd01e7c739-api-status",
+    "stoplight_id": "d93cd01e7c739",
+    "title_from_path": "Api Status",
+    "permalink_suffix": "api-status",
+    "context": "Other Resources"
+  },
+  "05b0hcl6afem2": {
+    "label": "Other Resources",
+    "path": "/portal/05b0hcl6afem2-community-forums",
+    "stoplight_id": "05b0hcl6afem2",
+    "title_from_path": "Community Forums",
+    "permalink_suffix": "community-forums",
+    "context": "Other Resources"
+  },
+  "7162ed588aa08": {
+    "label": "Other Resources",
+    "path": "/portal/7162ed588aa08-sample-projects",
+    "stoplight_id": "7162ed588aa08",
+    "title_from_path": "Sample Projects",
+    "permalink_suffix": "sample-projects",
+    "context": "Other Resources"
+  }
+}

@@ -1,0 +1,71 @@
+Docs.json Update Report
+======================================================================
+
+Total portal files scanned: 229
+References updated in docs.json: 277
+
+
+Sample Replacements:
+----------------------------------------------------------------------
+
+/portal/fc90d28305384-get-account-type
+  -> portal/fc90d28305384-get-account-type
+
+portal/fc90d28305384-get-account-type
+  -> portal/fc90d28305384-get-account-type
+
+/portal/07d7b4130e96f-creating-a-custom-package
+  -> portal/07d7b4130e96f-creating-a-custom-package
+
+portal/07d7b4130e96f-creating-a-custom-package
+  -> portal/07d7b4130e96f-creating-a-custom-package
+
+/portal/42d54af2095ac-get-chart-card-definition
+  -> portal/42d54af2095ac-get-chart-card-definition
+
+portal/42d54af2095ac-get-chart-card-definition
+  -> portal/42d54af2095ac-get-chart-card-definition
+
+/portal/72ae9b3e80374-list-data-sets
+  -> portal/72ae9b3e80374-list-data-sets
+
+portal/72ae9b3e80374-list-data-sets
+  -> portal/72ae9b3e80374-list-data-sets
+
+/portal/2f759304cdacc-update-a-list
+  -> portal/2f759304cdacc-update-a-list
+
+portal/2f759304cdacc-update-a-list
+  -> portal/2f759304cdacc-update-a-list
+
+/portal/d984e2fec9b18-import-data-into-data-set
+  -> portal/d984e2fec9b18-import-data-into-data-set
+
+portal/d984e2fec9b18-import-data-into-data-set
+  -> portal/d984e2fec9b18-import-data-into-data-set
+
+/portal/ea210df52a8a1-retrieve-data-set-details
+  -> portal/ea210df52a8a1-retrieve-data-set-details
+
+portal/ea210df52a8a1-retrieve-data-set-details
+  -> portal/ea210df52a8a1-retrieve-data-set-details
+
+/portal/advanced-forms-overview
+  -> portal/Forms/Advanced-Forms/advanced-form-editor-layout
+
+/portal/advanced-forms-creating
+  -> portal/Forms/Advanced-Forms/advanced-form-editor-layout
+
+/portal/advanced-forms-datasets
+  -> portal/Forms/Advanced-Forms/advanced-form-editor-layout
+
+/portal/advanced-forms-editor-layout
+  -> portal/Forms/Advanced-Forms/advanced-form-editor-layout
+
+/portal/advanced-forms-domo-data-features
+  -> portal/Forms/Advanced-Forms/advanced-form-editor-layout
+
+/portal/c857e329cd0a1-create-a-list
+  -> portal/c857e329cd0a1-create-a-list
+
+... and 257 more replacements

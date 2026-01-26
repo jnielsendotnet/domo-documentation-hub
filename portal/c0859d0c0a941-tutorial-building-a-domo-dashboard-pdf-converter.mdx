@@ -21,14 +21,14 @@ In this tutorial, you'll learn how to create an app that converts Domo dashboard
 Ensure that Pro-Code Editor is enabled in your Domo instance.
 Navigate to your Asset Library.
 
-<Frame>![asset_library](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/asset-library-tutorial.png)</Frame>
+<Frame>![asset_library](/images/dev/stoplight.io/images/asset-library-tutorial.png)</Frame>
 
 Click on 'Pro-Code Editor' in the top right corner of your screen to open the editor in your browser.
 
-<Frame>![pro_code_button](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/procode-button.png)</Frame>
+<Frame>![pro_code_button](/images/dev/stoplight.io/images/procode-button.png)</Frame>
 
 You can now edit the files in your project.
-<Frame>![pro_code_editor](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/procode-editor.png)</Frame>
+<Frame>![pro_code_editor](/images/dev/stoplight.io/images/procode-editor.png)</Frame>
 
 ---
 
@@ -98,7 +98,7 @@ The `manifest.json` file defines your app's metadata and data mappings in Domo. 
 
 We are not using any datasets in the app, but we do need to wire it to be able to access the page filters in a domo dashboard. Code engine functions are used to call the api to generate the encoded pdf that we will decode and build the pdf in the app. Make sure to use the version of your code engine that is functional.
 
-<Frame>![code-engine-manifest](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/code-engine-manifest.png)</Frame>
+<Frame>![code-engine-manifest](/images/dev/stoplight.io/images/code-engine-manifest.png)</Frame>
 
 
 
@@ -110,17 +110,17 @@ We are not using any datasets in the app, but we do need to wire it to be able t
 
 * Navigate to WorkFlows in your environment and, on the left side, click on the Code Engine icon.
 
-<Frame>![workflows-navigate](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/workflows-navigate.png)</Frame>
-<Frame>![code-engine-navigate](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/code-engine-navigate.png)</Frame>
+<Frame>![workflows-navigate](/images/dev/stoplight.io/images/workflows-navigate.png)</Frame>
+<Frame>![code-engine-navigate](/images/dev/stoplight.io/images/code-engine-navigate.png)</Frame>
 
 * Create a new Code Engine package, use Javascript as the language.
 
-<Frame>![create-code-engine](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/create-code-engine.png)</Frame>
-<Frame>![name-language-code](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/name-language-code.png)</Frame>
+<Frame>![create-code-engine](/images/dev/stoplight.io/images/create-code-engine.png)</Frame>
+<Frame>![name-language-code](/images/dev/stoplight.io/images/name-language-code.png)</Frame>
 
 * Everytime you want to use the function, you have to save it and deploy it. Click on the arrow next to the save button on the upper right corner, and click on Deploy.
 
-<Frame>![deploy](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/deploy.png)</Frame>
+<Frame>![deploy](/images/dev/stoplight.io/images/deploy.png)</Frame>
 
 #### 3.2. Setup Code Engine Helpers
 
@@ -182,7 +182,7 @@ async function getCardsOnPage(pageID) {
 
 * `result`: array
 
-<Frame>![get-cards](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/get-cards.png)</Frame>
+<Frame>![get-cards](/images/dev/stoplight.io/images/get-cards.png)</Frame>
 
 #### 3.4. Generate PDF for Each Card
 
@@ -214,7 +214,7 @@ async function getPDF(cardID, params) {
 
 * `result`: array
 
-<Frame>![get-pdf](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/get-pdf.png)</Frame>
+<Frame>![get-pdf](/images/dev/stoplight.io/images/get-pdf.png)</Frame>
 
 #### 3.5. Convert Page to PDF
 
@@ -323,7 +323,7 @@ async function page2PDF(pageID, filters) {
 
 * `dashboardResult`: object
 
-<Frame>![page-pdf](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/page-pdf.png)</Frame>
+<Frame>![page-pdf](/images/dev/stoplight.io/images/page-pdf.png)</Frame>
 
 
 
@@ -646,4 +646,4 @@ function download(data, fileName, mimeType) {
 
 By following this tutorial, you've built a functional app that converts Domo dashboards into downloadable PDFs, handling filters and merging multiple PDFs into a single file. This app can be further enhanced by adding more customization options and error handling.
 
-<Frame>![final-app](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/final-app.png)</Frame>
+<Frame>![final-app](/images/dev/stoplight.io/images/final-app.png)</Frame>

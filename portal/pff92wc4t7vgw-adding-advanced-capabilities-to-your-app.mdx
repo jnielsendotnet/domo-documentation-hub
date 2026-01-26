@@ -158,11 +158,11 @@ This step will involve a few sub-steps.
 
 Now when we reload our app, we should be able to see a button appear after the data has been loaded and when we click the button we should see our AI generated plan in the console output.
 
-<Frame>![Screenshot 2024-03-25 at 6.56.15 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-6.56.15-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 6.56.15 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-6.56.15-AM.png)</Frame>
 
 **Bonus challenge**: add some css to our button to make it look a bit nicer.
 
-<Frame>![Screenshot 2024-03-25 at 7.03.38 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.03.38-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.03.38 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.03.38-AM.png)</Frame>
 
 We should also implement one more small change to account for the case where we've recently made an update to the list of games we own. Currently, what is stored in `gamesOwned` won't update when we edit our table.
 
@@ -269,11 +269,11 @@ const createGenerateActionPlanButton = () => {
 
 **Bonus challenge**: Implement a loading state for your button so users can't click it twice while making our `generatePlan` request.
 
-<Frame>![Screenshot 2024-03-25 at 7.19.11 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.19.11-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.19.11 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.19.11-AM.png)</Frame>
 
 **Bonus challenge #2**: Add some css to make our game night plan container display better.
 
-<Frame>![Screenshot 2024-03-25 at 7.25.51 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.25.51-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.25.51 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.25.51-AM.png)</Frame>
 
 ### Treating your App as a custom component in App Studio
 
@@ -289,49 +289,49 @@ Run `domo publish` for the final time today!
 
 Next, navigate to App Studio - "Apps" in the top navbar.
 
-<Frame>![Screenshot 2024-03-25 at 7.41.16 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.41.16-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.41.16 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.41.16-AM.png)</Frame>
 
 Click "Create App" and pick your theme:
 
-<Frame>![Screenshot 2024-03-25 at 7.42.02 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.42.02-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.42.02 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.42.02-AM.png)</Frame>
 
 I'm going to go with "Domo Classic".
 
 Next, I'll give my app a name, add an icon, and rename "App Page 1" to "Game Night Explorer".
 
-<Frame>![Screenshot 2024-03-25 at 7.43.58 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.43.58-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.43.58 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.43.58-AM.png)</Frame>
 
 Let's drop our Custom app on this page. Click the + button and drag the Card icon into the canvas.
 
-<Frame>![Screenshot 2024-03-25 at 7.44.36 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.44.36-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.44.36 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.44.36-AM.png)</Frame>
 
 Click "Add Existing Card" and search for the App Instance ("Card") you've been building.
 
-<Frame>![Screenshot 2024-03-25 at 7.47.00 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.47.00-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.47.00 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.47.00-AM.png)</Frame>
 
 Now let's add a filter component to help us explore our games table a bit better.
 
 Drag another Card onto the canvas and this time select "Create new Card" > "Visualization" > "Existing Data".
 
-<Frame>![Screenshot 2024-03-25 at 7.49.18 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.49.18-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.49.18 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.49.18-AM.png)</Frame>
 
 Select the same Dataset powering our App.
 
-<Frame>![Screenshot 2024-03-25 at 7.50.05 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.50.05-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.50.05 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.50.05-AM.png)</Frame>
 
 Select a filter card:
 
-<Frame>![Screenshot 2024-03-25 at 7.50.37 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.50.37-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.50.37 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.50.37-AM.png)</Frame>
 
 I'm going to create a playing time filter so I can more easily narrow games down by playing time.
 
-<Frame>![Screenshot 2024-03-25 at 7.51.56 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.51.56-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.51.56 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.51.56-AM.png)</Frame>
 
 Click "Save".
 
 Now if I'm looking for a short game, I can easily filter my App.
 
-<Frame>![Screenshot 2024-03-25 at 7.58.59 AM.png](/images/dev/stoplight.io/api/v1/projects/cHJqOjI2NDA4OA/branches/YnI6MTE1MjI3Mjk/images/assets/images/Screenshot-2024-03-25-at-7.58.59-AM.png)</Frame>
+<Frame>![Screenshot 2024-03-25 at 7.58.59 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-25-at-7.58.59-AM.png)</Frame>
 
 **Bonus Challenges**:
 

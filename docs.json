@@ -107,9 +107,7 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": [
-                              "s/article/000005139"
-                            ]
+                            "pages": ["s/article/000005139"]
                           },
                           {
                             "group": "Google BigQuery",
@@ -1598,9 +1596,7 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": [
-                          "s/article/360042923754"
-                        ]
+                        "pages": ["s/article/360042923754"]
                       }
                     ]
                   },
@@ -2021,9 +2017,7 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": [
-                      "s/article/360043437773"
-                    ]
+                    "pages": ["s/article/360043437773"]
                   },
                   {
                     "group": "Alerts",
@@ -2196,10 +2190,7 @@
                       "s/article/000005510",
                       {
                         "group": "Credit Consumption",
-                        "pages": [
-                          "s/article/000005492",
-                          "s/article/000005280"
-                        ]
+                        "pages": ["s/article/000005492", "s/article/000005280"]
                       },
                       {
                         "group": "Governance",
@@ -2386,10 +2377,7 @@
                       },
                       {
                         "group": "Publish on the Appstore",
-                        "pages": [
-                          "s/article/000005184",
-                          "s/article/000005183"
-                        ]
+                        "pages": ["s/article/000005184", "s/article/000005183"]
                       },
                       {
                         "group": "Available Apps",
@@ -2490,223 +2478,30 @@
                   {
                     "group": "Getting Started",
                     "pages": [
-                      "/portal/d01f63a6ba662-domo-developer-portal",
+                      "portal/Getting-Started/overview",
                       {
                         "group": "Developer Tools",
-                        "pages": [
-                          "/portal/e04caa9abb5cc-domo-sd-ks"
-                        ]
+                        "pages": ["portal/Getting-Started/sdks"]
                       }
                     ]
                   },
                   {
                     "group": "API Reference",
                     "pages": [
-                      "/portal/8ba9aedad3679-ap-is",
+                      "portal/Getting-Started/api-authentication",
                       {
                         "group": "App Framework APIs",
                         "pages": [
-                          {
-                            "group": "AI Service Layer API",
-                            "pages": [
-                              "portal/wjqiqhsvpadon-ai-service-layer-api",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/text/generation",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/text/sql",
-                              "openapi/framework/service.yaml POST /domo/ai/v1/image/text"
-                            ]
-                          },
-                          {
-                            "group": "AppDB API",
-                            "pages": [
-                              "portal/1l1fm2g0sfm69-app-db-api",
-                              {
-                                "group": "Documents",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections/{collectionName}/documents",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/documents/{documentId}",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/update"
-                                ]
-                              },
-                              {
-                                "group": "Collections",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections",
-                                  "openapi/framework/appdb.yaml GET /domo/datastores/v1/collections",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}"
-                                ]
-                              },
-                              {
-                                "group": "Query",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents/query"
-                                ]
-                              },
-                              {
-                                "group": "Bulk Operations",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/collections/{collectionName}/documents/bulk",
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/documents/bulk",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/documents/bulk"
-                                ]
-                              },
-                              {
-                                "group": "Export",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml POST /domo/datastores/v1/export"
-                                ]
-                              },
-                              {
-                                "group": "Permissions",
-                                "pages": [
-                                  "openapi/framework/appdb.yaml PUT /domo/datastores/v1/collections/{collectionName}/permission/{entity}/{entityId}",
-                                  "openapi/framework/appdb.yaml DELETE /domo/datastores/v1/collections/{collectionName}/permission/{entity}/{entityId}"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Code Engine API",
-                            "pages": [
-                              "portal/p48phjy7wwtw8-code-engine-api",
-                              "openapi/framework/codeengine.yaml POST /domo/codeengine/v2/packages/{functionAlias}"
-                            ]
-                          },
-                          {
-                            "group": "Data API",
-                            "pages": [
-                              "portal/8s3y9eldnjq8d-data-api",
-                              "openapi/framework/data.yaml GET /data/v1/{alias}",
-                              "openapi/framework/data.yaml POST /sql/v1/{alias}"
-                            ]
-                          },
-                          {
-                            "group": "Files API",
-                            "pages": [
-                              "portal/eeoadx67i6h46-files-api",
-                              {
-                                "group": "Files",
-                                "pages": [
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/{dataFileId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/details",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/details",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/revisions/{revisionId}",
-                                  "openapi/framework/files.yaml DELETE /domo/data-files/v1/{dataFileId}/revisions/{revisionId}",
-                                  "openapi/framework/files.yaml GET /domo/data-files/v1/{dataFileId}/permissions",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/{dataFileId}/permissions"
-                                ]
-                              },
-                              {
-                                "group": "Multi-part Files",
-                                "pages": [
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/{fileId}/multipart",
-                                  "openapi/framework/files.yaml PUT /domo/data-files/v1/multipart/{sessionId}/part/{index}",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart/{sessionId}/commit",
-                                  "openapi/framework/files.yaml POST /domo/data-files/v1/multipart/{sessionId}/abort"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "FileSet API (BETA)",
-                            "pages": [
-                              "portal/7e8654dedb1c8-file-set-api-beta",
-                              {
-                                "group": "Files",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/path",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}/path",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/files/{fileId}",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}/files/{fileId}",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}/files/{fileId}/download",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/files"
-                                ]
-                              },
-                              {
-                                "group": "FileSets",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets",
-                                  "openapi/framework/file-set.yaml GET /domo/files/v1/filesets/{filesetId}",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}",
-                                  "openapi/framework/file-set.yaml DELETE /domo/files/v1/filesets/{filesetId}"
-                                ]
-                              },
-                              {
-                                "group": "Search",
-                                "pages": [
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/query",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/{filesetId}/files/search",
-                                  "openapi/framework/file-set.yaml POST /domo/files/v1/filesets/search"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Groups API",
-                            "pages": [
-                              "portal/2hwa98wx7kdm4-groups-api",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/name",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/{groupId}",
-                              "openapi/framework/groups.yaml GET /domo/groups/v1/user/{userId}"
-                            ]
-                          },
-                          {
-                            "group": "Task Center API",
-                            "pages": [
-                              "portal/k2vv2vir3c8ry-task-center-api",
-                              {
-                                "group": "Queues",
-                                "pages": [
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/",
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/{queueId}"
-                                ]
-                              },
-                              {
-                                "group": "Tasks",
-                                "pages": [
-                                  "openapi/framework/taskcenter.yaml POST /domo/queues/v1/tasks/list",
-                                  "openapi/framework/taskcenter.yaml GET /domo/queues/v1/{queueId}/tasks/{taskId}",
-                                  "openapi/framework/taskcenter.yaml PUT /domo/queues/v1/{queueId}/tasks/{taskId}/outputs",
-                                  "openapi/framework/taskcenter.yaml POST /domo/queues/v1/{queueId}/tasks/{taskId}/complete"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "User API",
-                            "pages": [
-                              "portal/n7f7swo7h29wg-user-api",
-                              {
-                                "group": "Users",
-                                "pages": [
-                                  "openapi/framework/user.yaml GET /domo/users/v1",
-                                  "openapi/framework/user.yaml GET /domo/users/v1/{userId}"
-                                ]
-                              },
-                              {
-                                "group": "Avatar",
-                                "pages": [
-                                  "openapi/framework/user.yaml GET /domo/avatars/v2/{entityType}/{entityId}"
-                                ]
-                              }
-                            ]
-                          },
-                          {
-                            "group": "Workflows API",
-                            "pages": [
-                              "portal/1ay1akbc787jg-workflows-api",
-                              "openapi/framework/workflows.yaml POST /domo/workflow/v1/models/{workflowAlias}/start",
-                              "openapi/framework/workflows.yaml GET /domo/workflow/v1/models/{workflowAliasedName}/overall",
-                              "openapi/framework/workflows.yaml GET /domo/workflow/v1/models/{workflowAlias}/instance/{workflowInstanceId}"
-                            ]
-                          }
+                          "portal/API-Reference/Domo-App-APIs/AI-Service-Layer-API",
+                          "portal/API-Reference/Domo-App-APIs/AppDB-API",
+                          "portal/API-Reference/Domo-App-APIs/Code-Engine-API",
+                          "portal/API-Reference/Domo-App-APIs/Data-API",
+                          "portal/API-Reference/Domo-App-APIs/Files-API",
+                          "portal/API-Reference/Domo-App-APIs/Filesets-API",
+                          "portal/API-Reference/Domo-App-APIs/Groups-API",
+                          "portal/API-Reference/Domo-App-APIs/Queues-and-Tasks-API",
+                          "portal/API-Reference/Domo-App-APIs/User-API",
+                          "portal/API-Reference/Domo-App-APIs/Workflows-API"
                         ]
                       },
                       {
@@ -2715,161 +2510,161 @@
                           {
                             "group": "API Authentication",
                             "pages": [
-                              "/portal/1845fc11bbe5d-api-authentication",
-                              "/portal/d9520f5752d56-get-access-token"
+                              "portal/1845fc11bbe5d-api-authentication",
+                              "portal/d9520f5752d56-get-access-token"
                             ]
                           },
                           {
                             "group": "Account API",
                             "pages": [
-                              "/portal/w8dk0f75hetfk-account-api",
-                              "/portal/9f1f3440e3943-list-accounts",
-                              "/portal/7e83a189873d6-create-an-account",
-                              "/portal/b179db1f44cfe-retrieve-an-account",
-                              "/portal/8defca123ffc4-update-an-account",
-                              "/portal/59ffe3ee390a6-delete-an-account",
-                              "/portal/c0c101d8e5d89-list-account-types",
-                              "/portal/fc90d28305384-get-account-type",
-                              "/portal/ffabd623e9b45-share-account"
+                              "portal/w8dk0f75hetfk-account-api",
+                              "portal/9f1f3440e3943-list-accounts",
+                              "portal/7e83a189873d6-create-an-account",
+                              "portal/b179db1f44cfe-retrieve-an-account",
+                              "portal/8defca123ffc4-update-an-account",
+                              "portal/59ffe3ee390a6-delete-an-account",
+                              "portal/c0c101d8e5d89-list-account-types",
+                              "portal/fc90d28305384-get-account-type",
+                              "portal/ffabd623e9b45-share-account"
                             ]
                           },
                           {
                             "group": "Activity Log API",
                             "pages": [
-                              "/portal/i19jain6fvwjj-activity-log-api",
-                              "/portal/a4e18ca6a0c0b-retrieve-activity-log-entries"
+                              "portal/i19jain6fvwjj-activity-log-api",
+                              "portal/a4e18ca6a0c0b-retrieve-activity-log-entries"
                             ]
                           },
                           {
                             "group": "Cards API",
                             "pages": [
-                              "/portal/8260c0e561f08-cards-api",
-                              "/portal/80e9ecc922752-list-cards",
-                              "/portal/8c76f9c74e6b8-get-card",
-                              "/portal/5bba626873010-create-chart-card",
-                              "/portal/42d54af2095ac-get-chart-card-definition",
-                              "/portal/ce5767e6694f4-update-chart-card-definition",
-                              "/portal/c3d806f0562b9-add-drill-view",
-                              "/portal/0945428d284ab-get-drill-properties"
+                              "portal/8260c0e561f08-cards-api",
+                              "portal/80e9ecc922752-list-cards",
+                              "portal/8c76f9c74e6b8-get-card",
+                              "portal/5bba626873010-create-chart-card",
+                              "portal/42d54af2095ac-get-chart-card-definition",
+                              "portal/ce5767e6694f4-update-chart-card-definition",
+                              "portal/c3d806f0562b9-add-drill-view",
+                              "portal/0945428d284ab-get-drill-properties"
                             ]
                           },
                           {
                             "group": "DataSet API",
                             "pages": [
-                              "/portal/3b1e3a7d5f420-data-set-api",
-                              "/portal/ea210df52a8a1-retrieve-data-set-details",
-                              "/portal/b96e1dbabff23-update-data-set-details",
-                              "/portal/8e96d3ae1061d-delete-a-data-set",
-                              "/portal/0d0517e6b6830-create-a-data-set",
-                              "/portal/72ae9b3e80374-list-data-sets",
-                              "/portal/52fd0777839f4-query-a-data-set",
-                              "/portal/4ba1c85b30ae1-import-data-into-data-set",
-                              "/portal/83ef8a4d71450-export-data-from-data-set",
-                              "/portal/b342ce1054c3a-retrieve-a-personalized-data-permission-pdp-policy",
-                              "/portal/dcdf6cd230d61-update-a-personalized-data-permission-pdp-policy",
-                              "/portal/1d5e64ae6ce1a-delete-a-personlized-data-permission-pdp-policy",
-                              "/portal/57eb007324b49-create-a-personalized-data-permission-pdp-policy",
-                              "/portal/4cab29aca0fd3-list-personalized-data-permission-pdp-policies"
+                              "portal/3b1e3a7d5f420-data-set-api",
+                              "portal/ea210df52a8a1-retrieve-data-set-details",
+                              "portal/b96e1dbabff23-update-data-set-details",
+                              "portal/8e96d3ae1061d-delete-a-data-set",
+                              "portal/0d0517e6b6830-create-a-data-set",
+                              "portal/72ae9b3e80374-list-data-sets",
+                              "portal/52fd0777839f4-query-a-data-set",
+                              "portal/4ba1c85b30ae1-import-data-into-data-set",
+                              "portal/83ef8a4d71450-export-data-from-data-set",
+                              "portal/b342ce1054c3a-retrieve-a-personalized-data-permission-pdp-policy",
+                              "portal/dcdf6cd230d61-update-a-personalized-data-permission-pdp-policy",
+                              "portal/1d5e64ae6ce1a-delete-a-personlized-data-permission-pdp-policy",
+                              "portal/57eb007324b49-create-a-personalized-data-permission-pdp-policy",
+                              "portal/4cab29aca0fd3-list-personalized-data-permission-pdp-policies"
                             ]
                           },
                           {
                             "group": "Embed Token API",
                             "pages": [
-                              "/portal/uc9ls4li6ny8s-embed-token-api",
-                              "/portal/45cd8599748b5-create-an-embed-token-cards",
-                              "/portal/c671f2af967a0-create-an-embed-token-dashboard"
+                              "portal/uc9ls4li6ny8s-embed-token-api",
+                              "portal/45cd8599748b5-create-an-embed-token-cards",
+                              "portal/c671f2af967a0-create-an-embed-token-dashboard"
                             ]
                           },
                           {
                             "group": "Group API",
                             "pages": [
-                              "/portal/6tw2454j0zttg-group-api",
-                              "/portal/1f17fb4f14577-retrieve-a-group",
-                              "/portal/270fc7c8d702b-update-a-group",
-                              "/portal/b268da0278c85-delete-a-group",
-                              "/portal/d7364df8a5f06-list-groups",
-                              "/portal/d88967f3c2bd5-create-a-group",
-                              "/portal/95de1a11dfe97-add-a-user-to-a-group",
-                              "/portal/608c69894df01-remove-a-user-from-a-group",
-                              "/portal/1ce9b0022073a-list-users-in-a-group"
+                              "portal/6tw2454j0zttg-group-api",
+                              "portal/1f17fb4f14577-retrieve-a-group",
+                              "portal/270fc7c8d702b-update-a-group",
+                              "portal/b268da0278c85-delete-a-group",
+                              "portal/d7364df8a5f06-list-groups",
+                              "portal/d88967f3c2bd5-create-a-group",
+                              "portal/95de1a11dfe97-add-a-user-to-a-group",
+                              "portal/608c69894df01-remove-a-user-from-a-group",
+                              "portal/1ce9b0022073a-list-users-in-a-group"
                             ]
                           },
                           {
                             "group": "Page API",
                             "pages": [
-                              "/portal/gcl6cvkh1x5nk-page-api",
-                              "/portal/5fd5b9d881e6b-retrieve-a-page",
-                              "/portal/93a60be5d5965-update-a-page",
-                              "/portal/d7c166334953f-delete-a-page",
-                              "/portal/e7bc2fce783cd-list-pages",
-                              "/portal/0fce9616dfe5c-create-a-page",
-                              "/portal/03c865271e614-retrieve-a-page-collection",
-                              "/portal/f95f2f9dc8c0f-create-a-page-collection",
-                              "/portal/4dc767f205764-update-a-page-collection",
-                              "/portal/42402e303b375-delete-a-page-collection"
+                              "portal/gcl6cvkh1x5nk-page-api",
+                              "portal/5fd5b9d881e6b-retrieve-a-page",
+                              "portal/93a60be5d5965-update-a-page",
+                              "portal/d7c166334953f-delete-a-page",
+                              "portal/e7bc2fce783cd-list-pages",
+                              "portal/0fce9616dfe5c-create-a-page",
+                              "portal/03c865271e614-retrieve-a-page-collection",
+                              "portal/f95f2f9dc8c0f-create-a-page-collection",
+                              "portal/4dc767f205764-update-a-page-collection",
+                              "portal/42402e303b375-delete-a-page-collection"
                             ]
                           },
                           {
                             "group": "Projects and Tasks API",
                             "pages": [
-                              "/portal/wnn8cxurat78o-projects-and-tasks-api",
-                              "/portal/631f21c3c5f5f-retrieve-all-projects",
-                              "/portal/abaea94e18a2f-create-a-project",
-                              "/portal/975aea6d35782-retrieve-individual-project",
-                              "/portal/bc780d297a0d6-update-a-project",
-                              "/portal/f884f3d008a49-delete-a-project",
-                              "/portal/abc4b606acabc-delete-an-attachment",
-                              "/portal/193cb98fe288b-retrieve-project-members",
-                              "/portal/3259632a2c091-update-project-members",
-                              "/portal/38e89edd950ec-retrieve-all-project-lists",
-                              "/portal/c857e329cd0a1-create-a-list",
-                              "/portal/456b2b958eb45-retrieve-individual-list",
-                              "/portal/2f759304cdacc-update-a-list",
-                              "/portal/38324ee605641-delete-a-list",
-                              "/portal/cf1cad1dc8fe5-retrieve-all-project-tasks",
-                              "/portal/23a93e85362a3-retrieve-all-list-tasks",
-                              "/portal/7e6100b8c7ac9-retrieve-individual-task",
-                              "/portal/a9c700565ffba-update-a-task",
-                              "/portal/e5d77a7e640ac-create-a-task",
-                              "/portal/a571924a55d11-retrieve-list-of-attachments",
-                              "/portal/ea34b968c5164-add-attachment",
-                              "/portal/6b0b830a02e85-download-attachment"
+                              "portal/wnn8cxurat78o-projects-and-tasks-api",
+                              "portal/631f21c3c5f5f-retrieve-all-projects",
+                              "portal/abaea94e18a2f-create-a-project",
+                              "portal/975aea6d35782-retrieve-individual-project",
+                              "portal/bc780d297a0d6-update-a-project",
+                              "portal/f884f3d008a49-delete-a-project",
+                              "portal/abc4b606acabc-delete-an-attachment",
+                              "portal/193cb98fe288b-retrieve-project-members",
+                              "portal/3259632a2c091-update-project-members",
+                              "portal/38e89edd950ec-retrieve-all-project-lists",
+                              "portal/c857e329cd0a1-create-a-list",
+                              "portal/456b2b958eb45-retrieve-individual-list",
+                              "portal/2f759304cdacc-update-a-list",
+                              "portal/38324ee605641-delete-a-list",
+                              "portal/cf1cad1dc8fe5-retrieve-all-project-tasks",
+                              "portal/23a93e85362a3-retrieve-all-list-tasks",
+                              "portal/7e6100b8c7ac9-retrieve-individual-task",
+                              "portal/a9c700565ffba-update-a-task",
+                              "portal/e5d77a7e640ac-create-a-task",
+                              "portal/a571924a55d11-retrieve-list-of-attachments",
+                              "portal/ea34b968c5164-add-attachment",
+                              "portal/6b0b830a02e85-download-attachment"
                             ]
                           },
                           {
                             "group": "Simple API",
                             "pages": [
-                              "/portal/jaqelzzxpee3e-simple-api",
-                              "/portal/9193184aa6047-create-data-set",
-                              "/portal/d984e2fec9b18-import-data-into-data-set"
+                              "portal/jaqelzzxpee3e-simple-api",
+                              "portal/9193184aa6047-create-data-set",
+                              "portal/d984e2fec9b18-import-data-into-data-set"
                             ]
                           },
                           {
                             "group": "Stream API",
                             "pages": [
-                              "/portal/lw7cqi3lqufah-stream-api",
-                              "/portal/3104e81ceff46-retrieve-a-stream",
-                              "/portal/4930370cad24c-update-a-stream",
-                              "/portal/6875057565875-delete-a-stream",
-                              "/portal/7f71f4aa90726-create-a-stream",
-                              "/portal/68dc8d9f70b3d-list-streams",
-                              "/portal/41db49e09d006-search-streams",
-                              "/portal/e3d90b95387e7-retrieve-a-stream-execution",
-                              "/portal/242dd31d0746d-create-a-stream-execution",
-                              "/portal/4ebc56e4e9771-list-stream-executions",
-                              "/portal/f186ddf30fca9-upload-a-data-part",
-                              "/portal/e326a44633f4c-commit-a-stream-execution",
-                              "/portal/ab38f0e6a67ac-abort-a-stream-execution"
+                              "portal/lw7cqi3lqufah-stream-api",
+                              "portal/3104e81ceff46-retrieve-a-stream",
+                              "portal/4930370cad24c-update-a-stream",
+                              "portal/6875057565875-delete-a-stream",
+                              "portal/7f71f4aa90726-create-a-stream",
+                              "portal/68dc8d9f70b3d-list-streams",
+                              "portal/41db49e09d006-search-streams",
+                              "portal/e3d90b95387e7-retrieve-a-stream-execution",
+                              "portal/242dd31d0746d-create-a-stream-execution",
+                              "portal/4ebc56e4e9771-list-stream-executions",
+                              "portal/f186ddf30fca9-upload-a-data-part",
+                              "portal/e326a44633f4c-commit-a-stream-execution",
+                              "portal/ab38f0e6a67ac-abort-a-stream-execution"
                             ]
                           },
                           {
                             "group": "User API",
                             "pages": [
-                              "/portal/v91hopqk7ki3b-user-api",
-                              "/portal/7036c8cbcf865-retrieve-a-user",
-                              "/portal/6d07be3b66fad-update-a-user",
-                              "/portal/6fc40f66c26e2-create-a-user",
-                              "/portal/7f5648bdd673e-list-users"
+                              "portal/v91hopqk7ki3b-user-api",
+                              "portal/7036c8cbcf865-retrieve-a-user",
+                              "portal/6d07be3b66fad-update-a-user",
+                              "portal/6fc40f66c26e2-create-a-user",
+                              "portal/7f5648bdd673e-list-users"
                             ]
                           }
                         ]
@@ -2888,7 +2683,7 @@
                           {
                             "group": "AI Services API",
                             "pages": [
-                              "portal/ffvznqc76b2b5-ai-services-api",
+                              "portal/API-Reference/Product-APIs/AI-Services",
                               "openapi/product/iaservices.yaml POST /api/ai/v1/text/generation",
                               "openapi/product/iaservices.yaml POST /api/ai/v1/text/sql",
                               "openapi/product/iaservices.yaml POST /api/ai/v1/text/summarize"
@@ -2961,7 +2756,7 @@
                           {
                             "group": "Code Engine API",
                             "pages": [
-                              "/portal/fbhbpt1mt4gog-code-engine-api",
+                              "portal/API-Reference/Product-APIs/Code-Engine",
                               "openapi/product/codeengine.yaml POST /api/codeengine/v2/packages/{packageId}/versions/{version}/functions/{functionName}"
                             ]
                           },
@@ -3091,7 +2886,7 @@
                           {
                             "group": "Federated V1 to V2 Migration APIs",
                             "pages": [
-                              "portal/u3ejmw0namdxf-federated-v1-to-v2-migration-ap-is",
+                              "portal/API-Reference/Product-APIs/Federated-V1-to-V2-Migration-APIs",
                               "openapi/product/federatedv1.yaml GET /api/query/migration/federated/v1/to/v2/types",
                               "openapi/product/federatedv1.yaml GET /api/query/migration/federated/v1/to/v2/candidates/{account-id}",
                               "openapi/product/federatedv1.yaml POST /api/query/migration/federated/v1/to/v2/{datasource-id}/accounts/{account-id}",
@@ -3173,7 +2968,7 @@
                           {
                             "group": "Managing Dataset History",
                             "pages": [
-                              "portal/prt23r0zqw1vq-managing-dataset-history",
+                              "portal/API-Reference/Product-APIs/Managing-Dataset-History",
                               "openapi/product/managing-dataset-history-api.yaml DELETE /api/data/v2/datasources/{datasetId}/dataversions",
                               "openapi/product/managing-dataset-history-api.yaml GET /api/data/v2/datasources/{datasetId}/dataversions"
                             ]
@@ -3295,7 +3090,7 @@
                           {
                             "group": "Workflows API",
                             "pages": [
-                              "portal/kspv2orr3oi30-workflows-product-api",
+                              "portal/API-Reference/Product-APIs/Workflows",
                               "openapi/product/workflows-api.yaml POST /instances/message",
                               "openapi/product/workflows-api.yaml POST /instances/{instanceId}/cancel",
                               "openapi/product/workflows-api.yaml POST /models/{modelId}/permissions"
@@ -3308,59 +3103,47 @@
                   {
                     "group": "Build Apps",
                     "pages": [
-                      "/portal/28v6sqz9eslb9-overview",
+                      "portal/Apps/Overview",
                       {
                         "group": "App Framework",
                         "pages": [
-                          "/portal/d54m2ohkacza0-welcome",
+                          "portal/Apps/App-Framework/Welcome",
                           {
                             "group": "Quickstart",
                             "pages": [
-                              "/portal/67dwgt0v6q3w9-prerequisites",
-                              "/portal/17229f5001f95-key-terminology",
-                              "/portal/6hlzv1hinkq19-setup-and-installation",
-                              "/portal/u8w475o2245yp-starter-kits",
-                              "/portal/37rc8izzjzj7z-tools",
-                              "/portal/9l1mzcir4ht5h-best-practices"
+                              "portal/Apps/App-Framework/Quickstart/Prerequisites",
+                              "portal/Apps/App-Framework/Quickstart/Key-Terminology",
+                              "portal/Apps/App-Framework/Quickstart/Setup-and-Installation",
+                              "portal/Apps/App-Framework/Quickstart/Starter-Kits",
+                              "portal/Apps/App-Framework/Quickstart/Tools",
+                              "portal/Apps/App-Framework/Quickstart/Best-Practices"
                             ]
                           },
                           {
                             "group": "Tutorials",
                             "pages": [
                               {
-                                "group": "Pro-Code Editor",
+                                "group": "React",
                                 "pages": [
-                                  "/portal/c0859d0c0a941-tutorial-building-a-domo-dashboard-pdf-converter",
-                                  "/portal/babeff860ab02-tutorial-building-a-stacked-bar-chart-with-a-trended-line-in-domo-s-pro-code-editor"
+                                  "portal/Apps/App-Framework/Tutorials/React/Todo-App",
+                                  "portal/Apps/App-Framework/Tutorials/React/Mapbox-World-App",
+                                  "portal/Apps/App-Framework/Tutorials/React/AI-Book-Recommender"
                                 ]
                               },
                               {
-                                "group": "App Framework",
+                                "group": "Vanilla JS",
                                 "pages": [
                                   {
-                                    "group": "React",
+                                    "group": "Game Night Planner App",
                                     "pages": [
-                                      "/portal/7657a3402ae5e-to-do-app-tutorial",
-                                      "/portal/cf7d0861d9e10-mapbox-world-map-react-app-tutorial",
-                                      "/portal/c07d31c752348-ai-book-recommender-app-tutorial"
+                                      "portal/GameNightPlannerApp/intro-to-bricks",
+                                      "portal/GameNightPlannerApp/going-from-brick-to-app",
+                                      "portal/GameNightPlannerApp/adding-advanced-capabilities-to-your-app"
                                     ]
                                   },
-                                  {
-                                    "group": "Vanilla JS",
-                                    "pages": [
-                                      {
-                                        "group": "Game Night Planner App",
-                                        "pages": [
-                                          "/portal/ndvsmatbqz5gk-game-night-planner-app-intro-to-domo-bricks",
-                                          "/portal/n4pswi7dd2azo-moving-from-brick-to-app",
-                                          "/portal/pff92wc4t7vgw-adding-advanced-capabilities-to-your-app"
-                                        ]
-                                      },
-                                      "/portal/a2bd06daaff7e-sugar-force",
-                                      "/portal/omi6lzvpm47ei-return-flow",
-                                      "/portal/atp50e7pzs4yd-creating-dynamic-infographics"
-                                    ]
-                                  }
+                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce",
+                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow",
+                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic"
                                 ]
                               }
                             ]
@@ -3368,43 +3151,65 @@
                           {
                             "group": "Tools",
                             "pages": [
-                              "/portal/rmfbkwje8kmqj-domo-apps-cli",
-                              "/portal/da-cli",
-                              "/portal/domo-publish-cicd",
-                              "/portal/e947d87e17547-domo-js",
-                              "/portal/d5da72027f4a1-query",
-                              "/portal/52cc03a1e3100-domo-phoenix",
-                              "/portal/bdae44e540d37-toolkit"
+                              "portal/Apps/App-Framework/Tools/domo-CLI",
+                              "portal/Apps/App-Framework/Tools/da-cli",
+                              "portal/Apps/App-Framework/Tools/domo-publish-CICD",
+                              "portal/Apps/App-Framework/Tools/domo.js",
+                              "portal/Apps/App-Framework/Tools/query",
+                              "portal/Apps/App-Framework/Tools/phoenix",
+                              "portal/Apps/App-Framework/Tools/toolkit"
                             ]
                           },
                           {
                             "group": "Guides",
                             "pages": [
-                              "/portal/3ad3f9b434b10-getting-started-with-the-pro-code-editor",
-                              "/portal/local-development-domo-cli",
-                              "/portal/5a51d83c82822-managing-editing-and-saving-your-app-in-the-pro-code-editor",
-                              "/portal/af407395c766b-the-manifest-file",
-                              "/portal/df8b045188694-public-assets",
-                              "/portal/942c89811d9df-change-which-asset-powers-the-card",
-                              "/portal/xma9hezmttvid-app-sessions",
-                              "/portal/6a5d7a2870145-getting-data",
-                              "/portal/6fa7587d4c2ea-querying-data",
-                              "/portal/2a14dd34496e7-handling-data-updates",
-                              "/portal/81056f6209bfc-start-a-workflow-from-an-app",
-                              "/portal/4w40o03817vij-hitting-a-code-engine-function-from-an-app",
-                              "/portal/f5c93c4320ad4-app-developer-design-guide",
-                              "/portal/34d8713d17282-sync-app-db-only-once-a-day",
-                              "/portal/f3c595d1d1e28-deleting-all-documents-from-a-collection",
-                              "/portal/fecb7159f62f2-copy-assets-to-a-different-instance"
+                              "portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI",
+                              "portal/Apps/App-Framework/Guides/manifest",
+                              "portal/Apps/App-Framework/Guides/public-assets",
+                              "portal/Apps/App-Framework/Guides/swap-designs",
+                              "portal/Apps/App-Framework/Guides/app-sessions",
+                              "portal/Apps/App-Framework/Guides/getting-data",
+                              "portal/Apps/App-Framework/Guides/querying-data",
+                              "portal/Apps/App-Framework/Guides/handling-data-updates",
+                              "portal/Apps/App-Framework/Guides/hitting-a-workflow",
+                              "portal/Apps/App-Framework/Guides/hitting-code-engine-from-an-app",
+                              "portal/Apps/App-Framework/Guides/design-guide",
+                              "portal/Apps/App-Framework/Guides/workflow-appdb-sync",
+                              "portal/Apps/App-Framework/Guides/clearing-out-collections",
+                              "portal/Apps/App-Framework/Guides/copy-assets-to-other-instances"
                             ]
                           },
                           {
                             "group": "Help",
                             "pages": [
-                              "/portal/e3bddcb552199-troubleshooting",
-                              "/portal/5478529c8ed0a-faq"
+                              "portal/Apps/App-Framework/Help/Troubleshooting",
+                              "portal/Apps/App-Framework/Help/faq"
                             ]
                           }
+                        ]
+                      },
+                      {
+                        "group": "Pro-Code Editor",
+                        "pages": [
+                          "portal/Apps/Pro-Code-Editor/getting-started-pro-code",
+                          {
+                            "group": "Tutorials",
+                            "pages": [
+                              "portal/Apps/Pro-Code-Editor/Tutorials/manage-save-pro-code",
+                              "portal/Apps/Pro-Code-Editor/Tutorials/pdf-export",
+                              "portal/Apps/Pro-Code-Editor/Tutorials/stacked-bars"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Advanced Forms",
+                        "pages": [
+                          "portal/Forms/Advanced-Forms/overview",
+                          "portal/Forms/Advanced-Forms/creating-advanced-forms",
+                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
+                          "portal/Forms/Advanced-Forms/domo-data-features",
+                          "portal/Forms/Advanced-Forms/advanced-form-datasets"
                         ]
                       },
                       {
@@ -3413,33 +3218,18 @@
                           {
                             "group": "Quickstart",
                             "pages": [
-                              "/portal/0037739ab3747-domo-bricks-overview",
-                              "/portal/ec60c4980e1b5-getting-started-using-domo-bricks"
+                              "portal/Apps/DDX-Bricks/Quickstart/overview",
+                              "portal/Apps/DDX-Bricks/Quickstart/getting-started"
                             ]
                           },
-                          {
-                            "group": "Tutorials",
-                            "pages": [
-                              "/portal/81edeb860659b-video-guides"
-                            ]
-                          },
+                          "portal/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro",
                           {
                             "group": "Guides",
                             "pages": [
-                              "/portal/2efe8599c6ad9-getting-data-in-domo-bricks",
-                              "/portal/5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app"
+                              "portal/Apps/DDX-Bricks/Guides/getting-data",
+                              "portal/Apps/DDX-Bricks/Guides/DDX-Pro-Code"
                             ]
                           }
-                        ]
-                      },
-                      {
-                        "group": "Advanced Forms",
-                        "pages": [
-                          "/portal/advanced-forms-overview",
-                          "/portal/advanced-forms-creating",
-                          "/portal/advanced-forms-datasets",
-                          "/portal/advanced-forms-editor-layout",
-                          "/portal/advanced-forms-domo-data-features"
                         ]
                       }
                     ]
@@ -3451,36 +3241,29 @@
                       {
                         "group": "Workflows",
                         "pages": [
-                          "/portal/55d3b6dfcfddd-domo-workflows",
-                          "/portal/6e7b0fdc99bdd-authentication-and-permissions",
-                          {
-                            "group": "Workflow API",
-                            "pages": [
-                              "/portal/4wu6c4ddtn4m3-workflows-product-api",
-                              "/portal/5s59dpkk1hmx6-start-a-workflow"
-                            ]
-                          },
-                          "/portal/6e7f610416ea1-troubleshooting-tips"
+                          "portal/Automate-Actions/Workflows/overview",
+                          "portal/Automate-Actions/Workflows/authentication",
+                          "portal/Automate-Actions/Workflows/troubleshooting"
                         ]
                       },
                       {
                         "group": "Code Engine",
                         "pages": [
-                          "/portal/1sirxqzlsb4sk-code-engine",
-                          "/portal/fef84c05d5245-global-vs-custom-packages",
-                          "/portal/07d7b4130e96f-creating-a-custom-package",
-                          "/portal/7ee46a3107052-code-editor-overview",
-                          "/portal/c887b1e09fb75-code-engine-java-script-libraries-reference",
-                          "/portal/cf888b03e570a-code-engine-python-packages-reference",
-                          "/portal/115bc93a8bde3-common-code-engine-use-cases",
+                          "portal/Automate-Actions/Code-Engine/overview",
+                          "portal/Automate-Actions/Code-Engine/global-vs-custom-packages",
+                          "portal/Automate-Actions/Code-Engine/creating-packages",
+                          "portal/Automate-Actions/Code-Engine/overview",
+                          "portal/Automate-Actions/Code-Engine/javascript-libraries",
+                          "portal/Automate-Actions/Code-Engine/python-packages",
+                          "portal/Automate-Actions/Code-Engine/common-use-cases",
                           {
                             "group": "Useful Packages",
                             "pages": [
-                              "/portal/32ff35cdb141e-domo-instance-management",
-                              "/portal/7d56134a3c629-export-domo-cards-to-pdf"
+                              "/portal/Automate-Actions/Code-Engine/Packages/Instance-Management",
+                              "/portal/Automate-Actions/Code-Engine/Packages/Cards-to-PDF"
                             ]
                           },
-                          "/portal/d214359cae381-key-limitations"
+                          "/portal/Automate-Actions/Code-Engine/limitations-and-troubleshooting"
                         ]
                       }
                     ]
@@ -3491,24 +3274,25 @@
                       {
                         "group": "Domo Appstore",
                         "pages": [
-                          "/portal/600e2b5914564-domo-appstore",
-                          "/portal/d4f8eee792eb6-appstore-submission",
-                          "/portal/c9db4daa8edfe-appstore-requirements",
-                          "/portal/6ea9fcd9e478c-appstore-data-resources",
-                          "/portal/6505d9ad61fd0-appstore-help-and-support"
+                          "portal/Partner-Developers/Domo-Marketplace/overview",
+                          "portal/Partner-Developers/Domo-Marketplace/marketplace-submission",
+                          "portal/Partner-Developers/Domo-Marketplace/marketplace-requirements",
+                          "portal/Partner-Developers/Domo-Marketplace/marketplace-data-resources",
+                          "portal/Partner-Developers/Domo-Marketplace/marketplace-support"
                         ]
                       },
                       {
                         "group": "Guides",
                         "pages": [
-                          "/portal/7da043cf6d454-submission-checklist",
-                          "/portal/4e6a52eafd2d3-video-recording-guide",
-                          "/portal/1420c2fd93550-partner-app-submission-guide",
-                          "/portal/ea88871bcc736-paid-apps-guide",
-                          "/portal/ccdff47e23e23-getting-paid-guide",
-                          "/portal/da7996a8b2338-building-an-app-overview",
-                          "/portal/b836f5593ab26-getting-data",
-                          "/portal/f1debac8fb029-guide-to-using-the-global-code-engine-package-start-workflow-in-remote-instance"
+                          "portal/Partner-Developers/Guides/building-an-app-overview",
+                          "portal/Partner-Developers/Guides/getting-paid",
+                          "portal/Partner-Developers/Guides/getting-data-overview",
+                          "portal/Partner-Developers/Guides/paid-apps",
+                          "portal/Partner-Developers/Guides/partner-app-submission",
+                          "portal/Partner-Developers/Guides/snowflake-mmds-quickstart",
+                          "portal/Partner-Developers/Guides/start-a-remote-workflow",
+                          "portal/Partner-Developers/Guides/submission-checklist",
+                          "portal/Partner-Developers/Guides/video-recording"
                         ]
                       }
                     ]
@@ -3516,57 +3300,57 @@
                   {
                     "group": "AI Resources Guide",
                     "pages": [
-                      "/portal/0mnsejhg5livn-domo-ai-resources-guide",
-                      "/portal/x2i3bk0w4bwhe-domo-ai",
-                      "/portal/4cjt7r72bnwlf-jupyter-workspaces",
-                      "/portal/pg9t2vdbix5un-data-science-accelerators",
-                      "/portal/ftlfegxnudqt7-magic-etl-scripting-tiles",
-                      "/portal/32buc6884v4px-magic-etl-data-science-tiles",
-                      "/portal/xw7ienfqq7qrw-automated-machine-learning-auto-ml",
-                      "/portal/umqbnyej9jn06-data-science-webinars"
+                      "portal/Data-Science/overview",
+                      "portal/Data-Science/ai-services",
+                      "portal/Data-Science/jupyter",
+                      "portal/Data-Science/accelerators",
+                      "portal/Data-Science/scripting-tiles",
+                      "portal/Data-Science/data-science-tiles",
+                      "portal/Data-Science/autoML",
+                      "portal/Data-Science/webinars"
                     ]
                   },
                   {
                     "group": "Connect Data",
                     "pages": [
-                      "/portal/wiemes1rk6atz-overview",
+                      "portal/Connectors/Overview",
                       {
                         "group": "Custom Connectors",
                         "pages": [
                           {
                             "group": "Standard Connectors",
                             "pages": [
-                              "/portal/5d8f965eb3469-overview",
-                              "/portal/3cfe84d925633-custom-connectors",
-                              "/portal/71ec34a2958fe-configure-authentication",
-                              "/portal/306e246057d3c-configure-reports",
-                              "/portal/11ea6c8039f80-process-data",
-                              "/portal/edfe96df76c42-publish-connector",
-                              "/portal/9f2fe40b1bdb9-examples"
+                              "portal/Connectors/Custom-Connectors/overview",
+                              "portal/Connectors/Custom-Connectors/connector-dev-studio",
+                              "portal/Connectors/Custom-Connectors/configure-authentication",
+                              "portal/Connectors/Custom-Connectors/configure-reports",
+                              "portal/Connectors/Custom-Connectors/process-data",
+                              "portal/Connectors/Custom-Connectors/publish-connector",
+                              "portal/Connectors/Custom-Connectors/examples"
                             ]
                           },
-                          "/portal/cf8902150aae4-writeback-connectors",
-                          "/portal/e415bb99d21b2-reference",
-                          "/portal/66b06bf6ac52d-ide-limitations",
-                          "/portal/d2309f6f9be66-help-and-support"
+                          "portal/Connectors/Writeback-Connectors/writeback-connectors",
+                          "portal/Connectors/Custom-Connectors/reference",
+                          "portal/Connectors/Custom-Connectors/ide-limitations",
+                          "portal/Connectors/Custom-Connectors/help-and-support"
                         ]
                       },
                       {
                         "group": "Connect via API",
                         "pages": [
-                          "/portal/e0a20a74a7754-data-connection-via-api-overview",
-                          "/portal/278e9d611eaa6-quickstart",
-                          "/portal/eb00606e6f114-format-data-to-import",
-                          "/portal/3989acf1bafff-import-and-export-data",
-                          "/portal/6a1dd9d565f05-managing-data-sets-in-domo",
-                          "/portal/7zzu6uf05maam-pdp"
+                          "portal/Connectors/API-Data-Connection/overview",
+                          "portal/Connectors/API-Data-Connection/quickstart",
+                          "portal/Connectors/API-Data-Connection/format-data-to-import",
+                          "portal/Connectors/API-Data-Connection/import-and-export-data",
+                          "/portal/Connectors/API-Data-Connection/managing-datasets",
+                          "portal/Governance/pdp"
                         ]
                       },
                       {
                         "group": "Other Connection Approaches",
                         "pages": [
-                          "/portal/cb2e07663deaf-on-premises-data",
-                          "/portal/2bd2767928a2e-federated-queries",
+                          "portal/Connectors/on-premises-data",
+                          "portal/Connectors/federated-queries",
                           "/links/jupyter",
                           "/links/domo-cli",
                           "/links/cloud-amplifier"
@@ -3577,46 +3361,46 @@
                   {
                     "group": "Embed Domo Everywhere",
                     "pages": [
-                      "/portal/ncsnoe3fay4df-overview",
-                      "/portal/21f7b5c7ee313-embedded-scheduled-reports-beta",
-                      "/portal/541b34bb930ee-publishing-to-other-users",
+                      "portal/Embedded-Analytics/overview",
+                      "portal/Embedded-Analytics/embedded-scheduled-reports",
+                      "portal/Embedded-Analytics/publishing-to-other-domo-users",
                       {
                         "group": "Embed In Sites and Software",
                         "pages": [
-                          "/portal/9698njvvxz8f9-getting-started",
-                          "/portal/1yafxad1u8azv-programmatic-filtering",
-                          "/portal/1cleirjemoy6i-app-embed-authentication",
-                          "/portal/j83p65ecrjtr1-dataset-switching",
-                          "/portal/wbwvwmq9rd714-filtering-options",
-                          "/portal/buk5zwk1pvjwh-url-parameters-in-embedded-content",
-                          "/portal/nt3co7oh36g5s-dynamic-iframe-height",
-                          "/portal/4soguofca8clp-code-examples",
-                          "/portal/5u0f5ugttqixq-necessary-dependencies",
-                          "/portal/5ueroz175c0jl-embedding-into-sites-and-web-portals"
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/overview",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies",
+                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals"
                         ]
                       },
-                      "/portal/ed061f0c295c0-embedded-capabilities"
+                      "portal/Embedded-Analytics/embedded-edit-experiences"
                     ]
                   },
                   {
                     "group": "Govern Your Domo Instance",
                     "pages": [
-                      "/portal/4bf73dd1c69d8-overview",
+                      "/portal/Governance/overview",
                       {
                         "group": "Security",
                         "pages": [
-                          "/portal/7zzu6uf05maam-pdp",
-                          "/portal/459eb69d51e78-security-and-governance",
-                          "/portal/6924667fba790-sso"
+                          "portal/Governance/pdp",
+                          "/portal/Governance/security",
+                          "/portal/Governance/sso"
                         ]
                       },
                       {
                         "group": "Administration",
                         "pages": [
-                          "/portal/6a1dd9d565f05-managing-data-sets-in-domo",
-                          "/portal/e138903b113ee-organize-manage-and-share-content-to-other-users-in-domo-using-the-page-api",
-                          "/portal/e492bc8b3d9ee-user-management",
-                          "/portal/80b418fba449e-activity-log"
+                          "/portal/Governance/data-management",
+                          "/portal/Governance/content-management",
+                          "/portal/Governance/user-management",
+                          "/portal/Governance/activity-log"
                         ]
                       }
                     ]
@@ -3624,9 +3408,9 @@
                   {
                     "group": "Other Resources",
                     "pages": [
-                      "/portal/d93cd01e7c739-api-status",
-                      "/portal/05b0hcl6afem2-community-forums",
-                      "/portal/7162ed588aa08-sample-projects"
+                      "portal/Other-Resources/api-status",
+                      "portal/Other-Resources/Developer-Forum",
+                      "portal/Other-Resources/sample-projects"
                     ]
                   }
                 ]
@@ -3744,9 +3528,7 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": [
-                  "ja/s/article/360043427193"
-                ]
+                "pages": ["ja/s/article/360043427193"]
               },
               {
                 "group": "Domo Free",
@@ -3798,9 +3580,7 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": [
-                              "ja/s/article/000005139"
-                            ]
+                            "pages": ["ja/s/article/000005139"]
                           },
                           {
                             "group": "Google BigQuery",
@@ -4539,9 +4319,7 @@
                           },
                           {
                             "group": "Sage Intacct",
-                            "pages": [
-                              "ja/s/article/000005099"
-                            ]
+                            "pages": ["ja/s/article/000005099"]
                           },
                           {
                             "group": "Salesforce",
@@ -4658,9 +4436,7 @@
                           },
                           {
                             "group": "USGS",
-                            "pages": [
-                              "ja/s/article/360043432433"
-                            ]
+                            "pages": ["ja/s/article/360043432433"]
                           },
                           {
                             "group": "Vertica",
@@ -4891,9 +4667,7 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": [
-                          "ja/s/article/360042923754"
-                        ]
+                        "pages": ["ja/s/article/360042923754"]
                       }
                     ]
                   },
@@ -5310,9 +5084,7 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": [
-                      "ja/s/article/360043437773"
-                    ]
+                    "pages": ["ja/s/article/360043437773"]
                   },
                   {
                     "group": "Alerts",
