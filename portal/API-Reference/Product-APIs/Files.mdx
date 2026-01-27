@@ -14,13 +14,11 @@ Uploading a new file can be accomplished through the following request. You will
 **Method:** `POST`  
 **Endpoint:** `/api/data/v1/data-files?name={name}&description={description}&public={public}`
 
-{/* theme: info */}
-
-> #### Security Consideration for Default Permissions
->
-> By default, the `public` param is set to `true`, granting all users in the Domo instance access to the file. Remember to set `public` to `false` if you want to restrict access to the user who originally uploaded the file. File permissions can be updated to give access to specific users and groups, if needed. You can find out how to do that by reviewing the [`Update file permissions`](#update-file-permissions) API.
-
-#### Code Example
+<Note>
+**Security Consideration for Default Permissions**
+By default, the `public` param is set to `true`, granting all users in the Domo instance access to the file. Remember to set `public` to `false` if you want to restrict access to the user who originally uploaded the file. File permissions can be updated to give access to specific users and groups, if needed. You can find out how to do that by reviewing the [`Update file permissions`](#update-file-permissions) API.
+</Note>
+**Code Example**
 
 ```js
 async function uploadFile(name, description = '', public = false, file) {
@@ -30,7 +28,7 @@ async function uploadFile(name, description = '', public = false, file) {
 }
 ```
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type    | Required | Description                                           |
 | ------------- | ------- | -------- | ----------------------------------------------------- |
@@ -38,11 +36,11 @@ async function uploadFile(name, description = '', public = false, file) {
 | description   | String  | Optional | A description of the file                             |
 | public        | Boolean | Optional | Whether the permissions of the file are set to public |
 
-#### Request Body
+**Request Body**
 
 The file to upload.
 
-#### Response
+**Response**
 
 Returns the id of the created file.
 
@@ -62,7 +60,7 @@ The Files API provides versioning support for files that have been uploaded. You
 **Method:** `PUT`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function uploadRevision(dataFileId, file) {
@@ -72,17 +70,17 @@ async function uploadRevision(dataFileId, file) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                                                |
 | ------------- | ------- | -------- | ---------------------------------------------------------- |
 | dataFileId    | Integer | Required | The id of the file for which you wish to upload a revision |
 
-#### Request Body
+**Request Body**
 
 The file to upload as a revision.
 
-#### Response
+**Response**
 
 Returns the current revision id of the file.
 
@@ -102,7 +100,7 @@ Each file that you upload has corresponding metadata. This endpoint allows you t
 **Method:** `GET`  
 **Endpoint:** `/api/data/v1/data-files/details?userId={userId}&expand={expand}&dataFileIds={dataFileIds}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getFileDetailsList(
@@ -124,20 +122,20 @@ async function getFileDetailsList(
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                                                                                                                    |
 | ------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | userId        | Integer | Optional | A Domo User Id if you want to limit the files returned by a specific owner                                                     |
 | expand        | String  | Optional | An array of string properties specifying the additional details you want to retrieve (either `revisions`, `metadata`, or both) |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type   | Required | Description                                                                          |
 | ------------- | ------ | -------- | ------------------------------------------------------------------------------------ |
 | dataFileIds   | String | Optional | An array of File Ids that you wish to be returned if you only want a subset of files |
 
-#### Response
+**Response**
 
 Returns an array of file objects.
 
@@ -176,7 +174,7 @@ Given a known file ID, this endpoint allows you to list the metadata for that sp
 **Method:** `GET`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}/details?expand={expand}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getFileDetails(dataFileId, expand = null) {
@@ -189,19 +187,19 @@ async function getFileDetails(dataFileId, expand = null) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description        |
 | ------------- | ------- | -------- | ------------------ |
 | dataFileId    | Integer | Required | The id of the file |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type         | Required | Description                                                                                                                    |
 | ------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | expand        | String Array | Optional | An array of string properties specifying the additional details you want to retrieve (either `revisions`, `metadata`, or both) |
 
-#### Response
+**Response**
 
 Returns the file details object.
 
@@ -226,7 +224,7 @@ Given a known file revision ID, this endpoint allows you to list the metadata fo
 **Method:** `GET`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}/revisions/{revisionId}/details?expand={expand}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getFileDetails(dataFileId, revisionId, expand = null) {
@@ -239,20 +237,20 @@ async function getFileDetails(dataFileId, revisionId, expand = null) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                 |
 | ------------- | ------- | -------- | --------------------------- |
 | dataFileId    | Integer | Required | The id of the file          |
 | revisionId    | Integer | Required | The id of the file revision |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type         | Required | Description                                                                                                                    |
 | ------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | expand        | String Array | Optional | An array of string properties specifying the additional details you want to retrieve (either `revisions`, `metadata`, or both) |
 
-#### Response
+**Response**
 
 Returns the file revision details object.
 
@@ -281,7 +279,7 @@ Given a known file ID, this endpoint fetches the existing revisions of the file.
 **Method:** `GET`  
 **Endpoint:** `/api/data/v1/data-files/${dataFileId}/revisions/details`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getFileRevisions(dataFileId, expand) {
@@ -294,19 +292,19 @@ async function getFileRevisions(dataFileId, expand) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description        |
 | ------------- | ------- | -------- | ------------------ |
 | dataFileId    | Integer | Required | The id of the file |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type         | Required | Description                                                                                                                    |
 | ------------- | ------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------ |
 | expand        | String Array | Optional | An array of string properties specifying the additional details you want to retrieve (either `revisions`, `metadata`, or both) |
 
-#### Response
+**Response**
 
 Returns a list of all revisions of the file.
 
@@ -338,7 +336,7 @@ This endpoint fetches the file contents of a previously uploaded file, which can
 **Method:** `GET`  
 **Endpoint:** `/api/data/v1/data-files/{fileId}/revision/{revisionId}?filename={fileName}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function downloadFile(dataFileId, revisionId = null, fileName = null) {
@@ -353,20 +351,20 @@ async function downloadFile(dataFileId, revisionId = null, fileName = null) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                                                                 |
 | ------------- | ------- | -------- | --------------------------------------------------------------------------- |
 | fileId        | Integer | Required | The id of the file you wish to download                                     |
 | revisionId    | Integer | optional | The id of the version you wish to download (remove `/revision` if not used) |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type   | Required | Description                        |
 | ------------- | ------ | -------- | ---------------------------------- |
 | fileName      | String | Optional | The name you want to give the file |
 
-#### Response
+**Response**
 
 Returns the File to be downloaded.
 
@@ -382,7 +380,7 @@ This endpoint allows you to copy the current revision of a file to another targe
 **Method:** `POST`  
 **Endpoint:** `/api/data/v1/data-files/copy/{sourceDataFileId}/revisions/current/{targetDataFileId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function copyFile(sourceDataFileId, targetDataFileId) {
@@ -392,14 +390,14 @@ async function copyFile(sourceDataFileId, targetDataFileId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name    | Type    | Required | Description                         |
 | ---------------- | ------- | -------- | ----------------------------------- |
 | sourceDataFileId | Integer | Required | The file id to move (source)        |
 | targetDataFileId | Integer | Required | The file id to be replaced (target) |
 
-#### Response
+**Response**
 
 Returns the current revision id for the target file.
 
@@ -419,7 +417,7 @@ This endpoint will create a new file object in Domo from an existing one.
 **Method:** `POST`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}/duplicate`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function duplicateFile(dataFileId) {
@@ -429,13 +427,13 @@ async function duplicateFile(dataFileId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description              |
 | ------------- | ------- | -------- | ------------------------ |
 | dataFileId    | Integer | Required | The file id to duplicate |
 
-#### Response
+**Response**
 
 Returns the file metadata for the newly created duplicate.
 
@@ -472,7 +470,7 @@ Permanently deletes a File from your instance by ID.
 **Method:** `DELETE`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function deleteFile(dataFileId) {
@@ -484,13 +482,13 @@ async function deleteFile(dataFileId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                           |
 | ------------- | ------- | -------- | ------------------------------------- |
 | dataFileId    | Integer | Required | The id of the file you wish to delete |
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the file id being valid.
 
@@ -505,7 +503,7 @@ Deletes a specific revision of a file by ID.
 **Method:** `DELETE`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}/revisions/{revisionId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function deleteFileRevision(dataFileId, revisionId) {
@@ -517,14 +515,14 @@ async function deleteFileRevision(dataFileId, revisionId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                               |
 | ------------- | ------- | -------- | ----------------------------------------- |
 | dataFileId    | Integer | Required | The id of the file                        |
 | revisionId    | Integer | Required | The id of the revision you wish to delete |
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the file Id being valid.
 
@@ -539,7 +537,7 @@ Retrieve existing file permissions for a specific file by ID
 **Method:** `GET`  
 **Endpoint:** `/domo/data-files/v1/{fileId}/permissions`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getFilePermissions(dataFileId) {
@@ -549,13 +547,13 @@ async function getFilePermissions(dataFileId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                                               |
 | ------------- | ------- | -------- | --------------------------------------------------------- |
 | dataFileId    | Integer | Required | The id of the file you wish to get permission details for |
 
-#### Response
+**Response**
 
 ```json
 HTTP/1.1 200 OK
@@ -580,7 +578,7 @@ Updates permissions for a specified file. Useful if needing to provide or expand
 **Method:** `PUT`  
 **Endpoint:** `/api/data/v1/data-files/{dataFileId}/permissions`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function upadateFilePermissions(dataFileId, permissionData) {
@@ -590,13 +588,13 @@ async function upadateFilePermissions(dataFileId, permissionData) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Required | Description                                                  |
 | ------------- | ------- | -------- | ------------------------------------------------------------ |
 | dataFileId    | Integer | Required | The id of the file you wish to update permission details for |
 
-#### Request Body
+**Request Body**
 
 The request body accepts a permissions object.
 
@@ -614,7 +612,7 @@ The request body accepts a permissions object.
 }
 ```
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on a valid permission object for the given file Id.
 

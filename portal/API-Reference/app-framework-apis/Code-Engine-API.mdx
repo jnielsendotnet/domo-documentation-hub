@@ -17,7 +17,7 @@ If you haven't leveraged Code Engine functions from within Apps before, checkout
 
 Runs a Code Engine function and returns output of that function.
 
-#### Code Example
+**Code Example**
 
 ```js
 const startFunction = (functionAlias, inputParameters = {}) => {
@@ -32,19 +32,19 @@ const startFunction = (functionAlias, inputParameters = {}) => {
 };
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type   | Required | Description                                               |
 | ------------- | ------ | -------- | --------------------------------------------------------- |
 | functionAlias | String | Required | The name given to the Code Engine package in the manifest |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/codeengine/v2/packages/{functionAlias}
 ```
 
-#### Request Body
+**Request Body**
 
 The request body accepts an object containing the input parameters required to run the code engine function. These parameters are also defined in the `manifest.json` file and properties in the object should correspond to the `alias` of the parameter.
 
@@ -52,6 +52,6 @@ The request body accepts an object containing the input parameters required to r
 {"parameter1": parameter1, "parameter2": parameter2}
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the result of the Code Engine function. This result is defined in the [Code Engine function and function configuration](/s/article/000005173?language=en_US#function_configuration) "Output" tab. This output should also be defined in the `output` property of the `packageMapping` object in the manifest file.

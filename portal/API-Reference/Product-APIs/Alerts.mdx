@@ -12,7 +12,7 @@ Query alerts from your Domo instance.
 **Method:** `GET`  
 **Endpoint:** `/api/social/v4/alerts?all=true&limit=5`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getAlerts() {
@@ -22,7 +22,7 @@ async function getAlerts() {
 }
 ```
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name            | Type    | Required | Default                                                                                                       | Description                                                                             |
 | ------------------------ | ------- | -------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
@@ -42,7 +42,7 @@ async function getAlerts() {
 | suggested                | Boolean | Optional |                                                                                                               | Whether to fetch only alerts that are suggested for you                                 |
 | triggered                | String  | Optional |                                                                                                               | Whether to fetch only alerts that have been triggered                                   |
 
-#### Response
+**Response**
 
 Returns the alerts based on the included query params.
 
@@ -74,7 +74,7 @@ Gets an existing alert by id.
 **Method:** `GET`  
 **Endpoint:** `/api/social/v4/alerts/{alertId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function getAlert(alertId) {
@@ -84,19 +84,19 @@ async function getAlert(alertId) {
 }
 ```
 
-#### Path Parameters
+**Path Parameters**
 
 | Property Name | Type    | Description                         |
 | ------------- | ------- | ----------------------------------- |
 | alertId       | Integer | The id of the alert you want to get |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type   | Required | Description                                   |
 | ------------- | ------ | -------- | --------------------------------------------- |
 | fields        | String | Optional | Which alert fields to include in the response |
 
-#### Response
+**Response**
 
 Returns the alert.
 
@@ -137,7 +137,7 @@ Deletes an existing alert by id.
 **Method:** `DELETE`  
 **Endpoint:** `/api/social/v4/alerts/{alertId}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function deleteAlert(alertId) {
@@ -149,13 +149,13 @@ async function deleteAlert(alertId) {
 }
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type    | Required | Description                            |
 | ------------- | ------- | -------- | -------------------------------------- |
 | alertId       | Integer | Required | The id of the alert you want to delete |
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the alert id being valid.
 
@@ -170,7 +170,7 @@ This endpoint subscribes a Domo user to an existing alert.
 **Method:** `POST`  
 **Endpoint:** `/api/social/v4/alerts/{alertId}/subscriptions`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function subscribeToAlert(alertId, userId) {
@@ -182,13 +182,13 @@ async function subscribeToAlert(alertId, userId) {
 }
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type    | Required | Description                                           |
 | ------------- | ------- | -------- | ----------------------------------------------------- |
 | alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the alert id being valid.
 
@@ -203,7 +203,7 @@ This endpoint unsubscribes a Domo user from an existing alert.
 **Method:** `POST`  
 **Endpoint:** `/api/social/v4/alerts/{alertId}/subscriptions?subscriberId={subscriberId}&type={type}`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function unsubscribeFromAlert(alertId, userId) {
@@ -215,20 +215,20 @@ async function unsubscribeFromAlert(alertId, userId) {
 }
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type    | Required | Description                                           |
 | ------------- | ------- | -------- | ----------------------------------------------------- |
 | alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type    | Required | Description                                                       |
 | ------------- | ------- | -------- | ----------------------------------------------------------------- |
 | subscriberId  | Integer | Required | The id of the entity unsubscribing from the alert                 |
 | type          | String  | Required | The entity type, can be USER, GROUP, BUZZ, DAILY, WEEKLY, or AUTO |
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the alert id being valid.
 
@@ -243,7 +243,7 @@ This endpoint shares an existing alert with a Domo user.
 **Method:** `POST`  
 **Endpoint:** `/api/social/v4/alerts/{alertId}/share`
 
-#### Code Example
+**Code Example**
 
 ```js
 async function shareAlert(alertId, userId, message, email) {
@@ -261,13 +261,13 @@ async function shareAlert(alertId, userId, message, email) {
 }
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type    | Required | Description                                           |
 | ------------- | ------- | -------- | ----------------------------------------------------- |
 | alertId       | Integer | Required | The id of the alert you want to subscribe the user to |
 
-#### Request Body
+**Request Body**
 
 | Property Name      | Type     | Required | Description                                                                 |
 | ------------------ | -------- | -------- | --------------------------------------------------------------------------- |
@@ -285,7 +285,7 @@ async function shareAlert(alertId, userId, message, email) {
 }
 ```
 
-#### Response
+**Response**
 
 Returns the parameter of success or error based on the alert id being valid.
 

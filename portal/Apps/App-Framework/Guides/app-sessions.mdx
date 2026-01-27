@@ -24,13 +24,13 @@ Information stored in the app session:
 
 A new app session is created every time the app is loaded, and the session ID is injected into the `index.html` file as a window parameter named `__RYUU_SID__` (note that is 2 \_ characters at the beginning and the end). It is also written as a session cookie on the full app domain, named `ryuu_sid`. This session cookie is a convenience so that the app code doesn't need to send the session ID some other way.
 
-{/* theme: warning */}
 
-> #### Warning
->
-> The existence of the session cookie can cause problems if more than one copy of same app instance is running in a shared context (e.g., loaded on multiple browser tabs/windows, multiple copies of the same Card on a page, etc.). See an example of this scenario at the bottom of the page.
->
-> Because of the shared context, the session cookie is also shared—and all copies of the app instance will share the same session as well. If this is a concern, the session ID can be sent in a different way so that the session cookie is not considered.
+<Warning>
+**Warning**
+The existence of the session cookie can cause problems if more than one copy of same app instance is running in a shared context (e.g., loaded on multiple browser tabs/windows, multiple copies of the same Card on a page, etc.). See an example of this scenario at the bottom of the page.
+
+Because of the shared context, the session cookie is also shared—and all copies of the app instance will share the same session as well. If this is a concern, the session ID can be sent in a different way so that the session cookie is not considered.
+</Warning>
 
 The App Platform needs to receive the session ID on all requests from the app.
 
@@ -46,17 +46,15 @@ The code for the app can be written such that the session ID is explicitly added
 
 Another option is to use the `domo.js` library, which can be included in the app (generally by loading it from the public-assets folder). Requests which have been sent—either as static asset requests or as functions, as supplied in `domo.js` (such as [`domo.get()`](/portal/Apps/App-Framework/Tools/domo.js#domo-get-url,-options))—will be modified to include either the query parameter (on static asset requests) or the header (on function calls).
 
-{/* theme: info */}
+<Note>
+**Make sure you have the most up-to-date Apps SDK (domo.js)**
+If you are seeing any unexpected behavior that may be related to app sessions, try updating the Domo Apps CLI to the most recent version. As Domo has moved away from using cookies, we've updated the domo.js library to automatically include a session token in the header of all requests.
+</Note>
 
-> #### Make sure you have the most up-to-date Apps SDK (domo.js)
->
-> If you are seeing any unexpected behavior that may be related to app sessions, try updating the Domo Apps CLI to the most recent version. As Domo has moved away from using cookies, we've updated the domo.js library to automatically include a session token in the header of all requests.
-
-{/* theme: info */}
-
-> #### Note
->
-> There is also a design version flag that can be used to disable the session cookie. In the flags section of the manifest, set the flag `'authentication-cookies-disabled'` to `true` and the session cookie will not be set. This can be a good way to test if the app is correctly setting the session ID on requests. When this is enabled, you will get a `403` response on any request that is not correctly setting the session ID.
+<Note>
+**Note**
+There is also a design version flag that can be used to disable the session cookie. In the flags section of the manifest, set the flag `'authentication-cookies-disabled'` to `true` and the session cookie will not be set. This can be a good way to test if the app is correctly setting the session ID on requests. When this is enabled, you will get a `403` response on any request that is not correctly setting the session ID.
+</Note>
 
 To set the `authentication-cookies-disabled` flag in your `manifest.json` file, you can use code similar to the following:
 
@@ -71,9 +69,7 @@ To set the `authentication-cookies-disabled` flag in your `manifest.json` file, 
 ```
 
 ### Shared Session Example
-
 ---
-
 Let's say you have an app that only displays the data in a DataSet.
 
 The app has a button that sends the request to query the data and display it. You open 2 browser tabs and navigate to the same app in both tabs.

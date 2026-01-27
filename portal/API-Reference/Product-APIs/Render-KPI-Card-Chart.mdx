@@ -25,13 +25,13 @@ This endpoint renders a KPI card chart or table based on the specified `urn`. It
 
 ### Parameters
 
-#### Path Parameters
+**Path Parameters**
 
 - **`urn`** (required):  
   The unique resource name (URN) of the KPI card to be rendered.
   - **Schema:** `$ref: '#/components/schemas/CardURNParam'`
 
-#### Query Parameters
+**Query Parameters**
 
 - **`locale`** (optional):  
   Specifies the locale in which to render the KPI card.
@@ -69,18 +69,18 @@ The request body must be in JSON format and should adhere to the `ChartRequest` 
 
 ### Responses
 
-#### 200 OK
+**200 OK**
 
 The request was successful, and the KPI card chart or table has been rendered according to the specified parameters. The response will include an array of base64 encoded images.
 
 - **Content-Type:** `application/json`
 - **Schema:** `$ref: '#/components/schemas/ChartResponse'`
 
-#### 403 Forbidden
+**403 Forbidden**
 
 The request was not authorized. The client lacks the necessary permissions to access this resource.
 
-#### 409 Conflict
+**409 Conflict**
 
 The request could not be completed due to a conflict with the current state of the target resource.
 

@@ -15,13 +15,13 @@ Events are sent as a JSON payload. The payload includes details about the event 
 
 ### Create Integration
 
-#### Definition
+**Definition**
 
 ```
 POST https://api.domo.com/v1/buzz/integrations
 ```
 
-#### Create Integration Object
+**Create Integration Object**
 
 | Property Name | Type            | Description                                                                                                                                                                          |
 | ------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -31,7 +31,7 @@ POST https://api.domo.com/v1/buzz/integrations
 | channelIds    | List of Strings | Must be provided if and only if scope is CHANNEL_LIST                                                                                                                                |
 | headers       | List            | Every event that Buzz sends to the integration will be sent as an HTTP POST with these headers. Headers may be used for authentication or other purposes.                            |
 
-#### Sample request
+**Sample request**
 
 ```json
 POST https://api.domo.com/v1/buzz/integrations
@@ -56,7 +56,7 @@ Authorization: bearer <your-valid-oauth-access-token>
 }
 ```
 
-#### Sample response
+**Sample response**
 
 ```json
 HTTP/1.1 200 OK
@@ -83,13 +83,13 @@ Content-Type: application/json;charset=UTF-8
 
 ### Get integration
 
-#### Definition
+**Definition**
 
 ```
 GET https://api.domo.com/v1/buzz/integrations/{INTEGRATION_ID}
 ```
 
-#### Sample response
+**Sample response**
 
 ```json
 HTTP/1.1 200 OK
@@ -118,13 +118,13 @@ Content-Type: application/json;charset=UTF-8
 
 This endpoint returns all integrations that are active on any channel that the current user has access to.
 
-#### Definition
+**Definition**
 
 ```
 GET https://api.domo.com/v1/buzz/integrations
 ```
 
-#### Sample response
+**Sample response**
 
 ```json
 HTTP/1.1 200 OK
@@ -170,19 +170,13 @@ Content-Type: application/json;charset=UTF-8
 
 Permanently deletes a Buzz integration.
 
-{/* theme: danger */}
-
-> #### Warning
->
-> This is destructive and cannot be reversed.
-
-#### Definition
+**Definition**
 
 ```
 DELETE https://api.domo.com/v1/buzz/integrations/{INTEGRATION_ID}
 ```
 
-#### Sample response
+**Sample response**
 
 ```
 HTTP/1.1 204 No Content
@@ -198,13 +192,13 @@ An event subscription enables a Buzz integration to receive events from Buzz. Ev
 - `USERS_JOINED_CHANNEL`: One or more users joined the channel
 - `USERS_LEFT_CHANNEL`: One or more users left the channel
 
-#### Definition
+**Definition**
 
 ```
 POST https://api.domo.com/v1/buzz/integrations/{INTEGRATION_ID}/subscriptions
 ```
 
-#### Create Event Subscription Object
+**Create Event Subscription Object**
 
 | Property Name | Type   | Description                                                                                               |
 | ------------- | ------ | --------------------------------------------------------------------------------------------------------- |
@@ -212,7 +206,7 @@ POST https://api.domo.com/v1/buzz/integrations/{INTEGRATION_ID}/subscriptions
 | url           | String | The integration will post to this URL when an event occurs                                                |
 | slashCommand  | String | Required if and only if eventType is `SLASH_COMMAND`                                                      |
 
-#### Sample request
+**Sample request**
 
 ```json
 POST https://api.domo.com/v1/buzz/integrations/ccb48dd0-bd80-4a99-a7ea-9b4f002bb373
@@ -227,7 +221,7 @@ Authorization: bearer <your-valid-oauth-access-token>
 }
 ```
 
-#### Sample response
+**Sample response**
 
 ```json
 HTTP/1.1 200 OK
@@ -243,13 +237,13 @@ Content-Type: application/json;charset=UTF-8
 
 ### Get event subscriptions
 
-#### Definition
+**Definition**
 
 ```
 GET https://api.domo.com/v1/buzz/integrations{INTEGRATION_ID}/subscriptions
 ```
 
-#### Sample response
+**Sample response**
 
 ```json
 HTTP/1.1 200 OK
@@ -271,19 +265,19 @@ Content-Type: application/json;charset=UTF-8
 
 Deletes an existing event subscription from a Buzz integration. The integration will no longer receive events for the given subscription.
 
-{/* theme: danger */}
+<Danger>
+**Warning**
+This is destructive and cannot be reversed.
+</Danger>
 
-> #### Warning
->
-> This is destructive and cannot be reversed.
 
-#### Definition
+**Definition**
 
 ```
 DELETE https://api.domo.com/v1/buzz/integrations/{INTEGRATION_ID}/subscriptions/{SUBSCRIPTION_ID}
 ```
 
-#### Sample response
+**Sample response**
 
 ```
 HTTP/1.1 204 No Content
@@ -293,7 +287,7 @@ HTTP/1.1 204 No Content
 
 The following are examples of event payloads to be sent to Buzz integrations.
 
-#### Fields
+**Fields**
 
 Each field in the event payload is a JSON object.
 

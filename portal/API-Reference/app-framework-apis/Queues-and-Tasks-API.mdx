@@ -13,7 +13,7 @@ For more [background on Task Center, please see the Knowledge Base](/s/article/0
 
 Returns all queues the user has access to.
 
-#### Code Example
+**Code Example**
 
 ```js
 const getQueues = async (combineAttributes = true, archived = false) => {
@@ -26,13 +26,13 @@ const getQueues = async (combineAttributes = true, archived = false) => {
 const queues = getQueues();
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 GET /domo/queues/v1/?combineAttributes={boolean}&archived={boolean}
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns a list of all queue objects the user has access to.
 
@@ -63,7 +63,7 @@ Content-Type: application/json;charset=UTF-8
 
 Returns a queue by ID.
 
-#### Code Example
+**Code Example**
 
 ```js
 const getQueueByID = async (queueId) => {
@@ -74,13 +74,13 @@ const getQueueByID = async (queueId) => {
 const queue = getQueueByID('168ecd84-4a15-45f6-89d9-021fbbce0481');
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 GET /domo/queues/v1/{queueId}
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the queue object based on the `queueId` specified.
 
@@ -109,7 +109,7 @@ Content-Type: application/json;charset=UTF-8
 
 Returns tasks based on the filters provided in the body. If the body is an empty object, it returns all tasks the user has access to.
 
-#### Code Example
+**Code Example**
 
 ```js
 const body = {
@@ -130,14 +130,14 @@ const getTasks = async (body) => {
 const tasks = getTasks(body);
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/queues/v1/tasks/list?render={boolean}&renderParts={NAME, DESCRIPTION, MAPPING, METADATA, VERSIONS}
 
 ```
 
-#### Request Body
+**Request Body**
 
 The request body accepts an object containing filters to apply to the request for tasks. All properties are optional and the body can be passed as an empty object to return all tasks.
 
@@ -157,7 +157,7 @@ The request body accepts an object containing filters to apply to the request fo
 | orderByString | String   | Optional | An array of strings corresponding to the properties from this body that the list of tasks should be ordered by.                                                                                |
 | version       | String   | Optional | An array version numbers to filter by                                                                                                                                                          |
 
-#### HTTP Response
+**HTTP Response**
 
 Returns a list of tasks.
 
@@ -415,7 +415,7 @@ Content-Type: application/json;charset=UTF-8
 
 ## Returns a task by its id.
 
-#### Code Example
+**Code Example**
 
 ```js
 const getTaskByID = async (queueId, taskId) => {
@@ -431,14 +431,14 @@ const task = getTaskByID(
 );
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 GET /domo/queues/v1/{queueId}/tasks/{taskId}?render={boolean}
 
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the task object based requested.
 
@@ -576,7 +576,7 @@ Content-Type: application/json;charset=UTF-8
 
 Saves current task values given in the body, which contains the key value pairs for each input property of the task in question.
 
-#### Code Example
+**Code Example**
 
 ![Screenshot1](/images/dev/stoplight.io/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
 
@@ -602,17 +602,17 @@ const task = saveTask(
 );
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 PUT /domo/queues/v1/{queueId}/tasks/{taskId}/outputs
 ```
 
-#### Request Body
+**Request Body**
 
 The request body accepts an object containing key value pairs for each input property of the task in question.
 
-#### HTTP Response
+**HTTP Response**
 
 The current saved state of the task.
 
@@ -696,7 +696,7 @@ The current saved state of the task.
 
 Completes the task with the values given in the body.
 
-#### Code Example
+**Code Example**
 
 ![Screenshot](/images/dev/stoplight.io/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
 
@@ -722,16 +722,16 @@ const task = completeTask(
 );
 ```
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/queues/v1/{queueId}/tasks/{taskId}/complete?version={VERSION}
 ```
 
-#### Request Body
+**Request Body**
 
 The request body accepts an object containing key value pairs for each input property of the task in question.
 
-#### HTTP Response
+**HTTP Response**
 
 The completed task.

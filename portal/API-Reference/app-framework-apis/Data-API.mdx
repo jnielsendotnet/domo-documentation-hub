@@ -87,7 +87,7 @@ Limit the rows returned by the request by providing more fine-grained filters. M
 GET /data/v1/:alias?filter=amount > 1000, name contains 'Foobar'
 ```
 
-#### Operators
+**Operators**
 
 ```text
 Op1  Op2         Description
@@ -146,19 +146,19 @@ You can control the format of the data returned from this endpoint by setting th
 
 array-of-objects
 
-#### Header
+**Header**
 
 ```js
 XMLHttpRequest.setRequestHeader('Accept', 'array-of-objects');
 ```
 
-#### domo.js
+**domo.js**
 
 ```js
 domo.get('my-alias', { format: 'array-of-objects' });
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 [
@@ -169,19 +169,19 @@ domo.get('my-alias', { format: 'array-of-objects' });
 
 CSV
 
-#### Header
+**Header**
 
 ```js
 XMLHttpRequest.setRequestHeader('Accept', 'text/csv');
 ```
 
-#### domo.js
+**domo.js**
 
 ```js
 domo.get('my-alias', { format: 'csv' });
 ```
 
-#### Example Response
+**Example Response**
 
 ```js
 'first', 'last', 'age';
@@ -191,7 +191,7 @@ domo.get('my-alias', { format: 'csv' });
 
 Excel
 
-#### Header
+**Header**
 
 ```js
 XMLHttpRequest.setRequestHeader(
@@ -200,27 +200,26 @@ XMLHttpRequest.setRequestHeader(
 );
 ```
 
-#### domo.js
+**domo.js**
 
 ```js
 domo.get('my-alias', { format: 'excel' });
 ```
 
-Detailed JSON
 
-#### Header
+**Header**
 
 ```js
 XMLHttpRequest.setRequestHeader('Accept', 'application/json');
 ```
 
-#### domo.js
+**domo.js**
 
 ```js
 domo.get('my-alias', { format: 'array-of-arrays' });
 ```
 
-#### Example Response
+**Example Response**
 
 ```json
 {
@@ -256,7 +255,7 @@ domo.get('my-alias', { format: 'array-of-arrays' });
 
 Previously a known limitation of the Data API, you can now optionally use beast modes in your queries. In order to use beast modes in your data request, the `useBeastMode` query parameter must be set to true.
 
-#### Basic Example
+**Basic Example**
 
 The following example shows a query that returns only a beast mode column (as noted by the `fields` operator). You'll notice that the `useBeastMode=true` query string parameter is added to this request.
 
@@ -270,11 +269,9 @@ domo
 
 In this example, the `beastModeAlias` field is the alias provided to the column in your manifest that maps to a beast mode that has been wired up on the wiring page of an app.
 
-{/* theme: danger */}
-
-> #### Warning
->
-> By adding the `useBeastMode=true` query string parameter to your data calls, some built-in query functionality is disabled.
+<Warning>
+By adding the `useBeastMode=true` query string parameter to your data calls, some built-in query functionality is disabled.
+</Warning>
 
 Traditionally, when not using beast modes in your request, if you provide a groupby operator but don't specify an aggregation operator, Domo will automatically sum the other columns for you (if they are numbers) or count them (if they are strings or dates). When beast mode is enabled, you must explicitly provide some sort of aggregation any time you use a groupby operator. That can either be by using an aggregation operator in the query string or by providing an aggregation function in the formula of your beast mode calculation. It must be thought of as structuring a SQL query, wherein if you create a SQL query that has a group by but not all fields in the SELECT statement were aggregated or included in the group by, SQL will throw an error. It might look something like this:
 
@@ -284,7 +281,7 @@ ERROR: column “MY_TABLE.MY_COLUMN” must appear in the GROUP BY clause or be 
 
 The reason that the Data API's default functionality must be turned off when using beast modes is that a beast mode can have its own aggregation in a calculation. If a sum or a count is assumed, as it would be traditionally, and the beast mode already contained an aggregate function in its calculation, then you would run into an "aggregation within an aggregation error."
 
-#### Aggregation Example
+**Aggregation Example**
 
 If you want to sum a beast mode that does not already contain any aggregation functions in its formula and group by another column, you can use a request similar to the following. Note that if you use an aggregation operator on a beast mode column that already has an aggregation function in its formula, it will cause an error to occur (aggregate within an aggregate).
 
@@ -310,11 +307,11 @@ domo
   });
 ```
 
-{/* theme: info */}
+<Note>
+**Known Limitation**
 
-> #### Known Limitation
->
-> You cannot use the filter operator on a beast mode that contains an aggregate function (the equivalent of a having clause which is not supported in Domo today).
+You cannot use the filter operator on a beast mode that contains an aggregate function (the equivalent of a having clause which is not supported in Domo today).
+</Note>
 
 ### SQL API
 
@@ -332,8 +329,6 @@ domo
   });
 ```
 
-{/* theme: danger */}
-
-> #### Warning
->
-> The SQL API does not currently support page filters.
+<Warning>
+**The SQL API does not currently support page filters.**
+</Warning>

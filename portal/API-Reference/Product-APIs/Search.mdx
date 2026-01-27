@@ -129,7 +129,7 @@ Example
 
 ### Text filters
 
-#### term
+**term**
 
 | Property Name | Type             | Required             | Description                                     |
 | ------------- | ---------------- | -------------------- | ----------------------------------------------- |
@@ -138,14 +138,14 @@ Example
 | values        | Array of Strings | yes (or value)       | The terms to match. Cannot be used with `value` |
 | not           | Boolean          | no. default is false | Whether to invert the match                     |
 
-#### wildcard
+**wildcard**
 
 | Property Name | Type   | Required | Description                              |
 | ------------- | ------ | -------- | ---------------------------------------- |
 | field         | String | yes      | The field to query                       |
 | query         | String | yes      | The query to match. Use `*` for wildcard |
 
-#### queryString
+**queryString**
 
 | Property Name | Type   | Required | Description               |
 | ------------- | ------ | -------- | ------------------------- |
@@ -154,14 +154,14 @@ Example
 
 ### Date Filters
 
-#### dateBucket
+**dateBucket**
 
 | Property Name | Type   | Required | Description                                                                             |
 | ------------- | ------ | -------- | --------------------------------------------------------------------------------------- |
 | field         | String | yes      | The field to query                                                                      |
 | value         | String | yes      | The date bucket to use. Valid buckets are LAST_DAY, LAST_WEEK, LAST_MONTH, LAST_QUARTER |
 
-#### dateRange
+**dateRange**
 
 | Property Name | Type      | Required             | Description                 |
 | ------------- | --------- | -------------------- | --------------------------- |
@@ -172,7 +172,7 @@ Example
 
 ### Numeric Filters
 
-#### numeric
+**numeric**
 
 | Property Name | Type    | Required             | Description                        |
 | ------------- | ------- | -------------------- | ---------------------------------- |
@@ -182,7 +182,7 @@ Example
 | operator      | String  | yes                  | The operator: LT, LTE, EQ, GT, GTE |
 | not           | Boolean | no. default is false | Whether to invert the match        |
 
-#### range
+**range**
 
 | Property Name | Type   | Required | Description              |
 | ------------- | ------ | -------- | ------------------------ |
@@ -192,14 +192,14 @@ Example
 
 ### Boolean Filters
 
-#### boolean
+**boolean**
 
 | Property Name | Type    | Required | Description        |
 | ------------- | ------- | -------- | ------------------ |
 | field         | String  | yes      | The field to query |
 | value         | Boolean | yes      | The value to match |
 
-#### missing
+**missing**
 
 | Property Name | Type    | Required             | Description                     |
 | ------------- | ------- | -------------------- | ------------------------------- |

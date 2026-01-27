@@ -3,16 +3,11 @@ title: 'Convert Bricks to Pro-Code Apps'
 permalink: 5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app
 ---
 
-{/* theme: info */}
-
-> #### Prerequisites
->
-> - Access to Domo's Pro-Code Editor: Ensure that Pro-Code Editor is enabled in your Domo instance. After 11/13/2024 this will be automatically enabled.
-> - Access to any dataset referenced in the Brick being migrated.
-
-- Access to Domo's Pro-Code Editor.
-  - Ensure that Pro-Code Editor is enabled in your Domo instance. After 11/18/2024, it will be automatically enabled.
+<Note>
+**Prerequisites**
+- Access to Domo's Pro-Code Editor: Ensure that Pro-Code Editor is enabled in your Domo instance. After 11/13/2024 this will be automatically enabled.
 - Access to any dataset referenced in the Brick being migrated.
+</Note>
 
 You can convert your Brick **semi-automatically** with the “Convert to App” button or **manually** by copying and pasting.
 
@@ -25,14 +20,14 @@ You can convert your Brick **semi-automatically** with the “Convert to App” 
 
 1. **Edit** your Brick
 1. Click the “**Convert to App**” button in the header.
+<Frame>
+  ![button](/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png)
+</Frame>
 
-![The button is in the header of the brick editor, next to the COLLABORATORS button.](/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png)
-
-{/* theme: info */}
-
-> #### Dataset Configuration Transfer
->
-> Notice that upon converting, the datasets you had wired previously have **automatically** been **transferred** to your [manifest.json]
+<Note>
+**Dataset Configuration Transfer**
+Notice that upon converting, the datasets you had wired previously have **automatically** been **transferred** to your [manifest.json].
+</Note>
 
 ### 2. Replace `window.datasets`
 

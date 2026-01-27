@@ -10,17 +10,15 @@ info:
 
     The DataSet API allows you to create, replace, append to, export, and manage DataSets, as well as manage data permissions for DataSets within Domo. Most of its calls return a DataSet object.
 
-    <!-- theme: info -->
+    <Note>
+    **Best Practice**
+    The DataSet API should be used to create and update small DataSets that occasionally need their data updated. For creating and updating massive, constantly changing, or rapidly growing DataSets, the Stream API is recommended.
+    </Note>
 
-    > #### Best Practice
-    >
-    > The DataSet API should be used to create and update small DataSets that occasionally need their data updated. For creating and updating massive, constantly changing, or rapidly growing DataSets, the Stream API is recommended.
-
-    <!-- theme: info -->
-
-    > #### Permissions
-    >
-    > To update or write to a DataSet via API, you must have the Manage DataSet grant enabled.
+    <Note>
+    **Permissions**
+    To update or write to a DataSet via API, you must have the Manage DataSet grant enabled.
+    </Note>
 
     ### Attributes
 
@@ -231,10 +229,11 @@ paths:
       description: |
         Updates the specified DataSet’s metadata by providing values to parameters passed.
 
-        <!-- theme: info -->
-        > #### Appending _Data_
-        >
-        > To import **additional rows** into an existing DataSet, use the DataSet Import endpoint or the [Simple API](/portal/d984e2fec9b18-import-data-into-data-set).
+        <Note>
+        **Appending _Data_**
+        To import **additional rows** into an existing DataSet, use the DataSet Import endpoint or the [Simple API](/portal/d984e2fec9b18-import-data-into-data-set).
+        </Note>
+       
       requestBody:
         content:
           application/json:

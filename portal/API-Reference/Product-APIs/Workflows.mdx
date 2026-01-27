@@ -24,7 +24,7 @@ Starts a Workflow and returns details about the Workflow Instance.
 **Method:** `POST`  
 **Endpoint:** `https://{instance}.domo.com/api/workflow/v1/instances/message`
 
-#### Request Body
+**Request Body**
 
 | Property Name | Type   | Required | Description                                                                     |
 | ------------- | ------ | -------- | ------------------------------------------------------------------------------- |
@@ -60,7 +60,7 @@ A simple example of a workflow that takes two numerical inputs, might look like 
 { "parameter1": 13, "parameter2": 7 }
 ```
 
-#### Example
+**Example**
 
 ```json
 {
@@ -79,7 +79,7 @@ A simple example of a workflow that takes two numerical inputs, might look like 
 }
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the information about the instance of the Workflow that was just started. The `status` property can take the values `null`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
 
@@ -160,13 +160,13 @@ Changes the permissions of a workflow.
 **Method:** `POST`  
 **Endpoint:** `https://{instance}.domo.com/api/workflow/v1/models/${modelId}/permissions`
 
-#### Request Body
+**Request Body**
 
 | Property Name | Type   | Required | Description                   |
 | ------------- | ------ | -------- | ----------------------------- |
 | modelId       | String | Required | The id of the workflow model. |
 
-#### Example
+**Example**
 
 ```json
 {
@@ -206,7 +206,7 @@ Changes the permissions of a workflow.
 }
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 ```json
 HTTP/1.1 200 OK

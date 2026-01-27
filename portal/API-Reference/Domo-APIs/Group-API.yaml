@@ -113,10 +113,9 @@ paths:
       description: |-
         Permanently deletes a group from your Domo instance.
 
-        <!-- theme: danger -->
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
   /v1/groups:
     get:
       summary: List groups

@@ -134,11 +134,11 @@ paths:
         Updates the specified user by providing values to parameters passed. Any parameter left out of the request will cause the specific user’s attribute to remain unchanged.
 
 
-        <!-- theme: yeild -->
-
-        > #### Known Limitation
-        >
-        > Currently all user fields are required
+        <Warning>
+        **Known Limitation**
+        Currently all user fields are required
+        </Warning>
+        
       parameters:
         - schema:
             type: string

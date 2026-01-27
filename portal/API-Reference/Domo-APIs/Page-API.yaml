@@ -195,10 +195,9 @@ paths:
       description: |-
         Permanently deletes a page from your Domo instance.
 
-        <!-- theme: warning -->
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
   /v1/pages:
     get:
       summary: List pages
@@ -580,10 +579,9 @@ paths:
       description: |
         Permanently deletes a page collection from your Domo instance.
 
-        <!-- theme: warning -->
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
 components:
   schemas: {}
   securitySchemes:
