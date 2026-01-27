@@ -23,7 +23,7 @@ Once published to an instance, your app will be editable as a Pro-Code App. This
 Before starting this tutorial, ensure you have:
 
 - **Node.js** installed (version 18 or higher) - This is required for running the Domo CLI and managing dependencies. Use [nvm](https://github.com/nvm-sh/nvm?tab=readme-ov-file#install--update-script) to manage your Node.js version.
-- [Domo CLI installed](../Tools/domo-CLI.md#installation)
+- [Domo CLI installed](/portal/Apps/App-Framework/Tools/domo-CLI#installation)
 - A Domo instance with appropriate permissions
 - A code editor (VS Code recommended)
 
@@ -42,7 +42,7 @@ npm update -g ryuu
 
 ```
 
-If you haven't installed the Domo CLI yet, you can install it by following the [Setup and Installation Guide](../Tools/domo-CLI.md#installation).
+If you haven't installed the Domo CLI yet, you can install it by following the [Setup and Installation Guide](/portal/Apps/App-Framework/Tools/domo-CLI#installation).
 
 ### Authenticate to Your Instance
 
@@ -142,7 +142,7 @@ The `manifest.json` is crucial for local development:
 - `mapping`: Defines data connections
 - `size`: Sets app dimensions within Domo
 
-See our guide on [The Manifest File](./manifest.md) for more information.
+See our guide on [The Manifest File](/portal/Apps/App-Framework/Guides/manifest) for more information.
 
 ### Adding a Thumbnail
 
@@ -153,7 +153,7 @@ See our guide on [The Manifest File](./manifest.md) for more information.
 1. **Create or find an image** (PNG) - it must be named `thumbnail.png` and it must be 300x300 pixels
 2. **Add it to your project folder** (e.g., `thumbnail.png`)
 
-**Need a quick thumbnail?** You can use this [sample thumbnail](../../../../assets/images/thumbnail-procode.png) as a starting point.
+**Need a quick thumbnail?** You can use this [sample thumbnail](/images/dev/stoplight.io/images/thumbnail-procode.png) as a starting point.
 
 ## Step 3: Initial Local Development
 
@@ -230,7 +230,7 @@ To keep things secure, local queries to Domo are proxied through a card in your 
 
 This approach uses indirect access to your Domo instance's API, which is a security best practice and is required for using AppDB, Workflows, Code Engine, and other Domo services.
 
-See our guide on [The Manifest File](./manifest.md#getting-a-proxyid-advanced) for more information.
+See our guide on [The Manifest File](/portal/Apps/App-Framework/Guides/manifest#getting-a-proxyid-advanced) for more information.
 
 ## Step 6: Full Development Workflow
 
@@ -276,8 +276,7 @@ Congratulations! You've learned the essential workflow for local development wit
 
 ### Next Steps
 
-- Explore the [Domo Apps CLI documentation](../Tools/domo-CLI.md) for more advanced features
-- Check out other [tutorials](./Overview.md) for specific app types
+- Explore the [Domo Apps CLI documentation](/portal/Apps/App-Framework/Tools/domo-CLI) for more advanced features
 - Join the [Domo Developer Community](https://developer.domo.com/community)
 
 ---

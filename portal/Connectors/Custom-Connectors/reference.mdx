@@ -12,10 +12,10 @@ These methods are provided by Domo in the Connector Dev Studio to make it easier
 
 These methods are specifically used in the authentication code block.
 
-| **Method**                                                                       | **Parameters** | **Return** | **Description**                                                                                          |
-| -------------------------------------------------------------------------------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
-| [auth.authenticationSuccess()](#authauthenticationsuccess)                       | none           | none       | Set during the authentication process to indicate that the credentials have been successfully validated. |
-| [auth.authenticationFailed(errorMessage)](#authauthenticationfailederrormessage) | errorMessage   | none       | Set during the authentication process to indicate that the credentials could not be validated.           |
+| **Method**                                                                         | **Parameters** | **Return** | **Description**                                                                                          |
+| ---------------------------------------------------------------------------------- | -------------- | ---------- | -------------------------------------------------------------------------------------------------------- |
+| [auth.authenticationSuccess()](#auth-authenticationsuccess)                        | none           | none       | Set during the authentication process to indicate that the credentials have been successfully validated. |
+| [auth.authenticationFailed(errorMessage)](#auth-authenticationfailed-errormessage) | errorMessage   | none       | Set during the authentication process to indicate that the credentials could not be validated.           |
 
 ### Datagrid
 
@@ -25,26 +25,26 @@ Domo provides methods and constants to help you insert your data into Domo. Thes
 
 These constants are used to define the data type of a column in a datagrid.
 
-|                                                            |                                                                                                                           |
-| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| **Name**                                                   | **Description**                                                                                                           |
-| [datagrid.DATA_TYPE_STRING](#datagriddata_type_string)     | Set a column dataType to receive a string.                                                                                |
-| [datagrid.DATA_TYPE_DOUBLE](#datagriddata_type_double)     | Set a column dataType to receive a number.                                                                                |
-| [datagrid.DATA_TYPE_DATETIME](#datagriddata_type_datetime) | Set a column dataType to receive a date/time. Dates inserted into the table need to be formatted _yyyy-MM-dd’T’HH:mm:ss_. |
-| [datagrid.DATA_TYPE_DATE](#datagriddata_type_date)         | Set a column dataType to receive a date. Dates inserted into the table need to be formatted _yyyy-MM-dd_.                 |
+|                                                             |                                                                                                                           |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| **Name**                                                    | **Description**                                                                                                           |
+| [datagrid.DATA_TYPE_STRING](#datagrid-data_type_string)     | Set a column dataType to receive a string.                                                                                |
+| [datagrid.DATA_TYPE_DOUBLE](#datagrid-data_type_double)     | Set a column dataType to receive a number.                                                                                |
+| [datagrid.DATA_TYPE_DATETIME](#datagrid-data_type_datetime) | Set a column dataType to receive a date/time. Dates inserted into the table need to be formatted _yyyy-MM-dd’T’HH:mm:ss_. |
+| [datagrid.DATA_TYPE_DATE](#datagrid-data_type_date)         | Set a column dataType to receive a date. Dates inserted into the table need to be formatted _yyyy-MM-dd_.                 |
 
 These methods are used when storing data from your API endpoint in Domo.
 
-|                                                                                   |                      |            |                                                                                                  |
-| --------------------------------------------------------------------------------- | -------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
-| **Method**                                                                        | **Parameters**       | **Return** | **Description**                                                                                  |
-| [datagrid.addColumn(columnName, dataType)](#datagridaddcolumncolumnname-datatype) | columnName, dataType | none       | Adds a column to a table. Defines the data type used by the column.                              |
-| [datagrid.addCell(cellData)](#datagridaddcellcelldata)                            | cellData             | none       | Adds data to one cell in the table. Columns must be defined first.                               |
-| [datagrid.endRow()](#datagridendrow)                                              | none                 | none       | Indicates a row of data is complete and a new row in the table needs to be started.              |
-| [datagrid.error(code, errorMessage)](#datagriderrorcode-errormessage)             | code, errorMessage   | none       | Ends the processing of data and returns an error message to the user.                            |
-| [datagrid.magicParseCSV(csvString)](#datagridmagicparsecsvcsvstring)              | csvString            | none       | Populates the entire datagrid when passed a properly formatted string of comma-separated values. |
-| [datagrid.magicParseJSON(jsonString)](#datagridmagicparsejsonjsonstring)          | jsonString           | none       | Populates the entire datagrid when passed a string representation of properly formatted JSON.    |
-| [datagrid.magicParseXML(xmlString)](#datagridmagicparsexmlxmlstring)              | xmlString            | none       | Populates the entire datagrid when passed a string representation of properly formatted XML.     |
+|                                                                                      |                      |            |                                                                                                  |
+| ------------------------------------------------------------------------------------ | -------------------- | ---------- | ------------------------------------------------------------------------------------------------ |
+| **Method**                                                                           | **Parameters**       | **Return** | **Description**                                                                                  |
+| [datagrid.addColumn(columnName, dataType)](#datagrid-addcolumn-columnname,-datatype) | columnName, dataType | none       | Adds a column to a table. Defines the data type used by the column.                              |
+| [datagrid.addCell(cellData)](#datagrid-addcellcelldata)                              | cellData             | none       | Adds data to one cell in the table. Columns must be defined first.                               |
+| [datagrid.endRow()](#datagrid-endrow)                                                | none                 | none       | Indicates a row of data is complete and a new row in the table needs to be started.              |
+| [datagrid.error(code, errorMessage)](#datagrid-error-code,-errormessage)             | code, errorMessage   | none       | Ends the processing of data and returns an error message to the user.                            |
+| [datagrid.magicParseCSV(csvString)](#datagrid-magicparsecsv-csvstring)               | csvString            | none       | Populates the entire datagrid when passed a properly formatted string of comma-separated values. |
+| [datagrid.magicParseJSON(jsonString)](#datagrid-magicparsejson-jsonstring)           | jsonString           | none       | Populates the entire datagrid when passed a string representation of properly formatted JSON.    |
+| [datagrid.magicParseXML(xmlString)](#datagrid-magicparsexml-xmlstring)               | xmlString            | none       | Populates the entire datagrid when passed a string representation of properly formatted XML.     |
 
 ### Discovery
 
@@ -54,21 +54,21 @@ If you are using the Discovery option in Advanced Mode in the Configure Reports 
 
 This constant is used when building a discovery tree menu.
 
-|                                  |                                                                                |
-| -------------------------------- | ------------------------------------------------------------------------------ |
-| **Name**                         | **Description**                                                                |
-| [discovery.tree](#discoverytree) | Used with a discovery tree. This references the root node in a discovery tree. |
+|                                   |                                                                                |
+| --------------------------------- | ------------------------------------------------------------------------------ |
+| **Name**                          | **Description**                                                                |
+| [discovery.tree](#discovery-tree) | Used with a discovery tree. This references the root node in a discovery tree. |
 
 These methods are used when building a discovery tree or discovery dropdown.
 
-|                                                                                 |                         |             |                                                                                                                                                    |
-| ------------------------------------------------------------------------------- | ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Method**                                                                      | **Parameters**          | **Return**  | **Description**                                                                                                                                    |
-| [discovery.addOption(optionValue)](#discoveryaddoptionoptionvalue)              | optionValue             | none        | Used with a discovery dropdown. Adds an option to the dropdown menu.                                                                               |
-| [discovery.addOption(optionName,optionValue)](#discoveryaddoption)              | optionName, optionValue | none        | Used with a discovery dropdown. Adds an option to the dropdown menu. Option name appears as label, option value is used in the code.               |
-| [discovery.addNode(parentNode, nodeName)](#discoveryaddnodeparentnode-nodename) | parentNode, nodeName    | createdNode | Used with a discovery tree. Creates a new child node within the node that is passed as a parameter. Returns a reference to the newly created node. |
-| [discovery.addLeaf(parentNode, leafName)](#discoveryaddleafparentnode-leafname) | parentNode, leafName    | none        | Used with a discovery tree. Creates a new child leaf within the node that is passed as a parameter.                                                |
-| [discovery.publishTree()](#discoverypublishtree)                                | none                    | none        | Used with a discovery tree. This method indicates that you have finished constructing a discovery tree.                                            |
+|                                                                                    |                         |             |                                                                                                                                                    |
+| ---------------------------------------------------------------------------------- | ----------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Method**                                                                         | **Parameters**          | **Return**  | **Description**                                                                                                                                    |
+| [discovery.addOption(optionValue)](#discovery-addoption-optionvalue)               | optionValue             | none        | Used with a discovery dropdown. Adds an option to the dropdown menu.                                                                               |
+| [discovery.addOption(optionName,optionValue)](#discovery-addoption)                | optionName, optionValue | none        | Used with a discovery dropdown. Adds an option to the dropdown menu. Option name appears as label, option value is used in the code.               |
+| [discovery.addNode(parentNode, nodeName)](#discovery-addnode-parentnode,-nodename) | parentNode, nodeName    | createdNode | Used with a discovery tree. Creates a new child node within the node that is passed as a parameter. Returns a reference to the newly created node. |
+| [discovery.addLeaf(parentNode, leafName)](#discovery-addleaf-parentnode,-leafname) | parentNode, leafName    | none        | Used with a discovery tree. Creates a new child leaf within the node that is passed as a parameter.                                                |
+| [discovery.publishTree()](#discovery-publishtree)                                  | none                    | none        | Used with a discovery tree. This method indicates that you have finished constructing a discovery tree.                                            |
 
 ### Domo
 
@@ -76,26 +76,27 @@ These methods are used when building a discovery tree or discovery dropdown.
 
 These methods may be useful in any code block.
 
-|                                                                                           |                |            |                                                                                                                                           |
-| ----------------------------------------------------------------------------------------- | -------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| **Method**                                                                                | **Parameters** | **Return** | **Description**                                                                                                                           |
-| [DOMO.log(value)](#domologvalue)                                                          | value          | none       | Prints to the Dev Studio console. Make sure you remove any credentials that you are logging for testing before you submit your connector. |
-| [DOMO.sleep(milliseconds)](#domosleepmilliseconds)                                        | milliseconds   | none       | Can be used to space out HTTP requests.                                                                                                   |
-| [DOMO.getState(key)](#domogetstatekey)                                                    | key            | value      | Returns the value of the requested state.                                                                                                 |
-| [DOMO.setState(key, value)](#domosetstatekey-value)                                       | key, value     | none       | Can be used to set a state value which can be returned using DOMO.getState(key).                                                          |
-| [DOMO.parseXML(xmlString)](#domoparsexmlxmlstring)                                        | xmlString      | jsonObject | Used to convert XML to JSON for easier parsing.                                                                                           |
-| [DOMO.getStartDate(metadata.parameters["Date"])](#domogetstartdatemetadataparametersdate) | Date           | date       | Used to set the start date.                                                                                                               |
-| [DOMO.getEndDate(metadata.parameters["Date"])](#domogetenddatemetadataparametersdate)     | Date           | date       | Used to set the end date.                                                                                                                 |
+|                                                                                                  |                |            |                                                                                                                                           |
+| ------------------------------------------------------------------------------------------------ | -------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Method**                                                                                       | **Parameters** | **Return** | **Description**                                                                                                                           |
+| [DOMO.log(value)](#domo-log-value)                                                               | value          | none       | Prints to the Dev Studio console. Make sure you remove any credentials that you are logging for testing before you submit your connector. |
+| [DOMO.sleep(milliseconds)](#domo-sleep-milliseconds)                                             | milliseconds   | none       | Can be used to space out HTTP requests.                                                                                                   |
+| [DOMO.getState(key)](#domo-getstate-key)                                                         | key            | value      | Returns the value of the requested state.                                                                                                 |
+| [DOMO.setState(key, value)](#domo-setstate-key,-value)                                           | key, value     | none       | Can be used to set a state value which can be returned using DOMO.getState(key).                                                          |
+| [DOMO.parseXML(xmlString)](#domo-parsexml-xmlstring)                                             | xmlString      | jsonObject | Used to convert XML to JSON for easier parsing.                                                                                           |
+| [DOMO.getStartDate(metadata.parameters["Date"])](#domo-getstartdate-metadata-parameters[“date”]) | Date           | date       | Used to set the start date.                                                                                                               |
+| [DOMO.getEndDate(metadata.parameters["Date"])](#domo-getenddate-metadata-parameters[“date”])     | Date           | date       | Used to set the end date.                                                                                                                 |
 
-|                                                                              |                     |               |                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------------------------------------- | ------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Encoding Method**                                                          | **Parameters**      | **Return**    | **Description**                                                                                                                                                                                                                                                             |
-| [DOMO.b64EncodeUnicode(stringToEncode)](#domob64encodeunicodestringtoencode) | stringToEncode      | encodedString | Encodes a string using base64 encoding.                                                                                                                                                                                                                                     |
-| [DOMO.b64DecodeUnicode(stringToDecode)](#domob64decodeunicodestringtodecode) | stringToDecode      | decodedString | Decodes a string using base64 decoding.                                                                                                                                                                                                                                     |
-| [DOMO.hmacSHA1(stringToEncode, key)](#domohmacsha1stringtoencode-key)        | stringToEncode, key | encodedString | Encodes a string using the provided key to create a hmac-SHA1 hash.                                                                                                                                                                                                         |
-| [DOMO.hmacSHA256(stringToEncode, key)](#domohmacsha256stringtoencode-key)    | stringToEncode, key | encodedString | Encodes a string using the provided key to create a hmac-SHA256 hash.                                                                                                                                                                                                       |
-| [DOMO.md5(stringToEncode)](#domomd5stringtoencode)                           | stringToEncode      | encodedString | Encodes a string using the md5 algorithm.                                                                                                                                                                                                                                   |
-| [DOMO.getJWT()](#domogetjwt)                                                 | none                | tokenString   | Creates a JSON web token (JWT) using the assigned algorithm signed with the provided key. **Note**: You must set the algorithm, key, issuer, subject, expiration, and other claims. See the provided [code example](#getJWT). **Supported algorithms**: HS256, RS256, ES256 |
+|                                                                                |                     |               |                                                                     |
+| ------------------------------------------------------------------------------ | ------------------- | ------------- | ------------------------------------------------------------------- |
+| **Encoding Method**                                                            | **Parameters**      | **Return**    | **Description**                                                     |
+| [DOMO.b64EncodeUnicode(stringToEncode)](#domo-b64encodeunicode-stringtoencode) | stringToEncode      | encodedString | Encodes a string using base64 encoding.                             |
+| [DOMO.b64DecodeUnicode(stringToDecode)](#domo-b64decodeunicode-stringtodecode) | stringToDecode      | decodedString | Decodes a string using base64 decoding.                             |
+| [DOMO.hmacSHA1(stringToEncode, key)](#domo-hmacsha1-stringtoencode,-key)       | stringToEncode, key | encodedString | Encodes a string using the provided key to create a hmac-SHA1 hash. |
+
+| [DOMO.hmacSHA256(stringToEncode, key)](#domo-hmacsha256-stringtoencode,-key) | stringToEncode, key | encodedString | Encodes a string using the provided key to create a hmac-SHA256 hash. |
+| [DOMO.md5(stringToEncode)](#domo-md5-stringtoencode) | stringToEncode | encodedString | Encodes a string using the md5 algorithm. |
+| [DOMO.getJWT()](#domo-getjwt) | none | tokenString | Creates a JSON web token (JWT) using the assigned algorithm signed with the provided key. **Note**: You must set the algorithm, key, issuer, subject, expiration, and other claims. See the provided [code example](#getJWT). **Supported algorithms**: HS256, RS256, ES256 |
 
 ### HTTP Request
 
@@ -105,20 +106,20 @@ When making your HTTP requests, use the following methods to add headers and par
 
 **Note**: All URLs must use https.
 
-|                                                                           |                 |                |                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------- | --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Method**                                                                | **Parameters**  | **Return**     | **Description**                                                                                                                                                                                                                                                                                                           |
-| [httprequest.addHeader(key, value)](#httprequestaddheaderkey-value)       | key, value      | none           | Add a header to your HTTP request. This is how you can add an Authorization header or any other header you need to your HTTP request. Add headers and parameters before you make the HTTP request.                                                                                                                        |
-| [httprequest.addParameter(key, value)](#httprequestaddparameterkey-value) | key, value      | none           | Add a parameter to a base URL. Add headers and parameters before you make the HTTP request.                                                                                                                                                                                                                               |
-| [httprequest.clearParameters()](#httprequestclearparameters)              | none            | none           | Remove any parameters you have added to an HTTP request object.                                                                                                                                                                                                                                                           |
-| [httprequest.clearHeaders()](#httprequestclearheaders)                    | none            | none           | Remove any headers you have added to an HTTP request object.                                                                                                                                                                                                                                                              |
-| [httprequest.getHeader(key)](#httprequestgetheaderkey)                    | key             | headerValue    | Get a string containing a particular header's value from your HTTP request. If you have added headers using the httprequest.addHeader method, you can use this method to retrieve that value.                                                                                                                             |
-| [httprequest.getResponseHeader(key)](#httprequestgetresponseheaderkey)    | key             | headerValue    | Get the string containing a particular header’s value from your HTTP response. If there are multiple response headers with the same name, then their values are returned as a single concatenated string, where each value is separated by a pair of comma and space.                                                     |
-| [httprequest.getStatusCode()](#httprequestgetstatuscode)                  | none            | responseCode   | Get the HTTP response code from your HTTP request. After you make a httprequest.get, httprequest.post, or httprequest.post call, the HTTP response will have a number code. Usually 200 is used if the request has succeeded. For more information, see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). |
-| [httprequest.get(url)](#httprequestgeturl)                                | url             | responseString | Make an HTTP GET request. Any headers or parameters added before making the request will be included by Domo when making the get request. All URLs must use https.                                                                                                                                                        |
-| [httprequest.post(url)](#httprequestposturl)                              | url             | responseString | Make an HTTP POST request without any request body. Any headers or parameters added before making the request will be included by Domo when making the post request. All URLs must use https.                                                                                                                             |
-| [httprequest.post(url, bodyString)](#httprequestposturl-bodystring)       | url, bodyString | responseString | Make an HTTP POST request with a request body. Any headers or parameters added before making the request will be included by Domo when making the post request. All URLs must use https.                                                                                                                                  |
-| [httprequest.put(url, bodyString)](#httprequestputurl-bodystring)         | url, bodyString | responseString | Make an HTTP PUT request with a request body. Any headers or parameters added before making the request will be included by Domo when making the put request. All URLs must use https.                                                                                                                                    |
+|                                                                              |                 |                |                                                                                                                                                                                                                                                                                                                           |
+| ---------------------------------------------------------------------------- | --------------- | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Method**                                                                   | **Parameters**  | **Return**     | **Description**                                                                                                                                                                                                                                                                                                           |
+| [httprequest.addHeader(key, value)](#httprequest-addheader-key,-value)       | key, value      | none           | Add a header to your HTTP request. This is how you can add an Authorization header or any other header you need to your HTTP request. Add headers and parameters before you make the HTTP request.                                                                                                                        |
+| [httprequest.addParameter(key, value)](#httprequest-addparameter-key,-value) | key, value      | none           | Add a parameter to a base URL. Add headers and parameters before you make the HTTP request.                                                                                                                                                                                                                               |
+| [httprequest.clearParameters()](#httprequest-clearparameters)                | none            | none           | Remove any parameters you have added to an HTTP request object.                                                                                                                                                                                                                                                           |
+| [httprequest.clearHeaders()](#httprequest-clearheaders)                      | none            | none           | Remove any headers you have added to an HTTP request object.                                                                                                                                                                                                                                                              |
+| [httprequest.getHeader(key)](#httprequest-getheader-key)                     | key             | headerValue    | Get a string containing a particular header's value from your HTTP request. If you have added headers using the httprequest.addHeader method, you can use this method to retrieve that value.                                                                                                                             |
+| [httprequest.getResponseHeader(key)](#httprequest-getresponseheader-key)     | key             | headerValue    | Get the string containing a particular header’s value from your HTTP response. If there are multiple response headers with the same name, then their values are returned as a single concatenated string, where each value is separated by a pair of comma and space.                                                     |
+| [httprequest.getStatusCode()](#httprequest-getstatuscode)                    | none            | responseCode   | Get the HTTP response code from your HTTP request. After you make a httprequest.get, httprequest.post, or httprequest.post call, the HTTP response will have a number code. Usually 200 is used if the request has succeeded. For more information, see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). |
+| [httprequest.get(url)](#httprequest-get-url)                                 | url             | responseString | Make an HTTP GET request. Any headers or parameters added before making the request will be included by Domo when making the get request. All URLs must use https.                                                                                                                                                        |
+| [httprequest.post(url)](#httprequest-post-url)                               | url             | responseString | Make an HTTP POST request without any request body. Any headers or parameters added before making the request will be included by Domo when making the post request. All URLs must use https.                                                                                                                             |
+| [httprequest.post(url, bodyString)](#httprequest-post-url,-bodystring)       | url, bodyString | responseString | Make an HTTP POST request with a request body. Any headers or parameters added before making the request will be included by Domo when making the post request. All URLs must use https.                                                                                                                                  |
+| [httprequest.put(url, bodyString)](#httprequest-put-url,-bodystring)         | url, bodyString | responseString | Make an HTTP PUT request with a request body. Any headers or parameters added before making the request will be included by Domo when making the put request. All URLs must use https.                                                                                                                                    |
 
 ### Metadata
 
@@ -226,7 +227,6 @@ var res = aws.get("project/documents", "test.json");
 
 These methods are specifically used in the authentication code block.
 
-<a id="authauthenticationsuccess"></a>
 #### auth.authenticationSuccess()
 
 _Set during the authentication process to indicate that the credentials have been successfully validated._
@@ -260,7 +260,6 @@ auth.authenticationFailed('Your username and password are incorrect');
 }
 ```
 
-<a id="authauthenticationfailederrormessage"></a>
 #### auth.authenticationFailed(errorMessage)
 
 _Set during the authentication process to indicate that the credentials could not be validated._
@@ -296,7 +295,6 @@ if(httprequest.getStatusCode() == 200){
 
 These constants are specifically used in the data processing code block to define the type of your data in each of your datagrid columns.
 
-<a id="datagriddata_type_string"></a>
 #### datagrid.DATA_TYPE_STRING
 
 _Set a column dataType to receive a string._
@@ -307,7 +305,6 @@ Example:
 datagrid.addColumn(‘Account ID’, datagrid.DATA_TYPE_STRING);
 ```
 
-<a id="datagriddata_type_double"></a>
 #### datagrid.DATA_TYPE_DOUBLE
 
 _Set a column dataType to receive a number._
@@ -318,7 +315,6 @@ Example:
 datagrid.addColumn(‘Amount’, datagrid.DATA_TYPE_DOUBLE);
 ```
 
-<a id="datagriddata_type_datetime"></a>
 #### datagrid.DATA_TYPE_DATETIME
 
 _Set a column dataType to receive a string. Dates inserted into the table need to be formatted yyyy-MM-dd’T’HH:mm:ss._
@@ -329,7 +325,6 @@ Example:
 datagrid.addColumn(‘Date Created’, datagrid.DATA_TYPE_DATETIME);
 ```
 
-<a id="datagriddata_type_date"></a>
 #### datagrid.DATA_TYPE_DATE
 
 _Set a column dataType to receive a string. Dates inserted into the table need to be formatted yyyy-MM-dd_
@@ -346,7 +341,6 @@ These methods are specifically used in the data processing code block to insert 
 
 ---
 
-<a id="datagridaddcolumncolumnname-datatype"></a>
 #### datagrid.addColumn(columnName, dataType)
 
 _Adds a column to a table. Defines the data type used by the column._
@@ -375,7 +369,6 @@ datagrid.addColumn(‘Name’, datagrid.DATA_TYPE_STRING);
 
 ---
 
-<a id="datagridaddcellcelldata"></a>
 #### datagrid.addCell(cellData)
 
 _Adds data to one cell in the table. Columns must be defined first._
@@ -403,7 +396,6 @@ datagrid.addCell(‘Jane Jones’);
 
 ---
 
-<a id="datagridendrow"></a>
 #### datagrid.endRow()
 
 _Indicates a row of data is complete and a new row in the table needs to be started._
@@ -437,7 +429,6 @@ datagrid.endRow();
 
 ---
 
-<a id="datagriderrorcode-errormessage"></a>
 #### datagrid.error(code, errorMessage)
 
 _Ends the processing of data and returns an error message to the user._
@@ -466,7 +457,6 @@ datagrid.error(0, metadata.report + ‘ is not a supported report.’);
 
 ---
 
-<a id="datagridmagicparsecsvcsvstring"></a>
 #### datagrid.magicParseCSV(csvString)
 
 _Populates the entire datagrid when passed a properly formatted string of comma-separated values. The magicParse automatically determines type, and leaves any undetermined types as strings._
@@ -502,7 +492,6 @@ Result:
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/25124149/datagridMagicParseCSV.png)
 </Frame>
 
-<a id="datagridmagicparsejsonjsonstring"></a>
 #### datagrid.magicParseJSON(jsonString)
 
 _Populates the entire datagrid when passed a string representation of properly formatted JSON. The magicParse automatically determines type, and leaves any undetermined types as strings._
@@ -546,7 +535,6 @@ Result:
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/25131237/datagridMagicParseJSON.png)
 </Frame>
 
-<a id="datagridmagicparsexmlxmlstring"></a>
 #### datagrid.magicParseXML(xmlString)
 
 _Populates the entire datagrid when passed a string representation of properly formatted XML. The magicParse automatically determines type, and leaves any undetermined types as strings._
@@ -599,7 +587,6 @@ Result:
 
 This constant is used when building a discovery tree menu in the Configure Reports Advanced Mode.
 
-<a id="discoverytree"></a>
 #### discovery.tree
 
 _Used with a discovery tree. This references the root node in a discovery tree._
@@ -619,7 +606,6 @@ discovery.addNode(discovery.tree, "Marketing");
 
 These methods are used when building a discovery tree or discovery dropdown in the Configure Reports Advanced Mode.
 
-<a id="discoveryaddoptionoptionvalue"></a>
 #### discovery.addOption(optionValue)
 
 _Used with a discovery dropdown. Adds an option to the dropdown menu._
@@ -655,7 +641,6 @@ Result:
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/25154856/discoveryAddOption.png)
 </Frame>
 
-<a id="discoveryaddnodeparentnode-nodename"></a>
 #### discovery.addNode(parentNode, nodeName)
 
 _Used with a discovery tree. Creates a new child node within the node that is passed as a parameter. To create a node at the root level, you must use discovery.tree as the node parameter._
@@ -704,7 +689,6 @@ Result:
 
 ---
 
-<a id="discoveryaddleafparentnode-leafname"></a>
 #### discovery.addLeaf(parentNode, leafName)
 
 _Used with a discovery tree. Creates a new child leaf within the node that is passed as a parameter._
@@ -743,7 +727,6 @@ Result:
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/25155851/discoveryAddLeaf.png)
 </Frame>
 
-<a id="discoverypublishtree"></a>
 #### discovery.publishTree()
 
 _Used with a discovery tree. This method indicates when you have finished constructing a discovery tree._
@@ -775,7 +758,6 @@ for (let name of data) {
 discovery.publishTree();
 ```
 
-<a id="discoveryaddoption"></a>
 #### discovery.addOption()
 
 _Used with a discovery dropdown. Adds an option to the dropdown menu. Option name appears as label, option value is used in the code._
@@ -801,7 +783,6 @@ Returns:
 
 These methods may be useful in any code block.
 
-<a id="domologvalue"></a>
 #### DOMO.log(value)
 
 _Prints to the Dev Studio console. Make sure you remove any credentials that you are logging for testing before you submit your connector._
@@ -829,7 +810,6 @@ DOMO.log(metadata);
 DOMO.log(‘metadata.report: ‘ + metadata.report);
 ```
 
-<a id="domosleepmilliseconds"></a>
 #### DOMO.sleep(milliseconds)
 
 _Can be used to space out http requests._
@@ -855,7 +835,6 @@ Example:
 DOMO.sleep(5000);
 ```
 
-<a id="domogetstatekey"></a>
 #### DOMO.getState(key)
 
 _If you have set a state for your connector, this method returns the value of the requested state._
@@ -885,7 +864,6 @@ var value = DOMO.getState("key");
 DOMO.log(value);
 ```
 
-<a id="domosetstatekey-value"></a>
 #### DOMO.setState(key, value)
 
 _If you need to set a state for your connector, this method can be used to set a state value which can be returned using DOMO.getState(key)._
@@ -916,7 +894,6 @@ var value = DOMO.getState(1);
 DOMO.log(value);
 ```
 
-<a id="domoparsexmlxmlstring"></a>
 #### DOMO.parseXML(xmlString)
 
 _Used to convert XML to JSON for easier parsing._
@@ -1035,7 +1012,6 @@ var endDate = DOMO.getEndDate(metadata.parameters['Date']);
 
 These methods may be useful in any code block to encode data.
 
-<a id="domob64encodeunicodestringtoencode"></a>
 #### DOMO.b64EncodeUnicode(stringToEncode)
 
 _Encodes a string using base64 encoding. Base64 encoding is used in the Basic Authentication process, and most endpoints that use username and password will use the Basic Authentication standard._
@@ -1061,7 +1037,6 @@ Example:
 var encodedString = DOMO.b64EncodeUnicode(metadata.account.username + ‘:’ + metadata.account.password);
 ```
 
-<a id="domohmacsha1stringtoencode-key"></a>
 #### DOMO.hmacSHA1(stringToEncode, key)
 
 _Encodes a string using the provided key to create a hmac-SHA1 hash._
@@ -1088,7 +1063,6 @@ Example:
 var encodedString = DOMO.hmacSHA1(“password”, “key”);
 ```
 
-<a id="domohmacsha256stringtoencode-key"></a>
 #### DOMO.hmacSHA256(stringToEncode, key)
 
 _Encodes a string using the provided key to create a hmac-SHA256 hash._
@@ -1117,7 +1091,6 @@ var encodedString = DOMO.hmacSHA256(“password”, “key”);
 
 ---
 
-<a id="domomd5stringtoencode"></a>
 #### DOMO.md5(stringToEncode)
 
 _Encodes a string with the md5 algorithm._
@@ -1143,7 +1116,6 @@ Example:
 var encodedString = DOMO.md5(“password”);
 ```
 
-<a id="domogetjwt"></a>
 #### DOMO.getJWT()
 
 _Creates a JSON web token (JWT) token using the assigned algorithm signed with the provided key.
@@ -1187,7 +1159,6 @@ var token = DOMO.getJWT();
 
 This method may be useful in any code block to decode data.
 
-<a id="domob64decodeunicodestringtodecode"></a>
 #### DOMO.b64DecodeUnicode(stringToDecode)
 
 _Decodes a string using base64 decoding. Base64 decoding is used in the Basic Authentication process, and most endpoints that use username and password will use the Basic Authentication standard._
@@ -1220,7 +1191,6 @@ var decodedString = DOMO.b64DecodeUnicode(metadata.account.username + ‘:’ + 
 These methods may be useful in any code block. When making your HTTP requests, use the following methods to add headers and parameters, and to make HTTP calls.
 **Note**: All URLs must use https.
 
-<a id="httprequestaddheaderkey-value"></a>
 #### httprequest.addHeader(key, value)
 
 _Add a header to your HTTP request. This is how you can add an Authorization header or any other header you need to your HTTP request. Add headers and parameters before you make the HTTP request._
@@ -1253,7 +1223,6 @@ httprequest.addHeader('Authorization', 'Basic ' + encodedData);
 var res = httprequest.get('https://developer.domo.com/samplecrm');
 ```
 
-<a id="httprequestaddparameterkey-value"></a>
 #### httprequest.addParameter(key, value)
 
 _Add a parameter to a base URL. Add headers and parameters before you make the HTTP request._
@@ -1287,7 +1256,6 @@ httprequest.addParameter('fields', 'id,name,accounts');
 var res = httprequest.get('https://graph.facebook.com/v3.1/me');
 ```
 
-<a id="httprequestclearparameters"></a>
 #### httprequest.clearParameters()
 
 _Remove all parameters you have added to an httprequest object._
@@ -1324,7 +1292,6 @@ var res = httprequest.get('https://graph.facebook.com/v3.1/me');
 httprequest.clearParameters();
 ```
 
-<a id="httprequestclearheaders"></a>
 #### httprequest.clearHeaders()
 
 _Remove all headers you have added to an httprequest object._
@@ -1359,7 +1326,6 @@ var res = httprequest.get('https://developer.domo.com/samplecrm');
 httprequest.clearHeaders();
 ```
 
-<a id="httprequestgetheaderkey"></a>
 #### httprequest.getHeader(key)
 
 _Get a string containing a particular header's value from your HTTP request. If you have added headers using the httprequest.addHeader method, you can use this method to retrieve that value._
@@ -1395,7 +1361,6 @@ DOMO.log(httprequest.getHeader('Agent'));
 var res = httprequest.get('https://developer.domo.com/samplecrm');
 ```
 
-<a id="httprequestgetresponseheaderkey"></a>
 #### httprequest.getResponseHeader(key)
 
 _When you make an HTTP request, the response will usually include a header containing a set of key/value pairs. Use this method to get the string containing a particular header’s value from your HTTP response. If there are multiple response headers with the same name, then their values are returned as a single concatenated string, where each value is separated by a pair of comma and space._
@@ -1429,7 +1394,6 @@ var res = httprequest.get('https://developer.domo.com/samplecrm');
 var expires = httprequest.getResponseHeader('Expires');
 ```
 
-<a id="httprequestgetstatuscode"></a>
 #### httprequest.getStatusCode()
 
 _Get the HTTP response code from your HTTP request. After you make a httprequest.get, httprequest.post, or httprequest.post call, the HTTP response will have a number code. Usually 200 is used if the request has succeeded. For more information, see [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status). You can use the response code to gracefully handle failed HTTP requests._
@@ -1467,7 +1431,6 @@ if (code == 200) {
 }
 ```
 
-<a id="httprequestgeturl"></a>
 #### httprequest.get(url)
 
 _Make an http get request. Any headers or parameters added before making the request will be included by Domo when making the get request.
@@ -1500,7 +1463,6 @@ httprequest.addHeader('Authorization', 'Basic ' + encodedData);
 var res = httprequest.get('https://developer.domo.com/samplecrm');
 ```
 
-<a id="httprequestposturl"></a>
 #### httprequest.post(url)
 
 _Make an HTTP post request without any request body. Any headers or parameters added before making the request will be included by Domo when making the post request.
@@ -1533,7 +1495,6 @@ httprequest.addHeader('Authorization', 'Basic ' + encodedData);
 var res = httprequest.post('https://developer.domo.com/samplecrm');
 ```
 
-<a id="httprequestposturl-bodystring"></a>
 #### httprequest.post(url, bodyString)
 
 _Make an HTTP post request with a request body. Any headers or parameters added before making the request will be included by Domo when making the post request.
@@ -1570,7 +1531,6 @@ var res = httprequest.post(
 );
 ```
 
-<a id="httprequestputurl-bodystring"></a>
 #### httprequest.put(url, bodyString)
 
 _Make an HTTP put request with a request body. Any headers or parameters added before making the request will be included by Domo when making the put request.

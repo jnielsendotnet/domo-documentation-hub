@@ -1,10 +1,7 @@
 ---
-title: 'Converting a Brick into a Pro-Code App'
-permalink: converting-a-brick-into-a-pro-code-app
-sidebarTitle: 'Converting a Brick into a Pro-Code App'
+title: 'Convert Bricks to Pro-Code Apps'
+permalink: 5db95ad6cc1a1-converting-a-brick-into-a-pro-code-app
 ---
-
-# Converting a Brick into a Pro-Code App
 
 {/* theme: info */}
 
@@ -29,7 +26,7 @@ You can convert your Brick **semi-automatically** with the “Convert to App” 
 1. **Edit** your Brick
 1. Click the “**Convert to App**” button in the header.
 
-![The button is in the header of the brick editor, next to the COLLABORATORS button.](../../../../images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png)
+![The button is in the header of the brick editor, next to the COLLABORATORS button.](/images/dev/stoplight.io/images/where_to_find_convert_to_app_button.png)
 
 {/* theme: info */}
 
@@ -43,7 +40,7 @@ You can convert your Brick **semi-automatically** with the “Convert to App” 
 
 Bricks use the `window.datasets` global property to execute a Configuration-driven design paradigm, while the Pro-Code Editor leverages a [manifest.json] file to implement a Metadata-driven design strategy.
 
-[manifest.json]: https://developer.domo.com/portal/af407395c766b-the-manifest-file
+[manifest.json]: /portal/Apps/App-Framework/Guides/manifest
 
 To make the switch, you'll need to **replace** any usages of `window.datasets` with the corresponding dataset **aliases** (found in your [manifest.json]).
 
@@ -91,25 +88,25 @@ As long as you've kept the order the same, that should be sufficient.
 - Select the “manifest.json” file and use the “+ Add Dataset” button.
 - Click the icon in the dataset ID input field.
 
-![choosemanifest.png](../../../../assets/images/choosemanifest.png)
+![choosemanifest.png](/images/dev/stoplight.io/images/choosemanifest.png)
 
 ### 4. Select your dataset from the modal:
 
 ---
 
-![choosedataset.png](../../../../assets/images/choosedataset.png)
+![choosedataset.png](/images/dev/stoplight.io/images/choosedataset.png)
 
 ### 5. Create an alias for the dataset ID
 
 ---
 
-- This will be used to humanize your API calls to the [DataSet endpoint(s)](https://developer.domo.com/portal/8s3y9eldnjq8d-data-api).
+- This will be used to humanize your API calls to the [DataSet endpoint(s)](/portal/API-Reference/app-framework-apis/Data-API).
 
-![mapping.png](../../../../assets/images/mapping.png)
+![mapping.png](/images/dev/stoplight.io/images/mapping.png)
 
 - In this example, the alias we chose was “mapData” – you will need to update your API calls to use this alias for your dataset.
 
-![callalias.png](../../../../assets/images/callalias.png)
+![callalias.png](/images/dev/stoplight.io/images/callalias.png)
 
 ### 6. Create an alias for each Column Name that you will be using.
 
@@ -119,7 +116,7 @@ _Note: It is not required to have all columns listed. Additionally, the Pro-Code
 
 - Ensure that your new aliases do not have any spaces or special characters in them, as the Pro-Code Editor will not allow it.
 
-![manifestalias.png](../../../../assets/images/manifestalias.png)
+![manifestalias.png](/images/dev/stoplight.io/images/manifestalias.png)
 
 ### 7. Update the dataset references
 
@@ -130,9 +127,9 @@ _Note: It is not required to have all columns listed. Additionally, the Pro-Code
 
 Here is an example from a common Brick Template. In this example the original code is on the top with the updated code on the bottom:
 
-![codebefore.png](../../../../assets/images/codebefore.png)
+![codebefore.png](/images/dev/stoplight.io/images/codebefore.png)
 
-![codeafter.png](../../../../assets/images/codeafter.png)
+![codeafter.png](/images/dev/stoplight.io/images/codeafter.png)
 
 You won’t need any references to `window.datasets`, so be sure to remove that reference!
 

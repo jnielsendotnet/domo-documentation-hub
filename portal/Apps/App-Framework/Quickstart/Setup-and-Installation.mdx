@@ -1,14 +1,13 @@
 ---
-title: Setup and Installation
-permalink: 6hlzv1hinkq19-quickstart
-stoplight-id: 6hlzv1hinkq19
+title: 'Setup and Installation'
+permalink: '6hlzv1hinkq19-setup-and-installation'
 ---
 
 ### Step 1: Install the Domo Apps CLI
 
 ---
 
-The [Domo Apps CLI](../Tools/domo-CLI.md) is the command line tool you can use to authenticate against your Domo Instance and publish your apps there.
+The [Domo Apps CLI](/portal/Apps/App-Framework/Tools/domo-CLI) is the command line tool you can use to authenticate against your Domo Instance and publish your apps there.
 
 <Tabs>
 <Tab title="npm">
@@ -18,24 +17,23 @@ If you have previously installed the DomoApps CLI using Homebrew or Chocolatey, 
 
 To install the CLI, run the following command from your terminal:
 
-```bash
+```text
 npm install -g ryuu
 ```
 
 Confirm that `domo` has been installed successfully by running `domo --version` from the terminal. If a version number is returned then you have successfully installed the CLI.
 
 </Tab>
+
 <Tab title="Mac OSX / Linux">
 
-<div style="background-color:#ffdddd; color:#a94442; border:1px solid #a94442; padding:10px; margin-bottom:16px;">
-  <strong>Notice:</strong> As of June 18th, 2025, the Homebrew installation
-  method is no longer supported. Please use the npm installation method in the
-  "npm" tab above.
-</div>
+<Danger>
+  Notice: As of June 18th, 2025, the Homebrew installation method is no longer
+  supported. Please use the npm installation method in the "npm" tab above. If
+  you previously installed the CLI with Homebrew, uninstall it with:
+</Danger>
 
-If you previously installed the CLI with Homebrew, uninstall it with:
-
-```bash
+```text
 brew uninstall domo
 ```
 
@@ -45,28 +43,28 @@ Then, install using npm as shown in the npm tab.
 
 <Tab title="Windows">
 
-<div style="background-color:#ffdddd; color:#a94442; border:1px solid #a94442; padding:10px; margin-bottom:16px;">
-  <strong>Notice:</strong> As of June 18th, 2025, the Chocolatey installation
-  method is no longer supported. Please use the npm installation method in the
-  "npm" tab above.
-</div>
+<Danger>
+  Notice: As of June 18th, 2025, the Chocolatey installation method is no longer
+  supported. Please use the npm installation method in the "npm" tab above.
+</Danger>
 
 If you previously installed the CLI with Chocolatey, uninstall it with:
 
-```powershell
+```
 choco uninstall domo
 ```
 
 Then, install using npm as shown in the npm tab.
 
 </Tab>
+
 </Tabs>
 
 ### Step 2: Login to your Domo Instance
 
 ---
 
-From your command-line, run `domo login` and then select `new instance`.
+From your command-line, run `domo login` and then select `new instance`.
 
 Enter your assigned instance URL and then press enter. You'll then be presented with a login screen and the Domo CLI will be authorized on your instance.
 
@@ -76,7 +74,7 @@ If your organization has a firewall set up that blocks you from hitting Domo end
 
 Set the CLI to route requests through your proxy with the following command:
 
-```bash
+```text
 domo proxy <Proxy server name> <Port number>
 ```
 
@@ -88,7 +86,7 @@ Note: if your proxy requires an authentication step, you can add the `-a` flag (
 
 Run the following commands from your command line to set up a new Domo App project.
 
-```bash
+```text
 domo init
 ```
 
@@ -96,7 +94,7 @@ domo init
 
 ---
 
-You can now easily integrate Domo APIs into any front-end web application. See [Tutorials](../Tutorials/Vanilla-Javascript/SugarForce.md) or [API Reference](../../../API-Reference/Domo-App-APIs/AppDB-API.md) for code examples. If you don’t have a pre-existing web application, in addition to the simple `domo init` templates, we have a number of [Starter Kits](Starter-Kits.md) you can use to get up and running quickly whether you prefer React, Angular, or Vue for front-end development.
+You can now easily integrate Domo APIs into any front-end web application. See [Tutorials](/portal/Apps/App-Framework/Tutorials/Overview) or [API Reference](/portal/API-Reference/app-framework-apis/AppDB-API) for code examples. If you don’t have a pre-existing web application, in addition to the simple `domo init` templates, we have a number of [Starter Kits](/portal/Apps/App-Framework/Quickstart/Starter-Kits) you can use to get up and running quickly whether you prefer React, Angular, or Vue for front-end development.
 
 ### Step 5: Publish App to Domo Instance
 
@@ -104,7 +102,7 @@ You can now easily integrate Domo APIs into any front-end web application. See [
 
 We publish our final product to Domo using
 
-```bash
+```text
 domo publish
 ```
 

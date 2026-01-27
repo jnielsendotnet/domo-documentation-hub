@@ -1,0 +1,251 @@
+---
+title: App Framework Guides
+sidebarTitle: Guides
+---
+
+Deep dive into specific aspects of Domo app development with these comprehensive guides. From understanding the manifest file to integrating with Domo services, these guides provide detailed explanations and practical examples.
+
+## What You'll Find Here
+
+These guides cover intermediate to advanced topics that go beyond basic tutorials. Each guide focuses on a specific aspect of app development, providing:
+
+- **Detailed explanations** of concepts and patterns
+- **Code examples** with real-world use cases
+- **Best practices** and common pitfalls to avoid
+- **Integration patterns** for Domo features
+
+## Configuration & Setup
+
+### [The Manifest File](/portal/Apps/App-Framework/Guides/manifest)
+
+The manifest file is your app's configuration center. Learn how to configure datasets, workflows, Code Engine packages, and AppDB collections.
+
+**Covers:**
+
+- Dataset mappings and aliases
+- App size and fullpage mode
+- Workflow and Code Engine integration
+- AppDB collection configuration
+- ProxyId for local development
+
+**Essential for:** Every Domo app developer
+
+### [Local Development with Domo CLI](/portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI)
+
+Set up your local development environment to build and test apps with real Domo data before publishing.
+
+**Covers:**
+
+- Running the local development server
+- Proxy configuration for API access
+- Hot reloading and debugging
+- Testing with live data
+- Development workflow best practices
+
+**Essential for:** Developers who want efficient local testing
+
+## Working with Data
+
+### [Getting Data](/portal/Apps/App-Framework/Guides/getting-data)
+
+Learn how to request and retrieve data from Domo datasets in your custom apps.
+
+**Covers:**
+
+- Making HTTP GET/POST requests
+- Using dataset aliases from manifest
+- Data API endpoints
+- Sample data mappings
+
+**Essential for:** Apps that display Domo data
+
+### [Querying Data](/portal/Apps/App-Framework/Guides/querying-data)
+
+Master advanced data queries to filter, sort, and transform Domo data within your app.
+
+**Covers:**
+
+- Building SQL-like queries
+- Filtering and aggregation
+- Complex query patterns
+- Performance optimization
+
+**Essential for:** Apps with dynamic data requirements
+
+### [Handling Data Updates](/portal/Apps/App-Framework/Guides/handling-data-updates)
+
+Implement real-time or scheduled data updates in your apps to keep information fresh.
+
+**Covers:**
+
+- Detecting data changes
+- Polling vs push patterns
+- Refresh strategies
+- Update notifications
+
+**Essential for:** Apps that need current data
+
+## Integration with Domo Services
+
+### [Hitting a Workflow from an App](/portal/Apps/App-Framework/Guides/hitting-a-workflow)
+
+Trigger Domo Workflows from your app to automate processes and handle complex business logic.
+
+**Covers:**
+
+- Workflow configuration in manifest
+- Triggering workflows programmatically
+- Passing parameters to workflows
+- Handling workflow responses
+
+**Essential for:** Apps that automate business processes
+
+### [Hitting Code Engine from an App](/portal/Apps/App-Framework/Guides/hitting-code-engine-from-an-app)
+
+Execute serverless functions using Domo's Code Engine to perform backend operations.
+
+**Covers:**
+
+- Code Engine package configuration
+- Calling packages from your app
+- Parameter passing and outputs
+- Error handling
+
+**Essential for:** Apps needing backend processing
+
+### [Workflow AppDB Sync](/portal/Apps/App-Framework/Guides/workflow-appdb-sync)
+
+Synchronize data between Workflows and AppDB to create powerful data-driven workflows.
+
+**Covers:**
+
+- AppDB and Workflow integration
+- Data synchronization patterns
+- Triggering workflows from data changes
+- Building event-driven architectures
+
+**Essential for:** Complex apps with workflow automation
+
+## AppDB & Data Storage
+
+### [Clearing Out Collections](/portal/Apps/App-Framework/Guides/clearing-out-collections)
+
+Manage AppDB collections by clearing or resetting data as needed.
+
+**Covers:**
+
+- Deleting collection data
+- Resetting collections
+- Bulk operations
+- Data maintenance
+
+**Essential for:** Apps using AppDB for storage
+
+## App Management & Deployment
+
+### [App Sessions](/portal/Apps/App-Framework/Guides/app-sessions)
+
+Understand how app sessions work and how to manage user state across interactions.
+
+**Covers:**
+
+- Session lifecycle
+- State management
+- User context
+- Session persistence
+
+**Essential for:** Multi-user or stateful apps
+
+### [Copy Assets to Other Instances](/portal/Apps/App-Framework/Guides/copy-assets-to-other-instances)
+
+Learn how to migrate apps and their assets between different Domo instances.
+
+**Covers:**
+
+- Asset export and import
+- Cross-instance deployment
+- Environment configuration
+- Migration best practices
+
+**Essential for:** Multi-environment deployments
+
+### [Swap Designs](/portal/Apps/App-Framework/Guides/swap-designs)
+
+Change which app design powers an existing card without losing configuration or data.
+
+**Covers:**
+
+- Design versioning
+- Upgrading app designs
+- Maintaining card configuration
+- Rollback procedures
+
+**Essential for:** Updating production apps
+
+### [Public Assets](/portal/Apps/App-Framework/Guides/public-assets)
+
+Use public assets in your apps for images, fonts, and other static resources.
+
+**Covers:**
+
+- Asset hosting options
+- Public URL patterns
+- Asset optimization
+- CDN usage
+
+**Essential for:** Apps with media or custom fonts
+
+## Design & User Experience
+
+### [App Developer Design Guide](/portal/Apps/App-Framework/Guides/design-guide)
+
+Follow design principles and use Domo's color palette to create apps that feel native to Domo.
+
+**Covers:**
+
+- Material Design principles
+- Domo color palette
+- iOS design considerations
+- Responsive design patterns
+- Accessibility guidelines
+
+**Essential for:** Creating polished, professional apps
+
+## How to Use These Guides
+
+**If you're new to Domo apps:**
+
+1. Start with [The Manifest File](/portal/Apps/App-Framework/Guides/manifest) to understand configuration
+2. Follow [Getting Data](/portal/Apps/App-Framework/Guides/getting-data) to work with Domo datasets
+3. Set up [Local Development](/portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI) for efficient workflow
+
+**If you're building data-driven apps:**
+
+1. Master [Querying Data](/portal/Apps/App-Framework/Guides/querying-data) for complex queries
+2. Implement [Handling Data Updates](/portal/Apps/App-Framework/Guides/handling-data-updates) for real-time data
+3. Use [Design Guide](/portal/Apps/App-Framework/Guides/design-guide) for visualization best practices
+
+**If you're integrating with Domo services:**
+
+1. Learn [Workflows](/portal/Apps/App-Framework/Guides/hitting-a-workflow) for process automation
+2. Explore [Code Engine](/portal/Apps/App-Framework/Guides/hitting-code-engine-from-an-app) for backend logic
+3. Implement [Workflow AppDB Sync](/portal/Apps/App-Framework/Guides/workflow-appdb-sync) for complex integrations
+
+**If you're deploying to production:**
+
+1. Master [Swap Designs](/portal/Apps/App-Framework/Guides/swap-designs) for safe updates
+2. Learn [Copy Assets](/portal/Apps/App-Framework/Guides/copy-assets-to-other-instances) for multi-environment deployment
+3. Understand [App Sessions](/portal/Apps/App-Framework/Guides/app-sessions) for user management
+
+## Related Resources
+
+- **[Tutorials](/portal/Apps/App-Framework/Tutorials/Overview)** - Step-by-step walkthroughs to build complete apps
+- **[Tools](/portal/Apps/App-Framework/Quickstart/Tools)** - Libraries and CLIs for development
+- **[API Reference](/portal/API-Reference/app-framework-apis/AppStudio-API)** - Detailed API documentation
+- **[Best Practices](/portal/Apps/App-Framework/Quickstart/Best-Practices)** - Production-ready app guidelines
+
+## Need Help?
+
+- **[FAQ](/portal/Apps/App-Framework/Help/faq)** - Common questions and answers
+- **[Troubleshooting](/portal/Apps/App-Framework/Help/Troubleshooting)** - Solutions to common issues
+- **[Community Forums](/portal/Other-Resources/Developer-Forum)** - Get help from other developers

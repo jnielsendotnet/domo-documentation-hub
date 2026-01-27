@@ -1,14 +1,12 @@
 ---
-title: "Connect via API"
-permalink: 7zzu6uf05maam-connect-via-api
-sidebarTitle: "Connect via API"
-stoplight-id: 7zzu6uf05maam
+title: 'PDP'
+permalink: 7zzu6uf05maam-pdp
+sidebarTitle: 'Personalized Data Permissions (PDP)'
 ---
-# PDP
 
 Personalized Data Permissions (PDP) allow you to create a customized experience for each Domo user through the definition of Entitlement Policies. Using Entitlement Policies, you can filter data in a DataSet for specified users and/or groups. In other words, the same DataSet can have a card displayed to three different users and display a filtered visual of information based on the user viewing the cards.
 
-![PDP Example](https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/08/15093608/PDP2.png)
+![PDP Example](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/08/15093608/PDP2.png)
 
 PDP policies are applied almost anywhere in Domo that data from this DataSet is used, including the following:
 
@@ -50,6 +48,7 @@ Authorization: bearer <your-valid-oauth-access-token>
 Domo will return a subset of the DataSet object specific to the data permission policy.
 
 **Sample Response**
+
 ```json
 HTTP/1.1 201 Created
 Content-Type: application/json
@@ -71,7 +70,7 @@ Content-Type: application/json
 
 ### Listing all PDP policies applied to a DataSet
 
-It is useful to see what existing permission policies have already been applied to the DataSet.  This information can be used as a reference to mirror similar group or user access when creating new policies with other DataSets. 
+It is useful to see what existing permission policies have already been applied to the DataSet. This information can be used as a reference to mirror similar group or user access when creating new policies with other DataSets.
 
 The `dataset_id` is required to retrieve all of a Dataset's policies as seen below.
 
@@ -117,7 +116,6 @@ In order to update a DataSet Personalized Data Permission (PDP), you will need b
 
 See this sample request in [Java](https://github.com/domoinc/domo-java-sdk/blob/master/domo-java-sdk-all/src/test/java/com/domo/sdk/datasets/ImportDataExample.java), [Python](https://github.com/domoinc/domo-python-sdk/blob/master/examples/dataset.py).
 
-
 ```json
 PUT https://api.domo.com/v1/datasets/4405ff58-1957-45f0-82bd-914d989a3ea3/policies/8
 Content-Type: application/json
@@ -158,15 +156,4 @@ Content-Type: application/json;charset=UTF-8
 
 ### Have additional questions?
 
-No problem, we'd love to help. Explore [additional guides](https://knowledge.domo.com/) and articles or join other developers in Domo's [Developer Forum](https://dojo.domo.com/main).  For further help, feel free to [email us](mailto:support@domo.com) or [contact our sales team](mailto:sales@domo.com).
-
-
-
-
-
-
-
-
-
-
-
+No problem, we'd love to help. Explore [additional guides](https://knowledge.domo.com/) and articles or join other developers in Domo's [Developer Forum](https://dojo.domo.com/main). For further help, feel free to [email us](mailto:support@domo.com) or [contact our sales team](mailto:sales@domo.com).

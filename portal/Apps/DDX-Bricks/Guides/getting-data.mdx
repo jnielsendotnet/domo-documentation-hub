@@ -1,10 +1,7 @@
 ---
-title: Guides
-permalink: 2efe8599c6ad9-guides
-sidebarTitle: Guides
-stoplight-id: 2efe8599c6ad9
+title: Getting Data in Domo Bricks
+permalink: 2efe8599c6ad9-getting-data-in-domo-bricks
 ---
-# Getting Data in Domo Bricks
 
 ### Method 1 - Using the SQL Endpoint
 
@@ -12,14 +9,14 @@ stoplight-id: 2efe8599c6ad9
 
 This method allows you to use traditional SQL to query. This method currently only returns an “array-of-arrays” (see output formats below):
 
-```js
+```javascript
 var query = 'SELECT SUM(amount) as Sales FROM dataset0';
 domo.post('/sql/v1/myDatasetAlias', query, {contentType: 'text/plain'}).then(function(result) { … });
 ```
 
 To use a column name with spaces in your query, wrap the column name with back-ticks, for example:
 
-```js
+```javascript
 var query = 'SELECT SUM(`Store Sales`) as Sales FROM dataset0';
 ```
 
@@ -29,7 +26,7 @@ var query = 'SELECT SUM(`Store Sales`) as Sales FROM dataset0';
 
 This is the traditional method for getting data out of Domo:
 
-```js
+```javascript
 var query = `fields=amount&sum=amount`;
 domo.get('/data/v1/myDatasetAlias?' + query)
   .then(function(result)
@@ -39,8 +36,8 @@ domo.get('/data/v1/myDatasetAlias?' + query)
 
 Here are some references and examples to get you started:
 
-- [Data Queries example code](../../App-Framework/Guides/querying-data.md)
-- [Data API deep dive](../../../API-Reference/Domo-App-APIs/Data-API.md)
+- [Data Queries example code](/portal/Apps/App-Framework/Guides/querying-data)
+- [Data API deep dive](/portal/API-Reference/app-framework-apis/Data-API)
 
 #### Output Formats
 
@@ -53,7 +50,7 @@ The default data endpoint output format may not always be the format you need. S
 
 You can specify the format like this:
 
-```js
+```javascript
 domo.get('/data/v1/dataset?' + query, {format: 'csv'})
   .then(function(result)
     { … }

@@ -1,10 +1,7 @@
 ---
-title: 'To-do App Tutorial'
-permalink: to-do-app-tutorial
-sidebarTitle: 'To-do App Tutorial'
+title: 'Basic To-Do App'
+permalink: 7657a3402ae5e-to-do-app-tutorial
 ---
-
-# To-do App Tutorial
 
 ### Intro
 
@@ -22,7 +19,7 @@ We will go through how to create a basic React app, use Domo's AppDB to implemen
 
 ---
 
-For this tutorial, we will use yarn as a node package manager, but you can follow the instructions from the <a href="https://create-react-app.dev/docs/getting-started#creating-an-app">create-react-app documentation</a> to install a new react app with the `@domoinc` template based on the package manager of your choice (`npx`, `yarn`, or `npm`). Before starting, make sure you've successfully [installed the Domo Apps CLI](Setup-and-Installation.md) and completed the `domo login` command to authenticate against your instance of Domo.
+For this tutorial, we will use yarn as a node package manager, but you can follow the instructions from the <a href="https://create-react-app.dev/docs/getting-started#creating-an-app">create-react-app documentation</a> to install a new react app with the `@domoinc` template based on the package manager of your choice (`npx`, `yarn`, or `npm`). Before starting, make sure you've successfully [installed the Domo Apps CLI](/portal/Apps/App-Framework/Quickstart/Setup-and-Installation) and completed the `domo login` command to authenticate against your instance of Domo.
 
 #### Create Basic React App
 
@@ -78,7 +75,7 @@ You can see more details on the dependencies and utility scripts setup in this t
 
 ---
 
-[AppDB](../../../../API-Reference/Domo-App-APIs/AppDB-API.md) is a nosql database for storing arbitrary JSON documents, we can use it to persist data in our app.
+[AppDB](/portal/API-Reference/app-framework-apis/AppDB-API) is a nosql database for storing arbitrary JSON documents, we can use it to persist data in our app.
 
 #### Define a collection
 
@@ -145,33 +142,33 @@ yarn upload
 
 After running the command, you will get an output like the following with the information of the new design.
 
-![yarn_upload_output.png](../../../../images/dev/stoplight.io/images/yarn_upload_output.png)
+![yarn_upload_output.png](/images/dev/stoplight.io/images/yarn_upload_output.png)
 
 #### Create a new card for the app
 
 Let's create the card that we will wire to the AppDB collection. To do this, we need to open the created design in the link that we got from the command output and click the "New Card" option.
 
-![create_card.png](../../../../images/dev/stoplight.io/images/create_card.png)
+![create_card.png](/images/dev/stoplight.io/images/create_card.png)
 
 We need to map the collection we added to the `manifest.json`. Click "Select Collection".
 
-![select_collection.png](../../../../images/dev/stoplight.io/images/select_collection.png)
+![select_collection.png](/images/dev/stoplight.io/images/select_collection.png)
 
 Since we are creating the collection for the app, let's create a new one by clicking on "Create New".
 
-![Screenshot 2024-05-15 at 10.49.19 AM.png](../../../../images/dev/stoplight.io/images/Screenshot 2024-05-15 at 10.49.19 AM.png)
+![Screenshot 2024-05-15 at 10.49.19 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-05-15-at-10.49.19-AM.png)
 
 Click "Create Collection" to start with an empty collection.
 
-![Screenshot 2024-05-15 at 10.51.20 AM.png](../../../../images/dev/stoplight.io/images/Screenshot 2024-05-15 at 10.51.20 AM.png)
+![Screenshot 2024-05-15 at 10.51.20 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-05-15-at-10.51.20-AM.png)
 
 After creating the collection we can save the card.
 
-![save_collection.png](../../../../images/dev/stoplight.io/images/save_collection.png)
+![save_collection.png](/images/dev/stoplight.io/images/save_collection.png)
 
 Once we've saved our card, you should be able to see details about the card on the page for your App Design. You can locate it using the link provided in the console output earlier in this tutorial or by going to "More" > "Asset Library" > Selecting your App Design.
 
-![proxy.png](../../../../images/dev/stoplight.io/images/proxy.png)
+![proxy.png](/images/dev/stoplight.io/images/proxy.png)
 
 Now, with the card created, you can tell your app which resources to develop against locally. You have to add the following attributes to your `manifest.json` file.
 
@@ -214,7 +211,7 @@ Your manifest.json will now look similar to this:
 
 ---
 
-With our App connected to the Domo card and the collection created, you are ready to start making requests to appDB, for this we will use the `AppDBClient` that can be found in `@domoinc/toolkit` package, add this package by running the following command. See more on the [Domo Toolkit library here](https://domoapps.github.io/toolkit/).
+With our App connected to the Domo card and the collection created, you are ready to start making requests to appDB, for this we will use the `AppDBClient` that can be found in `@domoinc/toolkit` package, add this package by running the following command. See more on the [Domo Toolkit library here](/portal/Apps/App-Framework/Tools/Toolkit).
 
 ```
 yarn add @domoinc/toolkit
@@ -824,7 +821,7 @@ reportWebVitals();
 Your final file directory structure should look like this. You
 
 ```
-├── README.md
+├── README
 ├── build
 │   ├── asset-manifest.json
 │   ├── favicon.ico
@@ -886,9 +883,9 @@ Before you publish your App to your Domo instance you can test that it is functi
 
 Your app should look like the screenshot below and you should be able to create, edit, deleete, and mark tasks as completed.
 
-![Screenshot 2024-07-18 at 3.40.01 PM.png](../../../../images/dev/stoplight.io/images/Screenshot 2024-07-18 at 3.40.01 PM.png)
+![Screenshot 2024-07-18 at 3.40.01 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-07-18-at-3.40.01-PM.png)
 
-![Screenshot 2024-07-18 at 3.40.52 PM.png](../../../../images/dev/stoplight.io/images/Screenshot 2024-07-18 at 3.40.52 PM.png)
+![Screenshot 2024-07-18 at 3.40.52 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-07-18-at-3.40.52-PM.png)
 
 ### Step 7: Publish App to Domo instance
 
@@ -900,4 +897,4 @@ To publish your finished app, you can use the upload script we used to publish t
 
 You should now be able to create new instances of your App, which has been successfully deployed into your Domo instance.
 
-![Screenshot 2024-07-18 at 3.42.47 PM.png](../../../../images/dev/stoplight.io/images/Screenshot 2024-07-18 at 3.42.47 PM.png)
+![Screenshot 2024-07-18 at 3.42.47 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-07-18-at-3.42.47-PM.png)

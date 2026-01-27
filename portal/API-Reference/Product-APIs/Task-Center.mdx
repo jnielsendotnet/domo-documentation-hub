@@ -1,9 +1,8 @@
 ---
 title: Task Center API
-permalink: task-center-api
-stoplight-id: None
-
+permalink: ff85f1d956ae2-task-center-api
 ---
+
 Task Center allows you to organize manual tasks into different queues of work and control who can access them. They are often used in concert with [Workflows](/s/article/000005108?language=en_US).
 
 For more [background on Task Center, please see the Knowledge Base](/s/article/000005172?language=en_US).
@@ -19,7 +18,7 @@ Returns all queues the user has access to.
 ```js
 const getQueues = async (combineAttributes = true, archived = false) => {
   const queues = await domo.get(
-    `/api/queues/v1/?combineAttributes=${combineAttributes}&archived=${archived}`
+    `/api/queues/v1/?combineAttributes=${combineAttributes}&archived=${archived}`,
   );
   return queues;
 };
@@ -72,7 +71,7 @@ const getQueueByID = async (queueId) => {
   return queue;
 };
 
-const queue = getQueueByID("168ecd84-4a15-45f6-89d9-021fbbce0481");
+const queue = getQueueByID('168ecd84-4a15-45f6-89d9-021fbbce0481');
 ```
 
 #### HTTP Request
@@ -114,16 +113,16 @@ Returns tasks based on the filters provided in the body. If the body is an empty
 
 ```js
 const body = {
-  queueId: ["168ecd84-4a15-45f6-89d9-021fbbce0481"],
-  displayType: ["ENIGMA_FORM", "EMAIL", "UNKNOWN"],
-  status: ["OPEN", "COMPLETED", "VOIDED"],
-  createdOn: [["2023-10-04T12:22:54.239Z", "2024-01-02T13:22:54.239Z"]],
+  queueId: ['168ecd84-4a15-45f6-89d9-021fbbce0481'],
+  displayType: ['ENIGMA_FORM', 'EMAIL', 'UNKNOWN'],
+  status: ['OPEN', 'COMPLETED', 'VOIDED'],
+  createdOn: [['2023-10-04T12:22:54.239Z', '2024-01-02T13:22:54.239Z']],
 };
 
 const getTasks = async (body) => {
   const queue = await domo.post(
     `/api/queues/v1/tasks/list?render=true&renderParts=NAME,DESCRIPTION,MAPPING,METADATA,VERSIONS`,
-    body
+    body,
   );
   return queue;
 };
@@ -423,14 +422,14 @@ Returns a task by its id.
 ```js
 const getTaskByID = async (queueId, taskId) => {
   const task = await domo.get(
-    `/api/queues/v1/${queueId}/tasks/${taskId}?render=true`
+    `/api/queues/v1/${queueId}/tasks/${taskId}?render=true`,
   );
   return task;
 };
 
 const task = getTaskByID(
-  "168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "18OCT23_1JUTZM"
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '18OCT23_1JUTZM',
 );
 ```
 
@@ -581,7 +580,7 @@ Saves current task values given in the body, which contains the key value pairs 
 
 #### Code Example
 
-![Screenshot 2024-01-02 at 8.50.40 AM.png](<../../assets/images/Screenshot 2024-01-02 at 8.50.40 AM.png>)
+![Screenshot 2024-01-02 at 8.50.40 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
 
 ```js
 const body = {
@@ -593,15 +592,15 @@ const body = {
 const saveTask = async (queueId, taskId, body) => {
   const task = await domo.put(
     `/api/queues/v1/${queueId}/tasks/${taskId}/outputs`,
-    body
+    body,
   );
   return task;
 };
 
 const task = saveTask(
-  "168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "18OCT23_1JUTZM",
-  body
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '18OCT23_1JUTZM',
+  body,
 );
 ```
 
@@ -703,7 +702,7 @@ Completes the task with the values given in the body.
 
 #### Code Example
 
-![Screenshot 2024-01-02 at 8.50.40 AM.png](<../../assets/images/Screenshot 2024-01-02 at 8.50.40 AM.png>)
+![Screenshot 2024-01-02 at 8.50.40 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-01-02-at-8.50.40-AM.png)
 
 ```js
 const body = {
@@ -715,15 +714,15 @@ const body = {
 const completeTask = async (queueId, taskId, body) => {
   const task = await domo.post(
     `/api/queues/v1/${queueId}/tasks/${taskId}/complete?version=1`,
-    body
+    body,
   );
   return task;
 };
 
 const task = completeTask(
-  "168ecd84-4a15-45f6-89d9-021fbbce0481",
-  "24OCT23_CI27D1",
-  body
+  '168ecd84-4a15-45f6-89d9-021fbbce0481',
+  '24OCT23_CI27D1',
+  body,
 );
 ```
 
@@ -752,15 +751,15 @@ Transfer a task to another queue.
 ```js
 const transferTask = async (currentQueueId, taskId, newQueueId) => {
   const task = await domo.put(
-    `/api/queues/v1/${currentQueueId}/tasks/${taskId}/move?targetQueueId=${newQueueId}`
+    `/api/queues/v1/${currentQueueId}/tasks/${taskId}/move?targetQueueId=${newQueueId}`,
   );
   return task;
 };
 
 const task = transferTask(
-  "bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA",
-  "23890539-9543-4507-b68b-12e08094ca09"
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
+  '23890539-9543-4507-b68b-12e08094ca09',
 );
 ```
 
@@ -785,22 +784,22 @@ Transfer a task to another User.
 ```js
 const body = {
   tasksId: [],
-  type: "USER",
-  userId: "700632941",
+  type: 'USER',
+  userId: '700632941',
 };
 
 const transferTaskToUser = async (currentQueueId, taskId, body) => {
   const task = await domo.put(
     `/api/queues/v1/${queueId}/tasks/${taskId}/assign`,
-    body
+    body,
   );
   return task;
 };
 
 const task = transferTaskToUser(
-  "bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA",
-  body
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
+  body,
 );
 ```
 
@@ -829,14 +828,14 @@ Void a task.
 ```js
 const voidedTask = async (queueId, taskId) => {
   const task = await domo.post(
-    `/api/queues/v1/${queueId}/tasks/${taskId}/void`
+    `/api/queues/v1/${queueId}/tasks/${taskId}/void`,
   );
   return task;
 };
 
 const task = voidedTask(
-  "bca21fad-e06b-4905-b43a-ea0929850e47",
-  "13AUG24_RZY4WA"
+  'bca21fad-e06b-4905-b43a-ea0929850e47',
+  '13AUG24_RZY4WA',
 );
 ```
 
@@ -861,46 +860,46 @@ Update a queue's user/group permissions.
 ```js
 const body = [
   {
-    id: "337992616",
+    id: '337992616',
     permissions: [
-      "ADMIN",
-      "SHARE",
-      "DELETE",
-      "WRITE",
-      "READ",
-      "CREATE_CONTENT",
-      "READ_CONTENT",
-      "UPDATE_CONTENT",
+      'ADMIN',
+      'SHARE',
+      'DELETE',
+      'WRITE',
+      'READ',
+      'CREATE_CONTENT',
+      'READ_CONTENT',
+      'UPDATE_CONTENT',
     ],
-    name: "Daniel Bateman",
-    type: "USER",
+    name: 'Daniel Bateman',
+    type: 'USER',
   },
   {
-    id: "700632923",
-    permissions: ["ADMIN"],
+    id: '700632923',
+    permissions: ['ADMIN'],
     name: "Daniel's Test User",
-    type: "USER",
+    type: 'USER',
   },
   {
-    id: "519150798",
+    id: '519150798',
     permissions: [],
-    name: "Jordan Tiller",
-    type: "USER",
+    name: 'Jordan Tiller',
+    type: 'USER',
   },
   {
-    id: "264236964",
+    id: '264236964',
     name: "Daniel's Test Group",
-    type: "GROUP",
+    type: 'GROUP',
     permissions: [
-      "DELETE",
-      "WRITE",
-      "SHARE",
-      "EXPORT",
-      "EXECUTE",
-      "CREATE_CONTENT",
-      "READ_CONTENT",
-      "UPDATE_CONTENT",
-      "DELETE_CONTENT",
+      'DELETE',
+      'WRITE',
+      'SHARE',
+      'EXPORT',
+      'EXECUTE',
+      'CREATE_CONTENT',
+      'READ_CONTENT',
+      'UPDATE_CONTENT',
+      'DELETE_CONTENT',
     ],
   },
 ];
@@ -910,7 +909,7 @@ const updatePermissions = async (queueId, body) => {
   return queue;
 };
 
-const task = updatePermissions("bca21fad-e06b-4905-b43a-ea0929850e47", body);
+const task = updatePermissions('bca21fad-e06b-4905-b43a-ea0929850e47', body);
 ```
 
 #### HTTP Request

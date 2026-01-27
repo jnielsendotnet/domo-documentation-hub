@@ -125,7 +125,18 @@ paths:
                     createdAt: '2025-04-21T17:20:36Z'
                     updatedAt: '2025-04-21T17:20:36Z'
                     pdpEnabled: false
-                    policies: [{"id":622387,"type":"open","name":"All Rows","filters":[],"users":[],"virtualUsers":[],"groups":[]}]
+                    policies:
+                      [
+                        {
+                          'id': 622387,
+                          'type': 'open',
+                          'name': 'All Rows',
+                          'filters': [],
+                          'users': [],
+                          'virtualUsers': [],
+                          'groups': [],
+                        },
+                      ]
               examples:
                 Example 1:
                   value:
@@ -140,7 +151,18 @@ paths:
                     createdAt: '2025-04-21T17:20:36Z'
                     updatedAt: '2025-04-21T17:20:36Z'
                     pdpEnabled: false
-                    policies: [{"id":622387,"type":"open","name":"All Rows","filters":[],"users":[],"virtualUsers":[],"groups":[]}]
+                    policies:
+                      [
+                        {
+                          'id': 622387,
+                          'type': 'open',
+                          'name': 'All Rows',
+                          'filters': [],
+                          'users': [],
+                          'virtualUsers': [],
+                          'groups': [],
+                        },
+                      ]
   '/v1/json/{DATASET_ID}/data':
     parameters:
       - schema:
@@ -153,11 +175,11 @@ paths:
         in: query
         description: |
           Specifies how the data import should update the DataSet. 
-          
+
           Defaults to `REPLACE` if not specified. 
-          
+
           If set to `APPEND`, the schema must match the existing schema.
-          
+
           Case-sensitive; must be uppercase. Falls back to REPLACE if given an invalid value.
         required: false
         schema:
@@ -173,13 +195,13 @@ paths:
       requestBody:
         description: |
           An array of JSON objects which will be converted to CSV and stored as data. 
-          
-          If you want to pass CSV directly, use [the DataSet API](https://developer.domo.com/portal/3b1e3a7d5f420-data-set-api). 
-          
+
+          If you want to pass CSV directly, use [the DataSet API](/portal/3b1e3a7d5f420-data-set-api). 
+
           If **appending**, the **schema** must **match** the existing schema. To omit a field, specify the key but use an empty string or `null` for the value (see Example 2).
-          
+
           If **replacing**, some objects **can be missing properties** that others have, resulting in empty fields (see Example 3).
-          
+
           If your objects contain array values, they will appear as "List" in the DataSet. Consider converting them to properties or, alternatively, you can leverage one of Domo's many [JSON connectors](https://www.domo.com/appstore/apps?q=json) to more flexibly deal with arrays.
         content:
           application/json:
@@ -198,29 +220,29 @@ paths:
                     Attending: 'true'
               Example 2:
                 value:
-                 - Name: Tomato
-                   Color: Red
-                   Favorite: false
-                   Eaten: 1
-                 - Name: Radish
-                   Color: ""
-                   Favorite: null
-                   Eaten: null
-                 - Name: Banana
-                   Color: Yellow
-                   Favorite: true
-                   Eaten: 4
+                  - Name: Tomato
+                    Color: Red
+                    Favorite: false
+                    Eaten: 1
+                  - Name: Radish
+                    Color: ''
+                    Favorite: null
+                    Eaten: null
+                  - Name: Banana
+                    Color: Yellow
+                    Favorite: true
+                    Eaten: 4
               Example 3:
                 value:
-                 - name: Leia Organa
-                   role: Rebel Leader
-                   quote: "Help me, Obi-Wan Kenobi. You're my only hope."
-                   side: light
-                 - name: Qui-Gon Jinn
-                 - name: Darth Vader
-                   role: Sith Lord
-                   quote: I find your lack of faith disturbing.
-                   side: dark
+                  - name: Leia Organa
+                    role: Rebel Leader
+                    quote: "Help me, Obi-Wan Kenobi. You're my only hope."
+                    side: light
+                  - name: Qui-Gon Jinn
+                  - name: Darth Vader
+                    role: Sith Lord
+                    quote: I find your lack of faith disturbing.
+                    side: dark
       responses:
         '204':
           description: Success! Returns an empty response body.

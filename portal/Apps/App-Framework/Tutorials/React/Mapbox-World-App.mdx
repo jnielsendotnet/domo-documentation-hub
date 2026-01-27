@@ -1,9 +1,7 @@
 ---
-title: "Mapbox World Map React App Tutorial"
-permalink: mapbox-world-map-react-app-tutorial
-sidebarTitle: "Mapbox World Map React App Tutorial"
+title: Mapbox World Map
+permalink: cf7d0861d9e10-mapbox-world-map-react-app-tutorial
 ---
-# Mapbox World Map React App Tutorial
 
 This tutorial will walk you through building a custom React app that displays a world map with data points using Mapbox. As you follow along, you will get experience doing a few things:
 
@@ -17,9 +15,9 @@ All code and files used for this tutorial can be found at [this GitHub repositor
 
 ---
 
-Before beginning, please make sure you’ve successfully installed the Domo Apps CLI and followed the basic setup and installation instructions found [here](https://developer.domo.com/docs/dev-studio-quick-start/set-up). When following the article, please skip `Step 3: Create a New App`. We will be creating a React app instead of a simple Javascript app.
+Before beginning, please make sure you’ve successfully installed the Domo Apps CLI and followed the basic setup and installation instructions found [here](/portal/Apps/App-Framework/Quickstart/Setup-and-Installation). When following the article, please skip `Step 3: Create a New App`. We will be creating a React app instead of a simple Javascript app.
 
-Initialize a React project using Domo's template by following the steps in [this article](https://developer.domo.com/portal/u8w475o2245yp-starter-kits).
+Initialize a React project using Domo's template by following the steps in [this article](/portal/Apps/App-Framework/Quickstart/Starter-Kits).
 
 Once your project has been created, open it in your preferred IDE and run `yarn` (or `npm install`) to install all required dependencies. When you're ready, run `yarn start` (or `npm start`) to start developing locally.
 
@@ -37,13 +35,13 @@ Open the `public` and `src` folders to see the files that were auto-generated fo
 
 - `App.js` and `App.css` will contain the code to build the mapbox app and style it how we want.
 
-- The `manifest.json` file is a special Domo file that is required for building apps on the Domo App Framework. We will use this file to wire our app to a dataset in Domo. [What is the manifest file?](https://developer.domo.com/portal/af407395c766b-the-manifest-file)
+- The `manifest.json` file is a special Domo file that is required for building apps on the Domo App Framework. We will use this file to wire our app to a dataset in Domo. [What is the manifest file?](/portal/Apps/App-Framework/Guides/manifest)
 
 To start, we will update the contents of `App.js` to include a container div for a map. We will also add a couple of refs to control the content of our container. Replace everything inside of `App.js` with the following lines of code:
 
 ```javascript
-import React, { useRef } from "react";
-import "./App.css";
+import React, { useRef } from 'react';
+import './App.css';
 
 function App() {
   const mapRef = useRef(null);
@@ -77,15 +75,15 @@ First, install the `mapbox-gl` package using either `yarn` or `npm`. Run one of 
 Next, add the following imports to the very top of your `App.js` file to bring in the Mapbox GL JS library and dependencies.
 
 ```javascript
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 ```
 
 We are now going to add a `useEffect` to our component to instantiate an instance of Mapbox once our component has loaded into the DOM and is ready to render the map. Below your `useRef` lines of code, add the following snippet:
 
 ```javascript
 useEffect(() => {
-  mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN";
+  mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
 
   mapRef.current = new mapboxgl.Map({
     container: mapContainerRef.current,
@@ -102,17 +100,17 @@ Replace `YOUR_MAPBOX_ACCESS_TOKEN` with your own personal Mapbox access token. Y
 Once you've followed all of these steps, your `App.js` file should look like this:
 
 ```javascript
-import React, { useEffect, useRef } from "react";
-import "./App.css";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
+import React, { useEffect, useRef } from 'react';
+import './App.css';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 function App() {
   const mapRef = useRef(null);
   const mapContainerRef = useRef(null);
 
   useEffect(() => {
-    mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN";
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
@@ -137,7 +135,7 @@ If you're not already running your local development environment, run the start 
 
 Check your browser at `localhost:3000`, where your app should be running. You should see an interactive globe map. You can use your scroll wheel to zoom in and out, and you can drag the globe to rotate it.
 
-![mapbox-globe.png](../../../../../assets/tutorials/mapbox-world-app/mapbox-globe.png)
+![mapbox-globe.png](/images/dev/stoplight.io/tutorials/mapbox-globe.png)
 
 ### Step 5: Style map and add a few points
 
@@ -150,7 +148,7 @@ We've created a simple custom style already and we are providing you the json fi
 You'll want to add the `map-style.json` file to your `src` folder. Then, bring it into your app by adding this line of code at the top of your `App.js` file:
 
 ```javascript
-import rawMapStyle from "./map-style.json";
+import rawMapStyle from './map-style.json';
 ```
 
 Then, to implement the custom style, update your Mapbox instantiation within the useEffect:
@@ -168,7 +166,7 @@ mapRef.current = new mapboxgl.Map({
 
 If you return to your browser, your app should now look like this:
 
-![mapbox-cartesian.png](../../../../../assets/tutorials/mapbox-world-app/mapbox-cartesian.png)
+![mapbox-cartesian.png](/images/dev/stoplight.io/tutorials/mapbox-cartesian.png)
 
 Our custom style converts the map from a globe to a cartesian map, where it appears to be laying flat. We also set some dark colors for the land and sea.
 
@@ -179,74 +177,74 @@ Add this city data array above your useEffect:
 ```javascript
 const points = [
   {
-    name: "Chicago",
+    name: 'Chicago',
     latitude: 41.8781,
     longitude: -87.6298,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "Dallas",
+    name: 'Dallas',
     latitude: 32.7767,
     longitude: -96.797,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "Houston",
+    name: 'Houston',
     latitude: 29.7604,
     longitude: -95.3698,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "Los Angeles",
+    name: 'Los Angeles',
     latitude: 34.0522,
     longitude: -118.2437,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "New York",
+    name: 'New York',
     latitude: 40.7128,
     longitude: -74.006,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "Philadelphia",
+    name: 'Philadelphia',
     latitude: 39.9526,
     longitude: -75.1652,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "Phoenix",
+    name: 'Phoenix',
     latitude: 33.4484,
     longitude: -112.074,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "San Antonio",
+    name: 'San Antonio',
     latitude: 29.4241,
     longitude: -98.4936,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "San Diego",
+    name: 'San Diego',
     latitude: 32.7157,
     longitude: -117.1611,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
   {
-    name: "San Jose",
+    name: 'San Jose',
     latitude: 37.3382,
     longitude: -121.8863,
     radius: 3,
-    color: "#A221B9",
+    color: '#A221B9',
   },
 ];
 ```
@@ -255,7 +253,7 @@ Next, we'll add some code to our `useEffect` that will iterate over the cities a
 
 ```javascript
 useEffect(() => {
-  mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN";
+  mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
 
   mapRef.current = new mapboxgl.Map({
     container: mapContainerRef.current,
@@ -267,13 +265,13 @@ useEffect(() => {
   });
 
   // After the map loads, add data points
-  mapRef.current.on("load", () => {
+  mapRef.current.on('load', () => {
     const dataPoints = {
-      type: "FeatureCollection",
+      type: 'FeatureCollection',
       features: points.map((point) => ({
-        type: "Feature",
+        type: 'Feature',
         geometry: {
-          type: "Point",
+          type: 'Point',
           coordinates: [point.longitude, point.latitude],
         },
         properties: {
@@ -285,20 +283,20 @@ useEffect(() => {
     };
 
     // Add the source
-    mapRef.current.addSource("dataPoints", {
-      type: "geojson",
+    mapRef.current.addSource('dataPoints', {
+      type: 'geojson',
       data: dataPoints,
     });
 
     // Add a circle layer
     mapRef.current.addLayer({
-      id: "circle-layer",
-      type: "circle",
-      source: "dataPoints",
+      id: 'circle-layer',
+      type: 'circle',
+      source: 'dataPoints',
       paint: {
-        "circle-radius": ["get", "radius"], // Circle radius
-        "circle-color": ["get", "color"], // Circle color
-        "circle-opacity": 0.7, // Circle opacity
+        'circle-radius': ['get', 'radius'], // Circle radius
+        'circle-color': ['get', 'color'], // Circle color
+        'circle-opacity': 0.7, // Circle opacity
       },
     });
   });
@@ -311,7 +309,7 @@ useEffect(() => {
 
 Save your changes and check the browser. You should see our 10 U.S. cities on the map as little magenta circles.
 
-![mapbox-sample-points.png](../../../../../assets/tutorials/mapbox-world-app/mapbox-sample-points.png)
+![mapbox-sample-points.png](/images/dev/stoplight.io/tutorials/mapbox-sample-points.png)
 
 ### Step 6: Wire data to our app
 
@@ -370,7 +368,7 @@ Now, return to your app and open the `manifest.json` file. We're going to add an
 
 Replace `YOUR_DATASET_ID` with the unique ID for the dataset you created in your Domo instance a moment ago. You can find the ID in the URL bar when viewing the dataset.
 
-![dataset-id-example.png](../../../../../assets/tutorials/mapbox-world-app/dataset-id-example.png)
+![dataset-id-example.png](/images/dev/stoplight.io/tutorials/dataset-id-example.png)
 
 Before we can query this dataset locally, we'll need to upload our app to Domo in order to establish the connection we've added to the `manifest.json` file. Let's do that now.
 
@@ -384,11 +382,11 @@ Next, run `yarn upload` or `npm upload`.
 
 This will build your project and create a new app Design in your Domo instance. If the command runs successfully, you'll see something like this in your terminal when it's finished:
 
-![app-upload-success.png](../../../../../assets/tutorials/mapbox-world-app/app-upload-success.png)
+![app-upload-success.png](/images/dev/stoplight.io/tutorials/app-upload-success.png)
 
 Now, let's find the newly created Design in your Domo instance. Return to Domo in the browser, click on the `MORE` option at the top, and select `Asset Library`. You should be able to find your World Map App here. Click on the asset to open its details. Below the name of the asset, you'll see a `Design Id`. Copy that.
 
-![asset-example.png](../../../../../assets/tutorials/mapbox-world-app/asset-example.png)
+![asset-example.png](/images/dev/stoplight.io/tutorials/asset-example.png)
 
 Return to your app so we can add the `Design Id` to the `manifest.json` file. After the closing square brackets of your `mapping` property, add a comma and a new line. Then, add this line of code:
 
@@ -404,7 +402,7 @@ Click `Save & Finish` in the top right to save your new Card.
 
 Now, return to the `Asset Library` and find your Design again. Click on the `Cards` tab at the top and you should see your newly created card. Find the `Proxy Id` property and copy that value.
 
-![asset-card-example.png](../../../../../assets/tutorials/mapbox-world-app/asset-card-example.png)
+![asset-card-example.png](/images/dev/stoplight.io/tutorials/asset-card-example.png)
 
 Return to the `manifest.json` file in your app and add another line below the previous addition:
 
@@ -465,14 +463,14 @@ Now we're ready to query the dataset from our app!
 
 ---
 
-We are going to use the Domo CLI (aka `ryuu.js` from within an app) to fetch data from our instance. [What is the Domo CLI?](https://developer.domo.com/portal/rmfbkwje8kmqj-domo-apps-cli)
+We are going to use the Domo CLI (aka `ryuu.js` from within an app) to fetch data from our instance. [What is the Domo CLI?](/portal/Apps/App-Framework/Tools/domo.js)
 
 Install the library using `yarn add ryuu.js` or `npm install ryuu.js`
 
 Then, import it into your app by adding this line at the top of your `App.js` file:
 
 ```javascript
-import domo from "ryuu.js";
+import domo from 'ryuu.js';
 ```
 
 Add a new `useEffect` to your component that uses `domo.get` to fetch data from the World_Cities DataSet.
@@ -480,7 +478,7 @@ Add a new `useEffect` to your component that uses `domo.get` to fetch data from 
 ```javascript
 useEffect(() => {
   const fetchData = async () => {
-    const response = await domo.get("/data/v1/geoData");
+    const response = await domo.get('/data/v1/geoData');
     console.log(response);
   };
 
@@ -488,7 +486,7 @@ useEffect(() => {
 }, []);
 ```
 
-We are using the Data API for the App Framework, which is [documented here](https://developer.domo.com/portal/8s3y9eldnjq8d-data-api). This `GET` endpoint uses the dataset `alias`, which we set in our `manifest.json` file. We set the `alias` as `geoData`, but you can set it to whatever you'd like.
+We are using the Data API for the App Framework, which is [documented here](/portal/API-Reference/app-framework-apis/Data-API). This `GET` endpoint uses the dataset `alias`, which we set in our `manifest.json` file. We set the `alias` as `geoData`, but you can set it to whatever you'd like.
 
 Make sure your app is running in the browser and refresh the page. In your Javascript console, you should see over 45,000 rows of data being printed (you can open the console by right-clicking on the screen and clicking `Inspect`). This is just a quick check to make sure our data is being fetched as expected, but now we're going to add the data to our map.
 
@@ -559,12 +557,12 @@ useEffect(() => {
 That's all the code! Your `App.js` file should end up looking like this:
 
 ```javascript
-import React, { useEffect, useRef, useState } from "react";
-import domo from "ryuu.js";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
-import rawMapStyle from "./map-style.json";
-import "./App.css";
+import React, { useEffect, useRef, useState } from 'react';
+import domo from 'ryuu.js';
+import mapboxgl from 'mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import rawMapStyle from './map-style.json';
+import './App.css';
 
 function App() {
   const mapRef = useRef(null);
@@ -578,7 +576,7 @@ function App() {
   const getPointRadius = (row) => {
     const step = Math.min(
       Math.floor((row.dataPoint - POPULATION_LIMIT) / POINT_STEP),
-      3
+      3,
     );
     return 1 + step * 0.2;
   };
@@ -586,15 +584,15 @@ function App() {
   const getPointColor = (row) => {
     const step = Math.min(
       Math.floor((row.dataPoint - POPULATION_LIMIT) / POINT_STEP),
-      4
+      4,
     );
-    const colors = ["#8F1CCD", "#A221B9", "#E0329D", "#DF7B90", "#E8AD85"];
+    const colors = ['#8F1CCD', '#A221B9', '#E0329D', '#DF7B90', '#E8AD85'];
     return colors[step];
   };
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await domo.get("/data/v1/geoData");
+      const response = await domo.get('/data/v1/geoData');
       const data = response.map((data) => ({
         name: data.city,
         latitude: data.lat,
@@ -611,7 +609,7 @@ function App() {
   useEffect(() => {
     if (points.length === 0) return;
 
-    mapboxgl.accessToken = "YOUR_MAPBOX_ACCESS_TOKEN";
+    mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
 
     mapRef.current = new mapboxgl.Map({
       container: mapContainerRef.current,
@@ -623,13 +621,13 @@ function App() {
     });
 
     // After the map loads, add data points
-    mapRef.current.on("load", () => {
+    mapRef.current.on('load', () => {
       const dataPoints = {
-        type: "FeatureCollection",
+        type: 'FeatureCollection',
         features: points.map((point) => ({
-          type: "Feature",
+          type: 'Feature',
           geometry: {
-            type: "Point",
+            type: 'Point',
             coordinates: [point.longitude, point.latitude],
           },
           properties: {
@@ -641,20 +639,20 @@ function App() {
       };
 
       // Add the source
-      mapRef.current.addSource("dataPoints", {
-        type: "geojson",
+      mapRef.current.addSource('dataPoints', {
+        type: 'geojson',
         data: dataPoints,
       });
 
       // Add a circle layer
       mapRef.current.addLayer({
-        id: "circle-layer",
-        type: "circle",
-        source: "dataPoints",
+        id: 'circle-layer',
+        type: 'circle',
+        source: 'dataPoints',
         paint: {
-          "circle-radius": ["get", "radius"], // Circle radius
-          "circle-color": ["get", "color"], // Circle color
-          "circle-opacity": 0.7, // Circle opacity
+          'circle-radius': ['get', 'radius'], // Circle radius
+          'circle-color': ['get', 'color'], // Circle color
+          'circle-opacity': 0.7, // Circle opacity
         },
       });
     });
@@ -674,7 +672,7 @@ export default App;
 
 Return to the browser and look at your finished map (you may need to refresh). You should see thousands of points all over the map, where the size and color of each point is determined by the population size of the city. How beautiful and interesting!
 
-![mapbox-finished.png](../../../../../assets/tutorials/mapbox-world-app/mapbox-finished.png)
+![mapbox-finished.png](/images/dev/stoplight.io/tutorials/mapbox-finished.png)
 
 Congratulations! You've completed this tutorial. Now that you know how to wire an app to a DataSet and how to render a map from Mapbox, you might have more ideas of how you could use these features to your benefit. A map like this can be further iterated on to add hover interactions to display data, to give one example.
 

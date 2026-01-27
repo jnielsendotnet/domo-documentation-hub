@@ -1,10 +1,7 @@
 ---
-title: "Code Engine JavaScript Libraries Reference"
-permalink: javascript-code-engine-javascript-libraries-reference
-sidebarTitle: "Code Engine JavaScript Libraries Reference"
-stoplight-id: javascript
+title: JavaScript Libraries
+permalink: c887b1e09fb75-code-engine-java-script-libraries-reference
 ---
-# Code Engine JavaScript Libraries Reference
 
 Below is a comprehensive list of JavaScript libraries available for use in Code Engine.
 
@@ -40,14 +37,14 @@ This function will send an authenticated API request to any of Domo's product AP
 #### Code Example
 
 ```javascript
-const codeengine = require("codeengine");
+const codeengine = require('codeengine');
 
 async function handleRequest(
   method,
   url,
   body = null,
   headers = null,
-  contentType = null
+  contentType = null,
 ) {
   try {
     return await codeengine.sendRequest(
@@ -55,7 +52,7 @@ async function handleRequest(
       url,
       body,
       headers,
-      contentType
+      contentType,
     );
   } catch (error) {
     console.error(`Error with ${method} request to ${url}:`, error);

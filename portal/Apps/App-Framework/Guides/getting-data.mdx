@@ -5,7 +5,7 @@ permalink: 6a5d7a2870145-getting-data
 
 Custom Apps can request data by making an HTTP GET or POST request. The manifest.json file helps manage the data that your app is using.
 
-Learn more in the manifest [reference](manifest.md) documentation.
+Learn more in the manifest [reference](/portal/Apps/App-Framework/Guides/manifest) documentation.
 
 &nbsp;
 
@@ -19,7 +19,7 @@ Data is requested by making XHR requests to the following data API endpoint:
 /data/v1/[DataSet Alias]
 ```
 
-where `[DataSet Alias]` is replaced with the desired DataSet alias from your design's [manifest.json file](manifest.md).
+where `[DataSet Alias]` is replaced with the desired DataSet alias from your design's [manifest.json file](/portal/Apps/App-Framework/Guides/manifest).
 
 So, if your app manifest had an alias named `sales`, your app could request data from the following URL:
 
@@ -57,7 +57,7 @@ So, if your app manifest had an alias named `sales`, your app could request data
 POST /data/v1/sales
 ```
 
-To get compute the sum of the `amount` column in the `sales` DataSet from the above sample mapping you could make a request with the [domo.js library](domo.js.md) in the following way:
+To get compute the sum of the `amount` column in the `sales` DataSet from the above sample mapping you could make a request with the [domo.js library](/portal/Apps/App-Framework/Tools/domo.js) in the following way:
 
 ```js
 domo
@@ -73,7 +73,7 @@ domo
 
 ---
 
-#### [domo.js](domo.js.md) (recommended)
+#### [domo.js](/portal/Apps/App-Framework/Tools/domo.js) (recommended)
 
 ```js
 domo.get('/data/v1/sales').then(function (sales) {

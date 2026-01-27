@@ -2,10 +2,9 @@
 title: Programmatically Create a Client
 permalink: 3c6pp23q82y90-programmatically-create-a-client
 stoplight-id: 3c6pp23q82y90
-
 ---
 
-Creating a Client ID and Secret using developer.domo.com in the browser is outlined in the [API Overview](../../../docs/API-Reference/Domo-APIs/API-Authentication.yaml).
+Creating a Client ID and Secret using developer.domo.com in the browser is outlined in the [API Overview](/portal/API-Reference/Domo-APIs/API-Authentication.yaml).
 
 For scenarios that require programmatic creation of Clients, the following guide may be used.
 
@@ -35,7 +34,7 @@ For instances that don't use direct sign on cookie authentication may be used wi
 To obtain the necessary cookie value, you may extract it using browser Developer Tools after logging into your instance.
 Locate and copy the `_dsidv1` cookie value
 
-![image.png](../../../images/dev/images/image-98.png)
+![image.png](/images/dev/stoplight.io/images/image-98.png)
 
 Call the [authenticate](Instance-Authentication.json/paths/~1api~1content~1v2~1authentication/post) endpoint with the matching `_dsidv1` cookie set and `"method": "exptoken"` in the request body.
 

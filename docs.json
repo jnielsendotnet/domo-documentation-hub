@@ -2481,7 +2481,10 @@
                       "portal/Getting-Started/overview",
                       {
                         "group": "Developer Tools",
-                        "pages": ["portal/Getting-Started/sdks"]
+                        "pages": [
+                          "portal/Getting-Started/sdks",
+                          "portal/Apps/App-Framework/Quickstart/Tools"
+                        ]
                       }
                     ]
                   },
@@ -2492,16 +2495,16 @@
                       {
                         "group": "App Framework APIs",
                         "pages": [
-                          "portal/API-Reference/Domo-App-APIs/AI-Service-Layer-API",
-                          "portal/API-Reference/Domo-App-APIs/AppDB-API",
-                          "portal/API-Reference/Domo-App-APIs/Code-Engine-API",
-                          "portal/API-Reference/Domo-App-APIs/Data-API",
-                          "portal/API-Reference/Domo-App-APIs/Files-API",
-                          "portal/API-Reference/Domo-App-APIs/Filesets-API",
-                          "portal/API-Reference/Domo-App-APIs/Groups-API",
-                          "portal/API-Reference/Domo-App-APIs/Queues-and-Tasks-API",
-                          "portal/API-Reference/Domo-App-APIs/User-API",
-                          "portal/API-Reference/Domo-App-APIs/Workflows-API"
+                          "portal/API-Reference/app-framework-apis/AI-Service-Layer-API",
+                          "portal/API-Reference/app-framework-apis/AppDB-API",
+                          "portal/API-Reference/app-framework-apis/Code-Engine-API",
+                          "portal/API-Reference/app-framework-apis/Data-API",
+                          "portal/API-Reference/app-framework-apis/Files-API",
+                          "portal/API-Reference/app-framework-apis/Filesets-API",
+                          "portal/API-Reference/app-framework-apis/Groups-API",
+                          "portal/API-Reference/app-framework-apis/Queues-and-Tasks-API",
+                          "portal/API-Reference/app-framework-apis/User-API",
+                          "portal/API-Reference/app-framework-apis/Workflows-API"
                         ]
                       },
                       {
@@ -3104,6 +3107,7 @@
                     "group": "Build Apps",
                     "pages": [
                       "portal/Apps/Overview",
+                      "portal/Apps/App-Catalyst",
                       {
                         "group": "App Framework",
                         "pages": [
@@ -3115,13 +3119,13 @@
                               "portal/Apps/App-Framework/Quickstart/Key-Terminology",
                               "portal/Apps/App-Framework/Quickstart/Setup-and-Installation",
                               "portal/Apps/App-Framework/Quickstart/Starter-Kits",
-                              "portal/Apps/App-Framework/Quickstart/Tools",
                               "portal/Apps/App-Framework/Quickstart/Best-Practices"
                             ]
                           },
                           {
                             "group": "Tutorials",
                             "pages": [
+                              "portal/Apps/App-Framework/Tutorials/Overview",
                               {
                                 "group": "React",
                                 "pages": [
@@ -3131,19 +3135,20 @@
                                 ]
                               },
                               {
-                                "group": "Vanilla JS",
+                                "group": "Javascript",
                                 "pages": [
                                   {
                                     "group": "Game Night Planner App",
                                     "pages": [
-                                      "portal/GameNightPlannerApp/intro-to-bricks",
-                                      "portal/GameNightPlannerApp/going-from-brick-to-app",
-                                      "portal/GameNightPlannerApp/adding-advanced-capabilities-to-your-app"
+                                      "portal/Apps/App-Framework/Tutorials/javascript/game-night-planner-app/intro-to-bricks",
+                                      "portal/Apps/App-Framework/Tutorials/javascript/game-night-planner-app/going-from-brick-to-app",
+                                      "portal/Apps/App-Framework/Tutorials/javascript/game-night-planner-app/adding-advanced-capabilities-to-your-app"
                                     ]
                                   },
-                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/SugarForce",
-                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/ReturnFlow",
-                                  "portal/Apps/App-Framework/Tutorials/Vanilla-Javascript/DynamicInfographic"
+                                  "portal/Apps/App-Framework/Tutorials/javascript/HelloWorld",
+                                  "portal/Apps/App-Framework/Tutorials/javascript/SugarForce",
+                                  "portal/Apps/App-Framework/Tutorials/javascript/ReturnFlow",
+                                  "portal/Apps/App-Framework/Tutorials/javascript/DynamicInfographic"
                                 ]
                               }
                             ]
@@ -3163,13 +3168,13 @@
                           {
                             "group": "Guides",
                             "pages": [
-                              "portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI",
+                              "portal/Apps/App-Framework/Guides/Overview",
                               "portal/Apps/App-Framework/Guides/manifest",
+                              "portal/Apps/App-Framework/Guides/app-sessions",
+                              "portal/Apps/App-Framework/Guides/querying-data",
+                              "portal/Apps/App-Framework/Guides/Local-Development-with-Domo-CLI",
                               "portal/Apps/App-Framework/Guides/public-assets",
                               "portal/Apps/App-Framework/Guides/swap-designs",
-                              "portal/Apps/App-Framework/Guides/app-sessions",
-                              "portal/Apps/App-Framework/Guides/getting-data",
-                              "portal/Apps/App-Framework/Guides/querying-data",
                               "portal/Apps/App-Framework/Guides/handling-data-updates",
                               "portal/Apps/App-Framework/Guides/hitting-a-workflow",
                               "portal/Apps/App-Framework/Guides/hitting-code-engine-from-an-app",
@@ -3215,14 +3220,9 @@
                       {
                         "group": "Domo Bricks",
                         "pages": [
-                          {
-                            "group": "Quickstart",
-                            "pages": [
-                              "portal/Apps/DDX-Bricks/Quickstart/overview",
-                              "portal/Apps/DDX-Bricks/Quickstart/getting-started"
-                            ]
-                          },
-                          "portal/Apps/DDX-Bricks/Tutorials/Intro-to-DDX-Bricks/intro",
+                          "portal/Apps/DDX-Bricks/Quickstart/overview",
+                          "portal/Apps/DDX-Bricks/Quickstart/getting-started",
+                          "portal/Apps/DDX-Bricks/Tutorials/intro",
                           {
                             "group": "Guides",
                             "pages": [
@@ -3237,7 +3237,7 @@
                   {
                     "group": "Automate Actions",
                     "pages": [
-                      "/portal/d3f552e6ba34b-automate-actions-with-workflows-and-code-engine",
+                      "/portal/Automate-Actions/overview",
                       {
                         "group": "Workflows",
                         "pages": [
@@ -3252,7 +3252,7 @@
                           "portal/Automate-Actions/Code-Engine/overview",
                           "portal/Automate-Actions/Code-Engine/global-vs-custom-packages",
                           "portal/Automate-Actions/Code-Engine/creating-packages",
-                          "portal/Automate-Actions/Code-Engine/overview",
+                          "portal/Automate-Actions/Code-Engine/code-editor-overview",
                           "portal/Automate-Actions/Code-Engine/javascript-libraries",
                           "portal/Automate-Actions/Code-Engine/python-packages",
                           "portal/Automate-Actions/Code-Engine/common-use-cases",
@@ -3284,15 +3284,14 @@
                       {
                         "group": "Guides",
                         "pages": [
-                          "portal/Partner-Developers/Guides/building-an-app-overview",
-                          "portal/Partner-Developers/Guides/getting-paid",
-                          "portal/Partner-Developers/Guides/getting-data-overview",
-                          "portal/Partner-Developers/Guides/paid-apps",
-                          "portal/Partner-Developers/Guides/partner-app-submission",
-                          "portal/Partner-Developers/Guides/snowflake-mmds-quickstart",
-                          "portal/Partner-Developers/Guides/start-a-remote-workflow",
                           "portal/Partner-Developers/Guides/submission-checklist",
-                          "portal/Partner-Developers/Guides/video-recording"
+                          "portal/Partner-Developers/Guides/video-recording",
+                          "portal/Partner-Developers/Guides/partner-app-submission",
+                          "portal/Partner-Developers/Guides/paid-apps",
+                          "portal/Partner-Developers/Guides/getting-paid",
+                          "portal/Partner-Developers/Guides/building-an-app-overview",
+                          "portal/Partner-Developers/Guides/getting-data-overview",
+                          "portal/Partner-Developers/Guides/start-a-remote-workflow"
                         ]
                       }
                     ]
@@ -3300,20 +3299,20 @@
                   {
                     "group": "AI Resources Guide",
                     "pages": [
-                      "portal/Data-Science/overview",
-                      "portal/Data-Science/ai-services",
-                      "portal/Data-Science/jupyter",
-                      "portal/Data-Science/accelerators",
-                      "portal/Data-Science/scripting-tiles",
-                      "portal/Data-Science/data-science-tiles",
-                      "portal/Data-Science/autoML",
-                      "portal/Data-Science/webinars"
+                      "portal/data-science/overview",
+                      "portal/data-science/ai-services",
+                      "portal/data-science/jupyter",
+                      "portal/data-science/accelerators",
+                      "portal/data-science/scripting-tiles",
+                      "portal/data-science/data-science-tiles",
+                      "portal/data-science/autoML",
+                      "portal/data-science/webinars"
                     ]
                   },
                   {
                     "group": "Connect Data",
                     "pages": [
-                      "portal/Connectors/Overview",
+                      "portal/Connectors/overview",
                       {
                         "group": "Custom Connectors",
                         "pages": [
@@ -3338,12 +3337,10 @@
                       {
                         "group": "Connect via API",
                         "pages": [
-                          "portal/Connectors/API-Data-Connection/overview",
-                          "portal/Connectors/API-Data-Connection/quickstart",
-                          "portal/Connectors/API-Data-Connection/format-data-to-import",
-                          "portal/Connectors/API-Data-Connection/import-and-export-data",
-                          "/portal/Connectors/API-Data-Connection/managing-datasets",
-                          "portal/Governance/pdp"
+                          "portal/Connectors/api-connections/overview",
+                          "portal/Connectors/api-connections/quickstart",
+                          "portal/Connectors/api-connections/format-data-to-import",
+                          "portal/Connectors/api-connections/import-and-export-data"
                         ]
                       },
                       {
@@ -3351,9 +3348,9 @@
                         "pages": [
                           "portal/Connectors/on-premises-data",
                           "portal/Connectors/federated-queries",
-                          "/links/jupyter",
-                          "/links/domo-cli",
-                          "/links/cloud-amplifier"
+                          "links/jupyter",
+                          "links/domo-cli",
+                          "links/cloud-amplifier"
                         ]
                       }
                     ]
@@ -3361,25 +3358,25 @@
                   {
                     "group": "Embed Domo Everywhere",
                     "pages": [
-                      "portal/Embedded-Analytics/overview",
-                      "portal/Embedded-Analytics/embedded-scheduled-reports",
-                      "portal/Embedded-Analytics/publishing-to-other-domo-users",
+                      "portal/embed/overview",
+                      "portal/embed/embedded-scheduled-reports",
+                      "portal/embed/publishing-to-other-domo-users",
                       {
                         "group": "Embed In Sites and Software",
                         "pages": [
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/overview",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/programmatic-filtering",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/app-embed-authentication",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/dataset-switching",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/filtering-options",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/url-parameters-in-embedded-content",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/dynamic-iframe-height",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/code-examples",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/necessary-dependencies",
-                          "portal/Embedded-Analytics/Embedding-in-Sites-and-Software/embedding-into-sites-and-web-portals"
+                          "portal/embed/embed-in-sites-and-apps/overview",
+                          "portal/embed/embed-in-sites-and-apps/programmatic-filtering",
+                          "portal/embed/embed-in-sites-and-apps/app-embed-authentication",
+                          "portal/embed/embed-in-sites-and-apps/dataset-switching",
+                          "portal/embed/embed-in-sites-and-apps/filtering-options",
+                          "portal/embed/embed-in-sites-and-apps/url-parameters-in-embedded-content",
+                          "portal/embed/embed-in-sites-and-apps/dynamic-iframe-height",
+                          "portal/embed/embed-in-sites-and-apps/code-examples",
+                          "portal/embed/embed-in-sites-and-apps/necessary-dependencies",
+                          "portal/embed/embed-in-sites-and-apps/embedding-into-sites-and-web-portals"
                         ]
                       },
-                      "portal/Embedded-Analytics/embedded-edit-experiences"
+                      "portal/embed/embedded-edit-experiences"
                     ]
                   },
                   {
