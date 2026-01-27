@@ -1,16 +1,13 @@
 ---
-title: "Build Apps"
+title: Overview
 permalink: 28v6sqz9eslb9-build-apps
-sidebarTitle: "Build Apps"
-stoplight-id: 28v6sqz9eslb9
 ---
-# Overview
 
 Create an app on the Domo Platform for maximum flexibility in design, data collection, and distribution.
 
 - **Pre-built apps**: [Domo’s Appstore](https://www.domo.com/intelligent-apps/about-appstore) provides a collection of apps built by Domo and our community that you can leverage for fast insights.
-- **[Domo Bricks](../Apps/DDX-Bricks/Quickstart/overview.md) (previously DDX Bricks)**: Domo Bricks are pre-built objects that allow you to create advanced visualizations and apps that can be customized in a simple browser-based code editor.
-- **[App Framework](../Apps/App-Framework/Welcome.md)**: The Domo App Framework provides a set of APIs for building custom JavaScript-based front-ends on Domo and a transactional database called AppDB, which is a wrapper on top of MongoDB.
+- **[Domo Bricks](/portal/Apps/App-Framework/DDX-Bricks/Quickstart/overview) (previously DDX Bricks)**: Domo Bricks are pre-built objects that allow you to create advanced visualizations and apps that can be customized in a simple browser-based code editor.
+- **[App Framework](/portal/Apps/App-Framework/Welcome)**: The Domo App Framework provides a set of APIs for building custom JavaScript-based front-ends on Domo and a transactional database called AppDB, which is a wrapper on top of MongoDB.
 
 ## Domo Bricks or the App Framework?
 
@@ -18,22 +15,22 @@ In general, the more complex your app solution, the more you'll want to lean on 
 
 ![bricks-or-app-framework.png](/images/dev/stoplight.io/images/bricks-or-app-framework.png)
 
-**[Domo Bricks](../Apps/DDX-Bricks/Quickstart/overview.md) (previously DDX Bricks)** are a great tool for quickly customizing Domo if your use-case can be achieved by:
+**[Domo Bricks](/portal/Apps/App-Framework/DDX-Bricks/Quickstart/overview) (previously DDX Bricks)** are a great tool for quickly customizing Domo if your use-case can be achieved by:
 
 - Tweaking the HTML, CSS, and JavaScript of pre-built Domo Brick in the [Domo Appstore](https://www.domo.com/intelligent-apps/about-appstore).
 - Building your application from scratch in the three files of the Domo Bricks browser-based editor: HTML, CSS, and JS.
 - Leveraging external libraries via [CDN](https://developer.mozilla.org/en-US/docs/Glossary/CDN) (e.g. without the need of a package management tool like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)).
 
-As the complexity of your app grows, the full **[App Framework](../Apps/App-Framework/Welcome.md)** tooling is the way to go. This may be because:
+As the complexity of your app grows, the full **[App Framework](/portal/Apps/App-Framework/Welcome)** tooling is the way to go. This may be because:
 
 - Your app requires more than just three files.
 - Your app has many dependencies and is using package management tools (like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)).
 - You prefer developing in the text editor or IDE of your choice (e.g. VSCode, Sublime Text, Atom, etc.).
-- Your app involves data collection via [CRUD](https://developer.mozilla.org/en-US/docs/Glossary/CRUD) operations (Create, Read, Update, Delete), which requires Domo's built-in transactional datastore called [AppDB](../API-Reference/Domo-App-APIs/AppDB-API.md).
+- Your app involves data collection via [CRUD](https://developer.mozilla.org/en-US/docs/Glossary/CRUD) operations (Create, Read, Update, Delete), which requires Domo's built-in transactional datastore called [AppDB](/portal/API-Reference/app-framework-apis/AppDB-API).
   - Note: it is possible to leverage AppDB in a Domo Brick (e.g. [DDX Form and Dataset](https://www.domo.com/appstore/app/ddx-form-and-dataset/overview)), but the App Framework is the preferred approach.
-- Your app requires the ability to interface with the [Files API](../API-Reference/Domo-App-APIs/Files-API.md).
+- Your app requires the ability to interface with the [Files API](/portal/API-Reference/app-framework-apis/Files-API).
 - You'd like greater control over the number of DataSets connected to your App (max: 100) and how a user can configure column mappings to those DataSets on the Wiring Screen.
-- You'd like to leverage JavaScript frameworks like [React, Angular, or Vue](App-Framework/Quickstart/Starter-Kits.md).
+- You'd like to leverage JavaScript frameworks like [React, Angular, or Vue](/portal/Apps/App-Framework/Quickstart/Starter-Kits).
 - You'd like to follow standard development lifecycle practices (e.g. version control, CI/CD pipelines, etc.).
 
 ## App Showcase
@@ -44,7 +41,7 @@ The Domo platform provides tools to build custom solutions that digitize and aug
 
 ---
 
-<img class="alignleft" src="https://web-assets.domo.com/miyagi/images/product/product-customer-utah-jazz-custom-app-anon.gif" />
+![jazz](/images/dev/web-assets.domo.com/miyagi/images/product/product-customer-utah-jazz-custom-app-anon.gif)
 
 #### How an NBA team visualizes their stadium to drive revenue
 
@@ -56,7 +53,7 @@ The app has allowed analysts and non-analysts alike to explore data, drive insig
 
 ---
 
-<img class="alignleft " src="https://web-assets.domo.com/miyagi/images/product/product-customer-espn-app-anon-2x.png" />
+![espn](/images/dev/web-assets.domo.com/miyagi/images/product/product-customer-espn-app-anon-2x.png)
 
 #### Keeping a pulse on fan engagement
 
@@ -68,7 +65,7 @@ The app provides ESPN with a comprehensive picture of fan sentiment and helps th
 
 ---
 
-<img class="alignright" src="https://web-assets.domo.com/miyagi/images/product/product-customer-telus-custom-app-anon-2.gif" />
+![telus](/images/dev/web-assets.domo.com/miyagi/images/product/product-customer-telus-custom-app-anon-2.gif)
 
 #### Real-time store performance KPIs
 
@@ -78,7 +75,7 @@ This app provides store managers with a real-time view of their most important K
 
 ### Retail Store Performance App
 
-<img class="alignleft " src="https://web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-customer-app-retail-performance.jpg" />
+![retail](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-customer-app-retail-performance.jpg)
 
 #### Giving store leaders the data they need to run their business — on their phone
 
@@ -88,31 +85,39 @@ The Retail Store Performance App puts all the data a store leader needs to run t
 
 ---
 
-<img class="alignright " src="https://web-assets.domo.com/appstore/api/library/v1/images/33137" />
+![appstore](/images/dev/web-assets.domo.com/appstore/api/library/v1/images/33137)
 
 #### Capturing how digital marketing efforts translate into revenue
 
 Blue Moon’s E-commerce Revenue Equation App allows marketers to view and analyze the performance of their digital marketing by channel, device type, and visitor type to see how traffic, AOV, and CVR affect revenue.
 
-<a class="btn btn-primary" style="float: left;" href="https://www.domo.com/appstore/app/ecommerce-revenue-equation/overview" target="_blank" rel="noopener">See it in the Domo Appstore</a>
+[See it in the Domo Appstore](https://www.domo.com/appstore/app/ecommerce-revenue-equation/overview)
 
 ### Google Maps Pinboard
 
 ---
 
-<img class="alignleft " src="https://web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-app-custom-google-maps-pinboard.jpg" />
+![pinboard](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-app-custom-google-maps-pinboard.jpg)
 
 #### Using location metrics to improve business performance
 
 The Google Maps Pinboard uses the power of Google Maps to help you visualize all your locations and drill down to metrics for each one. Simply click on the map to open up details for your selected location. Filter by business category, region, and owner, or search for specific items. See operational data for each location in table format, and even see the value distribution for each of your defined metrics, such as traffic and gross sales.
 
-<a class="btn btn-primary" style="float: left;" href="https://www.domo.com/appstore/app/google-maps-pinboard-app/overview" target="_blank" rel="noopener">See it in the Appstore</a>
+[See it in the Domo Appstore](https://www.domo.com/appstore/app/google-maps-pinboard-app/overview)
 
 ### Keypoint Intelligence
 
 ---
 
-https://player.vimeo.com/video/329688570
+<iframe
+  className="w-full aspect-video rounded-xl"
+  src="https://player.vimeo.com/video/329688570"
+  title="Domo x Canva Infographic Tutorial"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen
+></iframe>
 
 #### Driving better decisions with geospatial visualizations
 
@@ -122,22 +127,22 @@ Keypoint Intelligence worked with Domo to create a custom geospatial visualizati
 
 ---
 
-<img class="alignleft" src="https://web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-app-custom-christopherson-travel-leakage-analyzer.jpg" />
+![christopherson](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-app-custom-christopherson-travel-leakage-analyzer.jpg)
 
 #### Ensuring travel policy compliance
 
 Christopherson built their Travel Leakage Analyzer App to help businesses understand where travel spend is out of policy. By combining feeds from Christopherson’s robust software platform, AirPortal®, and financial systems such as Concur, NetSuite, and QuickBooks, the Travel Leakage App visualizes where travel spend is compliant, and more importantly, where it is not.
 
-<a class="btn btn-primary" style="float: left;" href="https://www.domo.com/appstore/app/travel-leakage-analyzer-app/overview" target="_blank" rel="noopener">See it in the Domo Appstore</a>
+[See it in the Domo Appstore](https://www.domo.com/appstore/app/travel-leakage-analyzer-app/overview)
 
 ### Sales Leaderboard
 
 ---
 
-<img class="alignright " src="https://web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-customer-app-sales-leaderboard.jpg" />
+![leaderboard](/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-customer-app-sales-leaderboard.jpg)
 
 #### Motivating sales with real data
 
 With Sales Leaderboard, you can track top performers, predict future leaders, and plan training and incentives accordingly. This app provides sales leadership with a current and forecasted end-of period ranking for all sales reps. Sales leadership can share this app within sales teams or with the broader organization to motivate reps and promote healthy competition.
 
-<a class="btn btn-primary" style="float: left;" href="https://www.domo.com/appstore/app/sales-leaderboard-app/overview" target="_blank" rel="noopener">See it in the Domo Appstore</a>
+[See it in the Domo Appstore](https://www.domo.com/appstore/app/sales-leaderboard-app/overview)

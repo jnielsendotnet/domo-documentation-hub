@@ -1,36 +1,44 @@
 ---
 title: On-Premises Data
-permalink: on-on-premises-data
-stoplight-id: true
-
+permalink: cb2e07663deaf-on-premises-data
 ---
+
 ### Workbench Add-ons
+
 ---
 
 Workbench is a tool that allows you to upload data to Domo from your on-premises systems, and is frequently used to upload data that exists behind your firewall. You can use Domo Workbench to routinely upload data from Excel, CSV, ODBC, QuickBooks, and other data sources to Domo. Workbench can be downloaded from the On Premise section of the Data Center or the admin page in your Domo instance.
 
 ### Overview
+
 ---
+
 In Workbench 5, Domo has a developer platform that enables you to build your own custom Domo plugins. In this release of the platform we enable you to build your own:
+
 <ul>
- 	<li>Data Transport Methods</li>
- 	<li>Data Sources</li>
- 	<li>Data Transforms</li>
+  <li>Data Transport Methods</li>
+  <li>Data Sources</li>
+  <li>Data Transforms</li>
 </ul>
-The Workbench Developer Platform uses Dynamic-Link Library (DLL) that can be built in your .NET Framework language and IDE of choice and then installed into Workbench through the Plugin Manager.
+The Workbench Developer Platform uses Dynamic-Link Library (DLL) that can be built
+in your .NET Framework language and IDE of choice and then installed into Workbench
+through the Plugin Manager.
 
 This platform provides complete flexibility giving you control over creating the connection to your data source, defining how the data will be read and parsed, enabling you to run custom transforms on your data. All this flexibility is managed and maintained within Workbench giving you the benefit of having these custom plugins run in your own data center.
 
 The process is simple:
+
 <ol>
- 	<li>Decide what you want to create</li>
- 	<li>Determine how you want to build it</li>
- 	<li>Leverage our Domo Workbench SDK</li>
- 	<li>Install your plugin into Workbench</li>
+  <li>Decide what you want to create</li>
+  <li>Determine how you want to build it</li>
+  <li>Leverage our Domo Workbench SDK</li>
+  <li>Install your plugin into Workbench</li>
 </ol>
 
 ### Deciding what to build
+
 ---
+
 Domo allows you to connect to your data no matter where it resides. The Workbench Developer Platform gives you control to determine all aspects of your data acquisition, ingestion, and normalization.
 
 #### Data Transport Methods
@@ -41,13 +49,11 @@ Workbench provides basic database, local file, remote file, and SFTP/FTP connect
 
 Once you have gathered the information you need to make your connection you are ready to move onto the plugin creation step.
 
-
 #### Data Source Connection
 
 All data is unique and you need to be able to read and understand the data before it can be sent to Domo. The Data Source Connection plugin allows you to create a custom reader that can pull the data into Workbench in a readable manner. For example it may not be enough to pull all the data from an Excel workbook, maybe you need to be more specific and pull only a single sheet or even a specific set of cells from a specific sheet.
 
 With data source connection plugins you can take the raw data source and pick out the specific data points that you need to run your business.
-
 
 #### Data Transforms
 
@@ -56,7 +62,9 @@ Data never comes quite the way that you want it. Maybe a column name from the re
 To build your transforms you will need to know what actions must be taken each time you import your data. Define which columns are needed for the transformation and what the expected outcome will be.
 
 ### Deciding how you want to build
+
 ---
+
 We understand that developers have a preference before starting to work with Domo. We are using DLLs as the delivery vehicle for the three plugin types we support. This allows you to select from a wide range of base languages to write your plugin. It also means that your plugin will be supported on all the platforms supported by Workbench, meaning your plugin will be useful well beyond your own use.
 
 #### The Workbench SDK
@@ -73,15 +81,22 @@ Once you have built your plugin and produced a DLL file you simply need to insta
 
 After installing Workbench 5, simply go to the Workbench Plugin Manager by clicking on the more menu and selecting Plugins.
 
-<img class="aligncenter wp-image-115" src="https://web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-wokbench5-ui.png" alt="plugin manager screen" />
+<img
+  class="aligncenter wp-image-115"
+  src="/images/dev/web-assets.domo.com/miyagi/images/product/product-feature-dev-portal-wokbench5-ui.png"
+  alt="plugin manager screen"
+/>
 
 Since we want to add a new plugin, we want to click on the ellipses (…) next to the Search Path field and select Add after you have chosen your directory. The directory you choose should contain another directory containing your plugin.
 
 Once you have installed your plugin it will appear when you work with your DataSet Job. If you created a Transport Method or Data Source Connection you will be able to select your new option when creating or editing a DataSet Job. If you created a new Transform then you will be able to select your Transform as an option when you create a new transform for your DataSet Job.
 
 ### Additional Resources
+
 ---
+
 For additional help using Workbench refer to the following guides and articles:
-- [Connecting to Data Using Workbench 5](https://knowledge.domo.com/Connect/Connecting_to_Data_Using_Workbench_5)
-- [Workbench 5 FAQs](https://knowledge.domo.com/Connect/Connecting_to_Data_Using_Workbench_5/13Workbench_5_FAQs)
-- [Common Workbench errors](https://knowledge.domo.com/Connect/Connecting_to_Data_Using_Workbench_5/Common_Workbench_Errors)
+
+- [Connecting to Data Using Workbench 5](/s/article/360042932614?language=en_US)
+- [Workbench 5 FAQs](/s/article/360043437373?language=en_US)
+- [Common Workbench errors](s/article/360042932614?language=en_US)

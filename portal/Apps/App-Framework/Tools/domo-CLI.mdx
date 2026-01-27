@@ -23,7 +23,7 @@ npm install -g ryuu
 
 **Note:** Homebrew and Chocolatey installation methods have been deprecated. Please use npm for all new installations.
 
-For more details on installing the CLI, see the [Setup and Installation Guide](../Quickstart/Setup-and-Installation.md).
+For more details on installing the CLI, see the [Setup and Installation Guide](/portal/Apps/App-Framework/Quickstart/Setup-and-Installation).
 
 ## Usage
 
@@ -90,13 +90,11 @@ domo init
 
 - manifest only: Adds a single `manifest.json` file to the current working directory.
 
-- basic chart: Gets you started rendering a basic [Domo Phoenix] bar chart.
+- basic chart: Gets you started rendering a basic [Domo Phoenix bar chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/bar).
 
-- map chart: Gets you started rendering a [Domo Phoenix] world map chart.
+- map chart: Gets you started rendering a [Domo Phoenix world map chart](https://domoapps.github.io/domo-phoenix/#/domo-phoenix/chart/map).
 
 - sugarforce: Creates an app with multiple screens; demonstrates tabbing between screens, database CRUD operations, and more.
-
-[Domo Phoenix]: https://domoapps.github.io/domo-phoenix/
 
 #### Dataset Mapping Prompts
 
@@ -105,7 +103,7 @@ If you choose to connect to datasets, you'll be prompted for the following:
 - dataset id: Can be found in the URL of the DataSet detail page in your Domo instance. `https://[customer].domo.com/datasources/[dataset id]/details/overview`
 - dataset alias: The alias your app will use when requesting data from Domo. Make sure it has no spaces or special characters.
 
-**Note**: Be sure to complete the field mapping portion in the `manifest.json`. Refer to the [manifest](../Guides/manifest.md) reference documentation for more details on data mapping.
+**Note**: Be sure to complete the field mapping portion in the `manifest.json`. Refer to the [manifest](/portal/Apps/App-Framework/Guides/manifest) reference documentation for more details on data mapping.
 
 ### Login
 
@@ -233,7 +231,7 @@ domo owner [options] [add|rm|ls] example.user@companyname.com
 
 Uploads all the assets of your current working directory as a Custom App design.
 
-You can choose to [ignore certain files](../Guides/manifest.md#ignore), meaning `domo publish` will not upload those files. Any node_modules directories are ignored by default. Refer to the [manifest](../Guides/manifest.md#ignore) reference docs for more details on ignoring files.
+You can choose to [ignore certain files](/portal/Apps/App-Framework/Guides/manifest#ignore), meaning `domo publish` will not upload those files. Any node_modules directories are ignored by default.
 
 If an existing ID is not found in the manifest, a new design will be created, and the manifest file will be updated with the newly created design ID. Existing designs will be updated.
 
@@ -338,7 +336,7 @@ domo proxy -r
 To enable proxying for advanced requests (like the AppDB, Files, Code Engine, and Workflows APIs), you must provide the ID of an app in your instance that the CLI can proxy to (e.g., impersonate a particular Card). Add this app ID to your manifest under the property `proxyId`. If the ID is valid, proxying advanced requests with `domo dev` will work automatically.
 
 All proxy IDs for your app can be found on the App Design page under the "Cards" tab.
-![Proxy ID Location](../../assets/images/proxyId_location.png)
+![Proxy ID Location](/images/dev/stoplight.io/images/proxyId_location.png)
 
 Proxy IDs tie apps to Cards. If you delete the Card from which you retrieved the ID, you will have to get a new one from another card created from your app design.
 

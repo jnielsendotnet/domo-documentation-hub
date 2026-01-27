@@ -1,20 +1,19 @@
 ---
-title: "Managing DataSets in Domo"
-permalink: data-managing-datasets-in-domo
-sidebarTitle: "Managing DataSets in Domo"
-stoplight-id: data
+title: 'Managing DataSets in Domo'
+permalink: 6a1dd9d565f05-managing-data-sets-in-domo
+sidebarTitle: 'Manage DataSets'
 ---
-# Managing DataSets in Domo
 
-DataSets enable visualizations, alerts, and user collaboration that ultimately allows businesses to make data driven decisions and then take action.  Since data a foundation to the Domo platform, it is important to maintain the accuracy and ownership of datasets. The [DataSet API](../API-Reference/Domo-APIs/DataSet-API.yaml) enables you to automate processes to ensure DataSets have the correct information, access, and ownership.
+DataSets enable visualizations, alerts, and user collaboration that ultimately allows businesses to make data driven decisions and then take action.  Since data a foundation to the Domo platform, it is important to maintain the accuracy and ownership of datasets. The [DataSet API](/portal/3b1e3a7d5f420-data-set-api) enables you to automate processes to ensure DataSets have the correct information, access, and ownership.
 
 > **NOTE:** 
 > Only DataSets created with the API can be updated via APIs.
 
 ### Changing DataSet owner
----
-Often there may be a case where an owner of a DataSet has changed companies and has had their access removed or simply changed roles in a company and is no longer responsible for the maintenance of a DataSet.  In these cases, the DataSet API allows you to programmatically make updates by first querying for all DataSets owned by a user and then updating each with the new owner's user ID.
 
+---
+
+Often there may be a case where an owner of a DataSet has changed companies and has had their access removed or simply changed roles in a company and is no longer responsible for the maintenance of a DataSet. In these cases, the DataSet API allows you to programmatically make updates by first querying for all DataSets owned by a user and then updating each with the new owner's user ID.
 
 #### Sample Request
 
@@ -35,9 +34,11 @@ Authorization: bearer <your-valid-oauth-access-token>
   },
 }
 ```
+
 Domo will return a response of success or error for the outcome of data being imported into DataSet.
 
 ### Sample Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -81,6 +82,7 @@ Content-Type: application/json
 ```
 
 ### Updating a DataSet schema
+
 ---
 
 At times, it is necessary to update the DataSet's schema.{/* Please note that if a DataSet's schema. This sentence was not finished in original docs */}
@@ -117,6 +119,7 @@ Authorization: bearer <your-valid-oauth-access-token>
 Domo will return a response of success or error for the outcome of data being imported into DataSet.
 
 #### Sample Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -163,8 +166,11 @@ Content-Type: application/json
 ```
 
 ### Next Steps
+
 Now that you’ve learned more ways to automate your management of DataSets in Domo, read more about extending data management using Personalized Data Permissions (PDP):
-- [Personalized Data Permissions](pdp.md)
+
+- [Personalized Data Permissions](/portal/Governance/pdp)
 
 ### Have additional questions?
-No problem, we'd love to help. Explore [additional guides and articles](https://domo-support.domo.com/s/knowledge-base?language=en_US) or join other developers in Domo's [Developer Forum](https://dojo.domo.com/main).  For further help, feel free to [email us](mailto:support@domo.com) or [contact our sales team](mailto:sales@domo.com).
+
+No problem, we'd love to help. Explore [additional guides and articles](https://domo-support.domo.com/s/knowledge-base?language=en_US) or join other developers in Domo's [Developer Forum](https://dojo.domo.com/main). For further help, feel free to [email us](mailto:support@domo.com) or [contact our sales team](mailto:sales@domo.com).

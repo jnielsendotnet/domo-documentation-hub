@@ -11,7 +11,7 @@ info:
     2. A environment from outside of Domo
     2. A script running in Domo's Jupyter Workspaces
 
-    If you are looking to hit a workflow from a Domo App, see the [App Framework API Reference for Workflows](../../API-Reference/Domo-App-APIs/Workflows-API.md) and the [guide on how to hit a workflow from a Domo App](../../Apps/App-Framework/Guides/hitting-a-workflow.md).
+    If you are looking to hit a workflow from a Domo App, see the [App Framework API Reference for Workflows](../../API-Reference/app-framework-apis/Workflows-API.md) and the [guide on how to hit a workflow from a Domo App](../../Apps/App-Framework/Guides/hitting-a-workflow.md).
 
     If you are unfamiliar with how to authenticate against Product APIs, [please see this overview page](../../Getting-Started/api-authentication.md).
 
@@ -56,7 +56,7 @@ paths:
 
         <Danger>
         **Server-side only**
-        
+
         These APIs are CORS restricted so should only be called server-side when scripting against Domo. Due to this restriction, the "Try It" functionality in this documentation will not work, but the code snippet it generates (e.g. the curl request) should provided that you replace `YOUR_INSTANCE` and `YOUR_TOKEN` with the appropriate values.
         </Danger>
       parameters: []

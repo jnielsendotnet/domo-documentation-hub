@@ -94,7 +94,7 @@ paths:
           required: true
       responses:
         '200':
-          description: 'Returns a DataSet object if a valid `dataset_id` was provided. When requesting, if the `dataset_id` is related to a DataSet that has been deleted, a subset of the DataSet''s information will be returned, including a `deleted` property, which will be `true`.'
+          description: "Returns a DataSet object if a valid `dataset_id` was provided. When requesting, if the `dataset_id` is related to a DataSet that has been deleted, a subset of the DataSet's information will be returned, including a `deleted` property, which will be `true`."
           content:
             application/json:
               examples:
@@ -234,7 +234,7 @@ paths:
         <!-- theme: info -->
         > #### Appending _Data_
         >
-        > To import **additional rows** into an existing DataSet, use the DataSet Import endpoint or the [Simple API](https://developer.domo.com/portal/d984e2fec9b18-import-data-into-data-set).
+        > To import **additional rows** into an existing DataSet, use the DataSet Import endpoint or the [Simple API](/portal/d984e2fec9b18-import-data-into-data-set).
       requestBody:
         content:
           application/json:
@@ -942,8 +942,8 @@ paths:
                   "Thomas, Liz","33"
         description: |
           The schema needs to match, even when replacing.
-          
-          The only supported content type for this endpoint is CSV. However, if you use [the Simple API](https://developer.domo.com/portal/d984e2fec9b18-import-data-into-data-set), it will automatically convert JSON to CSV.
+
+          The only supported content type for this endpoint is CSV. However, if you use [the Simple API](/portal/d984e2fec9b18-import-data-into-data-set), it will automatically convert JSON to CSV.
 
           > The Domo specification used for representing data grids in CSV format closely follows the RFC standard for CSV ([RFC-4180](https://datatracker.ietf.org/doc/html/rfc4180)).
 
@@ -966,9 +966,9 @@ paths:
           in: query
           description: |
             Specifies how the data import should update the DataSet. 
-            
+
             Defaults to `REPLACE` if not specified. 
-            
+
             Case-sensitive; must be uppercase. Falls back to REPLACE if given an invalid value.
           required: false
           schema:
@@ -986,7 +986,13 @@ paths:
             application/json:
               schema:
                 type: object
-                example: {"status":400,"statusReason":"Bad Request","message":"Data import failed for dataset e6277565-39fc-42d7-835a-5cfe2905a840.","toe":"CA6JIHTO46-28C5D-UEQ7I"}
+                example:
+                  {
+                    'status': 400,
+                    'statusReason': 'Bad Request',
+                    'message': 'Data import failed for dataset e6277565-39fc-42d7-835a-5cfe2905a840.',
+                    'toe': 'CA6JIHTO46-28C5D-UEQ7I',
+                  }
         '401':
           description: Unauthorized — Expired access token, etc.
           headers:
@@ -1012,12 +1018,12 @@ paths:
                     type: string
                     description: Thread of Execution — a way Domo Support can track down a problem
                     example: 694M4LH50R-CFNR0-N0VD2
-        
+
     get:
       summary: Export Data from DataSet
       description: |
         Export data from a DataSet in your Domo instance.
-        
+
         > Data types will be exported as they are currently stored in the dataset. In addition, the only supported export type is CSV.
       parameters:
         - name: includeHeader
@@ -1044,7 +1050,7 @@ paths:
             text/csv:
               schema:
                 type: string
-              examples: 
+              examples:
                 'Example 1':
                   value: |
                     name,role,quote,side
