@@ -344,11 +344,9 @@ paths:
           description: Returns the parameter of success or error based on the project ID being valid.
       description: |
         Permanently deletes a project from your Domo instance.
-        <!-- theme: danger -->
-
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
   '/v1/project/{PROJECT_ID}/tasks/{TASK_ID}/attachments/{ATTACHMENT_ID}':
     parameters:
       - schema:
@@ -375,11 +373,9 @@ paths:
       description: |-
         Permanently deletes an attachment from your task.
 
-        <!-- theme: danger -->
-
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
       responses:
         '200':
           description: Returns the parameter of success or error based on the attachment ID being valid.
@@ -714,11 +710,9 @@ paths:
           description: Returns the parameter of success or error based on the project ID and list ID being valid.
       description: |-
         Permanently deletes a list from your Domo instance.
-        <!-- theme: danger -->
-
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Warning>
+        **This is destructive and cannot be reversed**.
+        </Warning>
   '/v1/projects/{PROJECT_ID}/tasks?offset={OFFSET}&limit={LIMIT}':
     parameters:
       - schema:

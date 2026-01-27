@@ -7,11 +7,10 @@ info:
   description: |
     The Stream API allows you to automate the creation of new DataSets in your Domo Warehouse, featuring an accelerated upload Stream. A Domo Stream expedites uploads by dividing your data into parts, and uploading all of these parts simultaneously.
 
-    <!-- theme: info -->
-    > ### Best Practices
-    >
-    > This API should be used to create and update massive, constantly changing, or rapidly growing DataSets. For creating and updating smaller DataSets that occasionally need data updated, leverage the DataSet API. 
-
+    <Note
+    **Best Practice**
+    This API should be used to create and update massive, constantly changing, or rapidly growing DataSets. For creating and updating smaller DataSets that occasionally need data updated, leverage the DataSet API. 
+    </Note>
 
     ## The Stream Object
 
@@ -250,10 +249,10 @@ paths:
       description: |-
         Deletes a Stream from your Domo instance. This does not a delete the associated DataSet.
 
-        <!-- theme: danger -->
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Danger>
+        **Warning**
+        This is destructive and cannot be reversed.
+        </Danger>
   /v1/streams:
     post:
       summary: Create a Stream
@@ -263,10 +262,10 @@ paths:
 
         Streams support both append and replace import methods, as well as Upsert. In order to create an Upsert dataset you must specify the Upsert key column(s) in keyColumnNames and set updateMethod to APPEND.
 
-        <!-- theme: info -->
-        > ### Known Limitation
-        >
-        > The StreamAPI currently only allows you to import data to a DataSet created via the Stream API. For example, it is currently not supported to import data to a DataSet created by a Domo Connector.
+        <Note>
+        **Known Limitation**
+        The StreamAPI currently only allows you to import data to a DataSet created via the Stream API. For example, it is currently not supported to import data to a DataSet created by a Domo Connector.
+        </Note>
       parameters: []
       requestBody:
         content:
@@ -584,15 +583,15 @@ paths:
       description: |
         Import data into a DataSet in your Domo instance. This request will replace the data currently in the DataSet.
 
-        <!-- theme: info -->
-        > ### Known Limitation
-        >
-        > The only supported content type is currently CSV format.
+        <Note>
+        **Known Limitation**
+        The only supported content type is currently CSV format.
+        </Note>
 
-        <!-- theme: info -->
-        > ### Best Practice
-        >
-        > To upload data in CSV format, the Domo specification used for representing data grids in CSV format closely follows the RFC standard for CSV (RFC-4180). For more details on correct CSV formatting, click here.
+        <Note>
+        **Best Practice**
+        To upload data in CSV format, the Domo specification used for representing data grids in CSV format closely follows the RFC standard for CSV (RFC-4180). For more details on correct CSV formatting, click here.
+        </Note>
       parameters: []
   '/v1/streams/{STREAM_ID}/executions':
     parameters:
@@ -749,10 +748,10 @@ paths:
       description: |
         Creates a data part within the Stream execution to upload chunks of rows to the DataSet. The calling client should keep track of parts and order them accordingly in an increasing sequence. If a part upload fails, retry the upload as all parts must be present before committing the stream execution.
 
-        <!-- theme: info -->
-        > ### Best Practice
-        >
-        > Parts can be uploaded simultaneously in separate threads assuming that each part has a distinct part ID and is ordered correctly. To reduce upload time, compress each data as a gzip file (application/gzip).
+        <Note>
+        **Best Practice**
+        Parts can be uploaded simultaneously in separate threads assuming that each part has a distinct part ID and is ordered correctly. To reduce upload time, compress each data as a gzip file (application/gzip).
+        </Note>
   '/v1/streams/{STREAM_ID}/executions/{EXECUTION_ID}/commit':
     parameters:
       - schema:
@@ -806,10 +805,10 @@ paths:
       description: |
         Commits stream execution to import combined set of data parts that have been successfully uploaded.
 
-        <!-- theme: info -->
-        > ### Known Limitation
-        >
-        > By default, the Stream API only supports the ability to execute a commit every 15 minutes. For valid use cases, contact Domo Support if you would like to execute commits more frequently than 15 minutes.
+        <Note>
+        **Known Limitation**
+        By default, the Stream API only supports the ability to execute a commit every 15 minutes. For valid use cases, contact Domo Support if you would like to execute commits more frequently than 15 minutes.
+        </Note>
   '/v1/streams/{STREAM_ID}/executions/{EXECUTION_ID}/abort':
     parameters:
       - schema:
@@ -833,10 +832,10 @@ paths:
       description: |
         If needed during an execution, aborts an entire Stream execution.
 
-        <!-- theme: info -->
-        > ### Best Practice
-        >
-        > To abort the current stream execution within a Stream, simply identify the Stream’s ID within request
+        <Note>
+        **Best Practice**
+        To abort the current stream execution within a Stream, simply identify the Stream’s ID within request
+        </Note>
 components:
   schemas: {}
   securitySchemes:

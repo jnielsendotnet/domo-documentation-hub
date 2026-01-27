@@ -262,11 +262,10 @@ paths:
       description: |-
         Deletes an Account from your Domo instance.
 
-        <!-- theme: danger -->
-
-        > #### Warning
-        >
-        > This is destructive and cannot be reversed.
+        <Danger>
+        **Warning**
+        This is destructive and cannot be reversed.
+        </Danger>
   /v1/account-types:
     parameters: []
     get:

@@ -60,10 +60,8 @@ document.body.onload = () => {
 </script>
 ```
 
-{/* theme: info */}
-
-> #### Whitelisting cross-origin access in Identity Providers
->
-> When apps are embedded, the IDP (Identity Provider) of the host site will often need to whitelist the Domo domain that serves the apps as a trusted web origin. Since app hosting has a more complex subdomain structure than common cards and pages in your instance, the pattern of `{appId}.domoapps.{environment}.domo.com` results in the ideal whitelist value of: '_.domoapps.​_.domo.com'
->
-> Cross-origin access grants can be applied in the application settings of IDPs like Okta, Microsoft Azure Active Directory, Ping Identity, SailPoint, OneLogin, ForgeRock, Centrify, and more.
+<Info>
+**Whitelisting cross-origin access in Identity Providers**
+When apps are embedded, the IDP (Identity Provider) of the host site will often need to whitelist the Domo domain that serves the apps as a trusted web origin. Since app hosting has a more complex subdomain structure than common cards and pages in your instance, the pattern of `{appId}.domoapps.{environment}.domo.com` results in the ideal whitelist value of: '_.domoapps.​_.domo.com'
+Cross-origin access grants can be applied in the application settings of IDPs like Okta, Microsoft Azure Active Directory, Ping Identity, SailPoint, OneLogin, ForgeRock, Centrify, and more.
+</Info>

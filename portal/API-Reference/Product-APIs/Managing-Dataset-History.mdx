@@ -21,7 +21,7 @@ This endpoint lists the data versions that are available for a dataset. Each dat
 **Method:** `GET`  
 **Endpoint:** `https://{instance}.domo.com/api/data/v2/datasources/<dataset-id>/dataversions`
 
-#### Example Request
+**Example Request**
 
 ```
 DOMAIN=yourdomain.domo.com
@@ -32,7 +32,7 @@ curl --request GET \
   --header "X-DOMO-Developer-Token: ${ACCESS_TOKEN}"
 ```
 
-#### Response
+**Response**
 
 ```json
 [
@@ -66,7 +66,7 @@ If you are deleting data versions that are part of the active data in Adrenaline
 **Method:** `DELETE`  
 **Endpoint:** `https://{instance}.domo.com/api/data/v2/datasources/<dataset-id>/dataversions?index=<true|false>`
 
-#### Request Body
+**Request Body**
 
 List of data versions.
 
@@ -74,7 +74,7 @@ List of data versions.
 [dataversion]
 ```
 
-#### Example Request
+**Example Request**
 
 ```
 DOMAIN=yourdomain.domo.com

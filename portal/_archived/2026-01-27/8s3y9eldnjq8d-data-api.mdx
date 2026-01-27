@@ -299,11 +299,8 @@ domo
 In this example, the `beastModeAlias` field is the alias provided to the column in your manifest that maps to a beast mode that has been wired up on the wiring page of an app.
 
 <Warning>
-
-#### Warning
-
+**Warning**
 By adding the `useBeastMode=true` query string parameter to your data calls, some built-in query functionality is disabled.
-
 </Warning>
 
 Traditionally, when not using beast modes in your request, if you provide a groupby operator but don't specify an aggregation operator, Domo will automatically sum the other columns for you (if they are numbers) or count them (if they are strings or dates). When beast mode is enabled, you must explicitly provide some sort of aggregation any time you use a groupby operator. That can either be by using an aggregation operator in the query string or by providing an aggregation function in the formula of your beast mode calculation. It must be thought of as structuring a SQL query, wherein if you create a SQL query that has a group by but not all fields in the SELECT statement were aggregated or included in the group by, SQL will throw an error. It might look something like this:
@@ -375,9 +372,6 @@ domo
 
 
 <Warning>
-
-#### Warning
-
+**Warning**
 The SQL API does not currently support page filters.
-
 </Warning>

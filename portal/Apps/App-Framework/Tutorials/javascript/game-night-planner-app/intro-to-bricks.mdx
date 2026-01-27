@@ -41,11 +41,10 @@ To get started let's add a blank Domo Brick template to a Dashboard or App Studi
 5. Explore the Bricks Editor and "Wiring Screen"
    ![Screenshot 2024-03-22 at 10.23.07 AM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-10.23.07-AM.png)
 
-{/* theme: warning */}
-
-> #### Bricks Limitation
->
-> You can only write code in the three provided files: JAVASCRIPT, HTML, CSS. This can be restrictive as the length and complexity of your code grows.
+<Note>
+**Note**
+You can only write code in the three provided files: JAVASCRIPT, HTML, CSS. This can be restrictive as the length and complexity of your code grows.
+</Note>
 
 ### Connecting to Data in a Domo Brick
 
@@ -59,13 +58,10 @@ In this brick template, you can wire up to three different datasets. However, th
 
 The dropdown provides the `alias` used to refer to a particular wired Dataset. This is the name you'll use in your code when connecting to data.
 
-{/* theme: warning */}
-
-> #### Bricks Limitation
->
-> Each brick has its own template that defines how many Datasets you can connect and what the aliases are named. You don't have control over this template for Domo Bricks, but do with Custom Apps.
-
-In the brick code, you will automatically have access to the `domo.js` library via the `domo` global variable as well as a list of the dataset aliases via the `datasets` global variable.
+<Note>
+**Note**
+Each brick has its own template that defines how many Datasets you can connect and what the aliases are named. You don't have control over this template for Domo Bricks, but do with Custom Apps.
+</Note>
 
 ```javascript
 //Available globals
@@ -141,13 +137,12 @@ You can check out more about the [Tabulator library in their documentation](http
 
 ![Screenshot 2024-03-22 at 2.52.49 PM.png](/images/dev/stoplight.io/images/Screenshot-2024-03-22-at-2.52.49-PM.png)
 
-{/* theme: warning */}
+<Note>
+**Note**
+In order to leverage third party libraries in bricks, since we only have the ability to customize three files, we'll need to import Tabulator via a CDN. This just means that the files that make up the library are hosted elsewhere and we will load them in via a url.
 
-> #### Bricks Limitation
->
-> In order to leverage third party libraries in bricks, since we only have the ability to customize three files, we'll need to import Tabulator via a CDN. This just means that the files that make up the library are hosted elsewhere and we will load them in via a url.
->
-> With Custom Apps, you can use package management tools like `yarn` and `npm`, which becomes increasingly important as the number of dependencies in your application grows.
+With Custom Apps, you can use package management tools like `yarn` and `npm`, which becomes increasingly important as the number of dependencies in your application grows.
+</Note>
 
 You can find more installation instructions for the Tabulator library in their [Quickstart Guide](https://tabulator.info/docs/6.0/quickstart#sources-cdn).
 
@@ -375,11 +370,10 @@ Now you should be able to adjust the check mark in the `Own` column but clicking
 
 But wait! If we refresh the page, this edit doesn't persist anywhere...that's because we aren't storing the change anywhere in Domo. That's where AppDB will come in.
 
-{/* theme: warning */}
-
-> #### Bricks Limitation!
->
-> Although it is possible to write to AppDB from a brick it is strongly encouraged to move to a full Custom App so you have more control over your AppDB Collections.
+<Note>
+**Note**
+Although it is possible to write to AppDB from a brick it is strongly encouraged to move to a full Custom App so you have more control over your AppDB Collections.
+</Note>
 
 In our next part of the training, we'll be converting the brick we just built into a full Custom App and we'll add read/write data capabilities to our application using AppDB.
 

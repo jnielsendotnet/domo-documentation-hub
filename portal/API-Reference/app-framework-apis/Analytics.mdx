@@ -7,7 +7,7 @@ The following instructions will enable you to track user interactions and applic
 Each function makes use of the fetch API to send asynchronous POST requests, passing an authentication token (**RYUU_AUTHENTICATION_TOKEN**) in the headers to authorize each request. The functions are designed to be easily integrated into the application’s codebase, with simple, clearly defined parameters for each type of event.
 {/* theme: info */}
 
-#### Authentication
+**Authentication**
 
 To authenticate to this service you will need to include the token in your request as follows
 
@@ -27,7 +27,7 @@ Here are three common examples of events to track in your application.
 >
 > Use property names: "Property 1", "Property 2", etc." to save any related metadata around an analytics call. See the examples defined below.
 
-#### Report an App Load Code Example
+**Report an App Load Code Example**
 
 ```js
 /**
@@ -70,7 +70,7 @@ export const reportAppLoad = function (locale) {
 };
 ```
 
-#### Report a Page View Code Example
+**Report a Page View Code Example**
 
 ```js
 /**
@@ -110,7 +110,7 @@ export const reportPageView = function (page) {
 };
 ```
 
-#### Report an App Filter Change
+**Report an App Filter Change**
 
 ```js
 /**

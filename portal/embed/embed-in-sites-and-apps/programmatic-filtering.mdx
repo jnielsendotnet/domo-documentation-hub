@@ -21,11 +21,10 @@ This diagram summarizes the flow of tokens and data through the service account 
 
 **A.** Download the sample code from one of the example GitHub repositories to access even more detailed instructions in the readme file or check out example code:
 
-{/* theme: warning */}
-
-> #### Warning
->
-> Although other apps can be privately embedded, the Inline Dataset Editor and Form Viewer apps cannot be used with programmatic filters because of their reliance on OAuth.
+<Warning>
+**Warning**
+Although other apps can be privately embedded, the Inline Dataset Editor and Form Viewer apps cannot be used with programmatic filters because of their reliance on OAuth.
+</Warning>
 
 - The JavaScript version uses a Node.js repository
   - <a
@@ -50,11 +49,10 @@ This diagram summarizes the flow of tokens and data through the service account 
 
 **B.** Open the "sample.html" file in the example code
 
-{/* theme: warning */}
-
-> #### Warning
->
-> Due to Cross-origin resource sharing (CORS), Authentication will not work client side and must be done server side.
+<Warning>
+**Warning**
+Due to Cross-origin resource sharing (CORS), Authentication will not work client side and must be done server side.
+</Warning>
 
 - Focus on this line:
 
@@ -81,19 +79,16 @@ This diagram summarizes the flow of tokens and data through the service account 
 
 **A.** Activate an API client by signing in to developer.domo.com as the user who will serve as proxy for every other viewer:
 
-{/* theme: warning */}
-
-> #### Warning!
->
-> Ensure this user has the relevant cards and pages shared with them before trying to embed content
+<Warning>
+**Warning**
+Ensure this user has the relevant cards and pages shared with them before trying to embed content
+</Warning>
 
 <Frame>
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2020/01/17134350/newclient.png)
 </Frame>
 
 **B.** Create an account by clicking My Account &gt; New Client and filling out the fields as follows:
-
-{' '}
 
 <Frame>
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2020/01/17133641/Devdomo.png)
@@ -123,11 +118,10 @@ This diagram summarizes the flow of tokens and data through the service account 
 - The CLIENT_ID and CLIENT_SECRET is used to create the access token which will be used to then create an embed token for use with the private embed.
 - The EMBED_ID references the card or the dashboard you are embedding.
 
-{/* theme: info */}
-
-> #### Best Practice
->
-> This ID is NOT the one you can see in the URL of the Domo instance. It is the 5-character embed ID you can only copy from the embed dialog for that card or dashboard.
+<Info>
+**Best Practice**
+This ID is NOT the one you can see in the URL of the Domo instance. It is the 5-character embed ID you can only copy from the embed dialog for that card or dashboard.
+</Info>
 
 - The `EMBED_TYPE` must be either the word 'dashboard' or 'card' (without the quotes).
 - Save the .env file in the same directory as the sample code
@@ -146,7 +140,10 @@ This diagram summarizes the flow of tokens and data through the service account 
   - `refreshEmbedToken`
 - No customization should be required
 
-Processing can be viewed from the command line when the testing environment is live (see step 5)<img class="wp-image-3550 aligncenter" src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2020/01/17151720/terminal.png" alt="" />
+Processing can be viewed from the command line when the testing environment is live (see step 5)
+<Frame>
+  ![Terminal](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2020/01/17151720/terminal.png)
+</Frame>
 
 Deeper details on the possible requests and responses for the Embed API can be found here: [Embed Token API Reference](/portal/uc9ls4li6ny8s-embed-token-api)
 
@@ -200,13 +197,12 @@ SQL filters allow you to use a familiar SQL syntax to define powerful and concis
 
 e.g. `` "sqlFilters": [{"sqlFilter": "`Region` IN ('WEST')", "datasourceIds": ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]}] ``
 
-{/* theme: info */}
-
-> #### Best Practice
->
-> - Browsers set a standardized size limit around 8kb on the JSON Web Token (JWT) used to define programmatic filters: [https://auth0.com/docs/security/tokens/json-web-tokens](https://auth0.com/docs/security/tokens/json-web-tokens)
-> - In a few edge cases (primarily with “IN” operator), filters that try to include extremely long lists of values can hit that size limit.
-> - To resolve this, transform the data and create a new column of aggregated values that will simplify the server-side filter logic.
+<Info>
+**Best Practice**
+- Browsers set a standardized size limit around 8kb on the JSON Web Token (JWT) used to define programmatic filters: [https://auth0.com/docs/security/tokens/json-web-tokens](https://auth0.com/docs/security/tokens/json-web-tokens)
+- In a few edge cases (primarily with “IN” operator), filters that try to include extremely long lists of values can hit that size limit.
+- To resolve this, transform the data and create a new column of aggregated values that will simplify the server-side filter logic.
+</Info>
 
 <Frame>
   ![](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2020/01/17152657/2.png)

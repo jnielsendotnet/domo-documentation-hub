@@ -66,11 +66,8 @@ Although you will need to determine how the API endpoint you want to use authent
 The Connector Dev Studio provides a built-in function if you need to base-64 encode a string: _DOMO.b64EncodeUnicode(\<string>)_.
 
 <Note>
-
-#### Note
-
+**Note**
 The code block needs to determine and set the authentication to either _auth.authenticationSuccess()_ or _auth.authenticationFailed('`<<Insert your message>>`')_.
-
 </Note>
 
 <Frame>
@@ -137,8 +134,7 @@ if (httprequest.getStatusCode() == 200) {
 If your API endpoint requires it, the Connector Dev Studio includes functions for building a [JSON Web Token (JWT)](https://en.wikipedia.org/wiki/JSON_Web_Token). You can see an example of this in the code below.
 
 <Note>
-
-#### Note
+**Note**
 
 The code block needs to determine and set the authentication to either _auth.authenticationSuccess()_ or _auth.authenticationFailed('`<<Insert your message>>`')_.
 
@@ -206,11 +202,8 @@ if(httprequest.getStatusCode() == 200){
 [OAuth 2.0](https://oauth.net/2/) is the industry-standard for secure authentication. If your cloud API endpoint uses OAuth 2.0, you are in luck: Domo has automated the processes of using your stored data to retrieve your access token, below.
 
 <Note>
-
-#### Note
-
+**Note**
 The code block needs to determine and set the authentication to either _auth.authenticationSuccess()_ or _auth.authenticationFailed('`<<Insert your message>>`')_.
-
 </Note>
 
 <Frame>

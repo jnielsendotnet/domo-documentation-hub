@@ -15,7 +15,7 @@ If you haven't leveraged Workflows from within Apps before, checkout [the guide 
 
 Starts a Workflow and returns details about the Workflow Instance.
 
-#### Code Example
+**Code Example**
 
 ```js
 const startWorkflow = async (workflowAlias, body) => {
@@ -27,19 +27,19 @@ const startWorkflow = async (workflowAlias, body) => {
 };
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name | Type   | Required | Description                                    |
 | ------------- | ------ | -------- | ---------------------------------------------- |
 | workflowAlias | String | Required | The name given to the Workflow in the manifest |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/workflow/v1/models/{workflowAlias}/start
 ```
 
-#### Request Body
+**Request Body**
 
 The request body accepts an object containing the start parameters required to run the workflow. These parameters are also defined in the `manifest.json` file and properties in the object should correspond to the `aliasName` of the parameter.
 
@@ -47,7 +47,7 @@ The request body accepts an object containing the start parameters required to r
 {"parameter1": parameter1, "parameter2": parameter2}
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the information about the instance of the Workflow that was just started. The `status` property can take the values `null`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
 
@@ -76,7 +76,7 @@ Content-Type: application/json;charset=UTF-8
 
 Returns key metric information about a Workflow.
 
-#### Code Example
+**Code Example**
 
 ```js
 const getWorkflowMetrics = async (workflowAliasedName) => {
@@ -87,7 +87,7 @@ const getWorkflowMetrics = async (workflowAliasedName) => {
 };
 ```
 
-#### Arguments (query parameters)
+**Arguments** (query parameters)
 
 | Property Name | Type   | Required | Description                                                                                  |
 | ------------- | ------ | -------- | -------------------------------------------------------------------------------------------- |
@@ -97,13 +97,13 @@ const getWorkflowMetrics = async (workflowAliasedName) => {
 | until         | Long   | Optional | before a certain time                                                                        |
 | status        | String | Optional | Only show instances that have the provided status(es) `IN_PROGRESS`, `CANCELED`, `COMPLETED` |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 GET /domo/workflow/v1/models/{workflowAliasedName}/overall
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the information about the instance of the Workflow that was just started. The `status` property can take the values `null`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
 
@@ -187,7 +187,7 @@ Content-Type: application/json;charset=UTF-8
 
 If you are checking on the status of an existing Workflow instance.
 
-#### Code Example
+**Code Example**
 
 ```js
 const getWorkflowInstance = async (workflowAlias, workflowInstanceId) => {
@@ -198,20 +198,20 @@ const getWorkflowInstance = async (workflowAlias, workflowInstanceId) => {
 };
 ```
 
-#### Arguments
+**Arguments**
 
 | Property Name      | Type   | Required | Description                                    |
 | ------------------ | ------ | -------- | ---------------------------------------------- |
 | workflowAlias      | String | Required | The name given to the Workflow in the manifest |
 | workflowInstanceId | String | Required | The UUID of the Workflow instance              |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 GET /domo/workflow/v1/models/{workflowAlias}/instance/{workflowInstanceId}
 ```
 
-#### HTTP Response
+**HTTP Response**
 
 Returns the information about the instance of the Workflow requested. The `status` property can take the values `null`, `IN_PROGRESS`, `CANCELED`, or `COMPLETED`.
 

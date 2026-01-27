@@ -36,11 +36,9 @@ Icons allow users to quickly identify your connector. The four images you need f
 <strong>Note: </strong>You can move on to other steps before completing this step,
 but icons are required before you submit your connector for publishing.
 
-<img
-  class="alignnone size-full wp-image-3359"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10161752/UserIcon.png"
-  alt=""
-/>
+<Frame>
+  ![User-Icon](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10161752/UserIcon.png)
+</Frame>
 
 ### Configure User Authentication
 
@@ -59,19 +57,15 @@ Here is an example of writing authentication code for an API that uses <strong>u
 
 Selecting an authentication method determines the metadata available to use in your authentication script. After selecting an authentication method and filling out the authentication fields, write a code block to validate the API's credentials.
 
-{/* theme: info */}
+<Note>
+**Note**
+The code block needs to determine and set the status of the API credential validation code to either <em>`auth.authenticationSuccess()`</em> or <em>`auth.authenticationFailed('Insert your message')`</em>. The messsage provided to the <em>auth.authenticationFailed</em> method will be displayed to users when the connector is run if the authentication fails.
+</Note>
 
-> #### Note
->
-> The code block needs to determine and set the status of the API credential validation code to either <em>`auth.authenticationSuccess()`</em> or <em>`auth.authenticationFailed('Insert your message')`</em>. The messsage provided to the <em>auth.authenticationFailed</em> method will be displayed to users when the connector is run if the authentication fails.
+<Frame>
+  ![User-Auth](/images/dev/web-assets.domo.com/blog/wp-content/uploads/2022/02/UserAuth.png)
+</Frame>
 
-<img
-  class="alignnone size-full wp-image-3975"
-  src="https://web-assets.domo.com/blog/wp-content/uploads/2022/02/UserAuth.png"
-  alt=""
-  width="1160"
-  height="523"
-/>
 
 Code:
 
@@ -113,11 +107,9 @@ Each connector can contain multiple reports. Reports allow a developer to call d
 
 If you would like the ability for users to provide custom parameters that you can use when making your API calls, click <strong>Enable Advanced Mode</strong>. See [configure Reports](/portal/Connectors/Custom-Connectors/configure-reports) for instructions on how to use this feature. For code examples, see [Examples](/portal/Connectors/Custom-Connectors/examples).
 
-<img
-  class="alignnone size-full wp-image-3360"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10162606/UserReports.png"
-  alt=""
-/>
+<Frame>
+  ![User-Reports](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10162606/UserReports.png)
+</Frame>
 
 ### Define How the Data Is Processed
 
@@ -127,13 +119,11 @@ In this step, you will define how to process the data returned from the API endp
 
 See [Process Data](/portal/Connectors/Custom-Connectors/process-data) for more detailed instructions. For code examples, see [Examples](/portal/Connectors/Custom-Connectors/examples).
 
-<img
-  class="alignnone size-full wp-image-3363"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11112751/UserData1.png"
-  alt=""
-/>
+<Frame>
+  ![User-Data](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11112751/UserData1.png)
+</Frame>
 
-```js
+```javascript
 //This logging is here for testing! Remove before publishing your connectors
 DOMO.log('metadata.account.username: ' + metadata.account.username);
 DOMO.log('metadata.account.password: ' + metadata.account.password);
@@ -236,43 +226,31 @@ if (metadata.report == 'Opportunities') {
 
 After you have completed defining how the data will be processed, you can ensure the data is correctly represented in Domo by sending your generated data to Domo.
 
-<ol>
-  <li>
-    Click <strong>SEND TO DOMO</strong> to view the 
-    <strong>Create/Update Dataset</strong> check box.
-  </li>
-  <li>
-    Check <strong>Create/Update Dataset</strong>.
-  </li>
-  <li>
-    Click <strong>Run Script</strong>. A success or error message about the
-    process will appear next to the <strong>Run Script</strong> button.
-  </li>
-  <li>
-    If successful, the dataset will be published in your Domo instance. A pop-up
-    window will provide a link directly to the dataset (this may be blocked by a
-    pop-up blocker).
-  </li>
-</ol>
-<img
-  class="alignnone size-full wp-image-3362"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10173244/UserData2.png"
-  alt=""
-/>
+1. Click **SEND TO DOMO** to view the 
+    **Create/Update Dataset** check box.
+2. Check **Create/Update Dataset**.
+3. Click **Run Script**. A success or error message about the process will appear next to the **Run Script** button.
+4. If successful, the dataset will be published in your Domo instance. A pop-up window will provide a link directly to the dataset (this may be blocked by a pop-up blocker).
+
+<Frame>
+  ![User-Data-2](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/10173244/UserData2.png)
+</Frame>
 
 In your Domo instance, you can verify that your datatypes and values are correct.
 
-{/* theme: info */}
+<Note>
+**Note**
+These datasets cannot be scheduled. The connector must be published to schedule dataset updates.
+</Note>
 
-> #### Note
->
-> These datasets cannot be scheduled. The connector must be published to schedule dataset updates.
+<Note>
+**Note**
+These datasets cannot be scheduled. The connector must be published to schedule dataset updates.
+</Note>
 
-<img
-  class="alignnone size-full wp-image-3364"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11132648/UserDataCenter.png"
-  alt=""
-/>
+<Frame>
+  ![User-Data-Center](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11132648/UserDataCenter.png)
+</Frame>
 
 ### Connector Submission
 
@@ -280,11 +258,9 @@ In your Domo instance, you can verify that your datatypes and values are correct
 
 After you have completed all four steps and ensured that the connector is behaving the way you want, click <strong>Submit For Publishing</strong>.
 
-<img
-  class="alignnone size-full wp-image-3365"
-  src="https://s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11133551/UserPublish.png"
-  alt=""
-/>
+<Frame>
+  ![User-Publish](/images/dev/s3.amazonaws.com/development.domo.com/wp-content/uploads/2017/03/11133551/UserPublish.png)
+</Frame>
 
 - The review process for a custom connector may take up to 30 days.
 - For <strong>status inquiries &amp; questions </strong>pertaining to these custom connectors, please contact [3rdpartyconnectorhelp@domo.com](mailto:3rdpartyconnectorhelp@domo.com).

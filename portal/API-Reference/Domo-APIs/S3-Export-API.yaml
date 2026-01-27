@@ -77,12 +77,11 @@ paths:
         - In order to export a dataset, the user must have at least read access.
         - Any PDP policies that exist will be applied to the exported data.
 
-        <!-- theme: warning -->
-        > #### Watch Out!
-        >
-        > Once the data is exported, the only security around the data is what is provided by the AWS S3 bucket.  This means you must carefully consider the security of the export location.  You should not upload data to an S3 location that others can view who should not have access to the data that is contained in the upload.
-        >
-        > **Example**: Say you have a dataset that contains compensation information.  You have carefully limited those who have access to the dataset in the DOMO system.  You have also applied PDP policies so that managers can only see the compensation information in the dataset based on your reporting structure. Then an administrator initiates an export to an S3 location.  However the admin provides an S3 location that the entire company has access to.  Now the the entire company can see the compensation information tracked in this dataset.  The security provided by the DOMO system is now voided.
+        <Warning>
+        **Watch Out!**
+        Once the data is exported, the only security around the data is what is provided by the AWS S3 bucket.  This means you must carefully consider the security of the export location.  You should not upload data to an S3 location that others can view who should not have access to the data that is contained in the upload.
+        **Example**: Say you have a dataset that contains compensation information.  You have carefully limited those who have access to the dataset in the DOMO system.  You have also applied PDP policies so that managers can only see the compensation information in the dataset based on your reporting structure. Then an administrator initiates an export to an S3 location.  However the admin provides an S3 location that the entire company has access to.  Now the the entire company can see the compensation information tracked in this dataset.  The security provided by the DOMO system is now voided.
+        </Warning>
       x-internal: true
       requestBody:
         content:

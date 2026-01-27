@@ -9,13 +9,13 @@ The following endpoints can be used to share a variety of Domo content with othe
 
 Share Pages, Cards or Datasets with Users and Groups.
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type    | Required | Description                                                                            |
 | ------------- | ------- | -------- | -------------------------------------------------------------------------------------- |
 | sendEmail     | Boolean | Optional | `true` if user or group should get an email when content is shared. `false` otherwise. |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST https://{instance}.domo.com/api/content/v1/share)
@@ -41,7 +41,7 @@ Accept: application/json
 
 ```
 
-#### Request Body
+**Request Body**
 
 | Property Name | Type             | Required | Description                                                                                                            |
 | ------------- | ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ Accept: application/json
 | recipients    | Array of objects | Required | Each recipient object takes two properties `type` and `id`. Valid types are `"group"` or `"user"`.                     |
 | message       | String           | Optional | The message that gets included in the email when the content is shared with the recipient.                             |
 
-#### HTTP Response
+**HTTP Response**
 
 Returns status of 200 if successful.
 
@@ -61,13 +61,13 @@ HTTP/1.1 200 OK
 
 Share one or many App Studio Apps with Users and Groups.
 
-#### Query Parameters
+**Query Parameters**
 
 | Property Name | Type    | Required | Description                                                                            |
 | ------------- | ------- | -------- | -------------------------------------------------------------------------------------- |
 | sendEmail     | Boolean | Optional | `true` if user or group should get an email when content is shared. `false` otherwise. |
 
-#### HTTP Request
+**HTTP Request**
 
 ```text
 POST https://{instance}.domo.com/api/content/v1/dataapps/share?sendEmail=true)
@@ -90,7 +90,7 @@ Accept: application/json
 
 ```
 
-#### Request Body
+**Request Body**
 
 | Property Name | Type             | Required | Description                                                                                        |
 | ------------- | ---------------- | -------- | -------------------------------------------------------------------------------------------------- |
@@ -98,7 +98,7 @@ Accept: application/json
 | recipients    | Array of objects | Required | Each recipient object takes two properties `type` and `id`. Valid types are `"group"` or `"user"`. |
 | message       | String           | Optional | The message that gets included in the email when the content is shared with the recipient.         |
 
-#### HTTP Response
+**HTTP Response**
 
 Returns status of 200 if successful.
 
