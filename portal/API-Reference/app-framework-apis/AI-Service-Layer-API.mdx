@@ -5,7 +5,7 @@ permalink: wjqiqhsvpadon-ai-service-layer-api-ai-pro-assets-images-pro-png
 
 ![AI Pro](/images/dev/pro.png)
 
-> For pricing information, please refer to Domo’s online consumption terms (https://www.domo.com/consumption-terms) and the credit rate card in your Domo instance (Admin > Company Settings > Credit Utilization > Rate Card) for more information.
+> For pricing information, please refer to Domo’s online [consumption terms](https://www.domo.com/consumption-terms) and the credit rate card in your Domo instance (Admin > Company Settings > Credit Utilization > Rate Card) for more information.
 
 Domo's AI Service Layer enables developers to build AI capabilities into their Domo Apps. In particular, the AI Service Layer currently supports two services from within Apps:
 
@@ -27,7 +27,7 @@ You can also see example usage of the the Text Generation and the Text-to-SQL in
 
 Generates a text response from a text prompt.
 
-### Code Example
+**Code Example**
 
 The `body` variable in this post request is an example of a sample request body.
 
@@ -42,7 +42,7 @@ domo
   .then((response) => console.log(response));
 ```
 
-### Arguments
+**Arguments**
 
 | Property Name  | Type   | Required | Description                                                                                                                   |
 | -------------- | ------ | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -51,7 +51,7 @@ domo
 | parameters     | Object | Optional | Used with the `promptTemplate` for additional customization. You can pass any key, value pair of strings. See examples below. |
 | model          | String | Optional | The id of the model you'd like to use if you don't want to use the default model.                                             |
 
-### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/ai/v1/text/generation HTTP/1.1
@@ -59,7 +59,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-### Request Body
+**Request Body**
 
 The only required field in the request body is the `input` string, but you can provide additional properties in the request body to futher customize the text generation service. If you choose to use the `promptTemplate` property to override the default prompt template, you'll need to use `${input}` into the template string to pass through the input of your prompt.
 
@@ -76,7 +76,7 @@ The only required field in the request body is the `input` string, but you can p
 }
 ```
 
-### HTTP Response
+**HTTP Response**
 
 Returns the prompt used and the responses from the model. If the a model was specified in the request, then `modelId` will return the model and `isCustomerModel` will be true.
 
@@ -103,7 +103,7 @@ Content-Type: application/json;charset=UTF-8
 
 Generates a SQL query based on a prompt and a DataSet's schema.
 
-### Code Example
+**Code Example**
 
 The `body` variable in this post request is an example of a sample request body.
 
@@ -132,7 +132,7 @@ domo
   .then((response) => console.log(response));
 ```
 
-### Arguments
+**Arguments**
 
 | Property Name     | Type             | Required | Description                                                                                                                   |
 | ----------------- | ---------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -142,7 +142,7 @@ domo
 | model             | String           | Optional | The id of the model you'd like to use if you don't want to use the default model.                                             |
 | dataSourceSchemas | Array of Objects | Optional | The schemas of datasets that they service should take into account when generating the SQL query from the input prompt.       |
 
-### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/ai/v1/text/sql HTTP/1.1
@@ -150,7 +150,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-### Request Body
+**Request Body**
 
 The only required field in the request body is the `input` string, but you can provide additional properties in the request body to futher customize the text generation service. If you choose to use the `promptTemplate` property to override the default prompt template, you'll need to use `${input}` into the template string to pass through the input of your prompt.
 
@@ -184,7 +184,7 @@ The only required field in the request body is the `input` string, but you can p
 }
 ```
 
-### HTTP Response
+**HTTP Response**
 
 Returns the prompt used and the response options from the model. If the a model was specified in the request, then `modelId` will return the model and `isCustomerModel` will be true.
 
@@ -210,7 +210,7 @@ Content-Type: application/json;charset=UTF-8
 
 Generates a text response from an image.
 
-### Code Example
+**Code Example**
 
 The `body` variable in this post request is an example of a sample request body.
 
@@ -249,7 +249,7 @@ export async function imageToText(base64) {
 }
 ```
 
-### Arguments
+**Arguments**
 
 | Property Name  | Type   | Required | Description                                                                                                      |
 | -------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------- |
@@ -259,7 +259,7 @@ export async function imageToText(base64) {
 | promptTemplate | Object | Optional | An override for the prompt template used in the service. It has one property `template`, which expects a string. |
 | system         | String | Optional | System prompt to guide the OCR process.                                                                          |
 
-### HTTP Request
+**HTTP Request**
 
 ```text
 POST /domo/ai/v1/image/text HTTP/1.1
@@ -267,7 +267,7 @@ Content-Type: application/json
 Accept: application/json
 ```
 
-### Request Body
+**Request Body**
 
 The required fields in the request body are the `input` string and the `image` object. You can provide additional properties in the request body to further customize the OCR service. If you choose to use the `promptTemplate` property to override the default prompt template, you'll need to use `${input}` in the template string to pass through the input of your prompt.
 
@@ -287,7 +287,7 @@ The required fields in the request body are the `input` string and the `image` o
 }
 ```
 
-### HTTP Response
+**HTTP Response**
 
 Returns the prompt used and the response from the model. The response will include the transcribed text from the image, typically within `<answer>` tags as specified in the system prompt.
 
