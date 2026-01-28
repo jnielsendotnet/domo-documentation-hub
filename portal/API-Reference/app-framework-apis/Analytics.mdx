@@ -19,13 +19,11 @@ Note: Authentication is handled automatically from within the context of a Domo 
 
 Here are three common examples of events to track in your application.
 
-{/* theme: info */}
-
-> #### One Analytics Dataset Per Domo Instance
->
-> It's important to note that the analytics service only creates one Dataset (accessible by admins) for all Custom Apps across instances. To avoid hitting the column limit (1500) for this Dataset, it is best practice to **define your properties generically** and then use a DataFlow or Dataset View to isolate just the rows relevant to a particular app id.
->
-> Use property names: "Property 1", "Property 2", etc." to save any related metadata around an analytics call. See the examples defined below.
+<Info>
+**One Analytics Dataset Per Domo Instance**
+It's important to note that the analytics service only creates one Dataset (accessible by admins) for all Custom Apps across instances. To avoid hitting the column limit (1500) for this Dataset, it is best practice to **define your properties generically** and then use a DataFlow or Dataset View to isolate just the rows relevant to a particular app id.
+Use property names: "Property 1", "Property 2", etc." to save any related metadata around an analytics call. See the examples defined below.
+</Info>
 
 **Report an App Load Code Example**
 
@@ -155,7 +153,7 @@ export const reportFilterChange = function (filterType, filterValue) {
 };
 ```
 
-### Customization
+**Customization**
 
 The examples above show how you can track predefined metrics, but if there is something custom you would like to track that can be done by modifying the `type` and `properties` values in the body of the request.
 
@@ -171,7 +169,7 @@ For example if I wanted to change an event type from `NAVIGATION` and `{pageView
   }),
 ```
 
-### The Output Dataset
+**The Output Dataset**
 
 The output of these tracking events in your app will create a dataset in your Domo instance that you can then use for down stream reporting. This dataset will appear in your Domo datacenter and look something like the following:
 
@@ -183,6 +181,6 @@ The output of these tracking events in your app will create a dataset in your Do
 
 With this dataset you can build cards, alerts or ETL's like you can with with any other dataset in Domo.
 
-### Conclusion
+**Conclusion**
 
 By integrating this module, teams can easily extend and customize event tracking as needed to capture additional insights or refine data collection, making this a versatile tool for Domo-based applications.

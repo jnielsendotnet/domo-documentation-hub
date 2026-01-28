@@ -5,33 +5,33 @@ permalink: 28v6sqz9eslb9-build-apps
 
 Create an app on the Domo Platform for maximum flexibility in design, data collection, and distribution.
 
-- **Pre-built apps**: [Domo’s Appstore](https://www.domo.com/intelligent-apps/about-appstore) provides a collection of apps built by Domo and our community that you can leverage for fast insights.
-- **[Domo Bricks](/portal/Apps/DDX-Bricks/overview) (previously DDX Bricks)**: Domo Bricks are pre-built objects that allow you to create advanced visualizations and apps that can be customized in a simple browser-based code editor.
-- **[App Framework](/portal/Apps/App-Framework/Welcome)**: The Domo App Framework provides a set of APIs for building custom JavaScript-based front-ends on Domo and a transactional database called AppDB, which is a wrapper on top of MongoDB.
+- **Pre-built apps**: [Domo's Appstore](https://www.domo.com/intelligent-apps/about-appstore) provides a collection of apps built by Domo and our community that you can leverage for fast insights.
+- **[Pro Code Editor](/portal/Apps/Pro-Code-Editor/getting-started-pro-code)**: Build custom applications directly in your browser with Domo's in-platform code editor. Perfect for developers who want a streamlined development experience without local setup.
+- **[App Framework](/portal/Apps/App-Framework/Welcome)**: The Domo App Framework provides a comprehensive set of APIs for building custom JavaScript-based front-ends on Domo, including a transactional database called AppDB. Ideal for complex applications requiring full development tooling and lifecycle management.
 
-## Domo Bricks or the App Framework?
+## Pro Code Editor or the App Framework?
 
-In general, the more complex your app solution, the more you'll want to lean on the full tooling available in the App Framework.
+Both the Pro Code Editor and App Framework enable you to build powerful custom applications on Domo. The choice depends on your development preferences and project requirements.
 
-![bricks-or-app-framework.png](/images/dev/stoplight.io/images/bricks-or-app-framework.png)
+**[Pro Code Editor](/portal/Apps/Pro-Code-Editor/getting-started-pro-code)** is the ideal choice when you want to:
 
-**[Domo Bricks](/portal/Apps/DDX-Bricks/Quickstart/overview) (previously DDX Bricks)** are a great tool for quickly customizing Domo if your use-case can be achieved by:
+- Build apps directly in your browser without local development setup.
+- Start quickly with pre-built templates and an intuitive workspace.
+- Work with HTML, CSS, and JavaScript in a streamlined editor.
+- Leverage external libraries via [CDN](https://developer.mozilla.org/en-US/docs/Glossary/CDN) without package management complexity.
+- Develop and iterate quickly with built-in preview and version management.
+- Upload files and assets directly through the editor interface.
 
-- Tweaking the HTML, CSS, and JavaScript of pre-built Domo Brick in the [Domo Appstore](https://www.domo.com/intelligent-apps/about-appstore).
-- Building your application from scratch in the three files of the Domo Bricks browser-based editor: HTML, CSS, and JS.
-- Leveraging external libraries via [CDN](https://developer.mozilla.org/en-US/docs/Glossary/CDN) (e.g. without the need of a package management tool like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)).
+The **[App Framework](/portal/Apps/App-Framework/Welcome)** is the way to go when you need:
 
-As the complexity of your app grows, the full **[App Framework](/portal/Apps/App-Framework/Welcome)** tooling is the way to go. This may be because:
-
-- Your app requires more than just three files.
-- Your app has many dependencies and is using package management tools (like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/)).
-- You prefer developing in the text editor or IDE of your choice (e.g. VSCode, Sublime Text, Atom, etc.).
-- Your app involves data collection via [CRUD](https://developer.mozilla.org/en-US/docs/Glossary/CRUD) operations (Create, Read, Update, Delete), which requires Domo's built-in transactional datastore called [AppDB](/portal/API-Reference/app-framework-apis/AppDB-API).
-  - Note: it is possible to leverage AppDB in a Domo Brick (e.g. [DDX Form and Dataset](https://www.domo.com/appstore/app/ddx-form-and-dataset/overview)), but the App Framework is the preferred approach.
-- Your app requires the ability to interface with the [Files API](/portal/API-Reference/app-framework-apis/Files-API).
-- You'd like greater control over the number of DataSets connected to your App (max: 100) and how a user can configure column mappings to those DataSets on the Wiring Screen.
-- You'd like to leverage JavaScript frameworks like [React, Angular, or Vue](/portal/Apps/App-Framework/Quickstart/Starter-Kits).
-- You'd like to follow standard development lifecycle practices (e.g. version control, CI/CD pipelines, etc.).
+- Full control over your development environment using your preferred text editor or IDE (e.g., VSCode, Sublime Text, Atom, etc.).
+- Package management tools like [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/) for managing dependencies.
+- Complex project structures with multiple files and organized codebases.
+- Data collection via [CRUD](https://developer.mozilla.org/en-US/docs/Glossary/CRUD) operations using Domo's built-in transactional datastore called [AppDB](/portal/API-Reference/app-framework-apis/AppDB-API).
+- Integration with the [Files API](/portal/API-Reference/app-framework-apis/Files-API) and other advanced App Framework APIs.
+- Greater control over DataSet connections (max: 100) and column mappings on the Wiring Screen.
+- JavaScript frameworks like [React, Angular, or Vue](/portal/Apps/App-Framework/Quickstart/Starter-Kits).
+- Standard development lifecycle practices (version control, CI/CD pipelines, team collaboration, etc.).
 
 ## App Showcase
 
