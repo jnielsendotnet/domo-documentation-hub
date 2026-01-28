@@ -3208,16 +3208,6 @@
                         ]
                       },
                       {
-                        "group": "Advanced Forms (Beta)",
-                        "pages": [
-                          "portal/Forms/Advanced-Forms/overview",
-                          "portal/Forms/Advanced-Forms/creating-advanced-forms",
-                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
-                          "portal/Forms/Advanced-Forms/domo-data-features",
-                          "portal/Forms/Advanced-Forms/advanced-form-datasets"
-                        ]
-                      },
-                      {
                         "group": "Domo Bricks",
                         "pages": [
                           "portal/Apps/DDX-Bricks/Quickstart/overview",
@@ -3264,6 +3254,21 @@
                             ]
                           },
                           "/portal/Automate-Actions/Code-Engine/limitations-and-troubleshooting"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Forms",
+                    "pages": [
+                      {
+                        "group": "Advanced Forms (Beta)",
+                        "pages": [
+                          "portal/Forms/Advanced-Forms/overview",
+                          "portal/Forms/Advanced-Forms/creating-advanced-forms",
+                          "portal/Forms/Advanced-Forms/advanced-form-editor-layout",
+                          "portal/Forms/Advanced-Forms/domo-data-features",
+                          "portal/Forms/Advanced-Forms/advanced-form-datasets"
                         ]
                       }
                     ]
