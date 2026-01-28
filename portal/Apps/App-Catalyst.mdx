@@ -181,6 +181,19 @@ App Catalyst abstracts this entire multi-step process into a simple, integrated 
 
 **• Full Compatibility:** Apps created with the App Catalyst are fully standard. Once published, you can open and continue to edit them in Domo's regular Pro-Code Editor, giving you the best of both worlds: rapid AI-powered generation and the option for manual, fine-grained control.
 
+## Consumption Ramifications
+
+Domo AI Pro: Operations & Processing
+
+* Each operation executed by Domo AI
+  * Number of Credits - 0.01 per operation
+* Processing
+  * For Domo-provided models, the credit usage rate is calculated as follows: [Per unit price of selected model (see Domo AI Pro Model Pricing for current rates)] ÷ [Contract Rate for standard credits specified in the applicable Service Order] = [X] credits per million tokens.
+
+* What to expect
+  * 6-10 AI Operations
+  * 50k-75k Input tokens, 25k-45k Output tokens
+
 ## FAQ
 
 **Q:** How does App Catalyst work?
@@ -189,7 +202,7 @@ App Catalyst abstracts this entire multi-step process into a simple, integrated 
 
 **Q:** Can I make edits via the prompt to the project?
 
-**A:** Currently no, each prompt will re-generate the project. We are working on streamlined editing to support minor edits.
+**A:** Yes, prompt editing is supported for minor edits.
 
 **Q:** Do I have to use the pro-code editor?
 
@@ -199,8 +212,18 @@ App Catalyst abstracts this entire multi-step process into a simple, integrated 
   ![AC_Picture12.png](/images/dev/stoplight.io/images/AC_Picture12.png)
 </Frame>
 
+**Q:** Does App Catalyst support React?
+
+**A:** No, once your project is saved to the Asset Library, you can download the project and do traditional app development with your favorite tools using Domo's App Developer Framework.
+
 **Q:** Do I need coding experience to take advantage of App Catalyst?
 
 **A:** No, App Catalyst is specifically designed for beginners and business users with no prior coding experience. However, editing, data wiring, and additional functionality will need to be done by a developer who is familiar with JavaScript.
 
+**Q:** Does App Catalyst create native Domo components?
 
+**A:** No, this is a roadmap item we are working on.
+
+**Q:** What if I don't have my data ready?
+
+**A:** Don't worry, App Catalyst will create sample data for you.
