@@ -1,9 +1,27 @@
 # Sync OpenAPI Specifications with Individual PRs
 #
-# Alternative workflow that creates individual PRs for each changed file
-# instead of committing directly. Useful when you want review before merging.
+# Creates individual PRs for each changed YAML file for review.
+# Use with update-navigation-on-merge.yml to update docs.json when PRs merge.
 
 name: Sync OpenAPI Specs (with PRs)
+
+# ============================================================================
+# CONFIGURATION - Update these values for your setup
+# ============================================================================
+env:
+  # Source repository (where OpenAPI YAMLs live)
+  SOURCE_OWNER: domoinc
+  SOURCE_REPO: internal-domo-apis
+  SOURCE_YAML_PATH: api-docs/public
+
+  # Destination paths (in this repo)
+  DEST_YAML_PATH: openapi/product
+  DEST_REPO: DomoApps/domo-developer-portal
+
+  # Git settings
+  BASE_BRANCH: master
+  PR_BRANCH_PREFIX: openapi-sync
+# ============================================================================
 
 on:
   schedule:
@@ -16,6 +34,9 @@ on:
         required: false
         type: boolean
         default: false
+
+  repository_dispatch:
+    types: [openapi-updated]
 
 jobs:
   sync:
@@ -31,8 +52,8 @@ jobs:
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-          owner: domoinc
-          repositories: internal-domo-apis
+          owner: ${{ env.SOURCE_OWNER }}
+          repositories: ${{ env.SOURCE_REPO }}
 
       - name: Checkout Destination Repo
         uses: actions/checkout@v4
@@ -42,7 +63,7 @@ jobs:
       - name: Clone Source Repo
         uses: actions/checkout@v4
         with:
-          repository: domoinc/internal-domo-apis
+          repository: ${{ env.SOURCE_OWNER }}/${{ env.SOURCE_REPO }}
           token: ${{ steps.app-token.outputs.token }}
           path: source-repo
           fetch-depth: 0
@@ -56,8 +77,8 @@ jobs:
         id: detect
         run: |
           python .github/scripts/detect_yaml_changes.py \
-            --source source-repo/api-specs \
-            --dest openapi/product \
+            --source "source-repo/${{ env.SOURCE_YAML_PATH }}" \
+            --dest "${{ env.DEST_YAML_PATH }}" \
             --force ${{ github.event.inputs.force_sync || 'false' }}
 
       - name: Check for Changes
@@ -69,7 +90,6 @@ jobs:
             echo "has_changes=false" >> $GITHUB_OUTPUT
           fi
 
-      # Create individual PRs for each changed file
       - name: Create Individual PRs
         if: steps.check.outputs.has_changes == 'true'
         env:
@@ -77,11 +97,11 @@ jobs:
         run: |
           python .github/scripts/create_individual_prs.py \
             --changed-list changed_files.txt \
-            --source-dir source-repo/api-specs \
-            --dest-dir openapi/product \
-            --base-branch main \
-            --pr-branch-prefix openapi-sync \
-            --repo ${{ github.repository }}
+            --source-dir "source-repo/${{ env.SOURCE_YAML_PATH }}" \
+            --dest-dir "${{ env.DEST_YAML_PATH }}" \
+            --base-branch "${{ env.BASE_BRANCH }}" \
+            --pr-branch-prefix "${{ env.PR_BRANCH_PREFIX }}" \
+            --repo "${{ env.DEST_REPO }}"
 
       - name: Summary
         if: always()
