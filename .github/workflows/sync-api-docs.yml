@@ -106,11 +106,23 @@ jobs:
 
       - name: Sync YAML Files
         if: steps.check.outputs.has_changes == 'true'
+        id: sync
         run: |
           python .github/scripts/sync_to_destination.py \
             --source "source-repo/${{ env.SOURCE_YAML_PATH }}" \
             --destination "${{ env.DEST_YAML_PATH }}" \
             --changed-list changed_files.txt
+
+          # Convert source paths to destination paths for the action
+          DEST_FILES=""
+          while IFS= read -r file; do
+            BASENAME=$(basename "$file")
+            DEST_FILES="${DEST_FILES}${{ env.DEST_YAML_PATH }}/${BASENAME}"$'\n'
+          done < changed_files.txt
+
+          echo "synced_files<<EOF" >> $GITHUB_OUTPUT
+          echo "$DEST_FILES" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
 
       - name: Update API Navigation
         if: steps.check.outputs.has_changes == 'true'
@@ -119,6 +131,8 @@ jobs:
           yaml_input_path: "./${{ env.DEST_YAML_PATH }}"
           docs_json_path: "${{ env.DOCS_JSON_PATH }}"
           openapi_base_path: "${{ env.OPENAPI_BASE_PATH }}"
+          process_changed_only: "true"
+          changed_files: ${{ steps.sync.outputs.synced_files }}
 
       - name: Build PR Body
         if: steps.check.outputs.has_changes == 'true'
