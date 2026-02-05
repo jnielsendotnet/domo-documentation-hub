@@ -1,9 +1,10 @@
-# Sync OpenAPI Specifications with Individual PRs
+# Sync OpenAPI Specifications and Update Navigation
 #
-# Creates individual PRs for each changed YAML file for review.
-# Use with update-navigation-on-merge.yml to update docs.json when PRs merge.
+# This workflow runs in the destination repo (DomoApps/domo-developer-portal).
+# It syncs OpenAPI YAML files from the source repo and updates docs.json navigation,
+# creating a single PR with all changes for review.
 
-name: Sync OpenAPI Specs (with PRs)
+name: Sync OpenAPI Specs
 
 # ============================================================================
 # CONFIGURATION - Update these values for your setup
@@ -16,16 +17,16 @@ env:
 
   # Destination paths (in this repo)
   DEST_YAML_PATH: openapi/product
-  DEST_REPO: DomoApps/domo-documentation-hub
+  DOCS_JSON_PATH: ./docs.json
+  OPENAPI_BASE_PATH: openapi/product
 
   # Git settings
   BASE_BRANCH: master
-  PR_BRANCH_PREFIX: openapi-sync
 # ============================================================================
 
 on:
   schedule:
-    - cron: "0 */6 * * *"
+    - cron: "0 */6 * * *" # Every 6 hours
 
   workflow_dispatch:
     inputs:
@@ -96,22 +97,75 @@ jobs:
         run: |
           if [ -f changed_files.txt ] && [ -s changed_files.txt ]; then
             echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            cat changed_files.txt
           else
             echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
           fi
 
-      - name: Create Individual PRs
+      - name: Sync YAML Files
         if: steps.check.outputs.has_changes == 'true'
-        env:
-          GH_TOKEN: ${{ steps.dest-token.outputs.token }}
         run: |
-          python .github/scripts/create_individual_prs.py \
-            --changed-list changed_files.txt \
-            --source-dir "source-repo/${{ env.SOURCE_YAML_PATH }}" \
-            --dest-dir "${{ env.DEST_YAML_PATH }}" \
-            --base-branch "${{ env.BASE_BRANCH }}" \
-            --pr-branch-prefix "${{ env.PR_BRANCH_PREFIX }}" \
-            --repo "${{ env.DEST_REPO }}"
+          python .github/scripts/sync_to_destination.py \
+            --source "source-repo/${{ env.SOURCE_YAML_PATH }}" \
+            --destination "${{ env.DEST_YAML_PATH }}" \
+            --changed-list changed_files.txt
+
+      - name: Update API Navigation
+        if: steps.check.outputs.has_changes == 'true'
+        uses: DomoApps/documentation-generator-action@main
+        with:
+          yaml_input_path: "./${{ env.DEST_YAML_PATH }}"
+          docs_json_path: "${{ env.DOCS_JSON_PATH }}"
+          openapi_base_path: "${{ env.OPENAPI_BASE_PATH }}"
+
+      - name: Build PR Body
+        if: steps.check.outputs.has_changes == 'true'
+        id: pr-body
+        run: |
+          # Build list of changed files for PR body
+          FILES_LIST=""
+          if [ -f changed_files.txt ]; then
+            while IFS= read -r file; do
+              FILES_LIST="${FILES_LIST}- \`$(basename $file)\`"$'\n'
+            done < changed_files.txt
+          fi
+
+          # Write PR body to file (safer for multiline content)
+          cat > pr_body.md << 'PREOF'
+          ## OpenAPI Sync
+
+          This PR syncs updated OpenAPI specifications and navigation from the source repository.
+
+          ### Changes
+          - Synced YAML files from source repo
+          - Updated docs.json navigation entries
+
+          ### Files Updated
+          PREOF
+
+          echo "$FILES_LIST" >> pr_body.md
+
+          cat >> pr_body.md << 'PREOF'
+
+          ---
+          *This PR was created automatically by the OpenAPI sync workflow.*
+          PREOF
+
+      - name: Create Pull Request
+        if: steps.check.outputs.has_changes == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ steps.dest-token.outputs.token }}
+          commit-message: "docs: Sync OpenAPI specs and update navigation"
+          title: "docs: Sync OpenAPI specifications"
+          body-path: pr_body.md
+          branch: openapi-sync
+          delete-branch: true
+          add-paths: |
+            ${{ env.DEST_YAML_PATH }}
+            ${{ env.DOCS_JSON_PATH }}
 
       - name: Summary
         if: always()
@@ -119,12 +173,12 @@ jobs:
           echo "## OpenAPI Sync Summary" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           if [ "${{ steps.check.outputs.has_changes }}" == "true" ]; then
-            echo "Individual PRs created for:" >> $GITHUB_STEP_SUMMARY
+            echo "PR created with the following changes:" >> $GITHUB_STEP_SUMMARY
             if [ -f changed_files.txt ]; then
               while IFS= read -r file; do
                 echo "- \`$(basename $file)\`" >> $GITHUB_STEP_SUMMARY
               done < changed_files.txt
             fi
           else
-            echo "No changes detected" >> $GITHUB_STEP_SUMMARY
+            echo "No changes detected - YAML files are up to date" >> $GITHUB_STEP_SUMMARY
           fi
