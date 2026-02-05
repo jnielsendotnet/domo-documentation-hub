@@ -16,9 +16,7 @@ from typing import List
 
 
 def sync_files(
-    source_dir: str,
-    destination_dir: str,
-    changed_list_file: str
+    source_dir: str, destination_dir: str, changed_list_file: str
 ) -> List[str]:
     """
     Sync YAML files to destination
@@ -37,16 +35,30 @@ def sync_files(
         print(f"Changed list file not found: {changed_list_file}")
         return synced_files
 
-    with open(changed_list_file, 'r') as f:
+    with open(changed_list_file, "r") as f:
         changed_yaml_files = [line.strip() for line in f if line.strip()]
 
     print(f"Syncing {len(changed_yaml_files)} files...")
 
     os.makedirs(destination_dir, exist_ok=True)
 
+    # Build case-insensitive lookup for destination files
+    dest_files_lower = {
+        f.lower(): f
+        for f in os.listdir(destination_dir)
+        if f.lower().endswith((".yaml", ".yml"))
+    }
+
     for yaml_file in changed_yaml_files:
         yaml_filename = os.path.basename(yaml_file)
         dest_path = os.path.join(destination_dir, yaml_filename)
+
+        # Remove case-variant file if it exists with different casing
+        existing = dest_files_lower.get(yaml_filename.lower())
+        if existing and existing != yaml_filename:
+            old_path = os.path.join(destination_dir, existing)
+            os.remove(old_path)
+            print(f"Removed case-variant: {existing}")
 
         if not os.path.exists(yaml_file):
             print(f"WARNING: Source file not found: {yaml_file}")
@@ -61,10 +73,16 @@ def sync_files(
 
 
 def main():
-    parser = argparse.ArgumentParser(description='Sync YAML files to destination')
-    parser.add_argument('--source', required=True, help='Source YAML directory')
-    parser.add_argument('--destination', required=True, help='Destination directory for YAML files')
-    parser.add_argument('--changed-list', required=True, help='File containing list of changed YAML files')
+    parser = argparse.ArgumentParser(description="Sync YAML files to destination")
+    parser.add_argument("--source", required=True, help="Source YAML directory")
+    parser.add_argument(
+        "--destination", required=True, help="Destination directory for YAML files"
+    )
+    parser.add_argument(
+        "--changed-list",
+        required=True,
+        help="File containing list of changed YAML files",
+    )
 
     args = parser.parse_args()
 
