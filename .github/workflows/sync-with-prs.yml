@@ -16,7 +16,7 @@ env:
 
   # Destination paths (in this repo)
   DEST_YAML_PATH: openapi/product
-  DEST_REPO: DomoApps/domo-developer-portal
+  DEST_REPO: DomoApps/domo-documentation-hub
 
   # Git settings
   BASE_BRANCH: master
@@ -46,14 +46,24 @@ jobs:
       pull-requests: write
 
     steps:
-      - name: Generate GitHub App Token
+      # Token for source repo (cross-org)
+      - name: Generate Source Repo Token
         uses: actions/create-github-app-token@v1
-        id: app-token
+        id: source-token
         with:
           app-id: ${{ secrets.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
           owner: ${{ env.SOURCE_OWNER }}
           repositories: ${{ env.SOURCE_REPO }}
+
+      # Token for destination repo (PRs)
+      - name: Generate Destination Repo Token
+        uses: actions/create-github-app-token@v1
+        id: dest-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          # No owner specified = current repo's org
 
       - name: Checkout Destination Repo
         uses: actions/checkout@v4
@@ -64,7 +74,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ${{ env.SOURCE_OWNER }}/${{ env.SOURCE_REPO }}
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.source-token.outputs.token }}
           path: source-repo
           fetch-depth: 0
 
@@ -93,7 +103,7 @@ jobs:
       - name: Create Individual PRs
         if: steps.check.outputs.has_changes == 'true'
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.dest-token.outputs.token }}
         run: |
           python .github/scripts/create_individual_prs.py \
             --changed-list changed_files.txt \
