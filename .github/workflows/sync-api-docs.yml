@@ -153,14 +153,6 @@ jobs:
           *This PR was created automatically by the OpenAPI sync workflow.*
           PREOF
 
-      - name: Clean up stale branch
-        if: steps.check.outputs.has_changes == 'true'
-        env:
-          GH_TOKEN: ${{ steps.dest-token.outputs.token }}
-        run: |
-          # Delete remote branch if it exists (avoids directory/file conflicts)
-          gh api repos/${{ github.repository }}/git/refs/heads/openapi-sync -X DELETE 2>/dev/null || true
-
       - name: Create Pull Request
         if: steps.check.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v5
@@ -170,6 +162,7 @@ jobs:
           title: "docs: Sync OpenAPI specifications"
           body-path: pr_body.md
           branch: openapi-sync
+          branch-suffix: timestamp
           delete-branch: true
           add-paths: |
             ${{ env.DEST_YAML_PATH }}
