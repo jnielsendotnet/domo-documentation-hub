@@ -1,0 +1,128 @@
+# Sync OpenAPI Specifications and Update Navigation
+#
+# This workflow runs in the destination repo (e.g., your Mintlify docs repo).
+# It syncs OpenAPI YAML files from a source repo and updates docs.json navigation.
+#
+# Triggers:
+# 1. Schedule: Runs periodically to check for changes
+# 2. Manual: Use workflow_dispatch to run on demand
+# 3. Repository dispatch: Triggered by source repo webhook
+
+name: Sync OpenAPI Specs
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Every 6 hours
+
+  workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Force sync all YAML files'
+        required: false
+        type: boolean
+        default: false
+
+  repository_dispatch:
+    types: [openapi-updated]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      # Generate token if using GitHub App for cross-repo access
+      # Remove this step if source repo is public or using PAT
+      - name: Generate GitHub App Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: your-org
+          repositories: source-repo-name
+
+      - name: Checkout Destination Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone Source Repo
+        uses: actions/checkout@v4
+        with:
+          repository: your-org/source-repo  # Change to your source repo
+          token: ${{ steps.app-token.outputs.token }}
+          path: source-repo
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      # Detect which YAML files have changed
+      - name: Detect Changed YAML Files
+        id: detect
+        run: |
+          python .github/scripts/detect_yaml_changes.py \
+            --source source-repo/api-specs \
+            --dest openapi/product \
+            --force ${{ github.event.inputs.force_sync || 'false' }}
+
+      - name: Check for Changes
+        id: check
+        run: |
+          if [ -f changed_files.txt ] && [ -s changed_files.txt ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "Changed files:"
+            cat changed_files.txt
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "No changes detected"
+          fi
+
+      # Sync YAML files to destination
+      - name: Sync YAML Files
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          python .github/scripts/sync_to_destination.py \
+            --source source-repo/api-specs \
+            --destination openapi/product \
+            --changed-list changed_files.txt
+
+      # Update docs.json navigation using TOC generator
+      - name: Update API Navigation
+        if: steps.check.outputs.has_changes == 'true'
+        uses: DomoApps/documentation-generator-action@main
+        with:
+          yaml_input_path: './openapi/product'
+          docs_json_path: './docs.json'
+          openapi_base_path: 'openapi/product'
+
+      # Commit all changes (YAML files + docs.json)
+      - name: Commit Changes
+        if: steps.check.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add openapi/product docs.json
+          git diff --staged --quiet || git commit -m "docs: Sync OpenAPI specs and update navigation"
+          git push
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## OpenAPI Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.has_changes }}" == "true" ]; then
+            echo "Changes detected and synced:" >> $GITHUB_STEP_SUMMARY
+            if [ -f changed_files.txt ]; then
+              while IFS= read -r file; do
+                echo "- \`$(basename $file)\`" >> $GITHUB_STEP_SUMMARY
+              done < changed_files.txt
+            fi
+          else
+            echo "No changes detected - YAML files are up to date" >> $GITHUB_STEP_SUMMARY
+          fi

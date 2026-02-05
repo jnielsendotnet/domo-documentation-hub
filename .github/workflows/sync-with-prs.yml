@@ -1,0 +1,100 @@
+# Sync OpenAPI Specifications with Individual PRs
+#
+# Alternative workflow that creates individual PRs for each changed file
+# instead of committing directly. Useful when you want review before merging.
+
+name: Sync OpenAPI Specs (with PRs)
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+
+  workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Force sync all YAML files'
+        required: false
+        type: boolean
+        default: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+
+    steps:
+      - name: Generate GitHub App Token
+        uses: actions/create-github-app-token@v1
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: your-org
+          repositories: source-repo-name
+
+      - name: Checkout Destination Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Clone Source Repo
+        uses: actions/checkout@v4
+        with:
+          repository: your-org/source-repo
+          token: ${{ steps.app-token.outputs.token }}
+          path: source-repo
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Detect Changed YAML Files
+        id: detect
+        run: |
+          python .github/scripts/detect_yaml_changes.py \
+            --source source-repo/api-specs \
+            --dest openapi/product \
+            --force ${{ github.event.inputs.force_sync || 'false' }}
+
+      - name: Check for Changes
+        id: check
+        run: |
+          if [ -f changed_files.txt ] && [ -s changed_files.txt ]; then
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          fi
+
+      # Create individual PRs for each changed file
+      - name: Create Individual PRs
+        if: steps.check.outputs.has_changes == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python .github/scripts/create_individual_prs.py \
+            --changed-list changed_files.txt \
+            --source-dir source-repo/api-specs \
+            --dest-dir openapi/product \
+            --base-branch main \
+            --pr-branch-prefix openapi-sync \
+            --repo ${{ github.repository }}
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## OpenAPI Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ steps.check.outputs.has_changes }}" == "true" ]; then
+            echo "Individual PRs created for:" >> $GITHUB_STEP_SUMMARY
+            if [ -f changed_files.txt ]; then
+              while IFS= read -r file; do
+                echo "- \`$(basename $file)\`" >> $GITHUB_STEP_SUMMARY
+              done < changed_files.txt
+            fi
+          else
+            echo "No changes detected" >> $GITHUB_STEP_SUMMARY
+          fi
