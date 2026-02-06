@@ -167,6 +167,15 @@ jobs:
           *This PR was created automatically by the OpenAPI sync workflow.*
           PREOF
 
+      - name: Compute branch suffix
+        if: steps.check.outputs.has_changes == 'true'
+        id: branch-suffix
+        run: |
+          # Hash the sorted changed file names so the same set of changes
+          # always maps to the same branch, preventing duplicate PRs
+          HASH=$(sort changed_files.txt | sha256sum | cut -c1-8)
+          echo "hash=$HASH" >> $GITHUB_OUTPUT
+
       - name: Create Pull Request
         if: steps.check.outputs.has_changes == 'true'
         uses: peter-evans/create-pull-request@v5
@@ -175,8 +184,7 @@ jobs:
           commit-message: "docs: Sync OpenAPI specs and update navigation"
           title: "docs: Sync OpenAPI specifications"
           body-path: pr_body.md
-          branch: openapi-sync
-          branch-suffix: timestamp
+          branch: openapi-sync-${{ steps.branch-suffix.outputs.hash }}
           delete-branch: true
           add-paths: |
             ${{ env.DEST_YAML_PATH }}
