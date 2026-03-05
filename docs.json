@@ -5877,6 +5877,10 @@
   },
   "redirects": [
     {
+      "source": "/portal/d01f63a6ba662-domo-developer-portal",
+      "destination": "/portal/Getting-Started/overview"
+    },
+    {
       "source": "/portal/wiemes1rk6atz-overview",
       "destination": "/portal/Connectors/Overview"
     },
