@@ -1,206 +1,187 @@
 ---
-title: "Current Release Notes"
+title: "2026 Release 1 | January"
 ---
 
 import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### New Features and Enhancements
 
-* [App Components](#app_components)
-* Cloud Integration
-  + [Azure SQL and MySQL read-only support](#azure_sql_my_sql)
-  + [Magic ETL on BigQuery pushdown + replace](#big_query_pushdown)
-  + [New integration setup UI for all cloud integrations](#new_integration_setup)
-* [DomoStats: Balance Statements](#domostats_balance_statements)
-* [Google Add-ins](#google_addins)
-* Workflows
-    
-  + [Auto Save](#auto_save)
-  + [Sub Flow](#sub_flows)
+# Advanced Scheduling Options for Connectors
+
+The new advanced scheduling options for connectors enable you to better control your data pipeline orchestration by providing additional scheduling options for refreshing and updating your data.
+
+For example, if your source system pushes out data every 3 hours, you no longer have to wait every 4 hours for data to be refreshed in Domo—enabling you to have the freshest data in your instance when you need it. 
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000Fj2Ej)
 
 
 
-### Beta Features
+# Domo AI Pro Branding
 
-* [Data modeling](#data_modeling)
-* Magic ETL
-  + ["Add from Canvas" for Magic ETL tiles](#add_from_canvas)
-  + [Power user updates](#magic_power_up)
-  + [Split join and split filter tiles](#split_join_split_filter)
-* [Mobile UI updates](#mobile_ui_updates)
-* [Workspaces](#workspaces)
+We have split our AI features into two tiers: Domo AI and Domo AI Pro. This ensures that you can leverage our advanced AI capabilities while maintaining control over cost and usage. 
 
+Frequently used features remain free as part of your Domo contract:
 
+*   Beast Mode Assistant
+*   SQL Editor in the DataSet Views Editor
+*   SQL tile in Magic ETL
+*   Magic ETL AI Assistants
 
-### Support
+AI Pro includes value-additive and customizable AI features priced based on consumption:
 
----
+*   AI Agent Tasks within Workflows
+*   Magic ETL text generation tiles
+*   AI Services direct API calls
+*   AI-powered analysis in Jupyter
+*   AI Playground for experimenting and prototyping
+*   AI Services (text summarization, text-to-SQL, text generation, image-to-text)
 
-### New Features and Enhancements
+We have also added the AI Consumption Rate Card to provide a detailed view of how various AI models and features affect your credit usage. This card lists SKUs for feature usage and the corresponding credit rate. 
 
+Learn more about [how credits are consumed for individual features](https://domo-support.domo.com/s/article/000005918?language=en_US). 
 
-
-# App Components
-
-The new drag-and-drop app component builder includes various features for creating visually appealing app components. You can use the six new app components and twenty templates to assemble and edit your apps in one place. Learn how to [create and customize app components in App Studio](https://domo-support.domo.com/s/article/000005864?language=en_US).
-
-The following components are available:
-
-* List
-* Gallery
-* Grid
-* Filter List
-* Details
-* Banner
-
-Available widgets include:
-
-* Images
-* Hyperlinks
-* Pills
-* Buttons
-* Text
-* Sort
-* Search
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000CPgz-00N5w00000Ri7BU-0EMVq000005WE4z.jpg" style={{width: 895, height: 739}}/></Frame>
-# Cloud Integration
+_Admins can access the Rate Card by navigating to Admin Settings > Company Settings > Credit Utilization > Rate Card (requires the “View Credit Reports” grant)._
 
 
 
-#### Azure SQL and MySQL Read-only Support
+# Improved Boolean Filtering for Cloud Integrations
 
-<Columns>
-  <Frame><img src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000C9TBx.jpg" /></Frame>
-  <Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000C9d4r.jpg" /></Frame>
-</Columns>
-Domo's Cloud Integration now includes read-only support for Azure SQL connections. This enables you to use your data without needing to copy or move it.
+Boolean filters for Cloud Integrations are now automatically translated into the precise data types and syntax required by your connected cloud or database engine. 
 
+This update increases reliability by eliminating errors caused by mismatched data types and provides more accurate results.
 
-
-#### Magic ETL on BigQuery Pushdown + Replace
-
-Magic ETL on BigQuery, powered by Domo's Cloud Integration platform, enables you to perform your own data transformations without moving data or changing permissions, security, or data structures.
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000C9Wsz.jpg" style={{width: 901, height: 408}}/></Frame>
-#### New Integration Setup UI for all Cloud Integrations
-
-The new Cloud Integration setup experience is more user-friendly and enables Domo to deliver clear, detailed instructions and definitions directly in the product as you set up your integrations.
-
-This new experience enhances usability, provides detailed instructions on hand, and facilitates better documentation management.
-
-Learn how to integrate [Domo on Snowflake](https://domo-support.domo.com/s/article/4402322966807?language=en_US).
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000C9ayD.jpg" style={{width: 900, height: 407}}/></Frame>
-# DomoStats: Balance Statements
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000C9tJJ.jpg" style={{width: 114, height: 114}}/></Frame>
-The new Balance Statement DomoStats reports include information on your account's balance summary and balance details. These reports enable you to easily navigate between the data in the report and the data presented in the Credit Balance tab of the Credit Utilization screen in the Admin Settings.
-
-Balance Statement reports are available in the primary Domo instance for an account and are only available to those with Consumption. Learn more about your [DomoStats reports](https://domo-support.domo.com/s/article/000005326?language=en_US#domostats_reports).
-
-
-
-# Google Add-ins
-
-Access Domo Add-ins directly within Google tools and workspaces with the new Google Domo Add-ins.
-
-Features in this update include:
-
-* Immediate access to trusted, up-to-date Domo content without leaving Google tools and workspaces.
-* Consistent reporting and visualization experiences across both Microsoft and Google platforms.
-* Accelerated team collaboration and decision-making by embedding live analytics in your work.
-* Content is kept up to date using on-demand refresh and Live mode, eliminating the need to reinvent workflows.
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CAHWv.jpg" style={{width: 901, height: 466}}/></Frame>
-# Workflows
-
-
-
-#### Auto Save
-
-The new Auto Save functionality in Workflows ensures that any changes made to your canvas are continuously preserved in real time, reducing the risk of lost work due to unexpected interruptions. Learn more about [Auto Save in Workflows](https://domo-support.domo.com/s/article/000005331?language=en_US#auto_save).
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CAMUz.jpg" style={{width: 890, height: 506}}/></Frame>
-#### Sub Flow
-
-Call one workflow from within another and receive output values to be used in subsequent steps in the parent workflow with the new Sub Flow option in Workflows.
-
-This feature enables you to build modular and scalable workflows by reusing existing logic and processes, reducing redundancy and simplifying workflow maintenance.
-
-Learn how to [use Sub Flow to streamline your automations](https://domo-support.domo.com/s/article/000005930?language=en_US) in Workflows.
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CEtAb.jpg" style={{width: 895, height: 513}}/></Frame>
-### Beta Features
-
-*To learn more about the Beta Program or have a Beta feature enabled in your instance, email [beta.admin@domo.com](mailto:beta.admin@domo.com).*
-
-# Data Modeling
-
-With Data Modeling, you can now easily relate tables in your data environment for fast querying and insight, and create calculated fields that contain the logic needed for querying data tables.
-
-You can also incorporate logic into your data models, and more easily group and aggregate data by category or timeframe.
-
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CExkT.jpg" style={{width: 894, height: 506}}/></Frame>
 # Magic ETL
 
-#### "Add from Canvas" for Magic ETL Tiles
+#### Disable Tiles
 
-Magic ETL now includes the ability to add a tile directly to the canvas using a plus button that appears next to all non-terminal tiles on the canvas. This button opens a menu that enables you to search for the tile you want to add, or scroll through the list of tiles to choose from, with the most commonly used tiles listed at the top of the list.
+The ability to disable or "comment out" tiles in DataFlows is now available in Magic ETL. This feature allows you to select one or multiple tiles to disable, so that these tiles are not considered for execution during the DataFlow run. 
 
-The feature improves the speed of DataFlow creation and overall workflow efficiency.
+Along with disabling tiles, you can also highlight all upstream or downstream tiles from a selected tile and disable them individually from their configuration panels. 
 
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CFA6b.jpg" style={{width: 892, height: 474}}/></Frame>
-#### Power User Updates
+Learn how to [disable tiles in Magic ETL](https://domo-support.domo.com/s/article/000005901?language=en_US).
 
-We are releasing a suite of Magic ETL feature enhancements over the next few months that will improve the lives of technical Magic ETL users.
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq000009qslV)
 
-The three new enhancements in this release include:
 
-* The ability to configure a tile regardless of whether there are valid upstream tiles.
-* The "Run to Here" functionality only runs the preview to the point where "Run to Here" is selected, allowing you to test streams of logic without needing to preview an entire DataFlow.
-* An
-  **Inputs** tab on each tile that lets you select the input to the tile without having to drag the line from the previous tile to it.
 
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CFNob.jpg" style={{width: 495, height: 413}}/></Frame>
-#### Split Join and Split Filter Tiles
+#### Fixed Input Tiles
 
-The new Split Join and Split Filter tiles provide more visibility into your data, easier troubleshooting, and pipeline development.
+The Fixed Input tile lets you quickly add data directly on the Magic ETL canvas. You can add data manually, by copying and pasting from other sources, or by uploading Excel and CSV files. You can also use AI-powered generation to create individual columns or full DataSets with realistic sample data. All input data is stored within the DataFlow definition and can be used as input for downstream transformations in the same DataFlow.
 
-* **Split Join —**
-  Manage multiple output streams from a single Join and easily identify rows that joined and those that did not.
-* **Split Filter —**
-  Capture rows that meet your filter criteria while viewing those that do not in a separate stream.
+The Fixed Input tile allows for:
 
-Learn how to [use the split join and split filter tiles](https://domo-support.domo.com/s/article/000005919?language=en_US) in Magic ETL.
+*   Faster prototyping and testing
+*   Improved flexibility in data input
+*   Empowerment of non-technical users
+*   Realistic sample data generation
 
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CFQrJ.jpg" style={{width: 889, height: 537}}/></Frame>
-# Mobile UI Updates
+Learn how to use the [Fixed Input tile in Magic ETL](https://domo-support.domo.com/s/article/360045402273?language=en_US#fixed_input_tile).
 
-With App Studio apps on mobile, you can now access both the app pages and mobile tabs simultaneously. The filter dropdown has also been improved and appears in place, making it easier to select items.
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq000009qhAA)
 
-Domo Mobile also supports app components —enabling you to elevate your app into a true native-like mobile experience.
 
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CFTM9.jpg" style={{width: 263, height: 569}}/></Frame>
-# Workspaces
 
-Workspaces, now available on the web and mobile, provide a centralized location for organizing Domo objects, such as Cards, Dashboards, Apps, DataSets, DataFlows, Workflows, and Worksheets.
+#### JSON Expand Tile
 
-Workspaces enable you to find relevant content more efficiently, support team and department-specific organization using folders and subfolders, and enhance the navigation experience on both web and mobile platforms. Additionally, Workspaces make it easy to control sharing the right content with the right people and also revoking access when needed.
+The new JSON Expander allows you to expand JSON-formatted data from a single column to multiple columns without complex parsing.
 
-<Frame><img alt="" src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq00000CFNbi.jpg" style={{width: 900, height: 705}}/></Frame>
+This feature allows you to access column data reliably using an easy-to-navigate, hierarchical expansion process.
+
+Learn how to use the [JSON Expand Action tile](https://domo-support.domo.com/s/article/000006036?language=en_US).
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq000009qwp7)
+
+
+
+# SSO - Direct Sign-on List Toggle
+
+The new "Enforce Direct Sign-on List" toggle decouples the enforcement of the Direct Sign-On List from the SAML configuration and makes the configuration and behavior clear: when toggled on, the Direct Sign-On List is enforced. The Direct Sign-On List can only be enforced when at least one SSO protocol (OIDC or SAML) is enabled. 
+
+If the Direct Sign-On List is toggled on, the "Use Direct Sign-On" link appears on the Domo login page. 
+
+Learn more about the [Direct Sign-On List toggle](https://domo-support.domo.com/minasan/s/article/000005827?language=en_US#configure_sso_with_saml).
+
+**Note:** This enhancement to the method of Direct Sign-on List configuration does not affect the net effective user authentication and sign-on flows. If the Domo instance was previously configured to enforce the Direct Sign-on List (based on the configuration of the SAML “User login experience” setting), then the new “Enforce Direct Sign-On List” setting is toggled on; otherwise, the setting is toggled off, and all users can log into Domo with their Domo credentials.
+
+
+
+### Beta Features
+
+_To learn more about the Beta Program or have a Beta feature enabled in your instance, email [beta.admin@domo.com](mailto:beta.admin@domo.com)._
+
+# App Catalyst
+
+App Catalyst allows you to instantly create Domo Pro-Code applications using example prompts or by adding your own. Integrate generated apps with your Domo DataSets and add them to dashboards or App Studio apps. 
+
+After creating your app, you can view and edit the generated app code, preview the UI, save, and publish your app for others to use. 
+
+![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000G6kAD)
+
+
+
+# Editable Table and Linked Tables
+
+Two new table features are available in App Studio and Worksheets. 
+
+Editable Tables allow you to drop in a spreadsheet-like table where you can input data, add columns and rows, create calculations, copy and paste, and filter.
+
+Linked Tables enable you to combine existing Domo data with new columns for common use cases such as financial forecasting and budgeting. 
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000Fjk2r)
+
+
+
+# DomoStats for Row PDP
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000Fj424)
+
+The new Row PDP DomoStats reports allow you to view metadata about all existing row PDP policies in your instance, including information on policies, policy conditions, and policy assignments. 
+
+The Row PDP DomoStats report includes three DomoStats DataSets: Row Policies, Row Policy Conditions, and Row Policy Assignments. Learn more about the [Row PDP DomoStats](https://domo-support.domo.com/minasan/s/article/360042934614?language=en_US#pdp_row_policies). 
+
+# Magic ETL on BigQuery
+
+#### Native SQL Syntax
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000FjNFx)
+
+The Native SQL syntax tile allows you to use native BigQuery SQL syntax to transform your data according to your use cases in Magic ETL. This tile gives you more flexibility regarding BigQuery environment constraints and cases when you do not want to refactor your BigQuery SQL in Magic ETL.
+
+#### Subset Processing Support
+
+Subset processing support allows you to select the output methods (including Partition, Append, and Upsert) for your BigQuery DataSets in Magic ETL.
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000FjMQL)
+
+
+
+# Nav Configs
+
+Nav Configs allow admins to create a custom navigation experience for their instance by adding Domo objects, including apps, a workspace home or folder, and dashboards, all to users' left navigation to access content. 
+
+Admins can also create different configs for different groups or users and block which users can personalize their content. 
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000FjrkH)
+
+
+
+# Schema Tab for DataSets and Data Models
+
+The Schema tab for DataSets and Data Models lets you format and change field order and include field descriptions and tags for downstream users. 
+
+You can also access and turn on AI fields and add context and synonyms in the Schema tab. 
+
+![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cPJx&feoid=00N5w00000Ri7BU&refid=0EMVq00000Fi42V)
+
+
+
 ### Support
 
 Domo provides education, community answers, and technical support.
 
-* Search for a topic in the
-  [Help Center](https://www.domo.com/domo-central/help) <InlineImage src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />.
-* Learn from
-  [Domo University](https://www.domo.com/domo-central/university) <InlineImage src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq000000MdYz.jpg" />.
-* Search for training apps in the
-  [Appstore <InlineImage src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq000000Mddp.jpg" />](https://www.domo.com/appstore/).
-* Get answers in the
-  [Community Forums <InlineImage src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq000000Mdh3.jpg" />](https://community-forums.domo.com/main).
-* Contact Technical Support by entering a help ticket in the
-  [Domo Support Portal <InlineImage src="/images/kb/ka0Vq000000QpLR-00N5w00000Ri7BU-0EMVq000000MdkH.jpg" />](https://www.domo.com/login/customer-community).
-* Reach out to your Domo account team.
+*   Search for a topic in the [Help Center](https://www.domo.com/domo-central/help).  
+*   Learn from [Domo University](https://www.domo.com/domo-central/university). 
+*   Search for training apps in the [Appstore](https://www.domo.com/appstore/) .
+*   Get answers in the [Community Forums](https://community-forums.domo.com/main).
+*   Contact Technical Support by entering a help ticket in the [Domo Support Portal](https://www.domo.com/login/customer-community).
+*   Reach out to your Domo account team.
