@@ -3159,7 +3159,7 @@
                               "portal/Apps/App-Framework/Tools/domo-CLI",
                               "portal/Apps/App-Framework/Tools/da-cli",
                               "portal/Apps/App-Framework/Tools/domo-publish-CICD",
-                              "portal/Apps/App-Framework/Tools/domo.js",
+                              "portal/Apps/App-Framework/Tools/domo-js",
                               "portal/Apps/App-Framework/Tools/query",
                               "portal/Apps/App-Framework/Tools/phoenix",
                               "portal/Apps/App-Framework/Tools/toolkit"
@@ -6038,7 +6038,7 @@
     },
     {
       "source": "/portal/e947d87e17547-ryuu-js",
-      "destination": "/portal/Apps/App-Framework/Tools/domo.js"
+      "destination": "/portal/Apps/App-Framework/Tools/domo-js"
     },
     {
       "source": "/portal/52cc03a1e3100-domo-phoenix",
