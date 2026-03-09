@@ -199,7 +199,7 @@ The `index.html` file contains the basic structure of our page and loads our Jav
 </html>
 ```
 
-The [`domo.js` utility library](/portal/Apps/App-Framework/Tools/domo.js) provides a number of useful functions for interfacing with Domo, including the `domo.get` call that is included in our `app.js` file by default.
+The [`domo.js` utility library](/portal/Apps/App-Framework/Tools/domo-js) provides a number of useful functions for interfacing with Domo, including the `domo.get` call that is included in our `app.js` file by default.
 
 ```js
 domo.get('/data/v2/infographicData?limit=100').then(function (infographicData) {
@@ -303,7 +303,8 @@ body {
 }
 
 .description {
-  font-family: 'Raleway', sans-serif; /* Uses Raleway, with sans-serif as a fallback */
+  font-family:
+    'Raleway', sans-serif; /* Uses Raleway, with sans-serif as a fallback */
   font-size: 4vh; /* Sets the font size to 4vh */
   color: #000000; /* Sets the color to black */
   position: fixed;
