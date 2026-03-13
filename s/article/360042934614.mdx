@@ -21,6 +21,7 @@ Additionally, depending on your organization's size, Domo offers Simple or Dynam
     Learn about [Dynamic PDP](#dynamic-pdp) below.
 
 <Tip>
+
 **PDP or Publication Groups?**
 
 In Domo, you can use PDP or Publication Groups to control who can access which data. 
@@ -39,7 +40,6 @@ In Domo, you can use PDP or Publication Groups to control who can access which d
     
 *   We recommend this solution for the vast majority of use cases
     
-
 **Publication Groups**
 
 *   Use Publication Groups if you want people to view your data without having the ability to create with it
@@ -48,8 +48,8 @@ In Domo, you can use PDP or Publication Groups to control who can access which d
     
 *   Publication Groups provide a forced landing page
     
-
 Learn more about [Publication Groups](/s/article/360043438993).
+
 </Tip>
 
 
@@ -139,7 +139,9 @@ The PDP policy is now in effect for anything in Domo powered by or associated wi
 
 To disable row filtering or column masking PDP for a DataSet, toggle the switch in the correct tab again. Check the box to confirm that you understand the [impact](#impact) of disabling PDP and that all users with access to the DataSet will have access to all data in the DataSet, then select **Disable**.
 
-![Screenshot 2024-05-15 at 3.04.35 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yDwr)
+<Frame>
+![Screenshot 2024-05-15 at 3.04.35 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yDwr.jpg)
+</Frame>
 
 
 ## Review PDP Impact
@@ -150,18 +152,24 @@ To disable row filtering or column masking PDP for a DataSet, toggle the switch 
 
 In either the **Row Policies**/**Column Policies** tab, select **Impact** to open the outcomes modal.
 
-![impact.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wNIn)
+<Frame>
+![impact.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wNIn.jpg)
+</Frame>
 
 The outcomes modal indicates how creating a PDP policy for the DataSet affects all of the assets tied to this DataSet. There are two tabs in the modal: **Attention** and **Personalized**.
 
 *   The **Attention** tab displays any DataFlows that will break if PDP is added. You can expand a DataFlow to see all included items. Select **Fix It** to add the owner of those assets to the [All Rows policy](#all_rows_policy). This prevents the DataFlow from breaking.  
       
-    ![fix it.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ylth)  
+    <Frame>
+    ![fix it.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ylth.jpg)
+    </Frame>
       
     
 *   The **Personalized** tab displays any cards that will be affected.  
       
-    ![pdp outcomes.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wsmP)
+    <Frame>
+    ![pdp outcomes.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wsmP.jpg)
+    </Frame>
 
 If no cards or DataFlows will be affected, the modal displays with no tabs.
 
@@ -176,7 +184,7 @@ When finished, select **Done** to close the modal.
 
 # Row Policies
 
- In the **Rows Policies** tab, you can create PDP policies based on rows in your DataSet. 
+In the **Rows Policies** tab, you can create PDP policies based on rows in your DataSet. 
 
 The **Row Policies** tab displays a list of all existing row policies for this DataSet. All DataSets have a default All Rows policy to give non-owners/admins access to view all data and use it to build cards and DataFlows.
 
@@ -192,13 +200,17 @@ Follow these steps to add members to the All Rows policy:
     
 2.  For the **All Rows** policy, select **Add groups & people**.  
       
-    ![add groups and people callout.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wNgz)   
+    <Frame>
+    ![add groups and people callout.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wNgz.jpg)
+    </Frame> 
       
     The **Add groups & people** modal displays.
     
 3.  In the modal, search for and select the person or group name to add them to the policy.  
       
-    ![Screenshot 2024-05-10 at 4.08.49 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wNsH)
+    <Frame>
+    ![Screenshot 2024-05-10 at 4.08.49 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wNsH.jpg)
+    </Frame>
     
 4.  Select **Save** to keep your changes and close the modal.
     
@@ -215,21 +227,27 @@ Follow these steps to add members to the All Rows policy:
 
 1.  From the details page of the DataSet, select **Open With** \> **Magic ETL**.  
       
-    ![open with magic etl.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq0000011fDS)   
+    <Frame>
+    ![open with magic etl.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq0000011fDS.jpg)
+    </Frame>
       
     The DataSet displays on the Magic ETL canvas as the input DataSet.  
       
     
 2.  In the sidebar, expand the **Utility** tiles. Drag an **Add Constants** tile to the canvas and connect it to the input DataSet to expand the tile editor below the canvas.  
       
-    ![add constants.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000x5lF)   
+    <Frame>
+    ![add constants.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000x5lF.jpg)
+    </Frame>
       
     
 3.  In step 1 of the tile editor, enter \`Access to All Rows\` as the name.
 4.  In the step 2 dropdown, choose **Text**.
 5.  In step 3, enter \`Yes\` as the constant value.  
       
-    ![add constants.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yqbd)   
+    <Frame>
+    ![add constants.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yqbd.jpg)
+    </Frame>
       
     
 6.  Create an output DataSet and connect it to the Add Constants tile.
@@ -241,14 +259,18 @@ Follow these steps to add members to the All Rows policy:
 12.  In the **Column Name** dropdown, select **Access to All Rows**.
 13.  In the search bar, enter and select "Yes."  
       
-    ![Screenshot 2024-05-13 at 6.06.42 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000x3YA)  
+    <Frame>
+    ![Screenshot 2024-05-13 at 6.06.42 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000x3YA.jpg)
+    </Frame>
       
     
 14.  Select **Save** to close the modal.
 15.  Use the **Add groups & people** option to this policy and select **Save** when finished.
 16.  In the policy row, select **Save**.  
       
-    ![save policy.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq0000011jlh)
+    <Frame>
+    ![save policy.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq0000011jlh.jpg)
+    </Frame>
 
 
 ## Row Policy Filter Types
@@ -282,26 +304,37 @@ You can add multiple policies to a DataSet, but you must create them one at a ti
 
 1.  [Access](#access-the-pdp-interface) the **Row Policies** tab of the PDP interface.
 2.  Select **+** **Add Policy** to add a row to the policy list.  
-      
-    ![add policy.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wMoA) 
+    
+    <Frame>
+    ![add policy.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wMoA.jpg)
+    </Frame>
+
 3.  In the new row, enter a descriptive name for the policy.  
       
-    ![enter name.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wopF) 
+    <Frame>
+    ![enter name.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wopF.jpg)
+    </Frame>
     
 4.  In the new row, select **+** **Add Data** to open the **Add data access** modal.
     
 5.  From the modal's **Column Name** dropdown, select the column in the DataSet to filter by.  
       
-    ![Screenshot 2024-05-13 at 12.00.35 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wp5N) 
+    <Frame>
+    ![Screenshot 2024-05-13 at 12.00.35 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wp5N.jpg)
+    </Frame>
     
 6.  From the **Access Type** dropdown, choose which [filter type](#row-policy-filter-types) to use.  
       
-    ![Screenshot 2024-05-16 at 3.49.22 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yrpR)  
+    <Frame>
+    ![Screenshot 2024-05-16 at 3.49.22 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yrpR.jpg)
+    </Frame>
       
     
 7.  \(Optional\) Check the box labeled **Ignore case** to disable uppercase/lowercase sensitivity for your filter.  
       
-    ![ignore case.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ysAP)  
+    <Frame>
+    ![ignore case.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ysAP.jpg)
+    </Frame> 
       
     
 8.  Follow the steps below based on your filter type:
@@ -311,7 +344,9 @@ You can add multiple policies to a DataSet, but you must create them one at a ti
         2.  \(Optional\) Repeat the previous step to add all the rows you want to filter by.
         3.  When finished, select **Save** to keep your changes and close the modal.  
               
-            ![Screenshot 2024-05-13 at 12.14.57 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wpjh)   
+            <Frame>
+            ![Screenshot 2024-05-13 at 12.14.57 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wpjh.jpg)
+            </Frame>
               
             
     B.  **Custom filter**
@@ -325,7 +360,10 @@ You can add multiple policies to a DataSet, but you must create them one at a ti
         3.  \(Optional\) To add more rules, select **Add** **Rule** and repeat the previous steps to add all rules.
         4.  When finished, select **Save** to keep your changes and close the modal.  
               
-            ![Screenshot 2024-05-13 at 12.45.35 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wrTl)
+            <Frame>
+            ![Screenshot 2024-05-13 at 12.45.35 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wrTl.jpg)
+            </Frame>
+
     C.  **Filter by Managed Attribute**  
           
         <Note>
@@ -335,23 +373,32 @@ You can add multiple policies to a DataSet, but you must create them one at a ti
         1.  In the **Attribute** dropdown, select the managed attribute to use as a dynamic filter.
         2.  When finished, select **Save** to keep your changes and close the modal.  
               
-            ![Screenshot 2024-05-13 at 12.53.12 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ws01) 
+            <Frame>
+            ![Screenshot 2024-05-13 at 12.53.12 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ws01.jpg)
+            </Frame>
+
 9.  Select **Add groups & people** in the new policy row to open the **Add groups & people** modal.  
       
-    ![add groups and people new.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ysGr) 
+    <Frame>
+    ![add groups and people new.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ysGr.jpg)
+    </Frame>
     
 10.  In the modal, choose a radio button. The options are:
     *   Choose specific Groups & People 
     *   Include everyone with DataSet access.
 11.  (Conditional) If you are choosing specific groups and people, search for and select them. We recommend using groups where possible so that when group members shift, access changes dynamically.  
       
-    ![Screenshot 2024-05-10 at 4.08.49 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wNsH)  
+    <Frame>
+    ![Screenshot 2024-05-10 at 4.08.49 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wNsH.jpg)
+    </Frame>
       
     
 12.  Select **Save** to keep your changes and close the modal.
 13.  In the policy row, select **Save**.  
       
-    ![save policy.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wvNi)
+    <Frame>
+    ![save policy.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wvNi.jpg)
+    </Frame>
 
 You now have a row policy. You must [enable](#enable_pdp) row filtering PDP before the policy can take effect.
 
@@ -362,15 +409,22 @@ After you create a policy, you can preview how it affects the DataSet. We recomm
 
 1.  In the policy list, hover over the row for the policy you want to preview and select **Preview**.  
       
-    ![preview policy.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ysVN)   
+    <Frame>
+    ![preview policy.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ysVN.jpg)
+    </Frame> 
       
     The data preview displays.  
       
-    ![Screenshot 2024-05-13 at 2.52.00 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000wyzt)
+    <Frame>
+    ![Screenshot 2024-05-13 at 2.52.00 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000wyzt.jpg)
+    </Frame>
     
-2.  (Conditional) If you are filtering by managed attribute, you can choose a person from the preview dropdown to see how they view the data.  
+2.  \(Conditional\) If you are filtering by managed attribute, you can choose a person from the preview dropdown to see how they view the data.  
       
-    ![Screenshot 2024-05-21 at 1.49.56 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq0000011pJF) 
+    <Frame>
+    ![Screenshot 2024-05-21 at 1.49.56 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq0000011pJF.jpg)
+    </Frame>
+
 3.  Select **Done** to close the preview.
 
 
@@ -409,7 +463,9 @@ You can delete a row policy from inside the **Row Policies** tab in the PDP int
     **Note:** This action cannot be undone.  
     </Note>
       
-    ![Screenshot 2024-05-13 at 4.56.06 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000x3Uv)
+    <Frame>
+    ![Screenshot 2024-05-13 at 4.56.06 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000x3Uv.jpg)
+    </Frame>
 
 
 # Column Policies
@@ -421,9 +477,13 @@ In the **Column Policies** tab, you can configure column masking policies and en
 
 DataSets define and save column policies and can have up to 20 column policies. Policies consist of rules that assign masking methods to users or groups. Since a policy can contain multiple rules, each with its own masking method, you can define column policies to serve many stakeholders and groups with their own business needs for data access.
 
-![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AUat8)  
+<Frame>
+![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AUat8.jpg)
+</Frame> 
 
-![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AV3gb)
+<Frame>
+![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AV3gb.jpg)
+</Frame>
 
 Note the definitions of these terms:
 
@@ -450,7 +510,9 @@ You have access to the following masking methods:
 *   **Show first N —** This method unmasks the first N characters of your data while replacing all other characters with a specified number of selected masking characters.  
     For example: (1 character visible, 5-character mask length, a hyphen mask character) `a-----`  
       
-    ![Screenshot 2024-05-13 at 7.33.46 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000x72H)  
+    <Frame>
+    ![Screenshot 2024-05-13 at 7.33.46 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000x72H.jpg)
+    </Frame>
       
     
 
@@ -480,7 +542,9 @@ You must enable PDP column masking on your DataSet, regardless of the policies d
 
 To enable PDP column masking, go to your **Personalized Data Permissions** dashboard and toggle the **Enable PDP - Column Masking** switch on.
 
-![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZ94H)
+<Frame>
+![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZ94H.jpg)
+</Frame>
 
 
 ## Create a Column Policy
@@ -496,19 +560,29 @@ Follow the steps below to create a new column policy.
     </Note>
     
       
-    ![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZBCY)
+    <Frame>
+    ![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZBCY.jpg)
+    </Frame>
+
 4.  Select the masking method for the default rule.   
     The default rule applies to everyone with DataSet access, unless you’ve assigned them a higher-priority rule. To keep data secure, set the default rule to use a masking method that fits the sensitivity of your data. If you’re not sure which method to choose, we recommend starting with the most restrictive options: **Redact** or **Nullify**. Learn about [masking methods](#masking-methods).  
       
-    ![Screenshot 2024-05-16 at 7.05.28 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ywvZ)   
+    <Frame>
+    ![Screenshot 2024-05-16 at 7.05.28 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ywvZ.jpg)
+    </Frame>
       
     
 5.  Add more rules as necessary by selecting the **\+ Add Rule** button.
 6.  Assign users and/or groups to the rule by selecting ![add groups and people.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ywxB) to search for the user or group, then selecting the user or group from the search.
 7.  From the **Masking Method** dropdown, choose a masking style and define it. Learn about [masking methods](#masking_methods).  
-    ![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZEDd)  
+    
+    <Frame>
+    ![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZEDd.jpg)
+    </Frame>
       
-    ![define masking stylw.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ywXO)   
+    <Frame>
+    ![define masking stylw.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ywXO.jpg)
+    </Frame> 
       
     
 8.  Continue adding rules with assigned users/groups and selecting a masking method as necessary. 
@@ -524,15 +598,24 @@ Follow the steps below to create a new column policy.
     </Warning>
     
      
-10. Save the policy.  
+10. Save the policy.
+
     <Note>
+
     **Note:** You can select **Cancel** at any time to close the policy editor without saving your changes.  
     
-    ![save options.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxZt)
+    <Frame>
+    ![save options.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxZt.jpg)
+    </Frame>
     
-    ![available policies.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxV3) 
+    <Frame>
+    ![available policies.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxV3.jpg)
+    </Frame>
     
-    ![Screenshot 2024-05-16 at 8.12.49 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yw2k)
+    <Frame>
+    ![Screenshot 2024-05-16 at 8.12.49 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yw2k.jpg)
+    </Frame>
+    
     </Note>
 
 
@@ -542,9 +625,13 @@ Follow the steps below to create a new column policy.
 2.  View the available policies and select **Edit** to edit the policy.  
     The policy editor opens.  
       
-    ![available policies.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxV3)  
+    <Frame>
+    ![available policies.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxV3.jpg)
+    </Frame>
       
-    ![Screenshot 2024-05-16 at 8.27.32 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxhx)   
+    <Frame>
+    ![Screenshot 2024-05-16 at 8.27.32 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxhx.jpg)
+    </Frame>  
       
     
 3.  Make any desired changes to the policy name, data type, rules, assignments, and masking methods.  
@@ -571,12 +658,16 @@ Follow the steps below to create a new column policy.
 2.  View the available policies and select **Edit** for the policy you want to delete.  
     The policy editor opens.  
       
-    ![available policies.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxV3)  
+    <Frame>
+    ![available policies.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxV3.jpg)
+    </Frame>
       
     
 3.  Select **Delete**.  
       
-    ![delete policy.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxoP)  
+    <Frame>
+    ![delete policy.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxoP.jpg)
+    </Frame>
       
     The confirmation dialog displays.
     
@@ -584,12 +675,16 @@ Follow the steps below to create a new column policy.
     **Important:** If you currently have a policy mapped to one or more columns, you can't delete the policy. You must remove the policy from all column mappings before you can delete it.
     </Warning>
     
-    ![Screenshot 2024-05-16 at 8.37.39 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxrd)   
+    <Frame>
+    ![Screenshot 2024-05-16 at 8.37.39 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxrd.jpg)
+    </Frame>
       
     
 4.  Select **Delete** to delete the policy. This action cannot be undone. Select **Cancel** to keep the policy and reopen the editor.  
       
-    ![Screenshot 2024-05-16 at 8.34.57 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxq1)
+    <Frame>
+    ![Screenshot 2024-05-16 at 8.34.57 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxq1.jpg)
+    </Frame>
 
 
 ## Map a Policy to a Column
@@ -605,38 +700,55 @@ To map a policy to a column:
 1.  [Access](#access-the-pdp-interface) the **Column Policies** tab of the PDP interface.
 2.  Select **\+ Add Column** to add a new column to the mapping list.  
       
-    ![add column.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxur)   
+    <Frame>
+    ![add column.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxur.jpg)
+    </Frame>
       
     
 3.  In the **Column** dropdown in the mapping list item, select the column you want to mask.  
     When you select the column, the data type under **Column Type** populates automatically.  
       
-    ![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZM4j)  
+    <Frame>
+    ![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZM4j.jpg)
+    </Frame>
       
-    ![select column.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ywZ1)  
+    <Frame>
+    ![select column.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ywZ1.jpg)
+    </Frame>
       
     
 4.  To populate the **Policy Name**, select **\+ Add Policy** to open the **Select Column Policy** modal.
 5.  Select an existing column policy or [create a new one](#create-a-column-policy).  
       
-    ![Screenshot 2024-05-16 at 8.53.52 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxwT)  
-    ![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZMXl)  
+    <Frame>
+    ![Screenshot 2024-05-16 at 8.53.52 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxwT.jpg)
+    </Frame>
+
+    <Frame>
+    ![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZMXl.jpg)
+    </Frame>
       
       
     
 6.  Choose **Select** to close the modal and assign the policy.
 7.  After you've assigned a new or existing policy, select **Save** to complete the mapping of the policy to the column.  
       
-    ![A screenshot of a computerAI-generated content may be incorrect.](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq00000AZN5d)  
+    <Frame>
+    ![](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq00000AZN5d.jpg)
+    </Frame>
       
-    ![save column row.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq0000011t1t)
+    <Frame>
+    ![save column row.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq0000011t1t.jpg)
+    </Frame>
 
 
 ## Change the Column Policy Mapping
 
 You can change the column policy that you've mapped to a column by dragging and dropping an existing policy to the **Policy Name**.
 
-![drag sensitive.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yxzh)
+<Frame>
+![drag sensitive.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yxzh.jpg)
+</Frame>
 
 
 ## Remove Column Masking
@@ -646,12 +758,16 @@ You can remove all column masking from a column by following these steps:
 1.  Hover over the mapping list item and select ![delete 1.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yy2v)**Delete**.  
     The confirmation dialog displays.  
       
-    ![delete column.jpg](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yy4X)  
+    <Frame>
+    ![delete column.jpg](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yy4X.jpg)
+    </Frame>
       
     
 2.  In the confirmation dialog, select **Delete** to remove the masking from the column. This action cannot be undone. Select **Cancel** to close the dialog and keep the current masking.  
       
-    ![Screenshot 2024-05-16 at 9.12.10 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yy69)
+    <Frame>
+    ![Screenshot 2024-05-16 at 9.12.10 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yy69.jpg)
+    </Frame>
 
 
 # Known Limitations
@@ -669,7 +785,9 @@ When you enable PDP Column Policies, keep these limitations in mind:
 
 This use case shows how row policies for a DataSet affect a card powered by the DataSet. The example DataSet tracks sales throughout the U.S. based on region—East and West. The data is presented using a U.S. map. By default, no PDP policies are in place, so all data in the DataSet displays, as in the image below.
 
-![Screenshot 2024-05-16 at 5.10.38 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ypqs)
+<Frame>
+![Screenshot 2024-05-16 at 5.10.38 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ypqs.jpg)
+</Frame>
 
 The sales manager for company K wants salespeople in each region to see only the necessary data. All salespeople belong to one of four groups in Domo—K East, K West, K South, or K Central—so this requires connecting each group to a policy filtered to the appropriate region.
 
@@ -678,21 +796,25 @@ The sales manager creates two row policies—East Region and West Region—and u
 The sales manager then adds the K East group to the East Region policy and the K West group to the West Region policy. Then the sales manager enables PDP for row filtering.  
 The sales manager's **Row Policies** tab now displays as shown below.
 
-![Screenshot 2024-05-16 at 5.48.12 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yvjN)
+<Frame>
+![Screenshot 2024-05-16 at 5.48.12 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yvjN.jpg)
+</Frame>
 
 With these row policies in place, members of each group only see data assigned to them. A member of the K West group sees the card as shown below.  
  
+<Frame>
+![Screenshot 2024-05-16 at 5.58.27 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000yvwH.jpg)
+</Frame>
 
-![Screenshot 2024-05-16 at 5.58.27 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000yvwH)
-
-  
- 
-
-Note that data only displays for those states that fall into the West Region. Also notice that the chart total has changed to reflect the PDP policy and that a ![](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EM5w000005vPXJ) PDP stamp appears near the title to indicate that this view shows a PDP-filtered version of the data. 
+<Note>
+**Note:** Data only displays for those states that fall into the West Region. Also notice that the chart total has changed to reflect the PDP policy and that a PDP stamp appears near the title to indicate that this view shows a PDP-filtered version of the data.
+</Note>
 
 Because the sales manager did not create policies for the K Central or K South groups, members of those groups attempting to access the card see an option to request access to the card. They could request access to ask the DataSet owner to create the necessary row policies to allow them to view their relevant data.
 
-![Screenshot 2024-05-16 at 6.07.24 PM.png](https://domo.file.force.com/servlet/rtaImage?eid=ka0Vu000000cy1Z&feoid=00N5w00000Ri7BU&refid=0EMVq000000ywAn)
+<Frame>
+![Screenshot 2024-05-16 at 6.07.24 PM.png](/images/kb/ka0Vq000000KuCX-00N5w00000Ri7BU-0EMVq000000ywAn.jpg)
+</Frame>
 
 
 # Dynamic PDP
@@ -702,13 +824,13 @@ Dynamic PDP builds upon Simple PDP and offers a more advanced and flexible solut
 
 ## Use an IdP and the Governance Toolkit
 
-To leverage Dynamic PDP in Domo, dynamically source and update your integration with a connected Identity Provider (IdP) or utilize the Domo Governance Toolkit. The Toolkit offers both manual and automated options for attribute management. 
+To leverage Dynamic PDP in Domo, dynamically source and update your integration with a connected Identity Provider \(IdP\) or utilize the Domo Governance Toolkit. The Toolkit offers both manual and automated options for attribute management. 
 
 Using IdP ensures that changes in user roles or other attributes are reflected in real time in Domo. The Governance Toolkit allows for precise control and automates attribute updates within the Domo platform. 
 
-Learn more about [sourcing attributes using an IDP](https://domo-support.domo.com/s/article/360042934374?language=en_US#:~:text=when%20you%20return.-,Manual%20Setup,-To%20properly%20implement).
+Learn more about [sourcing attributes using an IDP](/s/article/360042934374).
 
-Learn how to use the Governance Toolkit to [assign attributes](https://domo-support.domo.com/s/article/6305057013527?language=en_US).
+Learn how to use the Governance Toolkit to [assign attributes](/s/article/6305057013527).
 
 
 
@@ -747,8 +869,6 @@ If the owner of a DataFusion loses access to one or more input DataSets with act
 
 When you build a DataFusion from one or more input DataSets with PDP policies in place, those policies are incorporated into the output DataSet.
 
-Learn more about [DataFusion](https://domo-support.domo.com/s/topic/0TO5w000000ZanVGAS/datafusion?language=en_US).
-
 
 # DomoStats
 
@@ -779,15 +899,15 @@ This report shows the conditions that make up each row of the policy. A single p
 | Field            | Description                                                                                                                                                                                     |
 |------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID               | The ID of the row policy filter condition                                                                                                                                                       |
-| Policy ID        | The ID of the policy the condition is defined on; join key to the ID column in the Policies report                                                                                            |
+| Policy ID        | The ID of the policy the condition is defined on; join key to the ID column in the Policies report                                                                                              |
 | Policy Name      | The name of the policy on which you define the condition                                                                                                                                        |
 | DataSet ID       | The ID of the DataSet on which you define the policy                                                                                                                                            |
 | DataSet Name     | The name of the DataSet on which you define the policy                                                                                                                                          |
-| Condition Type   | Indicates if the filter condition value is static (COLUMN) or dynamic based on a user attribute (DYNAMIC)                                                                                     |
-| Column Name      | The name of the column referenced in the policy filter condition                                                                                                                               |
-| Operator         | The operator involved in the comparison of the filter condition value to the column value                                                                                                      |
-| Case Insensitive | Indicates if the filter condition is case insensitive (1) or case sensitive (0)                                                                                                                |
-| Value            | The filter condition value. For static policy conditions, this is the value that is applied as a filter; for dynamic policy conditions, this is the key of the user attribute.                |
+| Condition Type   | Indicates if the filter condition value is static (COLUMN) or dynamic based on a user attribute (DYNAMIC)                                                                                       |
+| Column Name      | The name of the column referenced in the policy filter condition                                                                                                                                |
+| Operator         | The operator involved in the comparison of the filter condition value to the column value                                                                                                       |
+| Case Insensitive | Indicates if the filter condition is case insensitive (1) or case sensitive (0)                                                                                                                 |
+| Value            | The filter condition value. For static policy conditions, this is the value that is applied as a filter; for dynamic policy conditions, this is the key of the user attribute.                  |
 
 
 ## PDP — Row Policy Assignments (BETA)
@@ -798,14 +918,14 @@ This report shows all users and groups that you explicitly assign to row policie
 **Note:** You won't see the All Rows policy in this report unless you have explicitly assigned users or groups to it.
 </Note>
 
-| Field       | Description                                                                                                                                                                                    |
-|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Policy ID   | The ID of the policy the condition is defined on; join key to the ID column in the Policies report                                                                                           |
-| Policy Name | The name of the policy on which you define the condition                                                                                                                                       |
-| DataSet ID  | The ID of the DataSet on which you define the policy                                                                                                                                           |
-| DataSet Name| The name of the DataSet on which you define the policy                                                                                                                                         |
+| Field       | Description                                                                                                                                                                                        |
+|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Policy ID   | The ID of the policy the condition is defined on; join key to the ID column in the Policies report                                                                                                 |
+| Policy Name | The name of the policy on which you define the condition                                                                                                                                           |
+| DataSet ID  | The ID of the DataSet on which you define the policy                                                                                                                                               |
+| DataSet Name| The name of the DataSet on which you define the policy                                                                                                                                             |
 | Entity Type | Indicates the type of the entity assigned to the policy: USER, GROUP, or CONTROL_GROUP. An assignment Entity Type CONTROL_GROUP indicates all users with DataSet access are assigned to the policy |
-| Entity ID   | The ID of the user or group assigned to the policy                                                                                                                                             |
+| Entity ID   | The ID of the user or group assigned to the policy                                                                                                                                                 |
 
 
 ## PDP — Column Policies
@@ -832,13 +952,13 @@ This report lists every PDP column policy rule by ID.
 
 | Field          | Description                                                                                                  |
 |----------------|--------------------------------------------------------------------------------------------------------------|
-| ID             | The system ID of the rule                                                                                     |
+| ID             | The system ID of the rule                                                                                    |
 | Precedence     | The rule’s priority (higher number = higher priority). The default rule always has precedence 0              |
-| Masking Method | How the rule masks data (for example, “redact 5 *” replaces values with five asterisks)                     |
-| Policy ID      | The system ID of the policy the rule belongs to                                                               |
-| Policy Name    | The name you gave the policy                                                                                  |
-| DataSet ID     | The ID of the DataSet where the policy lives                                                                  |
-| DataSet Name   | The name of that DataSet                                                                                      |
+| Masking Method | How the rule masks data (for example, “redact 5 *” replaces values with five asterisks)                      |
+| Policy ID      | The system ID of the policy the rule belongs to                                                              |
+| Policy Name    | The name you gave the policy                                                                                 |
+| DataSet ID     | The ID of the DataSet where the policy lives                                                                 |
+| DataSet Name   | The name of that DataSet                                                                                     |
 
 
 ## PDP — Column Policy Rule Assignments
@@ -849,15 +969,15 @@ This report shows which users or groups are assigned to column policy rules.
 **Note:** You won't see the default unmasked rule in this report because every policy includes it, and you can't delete or modify it.
 </Note>
 
-| Field        | Description                                                                                                                 |
-|--------------|-----------------------------------------------------------------------------------------------------------------------------|
-| Entity ID    | The ID of the user or group                                                                                                |
+| Field        | Description                                                                                                                   |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------|
+| Entity ID    | The ID of the user or group                                                                                                   |
 | Entity Type  | The type of entity (user, group, or control_group). A control group is system-defined and always assigned to the default rule |
-| Rule ID      | The system ID of the rule                                                                                                  |
-| Policy ID    | The system ID of the policy the rule belongs to                                                                            |
-| Policy Name  | The name you gave the policy                                                                                               |
-| DataSet ID   | The ID of the DataSet where the policy lives                                                                               |
-| DataSet Name | The name of that DataSet                                                                                                   |
+| Rule ID      | The system ID of the rule                                                                                                     |
+| Policy ID    | The system ID of the policy the rule belongs to                                                                               |
+| Policy Name  | The name you gave the policy                                                                                                  |
+| DataSet ID   | The ID of the DataSet where the policy lives                                                                                  |
+| DataSet Name | The name of that DataSet                                                                                                      |
 
 
 ## PDP — Column Policy Mappings
@@ -866,12 +986,12 @@ This report shows how PDP column policies map to DataSet columns. Only mapped po
 
 | Field        | Description                                                   |
 |--------------|---------------------------------------------------------------|
-| ID           | The system ID of the mapping (not the column or policy ID)   |
-| DataSet ID   | The ID of the DataSet where the mapping lives                |
-| DataSet Name | The name of that DataSet                                     |
-| Column Name  | The name of the column the policy maps to                    |
-| Policy ID    | The system ID of the policy                                  |
-| Policy Name  | The name you gave the policy                                 |
+| ID           | The system ID of the mapping (not the column or policy ID)    |
+| DataSet ID   | The ID of the DataSet where the mapping lives                 |
+| DataSet Name | The name of that DataSet                                      |
+| Column Name  | The name of the column the policy maps to                     |
+| Policy ID    | The system ID of the policy                                   |
+| Policy Name  | The name you gave the policy                                  |
 
 
 # FAQ
