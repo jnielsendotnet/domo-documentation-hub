@@ -872,7 +872,7 @@ When you build a DataFusion from one or more input DataSets with PDP policies in
 Domo provides PDP policy configuration metadata through DomoStats reports. Three reports cover row policies, and four reports cover column policies. These reports explain what each policy does, the logic it uses, and which users and groups it applies to. Because DomoStats reports include policy definition and assignment details—including filter values in the PDP — Row Policy Conditions report—we recommend enabling PDP on these report DataSets to help protect potentially sensitive data.
 
 
-### PDP---Row Policies (BETA)
+### PDP—Row Policies (BETA)
 
 This report lists all PDP row policies by ID, whether you have enabled row policies on the DataSet or not. 
 
@@ -885,7 +885,7 @@ This report lists all PDP row policies by ID, whether you have enabled row polic
 | Policy Enforced | This report lists all PDP row policies, even if Row PDP isn’t enabled on a given DataSet. This field indicates if the policy is enforced (value of 1; Row policies enabled on the DataSet) or not \(value of 0; Row policies not enabled on the DataSet\) |                                                                                                                                                            |
 
 
-### PDP---Row Policy Conditions (BETA)
+### PDP—Row Policy Conditions (BETA)
 
 This report shows the conditions that make up each row of the policy. A single policy can include multiple conditions, and the report lists each condition on its own row. The report includes all policy conditions. It does not exclude any policies; however, the All Rows policy does not appear because it has no conditions.
 
@@ -907,7 +907,7 @@ This report shows the conditions that make up each row of the policy. A single p
 | Value            | The filter condition value. For static policy conditions, this is the value that is applied as a filter; for dynamic policy conditions, this is the key of the user attribute.                  |
 
 
-### PDP---Row Policy Assignments (BETA)
+### PDP—Row Policy Assignments (BETA)
 
 This report shows all users and groups that you explicitly assign to row policies. The All Rows policy is a special case: it can exist without any user or group assignments. As a result, the All Rows policy appears in this report only when you explicitly assign users or groups to it.
 
@@ -925,7 +925,7 @@ This report shows all users and groups that you explicitly assign to row policie
 | Entity ID   | The ID of the user or group assigned to the policy                                                                                                                                                 |
 
 
-### PDP---Column Policies
+### PDP—Column Policies
 
 This report shows every PDP column policy by ID, whether you have enabled column policies on the DataSet or not.
 
@@ -939,7 +939,7 @@ This report shows every PDP column policy by ID, whether you have enabled column
 | Is Mapped    | Shows if the policy is mapped to a column (1 = mapped)   |
 
 
-### PDP---Column Policy Rules
+### PDP—Column Policy Rules
 
 This report lists every PDP column policy rule by ID.
 
@@ -958,7 +958,7 @@ This report lists every PDP column policy rule by ID.
 | DataSet Name   | The name of that DataSet                                                                                     |
 
 
-### PDP---Column Policy Rule Assignments
+### PDP—Column Policy Rule Assignments
 
 This report shows which users or groups are assigned to column policy rules.
 
@@ -977,7 +977,7 @@ This report shows which users or groups are assigned to column policy rules.
 | DataSet Name | The name of that DataSet                                                                                                      |
 
 
-### PDP---Column Policy Mappings
+### PDP—Column Policy Mappings
 
 This report shows how PDP column policies map to DataSet columns. Only mapped policies appear here.
 
