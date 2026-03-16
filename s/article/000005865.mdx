@@ -4,7 +4,7 @@ title: "Build an AI Agent Task in Workflows"
 
 import {InlineImage} from "/snippets/InlineImage.mdx";
 
-# Intro
+## Intro
 
 AI Agent Tasks in Workflows bring intelligent automation directly into your business processes.
 
@@ -18,7 +18,7 @@ This article describes how to add and configure an Agent Task in your workflow.
 
 ---
 
-## Build an Agent
+### Build an Agent
 
 <Warning>
 **Warning**: Agents used in a Workflow step have a 1 hour time limit to complete a request.
@@ -36,7 +36,7 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
 2. In the configuration panel, add a name and optional description for the agent.
 3. Select **Build Agent** to open the agent modal.
 
-### Choose the Model
+#### Choose the Model
 
 4. \(*Optional*\) In the modal's **General** tab under **Model**, follow the link to choose a different available model in the AI Service Layer settings.
 
@@ -80,7 +80,7 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
      
    "You are a sales assistant bot that helps qualify new leads and assign them to the best-fit sales representative. If the sales lead qualifies, please also assign it to the appropriate sales rep and send them a notification that includes the lead details and the reason it qualifies, and ask the sales rep to follow up with the company. If the sales lead does not qualify, please send a notification to John at [john.doe@example.com](mailto:john.doe@example.com) with the reason why the lead did not qualify."
 
-## Add Tools
+### Add Tools
 
 8. Go to the **Tools** tab of the modal and select **Add Tools**.
      
@@ -140,7 +140,7 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
 
 17. Select **Save**.
 
-### Add Knowledge Context
+#### Add Knowledge Context
 
 18. Go to the **Knowledge** tab of the agent modal.
 19. Add any DataSets, FileSets, and Files you want the AI to reference to help with analysis and decision-making. You can add up to five items of each type.
@@ -149,7 +149,7 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
     ![](/images/kb/ka0Vq000000G7Ov-00N5w00000Ri7BU-0EMVq000008iLXB.jpg)
     </Frame>
  
- ### Edit Output Parameters
+ #### Edit Output Parameters
 
 20. Return to the **General** tab.
 21. At the bottom of the left pane under **Output**, select **Edit**.
@@ -162,7 +162,7 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
 23. Repeat for as many outputs as needed.
 24. Select **Save**.
 
-### Test the Agent
+#### Test the Agent
 
 25. In the right panel of the agent modal, select **Test Agent**.
 26. Add values for any variable used in your prompt and select **Continue**.
@@ -174,13 +174,13 @@ Follow the steps below to add an Agent Task to your workflow. During this proces
 
 28. Map your AI Agent task outputs in the configuration panel to store the value produced by the AI for later use in downstream steps.
 
-# Best Practices
+## Best Practices
 
 * While configuring your agent, use the **Save** option in the top right of the agent modal often to avoid losing updates to your agent.
 * After testing your agent, make any needed changes to the configuration and re-run the test. We recommend retesting the agent multiple times to make sure you are getting accurate and consistent results.
 * Agents have a 1 hour time limit to complete the request. If the agent has not resolved the request in that time period, it errors out.
 
-# Reopen or Edit an Agent
+## Reopen or Edit an Agent
 
 In the workflow's right configuration panel, select the **three vertical dots icon** > **Edit** to reopen the agent modal and make changes to the agent.
 
