@@ -16,11 +16,11 @@ Domo offers several authentication methods, and the APIs available to you will v
 2. **Platform APIs:** APIs that use an OAuth 2.0 authorization and authentication pattern which allows you to define clients with a variety of scopes.
 3. **Product APIs:** APIs that allow you to do anything you can do in the Domo UI. Tokens generated for these APIs provide access to all resources the user has in Domo.
 
-| API           | Auth Approach     | Auth Instructions                                                                        | Endpoint Coverage                                                               |
-| ------------- | ----------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| App Framework | App Session Token | [App Sessions Guide](/portal/Apps/App-Framework/Guides/app-sessions)                     | Limited to endpoints explicitly allowed by the App Framework.                   |
-| Platform      | API Client        | [Creating a Developer Client and Auth Token](/portal/API-Reference/overview) | Limited to a subset of all Product endpoints that can be given scopes.          |
-| Product       | Access Token      | [Managing Access Tokens](/s/article/360042934494?language=en_US)                         | Access to all APIs corresponding to an action that can be taken in the Domo UI. |
+| API           | Auth Approach     | Auth Instructions                                                                                                         | Endpoint Coverage                                                               |
+| ------------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| App Framework | App Session Token | [App Sessions Guide](/portal/Apps/App-Framework/Guides/app-sessions)                                                      | Limited to endpoints explicitly allowed by the App Framework.                   |
+| Platform      | API Client        | [Creating a Developer Client and Auth Token](/portal/1845fc11bbe5d-api-authentication#step-1-create-client-id-and-secret) | Limited to a subset of all Product endpoints that can be given scopes.          |
+| Product       | Access Token      | [Managing Access Tokens](/s/article/360042934494?language=en_US)                                                          | Access to all APIs corresponding to an action that can be taken in the Domo UI. |
 
 If you're developing in the context of the [Domo App Framework](/portal/Apps/App-Framework/Welcome), then you should use the App Framework APIs. This use-case includes both:
 
