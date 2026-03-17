@@ -5864,15 +5864,11 @@
         "items": [
           {
             "label": "Docs & APIs",
-            "href": "https://developer.domo.com"
+            "href": "https://www.domo.com/docs/portal"
           },
           {
             "label": "Get Started",
             "href": "https://www.domo.com/start/developer"
-          },
-          {
-            "label": "Manage Client IDs",
-            "href": "https://developer.domo.com/login"
           }
         ]
       }
@@ -6312,10 +6308,6 @@
       "destination": "/portal/API-Reference/app-framework-apis/AppDB-API"
     },
     {
-      "source": "/portal/3c6pp23q82y90-programmatically-create-a-client",
-      "destination": "/portal/API-Reference/Domo-APIs/Programmatically-Create-a-Client"
-    },
-    {
       "source": "/portal/j83p65ecrjtr1-dataset-switching",
       "destination": "/portal/embed/embed-in-sites-and-apps/dataset-switching"
     },
@@ -6430,10 +6422,6 @@
     {
       "source": "/portal/cf8902150aae4-writeback-connectors",
       "destination": "/portal/Connectors/Writeback-Connectors/writeback-connectors"
-    },
-    {
-      "source": "/portal/842ac09f65853-start-leveraging-domos-api-actions",
-      "destination": "/portal/Connectors/Writeback-Connectors/domo-api-actions"
     },
     {
       "source": "/portal/fc62ced09f56e-domo-actions-beta",
