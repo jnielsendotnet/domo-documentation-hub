@@ -6,7 +6,7 @@ info:
     This API reference is useful if you are wanting to use your Code Engine functions 
     *outside* of your Domo instance.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo Instance
     variables:
       instance:

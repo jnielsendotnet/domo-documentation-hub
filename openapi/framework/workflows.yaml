@@ -7,7 +7,7 @@ info:
     Domo Workflows allows you to graphically model a business process 
     into an executable workflow using BPM notations and flows.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo API
 components:
   securitySchemes:

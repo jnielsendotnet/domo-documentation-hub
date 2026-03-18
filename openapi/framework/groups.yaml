@@ -7,7 +7,7 @@ info:
     information about the various groups that belong to the instance 
     in which a Custom App is published.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo API
 tags:
   - name: Groups

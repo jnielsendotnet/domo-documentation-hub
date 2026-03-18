@@ -9,7 +9,7 @@ info:
     <Note>
     API for managing FileSets and Files in Domo.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo Instance
     variables:
       instance:

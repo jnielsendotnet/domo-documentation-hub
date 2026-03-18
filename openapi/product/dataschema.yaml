@@ -4,7 +4,7 @@ info:
   version: v2
   description: API for retrieving the schema of a specified Domo Dataset.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo Instance
     variables:
       instance:

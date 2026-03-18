@@ -3,7 +3,7 @@ info:
   title: Domo Workflows Product API
   description: |
     API for interacting with Domo Workflows from external Domo instances, environments outside of Domo, or scripts running in Domo's Jupyter Workspaces.
-    
+
     For authentication details, please refer to the Product APIs authentication overview.
     For more information about Workflows, check the Domo Knowledge Base.
   version: 1.0.0
@@ -12,7 +12,7 @@ info:
     url: https://www.domo.com
 
 servers:
-  - url: https://{instance}.domo.com/api/workflow/v1
+  - url: https://{instance}.domo.com
     description: Domo Workflow API
     variables:
       instance:
@@ -46,9 +46,9 @@ paths:
               simpleNumericInputs:
                 summary: Simple workflow with two numeric parameters
                 value:
-                  messageName: "Start MyWorkflow"
-                  version: "0.0.1"
-                  modelId: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+                  messageName: 'Start MyWorkflow'
+                  version: '0.0.1'
+                  modelId: 'a8afdc89-9491-4ee4-b7c3-b9e9b86c0138'
                   data:
                     parameter1: 13
                     parameter2: 7
@@ -60,14 +60,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/WorkflowInstance'
               example:
-                id: "2052e10a-d142-4391-a731-2be1ab1c0188"
-                modelId: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
-                modelName: "AddTwoNumbers"
-                modelVersion: "1.1.0"
-                createdBy: "8811501"
-                createdOn: "2023-11-15T15:28:57.479Z"
-                updatedBy: "8811501"
-                updatedOn: "2023-11-15T15:28:57.479Z"
+                id: '2052e10a-d142-4391-a731-2be1ab1c0188'
+                modelId: 'a8afdc89-9491-4ee4-b7c3-b9e9b86c0138'
+                modelName: 'AddTwoNumbers'
+                modelVersion: '1.1.0'
+                createdBy: '8811501'
+                createdOn: '2023-11-15T15:28:57.479Z'
+                updatedBy: '8811501'
+                updatedOn: '2023-11-15T15:28:57.479Z'
                 status: null
         '400':
           description: Bad request - Invalid input parameters
@@ -90,7 +90,7 @@ paths:
           description: The ID of the Workflow instance to cancel
           schema:
             type: string
-          example: "2052e10a-d142-4391-a731-2be1ab1c0188"
+          example: '2052e10a-d142-4391-a731-2be1ab1c0188'
       responses:
         '200':
           description: Workflow canceled successfully
@@ -119,7 +119,7 @@ paths:
           description: The ID of the workflow model
           schema:
             type: string
-          example: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+          example: 'a8afdc89-9491-4ee4-b7c3-b9e9b86c0138'
       requestBody:
         required: true
         content:
@@ -129,23 +129,23 @@ paths:
               items:
                 $ref: '#/components/schemas/PermissionEntry'
             example:
-              - id: "123456"
+              - id: '123456'
                 permissions:
-                  - "ADMIN"
-                  - "SHARE"
-                  - "DELETE"
-                  - "WRITE"
-                  - "READ"
-                  - "EXPORT"
-                  - "EXECUTE"
-                  - "UPDATE_CONTENT"
-                name: "John Doe"
-                type: "USER"
-              - id: "98765"
-                name: "John Smith"
-                type: "USER"
+                  - 'ADMIN'
+                  - 'SHARE'
+                  - 'DELETE'
+                  - 'WRITE'
+                  - 'READ'
+                  - 'EXPORT'
+                  - 'EXECUTE'
+                  - 'UPDATE_CONTENT'
+                name: 'John Doe'
+                type: 'USER'
+              - id: '98765'
+                name: 'John Smith'
+                type: 'USER'
                 permissions:
-                  - "READ"
+                  - 'READ'
       responses:
         '200':
           description: Permissions updated successfully
@@ -199,37 +199,37 @@ components:
         id:
           type: string
           description: ID of the newly created workflow instance
-          example: "2052e10a-d142-4391-a731-2be1ab1c0188"
+          example: '2052e10a-d142-4391-a731-2be1ab1c0188'
         modelId:
           type: string
           description: ID of the workflow
-          example: "a8afdc89-9491-4ee4-b7c3-b9e9b86c0138"
+          example: 'a8afdc89-9491-4ee4-b7c3-b9e9b86c0138'
         modelName:
           type: string
           description: Name of the workflow
-          example: "AddTwoNumbers"
+          example: 'AddTwoNumbers'
         modelVersion:
           type: string
           description: Workflow version number
-          example: "1.1.0"
+          example: '1.1.0'
         createdBy:
           type: string
           description: User ID of workflow creator
-          example: "8811501"
+          example: '8811501'
         createdOn:
           type: string
           format: date-time
           description: Timestamp when the instance was created
-          example: "2023-11-15T15:28:57.479Z"
+          example: '2023-11-15T15:28:57.479Z'
         updatedBy:
           type: string
           description: User ID of last updater
-          example: "8811501"
+          example: '8811501'
         updatedOn:
           type: string
           format: date-time
           description: Timestamp when the instance was last updated
-          example: "2023-11-15T15:28:57.479Z"
+          example: '2023-11-15T15:28:57.479Z'
         status:
           type: string
           nullable: true
@@ -269,18 +269,18 @@ components:
         id:
           type: string
           description: User or group ID
-          example: "123456"
+          example: '123456'
         name:
           type: string
           description: Name of the user or group
-          example: "John Doe"
+          example: 'John Doe'
         type:
           type: string
           description: Type of entity
           enum:
             - USER
             - GROUP
-          example: "USER"
+          example: 'USER'
         permissions:
           type: array
           description: Array of permissions to grant
@@ -296,6 +296,6 @@ components:
               - EXECUTE
               - UPDATE_CONTENT
           example:
-            - "ADMIN"
-            - "READ"
-            - "EXECUTE"
+            - 'ADMIN'
+            - 'READ'
+            - 'EXECUTE'

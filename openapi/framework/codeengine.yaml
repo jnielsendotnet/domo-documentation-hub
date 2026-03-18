@@ -7,7 +7,7 @@ info:
     In Code Engine, you can write, test, and distribute functions usable by Workflows and other Apps by Domo.
     This API allows running a configured Code Engine function.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo API
 tags:
   - name: Code Engine
