@@ -9,7 +9,7 @@ info:
     url: https://www.domo.com
 
 servers:
-  - url: https://{instance}.domo.com/api/executor
+  - url: https://{instance}.domo.com
     description: Domo Remote Domostats API
     variables:
       instance:
@@ -56,7 +56,7 @@ paths:
           schema:
             type: string
           description: ID of the application
-          example: "50e7230f-d2f2-42e2-a208-d94c8ae9f64c"
+          example: '50e7230f-d2f2-42e2-a208-d94c8ae9f64c'
         - name: offset
           in: query
           required: false
@@ -86,14 +86,14 @@ paths:
           schema:
             type: string
           description: ID of the application
-          example: "50e7230f-d2f2-42e2-a208-d94c8ae9f64c"
+          example: '50e7230f-d2f2-42e2-a208-d94c8ae9f64c'
         - name: Job_Id
           in: path
           required: true
           schema:
             type: string
           description: ID of the job to update
-          example: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
+          example: '526906bb-e7e0-4f70-9ca0-3bb4fdf99c82'
       requestBody:
         required: true
         content:
@@ -101,27 +101,27 @@ paths:
             schema:
               $ref: '#/components/schemas/JobUpdateRequest'
             example:
-              jobId: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
-              jobName: "domo-labs-dev2.dev.domo.com"
+              jobId: '526906bb-e7e0-4f70-9ca0-3bb4fdf99c82'
+              jobName: 'domo-labs-dev2.dev.domo.com'
               executionTimeout: 720
               executionPayload:
-                remoteInstance: "domo-labs-dev.dev.domo.com"
-                subscriberJobId: "b8ff1dc6-4426-4256-8176-1cb9482e79c0"
+                remoteInstance: 'domo-labs-dev.dev.domo.com'
+                subscriberJobId: 'b8ff1dc6-4426-4256-8176-1cb9482e79c0'
                 policies:
-                  AccessTokens: "85f65936-e0c3-4e74-8398-13096df9bdb3"
-                  DomainWhitelist: "cd473383-9589-4d44-a85a-ffd58c0b1d55"
-                  IPWhitelist: "6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2"
-                  OIDC: "d26a1d1e-a6c0-4367-b929-70a6e01e5b46"
-                  SAML: "081d8320-c6df-4d0b-8802-97875989236d"
-                  DirectSignOn: "7b1f43e1-165d-4eed-b195-491a6bedcef0"
-                metricsDatasetId: "2644b5d0-344b-4bc0-b379-d3854923a29c"
+                  AccessTokens: '85f65936-e0c3-4e74-8398-13096df9bdb3'
+                  DomainWhitelist: 'cd473383-9589-4d44-a85a-ffd58c0b1d55'
+                  IPWhitelist: '6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2'
+                  OIDC: 'd26a1d1e-a6c0-4367-b929-70a6e01e5b46'
+                  SAML: '081d8320-c6df-4d0b-8802-97875989236d'
+                  DirectSignOn: '7b1f43e1-165d-4eed-b195-491a6bedcef0'
+                metricsDatasetId: '2644b5d0-344b-4bc0-b379-d3854923a29c'
               executionResponse: {}
               accounts: [479]
               resources:
                 requests:
-                  memory: "256M"
+                  memory: '256M'
                 limits:
-                  memory: "256M"
+                  memory: '256M'
               triggers: []
       responses:
         '200':
@@ -146,25 +146,25 @@ components:
         id:
           type: string
           description: Application ID
-          example: "94a4edfa-5926-4f0c-ad1e-a341f53f6113"
+          example: '94a4edfa-5926-4f0c-ad1e-a341f53f6113'
         displayType:
           type: string
           description: Display type of the application
-          example: "DataFlow"
+          example: 'DataFlow'
         type:
           type: string
           description: Type of the application
-          example: "DataFlow"
+          example: 'DataFlow'
         name:
           type: string
           description: Name of the application
-          example: "DomoStats People with Activity Log"
+          example: 'DomoStats People with Activity Log'
         owner:
           $ref: '#/components/schemas/Owner'
         status:
           type: string
           description: Status of the application
-          example: "SUCCESS"
+          example: 'SUCCESS'
         created:
           type: integer
           format: int64
@@ -213,15 +213,15 @@ components:
             cloudId:
               type: string
               description: Cloud ID
-              example: "domo"
+              example: 'domo'
             permissions:
               type: string
               description: Permissions
-              example: "READ_WRITE_DELETE_SHARE_ADMIN"
+              example: 'READ_WRITE_DELETE_SHARE_ADMIN'
             tags:
               type: string
               description: Tags in JSON string format
-              example: "[\"domoStats\",\"domostats\",\"c_people\"]"
+              example: '["domoStats","domostats","c_people"]'
 
     JobUpdateRequest:
       type: object
@@ -232,11 +232,11 @@ components:
         jobId:
           type: string
           description: Job ID
-          example: "526906bb-e7e0-4f70-9ca0-3bb4fdf99c82"
+          example: '526906bb-e7e0-4f70-9ca0-3bb4fdf99c82'
         jobName:
           type: string
           description: Job name
-          example: "domo-labs-dev2.dev.domo.com"
+          example: 'domo-labs-dev2.dev.domo.com'
         executionTimeout:
           type: integer
           description: Execution timeout in seconds
@@ -268,15 +268,15 @@ components:
         id:
           type: string
           description: Owner ID
-          example: ""
+          example: ''
         name:
           type: string
           description: Owner name
-          example: ""
+          example: ''
         type:
           type: string
           description: Owner type
-          example: "USER"
+          example: 'USER'
         group:
           type: boolean
           description: Whether owner is a group
@@ -313,11 +313,11 @@ components:
         id:
           type: string
           description: Formula ID
-          example: "calculation_534c74ab-37aa-48dc-8322-34bb5784a9f0"
+          example: 'calculation_534c74ab-37aa-48dc-8322-34bb5784a9f0'
         name:
           type: string
           description: Formula name
-          example: "Content Creation Filter"
+          example: 'Content Creation Filter'
         formula:
           type: string
           description: Formula expression
@@ -325,7 +325,7 @@ components:
         status:
           type: string
           description: Formula status
-          example: "VALID"
+          example: 'VALID'
         persistedOnDataSource:
           type: boolean
           description: Whether formula is persisted on data source
@@ -337,17 +337,17 @@ components:
         remoteInstance:
           type: string
           description: Remote instance URL
-          example: "domo-labs-dev.dev.domo.com"
+          example: 'domo-labs-dev.dev.domo.com'
         subscriberJobId:
           type: string
           description: Subscriber job ID
-          example: "b8ff1dc6-4426-4256-8176-1cb9482e79c0"
+          example: 'b8ff1dc6-4426-4256-8176-1cb9482e79c0'
         policies:
           $ref: '#/components/schemas/Policies'
         metricsDatasetId:
           type: string
           description: Metrics dataset ID
-          example: "2644b5d0-344b-4bc0-b379-d3854923a29c"
+          example: '2644b5d0-344b-4bc0-b379-d3854923a29c'
 
     Policies:
       type: object
@@ -355,27 +355,27 @@ components:
         AccessTokens:
           type: string
           description: Access tokens policy ID
-          example: "85f65936-e0c3-4e74-8398-13096df9bdb3"
+          example: '85f65936-e0c3-4e74-8398-13096df9bdb3'
         DomainWhitelist:
           type: string
           description: Domain whitelist policy ID
-          example: "cd473383-9589-4d44-a85a-ffd58c0b1d55"
+          example: 'cd473383-9589-4d44-a85a-ffd58c0b1d55'
         IPWhitelist:
           type: string
           description: IP whitelist policy ID
-          example: "6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2"
+          example: '6f570767-ec10-4d9b-b0f2-abb0bf1bd8d2'
         OIDC:
           type: string
           description: OIDC policy ID
-          example: "d26a1d1e-a6c0-4367-b929-70a6e01e5b46"
+          example: 'd26a1d1e-a6c0-4367-b929-70a6e01e5b46'
         SAML:
           type: string
           description: SAML policy ID
-          example: "081d8320-c6df-4d0b-8802-97875989236d"
+          example: '081d8320-c6df-4d0b-8802-97875989236d'
         DirectSignOn:
           type: string
           description: Direct sign-on policy ID
-          example: "7b1f43e1-165d-4eed-b195-491a6bedcef0"
+          example: '7b1f43e1-165d-4eed-b195-491a6bedcef0'
 
     Resources:
       type: object
@@ -391,7 +391,7 @@ components:
         memory:
           type: string
           description: Memory allocation
-          example: "256M"
+          example: '256M'
 
     UpdateResponse:
       type: object
@@ -399,7 +399,7 @@ components:
         status:
           type: string
           description: Response status
-          example: "OK"
+          example: 'OK'
         code:
           type: integer
           description: HTTP status code
@@ -407,4 +407,4 @@ components:
         message:
           type: string
           description: Response message
-          example: "Job updated successfully"
+          example: 'Job updated successfully'

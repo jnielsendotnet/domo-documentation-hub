@@ -6,7 +6,7 @@ info:
     API for uploading, managing, and downloading files and their permissions in Domo. 
     Includes support for standard and multi-part uploads.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo API
 tags:
   - name: Files

@@ -2687,9 +2687,9 @@
                             "group": "AI Services API",
                             "pages": [
                               "portal/API-Reference/Product-APIs/AI-Services",
-                              "openapi/product/iaservices.yaml POST /api/ai/v1/text/generation",
-                              "openapi/product/iaservices.yaml POST /api/ai/v1/text/sql",
-                              "openapi/product/iaservices.yaml POST /api/ai/v1/text/summarize"
+                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/generation",
+                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/sql",
+                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/summarize"
                             ]
                           },
                           {

@@ -5,7 +5,7 @@ info:
   description: |
     API for managing files in Domo's Data File Service, including uploads, revisions, metadata, downloads, and permissions.
 servers:
-  - url: 'https://example.com/v1'
+  - url: 'https://{instance}.domo.com'
     description: Domo Instance
     variables:
       instance:

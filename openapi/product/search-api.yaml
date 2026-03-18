@@ -3,7 +3,7 @@ info:
   title: Domo Search Product API
   description: |
     API for searching entities within Domo.
-    
+
     **Known Limits:**
     - Maximum number of records that can be returned: 10,000
     - Rate limited: Recommended not to exceed 120 requests per minute (may vary by instance)
@@ -13,7 +13,7 @@ info:
     url: https://www.domo.com
 
 servers:
-  - url: https://{instance}.domo.com/api/search/v1
+  - url: https://{instance}.domo.com
     description: Domo Search API
     variables:
       instance:
@@ -40,14 +40,14 @@ paths:
             example:
               count: 20
               offset: 0
-              query: "sales data"
+              query: 'sales data'
               filters: []
               sort: {}
               facetValuesToInclude: []
               facetValueLimit: 0
               facetValueOffset: 0
               includePhonetic: true
-              entityList: [["dataflow"]]
+              entityList: [['dataflow']]
       responses:
         '200':
           description: Search results
@@ -166,7 +166,7 @@ components:
         queryUuid:
           type: string
           description: A unique generated ID
-          example: "d775bcda-f3f6-4c62-b0b1-d3c57a609637"
+          example: 'd775bcda-f3f6-4c62-b0b1-d3c57a609637'
         hideSearchObjects:
           type: boolean
           example: false
@@ -216,15 +216,15 @@ components:
         filterType:
           type: string
           enum: [term]
-          example: "term"
+          example: 'term'
         field:
           type: string
           description: The field to query
-          example: "databaseId"
+          example: 'databaseId'
         value:
           type: string
           description: The term to match (use this OR values)
-          example: "abcd-xyz"
+          example: 'abcd-xyz'
         values:
           type: array
           items:
@@ -245,15 +245,15 @@ components:
         filterType:
           type: string
           enum: [wildcard]
-          example: "wildcard"
+          example: 'wildcard'
         field:
           type: string
           description: The field to query
-          example: "name"
+          example: 'name'
         query:
           type: string
           description: The query to match. Use * for wildcard
-          example: "sales*"
+          example: 'sales*'
 
     QueryStringFilter:
       type: object
@@ -265,15 +265,15 @@ components:
         filterType:
           type: string
           enum: [queryString]
-          example: "queryString"
+          example: 'queryString'
         field:
           type: string
           description: The field to query
-          example: "description"
+          example: 'description'
         queryString:
           type: string
           description: The query string to match
-          example: "revenue AND sales"
+          example: 'revenue AND sales'
 
     DateBucketFilter:
       type: object
@@ -285,16 +285,16 @@ components:
         filterType:
           type: string
           enum: [dateBucket]
-          example: "dateBucket"
+          example: 'dateBucket'
         field:
           type: string
           description: The field to query
-          example: "createDate"
+          example: 'createDate'
         value:
           type: string
           enum: [LAST_DAY, LAST_WEEK, LAST_MONTH, LAST_QUARTER]
           description: The date bucket to use
-          example: "LAST_WEEK"
+          example: 'LAST_WEEK'
 
     DateRangeFilter:
       type: object
@@ -305,21 +305,21 @@ components:
         filterType:
           type: string
           enum: [dateRange]
-          example: "dateRange"
+          example: 'dateRange'
         field:
           type: string
           description: The field to query
-          example: "createDate"
+          example: 'createDate'
         from:
           type: string
           format: date-time
           description: The lower bound date
-          example: "2023-01-01T00:00:00Z"
+          example: '2023-01-01T00:00:00Z'
         to:
           type: string
           format: date-time
           description: The upper bound date
-          example: "2023-12-31T23:59:59Z"
+          example: '2023-12-31T23:59:59Z'
         not:
           type: boolean
           description: Whether to invert the match
@@ -335,11 +335,11 @@ components:
         filterType:
           type: string
           enum: [numeric]
-          example: "numeric"
+          example: 'numeric'
         field:
           type: string
           description: The field to query
-          example: "rowCount"
+          example: 'rowCount'
         longNumber:
           type: integer
           format: int64
@@ -354,7 +354,7 @@ components:
           type: string
           enum: [LT, LTE, EQ, GT, GTE]
           description: The operator
-          example: "GT"
+          example: 'GT'
         not:
           type: boolean
           description: Whether to invert the match
@@ -369,11 +369,11 @@ components:
         filterType:
           type: string
           enum: [range]
-          example: "range"
+          example: 'range'
         field:
           type: string
           description: The field to query
-          example: "rowCount"
+          example: 'rowCount'
         from:
           type: number
           description: The lower bound to match
@@ -393,11 +393,11 @@ components:
         filterType:
           type: string
           enum: [boolean]
-          example: "boolean"
+          example: 'boolean'
         field:
           type: string
           description: The field to query
-          example: "isActive"
+          example: 'isActive'
         value:
           type: boolean
           description: The value to match
@@ -412,11 +412,11 @@ components:
         filterType:
           type: string
           enum: [missing]
-          example: "missing"
+          example: 'missing'
         field:
           type: string
           description: The field to match if it exists
-          example: "description"
+          example: 'description'
         not:
           type: boolean
           description: Whether to invert the match
@@ -444,12 +444,12 @@ components:
         field:
           type: string
           description: The field to sort by
-          example: "createDate"
+          example: 'createDate'
         sortOrder:
           type: string
           enum: [ASC, DESC]
           description: The sort order
-          example: "DESC"
+          example: 'DESC'
 
     SortResponse:
       type: object

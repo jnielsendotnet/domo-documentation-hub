@@ -5,10 +5,10 @@ info:
   description: |
     API for interacting with various Domo data operations, including retrieving, creating, and managing accounts.
 servers:
-  - url: 'https://{domo_instance}.domo.com'
+  - url: 'https://{instance}.domo.com'
     description: Domo Instance
     variables:
-      domo_instance:
+      instance:
         default: example
         description: Your Domo instance name
 components:
@@ -17,7 +17,7 @@ components:
       type: apiKey
       in: header
       name: X-DOMO-Developer-Token
-      description: "Developer token for authentication."
+      description: 'Developer token for authentication.'
   schemas:
     ErrorResponse:
       type: object
@@ -25,7 +25,7 @@ components:
         message:
           type: string
           description: A human-readable error message.
-          
+
     Account:
       type: object
       description: Represents a Domo account.
@@ -40,7 +40,7 @@ components:
           type: string
           description: The status of the account.
           example: Active
-          
+
     AccountSummary:
       type: object
       description: Summary information for an account.
@@ -51,7 +51,7 @@ components:
         displayName:
           type: string
           description: The display name of the account.
-          
+
     CreateAccountRequest:
       type: object
       required:
@@ -65,7 +65,7 @@ components:
           type: string
           description: The type of account.
           example: Standard
-          
+
     SearchRequest:
       type: object
       required:
@@ -87,7 +87,7 @@ components:
         query:
           type: string
           description: The search query string.
-          example: "*sdk*"
+          example: '*sdk*'
         filters:
           type: array
           description: Filters to apply to the search.
@@ -99,7 +99,8 @@ components:
           description: Facet values to include in the search results.
           items:
             type: string
-            enum: [DATAPROVIDERNAME, OWNED_BY_ID, VALID, USED, LAST_MODIFIED_DATE]
+            enum:
+              [DATAPROVIDERNAME, OWNED_BY_ID, VALID, USED, LAST_MODIFIED_DATE]
         queryProfile:
           type: string
           description: The query profile to use.
@@ -111,7 +112,7 @@ components:
             type: array
             items:
               type: string
-          example: [["account"]]
+          example: [['account']]
         sort:
           type: object
           description: Sort options.
@@ -128,7 +129,7 @@ components:
                     type: string
                     enum: [ASC, DESC]
                     example: ASC
-                    
+
     SearchResponse:
       type: object
       properties:
@@ -136,7 +137,7 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Account'
-            
+
   responses:
     NotFound:
       description: The requested resource was not found.
@@ -150,7 +151,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/ErrorResponse'
-            
+
 security:
   - developerToken: []
 
@@ -159,7 +160,7 @@ paths:
     get:
       summary: Get Account by ID
       description: Retrieve information for a specific account by its ID.
-      tags: 
+      tags:
         - Data Accounts API
       parameters:
         - name: account_id
@@ -176,9 +177,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
               example:
-                accountId: "{account_id}"
-                displayName: "Account Display Name"
-                status: "Active"
+                accountId: '{account_id}'
+                displayName: 'Account Display Name'
+                status: 'Active'
         '401':
           $ref: '#/components/responses/Unauthorized'
         '404':
@@ -188,7 +189,7 @@ paths:
     get:
       summary: Get All Accounts
       description: Retrieve a list of all accounts.
-      tags: 
+      tags:
         - Data Accounts API
       responses:
         '200':
@@ -200,17 +201,17 @@ paths:
                 items:
                   $ref: '#/components/schemas/AccountSummary'
               example:
-                - accountId: "{account_id}"
-                  displayName: "Account 1"
-                - accountId: "{account_id}"
-                  displayName: "Account 2"
+                - accountId: '{account_id}'
+                  displayName: 'Account 1'
+                - accountId: '{account_id}'
+                  displayName: 'Account 2'
         '401':
           $ref: '#/components/responses/Unauthorized'
-    
+
     post:
       summary: Create Account
       description: Create a new account.
-      tags: 
+      tags:
         - Data Accounts API
       requestBody:
         required: true
@@ -219,8 +220,8 @@ paths:
             schema:
               $ref: '#/components/schemas/CreateAccountRequest'
             example:
-              displayName: "New Account"
-              accountType: "Standard"
+              displayName: 'New Account'
+              accountType: 'Standard'
       responses:
         '200':
           description: Account created successfully.
@@ -229,9 +230,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Account'
               example:
-                accountId: "{account_id}"
-                displayName: "New Account"
-                status: "Active"
+                accountId: '{account_id}'
+                displayName: 'New Account'
+                status: 'Active'
         '401':
           $ref: '#/components/responses/Unauthorized'
 
@@ -239,7 +240,7 @@ paths:
     post:
       summary: Search Accounts by Name
       description: Search for accounts using a query string and filters.
-      tags: 
+      tags:
         - Data Accounts API
       requestBody:
         required: true
@@ -251,7 +252,7 @@ paths:
               count: 100
               offset: 0
               combineResults: false
-              query: "*sdk*"
+              query: '*sdk*'
               filters: []
               facetValuesToInclude:
                 - DATAPROVIDERNAME
@@ -260,7 +261,7 @@ paths:
                 - USED
                 - LAST_MODIFIED_DATE
               queryProfile: GLOBAL
-              entityList: [["account"]]
+              entityList: [['account']]
               sort:
                 fieldSorts:
                   - field: display_name_sort
@@ -274,8 +275,8 @@ paths:
                 $ref: '#/components/schemas/SearchResponse'
               example:
                 results:
-                  - accountId: "{account_id}"
-                    displayName: "SDK Account"
-                    status: "Active"
+                  - accountId: '{account_id}'
+                    displayName: 'SDK Account'
+                    status: 'Active'
         '401':
           $ref: '#/components/responses/Unauthorized'

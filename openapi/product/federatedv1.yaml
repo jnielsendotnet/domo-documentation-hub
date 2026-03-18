@@ -23,11 +23,11 @@ info:
     5. Complete the displayed form and click the now enabled 'Connect' button to finish creating the account.
   version: 1.0.0
 servers:
-- url: https://{domo-domain}
-  variables:
-    domo-domain:
-      default: your-instance.domo.com
-      description: The fully qualified domain of the Domo instance housing the Federated integrations.
+  - url: https://{instance}.domo.com
+    variables:
+      instance:
+        default: your-instance.domo.com
+        description: The fully qualified domain of the Domo instance housing the Federated integrations.
 security:
   - DeveloperToken: []
 paths:
@@ -49,8 +49,8 @@ paths:
                   type: string
                   description: Federated integration type name
               example:
-                - "mysql-federated"
-                - "snowflake-federated"
+                - 'mysql-federated'
+                - 'snowflake-federated'
       x-codeSamples:
         - lang: cURL
           source: |
@@ -83,12 +83,12 @@ paths:
                 items:
                   $ref: '#/components/schemas/FederatedV2Account'
               example:
-                - id: "2"
-                  type: "mysql-federated"
-                  name: "mysql v2 agent"
-                - id: "1"
-                  type: "mysql-federated"
-                  name: "mysql v2"
+                - id: '2'
+                  type: 'mysql-federated'
+                  name: 'mysql v2 agent'
+                - id: '1'
+                  type: 'mysql-federated'
+                  name: 'mysql v2'
       x-codeSamples:
         - lang: cURL
           source: |
@@ -121,12 +121,12 @@ paths:
                 items:
                   $ref: '#/components/schemas/MigrationCandidateDatasource'
               example:
-                - id: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
-                  name: "MySQL Table 1"
+                - id: '495e28ec-6c07-41fc-99ed-b2dce9a5f569'
+                  name: 'MySQL Table 1'
                   migrated: false
                   migrationDate: null
-                - id: "F495e28ec-6c07-41fc-99ed-b2dce9a5f569"
-                  name: "MySQL Table 2"
+                - id: 'F495e28ec-6c07-41fc-99ed-b2dce9a5f569'
+                  name: 'MySQL Table 2'
                   migrated: false
                   migrationDate: null
       x-codeSamples:
@@ -164,9 +164,9 @@ paths:
             schema:
               $ref: '#/components/schemas/MigrationRequest'
             example:
-              catalog: "MyCatalogName"
-              schema: "MySchemaName"
-              table: "MyTableName"
+              catalog: 'MyCatalogName'
+              schema: 'MySchemaName'
+              table: 'MyTableName'
       responses:
         '200':
           description: Successful response
@@ -175,13 +175,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/MigrationResponse'
               example:
-                toe: "DM4X9GT6H5-5ERQX-MPDO6"
-                datasourceId: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
-                direction: "V1_TO_V2"
-                startTime: "2024-04-15T19:48:00.073+00:00"
-                state: "COMPLETE"
+                toe: 'DM4X9GT6H5-5ERQX-MPDO6'
+                datasourceId: '495e28ec-6c07-41fc-99ed-b2dce9a5f569'
+                direction: 'V1_TO_V2'
+                startTime: '2024-04-15T19:48:00.073+00:00'
+                state: 'COMPLETE'
                 errorMessage: null
-                endTime: "2024-04-15T19:48:02.410+00:00"
+                endTime: '2024-04-15T19:48:02.410+00:00'
       x-codeSamples:
         - lang: cURL
           source: |
@@ -215,13 +215,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/MigrationReversalResponse'
               example:
-                toe: "DM4X9GT6H5-5ERQX-MPDO6"
-                datasourceId: "495e28ec-6c07-41fc-99ed-b2dce9a5f569"
-                direction: "V2_TO_V1"
-                startTime: "2024-04-15T19:48:00.073+00:00"
-                state: "COMPLETE"
+                toe: 'DM4X9GT6H5-5ERQX-MPDO6'
+                datasourceId: '495e28ec-6c07-41fc-99ed-b2dce9a5f569'
+                direction: 'V2_TO_V1'
+                startTime: '2024-04-15T19:48:00.073+00:00'
+                state: 'COMPLETE'
                 errorMessage: null
-                endTime: "2024-04-15T19:48:02.410+00:00"
+                endTime: '2024-04-15T19:48:02.410+00:00'
       x-codeSamples:
         - lang: cURL
           source: |
@@ -298,7 +298,7 @@ components:
           type: string
           description: Direction of the migration. Will be 'V1_TO_V2'.
           enum:
-            - "V1_TO_V2"
+            - 'V1_TO_V2'
         startTime:
           type: string
           format: date-time
@@ -311,9 +311,9 @@ components:
             - INCOMPLETE: Migration failed after some changes to the datasource were made. Domo content powered by the datasource may remain unavailable and/or non-functional until the migration is re-attempted and completes successfully. More information can be found in the 'errorMessage' property.
             - ABORTED: Migration was aborted prior to any changes being made to the datasource. More information can be found in the 'errorMessage' property.
           enum:
-            - "COMPLETE"
-            - "INCOMPLETE"
-            - "ABORTED"
+            - 'COMPLETE'
+            - 'INCOMPLETE'
+            - 'ABORTED'
         errorMessage:
           type: string
           nullable: true
@@ -335,7 +335,7 @@ components:
           type: string
           description: Direction of the migration reversal. Will be 'V2_TO_V1'.
           enum:
-            - "V2_TO_V1"
+            - 'V2_TO_V1'
         startTime:
           type: string
           format: date-time
@@ -348,9 +348,9 @@ components:
             - INCOMPLETE: Migration reversal failed after some changes to the datasource were made. Domo content powered by the datasource may remain unavailable and/or non-functional until the migration reversal is re-attempted and completes successfully. More information can be found in the 'errorMessage' property.
             - ABORTED: Migration reversal was aborted prior to any changes being made to the datasource. More information can be found in the 'errorMessage' property.
           enum:
-            - "COMPLETE"
-            - "INCOMPLETE"
-            - "ABORTED"
+            - 'COMPLETE'
+            - 'INCOMPLETE'
+            - 'ABORTED'
         errorMessage:
           type: string
           nullable: true
