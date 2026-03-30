@@ -64,6 +64,7 @@ AI agent tasks embed AI reasoning and decision-making into automated workflows, 
 *   Token usage depends on prompt size, response length, and the number of steps executed.
 
 ***Example***
+
 A simple text summarization task may use 1 AI operation and consume \~200 total tokens. A larger workflow that generates structured reports across several steps may trigger multiple operations and consume thousands of tokens across inputs and outputs. This variability is expected and reflects the work the agent performs.
 
 Learn how to build an [AI agent tasks in Workflows](/s/article/000005865).
@@ -77,6 +78,7 @@ Use the text generation tile to create narrative explanations and summaries with
 *   Each run consumes one operation plus tokens based on data volume.
 
 ***Example***
+
 Processing approximately 300,000 rows may generate about 4 million input tokens and 11,000 output tokens. This makes the text generation tiles powerful for batch enrichment, but best suited for use cases where narrative value outweighs token volume.
 
 Learn how to use the [Magic ETL text generation tile](/s/article/000005741#text-generation-tile-beta).
@@ -96,6 +98,7 @@ AI Playground is a safe environment for prototyping prompts, testing models, and
 *   Each prompt consumes one operation and tokens equal to the combined size of the prompt and response.
 
 ***Examples***
+
 Text-to-SQL prompt: \~2,600 input tokens and \~40 output tokens
 Text generation: \~140 total tokens
 RegEx generation: \~550 total tokens
