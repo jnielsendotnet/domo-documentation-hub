@@ -29,6 +29,7 @@ ADP requires a second layer of security called Mutual Transport Layer Security (
 ### The Authentication Flow
 
 To successfully pull data from ADP, your application must:
+
 1. Establish a secure mTLS connection using the Certificate and Private Key.
 2. Send the Client ID and Client Secret over that secure connection to receive an Access Token.
 3. Use that Access Token to make the final API calls to ADP Workforce Now.
@@ -43,11 +44,11 @@ This pane contains fields for entering credentials to connect to your ADP Workfo
 
 |  Field    |  Description                                                                                                                                                                                                                                   |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|ADP Workforce Now Client ID  |  Enter the client ID (GUID: Globally Unique Identifier) of the client web app obtained from ADP Workforce Now configuration.
-|ADP Workforce Now Client Secret  |  Enter the secret key of the client web app.  |
-|Tenant ID  |  Enter your Tenant ID.<br/>To obtain the Tenant ID follow the below steps:<br/>1.Navigate to the ADP Workforce Now portal (www.adp.com).<br/> 2.Select ADP Workforce Now > Properties.<br/> The Directory ID is your Tenant ID.  |
-|Account Name  |  Enter your storage account name.
-|Container  |  Enter your container name.  |
+|Environment  |  Select production or UAT Sandbox environment.
+|Client ID  |  Enter the Client ID. If you do not have a Client ID, contact your client representative.  |
+|Client Secret  |   Enter the Client Secret. If you do not have a Client Secret, contact your client representative.   |
+|ADP Certificate |  Enter the ADP Certificate value.  |
+|ADP Private Key  |  Enter the ADP Private Key value.  |
 
 
 Once you have entered valid ADP Workforce Now V2 Connector credentials, you can use the same account any time you go to create a new ADP Workforce Now V2 Connector DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](s/article/360042926054).
@@ -58,13 +59,9 @@ This pane contains a primary **Reports** menu, along with various other menus wh
 
 |  Field    |  Description                                                                                                                                                                                                                                   |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|How would you like to choose the directory name? |  Select how you want to choose the directory name.  |
-|Discover Directory Name  |  Select the directory name.  |
-|Enter Directory Name  |  Enter the directory name.<table class='zebra-striped bordered'><tbody><tr><td><strong>Field Name</strong></td><td><strong>Description</strong></td></tr><tr><td>test</td><td>Example for main or root directory</td></tr><tr><td>test/test</td><td>Example for sub directory</td></tr><tr><td>test/test/test</td><td>Example for sub-sub-directory</td></tr></tbody></table>|
-|Input DataSet Id  |  Enter your Domo DataSet ID (GUID) from the DataSet URL.<br/>Example: https://customer.domo.com/datasources/<strong>aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee</strong>/details/settings
-|Select filename  |  Choose whether to use the DataSet GUID or enter a filename manually.  |
-|FileName  |  Enter the output file name.  |
-|My Domo Input DataSet is very large  |  Select this option when exporting a large DataSet from Domo to Azure Data Lake. The connector uses a faster process when this option is enabled.  |
+|Report |  Select the report to retrieve data from.  |
+|Unmask Data |  If you select this checkbox and the specified account has permission to view full data, the returned data is not masked.  |
+|Columns To Ignore |  Enter the comma separated list of column names you want to ignore.  |
 
 ## Other Panes
 
