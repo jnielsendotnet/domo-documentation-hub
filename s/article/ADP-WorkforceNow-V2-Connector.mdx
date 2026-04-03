@@ -67,29 +67,34 @@ This pane contains a primary **Reports** menu, along with various other menus wh
 
 For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Connector](s/article/360042926274).
 
-## FAQS
 
-**TLS VS SSL?**
+## FAQ
 
+<AccordionGroup>
+
+<Accordion title="What is the difference between TLS and SSL?">
 TLS is the modern, more secure successor to SSL. While most people still use the term "SSL," almost all modern connections (including those with ADP Workforce Now) actually use TLS to encrypt data.
+</Accordion>
 
-**Why is the ADP Certificate needed?**
-
-ADP is extremely strict about security. They won't even let your computer talk to their servers unless you show this digital passport first. This is called Mutual Authentication.
+<Accordion title="Why do I need an ADP Certificate?">
+ADP is extremely strict about security. They won't let your computer talk to their servers unless you show this digital passport first. This is called Mutual Authentication.
 
 * The Secret Handshake: Before your app can even send a Client ID, it "shows" the Certificate to ADP.
 * The Validation: ADP checks its records. If the certificate matches what they issued you, they open the door.
 * The Encryption: Once the door is open, the certificate helps "lock" the connection so hackers can't see the data moving back and forth.
+</Accordion>
 
-**How to Get the ADP Certificate?**
-
-You don't just find it; you have to request it:
+<Accordion title="How do I get an ADP Certificate?">
+Follow these steps to request an ADP Certificate:
 
 * You use a tool (like the ADP Certificate Signing Tool) to create a request file.
 * You upload that request to the ADP Developer Portal.
 * ADP signs it and gives you back the Certificate (.pem or .cer file).
+</Accordion>
 
-**What is mTLS?**
+<Accordion title="What is mTLS?">
+mTLS stands for Mutual Transport Layer Security. It is a security process in which both parties (the client and the server) verify each other's digital certificates simultaneously.
+</Accordion>
 
-mTLS stands for Mutual Transport Layer Security. It is a security process where both parties (the client and the server) verify each other's digital certificates at the same time.
+</AccordionGroup>
 
