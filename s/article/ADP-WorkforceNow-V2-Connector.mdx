@@ -15,15 +15,15 @@ To connect to your ADP Workforce Now V2 account and create a DataSet, you must h
 In ADP Workforce Now, authentication requires two distinct layers: OAuth 2.0 (identity) and Mutual TLS (secure transport). Each of the four credentials plays a specific role in these layers: 
 
 * Environment: You must select a production or User Acceptance Testing (UAT) sandbox environment in ADP Workforce Now.
-
-The Client ID and Client Secret act as the Username and Password for your application to identify itself to ADP's authorization server. 
-
 * Client ID: This is the username for your application. Identifies the service or application connecting to ADP Workforce Now.
 * Client Secret: This is the password for your application. The Client Secret proves that the application is authorized to connect (authenticates your application's identity).
 
-ADP requires a second layer of security called Mutual Transport Layer Security (mTLS: Mutual TLS). It is a security process where both parties (the client and the server) verify each other's digital certificates at the same time. This ensures that not only is the app identified (via OAuth), but the actual connection between your server and ADP's server is encrypted and trusted.
+<Note>**Note:** The Client ID and Client Secret act as the Username and Password for your application to identify itself to ADP's authorization server.</Note>
    
 * ADP Certificate: This is the digital certificate used for authentication with ADP Workforce Now. It is generated after you submit a Certificate Signing Request (CSR) to ADP. It informs ADP's servers that your specific server is authorized to talk to them.
+
+<Note>**Note:**ADP requires a second layer of security called Mutual Transport Layer Security (mTLS: Mutual TLS). It is a security process where both parties (the client and the server) verify each other's digital certificates at the same time. This ensures that not only is the app identified (via OAuth), but the actual connection between your server and ADP's server is encrypted and trusted.</Note>
+
 * ADP Private Key: This is the private key associated with the ADP Certificate. The ADP Private Key is generated first, and it is the most important step in creating the ADP Certificate. The private key is used to create the CSR, which is then signed by ADP to create the certificate. The private key must be kept secure, as it is used to establish the mTLS connection with ADP.
 
 ### The Authentication Flow
