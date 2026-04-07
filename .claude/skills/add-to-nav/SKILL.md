@@ -1,0 +1,134 @@
+---
+name: add-to-nav
+user-invocable: true
+description: "add a page to docs.json navigation, insert an article into the nav, move a page to a different location in docs.json, register a new article in navigation"
+argument-hint: "page path to insert or move (e.g. s/article/Access-Tokens)"
+---
+
+Insert a page into `docs.json` navigation, or move an existing page to a new location.
+
+The user has provided: $ARGUMENTS
+
+---
+
+## Overview
+
+`docs.json` is the Mintlify navigation manifest. It is ~307KB and deeply nested:
+**language → tab → group → (optional subgroup) → pages array**
+
+Pages are string entries like `"s/article/Article-Title"` or `"portal/some-slug"`.
+
+This skill makes targeted, surgical edits — never reads the full file.
+
+---
+
+## Step 1: Gather information
+
+Ask the user for the following, one question at a time if not already provided:
+
+1. **Page path** — the string to insert (e.g., `s/article/Access-Tokens`). If `$ARGUMENTS` contains a plausible path, confirm it rather than re-asking.
+
+2. **Operation** — Insert (new page, not yet in `docs.json`) or Move (page already exists and needs to be relocated)?
+
+3. **Target location** — Where should the page appear? Ask the user to describe by:
+   - Tab name (e.g., "Knowledge Base", "API Reference")
+   - Group and subgroup names in order (e.g., "Admin" > "Security")
+   - Position within the group: beginning, end, or after a specific page (allow the user to provide either the document title or the mdx file name)
+
+4. **For Move only** — Confirm the current location so you know where to remove it from. You can find it automatically (see Step 2), but confirm with the user before deleting.
+
+---
+
+## Step 2: Locate targets in docs.json
+
+`docs.json` is too large to read in full. Use targeted searches.
+
+**To find the target group:**
+```bash
+grep -n "\"group\": \"<Group Name>\"" docs.json
+```
+This returns line numbers. Read ±30 lines around each match to confirm context (tab, parent group). If multiple matches exist, show them to the user and ask which one is correct.
+
+**For a Move — to find the page's current location:**
+```bash
+grep -n "\"<page-path>\"" docs.json
+```
+Read ±15 lines around the match to confirm context before removing.
+
+**To read a slice of the file:**
+Use the Read tool with `offset` and `limit` parameters (line numbers from grep output).
+
+---
+
+## Step 3: Plan the edit
+
+Before making changes, describe the plan to the user:
+- What line(s) will change
+- What the before/after will look like
+- For a Move: that the old entry will be removed
+
+Get confirmation before proceeding.
+
+---
+
+## Step 4: Make the edits
+
+Use the Edit tool to make surgical changes. Always include enough surrounding context (2–3 lines before and after) to make the `old_string` match unique.
+
+### Inserting at the end of a group's pages array
+
+If the target group ends like:
+```json
+            "pages": [
+              "s/article/some-article",
+              "s/article/last-article"
+            ]
+```
+
+Edit to:
+```json
+            "pages": [
+              "s/article/some-article",
+              "s/article/last-article",
+              "s/article/New-Article"
+            ]
+```
+
+### Inserting at the beginning of a group's pages array
+
+```json
+            "pages": [
+              "s/article/New-Article",
+              "s/article/existing-first-article",
+```
+
+### Inserting after a specific page
+
+Find the specific page string and add the new entry on the next line with a comma on the preceding line if needed.
+
+### Moving a page
+
+1. First, perform the insertion at the new location (as above).
+2. Then, remove the old entry. Find the line and remove it, adjusting trailing commas on adjacent lines as needed to keep valid JSON.
+
+**Always ensure valid JSON** — no trailing commas on the last item in an array.
+
+---
+
+## Step 5: Verify
+
+After editing, run:
+```bash
+node -e "JSON.parse(require('fs').readFileSync('docs.json', 'utf8')); console.log('docs.json is valid JSON');"
+```
+
+If this fails, show the error and fix it before finishing.
+
+---
+
+## Output
+
+Tell the user:
+- What was changed (insertion point, any removal)
+- The exact path string that was added
+- That they can preview the nav locally with `mintlify dev`
