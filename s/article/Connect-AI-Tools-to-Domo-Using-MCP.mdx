@@ -21,6 +21,10 @@ Once connected, you can use your AI tool to:
 
 This article walks through how to connect Claude Desktop, Claude Code, or VS Code to the Domo MCP Server and verify your connection.
 
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-1.png)
+</Frame>
+
 ---
 
 
@@ -43,7 +47,9 @@ Claude Desktop does not natively support remote MCP servers, so you connect usin
 
 In your Domo instance, go to **Admin** > **Authentication** > **Access Tokens** and generate a token. See [Manage Access Tokens](/s/article/360042934494#manage-access-tokens) for instructions.
 
-{/* Screenshot placeholder: PDF page 2 — "Manage access tokens" panel showing the token description field, user search, expiration selector, and Generate button */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-2.png)
+</Frame>
 
 ### Step 2: Install mcp-remote
 
@@ -57,13 +63,17 @@ npm install mcp-remote
 
 Download and install [Claude Desktop](https://claude.ai/download).
 
-{/* Screenshot placeholder: PDF page 3 — Claude Desktop app window showing the main chat interface */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-3.png)
+</Frame>
 
 ### Step 4: Edit the Claude Desktop configuration
 
 In Claude Desktop, go to **Settings** > **Developer** and select **Edit Config**.
 
-{/* Screenshot placeholder: PDF page 4 (top) — Claude Desktop Settings > Developer panel with the Edit Config button visible */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-4.png)
+</Frame>
 
 This opens the configuration file located at:
 
@@ -71,7 +81,9 @@ This opens the configuration file located at:
 /Users/<username>/Library/Application Support/Claude/claude_desktop_config.json
 ```
 
-{/* Screenshot placeholder: PDF page 4 (bottom) — macOS Finder window with claude_desktop_config.json selected, showing the file contents in the preview pane */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-5.png)
+</Frame>
 
 ### Step 5: Add the Domo MCP Server configuration
 
@@ -96,14 +108,17 @@ Paste the following into the configuration file, replacing `<DOMO_DOMAIN>` with 
 ### Step 6: Restart Claude Desktop
 
 Quit and restart Claude Desktop for the configuration to take effect.
-
-{/* Screenshot placeholder: PDF page 5 — Claude Desktop app window (same as Step 3, showing the app after restart) */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-6.png)
+</Frame>
 
 ### Step 7: Verify the connection
 
 Go to **Settings** > **Connectors** and confirm the Domo MCP server is listed and connected.
 
-{/* Screenshot placeholder: PDF page 6 (top) — Settings > Connectors showing domo-mcp-npx listed alongside other connectors */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-7.png)
+</Frame>
 
 Select the server to view its tool permissions. You should see the following tools listed:
 
@@ -112,11 +127,15 @@ Select the server to view its tool permissions. You should see the following too
 - `FileSetQueryTool`
 - `SearchTool`
 
-{/* Screenshot placeholder: PDF page 6 (bottom) — domo-mcp-npx detail view showing Tool permissions with DomoSqlQueryTool, ExtendedThinkingTool, FileSetQueryTool, and SearchTool listed */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-8.png)
+</Frame>
 
 To test the connection, try a prompt such as: "How many datasets do I have access to?"
 
-{/* Screenshot placeholder: PDF page 7 (top) — Claude Desktop chat showing a response to "How many datasets do I have access to?" with a list of dataset categories */}
+<Frame>
+  ![](/images/kb/DOMO-MCP-Server-Screenshot-9.png)
+</Frame>
 
 
 
