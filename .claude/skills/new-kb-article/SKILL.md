@@ -110,6 +110,9 @@ Frequently asked answer.
 
 ## Style Rules to Apply
 
+**Article structure**
+- Do not include a table of contents — written or linked — at the top of the article. Tables of contents are generated automatically from the article's headings when the page renders on the Knowledge Base site.
+
 **Voice and tense**
 - Write in present tense: "This opens the panel" not "This will open the panel."
 - Use active voice. Avoid passive voice unless who performs the action does not matter.
