@@ -11,6 +11,8 @@ Handles:
                   de    → /de/s/article/…
                   fr    → /fr/s/article/…
                   es    → /es/s/article/…
+  - ToC removal: lists of in-page anchor links and "Back/Return to top" navigation
+                links are stripped (Mintlify auto-generates a ToC from headings)
   - Callouts:   **Note:**, **Important:**, **Warning:**, **Tip:** paragraphs
                 → <Note>, <Warning>, <Tip> MDX components
   - FAQ:        ## FAQ/FAQs heading with bold-question / paragraph-answer pairs
@@ -35,6 +37,8 @@ import sys
 import json
 import argparse
 from pathlib import Path
+
+from bs4 import BeautifulSoup
 
 try:
     import markdownify
@@ -75,6 +79,53 @@ CALLOUT_MAP: dict[str, tuple[str, str]] = {
 
 
 # ---------------------------------------------------------------------------
+# Pre-processing: strip table-of-contents elements
+# ---------------------------------------------------------------------------
+
+_BACK_TO_TOP_RE = re.compile(r"(back|return)\s+to\s+top", re.IGNORECASE)
+
+
+def _strip_toc_elements(html: str) -> str:
+    """
+    Remove table-of-contents and in-page navigation elements from HTML before
+    conversion.  Mintlify generates a ToC automatically from headings, so
+    manually written or linked ToCs violate the style guide.
+
+    Removes:
+    1. <ul>/<ol> lists where every <li> contains only in-page anchor links
+       (<a href="#...">).  These are ToC jump-link blocks.
+    2. Any element whose sole visible content is an <a href="#..."> whose text
+       matches "back/return to top" (case-insensitive).
+    """
+    soup = BeautifulSoup(html, "html.parser")
+
+    # 1. Remove lists where every item is an in-page anchor link
+    for list_el in soup.find_all(["ul", "ol"]):
+        items = list_el.find_all("li", recursive=False)
+        if not items:
+            continue
+        all_toc_links = all(
+            item.find("a", href=lambda h: h and h.startswith("#"))
+            and not item.find("a", href=lambda h: h and not h.startswith("#"))
+            for item in items
+        )
+        if all_toc_links:
+            list_el.decompose()
+
+    # 2. Remove "back/return to top" links and their containing paragraphs
+    for a_tag in soup.find_all("a", href=lambda h: h and h.startswith("#")):
+        if _BACK_TO_TOP_RE.search(a_tag.get_text()):
+            parent = a_tag.parent
+            if parent and parent.name in ("p", "div", "li"):
+                if parent.get_text(strip=True) == a_tag.get_text(strip=True):
+                    parent.decompose()
+                    continue
+            a_tag.decompose()
+
+    return str(soup)
+
+
+# ---------------------------------------------------------------------------
 # Custom markdownify converter
 # ---------------------------------------------------------------------------
 
@@ -100,11 +151,24 @@ class _DomoMDXConverter(markdownify.MarkdownConverter):
     def convert_img(self, el, text, parent_tags):
         """Replace each <img> with a unique placeholder and record its metadata."""
         key = f"__DOMO_IMG_{len(self._images)}__"
+
+        # Context signal: is this image embedded inside a paragraph/list item that
+        # also contains meaningful text?  If so it's an inline icon even when no
+        # explicit dimensions are present (Salesforce uses class="internal default"
+        # for these without width/height attributes).
+        context_inline = False
+        parent = el.parent
+        if parent and parent.name in ("p", "li", "td", "span"):
+            alt = (el.attrs.get("alt", "") or "").strip()
+            surrounding = parent.get_text(strip=True).replace(alt, "").strip()
+            context_inline = len(surrounding) > 20
+
         self._images[key] = {
             "src": el.attrs.get("src", "") or "",
             "alt": (el.attrs.get("alt", "") or "").strip(),
             "width": str(el.attrs.get("width", "") or ""),
             "height": str(el.attrs.get("height", "") or ""),
+            "context_inline": context_inline,
         }
         # Extra newlines ensure the placeholder is on its own paragraph
         return f"\n\n{key}\n\n"
@@ -134,18 +198,32 @@ class _DomoMDXConverter(markdownify.MarkdownConverter):
 # Image MDX helpers
 # ---------------------------------------------------------------------------
 
-def _is_inline_icon(width: str, height: str) -> bool:
+def _is_inline_icon(width: str, height: str, context_inline: bool = False) -> bool:
     """
-    Return True if either dimension indicates a small inline icon.
-    Images with no dimension attributes default to screenshot treatment.
+    Return True if the image should be rendered as an inline icon.
+
+    Decision priority:
+    1. Explicit small dimensions (either ≤ 40px) → inline icon.
+    2. Explicit large dimensions (both > 40px)   → screenshot.
+    3. No dimensions at all                       → use HTML context:
+         True  if the <img> sits inside a paragraph/list with substantial
+               surrounding text (Salesforce class="internal default" icons).
+         False otherwise (standalone image → screenshot).
     """
-    for val in (width, height):
-        try:
-            if int(val) <= INLINE_ICON_MAX_PX:
-                return True
-        except (ValueError, TypeError):
-            pass
-    return False
+    has_width = bool(width)
+    has_height = bool(height)
+
+    if has_width or has_height:
+        for val in (width, height):
+            try:
+                if int(val) <= INLINE_ICON_MAX_PX:
+                    return True
+            except (ValueError, TypeError):
+                pass
+        return False  # has dimensions but both are large
+
+    # No dimensions — fall back to HTML context
+    return context_inline
 
 
 def _screenshot_mdx(alt: str, img_path: str) -> str:
@@ -194,7 +272,9 @@ def _restore_images(
 
         if local_name:
             img_path = f"/images/kb/{local_name}"
-            if _is_inline_icon(info["width"], info["height"]):
+            if _is_inline_icon(
+                info["width"], info["height"], info.get("context_inline", False)
+            ):
                 img_mdx = _inline_icon_mdx(
                     info["alt"], img_path, info["width"], info["height"]
                 )
@@ -354,6 +434,9 @@ def html_to_mdx(
         - FAQ detection works for the bold-Q/paragraph-A pattern. Unusual FAQ
           layouts are preserved verbatim for manual conversion.
     """
+    # Strip ToC jump-link lists and back/return-to-top navigation before conversion
+    html = _strip_toc_elements(html)
+
     article_prefix = LANG_ARTICLE_PREFIX.get(language, "/s/article")
     converter = _DomoMDXConverter(
         article_prefix=article_prefix,
@@ -368,6 +451,9 @@ def html_to_mdx(
     md = _restore_images(md, converter._images, image_local_map)
     md = _convert_callouts(md)
     md = _convert_faq(md)
+
+    # Strip Salesforce section-divider artifacts (— | —)
+    md = re.sub(r"\n*—\s*\|\s*—\n*", "\n\n", md)
 
     # Normalise whitespace: collapse runs of 3+ blank lines to 2
     md = re.sub(r"\n{3,}", "\n\n", md)
