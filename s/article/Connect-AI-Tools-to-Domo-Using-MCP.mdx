@@ -12,7 +12,7 @@ title: "Connect AI Tools to Domo Using MCP (Beta)"
 
 The Model Context Protocol (MCP) is an open standard that allows AI assistants to securely interact with external platforms and data sources. Domo's MCP Server is a hosted service that gives AI tools — such as Claude, Cursor, VS Code, and ChatGPT — secure access to your Domo instance.
 
-Once connected, you can use your AI tool to:
+After you're connected, you can use your AI tool to:
 
 - Query data in your Domo DataSets
 - Query documents stored in Domo
@@ -39,7 +39,7 @@ Before connecting, ensure you have the following:
 
 
 
-## Connecting Claude Desktop
+## Connect Claude Desktop
 
 Claude Desktop does not natively support remote MCP servers, so you connect using `mcp-remote` — an NPM tool that bridges desktop AI clients to remote MCP servers.
 
@@ -139,7 +139,7 @@ To test the connection, try a prompt such as: "How many datasets do I have acces
 
 
 
-## Connecting Claude Code
+## Connect Claude Code
 
 In Claude Code, run the following command from the root of your project. Replace `<DOMO_DOMAIN>` with your Domo instance domain and `<DOMO_ACCESS_TOKEN>` with your Access Token:
 
@@ -167,7 +167,7 @@ This adds the configuration to a `.mcp` file in the root of your project:
 
 
 
-## Connecting VS Code
+## Connect VS Code
 
 1. Open the Command Palette with **Cmd+Shift+P** (Mac) or **Ctrl+Shift+P** (Windows/Linux).
 
@@ -194,7 +194,7 @@ This adds the configuration to a `.mcp` file in the root of your project:
 
 
 
-## Troubleshooting
+## Troubleshoot
 
 Depending on your environment, you may need to make additional changes to the Claude Desktop configuration.
 
@@ -227,8 +227,8 @@ If `npx` cannot be found, replace the `"command"` value in your configuration wi
 The Domo MCP Server works with any MCP-compatible AI client, including Claude Desktop, Claude Code, VS Code, Cursor, and ChatGPT.
 </Accordion>
 
-<Accordion title="What can I do once I'm connected?">
-Once connected, you can query your Domo DataSets, query documents stored in Domo, and search across your Domo instance. Card and page summarization are coming soon.
+<Accordion title="What can I do after I'm connected?">
+After you're connected, you can query your Domo DataSets, query documents stored in Domo, and search across your Domo instance. Card and page summarization are coming soon.
 </Accordion>
 
 </AccordionGroup>
