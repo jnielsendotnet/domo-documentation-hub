@@ -21,7 +21,9 @@ Handles:
                   fr    → /fr/s/article/…
                   es    → /es/s/article/…
   - ToC removal: lists of in-page anchor links and "Back/Return to top" navigation
-                links are stripped (Mintlify auto-generates a ToC from headings)
+                links are stripped (Mintlify auto-generates a ToC from headings);
+                orphaned <hr> artifacts (--- lines) left by the removed ToC block
+                are also collapsed so only one --- divider remains
   - Callouts:   **Note:**, **Important:**, **Warning:**, **Tip:** paragraphs
                 → <Note>, <Warning>, <Tip> MDX components
   - FAQ:        ## FAQ/FAQs heading with bold-question / paragraph-answer pairs
@@ -463,6 +465,16 @@ def html_to_mdx(
 
     # Strip Salesforce section-divider artifacts (— | —)
     md = re.sub(r"\n*—\s*\|\s*—\n*", "\n\n", md)
+
+    # Remove leading horizontal-rule artifacts — the original HTML often had an <hr>
+    # immediately before the ToC block; after ToC stripping that <hr> is left dangling
+    # at the top of the content with nothing before it.
+    md = re.sub(r"^(---\n\s*)+", "", md)
+
+    # Collapse consecutive horizontal rules into one — the original HTML had an <hr>
+    # both before and after the ToC block, leaving two back-to-back --- lines once the
+    # ToC list is removed.
+    md = re.sub(r"(\n---\n)(\s*\n---\n)+", "\n---\n", md)
 
     # Normalise whitespace: collapse runs of 3+ blank lines to 2
     md = re.sub(r"\n{3,}", "\n\n", md)
