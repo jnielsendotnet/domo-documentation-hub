@@ -116,6 +116,36 @@ Take as many high-quality screenshots as possible. Not all may make it into the 
 
 
 
+## Tables
+
+Pipe tables in MDX files must be padded with spaces so that columns align vertically across all rows, including the header separator row. This makes tables readable in source and easier to edit.
+
+**Correct:**
+```
+| First Column | Second Column |
+| ------------ | ------------- |
+| Row text 1   | Row text 1    |
+| Row text 2   | Row text 2    |
+```
+
+**Incorrect:**
+```
+| First Column | Second Column |
+| --- | --- |
+| Row text 1 | Row text 1 |
+| Row text 2 | Row text 2 |
+```
+
+For multi-line cell content, use `<br/>` within the cell. For notes within a table cell, use the `<Note>` component inline, preceded by `<br/>` if following other content:
+
+```
+| Column 1 | Column 2 |
+| -------- | -------- |
+| Cell with note | Cell content.<br/><Note>**Note:** Note text here.</Note> |
+```
+
+
+
 ## Text Emphasis 
 
 | Style           | Usage                                                                                                                                                                                                                                                                                                                | Example(s)                                                                                                                  |
