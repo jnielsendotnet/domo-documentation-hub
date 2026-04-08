@@ -1,0 +1,122 @@
+---
+title: "Access Tokens"
+---
+
+
+
+## Intro
+
+<Note>
+  **Note:** This feature is in beta. Contact your Domo account team to join.
+</Note>
+
+Access Tokens are credentials that allow users and applications to authenticate with Domo's APIs and integrations — for example, using Domo's CLI tool, tools in the Domo Governance Toolkit, the Domo MCP server, or Domo APIs. Access Tokens act with the same permissions as the user who created them.
+
+---
+
+
+
+## Required Grants
+
+To create and manage your own Access Tokens, you need the **Create Access Tokens** grant. By default, this grant is included only with the Admin system role.
+
+Administrators can assign this grant to custom roles to allow non-admin users to create Access Tokens. For more information, see [Manage User Roles and Grants](/s/article/360043438973).
+
+
+
+## Accessing Access Tokens
+
+Both regular users and administrators access Access Tokens from the same location in Admin Settings.
+
+<Note>**Note:** Despite the name, the Admin Settings path below applies to all Domo users — not only administrators.</Note>
+
+1. In the navigation header, select **More** > **Admin**.
+
+2. Select **Authentication** > **Access Tokens**.
+   The Access Tokens page displays. Non-admin users see only the tokens they own. Administrators see all Access Tokens in the instance and can search by user name or token name.
+
+
+
+## Creating an Access Token
+
+<Warning>**Important:** Access Tokens carry the same permissions as their owner. If the owner's permissions change, the token reflects those changes immediately. Treat tokens like passwords — never share a token or store it in an insecure location. If a token is compromised, revoke it immediately.</Warning>
+
+1. On the Access Tokens page, select **Generate Access Token**.
+
+2. In the **Access token name** field, enter a name for the token. Use a name that helps you identify the token's purpose.
+
+3. In the **Expire after** list, select when the token should expire. Tokens can be set to expire between one day and 10 years after creation.
+
+4. Select **Generate**.
+
+5. Copy the token value immediately and store it somewhere secure. The token value is shown only once and cannot be retrieved after you leave this screen.
+
+<Note>**Note:** Each user can own a maximum of 50 Access Tokens at a time. If you have reached the limit, the **Generate Access Token** button is inactive. Revoke an existing token before creating a new one.</Note>
+
+
+
+## Revoking an Access Token
+
+Users can revoke any token they own. Administrators can revoke any token in the instance.
+
+<Warning>**Important:** There is no confirmation dialog after selecting Revoke. Verify you are revoking the correct token before proceeding.</Warning>
+
+1. On the Access Tokens page, locate the token you want to revoke.
+
+2. Select the three-dot menu for that token.
+
+3. Select **Revoke**.
+   The token is immediately invalidated. Any application or integration using that token loses access until it is reconfigured with a new token.
+
+
+
+## Assigning the Create Access Tokens Grant
+
+By default, only users with the Admin system role can create Access Tokens. To allow non-admin users to create their own tokens, assign the Create Access Tokens grant to the appropriate custom roles. Users with those roles can immediately create and manage their own Access Tokens.
+
+For more information, see [Manage User Roles and Grants](/s/article/360043438973).
+
+
+
+## Security Information
+
+### Token Permissions
+
+An Access Token carries the same permissions as its owner. If the owner's permissions change, the token reflects those changes immediately.
+
+### Tokens Are User-Specific
+
+Access Tokens can only be created for yourself. No user — including administrators — can create an Access Token associated with another user's identity. This protects against credential-based impersonation.
+
+### Activity Logging
+
+Access Token creation and revocation events are recorded in Domo's **Activity Log**, including the identity of the user who performed the action.
+
+
+
+## FAQ
+
+
+<AccordionGroup>
+
+<Accordion title="Can an admin create an Access Token on my behalf?">
+No. Access Tokens can only be created by the user who will own them. Administrators cannot create tokens on behalf of other users.
+</Accordion>
+
+<Accordion title="I lost my Access Token value. How do I recover it?">
+You cannot recover a lost token value. Token values are shown only once at creation and are not stored by Domo. Revoke the lost token and create a new one.
+</Accordion>
+
+<Accordion title="My Access Token stopped working. What happened?">
+Your token may have been revoked — by you, by a Domo administrator, or because it reached its expiration date. Check your Access Tokens page to confirm whether the token is still active.
+</Accordion>
+
+<Accordion title="How many Access Tokens can I create?">
+Each user can own a maximum of 50 tokens at a time. If you have reached the limit, the **Generate Access Token** button is inactive. Revoke one or more existing tokens before creating a new one.
+</Accordion>
+
+<Accordion title="I don't see an option to create an Access Token. What should I do?">
+Your role may not include the Create Access Tokens grant. Contact your Domo administrator to request that the grant be added to your role.
+</Accordion>
+
+</AccordionGroup>
