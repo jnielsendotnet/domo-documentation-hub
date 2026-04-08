@@ -109,7 +109,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["s/article/000005139"]
+                            "pages": [
+                              "s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -217,7 +219,8 @@
                               "s/article/360057013754",
                               "s/article/360043436313",
                               "s/article/360042931834",
-                              "s/article/360043437093"
+                              "s/article/360043437093",
+                              "s/article/snowflake-min-permissions"
                             ]
                           }
                         ]
@@ -1601,7 +1604,9 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["s/article/360042923754"]
+                        "pages": [
+                          "s/article/360042923754"
+                        ]
                       }
                     ]
                   },
@@ -1964,14 +1969,14 @@
                       "s/article/360042933014",
                       "s/article/360043437793"
                     ]
-                  }, 
+                  },
                   {
                     "group": "Worksheets",
                     "pages": [
                       "s/article/Use-Worksheets"
                     ]
                   }
-                ]  
+                ]
               },
               {
                 "group": "AI & Data Science",
@@ -2028,7 +2033,9 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": ["s/article/360043437773"]
+                    "pages": [
+                      "s/article/360043437773"
+                    ]
                   },
                   {
                     "group": "Alerts",
@@ -2201,7 +2208,10 @@
                       "s/article/000005510",
                       {
                         "group": "Credit Consumption",
-                        "pages": ["s/article/000005492", "s/article/000005280"]
+                        "pages": [
+                          "s/article/000005492",
+                          "s/article/000005280"
+                        ]
                       },
                       {
                         "group": "Governance",
@@ -2388,7 +2398,10 @@
                       },
                       {
                         "group": "Publish on the Appstore",
-                        "pages": ["s/article/000005184", "s/article/000005183"]
+                        "pages": [
+                          "s/article/000005184",
+                          "s/article/000005183"
+                        ]
                       },
                       {
                         "group": "Available Apps",
@@ -3529,7 +3542,9 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": ["ja/s/article/360043427193"]
+                "pages": [
+                  "ja/s/article/360043427193"
+                ]
               },
               {
                 "group": "Domo Free",
@@ -3581,7 +3596,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["ja/s/article/000005139"]
+                            "pages": [
+                              "ja/s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -4320,7 +4337,9 @@
                           },
                           {
                             "group": "Sage Intacct",
-                            "pages": ["ja/s/article/000005099"]
+                            "pages": [
+                              "ja/s/article/000005099"
+                            ]
                           },
                           {
                             "group": "Salesforce",
@@ -4437,7 +4456,9 @@
                           },
                           {
                             "group": "USGS",
-                            "pages": ["ja/s/article/360043432433"]
+                            "pages": [
+                              "ja/s/article/360043432433"
+                            ]
                           },
                           {
                             "group": "Vertica",
@@ -4668,7 +4689,9 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["ja/s/article/360042923754"]
+                        "pages": [
+                          "ja/s/article/360042923754"
+                        ]
                       }
                     ]
                   },
@@ -5085,7 +5108,9 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": ["ja/s/article/360043437773"]
+                    "pages": [
+                      "ja/s/article/360043437773"
+                    ]
                   },
                   {
                     "group": "Alerts",
