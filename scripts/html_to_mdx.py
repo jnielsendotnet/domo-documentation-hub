@@ -2,6 +2,15 @@
 """
 Converts Salesforce Knowledge HTML article bodies to Domo MDX format.
 
+Full conversion workflow and style/formatting rules are documented in:
+    .claude/skills/csv-to-mdx/SKILL.md
+
+That document covers:
+  - The complete pipeline (extraction → pre-processing → markdownify → post-processing)
+  - Exact MDX component syntax from New-Article-Template.mdx
+  - Style rules from Domo-KB-Style-Guide.mdx, split into (A) enforced here
+    programmatically and (B) requiring human review after conversion
+
 Handles:
   - Images:     width/height ≤ 40px → inline <img style> syntax (icon)
                 larger or unsized   → <Frame>![alt](path)</Frame> (screenshot)
