@@ -124,6 +124,7 @@ Frequently asked answer.
 - Use "allowlist" and "blocklist," never "whitelist" or "blacklist."
 - Write all headings (article titles, section headings, step headings) in the imperative mood — never the gerund. **Correct:** "Connect Data to Domo" **Incorrect:** "Connecting Data to Domo"
 - When describing a sequence of actions in a step, do not use "once" to denote a causal or dependent relationship — use "after" instead. **Correct:** "After you save the DataSet, select **Done**." **Incorrect:** "Once you save the DataSet, select **Done**."
+- Do not place spaces on either side of an em-dash. **Correct:** "AI tools—such as Claude—secure access" **Incorrect:** "AI tools — such as Claude — secure access"
 
 **Text emphasis**
 - **Bold** static UI elements (fields, menus, buttons, icons). For a series: **Admin** > **Security** > **Whitelist** (do not bold the >).
