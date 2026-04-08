@@ -19,7 +19,7 @@ The user has provided: $ARGUMENTS
 
 **Never touch localized directories.** Do not read, modify, suggest changes to, or reference anything in `/de`, `/es`, `/fr`, or `/ja`. These are managed separately.
 
-**Follow shared standards.** When writing or rewriting any article content — including merged or split articles — read and apply the templates in `.claude/skills/article-templates/`: `file-structure.md` for document structure, `style-rules.md` for voice, formatting, and terminology.
+**Follow shared standards.** When writing or rewriting any article content — including merged or split articles — read `New-Article-Template.mdx` for document structure and encoding conventions, and `Domo-KB-Style-Guide.mdx` for voice, formatting, and terminology. Read both files before writing any content.
 
 ---
 
