@@ -32,8 +32,6 @@ After the Article Intake Summary is confirmed, ask the following two questions b
 
 Once the Article Intake Summary and release information are confirmed, create the MDX file. Do not ask for any information already answered.
 
-## Instructions
-
 Create a new MDX file in `s/article/` using the filename format `Article-Title-Here.mdx` (Title Case, hyphen-separated, no special characters).
 
 The file must follow the structure and conventions below exactly.
@@ -173,11 +171,12 @@ Frequently asked answer.
 **FAQ**
 - Place at the bottom of the article, above Troubleshooting if it exists.
 - Always use `<AccordionGroup>` containing `<Accordion title="Question?">` items.
+Follow the file structure in `.claude/skills/article-templates/file-structure.md` and apply all style rules in `.claude/skills/article-templates/style-rules.md`. Read both files before writing.
 
 ---
 
 ## Output
 
 1. Write the completed MDX file to `s/article/Article-Title-Here.mdx`.
-2. Tell the user the file path and suggest adding it to `docs.json` navigation if they want it to appear on the site.
+2. Tell the user the file path and suggest running `/add-to-nav` to register it in `docs.json` navigation if they want it to appear on the site.
 3. Note any sections left as placeholders (screenshots, specific grant names, etc.) that the user will need to fill in.
