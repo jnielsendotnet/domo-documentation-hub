@@ -97,12 +97,13 @@ This is a table:
 | Row text 2   | Row text 2    |
 | Row text 3   | Row text 3    |
 
-Use `<br/>` for line breaks within a cell, and `<Note>` inline for notes within a cell:
+Pad all table cells with spaces so that pipes align vertically across all rows, including the header separator row. Use `<br/>` to separate multiple lines of plain text within a cell. Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<Tip>`, etc.) — they create their own line breaks. Use `<br/>` before a callout only when it follows plain text:
 
-| First Column | Second Column |
-| ------------ | ------------- |
-| Row with multi-line content | First line of cell content.<br/>Second line of cell content. |
-| Row with a note | Cell content.<br/><Note>**Note:** Note text in a table cell.</Note> |
+| First Column                | Second Column                                                         |
+| --------------------------- | --------------------------------------------------------------------- |
+| Row with multi-line content | First line of cell content.<br/>Second line of cell content.         |
+| Row with a note             | Cell content.<br/><Note>**Note:** Note text in a table cell.</Note>  |
+| Row with two callouts       | <Note>**Note:** First note.</Note><Warning>**Warning:** Text.</Warning> |
 
 
 

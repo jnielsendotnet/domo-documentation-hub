@@ -136,12 +136,21 @@ Pipe tables in MDX files must be padded with spaces so that columns align vertic
 | Row text 2 | Row text 2 |
 ```
 
-For multi-line cell content, use `<br/>` within the cell. For notes within a table cell, use the `<Note>` component inline, preceded by `<br/>` if following other content:
+To separate multiple lines of plain text within a cell, use `<br/>`:
 
 ```
-| Column 1 | Column 2 |
-| -------- | -------- |
-| Cell with note | Cell content.<br/><Note>**Note:** Note text here.</Note> |
+| Column 1   | Column 2                                            |
+| ---------- | --------------------------------------------------- |
+| Multi-line | First line of content.<br/>Second line of content. |
+```
+
+Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<Tip>`, etc.) in a single cell — these components create their own line breaks. If a callout follows plain text content in a cell, use `<br/>` before the callout:
+
+```
+| Column 1     | Column 2                                                                             |
+| ------------ | ------------------------------------------------------------------------------------ |
+| With callout | Cell content.<br/><Note>**Note:** Note text here.</Note>                             |
+| Two callouts | <Note>**Note:** First note.</Note><Warning>**Warning:** Warning text here.</Warning> |
 ```
 
 
