@@ -132,8 +132,8 @@ Pipe tables in MDX files must be padded with spaces so that columns align vertic
 ```
 | First Column | Second Column |
 | --- | --- |
-| Row text 1 | Row text 1 |
-| Row text 2 | Row text 2 |
+| Row text 1       | Row text 1 |
+| Row text 2   |   Row text 2 |
 ```
 
 To separate multiple lines of plain text within a cell, use `<br/>`:
@@ -141,7 +141,7 @@ To separate multiple lines of plain text within a cell, use `<br/>`:
 ```
 | Column 1   | Column 2                                            |
 | ---------- | --------------------------------------------------- |
-| Multi-line | First line of content.<br/>Second line of content. |
+| Multi-line | First line of content.<br/>Second line of content.  |
 ```
 
 Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<Tip>`, etc.) in a single cell — these components create their own line breaks. If a callout elements follows a line of plain text, a <br/> element is *not* needed.
@@ -149,7 +149,7 @@ Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<T
 ```
 | Column 1     | Column 2                                                                             |
 | ------------ | ------------------------------------------------------------------------------------ |
-| With callout | Cell content. <Note>**Note:** Note text here.</Note>                             |
+| With callout | Cell content. <Note>**Note:** Note text here.</Note>                                 |
 | Two callouts | <Note>**Note:** First note.</Note><Warning>**Warning:** Warning text here.</Warning> |
 ```
 
