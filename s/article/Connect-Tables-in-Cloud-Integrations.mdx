@@ -8,13 +8,13 @@ title: "Connect Tables in Cloud Integrations"
 
 After setting up a Cloud Integration, you can connect tables from your cloud data warehouse to make them available as DataSets in Domo.
 
+---
+
 ## Prerequisites
 
-Before connecting tables, make sure you have completed the following:
+Set up at least one integration before connecting tables. See [Cloud Integrations Overview](/s/article/4412849158167).
 
-- You have set up at least one integration. See [Cloud Integrations overview](/s/article/4412849158167).
-
-## Connect tables
+## Connect Tables
 
 To open the Connect Tables panel, go to **Data > Data Warehouse**, select the integration you want to work with, then select **Connect tables** in the left navigation.
 
@@ -60,29 +60,29 @@ Use the Browse tab to navigate your warehouse hierarchy and select tables to con
 
 ### Manual
 
-Use the Manual tab to connect tables by entering their location directly (**Add table**) or by uploading a list (**Upload list**).
+Use the Manual tab to connect tables by entering their location directly (**Add Table**) or by uploading a list (**Upload List**).
 
 <Frame>
    ![The Manual tab lets you add individual tables or upload a list of tables.](/images/kb/connect-tables-09.png)
 </Frame>
 
-#### Add a single table
+#### Add a Single Table
 
 1. In the **Add Table** form, enter the **Database**, **Schema**, and **Table** values.
 2. Select **Connect**.
 
-#### Upload a list of tables
+#### Upload a List of Tables
 
-1. Select **Download template** to get the CSV template.
+1. Select **Download Template** to get the CSV template.
 2. Open the template and enter the **Database**, **Schema**, and **Table** values for each row.
-3. Upload the file by dragging it into the **Upload list** area or selecting **Browse** to locate the file on your computer. The tables in the file are listed. Any rows that could not be matched are labeled **Needs action**.
-4. For any table labeled **Needs action**, correct the entry in your CSV file and upload it again, or connect that table using the **Browse** tab or the **Add table** form.
+3. Upload the file by dragging it into the **Upload List** area or selecting **Browse** to locate the file on your computer. The tables in the file are listed. Any rows that could not be matched are labeled **Needs Action**.
+4. For any table labeled **Needs Action**, correct the entry in your CSV file and upload it again, or connect that table using the **Browse** tab or the **Add Table** form.
 
-## Manage connected tables
+## Manage Connected Tables
 
 Use the Connect Tables panel to search, filter, and disconnect tables.
 
-### Search and filter tables
+### Search and Filter Tables
 
 Use the search bar to filter the table list by name. The list updates as you type to show only tables whose names contain the search text.
 
@@ -91,10 +91,10 @@ To filter by connection status, select **Add Filter** and choose a **Status**:
 - **Connected** — tables currently connected to a Domo DataSet.
 - **Not connected** — tables available to connect.
 
-### Disconnect tables
+### Disconnect Tables
 
 <Warning>
-   **Disconnecting a table permanently deletes the corresponding DataSet from Domo.** Your source table in the data warehouse remains unchanged.
+   **Important:** Disconnecting a table permanently deletes the corresponding DataSet from Domo. Your source table in the data warehouse remains unchanged.
 </Warning>
 
 1. In the left panel, select the database and schema that contain the tables you want to disconnect.
@@ -112,6 +112,6 @@ To filter by connection status, select **Add Filter** and choose a **Status**:
       ![Confirm the disconnection by selecting both checkboxes and typing CONFIRM.](/images/kb/connect-tables-08.png)
    </Frame>
 
-## Related articles
+## Related Articles
 
-- [Cloud Integrations overview](cloud-integrations-overview.html)
+- [Cloud Integrations Overview]((/s/article/4412849158167).
