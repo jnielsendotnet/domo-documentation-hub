@@ -35,14 +35,14 @@ Learn how to [generate an access token](/s/article/360042934494).
 
 We recommend that you create a SCIM Integration custom role and user:
 
-1. **Create a "SCIM Integration Role" as a custom role in your Domo instance—**This role can be assigned only the grants required to support your intended usage of the SCIM integration (see required grants below). Learn how to [create and define custom roles](/s/article/360043438973).
-2. **Create a "SCIM Integration User" in your Domo instance and assign it to the SCIM Integration Role—**Domo's SCIM endpoints require authorization using a Domo access token, and access tokens are associated with specific Domo users. Taking this approach, the access token used in the SCIM integration can be assigned to the SCIM Integration User.
+1. **Create a "SCIM Integration Role" as a custom role in your Domo instance—** This role can be assigned only the grants required to support your intended usage of the SCIM integration (see required grants below). Learn how to [create and define custom roles](/s/article/360043438973).
+2. **Create a "SCIM Integration User" in your Domo instance and assign it to the SCIM Integration Role—** Domo's SCIM endpoints require authorization using a Domo access token, and access tokens are associated with specific Domo users. Taking this approach, the access token used in the SCIM integration can be assigned to the SCIM Integration User.
 
 Whether or not you create this recommended user and role, the owner of the access token used in the SCIM integration must have the following grants enabled:
 
-* **Manage All Users—**This grant allows the holder to create, edit, and delete any user and reset their password.
-* **Manage All Roles—**This grant allows the holder to create, edit, and delete custom roles and assign any role to any user.
-* **Manage All Groups—**This grant allows the holder to manage group settings, modify Ad Hoc Domo groups, and create and manage Directory groups via SCIM.
+* **Manage All Users—** This grant allows the holder to create, edit, and delete any user and reset their password.
+* **Manage All Roles—** This grant allows the holder to create, edit, and delete custom roles and assign any role to any user.
+* **Manage All Groups—** This grant allows the holder to manage group settings, modify Ad Hoc Domo groups, and create and manage Directory groups via SCIM.
     
   <Note>**Note:** This grant is not required if you don't intend to use the SCIM Groups endpoints or the group-related attributes in the SCIM Users endpoint.</Note>
 
