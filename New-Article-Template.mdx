@@ -119,17 +119,17 @@ This is a table:
 
 Pad all table cells with spaces so that pipes align vertically across all rows, including the header separator row. Use `<br/>` to separate multiple lines of plain text within a cell. Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<Tip>`, etc.) — they create their own line breaks. Use `<br/>` before a callout only when it follows plain text:
 
-| First Column                | Second Column                                                         |
-| --------------------------- | --------------------------------------------------------------------- |
-| Row with multi-line content | First line of cell content.<br/>Second line of cell content.         |
-| Row with a note             | Cell content.<br/><Note>**Note:** Note text in a table cell.</Note>  |
+| First Column                | Second Column                                                           |
+| --------------------------- | ----------------------------------------------------------------------- |
+| Row with multi-line content | First line of cell content.<br/>Second line of cell content.            |
+| Row with a note             | Cell content.<br/><Note>**Note:** Note text in a table cell.</Note>     |
 | Row with two callouts       | <Note>**Note:** First note.</Note><Warning>**Warning:** Text.</Warning> |
 
 
 This is how you write a nested table (a table within a table cell). Write the inner table as HTML:
 
-| Outer Column 1 | Outer Column 2                                                                                       |
-| -------------- | ---------------------------------------------------------------------------------------------------- |
+| Outer Column 1 | Outer Column 2                                                                                                                      |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Row 1          | <table><thead><tr><th>Inner Col 1</th><th>Inner Col 2</th></tr></thead><tbody><tr><td>Value</td><td>Value</td></tr></tbody></table> |
 
 
