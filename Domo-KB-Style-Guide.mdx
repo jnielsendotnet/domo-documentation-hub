@@ -85,6 +85,17 @@ This applies to all heading levels (H1–H3) and to any labeled step that functi
 
 
 
+### Heading Hierarchy
+
+The frontmatter `title` field renders as H1. This means:
+
+- The Intro section and all other top-level parent headings should be H2
+- Subsections should be H3, H4, and so on
+
+The table of contents renders through H4. If you find yourself going three or more levels deep, consider reorganizing your content.
+
+
+
 ## Process Instructions
 
 Often our articles contain one or more ordered lists of process instructions. These should always be done in a numbered list of steps. 
@@ -118,9 +129,19 @@ If the step is conditional, write
 
 You can say "Contact your Domo account team" for betas, or if they need further information.
 
+### Internal Links
+
+Use the file path only — no need for the full URL. Do not include the `.mdx` extension in the path.
+
+```
+[Article Title](/s/article/Article-Title)
+```
+
+Legacy articles in the repo use number strings as filenames (a holdover from previous migrations). New articles use title-based names. Either way, the same linking format applies — just omit the `.mdx` extension.
+
 ### Subheadings
 
-When referencing a subheading within another article, use this type of phrasing: "Learn more about [the Feature that is the Subheading](/s/article/article-title#sub-head-title)"
+When referencing a subheading within another article, use this type of phrasing: "Learn more about [the Feature that is the Subheading](/s/article/Article-Title#sub-head-title)"
 
 
 
@@ -129,6 +150,30 @@ When referencing a subheading within another article, use this type of phrasing:
 As much as possible, screenshots should be taken in Modocorp or another demo instance, not our company instance to protect data. If screenshots contain fields to enter information, it's best practice to fill in the blanks where necessary with phrases like "Example title" before taking the screenshot.
 
 Take as many high-quality screenshots as possible. Not all may make it into the final draft of the article, but it's better to have too many than too few. Take them at as high a resolution as possible and do not compress them for sending to another machine—if necessary you can add them to a Sharepoint folder to preserve quality and share the link to the folder with another individual.
+
+**Inline images (UI icons)**
+
+For small Domo UI icons that appear within body text, recommended sizes are:
+
+- **20×20 —** matches the size of surrounding display text
+- **30×30 —** slightly larger; good for most inline icons
+- **40×40 —** best for header-level icons
+
+
+
+## Callouts
+
+Use React callout elements for notes, warnings, and tips — not plain text or HTML. Always bold the label and its colon, for example `**Note:**`.
+
+Ensure there is a blank line between any preceding paragraph and the callout element so it renders correctly. This rule does not apply inside table cells, where callouts are written inline with surrounding content but still render on their own line when published.
+
+```
+<Note>**Note:** Your note text here.</Note>
+
+<Warning>**Important:** Your warning text here.</Warning>
+
+<Tip>**Tip:** Your tip text here.</Tip>
+```
 
 
 
@@ -168,6 +213,20 @@ Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<T
 | With callout | Cell content. <Note>**Note:** Note text here.</Note>                                 |
 | Two callouts | <Note>**Note:** First note.</Note><Warning>**Warning:** Warning text here.</Warning> |
 ```
+
+**Nested tables**
+
+For a table within a table, write the inner table as HTML and embed it inside the outer table cell. This renders correctly when published.
+
+
+
+## Code
+
+Inline code: wrap with a single backtick — `` `your code here` ``
+
+Fenced code block: open and close with three backticks, with your code in between.
+
+Tabbed code blocks are also supported when you need to show the same code in multiple languages (such as JavaScript, Python, or Node). See the documentation for that syntax.
 
 
 
