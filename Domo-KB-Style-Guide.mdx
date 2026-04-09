@@ -38,6 +38,18 @@ Do not include a table of contents — written or linked — at the top of an ar
 
 
 
+### Intro Section
+
+Keep the Intro section succinct and direct. In most cases, a single sentence is sufficient. Use the format "This article explains..." or "This article covers..." followed by 2–3 concrete actions or skills the reader will gain, using the same terminology as the article body.
+
+Do not explain why the skills matter — focus only on what the article covers. A few articles genuinely require an opening sentence of context before the lead sentence, but this should be the exception, not the rule.
+
+**Correct:** "This article explains how to connect a DataSet to a card, schedule a DataFlow refresh, and configure row-level security."
+
+**Incorrect:** "Understanding your data pipeline is key to getting the most out of Domo. This article introduces several concepts and walks you through the basics."
+
+
+
 ### FAQ
 
 FAQ sections should be located at the bottom of the article, above only Troubleshooting, if applicable. 
@@ -167,6 +179,13 @@ Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<T
 | Italics         | Use italics when referring to variables that users will fill in with their own data.                                                                                                                                                                                                                                 | Enter the URL as *mydomo*.domo.com, in which *mydomo* refers to your company Domo instance.                                 |
 | Quotation Marks | Use quotation marks to reference on-screen text not used specifically as an interface element. Also used to reference DataSet columns and ETL actions.                                                                                                                                                               | Select the orange button to the right of the text reading "Click here to save your progress."                               |
 | Code Style      | Use a Code style to set apart code snippets on their own line.                                                                                                                                                                                                                                                       | Enter the file path of the Microsoft Word file you want to import on the SFTP server. For example: `/home/user/MyFile.docx` |
+
+**Punctuation and bold: two exceptions**
+
+Punctuation is not bolded except in these two cases:
+
+- **Callout labels:** In callout components (`<Note>`, `<Warning>`, `<Tip>`, etc.), the label and its trailing colon are both bolded: `**Note:**`, `**Important:**`, `**Tip:**`.
+- **Em-dashes in description lists:** When an em-dash separates a bolded term from its description in a list, include the em-dash inside the bold formatting. Write `**Connected —** tables connected to a Domo DataSet`, not `**Connected** — tables connected to a Domo DataSet`.
 
 
 
