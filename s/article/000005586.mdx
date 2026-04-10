@@ -66,18 +66,21 @@ After you have [started your Oracle integration](#start-and-manage-your-oracle-i
 
 <Warning>**Important:** Although the Oracle service account can be changed later, you must take care when switching the associated service account, as there is potential for DataSet and ETL remapping and Domo user access interference.</Warning>
 
-<Warning>**Important:** Three levels of Oracle-Domo architecture exist. This means that a many-to-one relationship can exist between Oracle service accounts, as defined by Domo and the Oracle instance, and multiple Oracle integrations can also make use of a single service account. The three levels of Oracle-Domo architecture are:</Warning>
+<Warning>**Important:** Three levels of Oracle-Domo architecture exist. This means that a many-to-one relationship can exist between Oracle service accounts, as defined by Domo and the Oracle instance, and multiple Oracle integrations can also make use of a single service account. The three levels of Oracle-Domo architecture are:
 
 - **Oracle instances**, which exist independently of Domo.
 - **Oracle service accounts**, which connect to the Oracle instance from inside Domo.
 - **Oracle integrations**, which use the service account inside Domo and add a layer of settings that specify connections between Oracle tables and Domo DataSets, define caching behavior, and determine write-back enablement.
+</Warning>
 
+<Tip>
 **Best Practices:**
 
 You can create multiple service accounts in Domo referencing the same Oracle instance to delineate functional differences.
 
 - **Example A:** You want to manage user access to two Oracle integrations separately.
 - **Example B:** You want to configure separate settings for caching TTL while preserving a shared definition for Domo user access.
+</Tip>
 
 ### Configure Writeback Support for Oracle Cloud (Beta)
 
