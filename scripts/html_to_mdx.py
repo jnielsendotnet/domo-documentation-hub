@@ -80,12 +80,19 @@ LANG_ARTICLE_PREFIX: dict[str, str] = {
 }
 
 # Callout label → (MDX component name, bold label displayed inside component)
+# English labels are matched case-insensitively; Japanese labels are exact-match
+# (Japanese has no concept of letter case).
 CALLOUT_MAP: dict[str, tuple[str, str]] = {
+    # English
     "note": ("Note", "Note"),
     "important": ("Warning", "Important"),
     "warning": ("Warning", "Warning"),
     "caution": ("Warning", "Important"),
     "tip": ("Tip", "Tip"),
+    # Japanese — preserve the original label text inside the component
+    "注記": ("Note", "注記"),
+    "重要": ("Warning", "重要"),
+    "ヒント": ("Tip", "ヒント"),
 }
 
 
@@ -267,12 +274,17 @@ def _restore_images(
     text: str,
     image_registry: dict[str, dict[str, str]],
     image_local_map: dict[str, str],
+    image_base_path: str = "/images/kb",
 ) -> str:
     """
     Replace __DOMO_IMG_N__ placeholders with MDX image components.
 
     image_local_map maps Salesforce URL → local filename (e.g. '0EMVu000.jpg').
     Both raw (&) and HTML-encoded (&amp;) forms of the URL are tried.
+
+    image_base_path controls the repo-relative directory prefix embedded in the
+    MDX src attributes.  Defaults to '/images/kb' (English); localized articles
+    pass their language-specific subdirectory, e.g. '/images/kb/ja'.
     """
     for key, info in image_registry.items():
         src = info["src"]
@@ -282,7 +294,7 @@ def _restore_images(
         )
 
         if local_name:
-            img_path = f"/images/kb/{local_name}"
+            img_path = f"{image_base_path}/{local_name}"
             if _is_inline_icon(
                 info["width"], info["height"], info.get("context_inline", False)
             ):
@@ -319,12 +331,15 @@ def _convert_callouts(text: str) -> str:
         component, display = CALLOUT_MAP.get(raw_label.lower(), ("Note", raw_label))
         return f"\n<{component}>**{display}:** {body}</{component}>\n"
 
-    # Match **Label:** followed by the rest of the paragraph
+    # Match **Label:** followed by the rest of the paragraph.
+    # English labels are matched case-insensitively (re.IGNORECASE).
+    # Japanese labels (注記, 重要, ヒント) are included as literal alternatives;
+    # case-insensitivity is harmless for CJK characters.
     pattern = (
-        r"\*\*(Note|Important|Warning|Caution|Tip):\*\*"  # bold label
-        r"\s*"                                              # optional whitespace
-        r"(.+?)"                                            # callout body (lazy)
-        r"(?=\n\n|\n<|\Z)"                                  # until blank line, tag, or EOF
+        r"\*\*(Note|Important|Warning|Caution|Tip|注記|重要|ヒント):\*\*"  # bold label
+        r"\s*"                                                               # optional whitespace
+        r"(.+?)"                                                             # callout body (lazy)
+        r"(?=\n\n|\n<|\Z)"                                                   # until blank line, tag, or EOF
     )
     return re.sub(pattern, _replace, text, flags=re.IGNORECASE | re.DOTALL)
 
@@ -422,6 +437,7 @@ def html_to_mdx(
     title: str,
     image_local_map: dict[str, str],
     language: str = "en_US",
+    image_base_path: str = "/images/kb",
 ) -> str:
     """
     Convert a Salesforce Knowledge HTML body to a complete Domo MDX file.
@@ -433,6 +449,9 @@ def html_to_mdx(
                           SalesforceImageDownloader.download_all().
         language:         CSV language code ("en_US", "ja", "de", "fr", "es").
                           Controls the article URL prefix used in internal links.
+        image_base_path:  Repo-relative directory prefix for image src attributes.
+                          Defaults to "/images/kb" (English).  Localized languages
+                          pass their subdirectory, e.g. "/images/kb/ja".
 
     Returns:
         Complete MDX string ready to write to the appropriate language directory.
@@ -459,7 +478,7 @@ def html_to_mdx(
     md = converter.convert(html)
 
     # Apply post-processing in dependency order
-    md = _restore_images(md, converter._images, image_local_map)
+    md = _restore_images(md, converter._images, image_local_map, image_base_path)
     md = _convert_callouts(md)
     md = _convert_faq(md)
 

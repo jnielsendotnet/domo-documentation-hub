@@ -64,32 +64,43 @@ from pathlib import Path
 # ---------------------------------------------------------------------------
 
 REPO_ROOT = Path(__file__).parent.parent
-IMAGES_DIR = REPO_ROOT / "images" / "kb"
 LOG_DIR = REPO_ROOT / "scripts" / "articleUpdateMigration"
 
 CSV_GLOB = "*CURRENT* Knowledge Article Mod 1Aug2025 - 13Feb2026.csv"
 
-# Language code → article directory (relative to repo root) + display label.
-# Add new languages here to extend support.
+# Language code → per-language configuration.
+# images_dir:      where downloaded images are saved on disk
+# image_base_path: repo-relative URL prefix embedded in MDX src attributes
+# articles_dir:    where .mdx files live
 LANGUAGE_CONFIG: dict[str, dict] = {
     "en_US": {
-        "articles_dir": REPO_ROOT / "s" / "article",
+        "articles_dir":   REPO_ROOT / "s" / "article",
+        "images_dir":     REPO_ROOT / "images" / "kb",
+        "image_base_path": "/images/kb",
         "display": "English (en_US)",
     },
     "ja": {
-        "articles_dir": REPO_ROOT / "ja" / "s" / "article",
+        "articles_dir":   REPO_ROOT / "ja" / "s" / "article",
+        "images_dir":     REPO_ROOT / "images" / "kb" / "ja",
+        "image_base_path": "/images/kb/ja",
         "display": "Japanese (ja)",
     },
     "de": {
-        "articles_dir": REPO_ROOT / "de" / "s" / "article",
+        "articles_dir":   REPO_ROOT / "de" / "s" / "article",
+        "images_dir":     REPO_ROOT / "images" / "kb" / "de",
+        "image_base_path": "/images/kb/de",
         "display": "German (de)",
     },
     "fr": {
-        "articles_dir": REPO_ROOT / "fr" / "s" / "article",
+        "articles_dir":   REPO_ROOT / "fr" / "s" / "article",
+        "images_dir":     REPO_ROOT / "images" / "kb" / "fr",
+        "image_base_path": "/images/kb/fr",
         "display": "French (fr)",
     },
     "es": {
-        "articles_dir": REPO_ROOT / "es" / "s" / "article",
+        "articles_dir":   REPO_ROOT / "es" / "s" / "article",
+        "images_dir":     REPO_ROOT / "images" / "kb" / "es",
+        "image_base_path": "/images/kb/es",
         "display": "Spanish (es)",
     },
 }
@@ -262,12 +273,15 @@ def process_article(
     downloader,            # SalesforceImageDownloader | None
     skip_images: bool,
     language: str,
+    image_base_path: str = "/images/kb",
 ) -> str | None:
     """
     Download images (if needed) and convert HTML → MDX for one article.
 
     Returns the MDX string on success, None on failure.
     The `language` parameter controls the internal link prefix written into the MDX.
+    The `image_base_path` parameter controls the repo-relative directory prefix
+    embedded in MDX image src attributes (e.g. '/images/kb/ja' for Japanese).
     """
     from html_to_mdx import html_to_mdx  # local import to avoid module-level circularity
 
@@ -290,7 +304,11 @@ def process_article(
         log.info("    Skipping %d image(s) (--skip-images)", len(image_urls))
 
     try:
-        return html_to_mdx(html, title, image_local_map, language=language)
+        return html_to_mdx(
+            html, title, image_local_map,
+            language=language,
+            image_base_path=image_base_path,
+        )
     except Exception as exc:
         log.error(
             "    Conversion failed for [%s] %s: %s", article_id, title[:50], exc
@@ -306,16 +324,28 @@ def run_language(
     lang: str,
     rows: list[dict[str, str]],
     articles_dir: Path,
+    images_dir: Path,
+    image_base_path: str,
     action: str,
-    downloader,
+    sid: str | None,
     skip_images: bool,
     limit: int | None,
     dry_run: bool,
 ) -> dict[str, int]:
     """
     Execute update/archive/create operations for one language.
-    Returns a stats dict: {updated, created, archived, failed}.
+    Returns a stats dict: {updated, skipped, created, archived, failed, created_ids, changed_ids}.
+
+    A per-language SalesforceImageDownloader is created here so each language
+    saves its images to the correct subdirectory (e.g. images/kb/ja for Japanese).
     """
+    # Create a language-specific image downloader
+    downloader = None
+    if not skip_images and sid:
+        from image_downloader import SalesforceImageDownloader
+        images_dir.mkdir(parents=True, exist_ok=True)
+        downloader = SalesforceImageDownloader(sid, images_dir)
+
     repo_ids = get_repo_article_ids(articles_dir)
     categories = categorize_articles(rows, repo_ids, lang)
 
@@ -329,7 +359,7 @@ def run_language(
         _print_dry_run_details(categories, limit)
         return {"updated": 0, "created": 0, "archived": 0, "failed": 0}
 
-    stats = {"updated": 0, "created": 0, "archived": 0, "failed": 0}
+    stats = {"updated": 0, "skipped": 0, "created": 0, "archived": 0, "failed": 0, "created_ids": [], "changed_ids": []}
 
     # ARCHIVE
     if action in ("all", "archive"):
@@ -355,10 +385,16 @@ def run_language(
         for item in upd_list:
             article_id, title = item["id"], item["row"]["TITLE"]
             log.info("  UPDATE [%s] %s", article_id, title[:60])
-            mdx = process_article(article_id, item["row"], downloader, skip_images, lang)
+            mdx = process_article(article_id, item["row"], downloader, skip_images, lang, image_base_path)
             if mdx:
-                _write_mdx(articles_dir / f"{article_id}.mdx", mdx)
-                stats["updated"] += 1
+                filepath = articles_dir / f"{article_id}.mdx"
+                if _content_differs(filepath, mdx):
+                    _write_mdx(filepath, mdx)
+                    stats["updated"] += 1
+                    stats["changed_ids"].append(article_id)
+                else:
+                    log.info("    No change — skipping %s", filepath.name)
+                    stats["skipped"] += 1
             else:
                 stats["failed"] += 1
 
@@ -370,12 +406,16 @@ def run_language(
         for item in cre_list:
             article_id, title = item["id"], item["row"]["TITLE"]
             log.info("  CREATE [%s] %s", article_id, title[:60])
-            mdx = process_article(article_id, item["row"], downloader, skip_images, lang)
+            mdx = process_article(article_id, item["row"], downloader, skip_images, lang, image_base_path)
             if mdx:
                 _write_mdx(articles_dir / f"{article_id}.mdx", mdx)
                 stats["created"] += 1
+                stats["created_ids"].append(article_id)
             else:
                 stats["failed"] += 1
+
+    if downloader:
+        downloader.report()
 
     return stats
 
@@ -492,42 +532,44 @@ def main() -> None:
         log.info("\nDRY RUN — no files will be written or deleted.")
 
     # ------------------------------------------------------------------
-    # Initialise image downloader (shared across all languages)
+    # Image download setup
+    # Each language gets its own downloader pointed at its own images_dir.
+    # Warn once here if no SID was provided.
     # ------------------------------------------------------------------
-    downloader = None
-    if not args.skip_images:
-        if args.sid:
-            from image_downloader import SalesforceImageDownloader
-            downloader = SalesforceImageDownloader(args.sid, IMAGES_DIR)
-            log.info(
-                "Image downloader initialised (SID provided). "
-                "Images are shared across all languages."
-            )
-        else:
-            log.warning(
-                "No --sid provided. Images will NOT be downloaded.  "
-                "Pass --skip-images to suppress this warning, or provide --sid."
-            )
+    if not args.skip_images and not args.sid:
+        log.warning(
+            "No --sid provided. Images will NOT be downloaded.  "
+            "Pass --skip-images to suppress this warning, or provide --sid."
+        )
 
     # ------------------------------------------------------------------
     # Process each requested language
     # ------------------------------------------------------------------
-    total_stats = {"updated": 0, "created": 0, "archived": 0, "failed": 0}
+    total_stats = {"updated": 0, "skipped": 0, "created": 0, "archived": 0, "failed": 0}
+    # English articles created this run — each needs /add-to-nav in docs.json
+    created_en_articles: list[tuple[str, str]] = []  # [(article_id, title), ...]
+    # English articles whose content actually changed — candidates for /update-kb-article review
+    changed_en_articles: list[tuple[str, str]] = []  # [(article_id, title), ...]
 
     for lang in args.languages:
         config = LANGUAGE_CONFIG[lang]
         articles_dir = config["articles_dir"]
+        images_dir = config["images_dir"]
+        image_base_path = config["image_base_path"]
 
         log.info("")
         log.info("=== %s ===", config["display"])
-        log.info("  Directory: %s", articles_dir.relative_to(REPO_ROOT))
+        log.info("  Articles:  %s", articles_dir.relative_to(REPO_ROOT))
+        log.info("  Images:    %s", images_dir.relative_to(REPO_ROOT))
 
         lang_stats = run_language(
             lang=lang,
             rows=rows,
             articles_dir=articles_dir,
+            images_dir=images_dir,
+            image_base_path=image_base_path,
             action=args.action,
-            downloader=downloader,
+            sid=args.sid,
             skip_images=args.skip_images,
             limit=args.limit,
             dry_run=args.dry_run,
@@ -535,15 +577,29 @@ def main() -> None:
 
         if not args.dry_run:
             log.info(
-                "  %s done: updated=%d created=%d archived=%d failed=%d",
+                "  %s done: updated=%d  skipped=%d  created=%d  archived=%d  failed=%d",
                 lang,
                 lang_stats["updated"],
+                lang_stats["skipped"],
                 lang_stats["created"],
                 lang_stats["archived"],
                 lang_stats["failed"],
             )
             for k in total_stats:
                 total_stats[k] += lang_stats[k]
+            # Collect newly created / actually changed English articles for the prompts below
+            if lang == "en_US":
+                lang_rows_by_id = {
+                    normalize_urlname(r["URLNAME"]): r
+                    for r in rows
+                    if r.get("LANGUAGE") == "en_US"
+                }
+                for aid in lang_stats.get("created_ids", []):
+                    title = lang_rows_by_id.get(aid, {}).get("TITLE", aid)
+                    created_en_articles.append((aid, title))
+                for aid in lang_stats.get("changed_ids", []):
+                    title = lang_rows_by_id.get(aid, {}).get("TITLE", aid)
+                    changed_en_articles.append((aid, title))
 
     # ------------------------------------------------------------------
     # Final summary
@@ -551,13 +607,11 @@ def main() -> None:
     if not args.dry_run:
         log.info("")
         log.info("=== TOTAL ACROSS ALL LANGUAGES ===")
-        log.info("  Updated:  %d", total_stats["updated"])
+        log.info("  Updated:  %d  (content changed and rewritten)", total_stats["updated"])
+        log.info("  Skipped:  %d  (content unchanged — file not touched)", total_stats["skipped"])
         log.info("  Created:  %d", total_stats["created"])
         log.info("  Archived: %d", total_stats["archived"])
         log.info("  Failed:   %d", total_stats["failed"])
-
-        if downloader:
-            downloader.report()
 
         log.info("Log written to: %s", _log_path)
 
@@ -567,15 +621,53 @@ def main() -> None:
                 "NEXT STEPS:\n"
                 "  1. Review TODO comments in converted files (missing images,\n"
                 "     headings that may need imperative-mood edits, etc.).\n"
-                "  2. Add new English articles to docs.json navigation.\n"
-                "     (Localized articles typically don't need separate nav entries.)\n"
+                "  2. Add new English articles to docs.json navigation using the\n"
+                "     /add-to-nav skill in Claude Code — run it for each article\n"
+                "     listed below. Localized articles don't need separate nav entries.\n"
                 "  3. Commit: git add s/ ja/ de/ fr/ es/ images/kb/ && git commit"
             )
+
+        if changed_en_articles:
+            log.info("")
+            log.info(
+                "English articles with content changes (%d) — review each with /update-kb-article:",
+                len(changed_en_articles),
+            )
+            for aid, title in changed_en_articles:
+                log.info("    s/article/%s  —  %s", aid, title[:60])
+
+        if created_en_articles:
+            log.info("")
+            log.info("New English articles requiring /add-to-nav (%d):", len(created_en_articles))
+            for aid, title in created_en_articles:
+                log.info("    s/article/%s  —  %s", aid, title[:60])
 
 
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
+
+def _content_differs(existing_path: Path, new_content: str) -> bool:
+    """
+    Return True if new_content differs meaningfully from the file at existing_path.
+
+    Normalises trailing whitespace and line endings before comparing so that
+    cosmetic-only differences (e.g. a trailing newline added by an editor) do
+    not trigger an unnecessary overwrite and a misleading "updated" count.
+    Returns True (differs) if the file doesn't exist yet.
+    """
+    if not existing_path.exists():
+        return True
+    try:
+        existing = existing_path.read_text(encoding="utf-8")
+    except OSError:
+        return True
+
+    def _normalise(text: str) -> str:
+        return "\n".join(line.rstrip() for line in text.splitlines()).strip()
+
+    return _normalise(existing) != _normalise(new_content)
+
 
 def _write_mdx(path: Path, content: str) -> None:
     """Write MDX content to a file, creating parent directories if needed."""
