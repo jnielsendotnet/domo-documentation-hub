@@ -153,6 +153,9 @@ class SalesforceImageDownloader:
             resp.raise_for_status()
 
             content_type = resp.headers.get("Content-Type", "image/jpeg")
+            if "text/html" in content_type:
+                self._failures.append((canonical, "Got HTML response instead of image — SID may be invalid for domo.file.force.com (visit a file URL in your browser first, then copy the sid cookie from that domain)"))
+                return None
             filename = stable_filename(canonical, content_type)
             filepath = self.images_dir / filename
 
