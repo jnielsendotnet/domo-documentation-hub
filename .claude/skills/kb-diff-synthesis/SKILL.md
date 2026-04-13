@@ -23,12 +23,12 @@ When given two documents, perform a content-only diff. Structure your diff outpu
    - **Renamed content** (fields or reports that have been renamed)
    - **Wording/description changes** (minor rewording, punctuation, numerals vs. words)
    - **Link changes** (absolute vs. relative URLs, changed destinations)
-   - **Formatting-only changes** (HTML vs. Markdown tables, bullet style, heading level) — note these but flag them as non-content
+   - **Formatting-only changes** (HTML vs. Markdown tables, bullet style, heading level, FAQ structure) — note these but flag them as non-content
 3. **Use comparison tables** where multiple items have changed, e.g. for report lists or endpoint tables:
    | Doc X (old) | Doc Y (new) |
    | --- | --- |
    | Old report name | New report name |
-4. **Flag ambiguous cases** — e.g. if a screenshot appears to be a full-page image rather than an inline icon, note that it may need special handling.
+4. **Flag ambiguous cases** — e.g. if a screenshot appears to be a full-page image rather than an inline icon, note that it may need special handling. If a FAQ section uses plain headings or any format other than `<AccordionGroup>`, flag it as a formatting issue requiring correction in synthesis.
 
 ### Step 2 — Synthesis
 When asked to synthesize the two documents into a new version:
@@ -49,6 +49,37 @@ When asked to synthesize the two documents into a new version:
    - `<Note>` or other MDX component usage
 5. **Preserve image embeds** using the format and paths from the new document.
 6. **Do not include** verbose `title` attributes on links unless present in the new document.
+7. **Always convert FAQ sections to `<AccordionGroup>` format** (see FAQ Formatting below), regardless of what format either document uses.
+
+## FAQ Formatting
+
+FAQ sections must always use the `<AccordionGroup>` / `<Accordion>` component structure. This is a hard requirement — plain `####` headings, bold questions, or any other FAQ format must be converted during synthesis.
+
+### Required structure:
+
+```mdx
+<AccordionGroup>
+
+<Accordion title="Frequently asked question?">
+Frequently asked answer.
+</Accordion>
+
+<Accordion title="Frequently asked question?">
+Frequently asked answer.
+</Accordion>
+
+</AccordionGroup>
+```
+
+### Placement:
+The FAQ section belongs at the bottom of the article, above only Troubleshoot or Related Articles (if present).
+
+### Conversion rules:
+- The question text goes in the `title` attribute of `<Accordion>`. Do not include a question mark in the component tag itself — put it inside the title string as normal punctuation.
+- The answer content goes inside the `<Accordion>` body. Preserve all formatting (lists, code blocks, links, callouts) from the source answer.
+- If either document uses `####` headings or bolded questions for FAQs, treat the heading/question text as the `title` and the following content as the body.
+- If neither document has a FAQ section but one is being added, follow this structure from the start.
+- During diffing: if one document uses `<AccordionGroup>` and the other does not, flag it as a formatting-only change and note it will be normalized to `<AccordionGroup>` in synthesis.
 
 ## Table Formatting Rules
 
@@ -145,8 +176,9 @@ If something appears in the old document but not the new document, omit it from 
 Always use the relative paths from the new document (e.g. `/s/article/360042926274`) rather than the absolute URLs from the old document (e.g. `https://domo-support.domo.com/s/article/360042926274?language=en_US`).
 
 ### FAQ sections
-- If the old document uses `<AccordionGroup>/<Accordion>` components and the new document uses plain `####` headings, use whichever format the new document uses.
+- **Always output FAQs using `<AccordionGroup>` / `<Accordion>` components**, regardless of the format used in either source document. See FAQ Formatting above.
 - If the new document removes content from a FAQ entry (e.g. an embedded video), omit that content from the synthesis.
+- If both documents have FAQ content but structure it differently, merge all unique questions into a single `<AccordionGroup>`, applying all content updates from the new document.
 
 ### Deprecation banners
 If the new document adds a top-level deprecation notice (e.g. `<Note>**Note:** **This KB has been deprecated.**</Note>`), include it immediately after the frontmatter, before the first section.
