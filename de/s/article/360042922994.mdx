@@ -8,7 +8,9 @@ Ansicht der Seitenzusammenfassung
 
 Sie können mit SQL-Abfragen DataFlows erstellen. Dies ist schwieriger als die Verwendung von Magic ETL, bietet jedoch eine größere Auswahl an Optionen. Informationen über das Erstellen eines Magic ETL-DataFlow finden Sie unter [Magic ETL-DataFlows](/s/topic/0TO5w000000ZanvGAC).
 
+<Warning>
 **Wichtig:**Eingabe-DataSets in einem DataFlow können nicht durch PDP-Richtlinien eingeschränkt werden – alle verfügbaren Zeilen *müssen* durch den DataFlow geführt werden. Deswegen müssen PDP-Richtlinien auf die Ausgabe-DataSets angewendet werden, die vom DataFlow erzeugt werden.
+</Warning>
 
 Wenn Sie einen DataFlow anhand eines Eingabe-DataSet mit vorhandenen PDP-Richtlinien erstellen, wird der DataFlow unterbrochen, es sei denn, es wird mindestens eines der folgenden Kriterien erfüllt:
 
