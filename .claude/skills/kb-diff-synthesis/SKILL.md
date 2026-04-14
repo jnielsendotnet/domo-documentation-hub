@@ -166,6 +166,8 @@ Always use the inline `<img>` format exactly as written in the new document. Do 
 
 If the new document contains an inline image tag, copy it as-is, including the exact `src` path, `width`, `height`, and style values. Do not convert it to a `<Frame>` or any other format.
 
+**Always use the `/images/kb/` filepath from the new document.** Never carry over an image path from the old document. If the old and new documents reference different paths for what appears to be the same image, the new document's path wins without exception.
+
 **How to tell the difference**: If the image is referenced inline within a sentence or table cell alongside text (e.g. "Click the <img/> icon"), use the inline format. If the image stands alone as a visual reference between paragraphs or steps, use `<Frame>`. If ambiguous, flag it for the user.
 
 ## Common Patterns and Edge Cases
