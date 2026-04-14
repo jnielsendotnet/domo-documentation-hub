@@ -1,26 +1,30 @@
 ---
-title: "Snowflake minimum permissions for Domo"
+title: "Snowflake Minimum Permissions for Domo"
 ---
 
 
 
-## Intro 
+## Intro
 
 This article describes the minimum Snowflake permissions required to connect Domo to Snowflake, including read-only, writeback, and Native Transform (Pushdown) configurations.
 
-## Recommended permission architecture
-
 Use two logical permission scopes:
 
-- **Source data (Read-only):** Grant Domo read-only privileges on the databases, schemas, and tables it needs to query.
-- **Domo-managed location (Writeback + Native Transform):** Because the Domo service account needs permissions to create and manage tables, these elevated privileges should be tightly scoped. To limit the scope of any potential issue, create a dedicated database and schema that Domo can use exclusively for write operations and intermediate objects. This location hosts:
+- **Source data (read-only):** Grant Domo read-only privileges on the databases, schemas, and tables it needs to query.
+- **Domo-managed location (writeback + Native Transform):** Because the Domo service account needs permissions to create and manage tables, scope these elevated privileges tightly. To limit the scope of any potential issue, create a dedicated database and schema that Domo can use exclusively for write operations and intermediate objects. This location hosts:
   - Writeback tables
   - Utility objects (such as file formats)
   - Native Transform intermediate objects
 
-## Before you start
 
-Before you start, decide on the following and substitute the placeholder values in the SQL examples below:
+
+---
+
+
+
+## Prerequisites 
+
+Before you begin, decide on the following and substitute the placeholder values in the SQL examples below:
 
 - The warehouse Domo uses for compute (`MY_WAREHOUSE`)
 - The source databases, schemas, and tables Domo should read (`MY_READ_DB`, `MY_READ_DB.PUBLIC`, `MY_READ_DB.PUBLIC.MY_TABLE`)
@@ -28,7 +32,42 @@ Before you start, decide on the following and substitute the placeholder values 
 - The schema within that database where Domo writes tables (`WRITEBACK_SCHEMA`). Note: `DOMO_UTIL` is a fixed utility schema name used for file formats and does not need to be substituted.
 - The service account Domo authenticates with (`MY_SERVICE_ACCOUNT`)
 
-## Read-only setup
+The following tables list all permissions required by each Domo role, the object each permission applies to, and its purpose.
+
+### Read-Only Permissions
+
+Domo requires these permissions to query data from Snowflake.
+
+| Permission | Object type | Purpose |
+|---|---|---|
+| `USAGE` | Warehouse | Allows Domo to run queries using the specified warehouse |
+| `USAGE` | Database | Allows the role to see and reference the database |
+| `USAGE` | Schema | Allows the role to see and reference schemas within the database |
+| `SELECT` | Table / View | Allows Domo to read data from tables or views |
+
+### Writeback Permissions
+
+Domo requires these permissions when writing data back to Snowflake. Grant them only on Domo-managed schemas or databases.
+
+| Permission | Object type | Purpose |
+|---|---|---|
+| `USAGE` | Database | Allows the role to see and reference the writeback database |
+| `USAGE` | Schema | Allows the role to see and reference the writeback schema |
+| `CREATE TABLE` | Schema | Allows Domo to create and manage writeback tables in the target schema |
+| `CREATE FILE FORMAT` | Schema | Allows creation of file formats used during writeback operations — grant only on `DOMO_UTIL` |
+
+### Native Transform permissions
+
+Native Transform executes transformation logic directly in Snowflake and requires the following additional permissions.
+
+| Permission | Object type | Purpose |
+|---|---|---|
+| `CREATE SCHEMA` | Database | Allows Domo to create temporary schemas used for intermediate transform operations |
+
+
+
+
+## Set Up Read-Only Permissions
 
 1. Create the role.
    ```sql
@@ -61,9 +100,11 @@ Before you start, decide on the following and substitute the placeholder values 
    GRANT SELECT ON FUTURE TABLES IN SCHEMA MY_READ_DB.PUBLIC TO ROLE DOMO_READONLY;
    ```
 
-## Writeback setup
 
-> **Important:** Scope writeback permissions to a dedicated Domo-managed database and schema to limit the scope of elevated privileges.
+
+## Set Up Writeback Permissions
+
+<Warning>**Important:** Scope writeback permissions to a dedicated Domo-managed database and schema to limit the scope of elevated privileges.</Warning>
 
 1. Create the writeback role.
    ```sql
@@ -104,45 +145,13 @@ Before you start, decide on the following and substitute the placeholder values 
    GRANT ROLE DOMO_WRITEBACK TO USER MY_SERVICE_ACCOUNT;
    ```
 
-## Native Transform setup
 
-Native Transform (also called Pushdown) extends the writeback configuration. It creates and drops temporary schemas in Snowflake during execution, so the `DOMO_WRITEBACK` role also requires `CREATE SCHEMA` on the target database. Complete the [Writeback setup](#writeback-setup) before proceeding.
+
+## Set Up Native Transform Permissions
+
+Native Transform (also called Pushdown) extends the writeback configuration. It creates and drops temporary schemas in Snowflake during execution, so the `DOMO_WRITEBACK` role also requires `CREATE SCHEMA` on the target database. Complete [Set Up Writeback Permissions](#set-up-writeback-permissions) before proceeding.
 
 1. (Conditional) If you use Native Transform, grant schema creation on the Domo-managed database.
    ```sql
    GRANT CREATE SCHEMA ON DATABASE MY_WRITEBACK_DB TO ROLE DOMO_WRITEBACK;
    ```
-
-## Permission summary
-
-The following tables list all permissions required by each Domo role, the object each permission applies to, and its purpose.
-
-### Read-only permissions
-
-Domo requires these permissions to query data from Snowflake.
-
-| Permission | Object type | Purpose |
-|---|---|---|
-| `USAGE` | Warehouse | Allows Domo to run queries using the specified warehouse |
-| `USAGE` | Database | Allows the role to see and reference the database |
-| `USAGE` | Schema | Allows the role to see and reference schemas within the database |
-| `SELECT` | Table / View | Allows Domo to read data from tables or views |
-
-### Writeback permissions
-
-Domo requires these permissions when writing data back to Snowflake. Grant them only on Domo-managed schemas or databases.
-
-| Permission | Object type | Purpose |
-|---|---|---|
-| `USAGE` | Database | Allows the role to see and reference the writeback database |
-| `USAGE` | Schema | Allows the role to see and reference the writeback schema |
-| `CREATE TABLE` | Schema | Allows Domo to create and manage writeback tables in the target schema |
-| `CREATE FILE FORMAT` | Schema | Allows creation of file formats used during writeback operations — grant only on `DOMO_UTIL` |
-
-### Native Transform permissions
-
-Native Transform executes transformation logic directly in Snowflake and requires the following additional permissions.
-
-| Permission | Object type | Purpose |
-|---|---|---|
-| `CREATE SCHEMA` | Database | Allows Domo to create temporary schemas used for intermediate transform operations |
