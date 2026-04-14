@@ -1,7 +1,7 @@
 # SKILL: Diff and Synthesize Documentation Versions
 
 ## Overview
-This skill compares two versions of a documentation file (old and new), identifies content differences, and produces a synthesized output that applies all updates from the new version while preserving HTML table formatting throughout.
+This skill compares two versions of a documentation file (old and new), identifies content differences, and produces a synthesized output that applies all updates from the new version while preserving HTML table formatting only where required (nested tables).
 
 ## Trigger Conditions
 Use this skill when the user:
@@ -34,22 +34,21 @@ When given two documents, perform a content-only diff. Structure your diff outpu
 When asked to synthesize the two documents into a new version:
 
 1. **Use the new document as the base** for all content decisions.
-2. **Preserve HTML table formatting** from the old document's structure, even if the new document uses Markdown tables. This is a hard requirement — all tables in the output must be written in HTML.
-3. **Apply all content updates from the new document**, including:
+2. **Apply all content updates from the new document**, including:
    - New or renamed reports/fields
    - Deprecated labels (e.g. appending "(Deprecated)" to report names)
    - New sections or notices (e.g. deprecation banners)
    - Updated field descriptions
    - Updated link paths (use the new document's relative paths, not the old document's absolute URLs)
    - Removed content (do not include items present only in the old document)
-4. **Preserve non-table formatting conventions from the new document**, including:
+3. **Preserve non-table formatting conventions from the new document**, including:
    - Bullet point style (`-` not `*`)
    - Heading levels
    - Horizontal rules
    - `<Note>` or other MDX component usage
-5. **Preserve image embeds** using the format and paths from the new document.
-6. **Do not include** verbose `title` attributes on links unless present in the new document.
-7. **Always convert FAQ sections to `<AccordionGroup>` format** (see FAQ Formatting below), regardless of what format either document uses.
+4. **Preserve image embeds** using the format and paths from the new document.
+5. **Do not include** verbose `title` attributes on links unless present in the new document.
+6. **Always convert FAQ sections to `<AccordionGroup>` format** (see FAQ Formatting below), regardless of what format either document uses.
 
 ## FAQ Formatting
 
@@ -83,9 +82,35 @@ The FAQ section belongs at the bottom of the article, above only Troubleshoot or
 
 ## Table Formatting Rules
 
-All tables must be written in HTML. Follow this structure:
+**Default: use Markdown tables with evenly spaced pipe-bar columns.** Only use HTML for tables that contain a nested table inside them — and in that case, only the nested table itself needs to be written in HTML; the outer table may remain Markdown unless it too is nested inside another table.
 
-### Standard two-column reference table:
+### When to use Markdown (default)
+
+All standard tables — reference tables, field/description tables, report lists without nesting — must be written as Markdown with aligned pipe-bar columns:
+
+```markdown
+| Column Header 1      | Column Header 2                        |
+| -------------------- | -------------------------------------- |
+| Row label            | Row description                        |
+| Another label        | Another description                    |
+```
+
+Keep columns evenly spaced so the raw source is readable.
+
+### When to use HTML (nested tables only)
+
+If a table cell contains a nested table, write that nested table in HTML. The outer/parent table may stay in Markdown unless it is itself nested inside another table.
+
+**Nested table written in HTML (inside a Markdown table cell):**
+
+```markdown
+| Field   | Details                                                                                                           |
+| ------- | ----------------------------------------------------------------------------------------------------------------- |
+| Report  | Select the report you want to run. The following reports are available:<br/><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p>Report Name</p></td><td colspan="1" rowspan="1"><p>Description</p></td></tr></tbody></table> |
+```
+
+**Fully HTML table (only required when the outer table is itself nested):**
+
 ```html
 <table border="1" cellpadding="1" cellspacing="1">
   <thead>
@@ -103,30 +128,16 @@ All tables must be written in HTML. Follow this structure:
 </table>
 ```
 
-### Nested table (e.g. a report list inside a Details Pane table):
-```html
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>...</thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1">
-        <p>Select the report you want to run. The following reports are available:</p>
-        <table border="1" cellpadding="1" cellspacing="1">
-          <tbody>
-            <tr>
-              <td colspan="1" rowspan="1"><p>Report Name</p></td>
-              <td colspan="1" rowspan="1"><p>Description</p></td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-```
+### HTML table conventions (when HTML is required)
+- Wrap all cell text content in `<p>` tags
+- Use `<b>` for bold text inside cells (not Markdown `**`)
+- Use `<a href="...">link text</a>` for links inside cells
+- Use `<ul><li>...</li></ul>` for lists inside cells
+- Use `<span class="mt-font-courier-new">...</span>` for inline code inside cells
 
 ### Info/metadata table (no header row, left column is bold label):
+Use HTML only if this table contains a nested table. Otherwise, use Markdown. If HTML is needed:
+
 ```html
 <table class="mt-responsive-table">
   <tbody>
@@ -138,13 +149,6 @@ All tables must be written in HTML. Follow this structure:
 </table>
 ```
 
-### Key rules:
-- Wrap all cell text content in `<p>` tags
-- Use `<b>` for bold text inside cells (not Markdown `**`)
-- Use `<a href="...">link text</a>` for links inside cells
-- Use `<ul><li>...</li></ul>` for lists inside cells
-- Use `<span class="mt-font-courier-new">...</span>` for inline code inside cells
-
 ## Image Embed Handling
 
 ### Full-page screenshots (e.g. UI screenshots, diagrams):
@@ -154,10 +158,13 @@ Leave these as `<Frame>` tags:
 ```
 
 ### Inline icon images (small UI icons referenced mid-sentence):
-Convert to inline `<img>` tags:
+Always use the inline `<img>` format exactly as written in the new document. Do not invent dimensions or styles — copy the tag from the new version verbatim. The expected format is:
+
 ```mdx
-<img src="/images/kb/filename.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
+<img src="/images/kb/worksheets-icon-1.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>
 ```
+
+If the new document contains an inline image tag, copy it as-is, including the exact `src` path, `width`, `height`, and style values. Do not convert it to a `<Frame>` or any other format.
 
 **How to tell the difference**: If the image is referenced inline within a sentence or table cell alongside text (e.g. "Click the <img/> icon"), use the inline format. If the image stands alone as a visual reference between paragraphs or steps, use `<Frame>`. If ambiguous, flag it for the user.
 
