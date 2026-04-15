@@ -11,6 +11,33 @@ Usage:
 
 Requirements (Excel output only):
     pip install openpyxl
+
+Run it:
+
+# Default — last 7 days, Excel output in scripts/reports/
+python3 scripts/changelog.py
+
+# Custom window
+python3 scripts/changelog.py --days=14
+
+# CSV instead of Excel
+python3 scripts/changelog.py --csv
+
+# Custom output path
+python scripts/changelog.py --output=~/Desktop/changelog.xlsx
+Output lands in scripts/reports/ as changelog_YYYYMMDD_HHMMSS.xlsx (or .csv).
+
+Columns in the spreadsheet:
+
+Column	Source
+File Name	Git path relative to repo root
+Article Name	title from MDX frontmatter
+DE / ES / FR / JA Article Name	title from matching locale file under de/, es/, etc.
+Changes Made	Semicolon-separated commit subjects that touched the file
+First Created Date	Oldest commit in full git history (follows renames)
+Last Updated Date	Most recent commit
+
+
 """
 
 import csv
@@ -268,15 +295,15 @@ def main() -> None:
         print("No MDX files changed in that window. Nothing to write.")
         sys.exit(0)
 
-    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    date_str = datetime.now().strftime("%Y-%m-%d")
 
     if use_csv or not HAS_OPENPYXL:
         if not HAS_OPENPYXL and not use_csv:
             print("openpyxl not installed — falling back to CSV. Run: pip install openpyxl")
-        out_path = output or REPORTS_DIR / f"changelog_{timestamp}.csv"
+        out_path = output or REPORTS_DIR / f"changelog-{date_str}.csv"
         write_csv(rows, out_path)
     else:
-        out_path = output or REPORTS_DIR / f"changelog_{timestamp}.xlsx"
+        out_path = output or REPORTS_DIR / f"changelog-{date_str}.xlsx"
         write_xlsx(rows, out_path)
 
 
