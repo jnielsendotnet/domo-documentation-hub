@@ -138,6 +138,10 @@ console.log(Domo.env.platform); // Platform (e.g., 'desktop', 'mobile')
 const authenticatedUser = await Domo.get('/domo/environment/v1/');
 ```
 
+### Token Injection
+
+A single `MutationObserver` watches `document.documentElement` with `subtree: true`. For every DOM node added at any depth, it automatically injects the Domo session token (`ryuu_sid`) into relative `href` and `src` attributes. Token is fetched once per batch — you don't need to manage auth manually.
+
 ---
 
 ## API Reference
