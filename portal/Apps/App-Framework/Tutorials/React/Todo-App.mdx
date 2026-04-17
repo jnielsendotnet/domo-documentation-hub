@@ -49,7 +49,7 @@ da new todo-appdb-demo
 cd todo-appdb-demo
 ```
 
-`da new` prompts for a package manager, clones the template, writes your app name into `package.json`, initializes git, and installs dependencies.
+`da new` prompts for a package manager (pick **pnpm** — it's what Domo recommends), clones the template, writes your app name into `package.json`, initializes git, and installs dependencies.
 
 <Tip>
   App names must be lowercase with hyphens only. Capitals, underscores, and periods are rejected.
@@ -67,7 +67,7 @@ The scaffold gives you:
 Add the two runtime dependencies we'll use beyond the scaffold:
 
 ```bash
-yarn add @reduxjs/toolkit react-redux @domoinc/toolkit
+pnpm add @reduxjs/toolkit react-redux @domoinc/toolkit
 ```
 
 ### Step 2: Declare the Todos collection
@@ -120,10 +120,10 @@ Replace `public/manifest.json` with:
 Before local dev can read or write documents, Domo needs to provision the collection and hand you a `proxyId`.
 
 ```bash
-yarn upload
+pnpm upload
 ```
 
-This runs `yarn build` and `domo publish` from the `build/` folder. The output prints a link to the new App Design.
+This runs `pnpm build` and `domo publish` from the `build/` folder. The output prints a link to the new App Design.
 
 Then, in the Domo UI:
 
@@ -287,9 +287,7 @@ export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 ```
 
-#### App slice — user identity
-
-`src/reducers/app/slice.ts`:
+**App slice — user identity.** Create `src/reducers/app/slice.ts`:
 
 ```typescript
 import { AppService } from 'services/app';
@@ -345,9 +343,7 @@ export const { selectUserInfo, selectUserLoading, selectUserError } =
 export default AppSlice.reducer;
 ```
 
-#### Todos slice — CRUD thunks
-
-`src/reducers/todos/slice.ts`:
+**Todos slice — CRUD thunks.** Create `src/reducers/todos/slice.ts`:
 
 ```typescript
 import { AppService } from 'services/app';
@@ -487,11 +483,12 @@ A few patterns to notice:
 
 ---
 
-Each component lives in its own folder with a matching `.module.scss`. We'll show the TypeScript; use whatever styling you prefer — the [GitHub source](https://github.com/DomoApps/basic-react-app-todo-tutorial) has the SCSS if you want to copy it verbatim.
+Each component lives in its own folder under `src/components/` with a matching `.module.scss`. We'll show the TypeScript; grab the SCSS from the [GitHub source](https://github.com/DomoApps/basic-react-app-todo-tutorial).
 
-#### `src/components/UserHeader/UserHeader.tsx`
+**UserHeader** renders the current user's avatar, name, role, and email, with a gradient-initials fallback if the avatar URL 404s.
 
 ```tsx
+// src/components/UserHeader/UserHeader.tsx
 import { FC, useState } from 'react';
 import { useAppSelector } from 'reducers';
 import { selectUserInfo, selectUserLoading } from 'reducers/app/slice';
@@ -542,11 +539,10 @@ export const UserHeader: FC = () => {
 };
 ```
 
-The avatar URL can 404 for users without an uploaded photo — the `onError` handler flips to a gradient fallback with the user's initials.
-
-#### `src/components/TodoForm/TodoForm.tsx`
+**TodoForm** is a simple controlled form that stamps `ownerId` / `ownerName` from the store onto every new todo at submit time.
 
 ```tsx
+// src/components/TodoForm/TodoForm.tsx
 import { FC, FormEvent, useState } from 'react';
 import { useAppDispatch, useAppSelector } from 'reducers';
 import { selectUserInfo } from 'reducers/app/slice';
@@ -619,11 +615,10 @@ export const TodoForm: FC = () => {
 };
 ```
 
-Ownership is stamped at submit time — the form reads `userInfo` from the store and attaches `ownerId` / `ownerName` to every new todo.
-
-#### `src/components/TodoItem/TodoItem.tsx`
+**TodoItem** renders a single row — checkbox, title, owner, due date, and delete button. A priority class on the container drives the colored left border.
 
 ```tsx
+// src/components/TodoItem/TodoItem.tsx
 import { FC } from 'react';
 import { useAppDispatch } from 'reducers';
 import { deleteTodo, toggleTodo } from 'reducers/todos/slice';
@@ -676,9 +671,10 @@ export const TodoItem: FC<Props> = ({ todo }) => {
 };
 ```
 
-#### `src/components/TodoList/TodoList.tsx`
+**TodoList** handles filtering (all / active / completed) and the count header.
 
 ```tsx
+// src/components/TodoList/TodoList.tsx
 import { TodoItem } from 'components/TodoItem/TodoItem';
 import { FC, useState } from 'react';
 import { useAppSelector } from 'reducers';
@@ -739,11 +735,10 @@ export const TodoList: FC = () => {
 };
 ```
 
-#### `src/components/App/App.tsx`
-
-The root component wires everything together: kick off the two initial loads, surface any errors in a banner, and render the header + form + list.
+**App** is the root: it kicks off both initial loads in a `useEffect`, surfaces any error from either slice in a banner, and renders the header, form, and list.
 
 ```tsx
+// src/components/App/App.tsx
 import { TodoForm } from 'components/TodoForm/TodoForm';
 import { TodoList } from 'components/TodoList/TodoList';
 import { UserHeader } from 'components/UserHeader/UserHeader';
@@ -850,7 +845,7 @@ src/
 ---
 
 ```bash
-yarn start
+pnpm start
 ```
 
 The Vite dev server starts on port 3000 (or 3001/3002 if busy). Because `proxyId` is set, `AppDBClient`, `IdentityClient`, and `UserClient` all talk to your real Domo instance — create, toggle, and delete todos and they persist across reloads. Log in as a different user and you'll see your name/avatar in the header and `By <name>` on every new todo.
@@ -860,10 +855,10 @@ The Vite dev server starts on port 3000 (or 3001/3002 if busy). Because `proxyId
 ---
 
 ```bash
-yarn upload
+pnpm upload
 ```
 
-The script runs `yarn build` (which lints, tests, and builds), then `domo publish` from the `build/` folder. The new version becomes the active design for anyone instantiating the app from your Asset Library.
+The script runs `pnpm build` (which lints, tests, and builds), then `domo publish` from the `build/` folder. The new version becomes the active design for anyone instantiating the app from your Asset Library.
 
 ### Next steps
 
