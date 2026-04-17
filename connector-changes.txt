@@ -3,6 +3,67 @@ CSV:     *CURRENT* Knowledge Article Mod 1Aug2025 - 13Feb2026.csv
 Checked: 122 articles matching 'connector'
 Changed: 106 articles with non-image content differences
 
+==============================================================================
+STYLE GUIDE COMPLIANCE REVIEW — 2026-04-17
+==============================================================================
+
+BEFORE APPLYING ANY CHANGES, READ THESE NOTES:
+
+CRITICAL — FAQ AccordionGroup Preservation:
+  The changes in this file systematically convert FAQ sections from
+  <AccordionGroup>/<Accordion title="..."> format to plain #### headings.
+  This VIOLATES the Domo KB Style Guide, which requires all FAQ sections
+  to use <AccordionGroup> and <Accordion> components.
+  When applying FAQ-related changes, ALL `####` headings in NEW content
+  that correspond to FAQ questions MUST be changed to <Accordion title="...">,
+  and the <AccordionGroup> / </AccordionGroup> wrappers must be preserved
+  (i.e., changes that only remove these tags should be skipped).
+
+  Files with FAQ AccordionGroup violations:
+    000005100, 000005245, 1500000888261, 1500001012441, 1500002644442,
+    1500009366622, 360042926754, 360042929154, 360042929554, 360042929714,
+    360042930314, 360042931294, 360042931874, 360043431133, 360043437093,
+    360052884153, 360058716313, 360059173794, 360060508773, 360061691114,
+    4423536836631, 5563069185815, 5366610360983, 4411277235351
+
+CRITICAL — Misplaced <Note> Tags in Table Context:
+  Several NEW content sections open a <Note> inside a table cell but close
+  </Note> outside the table rows, producing invalid MDX. Review and fix
+  manually before applying:
+    000005245 (Change 1), 000005793 (Changes 1–2), 000005870 (Change 1),
+    000005892 (Change 18), 360042929154 (Change 1)
+
+FIXED IN THIS FILE — Broken Note Callout Format:
+  000005532 Change 1: `**Note****:**` corrected to `<Note>**Note:**`
+  000005532 Change 2: `</Note>` preserved (no-op replacement added)
+
+FIXED IN THIS FILE — "utilize" (style guide: NEVER use):
+  Replace instances in NEW content: 000005870, 000005907 (×2),
+  360042931814, 360043437093
+
+FIXED IN THIS FILE — "whitelist" as verb in body text (use "allowlist"):
+  360042931494 (MongoDB prerequisites), 360042931734 (Vertica prerequisites)
+
+NEEDS REVIEW — "click" vs "select":
+  Style guide requires "select" instead of "click" in most cases.
+  Many NEW content sections still use "click" (e.g., 000005892, 000005920,
+  and others). Review all step instructions for this pattern.
+
+NEEDS REVIEW — "once" vs "after":
+  Style guide requires "after" (not "once") for causal/dependent sequences.
+  Multiple NEW content sections use "once you have entered..." patterns.
+
+NEEDS REVIEW — Table padding:
+  Style guide requires vertically aligned pipe-table columns. Nearly all
+  NEW table content uses unpadded `| --- | --- |` separators. This is
+  pervasive and requires programmatic correction before final publication.
+
+IMAGE CHANGES — see IMAGE CHANGE REPORT at bottom of this file.
+
+==============================================================================
+END COMPLIANCE NOTES
+==============================================================================
+
 ARTICLES REQUIRING EDITS:
   s/article/000005100.mdx                                  10 change(s)  ⚠ LARGE
   s/article/000005245.mdx                                  6 change(s)
@@ -362,11 +423,15 @@ CHANGE 1  [## Prerequisites]  (lines 23–24 in repo file)
     **Note:** To create a freee application, you will be asked to enter the following callback URL:
 
   NEW (replace with / insert from CSV):
-    **Note****:** To create a freee application, you will be asked to enter the following callback URL:
+    <Note>**Note:** To create a freee application, you will be asked to enter the following callback URL:
 
 CHANGE 2  [## Prerequisites]  (line 27 in repo file)
 
+  [STYLE GUIDE FIX: Preserve closing </Note> tag — no-op replacement]
   OLD (remove from repo):
+    </Note>
+
+  NEW (replace with / insert from CSV):
     </Note>
 
 CHANGE 3  [## Credentials pane]  (line 39 in repo file)
@@ -719,7 +784,7 @@ CHANGE 1  [### Details Pane]  (line 38 in repo file)
     | --- | --- |
     | Report | Select the report you want to run. The following reports are available:   | Report | Description | | --- | --- | | Accounts | Retrieves a list of accounts. | | Account List | Shows the name, type, and balance for each account. | | Accounts Payable Aging Detail | Shows detailed information for unpaid bills in accounts payable. | | Accounts Payable Aging Summary | Summarizes the status of unpaid bills in accounts payable. | | Accounts Receivable Aging Detail | Shows detailed information for outstanding amounts in accounts receivable. | | Accounts Receivable Aging Summary | Shows accounts receivable, along with the amount of time the amounts have been outstanding. | | Balance Sheet | Summarizes assets, liabilities, and shareholders' equity. | | Budget | Retrieves a list of budgets. | | Expenses by Vendor | Shows expenses by vendor. | | Profit and Loss Detail | Shows detailed information about income and expenses. | | Profit and Loss Summary | Summarizes income and expenses. | |
     | Transaction Date | Select the start date for the report. |
-    | Report Date | This option appears when you select the **Custom Single Date** option from the **Transaction Date**.  Specify whether the report data is based on a **fixed date** or a **relative number of days**. A relative number of days indicates the retrospective period from which data will be retrieved. To retrieve data from a specific date, utilize the date selector. |
+    | Report Date | This option appears when you select the **Custom Single Date** option from the **Transaction Date**.  Specify whether the report data is based on a **fixed date** or a **relative number of days**. A relative number of days indicates the retrospective period from which data will be retrieved. To retrieve data from a specific date, use the date selector. |
     | Select Specific Date | This option is available when you select the **Report Date** as **Specific**.  To select a specific report date, use the **date picker**. This option is only available when the **Report Date** is set to **Specific**. |
     | Date Offset | Enter the number of days you want to go back from the current date. For example, enter **0** for today or **1** for yesterday. |
     | Aging Method | Select the aging method. |
@@ -1376,7 +1441,8 @@ CHANGE 1  [## Intro]  (line 7 in repo file)
     The Google Sheets Metadata Connector retrieves metadata from a specified Google Sheet located within your Google Drive for file management and reporting purposes. To utilize, select the target Google Sheet and then choose the desired metadata fields to generate a report.
 
   NEW (replace with / insert from CSV):
-    The Google Sheets Metadata Connector retrieves metadata from a specified Google Sheet located within your Google Drive for file management and reporting purposes. To utilize, select the target Google Sheet and then choose the desired metadata fields to generate a report.
+
+    The Google Sheets Metadata Connector retrieves metadata from a specified Google Sheet located within your Google Drive for file management and reporting purposes. To use this connector, select the target Google Sheet and then choose the desired metadata fields to generate a report.
 
 CHANGE 2  [## Intro]  (lines 11–27 in repo file)
 
@@ -1570,11 +1636,11 @@ CHANGE 16  [### Configuring OAuth 2.0 Test Users]  (line 116 in repo file)
 CHANGE 17  [### Configuring OAuth 2.0 Test Users]  (line 118 in repo file)
 
   OLD (remove from repo):
-    ***Important:*** Adding users here only allows them to utilize the created credentials for the OAuth 2.0 process within the connector. It does not grant them access to your Google Cloud Console project or your Google Drive content.
+    ***Important:*** Adding users here only allows them to use the created credentials for the OAuth 2.0 process within the connector. It does not grant them access to your Google Cloud Console project or your Google Drive content.
 
   NEW (replace with / insert from CSV):
     *
-    <Warning>**Important:** * Adding users here only allows them to utilize the created credentials for the OAuth 2.0 process within the connector. It does not grant them access to your Google Cloud Console project or your Google Drive content.</Warning>
+    <Warning>**Important:** * Adding users here only allows them to use the created credentials for the OAuth 2.0 process within the connector. It does not grant them access to your Google Cloud Console project or your Google Drive content.</Warning>
 
 CHANGE 18  [### Review and Complete OAuth 2.0 Setup]  (line 125 in repo file)
 
@@ -8703,7 +8769,7 @@ CHANGE 8  [## Prerequisites]  (line 35 in repo file)
     Before you can connect to a MongoDB database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
 
   NEW (replace with / insert from CSV):
-    Before you can connect to a MongoDB database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
+    Before you can connect to a MongoDB database, you must also allowlist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
 
 CHANGE 9  [## Prerequisites]  (line 37 in repo file)
 
@@ -8801,10 +8867,10 @@ ID:     360042931814
 CHANGE 1  [## Snowflake Connector Migration Walkthrough]  (line 14 in repo file)
 
   OLD (remove from repo):
-    As Snowflake is discontinuing username and password authentication, Snowflake connectors using this authentication method will be migrated to the OAuth version. This section helps users walk through the complete process of migrating their existing username and password Snowflake datasets to utilize the OAuth authentication version. Pls refer to the migration video ([https://youtu.be/rlG_uNZwl_U](https://youtu.be/rlG_uNZwl_U)) to make the transition smoother and minimize disruptions.
+    As Snowflake is discontinuing username and password authentication, Snowflake connectors using this authentication method will be migrated to the OAuth version. This section helps users walk through the complete process of migrating their existing username and password Snowflake datasets to use the OAuth authentication version. Please refer to the migration video ([https://youtu.be/rlG_uNZwl_U](https://youtu.be/rlG_uNZwl_U)) to make the transition smoother and minimize disruptions.
 
   NEW (replace with / insert from CSV):
-    As Snowflake is discontinuing username and password authentication, Snowflake connectors using this authentication method will be migrated to the OAuth version. This section helps users walk through the complete process of migrating their existing username and password Snowflake datasets to utilize the OAuth authentication version. Pls refer to the migration video ([https://youtu.be/rlG\_uNZwl\_U](https://youtu.be/rlG_uNZwl_U)) to make the transition smoother and minimize disruptions.
+    As Snowflake is discontinuing username and password authentication, Snowflake connectors using this authentication method will be migrated to the OAuth version. This section helps users walk through the complete process of migrating their existing username and password Snowflake datasets to use the OAuth authentication version. Please refer to the migration video ([https://youtu.be/rlG\_uNZwl\_U](https://youtu.be/rlG_uNZwl_U)) to make the transition smoother and minimize disruptions.
 
 CHANGE 2  [## Intro]  (line 18 in repo file)
 
@@ -9011,7 +9077,7 @@ CHANGE 21  [## FAQs]  (line 112 in repo file)
     <Accordion title="Why can't I connect to my Snowflake database? Do I need to whitelist any IP addresses?">
 
   NEW (replace with / insert from CSV):
-    Before you can connect to a Snowflake database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors & Federated Adapters.](/s/article/360043630093)
+    Before you can connect to a Snowflake database, you must also allowlist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors & Federated Adapters.](/s/article/360043630093)
 
 CHANGE 22  [## FAQs]  (lines 114–118 in repo file)
 
@@ -9616,7 +9682,7 @@ CHANGE 8  [### Whitelisting]  (line 67 in repo file)
     Before you can connect to a Vertica database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
 
   NEW (replace with / insert from CSV):
-    Before you can connect to a Vertica database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
+    Before you can connect to a Vertica database, you must also allowlist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses for Connectors](/s/article/360043630093).
 
 CHANGE 9  [### Details Pane]  (lines 73–98 in repo file)
 
@@ -14204,7 +14270,7 @@ CHANGE 10  [## FAQs]  (line 152 in repo file)
     <Accordion title="Why can't I connect to my Snowflake database? Do I need to whitelist any IP addresses?">
 
   NEW (replace with / insert from CSV):
-    Before you can connect to a Snowflake database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses in Domo](/s/article/360043439173).
+    Before you can connect to a Snowflake database, you must also allowlist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses in Domo](/s/article/360043439173).
 
 CHANGE 11  [## FAQs]  (lines 154–158 in repo file)
 
@@ -14692,10 +14758,10 @@ CHANGE 2  [## Prerequisites]  (lines 29–32 in repo file)
 CHANGE 3  [## Prerequisites]  (line 40 in repo file)
 
   OLD (remove from repo):
-    <Note>**Note:** When creating a new client, if you utilize multiple Domo instances, make sure you're logged into the Developer Portal using the correct instance.</Note>
+    <Note>**Note:** When creating a new client, if you use multiple Domo instances, make sure you're logged into the Developer Portal using the correct instance.</Note>
 
   NEW (replace with / insert from CSV):
-    <Note>**Note:** When creating a new client, if you utilize multiple Domo instances, make sure you're logged into the Developer Portal using the correct instance.
+    <Note>**Note:** When creating a new client, if you use multiple Domo instances, make sure you're logged into the Developer Portal using the correct instance.
       3. When creating the client, select ALL of the scopes. (Account, Audit, Buzz, Data, Dashboard, User, and Workflow.)</Note>
 
 CHANGE 4  [## Prerequisites]  (line 42 in repo file)
@@ -17028,7 +17094,7 @@ CHANGE 12  [## FAQs]  (lines 184–189 in repo file)
     </AccordionGroup>
 
   NEW (replace with / insert from CSV):
-    Before you can connect to a Snowflake database, you must also whitelist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses in Domo](/s/article/360043439173).
+    Before you can connect to a Snowflake database, you must also allowlist a number of IP addresses on your database server on the port you want to connect to. For the full list of IP addresses, see [Whitelisting IP Addresses in Domo](/s/article/360043439173).
 
 ==============================================================================
 FILE:   s/article/360058759794.mdx
@@ -20197,3 +20263,50 @@ CHANGE 15  [## FAQs]  (lines 147–149 in repo file)
     </Accordion>
     
     </AccordionGroup>
+
+
+==============================================================================
+IMAGE CHANGE REPORT
+==============================================================================
+
+The following image changes were found in connector-changes.txt.
+Per instruction, NO image changes should be applied without explicit approval.
+
+INLINE IMAGE CHANGES (embedded within larger text changes — NOT suppressed):
+These appear inside normal CHANGE blocks and will be applied unless excluded.
+
+  File: s/article/000005920.mdx (YouTube Analytics Multi Account Connector)
+    Changes 5, 6, 7, 8, 9, 10, 12, 14 each include an image reference change:
+    Old format: <Frame><img src="/images/kb/ka0Vq000000PVF7-00N5w00000Ri7BU-[ID].jpg"
+                style={{width: NNN, height: NNN}}/></Frame>
+    New format: <Frame>![Screenshot](/images/kb/[SHORT_ID].jpg)</Frame>
+    Nature: Format conversion (inline img → Markdown image) AND path shortening
+            (removes Salesforce article-scoped prefix from filename)
+    Images affected: 0EMVq00000CxIOb, 0EMVq00000CxIbV, 0EMVq00000CxIq1,
+                     0EMVq00000CxJXZ, 0EMVq00000CxJAz, 0EMVq00000CxO5p,
+                     0EMVq00000CxLHe, 0EMVq00000CxP57
+
+  File: s/article/360042927994.mdx (Shopify Connector)
+    Changes 8 and 9 include image reference changes:
+    Same format conversion and path shortening as above.
+    Images affected: 0EMVq000006Tb3x, 0EMVq000006Tb2M
+
+SUPPRESSED IMAGE-ONLY CHANGES (noted in file but content not shown):
+These are already excluded from the change blocks. Listed here for awareness.
+
+  s/article/000005920.mdx          — 6 image-only changes suppressed (line 2362)
+  s/article/360042927994.mdx       — 3 image-only changes suppressed (line 6384)
+  s/article/360042928374.mdx       — 2 image-only changes suppressed (line 6515)
+  s/article/360042929154.mdx       — 1 image-only change suppressed  (line 6892)
+  s/article/360042931294.mdx       — 1 image-only change suppressed  (line 9159)
+  s/article/360042932014.mdx       — 1 image-only change suppressed  (line 10113)
+
+ACTION REQUIRED:
+  Before applying changes to 000005920.mdx and 360042927994.mdx,
+  manually remove or skip the image reference lines from Changes 5, 6, 7, 8,
+  9, 10, 12, 14 (000005920) and Changes 8, 9 (360042927994).
+  Apply only the non-image portions of those changes.
+
+==============================================================================
+END IMAGE CHANGE REPORT
+==============================================================================
