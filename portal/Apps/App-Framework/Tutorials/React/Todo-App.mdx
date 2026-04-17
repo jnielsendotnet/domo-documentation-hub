@@ -1,5 +1,5 @@
 ---
-title: 'Todo App with AppDB'
+title: Todo App with AppDB
 permalink: 7657a3402ae5e-to-do-app-tutorial
 ---
 
@@ -17,7 +17,7 @@ You'll learn the patterns you'll reach for in every real Domo app:
 - Manage async state with Redux Toolkit's `buildCreateSlice` + `asyncThunkCreator`
 - Compose small, presentational components that read from and dispatch against the store
 
-You can reference the [complete source on GitHub](https://github.com/DomoApps/basic-react-app-todo-tutorial).
+The finished code is at [DomoApps/basic-react-app-todo-tutorial on GitHub](https://github.com/DomoApps/basic-react-app-todo-tutorial).
 
 <Note>
   **Prerequisite:** Complete the [Setup and Installation](/portal/Apps/App-Framework/Quickstart/Setup-and-Installation) guide and run `domo login` before starting.
@@ -49,7 +49,7 @@ da new todo-appdb-demo
 cd todo-appdb-demo
 ```
 
-`da new` prompts for a package manager (pick **pnpm** — it's what Domo recommends), clones the template, writes your app name into `package.json`, initializes git, and installs dependencies.
+`da new` prompts for a package manager (pick **pnpm**), clones the template, writes your app name, initializes git, and installs dependencies.
 
 <Tip>
   App names must be lowercase with hyphens only. Capitals, underscores, and periods are rejected.
@@ -858,7 +858,7 @@ The Vite dev server starts on port 3000 (or 3001/3002 if busy). Because `proxyId
 pnpm upload
 ```
 
-The script runs `pnpm build` (which lints, tests, and builds), then `domo publish` from the `build/` folder. The new version becomes the active design for anyone instantiating the app from your Asset Library.
+The script runs `pnpm build` (which lints, tests, and builds), then `domo publish` from the `build/` folder. The new build becomes the active design. Anyone instantiating the app from the Asset Library picks it up.
 
 ### Next steps
 
@@ -867,4 +867,4 @@ The script runs `pnpm build` (which lints, tests, and builds), then `domo publis
 - Run `da generate component` or `da generate reducer` to scaffold new slices that follow the same `createAppSlice` pattern.
 - Add a `UserPreferences` collection with a `limitToOwner` filter to persist per-user theme or default filter — see [AppDB filters](/portal/API-Reference/app-framework-apis/AppDB-API).
 - Layer dev/qa/prod `id` + `proxyId` values with `da manifest` and `src/manifestOverrides.json` instead of hand-editing.
-- Continue with [AI Book Recommender](/portal/Apps/App-Framework/Tutorials/React/AI-Book-Recommender), [Mapbox World App](/portal/Apps/App-Framework/Tutorials/React/Mapbox-World-App), or [Bar Code Scanner PWA](/portal/Apps/App-Framework/Tutorials/React/Bar-Code-Scanner-PWA).
+- Continue with [AI Book Recommender](/portal/Apps/App-Framework/Tutorials/React/AI-Book-Recommender) or [Mapbox World Map](/portal/Apps/App-Framework/Tutorials/React/Mapbox-World-App).

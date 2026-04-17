@@ -111,7 +111,7 @@ Replace `public/manifest.json` with:
 
 Replace `YOUR_DATASET_ID` with the UUID from Step 3. Note that `long` is aliased from the source column `lng` — this is the power of aliases: your app code uses whatever shape is convenient.
 
-### Step 5: Publish the initial design and wire a proxy card
+### Step 5: Publish the initial design and wire the proxy
 
 ---
 
@@ -377,4 +377,4 @@ The new build becomes the active design. Anyone instantiating the app from the A
 - Add hover popups with `mapboxgl.Popup` to show city names and populations on click.
 - Swap `population` for any numeric column by changing the `dataPoint` alias in `manifest.json` — no code change required.
 - Layer in a second mapping (e.g. country boundaries) by adding another entry under `mapping[]` and querying `/data/v1/<alias>`.
-- Continue with [AI Book Recommender](/portal/Apps/App-Framework/Tutorials/React/AI-Book-Recommender), [Todo App with AppDB](/portal/Apps/App-Framework/Tutorials/React/Todo-App), or [Bar Code Scanner PWA](/portal/Apps/App-Framework/Tutorials/React/Bar-Code-Scanner-PWA).
+- Continue with [AI Book Recommender](/portal/Apps/App-Framework/Tutorials/React/AI-Book-Recommender) or [Todo App with AppDB](/portal/Apps/App-Framework/Tutorials/React/Todo-App).
