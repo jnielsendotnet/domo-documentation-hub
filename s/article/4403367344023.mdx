@@ -6,7 +6,7 @@ import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
-Domo Sandbox allows you to promote content from one instance to another (production) instance. You can promote dashboards, cards, DataFlows, and connectors.
+Domo Sandbox allows you to promote content from one instance to another instance. You can promote pages, cards, DataFlows, App Studio apps, Views, and connectors.
 
 Here are some terms you should know before using Domo Sandbox:
 
@@ -395,12 +395,14 @@ The following items cannot be promoted:
   + App components
   + Element actions
   + Saved filters
+  + Annotations
   + Large file sizes\*
   + Large image sizes\*
 * Unsupported items in DataSet Views:
   + Calculated columns
   + SQL Views
-* Unsupported items in dashboards:
+  + Non-Domo cloud warehouses
+* Unsupported items in pages:
   + Poll Cards
   + Dynamic Summary Numbers in Notebook Cards
   + Annotations
@@ -412,16 +414,19 @@ The following items cannot be promoted:
 * Unsupported features in DataFlows:
   + Recursive DataFlows
   + Password-protected DataFlows
-  + Writeback Tile DataFlows
+  + Writeback tile
   + Jupyter DataFlows
-  + Fixed Input tile
-  + Text Generation tile
+  + Split Join tile
+  + Split Filter tile
+  + Bring your own model AI tiles
+  + Non-Domo cloud warehouses
+  + PDP in tiles
+  + Customized UI layouts
 * Unsupported features in connectors:
   + DataSet via email connectors
   + Linked repositories using connectors
 * Unsupported features in Custom Apps and Pro-code Apps:
   + Promoting and mapping AppDB collections
-  + Custom Apps outside of App Studio or individual cards
 * Unsupported general features:
   + [Nested calculations](/s/article/000005307)
   + [Workflows](/s/article/000005108)
@@ -432,6 +437,8 @@ The following items cannot be promoted:
   + Projects & Tasks
   + Slideshows
   + [Jupyter Notebooks](https://domo-support.domo.com/s/article/36004740075?language=en_US#jupyter_notebooks)
+  + Workspaces
+  + [Worksheets](https://www.domo.com/docs/s/article/Use-Worksheets)
 * Unsupported items for same-instance promotion:
   + [Smart Text](/s/article/4529227357975)
   + Dynamic Summary Numbers
