@@ -1,12 +1,9 @@
 name: Mintlify Preview Deployments
 
-# Strategy:
-#   - Pull requests (to any base branch) are handled by Mintlify's native
-#     GitHub App, which auto-generates previews. This workflow only logs
-#     context for those — no API call.
-#   - Pushes to any `release/**` branch trigger an explicit preview via the
-#     Mintlify REST API, because release branches are long-lived and need
-#     previews whether or not a PR is currently attached.
+# Triggers the Mintlify preview-deploy API for:
+#   - any pull request event (opens / pushes / reopens / ready-for-review),
+#     using the PR's head branch as the preview branch
+#   - any push to a `release/**` branch, using the ref name as the preview branch
 #
 # Required repo secrets:
 #   MINTLIFY_KEY         Admin API key (prefixed `mint_`) from
@@ -24,45 +21,49 @@ on:
 
 permissions:
   contents: read
-  pull-requests: write   # sticky preview-URL comment on any open PR for the release branch
+  pull-requests: write   # for the sticky preview-URL comment
 
 concurrency:
   # Coalesce per-branch so back-to-back pushes don't burn the 5 req/min limit.
-  # For PRs we key on PR number; for pushes we key on ref.
   group: mintlify-preview-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 jobs:
   preview:
     runs-on: ubuntu-latest
-    # Skip draft PRs; preview fires when they're marked ready. Push events have
-    # no draft concept so this condition is a no-op for them.
+    # Skip drafts; push events have no draft concept so the null check lets them through.
     if: github.event.pull_request == null || github.event.pull_request.draft == false
     steps:
       - name: Show event context
         run: |
           echo "Event: ${{ github.event_name }}"
           echo "Ref:   ${{ github.ref }}"
-          echo "Base branch (PR only): ${{ github.base_ref }}"
           echo "Head branch (PR only): ${{ github.head_ref }}"
+          echo "Base branch (PR only): ${{ github.base_ref }}"
           echo "PR number (PR only):   ${{ github.event.pull_request.number }}"
 
-      - name: PR event — rely on Mintlify GitHub App
-        if: github.event_name == 'pull_request'
+      - name: Resolve preview branch
+        id: branch
         run: |
-          {
-            echo "## Preview"
-            echo ""
-            echo "Pull request event. Mintlify's GitHub App auto-generates the preview — check the PR's **Checks** tab for the preview URL."
-          } >> $GITHUB_STEP_SUMMARY
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            BRANCH="${{ github.head_ref }}"
+          else
+            BRANCH="${{ github.ref_name }}"
+          fi
+          if [ -z "$BRANCH" ]; then
+            echo "::error::Could not resolve preview branch from event context."
+            exit 1
+          fi
+          echo "name=$BRANCH" >> $GITHUB_OUTPUT
+          echo "Previewing branch: $BRANCH"
 
-      - name: Trigger Mintlify preview (release branch push)
+      - name: Trigger Mintlify preview
         id: trigger
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/heads/release/')
         env:
           MINTLIFY_TOKEN: ${{ secrets.MINTLIFY_KEY }}
           MINTLIFY_PROJECT_ID: ${{ secrets.MINTLIFY_PROJECT_ID }}
-          PREVIEW_BRANCH: ${{ github.ref_name }}
+          PREVIEW_BRANCH: ${{ steps.branch.outputs.name }}
         run: |
           set -euo pipefail
 
@@ -130,29 +131,34 @@ jobs:
             fi
           } >> $GITHUB_STEP_SUMMARY
 
-      # If there's an open PR whose head is this release branch, stick the
-      # preview URL on it as a comment. Harmless no-op if no such PR exists.
-      - name: Find open PR for this release branch
+      # Determine which PR (if any) should receive the sticky comment.
+      #   PR events: the PR being built.
+      #   Push to release/**: the first open PR whose head is this release branch (if any).
+      - name: Resolve PR for sticky comment
         id: find-pr
         if: steps.trigger.outputs.preview_url != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          PR_NUMBER=$(gh pr list \
-            --repo "${{ github.repository }}" \
-            --head "${{ github.ref_name }}" \
-            --state open \
-            --json number \
-            --jq '.[0].number // empty')
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            PR_NUMBER="${{ github.event.pull_request.number }}"
+          else
+            PR_NUMBER=$(gh pr list \
+              --repo "${{ github.repository }}" \
+              --head "${{ github.ref_name }}" \
+              --state open \
+              --json number \
+              --jq '.[0].number // empty')
+          fi
           echo "pr_number=${PR_NUMBER}" >> $GITHUB_OUTPUT
           if [ -n "$PR_NUMBER" ]; then
-            echo "Found open PR #$PR_NUMBER for ${{ github.ref_name }}"
+            echo "Sticky comment will go on PR #$PR_NUMBER"
           else
-            echo "No open PR for ${{ github.ref_name }} — skipping sticky comment."
+            echo "No PR to comment on; skipping."
           fi
 
-      - name: Post sticky preview comment on PR
+      - name: Post sticky preview comment
         if: steps.find-pr.outputs.pr_number != ''
         uses: marocchino/sticky-pull-request-comment@v2
         with:
@@ -161,6 +167,6 @@ jobs:
           message: |
             ### Mintlify preview
 
-            **[Open preview](${{ steps.trigger.outputs.preview_url }})** — deployed from `${{ github.ref_name }}`.
+            **[Open preview](${{ steps.trigger.outputs.preview_url }})** — deployed from `${{ steps.branch.outputs.name }}`.
 
             <sub>Updated on each push. Preview deploys can take a minute or two to finish building.</sub>

@@ -10,14 +10,16 @@ Engineer skill for `.github/workflows/mint-preview.yml` — the workflow that cr
 
 ## What the action does
 
-Two triggers, each with a distinct path:
+Two triggers, both hit the Mintlify preview API:
 
-| Event | Behavior |
-|---|---|
-| `pull_request` (any base branch; types: opened/synchronize/reopened/ready_for_review) | No API call. Mintlify's native GitHub App handles PR previews automatically; the workflow just writes a summary pointer to the Checks tab. Draft PRs are skipped. |
-| `push` to `refs/heads/release/**` | POSTs to Mintlify's preview-trigger API using `github.ref_name` as the branch. Captures `previewUrl`/`statusId`, writes them to the step summary, and — if there's an open PR whose head is the release branch — attaches a sticky comment with the preview link. |
+| Event | Preview branch | Sticky comment goes on |
+|---|---|---|
+| `pull_request` (any base branch; types: opened / synchronize / reopened / ready_for_review) | `github.head_ref` (the PR's source branch) | The PR itself |
+| `push` to `refs/heads/release/**` | `github.ref_name` (the release branch) | First open PR whose `head` is the release branch, if any |
 
-**Why this shape?** Release branches are long-lived and need previews whether or not a PR is currently attached. PR-scoped previews are already handled end-to-end by the Mintlify GitHub App. Keying the API call on `push` to release instead of "PR whose base is release" avoids gaps where a release branch exists without a PR open against it.
+Draft PRs are skipped. Push events don't have a draft concept, so they always run.
+
+**Why call the API on PR events too?** The Mintlify GitHub App may or may not produce the preview you want on its own. Calling the REST API directly is authoritative: we always get a `previewUrl` back and can surface it as a sticky comment. If duplicate previews become a problem we'll narrow this later, but for now the contract is: every non-draft PR event produces an API-triggered preview we can point the user at.
 
 **Concurrency:** `mintlify-preview-<PR#ornref>` with `cancel-in-progress: true` — back-to-back pushes to the same branch cancel prior in-flight runs, keeping us under the 5 req/min Mintlify limit.
 
@@ -59,12 +61,12 @@ Both are validated at the top of the trigger step. A missing value fails the ste
 
 ## Design decisions (with context for future edits)
 
-1. **Why `push` to release/**, not `pull_request` with base `release/**`?** Release branches live independently of PRs. Gating on "PR base is release" misses the case where someone pushes directly to a release branch or opens a PR from the release branch itself. Keying on pushes to the release branch catches all updates.
-2. **Why let the GH App handle all PRs instead of duplicating?** Mintlify's GitHub App already generates previews for every PR event out of the box. Calling the API ourselves on PRs would produce two competing previews or waste rate-limit budget.
-3. **Why find the PR from a push event?** When a push to a release branch arrives, any open PR with that branch as `head` should still get the preview link on it. `gh pr list --head <branch>` fetches it; if none exists, we just skip the comment (no-op).
-4. **Why sticky comment instead of new ones?** Each push re-triggers preview creation; a non-sticky comment would spam the PR. `marocchino/sticky-pull-request-comment@v2` updates one comment in place via the `header: mintlify-preview` key.
-5. **Why cancel in-progress?** Back-to-back pushes shouldn't queue multiple preview triggers against the 5-req/min API. The latest push wins.
-6. **Why `if: pull_request == null || pull_request.draft == false`?** Mintlify previews cost build minutes; don't burn them on drafts. Push events have no `draft` concept — the `pull_request == null` short-circuit keeps pushes unaffected.
+1. **Why hit the API on PRs and also on pushes to `release/**`?** PR events cover the usual review flow. Pushes to release branches cover the long-lived-branch case where a release branch exists without a PR currently attached (e.g., between PR merges during a release cycle). Together they catch every preview-worthy change to branches we care about.
+2. **Why find the PR from a push event?** For push events, there may still be an open PR whose head is the release branch — the preview link belongs on it. `gh pr list --head <branch>` fetches it; if none exists, skip the comment (no-op).
+3. **Why sticky comment instead of new ones?** Each push re-triggers the preview API; a non-sticky comment would spam the PR. `marocchino/sticky-pull-request-comment@v2` updates one comment in place via the `header: mintlify-preview` key.
+4. **Why cancel in-progress?** Back-to-back pushes shouldn't queue multiple API calls against the 5-req/min limit. The latest push wins.
+5. **Why `if: pull_request == null || pull_request.draft == false`?** Mintlify previews cost build minutes; don't burn them on drafts. Push events have no `draft` concept — the `pull_request == null` short-circuit keeps pushes unaffected.
+6. **Why a separate "Resolve preview branch" step?** It makes the logic explicit and debuggable: one place to see which branch we're about to preview, regardless of event type. The downstream API step then has a single input source.
 
 ---
 
