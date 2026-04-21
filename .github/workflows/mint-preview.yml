@@ -169,4 +169,4 @@ jobs:
 
             **[Open preview](${{ steps.trigger.outputs.preview_url }})** — deployed from `${{ steps.branch.outputs.name }}`.
 
-            <sub>Updated on each push. Preview deploys can take a minute or two to finish building.</sub>
+            <sub>Updated on each push. Preview deploys can take a minute or two to finish building — refresh the preview URL if it shows a build-in-progress splash.</sub>
