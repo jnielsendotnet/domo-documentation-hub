@@ -100,6 +100,117 @@ The following user endpoints are supported in Domo:
 
 <table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Endpoint Name </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Endpoint </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Get Users </p></td><td colspan="1" rowspan="1"><p> Retrieves all users with different request parameters to filter users. The following request and filter parameters are supported: </p><ul><li> Filter </li><li> requestedAttributes (comma-separated list of strings) </li><li> startIndex (offset) </li><li> count (limit) </li><li> sortBy (choose a user attribute to sort by) </li><li> sortOrder (`ascending` or `descending`) </li></ul></td><td colspan="1" rowspan="1"><pre class="ckeditor_codeblock">GET /Users</pre></td></tr><tr><td colspan="1" rowspan="1"><p> Get User </p></td><td colspan="1" rowspan="1"><p> Retrieves a user specified by their Domo userId. The requested attributes can be passed in as a comma-separated list via query parameters named "attributes." Note that some attributes are always returned. </p><p></p></td><td colspan="1" rowspan="1"><pre class="ckeditor_codeblock">GET /Users/{userId}</pre><p></p><p> Examples: </p><ul><li> Returns a user with the phoneNumber attribute <br/><pre class="ckeditor_codeblock">/Users/{userId}?<br/><br/>attributes=phoneNumbers</pre></li><li> Returns a user with all Domo attributes, including custom attributes. <br/><pre class="ckeditor_codeblock">/scim/Users/{userId}?<br/><br/>attributes= _all</pre></li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> Put User </p></td><td colspan="1" rowspan="1"><p> Updates a user by Domo userId. The user's existing attributes will be completely replaced by the attributes specified in the PUT request. If you need to update partially existing users, use the PATCH user endpoint. </p></td><td colspan="1" rowspan="1"><pre class="ckeditor_codeblock">PUT /Users/{userId}</pre></td></tr><tr><td colspan="1" rowspan="1"><p> Patch User (Beta) </p></td><td colspan="1" rowspan="1"><p> Partially updates a user's attributes as specified in the request body. Most user attributes can be added, replaced, or removed. </p></td><td colspan="1" rowspan="1"><pre class="language-markup"><code>PATCH /Users/{userID}</code></pre></td></tr><tr><td colspan="1" rowspan="1"><p> Delete User </p></td><td colspan="1" rowspan="1"><p> Deletes the specified Domo user. </p><p></p><div class="mdx-embed"><Note><b> Note: </b> If a user owns Domo DataSets or DataFlows, the user cannot be deleted via SCIM. This is because Domo requires all DataSets and DataFlows to have owners and requires ownership of those objects to be reassigned before the owner can be deleted. </Note></div></td><td colspan="1" rowspan="1"><p></p><pre class="ckeditor_codeblock">DELETE /Users/{userId}</pre><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> Post User </p></td><td colspan="1" rowspan="1"><p> Creates a user in Domo. <a id="group_endpoints" target="_blank"></a></p></td><td colspan="1" rowspan="1"><pre class="ckeditor_codeblock">POST /Users</pre></td></tr></tbody></table>
 
+## User Examples
+
+### Create a user
+
+`POST /Users`
+
+```json
+{
+  "schemas":[
+		"urn:ietf:params:scim:schemas:core:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:domo:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:custom:2.0:User"
+	],
+	"userName": "email@example.com",
+	"name": {
+		"givenName": "John",
+		"familyName": "Smith"
+	},
+	"roles": [
+		{
+			"type": "primary",
+			"value": "4"
+		}
+	],
+	"displayName": "John Smith",
+	"active": true,
+	"locale": "en-US",
+	"title": "Systems Manager",
+	"emails": [
+		{
+			"value": "email@example.com",
+			"type": "primary"
+		},
+		{
+			"value": "email.alt@example.com",
+			"type": "alternate"
+		}
+	],
+	"phoneNumbers": [
+		{
+			"type": "work",
+			"value": "555-123-4567"
+		},
+		{
+			"type": "mobile",
+			"value": "555-888-7777"
+		}
+	],
+	"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+		"employeeNumber": "123456",
+		"department": "Marketing",
+		"manager": {
+			"value": "6471235"
+		}
+	},
+	"urn:ietf:params:scim:schemas:extension:domo:2.0:User": {
+		"employeeLocation": "AZ Complex",
+		"hireDate": "2021-03-26"
+	},
+	"urn:ietf:params:scim:schemas:extension:custom:2.0:User": {
+		"customAttributes": [
+			{
+				"key": "building",
+				"values": [
+					"Building A"
+				]
+			}
+		]
+	}
+}
+```
+
+### Delete a user with PUT
+
+`PUT /Users/{USER_ID}`
+
+```json
+{
+  "active": false,
+}
+```
+
+
+### Update a user with PATCH
+
+`PATCH /Users/{USER_ID}`
+
+```json
+{
+  "schemas": [
+    "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+  ],
+  "Operations": [
+    {
+      "op": "replace",
+      "path": "emails",
+      "value": [{
+        "type": "primary",
+        "value": "email@example.com"
+      }],
+    },
+    {
+      "op": "Replace",
+      "path": "urn:ietf:params:scim:schemas:extension:custom:2.0:User:customAttributes[key eq \"offices\"]",
+      "value": ["NY", "CA"]
+    }
+  ]
+}
+```
+
 # Group (Beta)
 
 Domo directory groups (groups defined in the IdP and created and managed in Domo via SSO or SCIM integration) can be created, managed, and deleted via SSO and SCIM. The SCIM APIs only function on directory groups. This means that groups created via SCIM are always directory groups, and the Get Group endpoint only returns information about directory groups. [Learn more](https://domo-support.domo.com/s/article/360042934294?language=en_US#group_types) about directory groups and other group types in Domo.
@@ -121,6 +232,31 @@ Follow these steps to designate the SCIM Integration User in Group Settings:
 The following group endpoints are supported in Domo:
 
 <table border="1"><tbody><tr><td colspan="1" rowspan="1"><b> Endpoint Name </b></td><td colspan="1" rowspan="1"><b> Description </b></td><td colspan="1" rowspan="1"><b> Endpoint </b></td></tr><tr><td colspan="1" rowspan="1"> Get Group </td><td colspan="1" rowspan="1"> Get a group by ID. </td><td colspan="1" rowspan="1"><pre class="language-markup"><code>GET /Groups/{groupID}</code></pre></td></tr><tr><td colspan="1" rowspan="1"> Post Group </td><td colspan="1" rowspan="1"> Create a group in Domo. </td><td colspan="1" rowspan="1"><pre class="language-markup"><code>POST /Groups</code></pre></td></tr><tr><td colspan="1" rowspan="1"> Put Group </td><td colspan="1" rowspan="1"> Update a group—group definition in Domo is completely replaced by the new group definition. </td><td colspan="1" rowspan="1"><pre class="language-markup"><code>PUT /Groups{groupId}</code></pre></td></tr><tr><td colspan="1" rowspan="1"> Patch Group </td><td colspan="1" rowspan="1"> Update a group. <a id="scim_status" target="_blank"></a></td><td colspan="1" rowspan="1"><pre class="language-markup"><code>PATCH /Groups/{groupID}</code></pre></td></tr><tr><td colspan="1" rowspan="1"> Delete Group </td><td colspan="1" rowspan="1"> Delete a group. </td><td colspan="1" rowspan="1"><pre class="language-markup"><code>DELETE /Groups/{groupID}</code></pre></td></tr></tbody></table>
+
+## Group Examples
+
+### Create a group
+
+`POST /Groups`
+
+```json
+{
+	"schemas": [
+		"urn:ietf:params:scim:schemas:core:2.0:Group",
+		"urn:ietf:params:scim:schemas:extension:domo:2.0:Group"
+	],
+	"displayName": "Marketing-Primary-US1",
+	"members": [
+		{
+			"value": "1201764328"
+		}
+	],
+	"urn:ietf:params:scim:schemas:extension:domo:2.0:Group": {
+		"domoDisplayName": "Marketing",
+		"description": "Members of the US-based marketing team."
+	}
+}
+```
 
 ### SCIM Status
 
