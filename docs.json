@@ -3366,23 +3366,23 @@
                     "group": "Embed Domo Everywhere",
                     "pages": [
                       "portal/embed/overview",
-                      "portal/embed/embedded-scheduled-reports",
-                      "portal/embed/publishing-to-other-domo-users",
                       {
                         "group": "Embed In Sites and Software",
                         "pages": [
                           "portal/embed/embed-in-sites-and-apps/overview",
                           "portal/embed/embed-in-sites-and-apps/programmatic-filtering",
-                          "portal/embed/embed-in-sites-and-apps/app-embed-authentication",
-                          "portal/embed/embed-in-sites-and-apps/dataset-switching",
                           "portal/embed/embed-in-sites-and-apps/filtering-options",
                           "portal/embed/embed-in-sites-and-apps/url-parameters-in-embedded-content",
+                          "portal/embed/embed-in-sites-and-apps/dataset-switching",
                           "portal/embed/embed-in-sites-and-apps/dynamic-iframe-height",
                           "portal/embed/embed-in-sites-and-apps/code-examples",
                           "portal/embed/embed-in-sites-and-apps/necessary-dependencies",
+                          "portal/embed/embed-in-sites-and-apps/embedded-scheduled-reports",
+                          "portal/embed/embed-in-sites-and-apps/app-embed-authentication",
                           "portal/embed/embed-in-sites-and-apps/embedding-into-sites-and-web-portals"
                         ]
                       },
+                      "portal/embed/publishing-to-other-domo-users",
                       "portal/embed/embedded-edit-experiences"
                     ]
                   },
