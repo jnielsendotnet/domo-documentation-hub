@@ -24,6 +24,8 @@ mintlify dev            # run from the repo root (where docs.json lives)
 
 Open <http://localhost:3000>. Most edits hot-reload; `docs.json` schema changes may need a server restart.
 
+For a faster, but less robust preview experience, VS Code has several extenstions offering an MDX preview. For example: [Modern MDX Preview](https://marketplace.visualstudio.com/items?itemName=ggfincke.vsc-mdx-preview).
+
 ## Deployment
 
 - **`main`** — merges auto-deploy to production via the Mintlify GitHub App.
