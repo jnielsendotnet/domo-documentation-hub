@@ -110,7 +110,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["s/article/000005139"]
+                            "pages": [
+                              "s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -218,7 +220,8 @@
                               "s/article/360057013754",
                               "s/article/360043436313",
                               "s/article/360042931834",
-                              "s/article/360043437093"
+                              "s/article/360043437093",
+                              "s/article/1500010166282"
                             ]
                           }
                         ]
@@ -288,7 +291,15 @@
                               "s/article/360043437173",
                               "s/article/4407026671767",
                               "s/article/4407033576471",
-                              "s/article/000005138"
+                              "s/article/000005138",
+                              "s/article/000005219",
+                              "s/article/000005234",
+                              "s/article/000005248",
+                              "s/article/360048000154",
+                              "s/article/360056669354",
+                              "s/article/360062446514",
+                              "s/article/4406022964375",
+                              "s/article/4407022160791"
                             ]
                           },
                           {
@@ -361,6 +372,7 @@
                           "s/article/000005517",
                           "s/article/360042926334",
                           "s/article/360042930154",
+                          "s/article/000005426",
                           {
                             "group": "Adobe",
                             "pages": [
@@ -430,7 +442,8 @@
                               "s/article/1500010669841",
                               "s/article/360052722114",
                               "s/article/000005536",
-                              "s/article/360042932954"
+                              "s/article/360042932954",
+                              "s/article/4405291644311"
                             ]
                           },
                           {
@@ -477,7 +490,9 @@
                               "s/article/360060476953",
                               "s/article/8125387098135",
                               "s/article/Azure-Data-Lake-Storage-Gen2-Using-AAD-WriteBack-Connector",
-                              "s/article/000005131"
+                              "s/article/000005131",
+                              "s/article/000006053",
+                              "s/article/360057028014"
                             ]
                           },
                           {
@@ -524,7 +539,8 @@
                               "s/article/360043432533",
                               "s/article/360043435353",
                               "s/article/360043430933",
-                              "s/article/360042926514"
+                              "s/article/360042926514",
+                              "s/article/000005947"
                             ]
                           }
                         ]
@@ -578,6 +594,8 @@
                           "s/article/4404766005655",
                           "s/article/360042929234",
                           "s/article/360042926634",
+                          "s/article/360042926534",
+                          "s/article/000006013",
                           {
                             "group": "Cvent",
                             "pages": [
@@ -768,7 +786,8 @@
                               "s/article/360042928194",
                               "s/article/360042931694",
                               "s/article/4402689409687",
-                              "s/article/360058892613"
+                              "s/article/360058892613",
+                              "s/article/000006016"
                             ]
                           },
                           {
@@ -861,6 +880,7 @@
                           "s/article/ka0Vq000000SyUHIA0",
                           "s/article/6643231704471",
                           "s/article/000005759",
+                          "s/article/4409512475927",
                           {
                             "group": "LinkedIn",
                             "pages": [
@@ -1010,7 +1030,8 @@
                               "s/article/360043433453",
                               "s/article/1500000216241",
                               "s/article/360042932414",
-                              "s/article/360043435793"
+                              "s/article/360043435793",
+                              "s/article/360043437533"
                             ]
                           },
                           {
@@ -1081,7 +1102,9 @@
                               "s/article/360043435013",
                               "s/article/000005824"
                             ]
-                          }
+                          },
+                          "s/article/000005941",
+                          "s/article/000006000"
                         ]
                       },
                       {
@@ -1140,6 +1163,7 @@
                               "s/article/360043432313"
                             ]
                           },
+                          "s/article/360043437633",
                           {
                             "group": "Salesforce",
                             "pages": [
@@ -1163,7 +1187,8 @@
                               "s/article/360042927974",
                               "s/article/360043432353",
                               "s/article/360043435953",
-                              "s/article/5366610360983"
+                              "s/article/5366610360983",
+                              "s/article/000005931"
                             ]
                           },
                           {
@@ -1187,7 +1212,8 @@
                               "s/article/000005391",
                               "s/article/360043431833",
                               "s/article/360042929074",
-                              "s/article/4744010382871"
+                              "s/article/4744010382871",
+                              "s/article/360043437653"
                             ]
                           },
                           {
@@ -1331,6 +1357,7 @@
                               "s/article/000005762"
                             ]
                           },
+                          "s/article/360042928054",
                           {
                             "group": "Vertica",
                             "pages": [
@@ -1376,6 +1403,7 @@
                               "s/article/360042927514"
                             ]
                           },
+                          "s/article/360042930294",
                           {
                             "group": "Xero",
                             "pages": [
@@ -1544,7 +1572,8 @@
                               "s/article/360044876874",
                               "s/article/000005117",
                               "s/article/4662511363351",
-                              "s/article/000005860"
+                              "s/article/000005860",
+                              "s/article/000006036"
                             ]
                           },
                           {
@@ -1602,7 +1631,9 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["s/article/360042923754"]
+                        "pages": [
+                          "s/article/360042923754"
+                        ]
                       }
                     ]
                   },
@@ -1625,6 +1656,7 @@
                       "s/article/360043435533",
                       "s/article/360043430713",
                       "s/article/360043428693",
+                      "s/article/000005946",
                       {
                         "group": "Data Center Overview",
                         "pages": [
@@ -1741,7 +1773,8 @@
                           "s/article/360042923334",
                           "s/article/360043428053",
                           "s/article/360043429533",
-                          "s/article/360043429613"
+                          "s/article/360043429613",
+                          "s/article/360043428993"
                         ]
                       },
                       {
@@ -1852,7 +1885,8 @@
                           "s/article/360043429573",
                           "s/article/360043429593",
                           "s/article/360042925074",
-                          "s/article/360042925114"
+                          "s/article/360042925114",
+                          "s/article/360042924634"
                         ]
                       },
                       {
@@ -1920,7 +1954,8 @@
                       "s/article/360042925634",
                       "s/article/360043430213",
                       "s/article/360046752694",
-                      "s/article/360042925614"
+                      "s/article/360042925614",
+                      "s/article/360043430173"
                     ]
                   },
                   {
@@ -1956,7 +1991,11 @@
                       "s/article/360043439153",
                       "s/article/360042923314",
                       "s/article/4529227357975",
-                      "s/article/9355841270167"
+                      "s/article/9355841270167",
+                      "s/article/360042932994",
+                      "s/article/360042933074",
+                      "s/article/360043440133",
+                      "s/article/360043440173"
                     ]
                   },
                   {
@@ -1965,14 +2004,14 @@
                       "s/article/360042933014",
                       "s/article/360043437793"
                     ]
-                  }, 
+                  },
                   {
                     "group": "Worksheets",
                     "pages": [
                       "s/article/Use-Worksheets"
                     ]
                   }
-                ]  
+                ]
               },
               {
                 "group": "AI & Data Science",
@@ -2025,12 +2064,15 @@
                       "s/article/000005930",
                       "s/article/000005108",
                       "s/article/000005797",
-                      "s/article/000005842"
+                      "s/article/000005842",
+                      "s/article/000005369"
                     ]
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": ["s/article/360043437773"]
+                    "pages": [
+                      "s/article/360043437773"
+                    ]
                   },
                   {
                     "group": "Alerts",
@@ -2117,6 +2159,7 @@
                       "s/article/000005500",
                       "s/article/360052583893",
                       "s/article/000005080",
+                      "s/article/1500000196462",
                       {
                         "group": "App Studio",
                         "pages": [
@@ -2203,7 +2246,10 @@
                       "s/article/000005510",
                       {
                         "group": "Credit Consumption",
-                        "pages": ["s/article/000005492", "s/article/000005280"]
+                        "pages": [
+                          "s/article/000005492",
+                          "s/article/000005280"
+                        ]
                       },
                       {
                         "group": "Governance",
@@ -2390,7 +2436,10 @@
                       },
                       {
                         "group": "Publish on the Appstore",
-                        "pages": ["s/article/000005184", "s/article/000005183"]
+                        "pages": [
+                          "s/article/000005184",
+                          "s/article/000005183"
+                        ]
                       },
                       {
                         "group": "Available Apps",
@@ -2463,6 +2512,7 @@
                           "s/article/360042933034",
                           "s/article/360043437853",
                           "s/article/360042934214",
+                          "s/article/000005121",
                           {
                             "group": "QuickStart Apps",
                             "pages": [
@@ -3437,6 +3487,7 @@
             "tab": "Release Notes",
             "pages": [
               "s/article/Current-Release-Notes",
+              "s/article/000005908",
               {
                 "group": "Archived Feature Release Notes",
                 "pages": [
@@ -3531,7 +3582,11 @@
             "pages": [
               {
                 "group": "Getting Started",
-                "pages": ["ja/s/article/360043427193"]
+                "pages": [
+                  "ja/s/article/360043427193",
+                  "ja/s/article/360043442453",
+                  "ja/s/article/000005878"
+                ]
               },
               {
                 "group": "Domo Free",
@@ -3556,6 +3611,7 @@
                         "group": "Cloud Data Warehouses",
                         "pages": [
                           "ja/s/article/4412849158167",
+                          "ja/s/article/000005871",
                           {
                             "group": "Amazon (Redshift, Athena)",
                             "pages": [
@@ -3583,7 +3639,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["ja/s/article/000005139"]
+                            "pages": [
+                              "ja/s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -3686,7 +3744,10 @@
                               "ja/s/article/1500011338741",
                               "ja/s/article/360057013754",
                               "ja/s/article/360043436313",
-                              "ja/s/article/360043437093"
+                              "ja/s/article/360043437093",
+                              "ja/s/article/000005841",
+                              "ja/s/article/360042931834",
+                              "ja/s/article/1500010166282"
                             ]
                           }
                         ]
@@ -3756,7 +3817,13 @@
                               "ja/s/article/360043437173",
                               "ja/s/article/4407026671767",
                               "ja/s/article/4407033576471",
-                              "ja/s/article/000005138"
+                              "ja/s/article/000005138",
+                              "ja/s/article/000005219",
+                              "ja/s/article/000005234",
+                              "ja/s/article/360048000154",
+                              "ja/s/article/360056669354",
+                              "ja/s/article/360062446514",
+                              "ja/s/article/4406022964375"
                             ]
                           },
                           {
@@ -3814,7 +3881,8 @@
                           "ja/s/article/360048717414",
                           "ja/s/article/360042932974",
                           "ja/s/article/000005811",
-                          "ja/s/article/360044353933"
+                          "ja/s/article/360044353933",
+                          "ja/s/article/000005825"
                         ]
                       },
                       {
@@ -3841,7 +3909,8 @@
                               "ja/s/article/6918172885143",
                               "ja/s/article/4406661839895",
                               "ja/s/article/000005361",
-                              "ja/s/article/360043435293"
+                              "ja/s/article/360043435293",
+                              "ja/s/article/360042929154"
                             ]
                           },
                           {
@@ -3910,7 +3979,8 @@
                               "ja/s/article/360043435313",
                               "ja/s/article/360042930974",
                               "ja/s/article/8125387098135",
-                              "ja/s/article/000005131"
+                              "ja/s/article/000005131",
+                              "ja/s/article/360042928554"
                             ]
                           },
                           {
@@ -3969,6 +4039,7 @@
                           "ja/s/article/4404766005655",
                           "ja/s/article/360042929234",
                           "ja/s/article/360042926634",
+                          "ja/s/article/360042926534",
                           {
                             "group": "Cvent",
                             "pages": [
@@ -4095,7 +4166,8 @@
                               "ja/s/article/360043435213",
                               "ja/s/article/360043873854",
                               "ja/s/article/1500003956542",
-                              "ja/s/article/360058892613"
+                              "ja/s/article/360058892613",
+                              "ja/s/article/000005794"
                             ]
                           },
                           {
@@ -4158,6 +4230,7 @@
                           "ja/s/article/ka0Vq000000SyUHIA0",
                           "ja/s/article/6643231704471",
                           "ja/s/article/000005759",
+                          "ja/s/article/4409512475927",
                           {
                             "group": "LinkedIn",
                             "pages": [
@@ -4191,7 +4264,8 @@
                               "ja/s/article/360042927014",
                               "ja/s/article/360043431553",
                               "ja/s/article/1500000283862",
-                              "ja/s/article/360043434533"
+                              "ja/s/article/360043434533",
+                              "ja/s/article/360057028474"
                             ]
                           },
                           {
@@ -4255,7 +4329,8 @@
                               "ja/s/article/360042928894",
                               "ja/s/article/360043433453",
                               "ja/s/article/1500000216241",
-                              "ja/s/article/360042932414"
+                              "ja/s/article/360042932414",
+                              "ja/s/article/360043437533"
                             ]
                           },
                           {
@@ -4322,8 +4397,11 @@
                           },
                           {
                             "group": "Sage Intacct",
-                            "pages": ["ja/s/article/000005099"]
+                            "pages": [
+                              "ja/s/article/000005099"
+                            ]
                           },
+                          "ja/s/article/360043437633",
                           {
                             "group": "Salesforce",
                             "pages": [
@@ -4356,14 +4434,16 @@
                               "ja/s/article/360043432373",
                               "ja/s/article/4770992455575",
                               "ja/s/article/360042927254",
-                              "ja/s/article/4744010382871"
+                              "ja/s/article/4744010382871",
+                              "ja/s/article/360043437653"
                             ]
                           },
                           {
                             "group": "ServiceNow",
                             "pages": [
                               "ja/s/article/360042929094",
-                              "ja/s/article/000005697"
+                              "ja/s/article/000005697",
+                              "ja/s/article/000005387"
                             ]
                           },
                           {
@@ -4439,8 +4519,11 @@
                           },
                           {
                             "group": "USGS",
-                            "pages": ["ja/s/article/360043432433"]
+                            "pages": [
+                              "ja/s/article/360043432433"
+                            ]
                           },
+                          "ja/s/article/360042928054",
                           {
                             "group": "Vertica",
                             "pages": [
@@ -4467,7 +4550,8 @@
                             "group": "Workfront",
                             "pages": [
                               "ja/s/article/360043435133",
-                              "ja/s/article/360042927514"
+                              "ja/s/article/360042927514",
+                              "ja/s/article/360043435113"
                             ]
                           },
                           {
@@ -4670,7 +4754,9 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["ja/s/article/360042923754"]
+                        "pages": [
+                          "ja/s/article/360042923754"
+                        ]
                       }
                     ]
                   },
@@ -4768,7 +4854,8 @@
                           "ja/s/article/360043430133",
                           "ja/s/article/360043430153",
                           "ja/s/article/000005559",
-                          "ja/s/article/7903767835031"
+                          "ja/s/article/7903767835031",
+                          "ja/s/article/360043430033"
                         ]
                       }
                     ]
@@ -4809,7 +4896,8 @@
                           "ja/s/article/360042923334",
                           "ja/s/article/360043428053",
                           "ja/s/article/360043429533",
-                          "ja/s/article/360043429613"
+                          "ja/s/article/360043429613",
+                          "ja/s/article/360043428993"
                         ]
                       },
                       {
@@ -5023,16 +5111,20 @@
                       "ja/s/article/360043439153",
                       "ja/s/article/360042923314",
                       "ja/s/article/4529227357975",
-                      "ja/s/article/9355841270167"
+                      "ja/s/article/9355841270167",
+                      "ja/s/article/360042932994",
+                      "ja/s/article/360042933074"
                     ]
                   },
                   {
                     "group": "Slideshow Publications",
                     "pages": [
                       "ja/s/article/360042933014",
-                      "ja/s/article/360043437793"
+                      "ja/s/article/360043437793",
+                      "ja/s/article/000005239"
                     ]
-                  }
+                  },
+                  "ja/s/article/360042937874"
                 ]
               },
               {
@@ -5087,7 +5179,9 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": ["ja/s/article/360043437773"]
+                    "pages": [
+                      "ja/s/article/360043437773"
+                    ]
                   },
                   {
                     "group": "Alerts",
@@ -5510,6 +5604,13 @@
                           "ja/s/article/360042933034",
                           "ja/s/article/360043437853",
                           "ja/s/article/360042934214",
+                          "ja/s/article/360042933474",
+                          "ja/s/article/360042933874",
+                          "ja/s/article/360042934074",
+                          "ja/s/article/360043438793",
+                          "ja/s/article/360044364413",
+                          "ja/s/article/360056655734",
+                          "ja/s/article/000005121",
                           {
                             "group": "QuickStart Apps",
                             "pages": [
@@ -5556,10 +5657,15 @@
                 "group": "Archived Feature Release Notes",
                 "pages": [
                   {
-                    "group": "2025",
+                    "group": "2025-2026",
                     "pages": [
                       "ja/s/article/000005812",
-                      "ja/s/article/000005848"
+                      "ja/s/article/000005848",
+                      "ja/s/article/000005877",
+                      "ja/s/article/000005861",
+                      "ja/s/article/000005924",
+                      "ja/s/article/000006035",
+                      "ja/s/article/000005934"
                     ]
                   },
                   {
@@ -5619,9 +5725,9 @@
       },
       {
         "language": "fr",
-        "pages": [
+        "tabs": [
           {
-            "group": "Release Notes",
+            "tab": "Release Notes",
             "pages": [
               "fr/s/article/Current-Release-Notes",
               {
@@ -5633,7 +5739,10 @@
                     "pages": [
                       "fr/s/article/000005812",
                       "fr/s/article/000005848",
-                      "fr/s/article/000005877"
+                      "fr/s/article/000005877",
+                      "fr/s/article/000005904",
+                      "fr/s/article/000005924",
+                      "fr/s/article/000006035"
                     ]
                   },
                   {
@@ -5667,14 +5776,27 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Knowledge Base",
+            "pages": [
+              "fr/s/article/360043428293",
+              "fr/s/article/360043434433",
+              "fr/s/article/360042922994",
+              "fr/s/article/360043430513",
+              "fr/s/article/360042934294",
+              "fr/s/article/360042934614",
+              "fr/s/article/360042926154",
+              "fr/s/article/360043437793"
+            ]
           }
         ]
       },
       {
         "language": "de",
-        "pages": [
+        "tabs": [
           {
-            "group": "Release Notes",
+            "tab": "Release Notes",
             "pages": [
               "de/s/article/Current-Release-Notes",
               {
@@ -5686,7 +5808,10 @@
                     "pages": [
                       "de/s/article/000005812",
                       "de/s/article/000005848",
-                      "de/s/article/000005877"
+                      "de/s/article/000005877",
+                      "de/s/article/000005904",
+                      "de/s/article/000005924",
+                      "de/s/article/000006035"
                     ]
                   },
                   {
@@ -5719,14 +5844,27 @@
                 ]
               }
             ]
+          },
+          {
+            "tab": "Knowledge Base",
+            "pages": [
+              "de/s/article/360043430513",
+              "de/s/article/360042922994",
+              "de/s/article/360042934294",
+              "de/s/article/360043434433",
+              "de/s/article/360043437793",
+              "de/s/article/360043428293",
+              "de/s/article/360042926154",
+              "de/s/article/360042934614"
+            ]
           }
         ]
       },
       {
         "language": "es",
-        "pages": [
+        "tabs": [
           {
-            "group": "Release Notes",
+            "tab": "Release Notes",
             "pages": [
               "es/s/article/Current-Release-Notes",
               {
@@ -5738,7 +5876,10 @@
                     "pages": [
                       "es/s/article/000005812",
                       "es/s/article/000005848",
-                      "es/s/article/000005877"
+                      "es/s/article/000005877",
+                      "es/s/article/000005904",
+                      "es/s/article/000005924",
+                      "es/s/article/000006035"
                     ]
                   },
                   {
@@ -5769,6 +5910,18 @@
                   }
                 ]
               }
+            ]
+          },
+          {
+            "tab": "Knowledge Base",
+            "pages": [
+              "es/s/article/360043428293",
+              "es/s/article/360043437793",
+              "es/s/article/360043434433",
+              "es/s/article/360042922994",
+              "es/s/article/360043430513",
+              "es/s/article/360042934294",
+              "es/s/article/360042934614"
             ]
           }
         ]
