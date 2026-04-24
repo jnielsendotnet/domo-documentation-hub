@@ -198,7 +198,7 @@ For Ask for Summary Payload, you can map the following [output parameters](#outp
 | sizeBoundary |  | The desired length of the output text represented as a boundary between min and max length. |
 | parameters |  | The variables that can be inserted into the promptTemplate. |
 | prompt | text | The field for any instructions needed to run the function. |
-| promptTemplate | text | A text template that supports placeholder variables allowing users to easily organize input to the Large Language Model.   Example: Summarize the following text to be no longer than ${max\_word\_count} words: ${input} |
+| promptTemplate | text | A text template that supports placeholder variables allowing users to easily organize input to the Large Language Model.   Example: `Summarize the following text to be no longer than ${max_word_count} words: ${input}` |
 | SQL |  | This is the output of the request in SQL. |
 | summarizationOutputStyle |  | Bulleted, numbered, or paragraph |
 | summarizationStrategy |  | The strategy to follow while summarizing the given input. Currently available strategies include STUFFING or MAP\_REDUCE. |
@@ -223,7 +223,7 @@ Required parameters have an \*.
 | outputWordLength — Size Boundary | The desired length of the output text represented as a boundary between min and max length. |
 | parameters |  |
 | prompt | The field for the user to input any instructions that should be included in the prompt needed to run the function. |
-| promptTemplate | A text template that supports placeholder variables allowing users to easily organize input to the Large Language Model.   Example: Summarize the following text to be no longer than ${max\_word\_count} words: ${input} |
+| promptTemplate | A text template that supports placeholder variables allowing users to easily organize input to the Large Language Model.   Example: `Summarize the following text to be no longer than ${max_word_count} words: ${input}` |
 | SQL | This is the output of the request in SQL. |
 | summarizationOutputStyle | Bulleted, numbered, or paragraph |
 | summarizationStrategy | The strategy to follow while summarizing the given input. Currently available strategies include STUFFING or MAP\_REDUCE. |

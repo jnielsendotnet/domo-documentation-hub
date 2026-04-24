@@ -50,23 +50,49 @@ After you have entered valid MongoDB credentials, you can use the same account i
 
 In this pane you create a JSON query to pull data from your MongoDB collection. You can also create optional WHERE, SELECT, GROUP, and SORT clauses, also in JSON format.
 
-<table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p>Menu</p></th><th colspan="1" rowspan="1"><p>Description</p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p>JSON Query</p></td><td colspan="1" rowspan="1"><p>Enter the JSON query to use in selecting the data you want. Two query methods are available, <span class="mt-font-courier-new">Find</span> and <span class="mt-font-courier-new">Aggregate</span>.</p><p>As an example, let's suppose you have a collection with the following data:</p><p><pre>&#123; "_id": 1, "subject": "History", "score": 88 &#125;,
-&#123; "_id": 2, "subject": "History", "score": 92 &#125;,
-&#123; "_id": 3, "subject": "History", "score": 97 &#125;,
-&#123; "_id": 4, "subject": "History", "score": 71 &#125;,
-&#123; "_id": 5, "subject": "History", "score": 79 &#125;,
-&#123; "_id": 6, "subject": "History", "score": 83 &#125;</pre></p><p><b>Find:</b> You could use the <span class="mt-font-courier-new">Find</span> method to select from this collection all documents where the subject equals "History." The query would be formatted as follows:</p><pre>&#123; "subject": "History" &#125;</pre><p><b>Aggregate:</b> To use the <span class="mt-font-courier-new">Aggregate</span> method, your query will look something like the following:</p><pre>[
-  &#123;
-    $match: &#123;
-      score: &#123;
+| Menu | Description |
+| --- | --- |
+| JSON Query | Enter the JSON query to use in selecting the data you want. Two query methods are available, `Find` and `Aggregate`. See the examples below the table. |
+| Where Clause JSON | Enter a `WHERE` clause in JSON format. |
+| Select Clause JSON | Enter a `SELECT` clause in JSON format. |
+| Group Clause JSON | Enter a `GROUP` clause in JSON format. |
+| Sort Clause JSON | Enter a `SORT` clause in JSON format. |
+
+As an example, suppose you have a collection with the following data:
+
+```json
+{ "_id": 1, "subject": "History", "score": 88 },
+{ "_id": 2, "subject": "History", "score": 92 },
+{ "_id": 3, "subject": "History", "score": 97 },
+{ "_id": 4, "subject": "History", "score": 71 },
+{ "_id": 5, "subject": "History", "score": 79 },
+{ "_id": 6, "subject": "History", "score": 83 }
+```
+
+**Find:** You could use the `Find` method to select from this collection all documents where the subject equals "History." The query would be formatted as follows:
+
+```json
+{ "subject": "History" }
+```
+
+**Aggregate:** To use the `Aggregate` method, your query will look something like the following:
+
+```json
+[
+  {
+    $match: {
+      score: {
         $gt: 80
-      &#125;
-    &#125;
-  &#125;,
-  &#123;
+      }
+    }
+  },
+  {
     $count: "passing_scores"
-  &#125;
-]</pre><p>In this example, the $match stage excludes documents that have a score value of less than or equal to 80 to pass along the documents with a score greater than 80 to the next stage. The $count stage returns a count of the remaining documents in the aggregation pipeline and assigns the value to a field called "passing scores."</p></td></tr><tr><td colspan="1" rowspan="1"><p>Where Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">WHERE</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Select Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">SELECT</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Group Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">GROUP</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Sort Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">SORT</span> clause in JSON format.</p></td></tr></tbody></table>
+  }
+]
+```
+
+In this example, the `$match` stage excludes documents that have a score value of less than or equal to 80 to pass along the documents with a score greater than 80 to the next stage. The `$count` stage returns a count of the remaining documents in the aggregation pipeline and assigns the value to a field called "passing scores."
 
 ### Other Panes
 
