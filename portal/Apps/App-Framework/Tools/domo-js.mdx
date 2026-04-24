@@ -99,14 +99,16 @@ const domo = require('ryuu.js').default;
 
 ### CDN / Script Tag
 
-The CLI scaffolds this automatically via `domo init`. The bundle exposes a global `Domo` object:
+Load the library directly from a CDN. The bundle exposes a global `domo` object:
 
 ```html
-<script src="domo.js"></script>
+<script src="https://unpkg.com/ryuu.js"></script>
 <script>
   domo.data.query('sales').then(rows => console.log(rows));
 </script>
 ```
+
+When using the Domo CLI, `domo init` scaffolds a local `domo.js` file you can reference with `<script src="domo.js"></script>` instead.
 
 ### TypeScript
 
