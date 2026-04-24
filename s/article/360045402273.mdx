@@ -227,7 +227,9 @@ When choosing the partition key, the more evenly distributed the row count per c
     `GROUP BY <column>`  
     `ORDER BY row_count DESC;`  
      
-   A batch consists of all rows associated with N distinct partition key values. In a worst-case scenario, the largest batch would be comprised of the partition key values with the N largest row counts. The running total is represented by this query:</Note>
+   A batch consists of all rows associated with N distinct partition key values. In a worst-case scenario, the largest batch would be comprised of the partition key values with the N largest row counts. The running total is represented by this query:
+
+</Note>
 
    `WITH grouped_counts AS (`  
     `SELECT <column> , COUNT(*) AS row_count`

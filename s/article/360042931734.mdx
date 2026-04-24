@@ -55,7 +55,7 @@ In this pane you create a JSON query to pull data from your MongoDB collection. 
 &#123; "_id": 3, "subject": "History", "score": 97 &#125;,
 &#123; "_id": 4, "subject": "History", "score": 71 &#125;,
 &#123; "_id": 5, "subject": "History", "score": 79 &#125;,
-&#123; "_id": 6, "subject": "History", "score": 83 &#125;</pre></p><p><b>Find:</b> You could use the <span class="mt-font-courier-new">Find</span> method to select from this collection all documents where the subject equals "History." The query would be formatted as follows:</p><p><pre>&#123; "subject": "History" &#125;</pre></p><p><b>Aggregate:</b> To use the <span class="mt-font-courier-new">Aggregate</span> method, your query will look something like the following:</p><pre>[
+&#123; "_id": 6, "subject": "History", "score": 83 &#125;</pre></p><p><b>Find:</b> You could use the <span class="mt-font-courier-new">Find</span> method to select from this collection all documents where the subject equals "History." The query would be formatted as follows:</p><pre>&#123; "subject": "History" &#125;</pre><p><b>Aggregate:</b> To use the <span class="mt-font-courier-new">Aggregate</span> method, your query will look something like the following:</p><pre>[
   &#123;
     $match: &#123;
       score: &#123;
