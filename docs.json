@@ -151,6 +151,10 @@
                             ]
                           },
                           {
+                            "group": "Lakebase",
+                            "pages": ["s/article/Domo-on-Lakebase"]
+                          },
+                          {
                             "group": "MySQL",
                             "pages": [
                               "s/article/000005451",
@@ -218,7 +222,8 @@
                               "s/article/360057013754",
                               "s/article/360043436313",
                               "s/article/360042931834",
-                              "s/article/360043437093"
+                              "s/article/360043437093",
+                              "s/article/Snowflake-Minimum-Permissions-for-Domo"
                             ]
                           }
                         ]
@@ -2007,6 +2012,7 @@
               {
                 "group": "AI & Data Science",
                 "pages": [
+                  "s/article/Domo-AI-FAQ",
                   "s/article/000005720",
                   "s/article/000005561",
                   "s/article/000005851",
@@ -2235,7 +2241,10 @@
                       "s/article/000005510",
                       {
                         "group": "Credit Consumption",
-                        "pages": ["s/article/000005492", "s/article/000005280"]
+                        "pages": [
+                          "s/article/000005492",
+                          "s/article/000005280"
+                        ]
                       },
                       {
                         "group": "Governance",
@@ -2422,7 +2431,10 @@
                       },
                       {
                         "group": "Publish on the Appstore",
-                        "pages": ["s/article/000005184", "s/article/000005183"]
+                        "pages": [
+                          "s/article/000005184",
+                          "s/article/000005183"
+                        ]
                       },
                       {
                         "group": "Available Apps",
@@ -2730,12 +2742,50 @@
                             ]
                           },
                           {
-                            "group": "AI Services API",
+                            "group": "AI Services",
                             "pages": [
-                              "portal/API-Reference/Product-APIs/AI-Services",
-                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/generation",
-                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/sql",
-                              "openapi/product/aiservices.yaml POST /api/ai/v1/text/summarize"
+                              {
+                                "group": "AI Services - Classification",
+                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/classification"]
+                              },
+                              {
+                                "group": "AI Services - Data Extraction",
+                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/extract"]
+                              },
+                              {
+                                "group": "AI Services - Embedding",
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/embedding/image",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/embedding/text"
+                                ]
+                              },
+                              {
+                                "group": "AI Services - Image",
+                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/image/text"]
+                              },
+                              {
+                                "group": "AI Services - Messages",
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/messages/chat",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/messages/tools"
+                                ]
+                              },
+                              {
+                                "group": "AI Services - Sentiment Analysis",
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/sentiment",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/targeted-sentiment"
+                                ]
+                              },
+                              {
+                                "group": "AI Services - Text",
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/text/beastmode",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/text/generation",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/text/sql",
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/text/summarize"
+                                ]
+                              }
                             ]
                           },
                           {
@@ -2830,9 +2880,7 @@
                               },
                               {
                                 "group": "Search",
-                                "pages": [
-                                  "openapi/product/data-accounts.yaml POST /api/search/v1/query"
-                                ]
+                                "pages": ["openapi/product/data-accounts.yaml POST /api/search/v1/query"]
                               }
                             ]
                           },
@@ -2842,9 +2890,7 @@
                               "portal/35115c5c48927-datasets-api",
                               {
                                 "group": "Cards",
-                                "pages": [
-                                  "openapi/product/data-sets.yaml GET /api/content/v1/datasources/{datasetId}/cards"
-                                ]
+                                "pages": ["openapi/product/data-sets.yaml GET /api/content/v1/datasources/{datasetId}/cards"]
                               },
                               {
                                 "group": "Metadata",
@@ -2879,9 +2925,7 @@
                               },
                               {
                                 "group": "Query",
-                                "pages": [
-                                  "openapi/product/data-sets.yaml POST /api/query/v1/execute/{datasetId}"
-                                ]
+                                "pages": ["openapi/product/data-sets.yaml POST /api/query/v1/execute/{datasetId}"]
                               },
                               {
                                 "group": "Schema",
@@ -2903,9 +2947,7 @@
                               },
                               {
                                 "group": "Tags",
-                                "pages": [
-                                  "openapi/product/data-sets.yaml POST /api/data/ui/v3/datasources/{datasetId}/tags"
-                                ]
+                                "pages": ["openapi/product/data-sets.yaml POST /api/data/ui/v3/datasources/{datasetId}/tags"]
                               },
                               {
                                 "group": "Upload",
@@ -3395,23 +3437,23 @@
                     "group": "Embed Domo Everywhere",
                     "pages": [
                       "portal/embed/overview",
-                      "portal/embed/embedded-scheduled-reports",
-                      "portal/embed/publishing-to-other-domo-users",
                       {
                         "group": "Embed In Sites and Software",
                         "pages": [
                           "portal/embed/embed-in-sites-and-apps/overview",
                           "portal/embed/embed-in-sites-and-apps/programmatic-filtering",
-                          "portal/embed/embed-in-sites-and-apps/app-embed-authentication",
-                          "portal/embed/embed-in-sites-and-apps/dataset-switching",
                           "portal/embed/embed-in-sites-and-apps/filtering-options",
                           "portal/embed/embed-in-sites-and-apps/url-parameters-in-embedded-content",
+                          "portal/embed/embed-in-sites-and-apps/dataset-switching",
                           "portal/embed/embed-in-sites-and-apps/dynamic-iframe-height",
                           "portal/embed/embed-in-sites-and-apps/code-examples",
                           "portal/embed/embed-in-sites-and-apps/necessary-dependencies",
+                          "portal/embed/embed-in-sites-and-apps/embedded-scheduled-reports",
+                          "portal/embed/embed-in-sites-and-apps/app-embed-authentication",
                           "portal/embed/embed-in-sites-and-apps/embedding-into-sites-and-web-portals"
                         ]
                       },
+                      "portal/embed/publishing-to-other-domo-users",
                       "portal/embed/embedded-edit-experiences"
                     ]
                   },
