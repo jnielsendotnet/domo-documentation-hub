@@ -56,16 +56,16 @@ In this pane you create a JSON query to pull data from your MongoDB collection. 
 &#123; "_id": 4, "subject": "History", "score": 71 &#125;,
 &#123; "_id": 5, "subject": "History", "score": 79 &#125;,
 &#123; "_id": 6, "subject": "History", "score": 83 &#125;</pre></p><p><b>Find:</b> You could use the <span class="mt-font-courier-new">Find</span> method to select from this collection all documents where the subject equals "History." The query would be formatted as follows:</p><p><pre>&#123; "subject": "History" &#125;</pre></p><p><b>Aggregate:</b> To use the <span class="mt-font-courier-new">Aggregate</span> method, your query will look something like the following:</p><p><pre>[
-  {
-    $match: {
-      score: {
+  &#123;
+    $match: &#123;
+      score: &#123;
         $gt: 80
-      }
-    }
-  },
-  {
+      &#125;
+    &#125;
+  &#125;,
+  &#123;
     $count: "passing_scores"
-  }
+  &#125;
 ]</pre></p><p>In this example, the $match stage excludes documents that have a score value of less than or equal to 80 to pass along the documents with a score greater than 80 to the next stage. The $count stage returns a count of the remaining documents in the aggregation pipeline and assigns the value to a field called "passing scores."</p></td></tr><tr><td colspan="1" rowspan="1"><p>Where Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">WHERE</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Select Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">SELECT</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Group Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">GROUP</span> clause in JSON format.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Sort Clause JSON</p></td><td colspan="1" rowspan="1"><p>Enter a <span class="mt-font-courier-new">SORT</span> clause in JSON format.</p></td></tr></tbody></table>
 
 ### Other Panes

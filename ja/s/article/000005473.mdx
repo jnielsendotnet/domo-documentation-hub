@@ -50,12 +50,16 @@ Google BigQuery Workload Identity連携データアカウントに接続してDa
      8. プロバイダー属性を設定するには、Google 1の場合、**google.subject**がキーで**assertion.subject**が値です。
      9. Workload IdentityプールおよびWorkload Identityプロバイダーを保存します。
   4. サービスアカウントをお持ちでない場合は、アカウントを設定する必要があります。  
-<Note>     **注記：**サービスアカウントは、Workload IdentityプールおよびWorkload Identityプロバイダーと同じプロジェクトに存在する必要はありません。   
+<Note>
+
+**注記：**サービスアカウントは、Workload IdentityプールおよびWorkload Identityプロバイダーと同じプロジェクトに存在する必要はありません。   
      1. サービスアカウントを作成するには、[サービスアカウント作成ページ](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts/create)に移動します。サービスアカウントを既に持っている場合は、[サービスアカウントページ](https://console.cloud.google.com/iam-admin/serviceaccounts?project=undefined)に移動します。
      2. **サービスアカウントのメール**を入力します。
      3. Domoがアクセスするリソースへのアクセス権をサービスアカウントに付与します。
   5. 外部ワークロードがサービスアカウントに偽装できるようにするには：  
-     **注記：**外部IDがサービスアカウントに偽装できるようにするには、サービスアカウントのWorkload Identityユーザー権限（roles/iam.workloadIdentityUser）をユーザーに付与する必要があります。権限は、特定の外部IDまたは複数の外部IDに付与できます。</Note>
+     **注記：**外部IDがサービスアカウントに偽装できるようにするには、サービスアカウントのWorkload Identityユーザー権限（roles/iam.workloadIdentityUser）をユーザーに付与する必要があります。権限は、特定の外部IDまたは複数の外部IDに付与できます。
+
+</Note>
 
 1. 1. 1. Workload Identityプール（[Workload Identityプールページ](https://console.cloud.google.com/iam-admin/workload-identity-pools?project=undefined)）に移動します。
       2. 作成したプールをクリックします。

@@ -52,12 +52,16 @@ To connect to your Google BigQuery Workload Identity Federation Data account and
      9. Save your workload identity pool and provider.
   4. If you do not have a service account, you need to set up the account:  
      
-<Note>**Note:** Your service account doesn't need to be in the same project as your workload identity pool and provider.   
+<Note>
+
+**Note:** Your service account doesn't need to be in the same project as your workload identity pool and provider.   
      1. To create a service account, navigate to [create service account](https://console.cloud.google.com/projectselector2/iam-admin/serviceaccounts/create).or if you already have a service account, navigate to [service account page](https://console.cloud.google.com/iam-admin/serviceaccounts?project=undefined).
      2. Enter the **Service Account Email**.
      3. Grant the service account access to resources that you want Domo to access.
   5. To allow the external workload to impersonate the service account:  
-     **Note:** To allow external identities to impersonate a service account, you need to grant the user the Workload Identity User role (roles/iam.workloadIdentityUser) on the service account. You can grant the role to a specific external identity, or to multiple external identities</Note>
+     **Note:** To allow external identities to impersonate a service account, you need to grant the user the Workload Identity User role (roles/iam.workloadIdentityUser) on the service account. You can grant the role to a specific external identity, or to multiple external identities
+
+</Note>
 
 1. 1. 1. Navigate to the Workload Identity Pool [Workload Identity Pool page](https://console.cloud.google.com/iam-admin/workload-identity-pools?project=undefined)
       2. Click the pool you have created.

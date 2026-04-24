@@ -71,7 +71,9 @@ Enter the DataSet ID (GUID) for the DataSet you want to copy to Salesforce. You
 <Note>
 
 **Note:** - After inserting the record, the Salesforce internal or external IDs are stored as GUID in the dataset
-- The Salesforce Writeback Connector looks for a *\_BATCH\_ID\_* column. If this column is present in the input DataSet, the Connector will keep track of the highest *\_BATCH\_ID\_* in the source DataSet to keep track of the data already written to Salesforce. For the next run, the Connector will only write rows with a *\_BATCH\_ID\_* higher than the one recorded on previous runs. This is to avoid writing duplicate data to Salesforce. If the *\_BATCH\_ID\_* column is not present in the source DataSet, all the data will be written to Salesforce every time the Connector runs.</Note>
+- The Salesforce Writeback Connector looks for a *\_BATCH\_ID\_* column. If this column is present in the input DataSet, the Connector will keep track of the highest *\_BATCH\_ID\_* in the source DataSet to keep track of the data already written to Salesforce. For the next run, the Connector will only write rows with a *\_BATCH\_ID\_* higher than the one recorded on previous runs. This is to avoid writing duplicate data to Salesforce. If the *\_BATCH\_ID\_* column is not present in the source DataSet, all the data will be written to Salesforce every time the Connector runs.
+
+</Note>
 
 #### Salesforce Setup
 
