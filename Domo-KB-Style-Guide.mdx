@@ -27,18 +27,35 @@ This section includes content and page design standards for creating Knowledge B
 The structure of an article should be as follows:
 
 *   Intro
-*   Required grants
-*   Access feature (this and Required Grants can be switched as needed, for example, when you must have a grant to view the option to access the feature)
+*   Required Grants
+*   (*Optional*) Prerequisites
+*   Access Feature (this and Required Grants can be switched as needed, for example, when you must have a grant to view the option to access the feature)
 *   Tasks to be completed broken into headings in the generally in the CRUD order (Create, Review, Update, Delete)
 *   (*Optional*) FAQ
+*   (*Optional*) Troubleshoot
+*   (*Optional*) Related Articles
+
+A horizontal rule (`---`) must follow the **Intro** section, visually separating it from **Required Grants** and the article body.
 
 Do not include a table of contents — written or linked — at the top of an article. Tables of contents are generated automatically from the article's headings when the page renders on the Knowledge Base site.
 
 
 
+### Intro Section
+
+Keep the Intro section succinct and direct. In most cases, a single sentence is sufficient. Use the format "This article explains..." or "This article covers..." followed by 2–3 concrete actions or skills the reader gains, using the same terminology as the article body.
+
+Do not explain why the skills matter — focus only on what the article covers. A few articles genuinely require an opening sentence of context before the lead sentence, but this should be the exception, not the rule.
+
+**Correct:** "This article explains how to connect a DataSet to a card, schedule a DataFlow refresh, and configure row-level security."
+
+**Incorrect:** "Understanding your data pipeline is key to getting the most out of Domo. This article introduces several concepts and walks you through the basics."
+
+
+
 ### FAQ
 
-FAQ sections should be located at the bottom of the article, above only Troubleshooting, if applicable. 
+FAQ sections should be located at the bottom of the article, above only Troubleshoot or Related Articles, if applicable. 
 
 Questions and answers should be coded inside an `<AccordionGroup>` as in the template below.
 
@@ -60,12 +77,25 @@ Frequently asked answer.
 
 ### Headings and Titles
 
-Article titles, section headings, and step headings must be written in the imperative mood — phrased as a direct command or instruction. Never use the gerund form.
+Article titles and task headings must be written in the imperative mood — phrased as a direct command or instruction. Never use the gerund form.
 
 - **Correct:** "Connect Data to Domo"
 - **Incorrect:** "Connecting Data to Domo"
 
 This applies to all heading levels (H1–H3) and to any labeled step that functions as a mini-heading within a task section.
+
+**Note:** The structural section labels **Intro**, **Required Grants**, **Prerequisites**, **FAQ**, **Troubleshoot**, and **Related Articles** are fixed best-practice headings that identify article structure rather than instruct the reader. These are exempt from the imperative-mood rule and should not be rephrased.
+
+
+
+### Heading Hierarchy
+
+The frontmatter `title` field renders as H1. This means:
+
+- The Intro section and all other top-level parent headings should be H2
+- Subsections should be H3, H4, and so on
+
+The table of contents renders through H4. If you find yourself going three or more levels deep, consider reorganizing your content.
 
 
 
@@ -102,9 +132,19 @@ If the step is conditional, write
 
 You can say "Contact your Domo account team" for betas, or if they need further information.
 
+### Internal Links
+
+Use the file path only — no need for the full URL. Do not include the `.mdx` extension in the path.
+
+```
+[Article Title](/s/article/Article-Title)
+```
+
+Legacy articles in the repo use number strings as filenames (a holdover from previous migrations). New articles use title-based names. Either way, the same linking format applies — just omit the `.mdx` extension.
+
 ### Subheadings
 
-When referencing a subheading within another article, use this type of phrasing: "Learn more about [the Feature that is the Subheading](/s/article/article-title#sub-head-title)"
+When referencing a subheading within another article, use this type of phrasing: "Learn more about [the Feature that is the Subheading](/s/article/Article-Title#sub-head-title)"
 
 
 
@@ -113,6 +153,83 @@ When referencing a subheading within another article, use this type of phrasing:
 As much as possible, screenshots should be taken in Modocorp or another demo instance, not our company instance to protect data. If screenshots contain fields to enter information, it's best practice to fill in the blanks where necessary with phrases like "Example title" before taking the screenshot.
 
 Take as many high-quality screenshots as possible. Not all may make it into the final draft of the article, but it's better to have too many than too few. Take them at as high a resolution as possible and do not compress them for sending to another machine—if necessary you can add them to a Sharepoint folder to preserve quality and share the link to the folder with another individual.
+
+**Inline images (UI icons)**
+
+For small Domo UI icons that appear within body text, recommended sizes are:
+
+- **20×20 —** matches the size of surrounding display text
+- **30×30 —** slightly larger; good for most inline icons
+- **40×40 —** best for header-level icons
+
+
+
+## Callouts
+
+Use React callout elements for notes, warnings, and tips — not plain text or HTML. Always bold the label and its colon, for example `**Note:**`.
+
+Ensure there is a blank line between any preceding paragraph and the callout element so it renders correctly. This rule does not apply inside table cells, where callouts are written inline with surrounding content but still render on their own line when published.
+
+```
+<Note>**Note:** Your note text here.</Note>
+
+<Warning>**Important:** Your warning text here.</Warning>
+
+<Tip>**Tip:** Your tip text here.</Tip>
+```
+
+
+
+## Tables
+
+Pipe tables in MDX files must be padded with spaces so that columns align vertically across all rows, including the header separator row. This makes tables readable in source and easier to edit.
+
+**Correct:**
+```
+| First Column | Second Column |
+| ------------ | ------------- |
+| Row text 1   | Row text 1    |
+| Row text 2   | Row text 2    |
+```
+
+**Incorrect:**
+```
+| First Column | Second Column |
+| --- | --- |
+| Row text 1       | Row text 1 |
+| Row text 2   |   Row text 2 |
+```
+
+To separate multiple lines of plain text within a cell, use `<br/>`:
+
+```
+| Column 1   | Column 2                                            |
+| ---------- | --------------------------------------------------- |
+| Multi-line | First line of content.<br/>Second line of content.  |
+```
+
+Do not use `<br/>` between multiple callout elements (`<Note>`, `<Warning>`, `<Tip>`, and others) in a single cell — these components create their own line breaks. If a callout elements follows a line of plain text, a `<br/>` element is *not* needed.
+
+```
+| Column 1     | Column 2                                                                             |
+| ------------ | ------------------------------------------------------------------------------------ |
+| With callout | Cell content. <Note>**Note:** Note text here.</Note>                                 |
+| Two callouts | <Note>**Note:** First note.</Note><Warning>**Warning:** Warning text here.</Warning> |
+```
+
+**Nested tables**
+
+For a table within a table, write the inner table as HTML and embed it inside the outer table cell. This renders correctly when published.
+
+
+
+## Code
+
+Inline code: wrap with a single backtick — `` `your code here` ``
+
+Fenced code block: open and close with three backticks, with your code in between.
+
+Tabbed code blocks are also supported when you need to show the same code in multiple languages (such as JavaScript, Python, or Node). See the documentation for that syntax.
 
 
 
@@ -124,6 +241,13 @@ Take as many high-quality screenshots as possible. Not all may make it into the 
 | Italics         | Use italics when referring to variables that users will fill in with their own data.                                                                                                                                                                                                                                 | Enter the URL as *mydomo*.domo.com, in which *mydomo* refers to your company Domo instance.                                 |
 | Quotation Marks | Use quotation marks to reference on-screen text not used specifically as an interface element. Also used to reference DataSet columns and ETL actions.                                                                                                                                                               | Select the orange button to the right of the text reading "Click here to save your progress."                               |
 | Code Style      | Use a Code style to set apart code snippets on their own line.                                                                                                                                                                                                                                                       | Enter the file path of the Microsoft Word file you want to import on the SFTP server. For example: `/home/user/MyFile.docx` |
+
+**Punctuation and bold: two exceptions**
+
+Punctuation is not bolded except in these two cases:
+
+- **Callout labels:** In callout components (`<Note>`, `<Warning>`, `<Tip>`, etc.), the label and its trailing colon are both bolded: `**Note:**`, `**Important:**`, `**Tip:**`.
+- **Em-dashes in description lists:** When an em-dash separates a bolded term from its description in a list, include the em-dash inside the bold formatting. Write `**Connected —** tables connected to a Domo DataSet`, not `**Connected** — tables connected to a Domo DataSet`.
 
 
 
@@ -184,6 +308,11 @@ When using an em-dash, do not place spaces on either side of it.
 
 - **Correct:** "Domo's MCP Server is a hosted service that gives AI tools—such as Claude, Cursor, VS Code, and ChatGPT—secure access to your Domo instance."
 - **Incorrect:** "Domo's MCP Server is a hosted service that gives AI tools — such as Claude, Cursor, VS Code, and ChatGPT — secure access to your Domo instance."
+
+**Exception:** When using an em-dash to separate a bolded term from its description in a list item, place a space before and after the em-dash.
+
+- **Correct:** "* **Manage All Users —** This grant allows the holder to create, edit, and delete any user and reset their password."
+- **Incorrect:** "* **Manage All Users—**This grant allows the holder to create, edit, and delete any user and reset their password."
 
 
 
