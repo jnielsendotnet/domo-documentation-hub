@@ -137,8 +137,8 @@ RDBMS（リレーショナルデータベース管理システム）が最後に
    <Frame>![Screenshot](/images/kb/ja/0EM5w000005vPNq.png)</Frame>
 2. SQLには、次の2つの非常に重要な設定行があります。
 
-- Where "ReportDate" > '!{lastvalue:ReportDate}!'  
-  最後の読み取り後の変更を示す値を持つフィールドがWhere句に含まれていることを確認します。ここに示されているように、'!{lastvalue:ReportDate}!'には**クエリ変数**の最後の値が含まれています（以下の「クエリ変数の設定」セクションを参照）。**クエリ変数**の名前を、最後の読み込み後の変更を示すクエリのフィールドと同じ名前にします。
+- Where "ReportDate" > '!&#123;lastvalue:ReportDate&#125;!'  
+  最後の読み取り後の変更を示す値を持つフィールドがWhere句に含まれていることを確認します。ここに示されているように、'!&#123;lastvalue:ReportDate&#125;!'には**クエリ変数**の最後の値が含まれています（以下の「クエリ変数の設定」セクションを参照）。**クエリ変数**の名前を、最後の読み込み後の変更を示すクエリのフィールドと同じ名前にします。
 - Order by  
   SQLステートメントに**Order By**句があることを確認します。これがLastvalue変数に保存される最後の行の値になるからです。変更データキャプチャフィールドを含んでいる列で並べ替えをしないと、変更された行をクエリで取得できない場合があります。
 
@@ -225,7 +225,7 @@ Windowsのユーザー名とPC名が同一でないことを確認します。Wi
 
 ログはディレクトリC:\Users\name\_of user\AppData\Local\Tempにあります。
 
-ファイル名はDomo\_Workbench\_<datestamp>.logおよび Domo\_Workbench\_<Datestamp>\_001\_DomoWorkbench64.logです。
+ファイル名はDomo\_Workbench\_\<datestamp\>.logおよび Domo\_Workbench\_\<Datestamp\>\_001\_DomoWorkbench64.logです。
 
 **QuickBooks Workbenchのジョブが予定どおりに実行されません。どうすればいいですか？**
 

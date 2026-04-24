@@ -91,7 +91,7 @@ Google BigQuery Workload Identity連携データアカウントに接続してDa
 | Report | 実行するGoogle BigQuery Workload Identity連携データレポートを選択します。以下のレポートが利用できます。<table><tbody><tr><td>**レポート名**</td><td>**説明**</td></tr><tr><td>Query</td><td>レガシーSQLまたは標準SQLを実行してデータをBigQueryから返します。</td></tr><tr><td>Table Information</td><td>テーブルの詳細を返します。</td></tr></tbody></table> |
 | What Query Type would you like to use? | 使用するクエリタイプを選択します。デフォルトでは、レガシーSQLが選択されています。 |
 | Query | Google BigQueryの完全修飾クエリを入力します。 |
-| Query Parameter | クエリパラメーターの値を入力します。これはクエリパラメーターの初期値になります。最終実行日はオプションです。指定しない場合はデフォルトで「02/01/1700」となります。例：<tt>!{lastvalue:\_id}!=1,!{lastrundate:start\_date}!=02/01/1944</tt> |
+| Query Parameter | クエリパラメーターの値を入力します。これはクエリパラメーターの初期値になります。最終実行日はオプションです。指定しない場合はデフォルトで「02/01/1700」となります。例：<tt>!&#123;lastvalue:\_id&#125;!=1,!&#123;lastrundate:start\_date&#125;!=02/01/1944</tt> |
 | Project ID | データを取得するプロジェクトのIDを入力します。 |
 | Expect Large Results | 大きい結果を返すクエリの場合、一時的なテーブルが作成され、ジョブが完了すると削除されます。一時的なテーブルを作成するには、DataSet IDが必要です。 |
 | DataSet ID | データを取得するDataSetのIDを入力します。 |

@@ -93,7 +93,7 @@ This pane contains a primary **Reports** menu, along with various other menus 
 | Report | Select the Google BigQuery Workload Identity Federation Data report you want to run. The following reports are available:   |  |  | | --- | --- | | **Report Name** | **Description** | | Query | Returns the data from Big Query by running legacy or standard SQL. | | Table Information | Returns the information of the Table. | | Table Data | Returns the data from the Table. | |
 | What Query Type would you like to use? | Select the query type that you would like to use. By default Legacy SQL is selected. |
 | Query | Enter a fully qualified Google BigQuery query. |
-| Query Parameter | Enter the query parameter value, it is the initial value for query parameter. The last run date is optional by default it is '02/01/1700' if is not provided. For example: <tt>!{lastvalue:\_id}!=1,!{lastrundate:start\_date}!=02/01/1944</tt> |
+| Query Parameter | Enter the query parameter value, it is the initial value for query parameter. The last run date is optional by default it is '02/01/1700' if is not provided. For example: <tt>!&#123;lastvalue:\_id&#125;!=1,!&#123;lastrundate:start\_date&#125;!=02/01/1944</tt> |
 | Project ID | Enter the ID for the project you want to retrieve data. |
 | Expect Large Results | Queries with large results will create a temporary table and deletes it when the job is completed. A dataset ID is required to create the temporary table. |
 | Dataset ID | Enter the ID for the dataset you want to retrieve data. |

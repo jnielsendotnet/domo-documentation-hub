@@ -177,7 +177,9 @@ Follow these steps to configure the Query DataSet tile:
 
 1. In Magic ETL, expand the **DataSets** section in the left sidebar and drag a Query DataSet tile to the canvas.   
    
-<Note>**Note:** This is only available for Domo on Databricks users.
+<Note>
+
+**Note:** This is only available for Domo on Databricks users.
 2. In the tile configuration panel below the canvas, use the **Choose** ** DataSet** dropdown to select a Databricks DataSet.
 3. Write the query that identifies the data you want to bring into the Magic ETL DataFlow.
 </Note>
@@ -242,12 +244,12 @@ When choosing the partition key, the more evenly distributed the row count per c
    `FROM grouped_counts`  
    `ORDER BY row_count DESC;`
 
-   For example, let's say a date <column> is being valued as a partition key candidate:  
+   For example, let's say a date \<column\> is being valued as a partition key candidate:  
      
 
    |  |  |  |
    | --- | --- | --- |
-   | <column> | row\_count | cumulative\_row\_count |
+   | \<column\> | row\_count | cumulative\_row\_count |
    | 2024-10-13 | 100 | 100 |
    | 2024-02-21 | 80 | 180 |
    | 2024-05-17 | 60 | 240 |
@@ -257,7 +259,7 @@ When choosing the partition key, the more evenly distributed the row count per c
    | 2024-11-30 | 10 | 350 |
 
      
-   Let's go a step further. How many distinct values for this <column> could be included in a batch while remaining below the maximum row count (based on 4GB) that we calculated earlier? Here is the query we need:   
+   Let's go a step further. How many distinct values for this \<column\> could be included in a batch while remaining below the maximum row count (based on 4GB) that we calculated earlier? Here is the query we need:   
      
 
    `WITH grouped_counts AS (`  

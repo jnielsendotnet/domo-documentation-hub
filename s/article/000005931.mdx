@@ -68,7 +68,9 @@ In this section, you can choose whether you want to insert, update, or insert an
 
 Enter the DataSet ID (GUID) for the DataSet you want to copy to Salesforce. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL [https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview), the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.
 
-<Note>**Note:** - After inserting the record, the Salesforce internal or external IDs are stored as GUID in the dataset
+<Note>
+
+**Note:** - After inserting the record, the Salesforce internal or external IDs are stored as GUID in the dataset
 - The Salesforce Writeback Connector looks for a *\_BATCH\_ID\_* column. If this column is present in the input DataSet, the Connector will keep track of the highest *\_BATCH\_ID\_* in the source DataSet to keep track of the data already written to Salesforce. For the next run, the Connector will only write rows with a *\_BATCH\_ID\_* higher than the one recorded on previous runs. This is to avoid writing duplicate data to Salesforce. If the *\_BATCH\_ID\_* column is not present in the source DataSet, all the data will be written to Salesforce every time the Connector runs.</Note>
 
 #### Salesforce Setup

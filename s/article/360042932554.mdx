@@ -180,8 +180,8 @@ You can create a new job that will append the data that has changes in the RDBM
    <Frame>![Screenshot](/images/kb/0EM5w000005vPNq.png)</Frame>
 2. The two key setup lines in the SQL that are very important are as follows:
 
-- Where "ReportDate" > '!{lastvalue:ReportDate}!'  
-  Ensure the Where clause contains the field that holds the value that indicate the changes since last load. The '!{lastvalue:ReportDate}!' contains the last value for the **Query Variable** as shown (see the Query Variable Setup section below). Call the ** Query Variable** the same name as the field in the query that indicates the changes since the last Load.
+- Where "ReportDate" > '!&#123;lastvalue:ReportDate&#125;!'  
+  Ensure the Where clause contains the field that holds the value that indicate the changes since last load. The '!&#123;lastvalue:ReportDate&#125;!' contains the last value for the **Query Variable** as shown (see the Query Variable Setup section below). Call the ** Query Variable** the same name as the field in the query that indicates the changes since the last Load.
 - Order by  
   Ensure you have an **Order By** clause in the SQL statement, since it will be the value from the last row that will be saved in the Lastvalue variable. If you don’t order by the column that contains the change data capture field, then you might not get the changed rows in the query.
 
@@ -264,7 +264,7 @@ Ensure your Windows username is not the same as the PC name. Windows 10 appears 
 
 You can find the logs in the following directory: C:\Users\NAME\_OF\_USER\AppData\Local\Temp
 
-The file names are Domo\_Workbench\_<datestamp>.log and Domo\_Workbench\_<Datestamp>\_001\_DomoWorkbench64.log
+The file names are Domo\_Workbench\_\<datestamp\>.log and Domo\_Workbench\_\<Datestamp\>\_001\_DomoWorkbench64.log
 
 **My QuickBooks Workbench jobs will not run on schedule. What do I do?**
 

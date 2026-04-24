@@ -234,18 +234,18 @@ Facebook広告では、クエリの結果を計算してからデータの取得
 <Accordion title="各レポートコールによってこのコネクターで呼び出されるのはどのエンドポイントですか？">
 | レポート名                  |                             | エンドポイントURL（1つまたは複数）                   |
 | ---------------------- | --------------------------- | ------------------------------------- |
-| Ad Accounts            |                             | /{AD\_ACCOUNT\_ID}/info               |
-| Ad Campaigns           |                             | /{AD\_ACCOUNT\_ID}/adcampaign\_groups |
+| Ad Accounts            |                             | /&#123;AD\_ACCOUNT\_ID&#125;/info               |
+| Ad Campaigns           |                             | /&#123;AD\_ACCOUNT\_ID&#125;/adcampaign\_groups |
 | Ad Keyword Statistics  |                             | /keywordstats                         |
-| Ad Sets                |                             | /{AD\_ACCOUNT\_ID}/adcampaigns        |
-| Ads                    |                             | /{AD\_ACCOUNT\_ID}/adgroups           |
-| Custom Insights        |                             | /{AD\_ACCOUNT\_ID}/insights           |
+| Ad Sets                |                             | /&#123;AD\_ACCOUNT\_ID&#125;/adcampaigns        |
+| Ads                    |                             | /&#123;AD\_ACCOUNT\_ID&#125;/adgroups           |
+| Custom Insights        |                             | /&#123;AD\_ACCOUNT\_ID&#125;/insights           |
 | General Metrics        |                             | /{CAMPAIGN\_GROUP\_ID}/insights       |
-| Object Informaion-NEW  | Account Object              | /{AD\_ACCOUNT\_ID}/insights           |
-| Campaign Object        | /{AD\_ACCOUNT\_ID}/insights |                                       |
+| Object Informaion-NEW  | Account Object              | /&#123;AD\_ACCOUNT\_ID&#125;/insights           |
+| Campaign Object        | /&#123;AD\_ACCOUNT\_ID&#125;/insights |                                       |
 | Ad Sets Object         | {AD\_ACCOUNT\_ID}/adsets    |                                       |
-| Ads Object             | /{AD\_ACCOUNT\_ID}/ads      |                                       |
-| Object Insights-NEW    |                             | /{AD\_ACCOUNT\_ID}/insights           |
+| Ads Object             | /&#123;AD\_ACCOUNT\_ID&#125;/ads      |                                       |
+| Object Insights-NEW    |                             | /&#123;AD\_ACCOUNT\_ID&#125;/insights           |
 | Page Actions (Ad sets) |                             | /{AD\_SET\_ID}/insights               |
 | Page Actions (Ads)     |                             | /{AD\_SET\_ID}/insights               |
 | Placement Metrics      |                             | /{CAMPAIGN\_GROUP\_ID}/insights       |
