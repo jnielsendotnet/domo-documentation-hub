@@ -205,7 +205,9 @@ When choosing the partition key, the more evenly distributed the row count per c
    `divisions = ( sizeInBytes / 2^30 ) / 4`  
      
        
-<Note>**Note:** This is only an intermediate calculation, which should not be interpreted as the desired number of loads.
+<Note>
+
+**Note:** This is only an intermediate calculation, which should not be interpreted as the desired number of loads.
 4. Find the table's total row count.
 5. Estimate how many table rows make 4GB, the limit for the largest batch, using the following equation:  
      
