@@ -5776,11 +5776,11 @@
         "language": "fr",
         "tabs": [
           {
-            "tab": "Release Notes",
+            "tab": "Notes de version",
             "pages": [
               "fr/s/article/Current-Release-Notes",
               {
-                "group": "Archived Feature Release Notes",
+                "group": "Notes de version des fonctionnalités archivées",
                 "pages": [
                   "fr/s/article/000005504",
                   {
@@ -5827,7 +5827,7 @@
             ]
           },
           {
-            "tab": "Knowledge Base",
+            "tab": "Base de connaissances",
             "pages": [
               "fr/s/article/360043428293",
               "fr/s/article/360043434433",
@@ -5845,11 +5845,11 @@
         "language": "de",
         "tabs": [
           {
-            "tab": "Release Notes",
+            "tab": "Versionshinweise",
             "pages": [
               "de/s/article/Current-Release-Notes",
               {
-                "group": "Archived Feature Release Notes",
+                "group": "Archivierte Versionshinweise zu Funktionen",
                 "pages": [
                   "de/s/article/000005504",
                   {
@@ -5895,7 +5895,7 @@
             ]
           },
           {
-            "tab": "Knowledge Base",
+            "tab": "Wissensdatenbank",
             "pages": [
               "de/s/article/360043430513",
               "de/s/article/360042922994",
@@ -5913,11 +5913,11 @@
         "language": "es",
         "tabs": [
           {
-            "tab": "Release Notes",
+            "tab": "Notas de la versión",
             "pages": [
               "es/s/article/Current-Release-Notes",
               {
-                "group": "Archived Feature Release Notes",
+                "group": "Notas de la versión de funciones archivadas",
                 "pages": [
                   "es/s/article/000005504",
                   {
@@ -5962,7 +5962,7 @@
             ]
           },
           {
-            "tab": "Knowledge Base",
+            "tab": "Base de conocimientos",
             "pages": [
               "es/s/article/360043428293",
               "es/s/article/360043437793",
