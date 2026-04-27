@@ -1,0 +1,21 @@
+Hello everyone!
+
+We're excited to announce that version 2.0.3 of the Domo Documentation Hub is now available! This is a focused patch release that corrects a pair of bugs introduced during recent navigation and content updates.
+
+
+🌟 What's New
+
+🌐 English Nav Titles Restored
+Four navigation group titles in the English Knowledge Base and API Reference tabs were accidentally translated to Japanese during last week's Japanese localization update. The affected groups — "Connect & Integrate," "Connect Data to Domo," "Distribute Domo Content," and "AI Services" — are now restored to their original English labels. English-language users will no longer see Japanese text in those sections of the nav.
+Thanks to Jared Peterson for catching and correcting this quickly.
+
+📄 Alert Message Formatting Fixed
+A special-character rendering issue in the "Create an Alert for a DataSet" article has been resolved. Dollar signs and parentheses in the example alert message were being misinterpreted by the MDX renderer, potentially causing broken or malformed output. The characters are now properly escaped so the example displays as intended.
+Thanks to Jared Peterson for the fix.
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who flagged these issues and helped maintain the quality of our documentation. Every fix — no matter how small — keeps the experience polished for our readers.
+
+If you have questions or feedback, please reach out — we're always happy to help!

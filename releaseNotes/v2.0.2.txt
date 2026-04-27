@@ -1,0 +1,35 @@
+Hello everyone!
+
+We're excited to announce that version 2.0.2 of the Domo Documentation Hub is now available! This release brings a major expansion to the Beast Mode reference guide, improved MCP and SCIM documentation, connector updates, and Japanese localization improvements.
+
+
+🌟 What's New
+
+📊 Beast Mode Functions Reference — Major Expansion
+The Beast Mode Functions Reference Guide received a massive update, adding HyperLogLog aggregate functions and reformatting the entire article for readability. A new note clarifies function equivalences across different Cloud Integrations engines, helping analysts understand which functions are available in each context.
+Thanks to Felipe Suarez for the extensive work on this article.
+
+🤖 MCP Article Updated for Security and Clarity
+The "Connect AI Tools to Domo Using MCP" article has been revised to reflect the current Claude Code server name, improve security by accepting the access token as a user-provided input rather than hardcoding it in config, and add WSL configuration guidance for VS Code users on Windows.
+Thanks to Bryce Cindrich for the update.
+
+🔑 SCIM Article — Examples Added
+The SCIM (System for Cross-domain Identity Management) article now includes concrete examples to accompany the existing reference material, making it much easier for admins to implement SCIM provisioning correctly.
+Thanks to Jesse Kreitzman for adding the examples.
+
+🔌 Connector Documentation Updates
+Two connector articles received targeted updates:
+  • LiveChat Connector — title revised and two new report types (Active Chats and Archive Chats) documented.
+  • Microsoft SQL Server Connector — "Fetch Columns" description added to the Details section.
+Thanks to Arun Raj for both connector updates.
+
+🌐 Japanese Localization Updates
+Japanese translations for several articles were updated, and the docs.json line-break formatting produced by the XTM localization tool was normalized to keep the file consistent.
+Thanks to Masaaki Hori for the localization work.
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who contributed to this release — your documentation work helps Domo users around the world get the most out of the platform.
+
+If you have questions or feedback, please reach out — we're always happy to help!
