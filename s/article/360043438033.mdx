@@ -2,7 +2,6 @@
 title: "Enable SSO with Entra ID Directory"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -16,7 +15,7 @@ This article describes how to implement SSO with Entra ID.
 ### Implement SSO with Entra ID
 
 <Warning>
-  **Important:** You are responsible for properly setting up your Entra ID instance. This includes creating a directory, adding users to the directory, and entering all user information. For more information, you can read [Microsoft Entra's tutorial for SSO integration with Domo](https://learn.microsoft.com/en-us/entra/identity/saas-apps/domo-tutorial) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+  **Important:** You are responsible for properly setting up your Entra ID instance. This includes creating a directory, adding users to the directory, and entering all user information. For more information, you can read [Microsoft Entra's tutorial for SSO integration with Domo](https://learn.microsoft.com/en-us/entra/identity/saas-apps/domo-tutorial) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>.
 
 </Warning>
 
@@ -57,7 +56,7 @@ This article describes how to implement SSO with Entra ID.
 
     <Frame><img alt="SAML_Signing_Certificate.png" src="/images/kb/ka0Vq0000007hhl-00N5w00000Ri7BU-0EM5w000005vNra.png" style={{width: 746, height: 236}}/></Frame>
 17. Return to Domo.
-18. Under **Information from your IdP**, select <InlineImage src="/images/kb/ka0Vq0000007hhl-00N5w00000Ri7BU-0EMVq000005KE3y.jpg" /> **Upload** (up arrow icon) in the **Upload x.509 certificate to authenticate request** field and add the Base64 certificate you just downloaded.
+18. Under **Information from your IdP**, select <img src="/images/kb/ka0Vq0000007hhl-00N5w00000Ri7BU-0EMVq000005KE3y.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Upload** (up arrow icon) in the **Upload x.509 certificate to authenticate request** field and add the Base64 certificate you just downloaded.
       
     <Frame><img alt="Screenshot 2025-02-11 at 2.32.04 PM.png" src="/images/kb/ka0Vq0000007hhl-00N5w00000Ri7BU-0EMVq000005KLwi.jpg" style={{width: 349, height: 107}}/></Frame>
 19. (Optional) Check the boxes under **Advanced settings** to configure them. A few are defined below:
@@ -148,4 +147,4 @@ Test your connection in Domo by clicking the **Test Config** button at the top o
   
 **Note:** Entra may take up to five minutes to apply your settings, so the connection test may not immediately work.
   
-If you followed all the implementation steps correctly, you should see a success message. If not, review the above steps or contact [Domo Support](https://domo-support.domo.com/s/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+If you followed all the implementation steps correctly, you should see a success message. If not, review the above steps or contact [Domo Support](https://domo-support.domo.com/s/) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>.

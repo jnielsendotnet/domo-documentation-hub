@@ -2,7 +2,6 @@
 title: "Magic ETL Tiles: Scripting"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -49,7 +48,7 @@ On the right side of the tile is a searchable list of input tiles currently conn
 There is a second tab on the right side of the tile called **Packages**. When you click the tab, a searchable list of available packages for the supported language is displayed. Hover over the package name for a description, or click on the arrow that appears to go to the package's documentation website. As with inputs, if you click on a package, a code snippet is injected into the script at the location of the cursor. This code snippet imports the selected library for use in the script.
 
 <Frame><img alt="scripting_actions_packages.png" src="/images/kb/ka0Vq0000000yCH-00N5w00000Ri7BU-0EM5w000005vNjL.png"/></Frame>
-On the right side of the tile editor panel toolbar is a template icon button <InlineImage src="/images/kb/ka0Vq0000000yCH-00N5w00000Ri7BU-0EM5w000005vNjg.png" />. Clicking this button resets the script to the example code template that exists when you first open a scripting tile. Be careful though—if you have already written a script, clicking this button overwrites your script (after a confirmation prompt). However, as long as you do not close the tile, you can retrieve your overwritten script by placing the cursor within the code editor and pressing Command+z or CTRL+z.
+On the right side of the tile editor panel toolbar is a template icon button <img src="/images/kb/ka0Vq0000000yCH-00N5w00000Ri7BU-0EM5w000005vNjg.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>. Clicking this button resets the script to the example code template that exists when you first open a scripting tile. Be careful though—if you have already written a script, clicking this button overwrites your script (after a confirmation prompt). However, as long as you do not close the tile, you can retrieve your overwritten script by placing the cursor within the code editor and pressing Command+z or CTRL+z.
 
 In the **Schema** tab, you tell the tile what the results of your script looks like. To use this, click **Schema** in the tile editor panel toolbar. For a deep dive into this tab, see the [Populating the Resulting Schema](#populate_the_schema "Scripting Actions in ETL") section of this article.
 
@@ -138,7 +137,7 @@ Follow these steps to add the columns in bulk:
 Follow these steps to have Domo run the script for you:
 
 1. Click either the
-   <InlineImage src="/images/kb/ka0Vq0000000yCH-00N5w00000Ri7BU-0EM5w000005vNjV.png" /> button on the right side of the tile editor panel toolbar or the **Run Preview** button in the toolbar at the top of the canvas. (If there is an issue with your preview, see the [Troubleshooting](#troubleshooting "Scripting Actions in ETL") section of this article.)
+   <img src="/images/kb/ka0Vq0000000yCH-00N5w00000Ri7BU-0EM5w000005vNjV.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> button on the right side of the tile editor panel toolbar or the **Run Preview** button in the toolbar at the top of the canvas. (If there is an issue with your preview, see the [Troubleshooting](#troubleshooting "Scripting Actions in ETL") section of this article.)
      
    After the preview has finished running, a sentence appears under the text inputs for creating new columns. This tells you how many columns the preview returned that are not currently listed as being part of the tile's schema.
 2. Click the button at the end of the sentence.
@@ -229,7 +228,7 @@ In Magic ETL's Python and R scripting environment, you can use two special direc
 
 The Project Directory is a shared space for all scripting tiles within a DataFlow, and its contents persist between executions. This means that you can store things like statistical models in the Project Directory and continue working on them across multiple executions. The Project Directory is located at /home/domo/project, but you can simply refer to it as `project` in your script. Any changes you make to the Project Directory are only saved after successful executions. Changes from preview or failed executions are discarded.
 
-The total size of a Project Directory may not exceed eight gigabytes (8 GB). Contact [Domo Support](https://domo-support.domo.com/s/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> if you need to increase this limit, restore a directory from a backup, or copy a directory from one DataFlow to another.
+The total size of a Project Directory may not exceed eight gigabytes (8 GB). Contact [Domo Support](https://domo-support.domo.com/s/) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> if you need to increase this limit, restore a directory from a backup, or copy a directory from one DataFlow to another.
 
 
 
