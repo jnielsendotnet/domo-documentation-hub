@@ -72,10 +72,10 @@
             "tab": "Knowledge Base",
             "pages": [
               {
-                "group": "Connect & Integrate",
+                "group": "接続と統合",
                 "pages": [
                   {
-                    "group": "Connect Data to Domo",
+                    "group": "Domoにデータを接続する",
                     "pages": [
                       {
                         "group": "Cloud Data Warehouses",
@@ -110,7 +110,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["s/article/000005139"]
+                            "pages": [
+                              "s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -152,7 +154,9 @@
                           },
                           {
                             "group": "Lakebase",
-                            "pages": ["s/article/Domo-on-Lakebase"]
+                            "pages": [
+                              "s/article/Domo-on-Lakebase"
+                            ]
                           },
                           {
                             "group": "MySQL",
@@ -1632,7 +1636,9 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["s/article/360042923754"]
+                        "pages": [
+                          "s/article/360042923754"
+                        ]
                       }
                     ]
                   },
@@ -2006,7 +2012,9 @@
                   },
                   {
                     "group": "Worksheets",
-                    "pages": ["s/article/Use-Worksheets"]
+                    "pages": [
+                      "s/article/Use-Worksheets"
+                    ]
                   }
                 ]
               },
@@ -2068,7 +2076,9 @@
                   },
                   {
                     "group": "Scheduled Reports",
-                    "pages": ["s/article/360043437773"]
+                    "pages": [
+                      "s/article/360043437773"
+                    ]
                   },
                   {
                     "group": "Alerts",
@@ -2088,7 +2098,7 @@
                 "group": "Distribute",
                 "pages": [
                   {
-                    "group": "Distribute Domo Content",
+                    "group": "Domoコンテンツの配信",
                     "pages": [
                       {
                         "group": "Export Content",
@@ -2421,7 +2431,7 @@
                     ]
                   },
                   {
-                    "group": "Appstore",
+                    "group": "AppStore",
                     "pages": [
                       {
                         "group": "Use the Appstore",
@@ -2537,7 +2547,7 @@
                   {
                     "group": "Getting Started",
                     "pages": [
-                      "portal/Getting-Started/overview",
+                      "/portal/Getting-Started/overview",
                       {
                         "group": "Developer Tools",
                         "pages": [
@@ -2743,15 +2753,19 @@
                             ]
                           },
                           {
-                            "group": "AI Services",
+                            "group": "AIサービス",
                             "pages": [
                               {
                                 "group": "AI Services - Classification",
-                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/classification"]
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/classification"
+                                ]
                               },
                               {
                                 "group": "AI Services - Data Extraction",
-                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/extract"]
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/extract"
+                                ]
                               },
                               {
                                 "group": "AI Services - Embedding",
@@ -2762,7 +2776,9 @@
                               },
                               {
                                 "group": "AI Services - Image",
-                                "pages": ["openapi/product/AI-Services.yaml POST /api/ai/v1/image/text"]
+                                "pages": [
+                                  "openapi/product/AI-Services.yaml POST /api/ai/v1/image/text"
+                                ]
                               },
                               {
                                 "group": "AI Services - Messages",
@@ -2881,17 +2897,21 @@
                               },
                               {
                                 "group": "Search",
-                                "pages": ["openapi/product/data-accounts.yaml POST /api/search/v1/query"]
+                                "pages": [
+                                  "openapi/product/data-accounts.yaml POST /api/search/v1/query"
+                                ]
                               }
                             ]
                           },
                           {
-                            "group": "DataSets API",
+                            "group": "DataSet API",
                             "pages": [
                               "portal/35115c5c48927-datasets-api",
                               {
                                 "group": "Cards",
-                                "pages": ["openapi/product/data-sets.yaml GET /api/content/v1/datasources/{datasetId}/cards"]
+                                "pages": [
+                                  "openapi/product/data-sets.yaml GET /api/content/v1/datasources/{datasetId}/cards"
+                                ]
                               },
                               {
                                 "group": "Metadata",
@@ -2926,7 +2946,9 @@
                               },
                               {
                                 "group": "Query",
-                                "pages": ["openapi/product/data-sets.yaml POST /api/query/v1/execute/{datasetId}"]
+                                "pages": [
+                                  "openapi/product/data-sets.yaml POST /api/query/v1/execute/{datasetId}"
+                                ]
                               },
                               {
                                 "group": "Schema",
@@ -2948,7 +2970,9 @@
                               },
                               {
                                 "group": "Tags",
-                                "pages": ["openapi/product/data-sets.yaml POST /api/data/ui/v3/datasources/{datasetId}/tags"]
+                                "pages": [
+                                  "openapi/product/data-sets.yaml POST /api/data/ui/v3/datasources/{datasetId}/tags"
+                                ]
                               },
                               {
                                 "group": "Upload",
@@ -2987,7 +3011,7 @@
                             ]
                           },
                           {
-                            "group": "Federated V2 to V1 Migration APIs",
+                            "group": "Federated V2 to V1 Migration API",
                             "pages": [
                               "portal/e253b923bb4db-federated-v2-to-amplifier-migration-ap-is",
                               "openapi/product/federatedv2.yaml GET /api/query/migration/candidates/amplifier/to/federated/integrations/{integration-id}",
@@ -3202,7 +3226,7 @@
                         "pages": [
                           "portal/Apps/App-Framework/Welcome",
                           {
-                            "group": "Quickstart",
+                            "group": "QuickStart",
                             "pages": [
                               "portal/Apps/App-Framework/Quickstart/Prerequisites",
                               "portal/Apps/App-Framework/Quickstart/Key-Terminology",
@@ -3224,7 +3248,7 @@
                                 ]
                               },
                               {
-                                "group": "Javascript",
+                                "group": "JavaScript",
                                 "pages": [
                                   {
                                     "group": "Game Night Planner App",
@@ -3499,7 +3523,7 @@
                   "s/article/1500003318001",
                   "s/article/360043439793",
                   {
-                    "group": "Domo SDKs",
+                    "group": "Domo SDK",
                     "pages": [
                       "s/article/360042936554",
                       "s/article/360042923734"
@@ -3604,10 +3628,10 @@
         "language": "jp",
         "tabs": [
           {
-            "tab": "Welcome",
+            "tab": "ようこそ",
             "pages": [
               {
-                "group": "Getting Started",
+                "group": "利用を開始する",
                 "pages": [
                   "ja/s/article/360043427193",
                   "ja/s/article/360043442453",
@@ -3625,21 +3649,21 @@
             ]
           },
           {
-            "tab": "Knowledge Base",
+            "tab": "ナレッジベース",
             "pages": [
               {
-                "group": "Connect & Integrate",
+                "group": "接続と統合",
                 "pages": [
                   {
-                    "group": "Connect Data to Domo",
+                    "group": "Domoにデータを接続する",
                     "pages": [
                       {
-                        "group": "Cloud Data Warehouses",
+                        "group": "クラウドデータウェアハウス",
                         "pages": [
                           "ja/s/article/4412849158167",
                           "ja/s/article/000005871",
                           {
-                            "group": "Amazon (Redshift, Athena)",
+                            "group": "Amazon（Redshift、Athena）",
                             "pages": [
                               "ja/s/article/000005312",
                               "ja/s/article/360043436053",
@@ -3665,7 +3689,9 @@
                           },
                           {
                             "group": "Dremio",
-                            "pages": ["ja/s/article/000005139"]
+                            "pages": [
+                              "ja/s/article/000005139"
+                            ]
                           },
                           {
                             "group": "Google BigQuery",
@@ -3777,7 +3803,7 @@
                         ]
                       },
                       {
-                        "group": "On-premises Systems",
+                        "group": "オンプレミスシステム",
                         "pages": [
                           {
                             "group": "Workbench Enterprise",
@@ -3894,7 +3920,7 @@
                         ]
                       },
                       {
-                        "group": "General Connector Information",
+                        "group": "コネクターに関する一般情報",
                         "pages": [
                           "ja/s/article/360052122294",
                           "ja/s/article/360042926274",
@@ -3910,7 +3936,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers A-B",
+                        "group": "データプロバイダー A～B",
                         "pages": [
                           "ja/s/article/360058904853",
                           "ja/s/article/360042926314",
@@ -4038,7 +4064,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers C-F",
+                        "group": "データプロバイダー C～F",
                         "pages": [
                           "ja/s/article/360042930354",
                           "ja/s/article/360043433753",
@@ -4134,7 +4160,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers G-K",
+                        "group": "データプロバイダー G～K",
                         "pages": [
                           "ja/s/article/5241119778967",
                           "ja/s/article/360042929554",
@@ -4247,7 +4273,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers L-P",
+                        "group": "データプロバイダイー L～P",
                         "pages": [
                           "ja/s/article/360058892493",
                           "ja/s/article/ka0Vq000000SyUHIA0",
@@ -4392,7 +4418,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers Q-S",
+                        "group": "データプロバイダー Q～S",
                         "pages": [
                           "ja/s/article/360042930734",
                           "ja/s/article/000005254",
@@ -4420,7 +4446,9 @@
                           },
                           {
                             "group": "Sage Intacct",
-                            "pages": ["ja/s/article/000005099"]
+                            "pages": [
+                              "ja/s/article/000005099"
+                            ]
                           },
                           "ja/s/article/360043437633",
                           {
@@ -4516,7 +4544,7 @@
                         ]
                       },
                       {
-                        "group": "Data Providers T-Z and #",
+                        "group": "データプロバイダー T～Z、#",
                         "pages": [
                           "ja/s/article/4423536836631",
                           "ja/s/article/000005560",
@@ -4540,7 +4568,9 @@
                           },
                           {
                             "group": "USGS",
-                            "pages": ["ja/s/article/360043432433"]
+                            "pages": [
+                              "ja/s/article/360043432433"
+                            ]
                           },
                           "ja/s/article/360042928054",
                           {
@@ -4618,7 +4648,7 @@
                         ]
                       },
                       {
-                        "group": "File and JSON Connectors",
+                        "group": "ファイル/JSONコネクター",
                         "pages": [
                           "ja/s/article/360043436513",
                           "ja/s/article/360058713713",
@@ -4646,14 +4676,14 @@
                 ]
               },
               {
-                "group": "Transform & Manage",
+                "group": "変換と管理",
                 "pages": [
                   {
-                    "group": "Transform Data in Domo",
+                    "group": "Domoでのデータ変換",
                     "pages": [
                       "ja/s/article/360043437753",
                       {
-                        "group": "DataFlow Management",
+                        "group": "DataFlowの管理",
                         "pages": [
                           "ja/s/article/000005216",
                           "ja/s/article/360043428073",
@@ -4699,7 +4729,7 @@
                           "ja/s/article/360044296573",
                           "ja/s/article/360044258533",
                           {
-                            "group": "Tiles",
+                            "group": "タイル",
                             "pages": [
                               "ja/s/article/8276764172951",
                               "ja/s/article/360044876094",
@@ -4719,7 +4749,7 @@
                             ]
                           },
                           {
-                            "group": "Magic ETL on Snowflake",
+                            "group": "Snowflake上のMagic ETL",
                             "pages": [
                               "ja/s/article/000005455",
                               "ja/s/article/000005815",
@@ -4727,7 +4757,7 @@
                             ]
                           },
                           {
-                            "group": "Legacy Magic ETL",
+                            "group": "レガシーMagic ETL",
                             "pages": [
                               "ja/s/article/360043428113",
                               "ja/s/article/4422644650519",
@@ -4765,7 +4795,7 @@
                         ]
                       },
                       {
-                        "group": "DataSet Views",
+                        "group": "DataSetビュー",
                         "pages": [
                           "ja/s/article/4402058407191",
                           "ja/s/article/360046074774"
@@ -4773,12 +4803,14 @@
                       },
                       {
                         "group": "Enterprise Stacker",
-                        "pages": ["ja/s/article/360042923754"]
+                        "pages": [
+                          "ja/s/article/360042923754"
+                        ]
                       }
                     ]
                   },
                   {
-                    "group": "Manage Data in Domo",
+                    "group": "Domoでのデータ管理",
                     "pages": [
                       "ja/s/article/360042935314",
                       "ja/s/article/360042935354",
@@ -4797,7 +4829,7 @@
                       "ja/s/article/360043430713",
                       "ja/s/article/360043428693",
                       {
-                        "group": "Data Center Overview",
+                        "group": "Data Centerの概要",
                         "pages": [
                           "ja/s/article/4403501587607",
                           "ja/s/article/360042926154",
@@ -4818,10 +4850,10 @@
                 ]
               },
               {
-                "group": "Visualize & Interact",
+                "group": "可視化とインタラクション",
                 "pages": [
                   {
-                    "group": "Build Visualization Cards in Analyzer",
+                    "group": "Analyzerで可視化カードを作成する",
                     "pages": [
                       "ja/s/article/360043439953",
                       "ja/s/article/360043439993",
@@ -4852,7 +4884,7 @@
                         ]
                       },
                       {
-                        "group": "Breast Mode",
+                        "group": "Beast Mode",
                         "pages": [
                           "ja/s/article/000005304",
                           "ja/s/article/360043430053",
@@ -4878,12 +4910,12 @@
                     ]
                   },
                   {
-                    "group": "Chart Types for Visualization Cards",
+                    "group": "可視化カードのグラフタイプ",
                     "pages": [
                       "ja/s/article/360042935294",
                       "ja/s/article/360042924454",
                       {
-                        "group": "Area and Bar Charts",
+                        "group": "面グラフと棒グラフ",
                         "pages": [
                           "ja/s/article/360043428873",
                           "ja/s/article/360042924294",
@@ -4918,7 +4950,7 @@
                         ]
                       },
                       {
-                        "group": "Data Science Charts",
+                        "group": "データサイエンスチャート",
                         "pages": [
                           "ja/s/article/360042924374",
                           "ja/s/article/360042923874",
@@ -4933,7 +4965,7 @@
                         ]
                       },
                       {
-                        "group": "Filter and Miscellaneous Charts",
+                        "group": "フィルターとその他のチャート",
                         "pages": [
                           "ja/s/article/360043428973",
                           "ja/s/article/360043428933",
@@ -4960,7 +4992,7 @@
                         ]
                       },
                       {
-                        "group": "Gauges",
+                        "group": "パネル",
                         "pages": [
                           "ja/s/article/360042924334",
                           "ja/s/article/360042924414",
@@ -4980,7 +5012,7 @@
                         ]
                       },
                       {
-                        "group": "Line and Lollipop Charts",
+                        "group": "折れ線グラフとロリポップチャート",
                         "pages": [
                           "ja/s/article/360042924274",
                           "ja/s/article/360043428893",
@@ -4993,7 +5025,7 @@
                         ]
                       },
                       {
-                        "group": "Period-over-Period Charts",
+                        "group": "前期比チャート",
                         "pages": [
                           "ja/s/article/360042924314",
                           "ja/s/article/360042924834",
@@ -5001,7 +5033,7 @@
                         ]
                       },
                       {
-                        "group": "Pie and Funnel charts",
+                        "group": "円グラフとファネルチャート",
                         "pages": [
                           "ja/s/article/360043428913",
                           "ja/s/article/360042924494",
@@ -5012,7 +5044,7 @@
                         ]
                       },
                       {
-                        "group": "Tables, Textboxes, and Map Charts",
+                        "group": "表、テキストボックス、マップチャート",
                         "pages": [
                           "ja/s/article/360043429013",
                           "ja/s/article/360043429033",
@@ -5029,7 +5061,7 @@
                         ]
                       },
                       {
-                        "group": "Chart Properties",
+                        "group": "チャートのプロパティ",
                         "pages": [
                           "ja/s/article/360042925174",
                           "ja/s/article/360042925194",
@@ -5063,7 +5095,7 @@
                     ]
                   },
                   {
-                    "group": "Visualization Card Details View Actions",
+                    "group": "可視化カードの詳細ビューでの操作",
                     "pages": [
                       "ja/s/article/360042923974",
                       "ja/s/article/360042923994",
@@ -5073,7 +5105,7 @@
                     ]
                   },
                   {
-                    "group": "Powering Your Card",
+                    "group": "カードの作成とデータの追加",
                     "pages": [
                       "ja/s/article/360042925414",
                       "ja/s/article/360043429873",
@@ -5081,7 +5113,7 @@
                     ]
                   },
                   {
-                    "group": "Other Card Types (Doc, Notebook, and Sumo Cards)",
+                    "group": "その他のカードタイプ（ドキュメントカード、メモカード、Sumoカード）",
                     "pages": [
                       "ja/s/article/360042925694",
                       "ja/s/article/360043430233",
@@ -5097,7 +5129,7 @@
                     ]
                   },
                   {
-                    "group": "Card and Dashboard Management",
+                    "group": "カードとダッシュボードの管理",
                     "pages": [
                       "ja/s/article/360043428393",
                       "ja/s/article/360043428373",
@@ -5134,7 +5166,7 @@
                     ]
                   },
                   {
-                    "group": "Slideshow Publications",
+                    "group": "スライドショーのパブリケーション",
                     "pages": [
                       "ja/s/article/360042933014",
                       "ja/s/article/360043437793",
@@ -5145,7 +5177,7 @@
                 ]
               },
               {
-                "group": "AI & Data Science",
+                "group": "AIとデータサイエンス",
                 "pages": [
                   "ja/s/article/000005720",
                   "ja/s/article/000005561",
@@ -5157,7 +5189,7 @@
                   "ja/s/article/000005853",
                   "ja/s/article/000005724",
                   {
-                    "group": "Jupyter Workspaces",
+                    "group": "Jupyterワークスペース",
                     "pages": [
                       "ja/s/article/7440921035671",
                       "ja/s/article/36004740075",
@@ -5166,7 +5198,7 @@
                     ]
                   },
                   {
-                    "group": "Machine Learning",
+                    "group": "機械学習",
                     "pages": [
                       "ja/s/article/360060598413",
                       "ja/s/article/000005502",
@@ -5178,12 +5210,12 @@
                 ]
               },
               {
-                "group": "Automate",
+                "group": "自動化",
                 "pages": [
                   "ja/s/article/000005172",
                   "ja/s/article/000005396",
                   {
-                    "group": "Workflows",
+                    "group": "ワークフロー",
                     "pages": [
                       "ja/s/article/000005173",
                       "ja/s/article/000005331",
@@ -5195,11 +5227,13 @@
                     ]
                   },
                   {
-                    "group": "Scheduled Reports",
-                    "pages": ["ja/s/article/360043437773"]
+                    "group": "スケジュールレポート",
+                    "pages": [
+                      "ja/s/article/360043437773"
+                    ]
                   },
                   {
-                    "group": "Alerts",
+                    "group": "アラート",
                     "pages": [
                       "ja/s/article/360043430373",
                       "ja/s/article/360042925814",
@@ -5213,13 +5247,13 @@
                 ]
               },
               {
-                "group": "Distribute",
+                "group": "配信",
                 "pages": [
                   {
-                    "group": "Distribute Domo Content",
+                    "group": "Domoコンテンツの配信",
                     "pages": [
                       {
-                        "group": "Export Content",
+                        "group": "コンテンツのエクスポート",
                         "pages": [
                           "ja/s/article/360043437873",
                           "ja/s/article/360043437813",
@@ -5249,7 +5283,7 @@
                         ]
                       },
                       {
-                        "group": "Microsoft Office Add-Ins",
+                        "group": "Microsoft Officeのアドイン",
                         "pages": [
                           "ja/s/article/000005146",
                           "ja/s/article/000005145",
@@ -5257,7 +5291,7 @@
                         ]
                       },
                       {
-                        "group": "Plugins for Sharing Domo Content",
+                        "group": "Domoコンテンツを共有するためのプラグイン",
                         "pages": [
                           "ja/s/article/000005409",
                           "ja/s/article/360043437913",
@@ -5267,7 +5301,7 @@
                         ]
                       },
                       {
-                        "group": "Publication Groups",
+                        "group": "パブリケーショングループ",
                         "pages": [
                           "ja/s/article/360043441593",
                           "ja/s/article/360043438993"
@@ -5302,18 +5336,18 @@
                     ]
                   },
                   {
-                    "group": "Collaborate in Domo",
+                    "group": "Domoでのコラボレーション",
                     "pages": [
                       "ja/s/article/360043430613",
                       {
-                        "group": "Approvals",
+                        "group": "承認",
                         "pages": [
                           "ja/s/article/360042926034",
                           "ja/s/article/360043430593"
                         ]
                       },
                       {
-                        "group": "Projects and Tasks",
+                        "group": "プロジェクトとタスク",
                         "pages": [
                           "ja/s/article/360042925854",
                           "ja/s/article/360042925934",
@@ -5328,7 +5362,7 @@
                         ]
                       },
                       {
-                        "group": "Goals Center",
+                        "group": "目標センター",
                         "pages": [
                           "ja/s/article/4577793742615",
                           "ja/s/article/4577172785559",
@@ -5356,27 +5390,27 @@
                 ]
               },
               {
-                "group": "Admin",
+                "group": "管理",
                 "pages": [
                   {
-                    "group": "Administrate Domo",
+                    "group": "Domoの管理",
                     "pages": [
                       "ja/s/article/360042934234",
                       "ja/s/article/5428851518999",
                       "ja/s/article/000005326",
                       "ja/s/article/000005510",
                       {
-                        "group": "Credit Consumption",
+                        "group": "クレジットの使用状況",
                         "pages": [
                           "ja/s/article/000005492",
                           "ja/s/article/000005280"
                         ]
                       },
                       {
-                        "group": "Governance",
+                        "group": "ガバナンス",
                         "pages": [
                           {
-                            "group": "Access Management",
+                            "group": "アクセス管理",
                             "pages": [
                               "ja/s/article/000005240",
                               "ja/s/article/000005241",
@@ -5395,7 +5429,7 @@
                             ]
                           },
                           {
-                            "group": "Roles",
+                            "group": "権限",
                             "pages": [
                               "ja/s/article/360043438973",
                               "ja/s/article/000005839",
@@ -5403,7 +5437,7 @@
                             ]
                           },
                           {
-                            "group": "Toolkit",
+                            "group": "ツールキット",
                             "pages": [
                               "ja/s/article/4415792998935",
                               "ja/s/article/000005105",
@@ -5419,7 +5453,7 @@
                             ]
                           },
                           {
-                            "group": "Users and Groups",
+                            "group": "ユーザーとグループ",
                             "pages": [
                               "ja/s/article/360042934274",
                               "ja/s/article/000005164",
@@ -5432,7 +5466,7 @@
                         ]
                       },
                       {
-                        "group": "Security",
+                        "group": "セキュリティ",
                         "pages": [
                           "ja/s/article/360042934454",
                           "ja/s/article/360043439173",
@@ -5459,12 +5493,12 @@
                     ]
                   },
                   {
-                    "group": "User Settings",
+                    "group": "ユーザー設定",
                     "pages": [
                       "ja/s/article/360043427513",
                       "ja/s/article/360042925954",
                       {
-                        "group": "User Profile",
+                        "group": "ユーザープロフィール",
                         "pages": [
                           "ja/s/article/360043439393",
                           "ja/s/article/360043439433",
@@ -5477,7 +5511,7 @@
                     ]
                   },
                   {
-                    "group": "Support Resources",
+                    "group": "サポートに関するリソース",
                     "pages": [
                       "ja/s/article/360043427533",
                       "ja/s/article/360043427493",
@@ -5491,7 +5525,7 @@
                 ]
               },
               {
-                "group": "General Information",
+                "group": "一般情報",
                 "pages": [
                   {
                     "group": "Domo Free",
@@ -5502,7 +5536,7 @@
                     ]
                   },
                   {
-                    "group": "Localization and Accessibility",
+                    "group": "ローカリゼーションとアクセシビリティ",
                     "pages": [
                       "ja/s/article/360043439133",
                       "ja/s/article/1500003263261",
@@ -5510,7 +5544,7 @@
                     ]
                   },
                   {
-                    "group": "Domo Mobile",
+                    "group": "Domoモバイル",
                     "pages": [
                       "ja/s/article/000005648",
                       "ja/s/article/360042923554",
@@ -5521,7 +5555,7 @@
                     ]
                   },
                   {
-                    "group": "Education",
+                    "group": "教育",
                     "pages": [
                       "ja/s/article/360042935754",
                       "ja/s/article/000005320",
@@ -5544,24 +5578,24 @@
                     ]
                   },
                   {
-                    "group": "Appstore",
+                    "group": "AppStore",
                     "pages": [
                       {
-                        "group": "Use the Appstore",
+                        "group": "AppStoreの使用",
                         "pages": [
                           "ja/s/article/360043438013",
                           "ja/s/article/000005182"
                         ]
                       },
                       {
-                        "group": "Publish on the Appstore",
+                        "group": "AppStoreへの公開",
                         "pages": [
                           "ja/s/article/000005184",
                           "ja/s/article/000005183"
                         ]
                       },
                       {
-                        "group": "Available Apps",
+                        "group": "利用可能なApp",
                         "pages": [
                           "ja/s/article/360042933314",
                           "ja/s/article/000005091",
@@ -5645,16 +5679,16 @@
             ]
           },
           {
-            "tab": "Developer Portal",
+            "tab": "デペロッパーポータル",
             "pages": [
               {
-                "group": "Developer Topics",
+                "group": "デペロッパー向けトピック",
                 "pages": [
                   "ja/s/article/1500003318001",
                   "ja/s/article/360043439773",
                   "ja/s/article/360043439793",
                   {
-                    "group": "Domo SDKs",
+                    "group": "Domo SDK",
                     "pages": [
                       "ja/s/article/360042923734",
                       "ja/s/article/360042936554"
@@ -5665,14 +5699,14 @@
             ]
           },
           {
-            "tab": "Release Notes",
+            "tab": "リリースノート",
             "pages": [
               "ja/s/article/Current-Release-Notes",
               {
-                "group": "Archived Feature Release Notes",
+                "group": "機能に関する過去のリリースノート",
                 "pages": [
                   {
-                    "group": "2025-2026",
+                    "group": "2025年～2026年",
                     "pages": [
                       "ja/s/article/000005812",
                       "ja/s/article/000005848",
@@ -5684,7 +5718,7 @@
                     ]
                   },
                   {
-                    "group": "2020-2024",
+                    "group": "2020年～2024年",
                     "pages": [
                       "ja/s/article/360050912013",
                       "ja/s/article/360055244114",
@@ -5707,7 +5741,7 @@
                     ]
                   },
                   {
-                    "group": "2015-2019",
+                    "group": "2015年～2019年",
                     "pages": [
                       "ja/s/article/360043440673",
                       "ja/s/article/360043440653",
@@ -6007,11 +6041,11 @@
           },
           {
             "label": "Knowledge Base",
-            "href": "https://domo-support.domo.com/s/knowledge-base?language=en_US"
+            "href": "https://domo-support.domo.com/s/knowledge-base"
           },
           {
             "label": "Release Notes",
-            "href": "https://domo-support.domo.com/s/topic/0TO5w000000ZamwGAC/release-notes?language=en_US"
+            "href": "https://domo-support.domo.com/s/topic/0TO5w000000ZamwGAC/release-notes"
           },
           {
             "label": "Support",
