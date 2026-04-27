@@ -72,10 +72,10 @@
             "tab": "Knowledge Base",
             "pages": [
               {
-                "group": "接続と統合",
+                "group": "Connect & Integrate",
                 "pages": [
                   {
-                    "group": "Domoにデータを接続する",
+                    "group": "Connect Data to Domo",
                     "pages": [
                       {
                         "group": "Cloud Data Warehouses",
@@ -2098,7 +2098,7 @@
                 "group": "Distribute",
                 "pages": [
                   {
-                    "group": "Domoコンテンツの配信",
+                    "group": "Distribute Domo Content",
                     "pages": [
                       {
                         "group": "Export Content",
@@ -2753,7 +2753,7 @@
                             ]
                           },
                           {
-                            "group": "AIサービス",
+                            "group": "AI Services",
                             "pages": [
                               {
                                 "group": "AI Services - Classification",
