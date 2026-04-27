@@ -103,6 +103,110 @@ The following user endpoints are supported in Domo:
 | Delete User       | Deletes the specified Domo user. <Warning>**Important:** If a user owns Domo DataSets or DataFlows, the user cannot be deleted via SCIM. This is because Domo requires all DataSets and DataFlows to have owners and requires ownership of those objects to be reassigned before the owner can be deleted.<br/><br/>**Important:** Setting the "active" attribute to false via a PUT or PATCH request also deletes the user and is subject to the same restriction—deletion fails if the user owns DataSets or DataFlows.</Warning> | `DELETE /Users/{userId}`                                                                                                                                                                                                                          |
 | Post User         | Creates a user in Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `POST /Users`                                                                                                                                                                                                                                     |
 
+#### Examples
+
+`POST /Users`
+
+```json
+{
+  "schemas":[
+		"urn:ietf:params:scim:schemas:core:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:domo:2.0:User",
+		"urn:ietf:params:scim:schemas:extension:custom:2.0:User"
+	],
+	"userName": "email@example.com",
+	"roles": [
+		{
+			"type": "primary",
+			"value": "4"
+		}
+	],
+	"displayName": "John Smith",
+	"active": true,
+	"locale": "en-US",
+	"title": "Systems Manager",
+	"emails": [
+		{
+			"value": "email@example.com",
+			"type": "primary"
+		},
+		{
+			"value": "email.alt@example.com",
+			"type": "alternate"
+		}
+	],
+	"phoneNumbers": [
+		{
+			"type": "work",
+			"value": "555-123-4567"
+		},
+		{
+			"type": "mobile",
+			"value": "555-888-7777"
+		}
+	],
+	"urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+		"employeeNumber": "123456",
+		"department": "Marketing",
+		"manager": {
+			"value": "6471235"
+		}
+	},
+	"urn:ietf:params:scim:schemas:extension:domo:2.0:User": {
+		"employeeLocation": "AZ Complex",
+		"hireDate": "2021-03-26"
+	},
+	"urn:ietf:params:scim:schemas:extension:custom:2.0:User": {
+		"customAttributes": [
+			{
+				"key": "building",
+				"values": [
+					"Building A"
+				]
+			}
+		]
+	}
+}
+```
+
+`PUT /Users/{USER_ID}`
+
+*This deletes a user via PUT*
+
+```json
+{
+  "active": false,
+}
+```
+
+`PATCH /Users/{USER_ID}`
+
+```json
+{
+  "schemas": [
+    "urn:ietf:params:scim:api:messages:2.0:PatchOp"
+  ],
+  "Operations": [
+    {
+      "op": "replace",
+      "path": "emails",
+      "value": [{
+        "type": "primary",
+        "value": "email@example.com"
+      }],
+    },
+    {
+      "op": "Replace",
+      "path": "urn:ietf:params:scim:schemas:extension:custom:2.0:User:customAttributes[key eq \"offices\"]",
+      "value": ["NY", "CA"]
+    }
+  ]
+}
+```
+
+---
+
 ### Manage Groups
 
 The following group endpoints are supported in Domo:
@@ -114,6 +218,29 @@ The following group endpoints are supported in Domo:
 | Put Group     | Update a group—group definition in Domo is completely replaced by the new group definition.                                                                                                                                                                                                                                                                                                                                                                                                                                              | `PUT /Groups/{groupId}`    |
 | Patch Group   | Partially updates a group's attributes. <Note>**Note:** Unlike PATCH for users, PATCH for groups supports only the following operation structure: <br/>`{ "op": "Replace\|Add\|Remove", "path": "attributePath", "value": value }`. <br/>"path" is always required and its value is case-sensitive. Removing group attributes is not supported, except for members. <br/><br/>The "value" for the members path must be an array of objects each containing a "value" property with the Domo user ID (for example, `[{"value": 84173534}]`). <br/><br/>The `$ref` attribute is ignored.</Note> | `PATCH /Groups/{groupID}`  |
 | Delete Group  | Delete a group.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `DELETE /Groups/{groupID}` |
+
+#### Examples
+
+`POST /Groups`
+
+```json
+{
+	"schemas": [
+		"urn:ietf:params:scim:schemas:core:2.0:Group",
+		"urn:ietf:params:scim:schemas:extension:domo:2.0:Group"
+	],
+	"displayName": "US - Marketing",
+	"members": [
+		{
+			"value": "1201764328"
+		}
+	],
+	"urn:ietf:params:scim:schemas:extension:domo:2.0:Group": {
+		"domoDisplayName": "Marketing",
+		"description": "Members of the US-based marketing team."
+	}
+}
+```
 
 ---
 
