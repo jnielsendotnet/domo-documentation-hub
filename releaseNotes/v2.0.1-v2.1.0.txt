@@ -1,0 +1,134 @@
+════════════════════════════════════════
+Version 2.0.1
+════════════════════════════════════════
+
+Hello everyone!
+
+We're excited to announce that version 2.0.1 of the Domo Documentation Hub is now available! This release adds a brand-new networking guide and includes content cleanup across several articles.
+
+
+🌟 What's New
+
+🔐 New Guide: Set Up AWS PrivateLink with Domo
+Customers looking to connect to Domo over a secure private network now have a dedicated, step-by-step guide. The new "Set Up AWS PrivateLink with Domo" article walks through the full configuration process, helping admins establish private connectivity without routing traffic over the public internet.
+Thanks to John Nielsen for authoring the guide and Jared Peterson for adding it to the navigation.
+
+📦 Domo Sandbox Article Streamlined
+Duplicate content was removed from the Domo Sandbox article, making it cleaner and easier to navigate for users setting up or managing sandbox environments.
+Thanks to Mamta Bolaki for the cleanup.
+
+🧹 Repository Housekeeping
+Six temporary migration utility scripts (used during the programmatic MDX conversion) have been removed from the repo now that they've served their purpose, keeping the codebase tidy.
+Thanks to Jared Peterson for the cleanup.
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who contributed to this release. Every addition and cleanup helps our readers find what they need, faster.
+
+If you have questions or feedback, please reach out — we're always happy to help!
+
+
+════════════════════════════════════════
+Version 2.0.2
+════════════════════════════════════════
+
+Hello everyone!
+
+We're excited to announce that version 2.0.2 of the Domo Documentation Hub is now available! This release brings a major expansion to the Beast Mode reference guide, improved MCP and SCIM documentation, connector updates, and Japanese localization improvements.
+
+
+🌟 What's New
+
+📊 Beast Mode Functions Reference — Major Expansion
+The Beast Mode Functions Reference Guide received a massive update, adding HyperLogLog aggregate functions and reformatting the entire article for readability. A new note clarifies function equivalences across different Cloud Integrations engines, helping analysts understand which functions are available in each context.
+Thanks to Felipe Suarez for the extensive work on this article.
+
+🤖 MCP Article Updated for Security and Clarity
+The "Connect AI Tools to Domo Using MCP" article has been revised to reflect the current Claude Code server name, improve security by accepting the access token as a user-provided input rather than hardcoding it in config, and add WSL configuration guidance for VS Code users on Windows.
+Thanks to Bryce Cindrich for the update.
+
+🔑 SCIM Article — Examples Added
+The SCIM (System for Cross-domain Identity Management) article now includes concrete examples to accompany the existing reference material, making it much easier for admins to implement SCIM provisioning correctly.
+Thanks to Jesse Kreitzman for adding the examples.
+
+🔌 Connector Documentation Updates
+Two connector articles received targeted updates:
+  • LiveChat Connector — title revised and two new report types (Active Chats and Archive Chats) documented.
+  • Microsoft SQL Server Connector — "Fetch Columns" description added to the Details section.
+Thanks to Arun Raj for both connector updates.
+
+🌐 Japanese Localization Updates
+Japanese translations for several articles were updated, and the docs.json line-break formatting produced by the XTM localization tool was normalized to keep the file consistent.
+Thanks to Masaaki Hori for the localization work.
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who contributed to this release — your documentation work helps Domo users around the world get the most out of the platform.
+
+If you have questions or feedback, please reach out — we're always happy to help!
+
+
+════════════════════════════════════════
+Version 2.0.3
+════════════════════════════════════════
+
+Hello everyone!
+
+We're excited to announce that version 2.0.3 of the Domo Documentation Hub is now available! This is a focused patch release that corrects a pair of bugs introduced during recent navigation and content updates.
+
+
+🌟 What's New
+
+🌐 English Nav Titles Restored
+Four navigation group titles in the English Knowledge Base and API Reference tabs were accidentally translated to Japanese during last week's Japanese localization update. The affected groups — "Connect & Integrate," "Connect Data to Domo," "Distribute Domo Content," and "AI Services" — are now restored to their original English labels. English-language users will no longer see Japanese text in those sections of the nav.
+Thanks to Jared Peterson for catching and correcting this quickly.
+
+📄 Alert Message Formatting Fixed
+A special-character rendering issue in the "Create an Alert for a DataSet" article has been resolved. Dollar signs and parentheses in the example alert message were being misinterpreted by the MDX renderer, potentially causing broken or malformed output. The characters are now properly escaped so the example displays as intended.
+Thanks to Jared Peterson for the fix.
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who flagged these issues and helped maintain the quality of our documentation. Every fix — no matter how small — keeps the experience polished for our readers.
+
+If you have questions or feedback, please reach out — we're always happy to help!
+
+
+════════════════════════════════════════
+Version 2.1.0
+════════════════════════════════════════
+
+Hello everyone!
+
+We're excited to announce that version 2.1.0 of the Domo Documentation Hub is now available! This release focuses on a cleaner, more streamlined navigation experience — with a major information architecture overhaul and expanded localization support.
+
+
+🌟 What's New
+
+🗂️ Navigation Architecture Overhaul
+The Welcome tab has been merged into the Knowledge Base tab, and the Dev Portal tab dropdown has been removed, resulting in a flatter, more intuitive site structure. Redundant entries across the navigation tree were consolidated, making it easier for readers to find what they're looking for without extra clicks.
+Thanks to Jared Peterson for rethinking the top-level IA and seeing the restructure through.
+
+🌍 Localized Navigation Titles
+Tab and group labels in the French, German, and Spanish sections of the documentation hub now appear in their respective languages — for example, "Knowledge Base" becomes "Base de connaissances" (FR), "Wissensdatenbank" (DE), and "Base de conocimientos" (ES). This brings the navigation experience in line with the localized content readers are already used to.
+Thanks to Jared Peterson for the translations and the scripted rollout.
+
+🇯🇵 Japanese Article Parse Fixes
+Two Japanese articles had MDX formatting issues that prevented Mintlify from loading them (and generated navigation warnings). Indentation on image blocks inside numbered list items and a malformed multi-line JSX tag have both been corrected. Both articles now render cleanly.
+Thanks to Jared Peterson for tracking down the root causes.
+
+✏️ Content Polish
+A handful of small but visible content corrections landed in this release:
+  • Removed a stray ">" character from the introduction of the "Intro to Domo" article
+  • Bolded the "Maximum String Length" label in the "Create an Alert for a Dataset" article to match UI conventions
+  • Restored a missing metadata title in the French Current Release Notes page
+
+
+🙏 Thank You
+
+A heartfelt thank you to everyone who contributed to this release. Your attention to the details — from navigation structure down to a single stray character — is what keeps the documentation hub trustworthy and easy to use.
+
+If you have questions or feedback, please reach out — we're always happy to help!
