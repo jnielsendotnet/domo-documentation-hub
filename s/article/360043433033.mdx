@@ -8,12 +8,32 @@ Workday lets you to set up your own custom reports using their Report Writer and
 
 You connect to your Workday account in the Data Center. This topic discusses the fields and menus that are specific to the Workday connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
 
-|                                                           |                                                                                                                        |
-| --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| **Primary Use Cases**                                     | Use this connector to pull DataSets related to... - HR - Workforce planning - Recruiting - Talent management - Payroll |
-| **Primary Company Roles**                                 | - CIO - CEO - HR roles                                                                                                 |
-| **Average Implementation Time**                           | An hour or less                                                                                                        |
-| **Ease of Use (on a 1-to-10 scale with 1 being easiest)** | 2                                                                                                                      |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p></p></th>
+      <th colspan="1" rowspan="1"><p></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Primary Use Cases</b></p></td>
+      <td colspan="1" rowspan="1"><p>Use this connector to pull DataSets related to...   - HR - Workforce planning - Recruiting - Talent management - Payroll</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Primary Company Roles</b></p></td>
+      <td colspan="1" rowspan="1"><p>- CIO - CEO - HR roles</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Average Implementation Time</b></p></td>
+      <td colspan="1" rowspan="1"><p>An hour or less</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Ease of Use (on a 1-to-10 scale with 1 being easiest)</b></p></td>
+      <td colspan="1" rowspan="1"><p>2</p></td>
+    </tr>
+  </tbody>
+</table>
 ## Best Practices
 
 It is highly recommended that you do not pull reports containing calculated fields from Workday, as these cause extremely long import times, even for small reports.
@@ -30,25 +50,68 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Workday account. The following table describes what is needed for each field:  
 
-| Field    | Description                  |
-| -------- | ---------------------------- |
-| Username | Enter your Workday username. |
-| Password | Enter your Workday password. |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Username</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Workday username.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Password</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Workday password.</p></td>
+    </tr>
+  </tbody>
+</table>
 Once you have entered valid Workday credentials, you can use the same account any time you go to create a new Workday DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains only two fields—one in which you enter the URL for your report, and another in which you can optionally enter fields to exclude.
 
-| Menu                                     | Description                                                                                                                                                                                                                 |
-| ---------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enter the URL to Your Workday XML Report | Enter the URL for your Workday or Simple XML Report. You must provide the URL along with the fully qualified path, including the report name. For example: https://com.workday.report/service/Report\_Name?format=simplexml |
-| Additional Parameters                    | Enter any additional query parameters that might be required to run the provided XML report here, separated by a new line. Example: **parameterName=value**                                                                 |
-| Enter Fields to Exclude                  | Enter a comma-separated list of fields (columns) to exclude from your XML import, if any.                                                                                                                                   |
-| Enter Your Sublisttoflatten              | Enter the comma separated lists that you want to flatten out in your data.                                                                                                                                                  |
-| Flatten data                             | Select this checkbox to bring data for all duplicate elements.                                                                                                                                                              |
-| Reset Schema                             | Select this checkbox to reset the schema.                                                                                                                                                                                   |
-| Merge Keys                               | Enter the comma separated lists of keys that will be used to merge your data. This field is required if you are using the **Merge Update** mode.                                                                            |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Enter the URL to Your Workday XML Report</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the URL for your Workday or Simple XML Report. You must provide the URL along with the fully qualified path, including the report name.  For example:  https://com.workday.report/service/Report\_Name?format=simplexml</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Additional Parameters</p></td>
+      <td colspan="1" rowspan="1"><p>Enter any additional query parameters that might be required to run the provided XML report here, separated by a new line. Example: <b>parameterName=value</b></p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Enter Fields to Exclude</p></td>
+      <td colspan="1" rowspan="1"><p>Enter a comma-separated list of fields (columns) to exclude from your XML import, if any.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Enter Your Sublisttoflatten</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the comma separated lists that you want to flatten out in your data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Flatten data</p></td>
+      <td colspan="1" rowspan="1"><p>Select this checkbox to bring data for all duplicate elements.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Reset Schema</p></td>
+      <td colspan="1" rowspan="1"><p>Select this checkbox to reset the schema.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Merge Keys</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the comma separated lists of keys that will be used to merge your data. This field is required if you are using the <b>Merge Update</b> mode.</p></td>
+    </tr>
+  </tbody>
+</table>
 ### Other Panes
 
 For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

@@ -32,28 +32,96 @@ The Domo HubSpot Upsert connector uses OAuth to connect, so there is no need to
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-| Menu                                        | Description                                                                     |
-| ------------------------------------------- | ------------------------------------------------------------------------------- |
-| Report                                      | Select the HubSpot report you want to run. The following reports are available: |
-| Custom Object Type                          | Select the Custom Object.                                                       |
-| Select Properties To Retrieve               | Select whether to retrieve tickets for all or only specific properties.         |
-| Properties                                  | Select the properties for the tickets to retrieve.                              |
-| Select Company Properties to Retrieve       | Select whether to retrieve all or only specific company properties.             |
-| Company Properties                          | Select company properties.                                                      |
-| Select custom object properties to retrieve | Select whether to retrieve all or only specific company properties.             |
-| Custom Object Properties                    | Select the custom object properties to retrieve.                                |
-| Select Type of Owners                       | Select whether you want to retrieve all owners or only archived owners.         |
-| Select Contact Properties to Retrieve       | Select whether to retrieve all or only specific contact properties.             |
-| Contact Properties                          | Select contact properties.                                                      |
-| Select line items properties to retrieve    | Select whether to retrieve all or only specific line items properties.          |
-| Line Items Properties                       | Select the line items properties to retrieve.                                   |
-| Select archived (checkbox)                  | Select whether to return the results that only have been archived.              |
-| Select association type                     | Select whether to retrieve all or only specific associations.                   |
-| Select from object                          | Select objects from which you want to retrieve associations.                    |
-| Select to object                            | Select objects for which you want to retrieve associations.                     |
-| Select analytics object type                | Select the type of object for which you want the analytics data.                |
-| Select analytics time period                | Select the time period used to group the data.                                  |
-| Date Range                                  | Enter the date range for which you would like to fetch the data.                |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Report</p></td>
+      <td colspan="1" rowspan="1"><p>Select the HubSpot report you want to run. The following reports are available:</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Custom Object Type</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Custom Object.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Properties To Retrieve</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve tickets for all or only specific properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Properties</p></td>
+      <td colspan="1" rowspan="1"><p>Select the properties for the tickets to retrieve.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Company Properties to Retrieve</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve all or only specific company properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Company Properties</p></td>
+      <td colspan="1" rowspan="1"><p>Select company properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select custom object properties to retrieve</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve all or only specific company properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Custom Object Properties</p></td>
+      <td colspan="1" rowspan="1"><p>Select the custom object properties to retrieve.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Type of Owners</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether you want to retrieve all owners or only archived owners.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Contact Properties to Retrieve</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve all or only specific contact properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Contact Properties</p></td>
+      <td colspan="1" rowspan="1"><p>Select contact properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select line items properties to retrieve</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve all or only specific line items properties.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Line Items Properties</p></td>
+      <td colspan="1" rowspan="1"><p>Select the line items properties to retrieve.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select archived (checkbox)</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to return the results that only have been archived.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select association type</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether to retrieve all or only specific associations.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select from object</p></td>
+      <td colspan="1" rowspan="1"><p>Select objects from which you want to retrieve associations.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select to object</p></td>
+      <td colspan="1" rowspan="1"><p>Select objects for which you want to retrieve associations.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select analytics object type</p></td>
+      <td colspan="1" rowspan="1"><p>Select the type of object for which you want the analytics data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select analytics time period</p></td>
+      <td colspan="1" rowspan="1"><p>Select the time period used to group the data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date Range</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the date range for which you would like to fetch the data.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Other Panes
 
@@ -68,25 +136,84 @@ The base URL for HubSpot Upsert is https://api.hubapi.com.
 </Accordion>
 
 <Accordion title="Which endpoint(s) does each report call in this connector?">
-| Report Name             | Endpoint URL(s)                                                   |
-| ----------------------- | ----------------------------------------------------------------- |
-| Appointments            | /crm/v3/objects/APPOINTMENT                                       |
-| Associations            | /crm/v4/associations/{FromObjectTypes}/{ToObjectTypes}/batch/read |
-| Calls                   | /crm/v3/objects/calls                                             |
-| Companies               | /crm/v3/properties/company                                        |
-| Contacts                | /crm/v3/contacts                                                  |
-| Custom Objects          | /crm/v3/schemas                                                   |
-| Emails Report           | /crm/v3/objects/emails                                            |
-| Line Items              | null                                                              |
-| Listings                | /crm/v3/objects/LISTING                                           |
-| Marketing Emails Report | /marketing/v3/emails                                              |
-| Meetings Report         | /crm/v3/objects/meetings                                          |
-| Notes Report            | /crm/v3/objects/notes                                             |
-| Object Analytics Report | /analytics/v2/reports/{AnalyticsObjectType}/{AnalyticsTimePeriod} |
-| Owners                  | /crm/v3/owners/                                                   |
-| Postal Mail Report      | /crm/v3/objects/postal\_mail                                      |
-| Tasks Report            | /crm/v3/objects/tasks                                             |
-| Ticket Report           | /crm/v3/objects/tickets                                           |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Report Name</p></th>
+      <th colspan="1" rowspan="1"><p>Endpoint URL(s)</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Appointments</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/APPOINTMENT</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Associations</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v4/associations/{FromObjectTypes}/{ToObjectTypes}/batch/read</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Calls</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/calls</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Companies</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/properties/company</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Contacts</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/contacts</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Custom Objects</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/schemas</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Emails Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/emails</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Line Items</p></td>
+      <td colspan="1" rowspan="1"><p>null</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Listings</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/LISTING</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Marketing Emails Report</p></td>
+      <td colspan="1" rowspan="1"><p>/marketing/v3/emails</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Meetings Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/meetings</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Notes Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/notes</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Object Analytics Report</p></td>
+      <td colspan="1" rowspan="1"><p>/analytics/v2/reports/{AnalyticsObjectType}/{AnalyticsTimePeriod}</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Owners</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/owners/</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Postal Mail Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/postal\_mail</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Tasks Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/tasks</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Ticket Report</p></td>
+      <td colspan="1" rowspan="1"><p>/crm/v3/objects/tickets</p></td>
+    </tr>
+  </tbody>
+</table>
 </Accordion>
 
 <Accordion title="What kind of credentials do I need to power up the HubSpot Upsert connector?">

@@ -15,7 +15,7 @@ Usage:
     python3 scripts/convert_html_tables.py [--dry-run] [--verbose] [files ...]
 
     With no files, processes every .mdx file under s/article/, s/topic/,
-    de/, es/, fr/, and ja/. Files under portal/ are always skipped.
+    portal/, de/, es/, fr/, and ja/.
 """
 
 import argparse
@@ -217,52 +217,6 @@ def _is_callout(fragment: str) -> bool:
     return bool(m and m.group(1).lower() in _CALLOUT_TAGS)
 
 
-def _protect_images(text: str, store: list) -> str:
-    """Replace <img> tags and <Frame>…</Frame> blocks with __IMG_N__ placeholders."""
-    output = []
-    i = 0
-    while i < len(text):
-        lt = text.find('<', i)
-        if lt == -1:
-            output.append(text[i:])
-            break
-        is_close, tname, tend = tag_info(text, lt)
-        if not is_close and tname == 'img':
-            output.append(text[i:lt])
-            idx = len(store)
-            store.append(text[lt:tend])
-            output.append(f'__IMG_{idx}__')
-            i = tend
-        elif not is_close and tname == 'frame':
-            depth = 0
-            j = lt
-            end_j = -1
-            while j < len(text):
-                lt2 = text.find('<', j)
-                if lt2 == -1:
-                    break
-                ic2, tn2, te2 = tag_info(text, lt2)
-                if tn2 == 'frame':
-                    depth += (1 if not ic2 else -1)
-                    if depth == 0:
-                        end_j = te2
-                        break
-                j = te2
-            if end_j > 0:
-                output.append(text[i:lt])
-                idx = len(store)
-                store.append(text[lt:end_j])
-                output.append(f'__IMG_{idx}__')
-                i = end_j
-            else:
-                output.append(text[i:tend])
-                i = tend
-        else:
-            output.append(text[i:tend])
-            i = tend
-    return ''.join(output)
-
-
 def _protect_nested_tables(text: str, store: list) -> str:
     """Replace nested <table>…</table> blocks with __TABLE_N__ placeholders."""
     output = []
@@ -437,14 +391,10 @@ def convert_cell(cell_html: str) -> str:
     nested: list = []
     text = _protect_nested_tables(text, nested)
 
-    # 2. Protect <img> tags and <Frame>…</Frame> blocks so they survive untouched
-    images: list = []
-    text = _protect_images(text, images)
-
-    # 3. Flatten <ul>/<ol> lists into inline <br/>-separated items
+    # 2. Flatten <ul>/<ol> lists into inline <br/>-separated items
     text = _convert_lists(text)
 
-    # 4. Extract logical paragraphs and join with <br/> rules
+    # 3. Extract logical paragraphs and join with <br/> rules
     parts = _extract_paragraphs(text)
     if parts:
         # Convert inline HTML within each part first
@@ -454,10 +404,10 @@ def convert_cell(cell_html: str) -> str:
     else:
         text = _convert_inline_html(text)
 
-    # 5. Collapse any remaining whitespace
+    # 4. Collapse any remaining whitespace
     text = re.sub(r'[ \t]+', ' ', text).strip()
 
-    # 6. Escape pipe characters that would break the markdown table
+    # 5. Escape pipe characters that would break the markdown table
     #    Don't escape pipes that are already escaped or inside code spans
     def _escape_pipes(s: str) -> str:
         result = []
@@ -477,11 +427,7 @@ def convert_cell(cell_html: str) -> str:
 
     text = _escape_pipes(text)
 
-    # 7. Restore image placeholders (after pipe-escaping, so image content is untouched)
-    for idx, img_html in enumerate(images):
-        text = text.replace(f'__IMG_{idx}__', img_html)
-
-    # 8. Restore nested table placeholders
+    # 6. Restore nested table placeholders
     for idx, tbl_html in enumerate(nested):
         text = text.replace(f'__TABLE_{idx}__', tbl_html)
 
@@ -557,15 +503,6 @@ def format_markdown_table(rows: list) -> str:
 def convert_file(filepath: str, dry_run: bool = False, verbose: bool = False) -> bool:
     """Process one MDX file. Returns True if the file was (or would be) changed."""
     path = Path(filepath)
-
-    # Never touch files under portal/
-    try:
-        rel = path.resolve().relative_to(Path.cwd().resolve())
-        if rel.parts and rel.parts[0] == 'portal':
-            return False
-    except ValueError:
-        pass
-
     try:
         content = path.read_text(encoding='utf-8')
     except OSError as exc:
@@ -641,7 +578,7 @@ def convert_file(filepath: str, dry_run: bool = False, verbose: bool = False) ->
 
 # ─── Entry point ─────────────────────────────────────────────────────────────
 
-DEFAULT_DIRS = ['s/article', 's/topic', 'de', 'es', 'fr', 'ja']
+DEFAULT_DIRS = ['s/article', 's/topic', 'portal', 'de', 'es', 'fr', 'ja']
 
 
 def main():

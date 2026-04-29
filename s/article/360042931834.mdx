@@ -35,14 +35,40 @@ To connect to your Snowflake account and create a DataSet, you must have the fol
 - The name of the AWS S3 bucket in which Snowflake data will be unloaded.
 - The following Permissions are required:
 
-| Permission Field     | Description                                                                        |
-| -------------------- | ---------------------------------------------------------------------------------- |
-| Create Stage         | Creates a new stage to unload data from tables into files.                         |
-| Copy into <location> | Command to unload all the rows from a table into one or more files into the stage. |
-| Create file format   | Create file format.                                                                |
-| LIST                 | Returns a list of files that have been staged.                                     |
-| GET                  | Downloads data files from the above created Snowflake stage.                       |
-| REMOVE               | Removes files that have been staged - unloaded from a table.                       |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Permission Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Create Stage</p></td>
+      <td colspan="1" rowspan="1"><p>Creates a new stage to unload data from tables into files.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Copy into &lt;location&gt;</p></td>
+      <td colspan="1" rowspan="1"><p>Command to unload all the rows from a table into one or more files into the stage.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Create file format</p></td>
+      <td colspan="1" rowspan="1"><p>Create file format.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>LIST</p></td>
+      <td colspan="1" rowspan="1"><p>Returns a list of files that have been staged.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>GET</p></td>
+      <td colspan="1" rowspan="1"><p>Downloads data files from the above created Snowflake stage.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>REMOVE</p></td>
+      <td colspan="1" rowspan="1"><p>Removes files that have been staged - unloaded from a table.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 ## Connecting to your Snowflake account
 
@@ -52,16 +78,48 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Snowflake account. The following table describes what is needed for each field:
 
-| Field        | Description                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------- |
-| Account Name | Enter your Snowflake account name. For more information, see "Prerequisites."                         |
-| Username     | Enter the username you use to connect to your Snowflake host.                                         |
-| Password     | Enter the password you use to connect to your Snowflake host.                                         |
-| Access Key   | Enter your AWS access key. For information about obtaining an access key, see "Prerequisites," above. |
-| Secret Key   | Enter your AWS secret key. For information about obtaining a secret key, see "Prerequisites," above.  |
-| Bucket       | Enter the name of the AWS S3 bucket.                                                                  |
-| Region       | Select your S3 bucket region.                                                                         |
-| Role         | Enter your role.                                                                                      |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Account Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Snowflake account name. For more information, see "Prerequisites."</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Username</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the username you use to connect to your Snowflake host.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Password</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the password you use to connect to your Snowflake host.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Access Key</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your AWS access key. For information about obtaining an access key, see "Prerequisites," above.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Secret Key</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your AWS secret key. For information about obtaining a secret key, see "Prerequisites," above.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Bucket</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the name of the AWS S3 bucket.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Region</p></td>
+      <td colspan="1" rowspan="1"><p>Select your S3 bucket region.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Role</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your role.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 Once you have entered valid Snowflake credentials, you can use the same account any time you go to create a new Snowflake Unload V2 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
@@ -69,10 +127,22 @@ Once you have entered valid Snowflake credentials, you can use the same account 
 
 In this pane you create an SQL query to pull data from your database. You can choose a specific database table and partition column. You can also specify the number of past days you want to get data for.
 
-| Menu                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| How would you like to import data into Domo? | Select whether you want to import your data by using the standard update method (replace/append), by using partition, or upsert mode.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| How would you like to build your Query?      | <table border="1" cellpadding="1" cellspacing="1">
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>How would you like to import data into Domo?</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether you want to import your data by using the standard update method (replace/append), by using partition, or upsert mode.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>How would you like to build your Query?</p></td>
+      <td colspan="1" rowspan="1">
+        <table border="1" cellpadding="1" cellspacing="1">
           <thead>
             <tr>
               <th colspan="1" rowspan="1"><p>Query Type</p></th>
@@ -89,23 +159,75 @@ In this pane you create an SQL query to pull data from your database. You can ch
               <td colspan="1" rowspan="1"><p>Select a table and fields to autogenerate your query.</p></td>
             </tr>
           </tbody>
-        </table> |
-| Warehouses                                   | Select the warehouse containing the data you want to retrieve. The list populates all warehouses you have access to based on your credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Databases                                    | Select the database containing the data you want to retrieve. The list populates all databases you have access to based on your credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Schemas                                      | Select the database schema containing the data you want to retrieve. The list populates all schemas you have access to based on your credentials.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Tables                                       | Select the database table you want to retrieve. The list populates all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Table Column Name                            | Select the partition column name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Table Query Helper                           | A query is generated based on the selected fields. Copy and paste this text into the QUERY field. You may edit this query, if desired.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Query                                        | Enter the SQL query you want to execute.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Partition Criteria                           | Select whether you want to partition your data using the date keys, non-date keys, or meta query.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Select Partition Date Key Column Name        | Select the partition column name. Only date fields will be shown in this discovery.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Past Days                                    | Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. Example: 30.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Date Format                                  | Please select/enter proper date format according to the date format present in partition column. By default **yyyy-MM-dd** will be used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Custom Date Format                           | Enter the custom date format.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Select Partition Non Date Key Column Name    | Select a non-date key column name to partition the data. All fields excluding Date fields will appear in this dropdown.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Enter Partition Non Date Key Column Name     | Enter a non-date key column name to partition the data.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| Partition Query to determine partition tags  | Enter the partition meta query to determine the distinct partition tags (or keys). The column containing the **Date** data is your partition column.<br/>Example: SELECT DISTINCT (DATE_COLUMN_NAME) FROM TABLENAME                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Upsert Key Column(s)                         | Enter upsert key column name or a comma separated list of upsert key column names. **Required only when Update method is Merge**.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
+      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve. The list populates all warehouses you have access to based on your credentials.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Databases</p></td>
+      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve. The list populates all databases you have access to based on your credentials.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Schemas</p></td>
+      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve. The list populates all schemas you have access to based on your credentials.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Tables</p></td>
+      <td colspan="1" rowspan="1"><p>Select the database table you want to retrieve. The list populates all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Table Column Name</p></td>
+      <td colspan="1" rowspan="1"><p>Select the partition column name.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Table Query Helper</p></td>
+      <td colspan="1" rowspan="1"><p>A query is generated based on the selected fields. Copy and paste this text into the QUERY field. You may edit this query, if desired.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Query</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the SQL query you want to execute.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Partition Criteria</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether you want to partition your data using the date keys, non-date keys, or meta query.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Partition Date Key Column Name</p></td>
+      <td colspan="1" rowspan="1"><p>Select the partition column name. Only date fields will be shown in this discovery.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Past Days</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. Example: 30.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date Format</p></td>
+      <td colspan="1" rowspan="1"><p>Please select/enter proper date format according to the date format present in partition column. By default <b>yyyy-MM-dd</b> will be used.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Custom Date Format</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the custom date format.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Partition Non Date Key Column Name</p></td>
+      <td colspan="1" rowspan="1"><p>Select a non-date key column name to partition the data. All fields excluding Date fields will appear in this dropdown.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Enter Partition Non Date Key Column Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter a non-date key column name to partition the data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Partition Query to determine partition tags</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the partition meta query to determine the distinct partition tags (or keys). The column containing the <b>Date</b> data is your partition column.</p><p>Example: SELECT DISTINCT (DATE_COLUMN_NAME) FROM TABLENAME</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Upsert Key Column(s)</p></td>
+      <td colspan="1" rowspan="1"><p>Enter upsert key column name or a comma separated list of upsert key column names. <b>Required only when Update method is Merge</b>.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Selecting the Update Mode
 
