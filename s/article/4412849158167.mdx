@@ -2,7 +2,6 @@
 title: "- Cloud Amplifier Overview -"
 ---
 
-import { InlineImage } from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -144,7 +143,7 @@ You can either use basic data freshness checks or advanced checks for any new or
      />
    </Frame>
 
-3. (Conditional) Choose an existing integration by hovering over your integration and selecting <InlineImage src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000003GwXn.jpg" /> (wrench icon) > **Edit** **account**. Otherwise, select **+** **Add New Integration**.
+3. (Conditional) Choose an existing integration by hovering over your integration and selecting <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000003GwXn.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> (wrench icon) > **Edit** **account**. Otherwise, select **+** **Add New Integration**.
 
    The integration wizard displays.
 
@@ -171,539 +170,134 @@ You can either use basic data freshness checks or advanced checks for any new or
 
 # Basic Settings
 
-<table
-  border="1"
-  cellpadding="1"
-  cellspacing="1"
-  data-aura-rendered-by="33:200;a"
->
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Update Frequency </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every 15 minutes </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks every 15 minutes, all day or during the active hours
-          range.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every 30 minutes </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks every 30 minutes, all day or during the active hours
-          range.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every hour </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Checks every hour, all day or during the active hours range. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every day </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per day at the specified time, including weekends
-          (Saturday and Sunday).{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every weekday </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per day at the specified time, but not on weekends
-          (Saturday and Sunday).{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every week </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per week on the selected day and at the specified time.{" "}
-          <a id="advanced_settings" target="_blank"></a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every month </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per month on the selected date at the specified time{" "}
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Update Frequency | Description                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| Every 15 minutes | {" "}
+ Checks every 15 minutes, all day or during the active hours
+ range.{" "}                    |
+| Every 30 minutes | {" "}
+ Checks every 30 minutes, all day or during the active hours
+ range.{" "}                    |
+| Every hour       | Checks every hour, all day or during the active hours range.                                       |
+| Every day        | {" "}
+ Checks once per day at the specified time, including weekends
+ (Saturday and Sunday).{" "}  |
+| Every weekday    | {" "}
+ Checks once per day at the specified time, but not on weekends
+ (Saturday and Sunday).{" "} |
+| Every week       | {" "}
+ Checks once per week on the selected day and at the specified time.{" "}
+ #                 |
+| Every month      | {" "}
+ Checks once per month on the selected date at the specified time{" "}                       |
 
 # Advanced Settings
 
 The advanced data freshness configuration includes the following:
 
-<table
-  border="1"
-  cellpadding="1"
-  cellspacing="1"
-  data-aura-rendered-by="33:200;a"
->
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Update Frequency </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Days per week </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Months </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Once a day — </b> Checks once per day. You can set the time and
-          time zone.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Every day — </b> Checks daily.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Every month — </b> Checks every month.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> More than once a day — </b> Choose how frequently the checks
-          happen using an hour range.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific days of the week — </b> Choose on which days of the week
-          the checks happen.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific months — </b> Choose during which months the checks
-          happen.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> — </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific days of the month — </b> Choose on which days of the
-          month the checks happen.{" "}
-          <a id="compare_federated_ca" target="_blank"></a>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> — </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Update Frequency                                                                              | Days per week                                                                                  | Months                                                                    |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Once a day —** Checks once per day. You can set the time and
+ time zone.{" "}               | **Every day —** Checks daily.{" "}                                                             | **Every month —** Checks every month.{" "}                                |
+| **More than once a day —** Choose how frequently the checks
+ happen using an hour range.{" "} | **Specific days of the week —** Choose on which days of the week
+ the checks happen.{" "}      | **Specific months —** Choose during which months the checks
+ happen.{" "} |
+| —                                                                                             | **Specific days of the month —** Choose on which days of the
+ month the checks happen.{" "}
+ # | —                                                                         |
 
 ### Federated Data vs. Cloud Amplifier
 
 The table below compares federated data to Cloud Amplifier read and read/write configurations:
 
-<table
-  border="1"
-  cellpadding="1"
-  cellspacing="1"
-  class="mt-responsive-table"
-  data-aura-rendered-by="33:200;a"
->
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Capability </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Federated-Direct Query </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        {" "}
-        Cloud Amplifier Integration (Read-Adapter){" "}
-      </th>
-      <th colspan="1" rowspan="1">
-        {" "}
-        Cloud Amplifier Integration (Read/Write Adapter){" "}
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Visualize data from existing tables <br /> - Create cards <br /> -
-          Create dashboards{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>✅</p>
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Visualize on-premise data behind firewall via an agent </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>✅</p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>❌</p>
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Get updated metadata from source tables <br /> - Last updated time{" "}
-          <br /> - Updated row count{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>❌</p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          ✅<br />
-          <span>
-            {" "}
-            (
-            <b>
-              {" "}
-              Every 15 minutes <br /> Configurable{" "}
-            </b>{" "}
-            ){" "}
-          </span>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅<br />
-        <span>
-          {" "}
-          (
-          <b>
-            {" "}
-            Every 15 minutes <br /> Configurable{" "}
-          </b>{" "}
-          ){" "}
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Card Alerts </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <img
+| Capability                                                                                                    | Federated-Direct Query                                                                                                                                                                                 | {" "}
+ Cloud Amplifier Integration (Read-Adapter){" "}                                                                                                 | {" "}
+ Cloud Amplifier Integration (Read/Write Adapter){" "}                         |
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| {" "}
+ Visualize data from existing tables <br/> - Create cards <br/> -
+ Create dashboards{" "}               | ✅                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| Visualize on-premise data behind firewall via an agent                                                        | ✅                                                                                                                                                                                                      | ❌                                                                                                                                                      | ❌                                                                                    |
+| {" "}
+ Get updated metadata from source tables <br/> - Last updated time{" "}
+ <br/> - Updated row count{" "} | ❌                                                                                                                                                                                                      | ✅<br/>
+ 
+ {" "}
+ (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "}                                                                   | ✅<br/>
+ 
+ {" "}
+ (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "} |
+| Card Alerts                                                                                                   | <img
             src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000005wybr.png"
             alt="Screenshot 2023-02-03 at 1.41.27 AM.png"
-          />
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅<br />
-        <span>
-          {" "}
-          (
-          <b>
-            {" "}
-            Every 15 minutes <br /> Configurable{" "}
-          </b>{" "}
-          ){" "}
-        </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅<br />
-        <span>
-          {" "}
-          (
-          <b>
-            {" "}
-            Every 15 minutes <br /> Configurable{" "}
-          </b>{" "}
-          ){" "}
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        DataSet Alerts{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅<br />
-        <span>
-          {" "}
-          (
-          <b>
-            {" "}
-            Every 15 minutes <br /> Configurable{" "}
-          </b>{" "}
-          ){" "}
-        </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span>
-          ✅<br /> (
-          <b>
-            {" "}
-            Every 15 minutes <br /> Configurable{" "}
-          </b>{" "}
-          ){" "}
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        DataSet Views{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Use data from existing tables in Magic ETL as inputs{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Use data updates from existing tables to trigger other DataFlows{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Custom fiscal calendar for source table data (one per instance){" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-      <td colspan="1" rowspan="1">
-        ❌
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Use Domo Connectors, Workbench, SDK, CLI to write to customer-owned
-        EDW/Data Lake{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <img
+          />                                           | ✅<br/>
+ 
+ {" "}
+ (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "}                                                                   | ✅<br/>
+ 
+ {" "}
+ (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "} |
+| {" "}
+ DataSet Alerts{" "}                                                                                    | ❌                                                                                                                                                                                                      | ✅<br/>
+ 
+ {" "}
+ (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "}                                                                   | ✅<br/> (
+ **{" "}
+ Every 15 minutes <br/> Configurable{" "}**{" "}
+ ){" "}           |
+| {" "}
+ DataSet Views{" "}                                                                                     | ✅                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Use data from existing tables in Magic ETL as inputs{" "}                                              | ❌                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Use data updates from existing tables to trigger other DataFlows{" "}                                  | ❌                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Custom fiscal calendar for source table data (one per instance){" "}                                   | ❌                                                                                                                                                                                                      | ❌                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Use Domo Connectors, Workbench, SDK, CLI to write to customer-owned
+ EDW/Data Lake{" "}                | <img
           src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000005wybc.png"
           alt="Screenshot 2023-02-03 at 1.29.01 AM.png"
-        />
-      </td>
-      <td colspan="1" rowspan="1">
-        <img
+        />                                                 | <img
           src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000005wybc.png"
           alt="Screenshot 2023-02-03 at 1.29.01 AM.png"
-        />
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>✅</p>
-        <p>
-          <b>
-            <span> Native direct rewrite </span>
-          </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Write Magic ETL output to customer-owned EDW/Data Lake{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <img
+        /> | ✅<br/>** Native direct rewrite **                                                    |
+| {" "}
+ Write Magic ETL output to customer-owned EDW/Data Lake{" "}                                            | <img
           src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000005wybc.png"
           alt="Screenshot 2023-02-03 at 1.29.01 AM.png"
-        />
-      </td>
-      <td colspan="1" rowspan="1">
-        <img
+        />                                                 | <img
           src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000005wybc.png"
           alt="Screenshot 2023-02-03 at 1.29.01 AM.png"
-        />
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>✅</p>
-        <p>
-          <b>
-            <span> Native direct rewrite </span>
-          </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        PDP | Governance{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Domo App Support{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Jupyter Workspace Support{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Domo auto-caching of card loads{" "}
-        <a id="share_integration" target="_blank"></a>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <img
+        /> | ✅<br/>** Native direct rewrite **                                                    |
+| {" "}
+ PDP \| Governance{" "}                                                                                 | ✅                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Domo App Support{" "}                                                                                  | ✅                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Jupyter Workspace Support{" "}                                                                         | ✅                                                                                                                                                                                                      | ✅                                                                                                                                                      | ✅                                                                                    |
+| {" "}
+ Domo auto-caching of card loads{" "}
+ #                                                                | <img
             src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EM5w000006uHUh.png"
             alt="Screenshot 2023-03-27 at 10.24.52 AM.png"
-          />
-        </p>
-        <p>
-          <b>
-            <span> Set static TTL on each DataSet </span>
-          </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-      <td colspan="1" rowspan="1">
-        ✅
-      </td>
-    </tr>
-  </tbody>
-</table>
+          /><br/>** Set static TTL on each DataSet ** | ✅                                                                                                                                                      | ✅                                                                                    |
 
 ### Share a Cloud Amplifier Integration Account (Beta)
 
@@ -711,11 +305,19 @@ If you own a Cloud Amplifier integration, you can share access to the integratio
 
 The following table can help you determine the right level of access to grant:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:200;a"><thead><tr><th colspan="1" rowspan="1"><p></p></th><th colspan="1" rowspan="1"><p></p></th><th colspan="1" rowspan="1"><p> Read </p></th><th colspan="1" rowspan="1"><p> Execute </p></th><th colspan="1" rowspan="1"><p> Share </p></th><th colspan="1" rowspan="1"><p> Write </p></th><th colspan="1" rowspan="1"><p> Delete </p></th><th colspan="1" rowspan="1"><p> Admin </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b></b></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p> Ability to register new DataSets in Domo </p></td><td colspan="1" rowspan="1"><p> Ability to create new tables on the remote. </p></td><td colspan="1" rowspan="1"> Ability to share the integration. </td><td colspan="1" rowspan="1"><p> Ability to make changes to the integration and its account </p></td><td colspan="1" rowspan="1"><p> Ability to delete an integration </p></td><td colspan="1" rowspan="1"><p> Full access </p></td></tr><tr><td colspan="1" rowspan="1"><p><b> Owner </b></p></td><td colspan="1" rowspan="1"><p> Allows read-write use, sharing, editing, and deleting of the integration. </p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td></tr><tr><td colspan="1" rowspan="1"><p><b> Can Edit </b></p></td><td colspan="1" rowspan="1"><p> Allows read-write use, sharing, and editing of the integration, but cannot delete. </p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><b> Can Share </b></p></td><td colspan="1" rowspan="1"><p> Allows read-write use and sharing of the integration but cannot edit or delete. </p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><b> Can Write </b></p></td><td colspan="1" rowspan="1"><p> Allows read-write use of the integration but cannot share, edit, or delete. </p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><b> Can Read </b></p></td><td colspan="1" rowspan="1"><p> Allows read-only use of the integration but cannot write, share, edit, or delete. </p></td><td colspan="1" rowspan="1"><p><img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr><tr><td colspan="1" rowspan="1"><p><b> No Access </b></p></td><td colspan="1" rowspan="1"><p> No access to the integration </p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td><td colspan="1" rowspan="1"><p></p></td></tr></tbody></table>
+|               |                                                                                    | Read                                                                                             | Execute                                                                                          | Share                                                                                            | Write                                                                                            | Delete                                                                                           | Admin                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+|               |                                                                                    | Ability to register new DataSets in Domo                                                         | Ability to create new tables on the remote.                                                      | Ability to share the integration.                                                                | Ability to make changes to the integration and its account                                       | Ability to delete an integration                                                                 | Full access                                                                                      |
+| **Owner**     | Allows read-write use, sharing, editing, and deleting of the integration.          | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> |
+| **Can Edit**  | Allows read-write use, sharing, and editing of the integration, but cannot delete. | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> |                                                                                                  |                                                                                                  |
+| **Can Share** | Allows read-write use and sharing of the integration but cannot edit or delete.    | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> |                                                                                                  |                                                                                                  |                                                                                                  |
+| **Can Write** | Allows read-write use of the integration but cannot share, edit, or delete.        | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |
+| **Can Read**  | Allows read-only use of the integration but cannot write, share, edit, or delete.  | <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xDCr"width="17"/>.png" alt="" /> |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |
+| **No Access** | No access to the integration                                                       |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |                                                                                                  |
 
 Follow these steps to share a Cloud Amplifier integration account:
 
-1. Navigate to the Domo **Data Warehouse** (**Data** > <InlineImage src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xN0v.jpg" /> **Data Warehouse**).
+1. Navigate to the Domo **Data Warehouse** (**Data** > <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xN0v.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Data Warehouse**).
 2. Scroll through the **Cloud Amplifier Integrations** panel and find the integration you want to share. Select it.
 
    <Frame>
@@ -726,7 +328,7 @@ Follow these steps to share a Cloud Amplifier integration account:
      />
    </Frame>
 
-3. Scroll to the **Accounts** section and choose <InlineImage src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xPPJ.jpg" /> **Share** for the account you want to share.
+3. Scroll to the **Accounts** section and choose <img src="/images/kb/ka0Vq000000A23l-00N5w00000Ri7BU-0EMVq000005xPPJ.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Share** for the account you want to share.
 
    The **Manage Account access** modal displays.
 
@@ -930,13 +532,13 @@ This is currently in beta for the [Google BigQuery integration](/s/article/00000
 
 <Accordion title="Can I use both 'traditional' Domo and Cloud Amplifier in parallel?">
 
-Yes. By default, you have access to both Domo's proprietary Adrenaline engine and the Cloud Amplifier engine. You can configure your Domo environment so that only the Cloud Amplifier DataSets are allowed to run in your Domo environment, but [Domo Support](https://domo-support.domo.com/s/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> needs to help with this.
+Yes. By default, you have access to both Domo's proprietary Adrenaline engine and the Cloud Amplifier engine. You can configure your Domo environment so that only the Cloud Amplifier DataSets are allowed to run in your Domo environment, but [Domo Support](https://domo-support.domo.com/s/) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> needs to help with this.
 
 </Accordion>
 
 <Accordion title="Can I move existing DataSets from Domo to my cloud provider using Cloud Amplifier?">
 
-For existing DataSets created via a connector or Domo APIs, you can reach out to [Domo Support](https://domo-support.domo.com/s/) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" /> for assistance to move them to your cloud provider. If those DataSets were created via some other method, you need to recreate those in your cloud provider manually.
+For existing DataSets created via a connector or Domo APIs, you can reach out to [Domo Support](https://domo-support.domo.com/s/) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> for assistance to move them to your cloud provider. If those DataSets were created via some other method, you need to recreate those in your cloud provider manually.
 
 </Accordion>
 
@@ -946,7 +548,7 @@ Domo's APIs can be used with any DataSet in a Domo-managed database, as long as 
 
 This includes but is not limited to, the Stream API, webhooks, custom apps that generate new data such as Form Builder, and managing a DataSet via the DataSet API (such as updating a DataSet, managing personalized data permissions (PDP) policies, changing the owner of a DataSet, exporting a DataSet).
 
-For a more comprehensive guide to using the DataSet API, see our [developer docs](http://developer.domo.com/docs/dataset-api-reference/dataset) <InlineImage src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" />.
+For a more comprehensive guide to using the DataSet API, see our [developer docs](http://developer.domo.com/docs/dataset-api-reference/dataset) <img src="/images/kb/ka0Vq00000001FR-00N5w00000Ri7BU-0EMVq0000000XDh.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>.
 
 </Accordion>
 </AccordionGroup>

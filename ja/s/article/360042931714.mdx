@@ -36,7 +36,18 @@ IBM DB2データベースに接続してDataSetを作成するには、以下が
 
 このペインには、IBM DB2データベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドで必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH User </p></td><td colspan="1" rowspan="1"><p> SSHユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> SSHパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> SSHポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> SSH秘密キーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database User </p></td><td colspan="1" rowspan="1"><p> DB2データベースのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> DB2データベースのパスワードを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> DB2データベースのポート番号を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> DB2データベースの名前を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Host </p></td><td colspan="1" rowspan="1"><p> DB2データベースのホスト名を入力します。例： <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Host </p></td><td colspan="1" rowspan="1"><p> SSHホスト名を入力します。 </p></td></tr></tbody></table>
+| フィールド             | 説明                                                                |
+| ----------------- | ----------------------------------------------------------------- |
+| SSH User          | SSHユーザー名を入力します。                                                   |
+| SSH Password      | SSHパスワードを入力します。                                                   |
+| SSH Port          | SSHポート番号を入力します。                                                   |
+| SSH Private Key   | SSH秘密キーを入力します。                                                    |
+| Database User     | DB2データベースのユーザー名を入力します。                                            |
+| Database Password | DB2データベースのパスワードを入力します。                                            |
+| Database Port     | DB2データベースのポート番号を入力します。                                            |
+| Database Name     | DB2データベースの名前を入力します。                                               |
+| Database Host     | DB2データベースのホスト名を入力します。例： `[db.company.com](http://db.company.com)` |
+| SSH Host          | SSHホスト名を入力します。                                                    |
 
 有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいIBM DB2 DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細は、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
 
@@ -44,7 +55,12 @@ IBM DB2データベースに接続してDataSetを作成するには、以下が
 
 このペインでは、SQLクエリを作成して、データベースからデータを取得します。 **［Query］** パラメーターは必須です。ほかの3つのパラメーターは、このクエリを作成する場合に役立ちます。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> 必要なデータを選択するための構造化照会言語（SQL）クエリを入力します。例： </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> クエリの作成にサポートが必要な場合は、自動生成されたクエリを <b> ［Query Helper］ </b> フィールドからコピーペーストします。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Name（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoにロードするデータを含む表を選択します。選択した表は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Names（オプション） </p></td><td colspan="1" rowspan="1"><p> Domoにロードするデータが含まれている表の列を選択します。選択した列は、 <b> ［Query Helper］ </b> フィールドで自動生成されるクエリに追加されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper（オプション） </p></td><td colspan="1" rowspan="1"><p> クエリの作成にサポートが必要な場合は、このクエリをコピーして <b> ［Query］ </b> フィールドに貼り付けます。 <b> ［Database Table］ </b> で表を、 <b> ［Table Columns］ </b> で列を選択すると、このクエリが自動的に生成されます。 </p></td></tr></tbody></table>
+| メニュー                | 説明                                                                                                                                           |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query               | 必要なデータを選択するための構造化照会言語（SQL）クエリを入力します。例：<br/>`select * from Employee`<br/>クエリの作成にサポートが必要な場合は、自動生成されたクエリを **［Query Helper］** フィールドからコピーペーストします。 |
+| Table Name（オプション）   | Domoにロードするデータを含む表を選択します。選択した表は、 **［Query Helper］** フィールドで自動生成されるクエリに追加されます。                                                                  |
+| Column Names（オプション） | Domoにロードするデータが含まれている表の列を選択します。選択した列は、 **［Query Helper］** フィールドで自動生成されるクエリに追加されます。                                                            |
+| Query Helper（オプション） | クエリの作成にサポートが必要な場合は、このクエリをコピーして **［Query］** フィールドに貼り付けます。 **［Database Table］** で表を、 **［Table Columns］** で列を選択すると、このクエリが自動的に生成されます。            |
 
 ### その他のペイン
 

@@ -28,7 +28,14 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Informix account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your Informix username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your Informix password. </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the host name for the Informix database. Example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number of the Informix server. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the name of the Informix database. </td></tr><tr><td colspan="1" rowspan="1"> Server </td><td colspan="1" rowspan="1"> Enter the name of your Informix server. </td></tr></tbody></table>
+| Field         | Description                                                                                       |
+| ------------- | ------------------------------------------------------------------------------------------------- |
+| Username      | Enter your Informix username.                                                                     |
+| Password      | Enter your Informix password.                                                                     |
+| Host          | Enter the host name for the Informix database. Example: `[db.company.com](http://db.company.com)` |
+| Port          | Enter the port number of the Informix server.                                                     |
+| Database Name | Enter the name of the Informix database.                                                          |
+| Server        | Enter the name of your Informix server.                                                           |
 
 Once you have entered valid Informix credentials, you can use the same account any time you go to create a new IBM Informix Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -36,7 +43,14 @@ Once you have entered valid Informix credentials, you can use the same account a
 
 In this pane you create an SQL query to pull data from your Informix database. You can choose a specific database table and partition column name. You can also specify the number of past days you want to get data for.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. Example: <span class="mt-font-courier-new"> select * from Employee </span></td></tr><tr><td colspan="1" rowspan="1"> Database Tables </td><td colspan="1" rowspan="1"> Select the database table you want to appear in your report. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> Select the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter number of past days for which you want to get data. Value can be X, where X is a positive integer. Example: 30 </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> Select the required date format. By default <b><b><b><b> yyyy-MM-dd </b></b></b></b> will be used. </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> Enter the custom date format you wish to apply to your data. </td></tr></tbody></table>
+| Menu                  | Description                                                                                                          |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Query                 | Enter the SQL query to execute. Example: `select * from Employee`                                                    |
+| Database Tables       | Select the database table you want to appear in your report.                                                         |
+| Partition Column Name | Select the partition column name.                                                                                    |
+| Past Days             | Enter number of past days for which you want to get data. Value can be X, where X is a positive integer. Example: 30 |
+| Date Format           | Select the required date format. By default ** yyyy-MM-dd** will be used.                                            |
+| Custom Date Format    | Enter the custom date format you wish to apply to your data.                                                         |
 
 ### Other Panes
 

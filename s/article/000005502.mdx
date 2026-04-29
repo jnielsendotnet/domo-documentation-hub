@@ -2,7 +2,6 @@
 title: "Manage AI Models and Projects"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -29,7 +28,7 @@ Learn about adding grants to [custom roles](/s/article/360043438973).
 
 From the Domo navigation, select **More** > **Domo AI** to open the Domo AI interface.
 
-Use the left navigation to go <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000004UAPR.jpg" /> **AI Models** or <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000003ypxB.jpg" /> **AI Projects**.
+Use the left navigation to go <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000004UAPR.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **AI Models** or <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000003ypxB.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **AI Projects**.
 
 <Frame><img alt="access ai models and projects.jpg" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000004U6Dm.jpg" style={{width: 898, height: 255}}/></Frame>
 ### Add a Model
@@ -121,7 +120,12 @@ Selecting a model from the **AI Models** page opens the Details view for that mo
 <Frame><img alt="model details.jpg" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000001oLYZ.jpg" style={{width: 899, height: 454}}/></Frame>
 The Details view includes four sections, described in the table below. The values in each section depend on the model source and how it was trained and brought into Domo.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Section </p></th><th colspan="1" rowspan="1"><p> Description </p></th><th colspan="1" rowspan="1"><p> Image </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Metrics </p></td><td colspan="1" rowspan="1"><p> The values displayed here for metric name, value, and standard deviation are created during the initial training of the model when it is brought in from a third-party source. The model values and other results are initially compared to the sample data used in the model training. </p><p> The <b> Standard Deviation </b> column displays even when your model doesn't have them as an output. </p></td><td colspan="1" rowspan="1"><p><img alt="Screenshot 2024-05-16 at 2.56.42 PM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000yoy1.jpg" style={{width: 450, height: 111}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Hyperparameters </p></td><td colspan="1" rowspan="1"><p> These values are created during the initial model training and typically include items like limits, top values, variants, and any model configuration done external to Domo. </p></td><td colspan="1" rowspan="1"><p><img alt="Screenshot 2024-05-16 at 3.06.04 PM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000ypVt.jpg" style={{width: 447, height: 96}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Model Information </p></td><td colspan="1" rowspan="1"><p> These values include the machine learning algorithm the model was trained on, the model ID used to run the model endpoint in other areas in Domo, snapshot data if a snapshot exists, and a name and link to the model job (if the model was created in Domo). </p></td><td colspan="1" rowspan="1"><p><img alt="Screenshot 2024-05-17 at 9.22.09 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000z8qH.jpg" style={{width: 399, height: 304}}/></p></td></tr><tr><td colspan="1" rowspan="1"><p> Model Schema </p></td><td colspan="1" rowspan="1"><p> These values include the model's assigned task, the input type, input schema, output type, and output schema. </p><p> Select <b> Edit Schema </b> for both the input and output to update them in the schema. Learn how to <a href="#edit_schema" target="_self"> edit the schema. </a><a id="edit_the_schema" target="_blank"></a></p></td><td colspan="1" rowspan="1"><img alt="Screenshot 2024-05-17 at 9.49.03 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000zA2T.jpg" style={{width: 399, height: 203}}/></td></tr></tbody></table>
+| Section           | Description                                                                                                                                                                                                                                                                                                                                                                                 | Image                                                                                                                                                       |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Metrics           | The values displayed here for metric name, value, and standard deviation are created during the initial training of the model when it is brought in from a third-party source. The model values and other results are initially compared to the sample data used in the model training.<br/>The **Standard Deviation** column displays even when your model doesn't have them as an output. | <img alt="Screenshot 2024-05-16 at 2.56.42 PM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000yoy1.jpg" style={{width: 450, height: 111}}/> |
+| Hyperparameters   | These values are created during the initial model training and typically include items like limits, top values, variants, and any model configuration done external to Domo.                                                                                                                                                                                                                | <img alt="Screenshot 2024-05-16 at 3.06.04 PM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000ypVt.jpg" style={{width: 447, height: 96}}/>  |
+| Model Information | These values include the machine learning algorithm the model was trained on, the model ID used to run the model endpoint in other areas in Domo, snapshot data if a snapshot exists, and a name and link to the model job (if the model was created in Domo).                                                                                                                              | <img alt="Screenshot 2024-05-17 at 9.22.09 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000z8qH.jpg" style={{width: 399, height: 304}}/> |
+| Model Schema      | These values include the model's assigned task, the input type, input schema, output type, and output schema.<br/>Select **Edit Schema** for both the input and output to update them in the schema. Learn how to [edit the schema.](#edit_schema)#                                                                                                                                         | <img alt="Screenshot 2024-05-17 at 9.49.03 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000zA2T.jpg" style={{width: 399, height: 203}}/> |
 
 # Edit the Schema
 
@@ -133,12 +137,12 @@ In the modal you can [view properties](#view_schema_properties) of the schema an
 <Frame><img alt="Screenshot 2024-05-17 at 10.03.57 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000zAor.jpg" style={{width: 501, height: 469}}/></Frame>
 #### View Schema Properties
 
-For any row in the schema, select <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **View Properties** to see the description, values, and array properties for each input. These properties are based on your model schema and how the model was trained.
+For any row in the schema, select <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **View Properties** to see the description, values, and array properties for each input. These properties are based on your model schema and how the model was trained.
 
 <Frame><img alt="Screenshot 2024-05-31 at 10.58.38 AM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000001AExB.jpg" style={{width: 499, height: 425}}/></Frame>
 #### Edit Schema
 
-For any row in the schema, select <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Edit** to change the name, default value, data type, description, and values for that input/output.
+For any row in the schema, select <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Edit** to change the name, default value, data type, description, and values for that input/output.
 
 The available data types are Array, Boolean, Date, Datetime, Decimal, Double Long, Numeric, Object, and String Types.
 The accepted input and output values rely on your model schema and how the data was trained.
@@ -150,7 +154,7 @@ In the **Edit Schema** modal, selecting **+ Add New** allows you to add a new in
 
 #### Delete Input/Output
 
-For any row in the schema, select <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Delete** to remove the input/output from the list. If you then select **Update Schema**, the input/output is permanently deleted. This action cannot be undone.
+For any row in the schema, select <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Delete** to remove the input/output from the list. If you then select **Update Schema**, the input/output is permanently deleted. This action cannot be undone.
 
 ### Work with Model Endpoints
 
@@ -187,7 +191,7 @@ Possible endpoint states include: Started, Running, Stopped, Failed, Active, and
 <Frame><img alt="Screenshot 2024-06-19 at 2.15.40 PM.png" src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000001Pirj.jpg" style={{width: 754, height: 407}}/></Frame>
 ### Share Access to a Model
 
-From the **AI Models** page, select <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Manage Permissions**.
+From the **AI Models** page, select <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Manage Permissions**.
 
 Use the dropdown to assign people/groups one of the following levels of access:
 
@@ -202,13 +206,13 @@ Use the dropdown to assign people/groups one of the following levels of access:
   **Important:** You can deploy any model with a CSV input and an output task to a Magic ETL DataFlow.
 </Warning>
 
-Deploy a model to Magic ETL from the **AI Models** page by selecting <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Deploy to ETL**.
+Deploy a model to Magic ETL from the **AI Models** page by selecting <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Deploy to ETL**.
 The Magic ETL canvas opens with an AI Model Inference tile deployed. Learn more about the [AI Model Inference tile](https://domo-support.domo.com/s/article/000005741?language=en_US#ai_model_inference_tile).
 
 <Frame><img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000yk81.jpg" style={{width: 845, height: 248}}/></Frame>
 ### Delete a Model
 
-You can delete models you have access to from the **AI Models** page by selecting <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Delete**. This action cannot be undone.
+You can delete models you have access to from the **AI Models** page by selecting <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Delete**. This action cannot be undone.
 
 ### View Project Information
 
@@ -275,7 +279,7 @@ Learn more about [managing AI models](/s/article/000005502).
 
 ### Add a Model to AI Projects
 
-From the **AI Models** page, you can add a model to one or more projects by selecting <InlineImage src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" /> **Action menu** > **Manage Projects** to open the **Manage Projects** modal.
+From the **AI Models** page, you can add a model to one or more projects by selecting <img src="/images/kb/ka0Vq00000051Y9-00N5w00000Ri7BU-0EMVq000000RJkw.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Action menu** > **Manage Projects** to open the **Manage Projects** modal.
 
 In the modal, you can add or remove the model from existing projects and save your changes.
 

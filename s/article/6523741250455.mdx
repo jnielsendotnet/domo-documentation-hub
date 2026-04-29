@@ -2,7 +2,6 @@
 title: "Routing, Creation, and Mapping"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -34,7 +33,12 @@ Complete the following before routing, creation, and mapping:
 
 </Note>
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Authentication Method </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> JWT Secret </p></td><td colspan="1" rowspan="1"><p> This method requires the simplest implementation. If your system hosts key attributes used to authenticate the identity of your users, choose JWT Secret. No additional information is needed. Generate the secret as instructed in the UI. </p><div class="mdx-embed"><Warning><p><b> Important: </b> A secret is a one-to-many relationship. After you select <b> Generate Secret </b> one time, copy it and put it in the places that you need it. When you navigate away from the page, that secret cannot be recovered. Generating a new secret invalidates all existing secrets. </p></Warning></div></td></tr><tr><td colspan="1" rowspan="1"><p> JWT Public Key </p></td><td colspan="1" rowspan="1"><p> If your organization uses this method, you can get the Public Key from your IT manager. </p></td></tr><tr><td colspan="1" rowspan="1"><p> OpenID Connect (OIDC) </p></td><td colspan="1" rowspan="1"><p> You need the following information: </p><ul><li> Client ID </li><li> Client Secret </li><li> Authorization URL </li><li> Token endpoint </li><li> Exchange endpoint </li><li> User information endpoints </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> SAML (SSO) </p></td><td colspan="1" rowspan="1"><p> You need the following information: </p><ul><li> Entity ID </li><li> Login endpoint URL </li><li> Logout endpoint URL <a id="access_domo_everywhere" target="_blank"></a></li></ul></td></tr></tbody></table>
+| Authentication Method | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| JWT Secret            | This method requires the simplest implementation. If your system hosts key attributes used to authenticate the identity of your users, choose JWT Secret. No additional information is needed. Generate the secret as instructed in the UI.<br/><Warning><br/>**Important:** A secret is a one-to-many relationship. After you select **Generate Secret** one time, copy it and put it in the places that you need it. When you navigate away from the page, that secret cannot be recovered. Generating a new secret invalidates all existing secrets.<br/></Warning> |
+| JWT Public Key        | If your organization uses this method, you can get the Public Key from your IT manager.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| OpenID Connect (OIDC) | You need the following information:<br/>Client ID<br/>Client Secret<br/>Authorization URL<br/>Token endpoint<br/>Exchange endpoint<br/>User information endpoints                                                                                                                                                                                                                                                                                                                                                                                                      |
+| SAML (SSO)            | You need the following information:<br/>Entity ID<br/>Login endpoint URL<br/>Logout endpoint URL                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
 
 
   ### Access Domo Everywhere
@@ -95,7 +99,7 @@ The URLs on the allowlist display below the **Domain name** field.
 
 This security feature is optional. If your website or portal requires certificate encryption between Domo and the website, you can download the certificate here.
 
-To download the certificate, select <InlineImage src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000005vXn4.png" /> **Download** to the right of the **Routing Certificate** field.
+To download the certificate, select <img src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000005vXn4.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Download** to the right of the **Routing Certificate** field.
 
 <Frame><img alt="download certificate.jpg" src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EMVq000000b7k5.jpg" style={{width: 499, height: 131}}/></Frame>
 You can now upload the certificate to your authentication provider.
@@ -134,7 +138,7 @@ After you download the Routing Certificate, you can upload it to a subscriber's 
 After you have chosen the authentication method and configured all security features, you can view the embed URL.
 
 1. Copy the address in the
-   **Embed Url for identity broker** field by selecting <InlineImage src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000005vXmu.png" /> **Copy**.
+   **Embed Url for identity broker** field by selecting <img src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000005vXmu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Copy**.
 2. Paste the address into your host site or software to redirect users to their mapped account.
      
    <Frame><img alt="Screen_Shot_2022-07-11_at_2.56.19_PM.png" src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000005vXmk.png" style={{width: 502, height: 161}}/></Frame>
@@ -246,7 +250,7 @@ Saving may take a few seconds because the system confirms that no duplicate cust
 
    <Frame><img alt="Screenshot 2024-03-26 at 2.03.43 PM.png" src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EMVq000000bLYY.jpg" style={{width: 916, height: 481}}/></Frame>
 4. Select
-   <InlineImage src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000006uRF0.jpg" /> **More** for the subscriber you want to remove.
+   <img src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000006uRF0.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **More** for the subscriber you want to remove.
      
    The edit and delete options display.
 
@@ -255,7 +259,7 @@ Saving may take a few seconds because the system confirms that no duplicate cust
      <Frame><img alt="Screenshot 2023-04-11 at 11.54.23 AM.png" src="/images/kb/ka0Vq0000000m6H-00N5w00000Ri7BU-0EM5w000006uRFF.jpg" style={{width: 212, height: 171}}/></Frame>
    
 5. Select
-   <InlineImage src="/images/kb/ka05w00000129wP-00N5w00000Ri7BU-0EM5w000006vSrA.jpg" /> **Delete Subscriber**.
+   <img src="/images/kb/ka05w00000129wP-00N5w00000Ri7BU-0EM5w000006vSrA.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Delete Subscriber**.
 
    A dialog displays where you must acknowledge that you understand that the subscriber is being removed from Domo permanently and that access to that subscriber's Domo environment will be revoked.
 

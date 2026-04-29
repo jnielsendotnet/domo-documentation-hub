@@ -25,7 +25,13 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Vertica account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the name of the server where the Vertica database is hosted. </td></tr><tr><td colspan="1" rowspan="1"> Port Number </td><td colspan="1" rowspan="1"> Enter the port number of the Vertica database. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username you use to connect to the Vertica database. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password you use to connect to the Vertica database. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the name of the Vertica database. </td></tr></tbody></table>
+| Field         | Description                                                        |
+| ------------- | ------------------------------------------------------------------ |
+| Host          | Enter the name of the server where the Vertica database is hosted. |
+| Port Number   | Enter the port number of the Vertica database.                     |
+| Username      | Enter the username you use to connect to the Vertica database.     |
+| Password      | Enter the password you use to connect to the Vertica database.     |
+| Database Name | Enter the name of the Vertica database.                            |
 
 Once you have entered valid Vertica credentials, you can use the same account any time you go to create a new Vertica Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -37,7 +43,14 @@ Before you can connect to a Vertica database, you must also whitelist a number o
 
 In this pane you input the SQL query you want to use to pull data from your Vertica database. You can choose a specific database table and partition column name. You can also specify the number of past days you want to get data for.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Select the database table. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> Select the partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. Example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> Select the required date format. By default <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> will be used. </td></tr><tr><td colspan="1" rowspan="1"> Custom Date Format </td><td colspan="1" rowspan="1"> Enter the custom date format you wish to apply to your data. </td></tr></tbody></table>
+| Menu                  | Description                                                                                                              |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Query                 | Enter the SQL query to execute.                                                                                          |
+| Table Name            | Select the database table.                                                                                               |
+| Partition Column Name | Select the partition column name.                                                                                        |
+| Past Days             | Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. Example: 30. |
+| Date Format           | Select the required date format. By default ** yyyy-MM-dd** will be used.                                                |
+| Custom Date Format    | Enter the custom date format you wish to apply to your data.                                                             |
 
 ### Other Panes
 

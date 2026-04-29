@@ -2,7 +2,6 @@
 title: "Connecting to CSV Data in Workbench 5"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 You can create a CSV DataSet Job in Workbench 5. When you select CSV as your reader type, you can specify the file path of the CSV data source and configure options such as delimiters, missing field handling, etc.
 
@@ -50,7 +49,7 @@ You can create a CSV DataSet Job in Workbench 5. When you select CSV as your rea
 **To create an CSV DataSet Job in Workbench 5,**
 
 1. Click the
-   <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> icon in the left-hand icon bar.
+   <img src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> icon in the left-hand icon bar.
 2. Click the "+" button in the top right corner of the jobs listing pane.
 3. Select the desired account (Domo instance) in the
    **Domo Domain** dropdown menu.
@@ -65,7 +64,11 @@ You can create a CSV DataSet Job in Workbench 5. When you select CSV as your rea
      
    Descriptions for these transport methods are as follows:
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Transport Method </span></p></th><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Local File Provider </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Lets you select a file from your machine or a network. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> External Process File Provider </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Lets you use a third-party application to pull data into Domo using a script. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span class="info-box-icon"> FTP/SFTP File Provider </span></td><td colspan="1" rowspan="1"><span class="info-box-icon"> Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL) </span></td></tr></tbody></table>
+   | Transport Method               | Description                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| Local File Provider            | Lets you select a file from your machine or a network.                        |
+| External Process File Provider | Lets you use a third-party application to pull data into Domo using a script. |
+| FTP/SFTP File Provider         | Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL)           |
 
 6. In the
    **Reader Type** menu, select **CSV**.
@@ -151,7 +154,10 @@ You can create a CSV DataSet Job in Workbench 5. When you select CSV as your rea
 19. In the
     **Missing Fields Handling** section, select the radio button for the desired behavior when missing fields are encountered in your CSV file.
 
-    <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Option </span></p></th><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Generate error </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Workbench throws an error when missing fields are encountered in the CSV file. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Replace with empty values </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Missing fields in the CSV file are replaced with empty values in your Domo DataSet. </span></p></td></tr></tbody></table>
+    | Option                    | Description                                                                         |
+| ------------------------- | ----------------------------------------------------------------------------------- |
+| Generate error            | Workbench throws an error when missing fields are encountered in the CSV file.      |
+| Replace with empty values | Missing fields in the CSV file are replaced with empty values in your Domo DataSet. |
 
 20. If the first row in your cell range contains column headers, leave the
     **First row contains column headers** box checked; otherwise clear this box. This is important when building cards in Domo because column headers are used to reference the data in those columns. For more information, see [Applying DataSet Columns to Your Chart](/s/article/360043428713 "Applying DataSet Columns to Your Chart").

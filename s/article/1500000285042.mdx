@@ -2,7 +2,6 @@
 title: "Connecting to SAP HANA Data in Workbench 5"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ## Intro
 
@@ -47,9 +46,9 @@ All Workbench plugins are contained within Dynamic Link Libraries (DLLs). You ca
 
 </Note>
 
-1. Click <InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLz.png" /> in the left-hand icon bar.
+1. Click <img src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLz.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> in the left-hand icon bar.
 2. Click
-   **Plugins** in the **More** pane. (If you do not see this pane, click <InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLv.png" /> to expand it.) The **Plugin Manager** opens.
+   **Plugins** in the **More** pane. (If you do not see this pane, click <img src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPLv.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to expand it.) The **Plugin Manager** opens.
 3. Under
    **Register new plugins** click the ellipsis (**...**) next to the **Search path** field.
      
@@ -64,7 +63,7 @@ All Workbench plugins are contained within Dynamic Link Libraries (DLLs). You ca
 ### Creating a SAP HANA DataSet job in Workbench 5
 
 1. Click the
-<InlineImage src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPM0.png" /> icon in the left-hand icon bar.
+<img src="/images/kb/ka05w00000123rn-00N5w00000Ri7BU-0EM5w000005vPM0.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> icon in the left-hand icon bar.
 
 2. Click the
 **+** button in the top right corner of the jobs listing pane.
@@ -111,7 +110,11 @@ A new SAP HANA DataSet Job is added to the list of jobs for the currently authen
   
 The following table describes the available options:
 
-<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1" valign="top" width="204"><b> Option </b></td><td colspan="1" rowspan="1" valign="top" width="397"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> System DSN </td><td colspan="1" rowspan="1" valign="top" width="397"> Select your SAP HANA DSN. </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> Connection Builder </td><td colspan="1" rowspan="1" valign="top" width="397"> Enter details for your SAP HANA connection, such as login credentials, server URL, database name, and port. </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="204"> Connection String </td><td colspan="1" rowspan="1" valign="top" width="397"> Enter a single string for your connection. </td></tr></tbody></table>
+| **Option**         | **Description**                                                                                             |
+| ------------------ | ----------------------------------------------------------------------------------------------------------- |
+| System DSN         | Select your SAP HANA DSN.                                                                                   |
+| Connection Builder | Enter details for your SAP HANA connection, such as login credentials, server URL, database name, and port. |
+| Connection String  | Enter a single string for your connection.                                                                  |
 
 14. (Conditional) Do one of the following:
 
@@ -125,7 +128,14 @@ The following table describes the available options:
 
             You can use the following table for reference:
 
-            <table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1" valign="top" width="196"><b> Field </b></td><td colspan="1" rowspan="1" valign="top" width="405"><b> Description </b></td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> Server </td><td colspan="1" rowspan="1" valign="top" width="405"> Specify the server name or URL for your database. </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> Database </td><td colspan="1" rowspan="1" valign="top" width="405"> Specify the name of your database to access. </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> Port </td><td colspan="1" rowspan="1" valign="top" width="405"> Enter the port number where your database is found. The default port in the SAP HANA plugin is 30015 </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> Username </td><td colspan="1" rowspan="1" valign="top" width="405"> Specify the username you use to connect to your database. </td></tr><tr><td colspan="1" rowspan="1" valign="top" width="196"> Password </td><td colspan="1" rowspan="1" valign="top" width="405"> Specify the password you use to connect to your database. </td></tr><tr><td colspan="1" rowspan="1" valign="top"> Requires 32-bit Execution </td><td colspan="1" rowspan="1" valign="top"> Select this check box if you want to use 32-bit SAP HANA Driver for connection. Please note that you will need a 32-bit SAP HANA Driver already installed on the system. </td></tr></tbody></table>
+            | **Field**                 | **Description**                                                                                                                                                          |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Server                    | Specify the server name or URL for your database.                                                                                                                        |
+| Database                  | Specify the name of your database to access.                                                                                                                             |
+| Port                      | Enter the port number where your database is found. The default port in the SAP HANA plugin is 30015                                                                     |
+| Username                  | Specify the username you use to connect to your database.                                                                                                                |
+| Password                  | Specify the password you use to connect to your database.                                                                                                                |
+| Requires 32-bit Execution | Select this check box if you want to use 32-bit SAP HANA Driver for connection. Please note that you will need a 32-bit SAP HANA Driver already installed on the system. |
 
    * If you selected **Connection String** as your **Connection Type...**
 

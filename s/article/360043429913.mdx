@@ -2,7 +2,6 @@
 title: "Create a Beast Mode Calculation"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -81,9 +80,9 @@ Follow these steps to edit an existing Beast Mode calculation:
 
 **To begin:** Open the card that contains the Beast Mode calculation you want to remove in Analyzer.
 
-1. Under **Calculated fields** in the **DataSet** panel, hover over the calculation you want to remove until the <InlineImage src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EMVq000005h85t.jpg" /> **Remove** option displays.
+1. Under **Calculated fields** in the **DataSet** panel, hover over the calculation you want to remove until the <img src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EMVq000005h85t.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Remove** option displays.
 2. Select
-   <InlineImage src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EMVq000005h85t.jpg" /> **Remove**. If the calculation isn't being used in any other cards, you can delete it.
+   <img src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EMVq000005h85t.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Remove**. If the calculation isn't being used in any other cards, you can delete it.
 
    <Frame><img alt="Screenshot 2023-06-20 at 7.39.40 PM.png" src="/images/kb/ka0Vq0000005Tm9-00N5w00000Ri7BU-0EM5w000006v4R0.jpg" style={{width: 303.984, height: 222.997}}/></Frame>
    Otherwise, a **Cannot delete selected Beast Modes** dialog displays, advising that the calculation is being used in cards. Remove the calculation from those cards before attempting to delete it.
@@ -93,7 +92,12 @@ Follow these steps to edit an existing Beast Mode calculation:
 
 Most calculations use one of the following general formats:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Format </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`) </code></p></td><td colspan="1" rowspan="1"><p> Used when some single, specific change is applied to all of the cells in a column. </p><p> Examples: <code> AVG </code>, <code> MONTHNAME </code>, and <code> CEILING </code>. </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name1`,`Column Name2`,...) </code></p></td><td colspan="1" rowspan="1"><p> Used when a calculation is applied across two or more columns. </p><p> Example: <code> CONCAT </code> (combines strings from different columns) </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`, <em> somevalue </em> ) </code></p></td><td colspan="1" rowspan="1"><p> Used when a calculation involving a specified value is applied to a column. </p><p> An example of a function used in this kind of calculation is <code> POWER </code>. When using this calculation, you specify the power you want all the cells in a column to be raised to. </p></td></tr><tr><td colspan="1" rowspan="1"><p><code> FUNCTIONNAME(`Column Name`, ' <em> string </em> ') </code></p></td><td colspan="1" rowspan="1"><p> Used when a calculation involving a specified string is applied to a column. </p><p> An example of a function used in this kind of calculation is <code> DATE_FORMAT </code>. When using this calculation, you specify specifier characters to use in formatting the date value. </p><p> For more information, see <a href="/s/article/360043429953" target="_self" title="Date Format Specifier Characters in Beast Mode"> Date Format Specifier Characters in Beast Mode </a>. </p></td></tr></tbody></table>
+| Format                                            | Description                                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `FUNCTIONNAME(`Column Name`)`                     | Used when some single, specific change is applied to all of the cells in a column.<br/>Examples: `AVG`, `MONTHNAME`, and `CEILING`.                                                                                                                                                                                                                                      |
+| `FUNCTIONNAME(`Column Name1`,`Column Name2`,...)` | Used when a calculation is applied across two or more columns.<br/>Example: `CONCAT` (combines strings from different columns)                                                                                                                                                                                                                                           |
+| `FUNCTIONNAME(`Column Name`, *somevalue* )`       | Used when a calculation involving a specified value is applied to a column.<br/>An example of a function used in this kind of calculation is `POWER`. When using this calculation, you specify the power you want all the cells in a column to be raised to.                                                                                                             |
+| `FUNCTIONNAME(`Column Name`, ' *string* ')`       | Used when a calculation involving a specified string is applied to a column.<br/>An example of a function used in this kind of calculation is `DATE_FORMAT`. When using this calculation, you specify specifier characters to use in formatting the date value.<br/>For more information, see [Date Format Specifier Characters in Beast Mode](/s/article/360043429953). |
 
 ##### Casing and Naming
 

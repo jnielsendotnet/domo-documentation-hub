@@ -79,127 +79,41 @@ Azure Data Lake Storage Gen2 supports OAuth 2.0 authentication. This section enu
 
 This pane contains fields for entering credentials to connect to your Azure Data Lake Gen2 OAuth Writeback account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Field </span>
-        </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Description </span>
-        </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Client ID{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the client ID (GUID) of the client web app obtained from the Azure Active Directory configuration.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Client Secret{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the secret key of the client web app.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Tenant ID{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Enter your Tenant ID. Navigate to 
-          <a href="http://Portal.azure.com" rel="noopener" target="_blank">
-            {" "}
-            Portal.azure.com{" "}
-          </a> 
-          &gt; Azure Active Directory &gt; Properties.{" "}
-        </p>
-        <p> The Directory ID is your Tenant ID. </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field                     | Description                                                                                                                                                                              |
+| ------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {" "}
+ Client ID{" "}     | {" "}
+ Enter the client ID (GUID) of the client web app obtained from the Azure Active Directory configuration.{" "}                                                                     |
+| {" "}
+ Client Secret{" "} | {" "}
+ Enter the secret key of the client web app.{" "}                                                                                                                                  |
+| {" "}
+ Tenant ID{" "}     | {" "}
+ Enter your Tenant ID. Navigate to 
+ [{" "}
+ Portal.azure.com{" "}](http://Portal.azure.com) 
+ > Azure Active Directory > Properties.{" "}<br/>The Directory ID is your Tenant ID. |
 
 Once you have entered valid Azure Data Lake Gen2 OAuth Writeback credentials, you can use the same account at any time to create a new Azure Data Lake Gen2 OAuth Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
 
 ## Details Pane
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Menu </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter Storage Account Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the storage account name.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter Container Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the Container name.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        How would you like to choose the directory name?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select how would you like to choose the directory name.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Discover Directory Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the directory name.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter Directory Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the directory name. </p>
-        <table>
+| Menu                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {" "}
+ Enter Storage Account Name{" "}                       | {" "}
+ Enter the storage account name.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| {" "}
+ Enter Container Name{" "}                             | {" "}
+ Enter the Container name.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| {" "}
+ How would you like to choose the directory name?{" "} | {" "}
+ Select how would you like to choose the directory name.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| {" "}
+ Discover Directory Name{" "}                          | {" "}
+ Select the directory name.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| {" "}
+ Enter Directory Name{" "}                             | Enter the directory name.<br/><table>
           <tbody>
             <tr>
               <td colspan="1" rowspan="1">
@@ -229,64 +143,22 @@ Once you have entered valid Azure Data Lake Gen2 OAuth Writeback credentials, yo
               </td>
             </tr>
           </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Input DataSet Id{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Enter your Domo DataSet ID (<abbr title="Globally Unique Identifier"> GUID </abbr> ) located in the DataSet URL.{" "}
-          <br />
-          <br /> Example:{" "}
-          <a
-            href="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"
-            target="_blank"
-            title="https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings"
-          >
-            {" "}
-            https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings{" "}
-          </a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select filename{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Specify whether you want to use the input DataSet GUID or enter a filename manually. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        FileName{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the output file name. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        My Domo Input DataSet is very large{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Select this Check box if you are exporting a very large DataSet from Domo to Azure Data Lake. When this box is
-          checked, the connecter uses a different, faster process.{" "}
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </table> |
+| {" "}
+ Input DataSet Id{" "}                                 | {" "}
+ Enter your Domo DataSet ID ( GUID ) located in the DataSet URL.{" "}
+ <br/>
+ <br/> Example:{" "}
+ [{" "}
+ https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings{" "}](https://customer.domo.com/datasources/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/details/settings)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| {" "}
+ Select filename{" "}                                  | Specify whether you want to use the input DataSet GUID or enter a filename manually.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| {" "}
+ FileName{" "}                                         | Enter the output file name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| {" "}
+ My Domo Input DataSet is very large{" "}              | {" "}
+ Select this Check box if you are exporting a very large DataSet from Domo to Azure Data Lake. When this box is
+ checked, the connecter uses a different, faster process.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 
 ## Other Panes
 

@@ -2,14 +2,13 @@
 title: "Workbench 5でJSONデータに接続する"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 Workbench 5では、JSON DataSetジョブを作成できます。データソースタイプにJSONを選択すると、取得したいデータのデータノード、区切り文字、データの平坦化方法などを指定することができます。
 
 **Workbench 5でJSON DataSetジョブを作成するには、**
 
 1. 左側のアイコンバーにある
-   <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> アイコンをクリックします。
+   <img src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> アイコンをクリックします。
 2. ジョブリストペインの右上にある ［+］ ボタンをクリックします。
 3. **［Domoドメイン］**
    ドロップダウンメニューで、必要なアカウント（Domoインスタンス）を選択します。
@@ -24,7 +23,12 @@ Workbench 5では、JSON DataSetジョブを作成できます。データソー
      
    これらトランスポート方法の詳細は、以下のとおりです。
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p><span class="info-box-icon"> トランスポート方法 </span></p></th><th colspan="1" rowspan="1"><p><span class="info-box-icon"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> ローカルファイルプロバイダー </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> 自分のマシンまたはネットワークからファイルを選択できます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> 外部プロセスファイルプロバイダー </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> サードパーティアプリケーションから、スクリプトを使ってデータをDomoに引き込みます。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> FTP/SFTPファイルプロバイダー </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> ファイルをFTP、SFTP（SSH-FTP）、FTPS（FTP-SSL）のいずれか経由で取得します。 </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> JIRA接続プロバイダー </p></td><td colspan="1" rowspan="1"><p> JQLクエリを使用してJIRAサーバーからファイルを取得できます。 </p></td></tr></tbody></table>
+   | トランスポート方法          | 説明                                                 |
+| ------------------ | -------------------------------------------------- |
+| ローカルファイルプロバイダー     | 自分のマシンまたはネットワークからファイルを選択できます。                      |
+| 外部プロセスファイルプロバイダー   | サードパーティアプリケーションから、スクリプトを使ってデータをDomoに引き込みます。        |
+| FTP/SFTPファイルプロバイダー | ファイルをFTP、SFTP（SSH-FTP）、FTPS（FTP-SSL）のいずれか経由で取得します。 |
+| JIRA接続プロバイダー       | JQLクエリを使用してJIRAサーバーからファイルを取得できます。                  |
 
 6. **［読み取りタイプ］**
    メニューで、 **［JSON］** を選択します。
@@ -135,7 +139,11 @@ Workbench 5では、JSON DataSetジョブを作成できます。データソー
 16. **［区切り文字］** フィールドで、平坦化された結果の列名に挿入する区切り文字を入力します。
 17. **［平坦化オプション］** メニューで、必要な平坦化オプションを選択します。オプションは次のとおりです。
 
-    <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"> オプション </th><th colspan="1" rowspan="1"> 説明 </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> なし </p></td><td colspan="1" rowspan="1"><p> 平坦化されていないJSON文字列を返します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 深くする </p></td><td colspan="1" rowspan="1"><p> ネスト化されたオブジェクト用の行を追加します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 幅広くする </p></td><td colspan="1" rowspan="1"><p> ネスト化されたオブジェクト用の列を追加します。返す行は1つだけです。 </p></td></tr></tbody></table>
+    | オプション | 説明                                 |
+| ----- | ---------------------------------- |
+| なし    | 平坦化されていないJSON文字列を返します。             |
+| 深くする  | ネスト化されたオブジェクト用の行を追加します。            |
+| 幅広くする | ネスト化されたオブジェクト用の列を追加します。返す行は1つだけです。 |
 
 18. **［更新方法］** メニューで、更新する方法を選択します。
     * 更新時に、DataSetを完全に入れ替えたい場合は、**［DataSetを置換］** を選択します。

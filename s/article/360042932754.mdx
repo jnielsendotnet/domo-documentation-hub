@@ -2,14 +2,13 @@
 title: "Connecting to QuickBooks Data in Workbench 5"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 You can create a QuickBooks DataSet Job in Workbench 5. When you select QuickBooks as your Data Source type, you can choose a QuickBooks report type and specify options such as fiscal year, date granularity, and so on.
 
 **To create a QuickBooks DataSet Job in Workbench 5,**
 
 1. Click the
-   <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> icon in the left-hand icon bar.
+   <img src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> icon in the left-hand icon bar.
 2. Click the "+" button in the top right corner of the jobs listing pane.
 3. Select the desired account (Domo instance) in the
    **Domo Domain** dropdown menu.
@@ -24,7 +23,11 @@ You can create a QuickBooks DataSet Job in Workbench 5. When you select QuickBoo
      
    Descriptions for these transport methods are as follows:
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Transport Method </span></p></th><th colspan="1" rowspan="1"><p><span class="info-box-icon"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Local File Provider </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Lets you select a file from your machine or a network. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p><span class="info-box-icon"> External Process File Provider </span></p></td><td colspan="1" rowspan="1"><p><span class="info-box-icon"> Lets you use a third-party application to pull data into Domo using a script. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span class="info-box-icon"> FTP/SFTP File Provider </span></td><td colspan="1" rowspan="1"><span class="info-box-icon"> Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL) </span></td></tr></tbody></table>
+   | Transport Method               | Description                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| Local File Provider            | Lets you select a file from your machine or a network.                        |
+| External Process File Provider | Lets you use a third-party application to pull data into Domo using a script. |
+| FTP/SFTP File Provider         | Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL)           |
 
 6. In the
    **Reader Type** menu, select **QuickBooks**.
@@ -166,7 +169,12 @@ You can create a QuickBooks DataSet Job in Workbench 5. When you select QuickBoo
       
     Primary report types are as follows:
 
-    <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Report </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> General Detail Report </p></td><td colspan="1" rowspan="1"><p> Shows detailed information for any of a number of different report types, such as "Income by Customer Detail," "Check Detail," "Pending Sales," etc. You can select the desired date range for your report by selecting the start and end dates using the <b> From </b> and <b> To </b> date pickers, respectively. If you want, you can manually select which columns appear in the report by selecting them in the <b> Columns </b> menu. </p></td></tr><tr><td colspan="1" rowspan="1"><p> General Summary Report </p></td><td colspan="1" rowspan="1"><p> Shows summary information for any of a number of different report types, such as "CustomerBalanceSummary," "IncomeTaxSummary," "PhysicalInventoryWorksheet," etc. You can select the desired date range for your report by selecting the start and end dates using the <b> From </b> and <b> To </b> date pickers, respectively. You can also select a date granularity for your report data (for example, you could summarize data by day, by month, etc.). </p></td></tr><tr><td colspan="1" rowspan="1"><p> Budget Summary Report </p></td><td colspan="1" rowspan="1"><p> Shows balance sheet and profit and loss reports. You can select the desired fiscal year for your report. </p></td></tr><tr><td colspan="1" rowspan="1"><p> List </p></td><td colspan="1" rowspan="1"><p> Shows any of a number of reports in list format, such as "Employee" (a list of company employees), "Vendors" (a list of your vendors), and so on. Because this information is not arranged by date, there are no options for setting a date range or choosing a fiscal year. </p></td></tr></tbody></table>
+    | Report                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| General Detail Report  | Shows detailed information for any of a number of different report types, such as "Income by Customer Detail," "Check Detail," "Pending Sales," etc. You can select the desired date range for your report by selecting the start and end dates using the **From** and **To** date pickers, respectively. If you want, you can manually select which columns appear in the report by selecting them in the **Columns** menu.                       |
+| General Summary Report | Shows summary information for any of a number of different report types, such as "CustomerBalanceSummary," "IncomeTaxSummary," "PhysicalInventoryWorksheet," etc. You can select the desired date range for your report by selecting the start and end dates using the **From** and **To** date pickers, respectively. You can also select a date granularity for your report data (for example, you could summarize data by day, by month, etc.). |
+| Budget Summary Report  | Shows balance sheet and profit and loss reports. You can select the desired fiscal year for your report.                                                                                                                                                                                                                                                                                                                                           |
+| List                   | Shows any of a number of reports in list format, such as "Employee" (a list of company employees), "Vendors" (a list of your vendors), and so on. Because this information is not arranged by date, there are no options for setting a date range or choosing a fiscal year.                                                                                                                                                                       |
 
 24. (Conditional) Do one of the following:
 

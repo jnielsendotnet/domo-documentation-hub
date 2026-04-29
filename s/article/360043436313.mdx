@@ -39,88 +39,30 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Snowflake account. The following table describes what is needed for each field:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your Snowflake account name. For more information, see <a href="#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe">Prerequisites</a>.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username you use to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Password</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the password you use to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Access Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS access key. For information about obtaining an access key, see "<a href="#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe">Prerequisites</a>," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Secret Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS secret key. For information about obtaining a secret key, see "<a href="#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe">Prerequisites</a>," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Bucket</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of the AWS S3 bucket.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field        | Description                                                                                                                                      |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Account Name | Enter your Snowflake account name. For more information, see [Prerequisites](#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe).                           |
+| Username     | Enter the username you use to connect to your Snowflake host.                                                                                    |
+| Password     | Enter the password you use to connect to your Snowflake host.                                                                                    |
+| Access Key   | Enter your AWS access key. For information about obtaining an access key, see "[Prerequisites](#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe)," above. |
+| Secret Key   | Enter your AWS secret key. For information about obtaining a secret key, see "[Prerequisites](#h_1538daeb-ce8e-4a65-8963-e6f483d28ebe)," above.  |
+| Bucket       | Enter the name of the AWS S3 bucket.                                                                                                             |
 Once you have entered valid Snowflake credentials, you can use the same account any time you go to create a new Snowflake DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the SQL query to use to retrieve your data. You can use the <b>Query Helper</b> parameter to help you write a usable SQL query. To use the <b> Query Helper</b>, do the following:   1. Select your desired warehouse, database, database schema, database table, and table columns in each menu. 2. Copy the SQL statement that appears in the <b> Query Helper</b> field. 3. Paste the copied SQL statement into the <b> Query</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Warehouses (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve.  The list populates with all of the warehouses you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Databases (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve.  The list populates with all of the databases you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Schema (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve.  The list populates with all of the schemas you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Tables (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>(Optional) Select the database table you want to retrieve. The list populates with all of the tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Columns (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>(Optional) Select the table columns you want to retrieve. The list populates with all of the columns you have access to based on your credentials. If you do not select a table column, the connector retrieves your entire selected database table.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Helper (Optional)</p></td>
-      <td colspan="1" rowspan="1"><p>(Optional) When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste the SQL statement in this field into the <b>Query</b> field. For more information, see <b> Query</b>, above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Use Snowflake Schema</p></td>
-      <td colspan="1" rowspan="1"><p>Check this box if you want to use the schema from Snowflake instead of having Domo determine the schema automatically.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                       | Description                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query                      | Enter the SQL query to use to retrieve your data. You can use the **Query Helper** parameter to help you write a usable SQL query. To use the **Query Helper**, do the following: 1. Select your desired warehouse, database, database schema, database table, and table columns in each menu. 2. Copy the SQL statement that appears in the **Query Helper** field. 3. Paste the copied SQL statement into the **Query** field. |
+| Warehouses (Optional)      | Select the warehouse containing the data you want to retrieve.  The list populates with all of the warehouses you have access to based on your credentials.                                                                                                                                                                                                                                                                      |
+| Databases (Optional)       | Select the database containing the data you want to retrieve.  The list populates with all of the databases you have access to based on your credentials.                                                                                                                                                                                                                                                                        |
+| Database Schema (Optional) | Select the database schema containing the data you want to retrieve.  The list populates with all of the schemas you have access to based on your credentials.                                                                                                                                                                                                                                                                   |
+| Database Tables (Optional) | (Optional) Select the database table you want to retrieve. The list populates with all of the tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.                                                                                                                                                                                   |
+| Table Columns (Optional)   | (Optional) Select the table columns you want to retrieve. The list populates with all of the columns you have access to based on your credentials. If you do not select a table column, the connector retrieves your entire selected database table.                                                                                                                                                                             |
+| Query Helper (Optional)    | (Optional) When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste the SQL statement in this field into the **Query** field. For more information, see **Query**, above.                                                                                                                                                            |
+| Use Snowflake Schema       | Check this box if you want to use the schema from Snowflake instead of having Domo determine the schema automatically.                                                                                                                                                                                                                                                                                                           |
 
 <Frame>![snowflake_unload_ui.png](/images/kb/0EM5w000005vO5y.png)</Frame>
 

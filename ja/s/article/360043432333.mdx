@@ -77,17 +77,34 @@ Salesforce Advancedコネクターは、接続にOAuthを使用しており、Do
 
 以下の表では、この経路を選択した場合に利用できる設定オプションをまとめています。
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Which Salesforce Object Would You Like to Use? </p></td><td colspan="1" rowspan="1"><p> DomoにインポートするSalesforceオブジェクトを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Fields Would You Like to Retrieve? </p></td><td colspan="1" rowspan="1"><p> 取得するフィールドをすべて選択します。必要な数のフィールドを選択できます。オブジェクトをドリルダウンして、オブジェクトの下にあるフィールドを表示するか、 <b> ［Search］ </b> ボックスを使用して特定のフィールドを検索できます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Would You Like to Filter by Date? </p></td><td colspan="1" rowspan="1"><p> 日付フィルターオプションを選択します。作成日、最終アクティビティの日、最終閲覧日など、多数のオプションがあります。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> What Relationships Would You Like to Include? </p></td><td colspan="1" rowspan="1"><p> DataSetに含めるリレーションシップをすべて選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Column Name Styles </p></td><td colspan="1" rowspan="1"><p> Salesforceの内部名またはラベルを、DataSetの列名として使用するかどうか選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Retrieve All Fields </p></td><td colspan="1" rowspan="1"><p> 親オブジェクトの下にあるすべてのフィールドが選択されている場合、Salesforceから新しいフィールドを自動的に取得するかどうかを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなフィールドのみインポートするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Reset Schema? </p></td><td colspan="1" rowspan="1"><p> クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。 </p></td></tr></tbody></table>
+| オプション                                          | 説明                                                                                                                  |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Which Salesforce Object Would You Like to Use? | DomoにインポートするSalesforceオブジェクトを選択します。                                                                                 |
+| What Fields Would You Like to Retrieve?        | 取得するフィールドをすべて選択します。必要な数のフィールドを選択できます。オブジェクトをドリルダウンして、オブジェクトの下にあるフィールドを表示するか、 **［Search］** ボックスを使用して特定のフィールドを検索できます。 |
+| Would You Like to Filter by Date?              | 日付フィルターオプションを選択します。作成日、最終アクティビティの日、最終閲覧日など、多数のオプションがあります。                                                           |
+| What Relationships Would You Like to Include?  | DataSetに含めるリレーションシップをすべて選択します。                                                                                      |
+| Column Name Styles                             | Salesforceの内部名またはラベルを、DataSetの列名として使用するかどうか選択します。                                                                   |
+| Retrieve All Fields                            | 親オブジェクトの下にあるすべてのフィールドが選択されている場合、Salesforceから新しいフィールドを自動的に取得するかどうかを選択します。                                            |
+| Type of Records to Retrieve                    | 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなフィールドのみインポートするかを指定します。                                                           |
+| Reset Schema?                                  | クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。                                                                   |
 
 #### Query
 
 このオプションを使うと、クエリ入力でSalesforceからDomoにデータを出力します。
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr><tr><td colspan="1" rowspan="1"><p> Enter your SOQL Query </p></td><td colspan="1" rowspan="1"><p> 必要なSOQLクエリを入力します。 <b> ［Browse Objects and Fields］ </b> タブで設定オプションを指定すると、クエリがここに自動生成されます。ただし、必要であればクエリを編集することも、全く新しいクエリを入力することもできます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Data Retrieval -- Type of Records to Retrieve </p></td><td colspan="1" rowspan="1"><p> 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなレコードのみインポートするかを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> Schema Options -- Reset Schema </p></td><td colspan="1" rowspan="1"><p> クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。 </p></td></tr></thead></table>
+| オプション                                         | 説明                                                                                                                             |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| Enter your SOQL Query                         | 必要なSOQLクエリを入力します。 **［Browse Objects and Fields］** タブで設定オプションを指定すると、クエリがここに自動生成されます。ただし、必要であればクエリを編集することも、全く新しいクエリを入力することもできます。 |
+| Data Retrieval -- Type of Records to Retrieve | 削除済みレコードを含むすべてのレコードをインポートするか、アクティブなレコードのみインポートするかを指定します。                                                                       |
+| Schema Options -- Reset Schema                | クエリやフィールドの選択が変更された場合に、DataSetの列をリセットするかどうかを指定します。                                                                              |
 
 #### Tabular Reports
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Select a Salesforce Tabular Report </p></td><td colspan="1" rowspan="1"><p> Salesforceからインポートする表形式レポートを選択します。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"> Select a Unique Key Present in the Data </td><td colspan="1" rowspan="1"> DataSetのユニークキーを選択します。2,000行を超えるデータをインポートする際には必須となります。 </td></tr><tr><td colspan="1" rowspan="1"> Select the Date Format Returned by the Report </td><td colspan="1" rowspan="1"> レポートで日付をどうフォーマットするか選択します。 </td></tr></tbody></table>
+| メニュー                                          | 説明                                                    |
+| --------------------------------------------- | ----------------------------------------------------- |
+| Select a Salesforce Tabular Report            | Salesforceからインポートする表形式レポートを選択します。                     |
+| Select a Unique Key Present in the Data       | DataSetのユニークキーを選択します。2,000行を超えるデータをインポートする際には必須となります。 |
+| Select the Date Format Returned by the Report | レポートで日付をどうフォーマットするか選択します。                             |
 
 #### Sharing Rules Settings
 

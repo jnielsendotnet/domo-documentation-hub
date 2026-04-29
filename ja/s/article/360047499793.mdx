@@ -60,22 +60,12 @@ Workbench 4ではODBC DataSetジョブを作成できます。データソース
       
     以下の表では、利用可能なオプションを説明しています。
 
-    <table border="1" cellpadding="1" cellspacing="1">
-    <thead>
-    <tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
-    </thead><tbody><tr><td colspan="1" rowspan="1">
-    <p> システムのDSN </p>
-    </td>
-    <td colspan="1" rowspan="1">
-    <p> システムで利用可能なDSNから、目的のDataSetに使用するDSNを指定します。認証が必要かどうかを指定できます。 </p> 
-    <Note>
-      <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><p><span><b> 注記： </b></span></p><ul><li><p><span> ODBC DataSetからデータをアップロードするとき、既存のデータソース名（DSN）を指定する必要があります。DSNは、Windows ODBCデータソースアドミニストレーターを使用して作成できます（Windows ODBCデータソースアドミニストレーターにアクセスするには、スタートメニューの検索で「ODBC」と入力し、［データソース（ODBC）］を選択します）。DSNの作成に関する詳細については、Windows ODBCヘルプ（Windowsヘルプとサポートで「ODBC」を検索）を参照するか、「 <a href="/s/article/360046761214" target="_self" title="Workbench 4"> MySQL ドライバのパフォーマンスを向上させるには、どうしたらよいですか？ </a></span> 」のトレーニング動画を参照してください。 </p></li><li><p><span> DataSet名（DSN）の定義方法、およびOpen Database Connectivity（ODBC）を使用したデータへのアクセスに関する情報については、ODBCの資料を参照してください。 </span></p></li><li><p><span> デフォルトでは、ODBC接続はDSNで定義された設定を使用します。つまり、データベースにとって潜在的に有害なクエリでも、ジョブをプレビューや実行したりするときにODBC接続を通して送信することが許されてしまいます。これには、 <span class="mt-font-courier-new"> alter </span> や <span class="mt-font-courier-new"> delete </span> 、 <span class="mt-font-courier-new"> create table </span> 、 <span class="mt-font-courier-new"> insert into </span> などのステートメントも含まれます。Workbenchがこういったコマンドを実行するのを防ぎたい場合は、DSNにこの変更を行う必要があります。 </span></p></li></ul></div></div></div> 
-    </Note>
-
-      </td>
-      </tr>
-      <tr><td colspan="1" rowspan="1"><p> 接続ビルダー </p></td><td colspan="1" rowspan="1"><p> ログイン認証情報やドライバー、サーバーURL、データベース名、ポート、タイムアウト値、接続パラメーターなど、ODBC接続の詳細を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続文字列 </p></td><td colspan="1" rowspan="1"><p> 接続のための文字列を1つ入力します。 </p></td></tr>
-      </tbody></table>
+    | オプション    | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| システムのDSN | システムで利用可能なDSNから、目的のDataSetに使用するDSNを指定します。認証が必要かどうかを指定できます。<br/><Note><br/>**注記：**<br/>ODBC DataSetからデータをアップロードするとき、既存のデータソース名（DSN）を指定する必要があります。DSNは、Windows ODBCデータソースアドミニストレーターを使用して作成できます（Windows ODBCデータソースアドミニストレーターにアクセスするには、スタートメニューの検索で「ODBC」と入力し、［データソース（ODBC）］を選択します）。DSNの作成に関する詳細については、Windows ODBCヘルプ（Windowsヘルプとサポートで「ODBC」を検索）を参照するか、「 MySQL ドライバのパフォーマンスを向上させるには、どうしたらよいですか？ 」のトレーニング動画を参照してください。<br/>DataSet名（DSN）の定義方法、およびOpen Database Connectivity（ODBC）を使用したデータへのアクセスに関する情報については、ODBCの資料を参照してください。<br/>デフォルトでは、ODBC接続はDSNで定義された設定を使用します。つまり、データベースにとって潜在的に有害なクエリでも、ジョブをプレビューや実行したりするときにODBC接続を通して送信することが許されてしまいます。これには、 alter や delete 、 create table 、 insert into などのステートメントも含まれます。Workbenchがこういったコマンドを実行するのを防ぎたい場合は、DSNにこの変更を行う必要があります。 
+ </Note> |
+| 接続ビルダー   | ログイン認証情報やドライバー、サーバーURL、データベース名、ポート、タイムアウト値、接続パラメーターなど、ODBC接続の詳細を入力します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| 接続文字列    | 接続のための文字列を1つ入力します。                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 13. （条件付き）以下のいずれかを行ってください。
 
@@ -91,7 +81,16 @@ Workbench 4ではODBC DataSetジョブを作成できます。データソース
            
          以下の表を参考にしてください。
 
-         <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> ドライバー </p></td><td colspan="1" rowspan="1"><p> データベースにアクセスするために使うドライバー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> サーバー </p></td><td colspan="1" rowspan="1"><p> データベースのサーバー名またはURLを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> データベース </p></td><td colspan="1" rowspan="1"><p> アクセスするデータベースの名前を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ポート </p></td><td colspan="1" rowspan="1"><p> データベースのポート番号を入力します。デフォルトのポートは、MySQLのポートです。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> タイムアウト </p></td><td colspan="1" rowspan="1"><p> DataSetから更新が行われるまで接続を継続するタイムアウト値を、秒数で指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> データベースの接続に使用するユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> データベースの接続に使用するパスワードを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 接続パラメーター </p></td><td colspan="1" rowspan="1"><p> DataSet接続のためのパラメーターを指定します。 </p></td></tr></tbody></table>
+         | フィールド    | 説明                                          |
+| -------- | ------------------------------------------- |
+| ドライバー    | データベースにアクセスするために使うドライバー名を指定します。             |
+| サーバー     | データベースのサーバー名またはURLを指定します。                   |
+| データベース   | アクセスするデータベースの名前を指定します。                      |
+| ポート      | データベースのポート番号を入力します。デフォルトのポートは、MySQLのポートです。  |
+| タイムアウト   | DataSetから更新が行われるまで接続を継続するタイムアウト値を、秒数で指定します。 |
+| ユーザー名    | データベースの接続に使用するユーザー名を指定します。                  |
+| パスワード    | データベースの接続に使用するパスワードを指定します。                  |
+| 接続パラメーター | DataSet接続のためのパラメーターを指定します。                  |
 
     * **［接続タイプ］** に **［接続文字列］** を選択した場合は、
 
@@ -125,25 +124,12 @@ Workbench 4ではODBC DataSetジョブを作成できます。データソース
 
     2. 選択した列の置換変数を、**［値］** ドロップダウンで定義します。
 
-       <table border="1" cellpadding="1" cellspacing="1">
-       <thead>
-       <tr><th colspan="1" rowspan="1"><p> 変数タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
-       </thead>
-       <tbody>
-       <tr>
-       <td colspan="1" rowspan="1">
-       <p><span class="mt-font-courier-new"> lastvalue </span></p>
-       </td>
-       <td colspan="1" rowspan="1">
-       <p><span class="mt-font-courier-new"> lastvalue </span> 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータの最終行について、関連するフィールドを追跡します。構文は次のとおりです。 </p><p><code>!\{lastvalue:_name_}! </code></p><p><span class="mt-font-courier-new"> lastvalue </span> 変数の値は、アップロードの終了後にWorkbenchで更新されます。 <span class="mt-font-courier-new"> lastvalue </span> 変数は、ジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存されます。この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。例えば、新しい行が増えるたびに値が増えていく、行の「id」を持つ列がデータに存在する場合、 </p><p><code>!\{lastvalue:id}! </code></p><p> を含むクエリを作成することができます。以下のようになります。 </p><p><code> select id, name, type, sales from tablename where id &gt;!\{lastvalue:id}! order by id </code></p><p> この例では、「id」列が <span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節に必ず含まれていないと、変数を使用して更新することが <em> できません </em> 。 </p><p> このジョブをアップロードするときにWorkbenchは、 </p><p><code>!\{lastvalue:id}! </code></p><p> 変数を現在の「id」値と置き換えます。アップロード終了後、Workbenchは最後にアップロードされた「id」の値をジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存します。 </p> 
-       <Note>
-         <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b><span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節の中で <span class="mt-font-courier-new"> lastvalue </span> 変数を使って参照した列は必ず含めないと、データのアップロード後に変数を使用して更新することが <em> できません </em> 。 </div></div></div> 
-       </Note>
-
-         </td>
-         </tr>
-         <tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> previewonly </span></p></td><td colspan="1" rowspan="1"><p> Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。構文は次のとおりです。 </p><p><code>!\{previewonly:Statement}! </code></p></td></tr>
-         </tbody></table>
+       | 変数タイプ         | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `lastvalue`   | `lastvalue` 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータの最終行について、関連するフィールドを追跡します。構文は次のとおりです。<br/>`!\{lastvalue:_name_}!`<br/>`lastvalue` 変数の値は、アップロードの終了後にWorkbenchで更新されます。 `lastvalue` 変数は、ジョブ（ `.xml` ）ファイルに保存されます。この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。例えば、新しい行が増えるたびに値が増えていく、行の「id」を持つ列がデータに存在する場合、<br/>`!\{lastvalue:id}!`<br/>を含むクエリを作成することができます。以下のようになります。<br/>`select id, name, type, sales from tablename where id >!\{lastvalue:id}! order by id`<br/>この例では、「id」列が `SELECT` 、 `WHERE` 、 `ORDER BY` 節に必ず含まれていないと、変数を使用して更新することが *できません* 。<br/>このジョブをアップロードするときにWorkbenchは、<br/>`!\{lastvalue:id}!`<br/>変数を現在の「id」値と置き換えます。アップロード終了後、Workbenchは最後にアップロードされた「id」の値をジョブ（ `.xml` ）ファイルに保存します。<br/><Note>
+ **注記：**`SELECT` 、 `WHERE` 、 `ORDER BY` 節の中で `lastvalue` 変数を使って参照した列は必ず含めないと、データのアップロード後に変数を使用して更新することが *できません* 。 
+ </Note> |
+| `previewonly` | Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。構文は次のとおりです。<br/>`!\{previewonly:Statement}!`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 
 これでDataSetジョブを実行し、DomoにODBC DataSetを作成する準備ができました。ですが、Domoに送信する前にDataSetジョブで実行できる操作はたくさんあります。これには以下のものが含まれます。
 

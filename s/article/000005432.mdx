@@ -2,7 +2,6 @@
 title: "Session Management"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -35,14 +34,14 @@ On the **Session Management** page, the Active User Sessions list shows all acti
 
 Use the search tool to search by user name, session type, and session ID.
 
-Select <InlineImage src="/images/kb/ka0Vq0000000dar-00N5w00000Ri7BU-0EMVq000000bRSg.jpg" /> **Filter** for a column to narrow the list with a custom filter.
+Select <img src="/images/kb/ka0Vq0000000dar-00N5w00000Ri7BU-0EMVq000000bRSg.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Filter** for a column to narrow the list with a custom filter.
 
-Select the column name to sort that column in ascending or descending order (<InlineImage src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i2Kf.jpg" /> <InlineImage src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i1oQ.jpg" /> ).
+Select the column name to sort that column in ascending or descending order (<img src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i2Kf.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> <img src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i1oQ.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> ).
 
 <Frame><img alt="session id zoom.jpg" src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i26A.jpg" style={{width: 301, height: 61}}/></Frame>
 ##### Refresh
 
-Select <InlineImage src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i27l.jpg" /> **Refresh** to manually refresh the Active User Sessions list.
+Select <img src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000i27l.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Refresh** to manually refresh the Active User Sessions list.
 
 # Columns
 
@@ -56,7 +55,16 @@ Select **Apply** to keep your changes.
 <Frame><img alt="Screenshot 2024-04-09 at 1.35.48 PM.png" src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000hvsf.jpg" style={{width: 243, height: 348}}/></Frame>
 The available columns are described below:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:198;a"><thead><tr><th colspan="1" rowspan="1"><p> Column </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Name </p></td><td colspan="1" rowspan="1"><p> The user name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Session type </p></td><td colspan="1" rowspan="1"><p> The type of user session. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Session ID </p></td><td colspan="1" rowspan="1"><p> The alphanumeric identifier Domo issues for the session. </p></td></tr><tr><td colspan="1" rowspan="1"><p> IP address </p></td><td colspan="1" rowspan="1"><p> The user's IP address at session creation. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Created </p></td><td colspan="1" rowspan="1"><p> The date and time when the session was created in Coordinated Universal Time (UTC). <a id="terminate_active_session" target="_blank"></a></p></td></tr><tr><td colspan="1" rowspan="1"><p> Last access </p></td><td colspan="1" rowspan="1"><p> The date and time (in UTC) of the last server activity for the session. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Idle Timeout </p></td><td colspan="1" rowspan="1"><p> T he date and time (in UTC) when the session will be terminated if no further server activity occurs during the session. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Absolute Timeout </p></td><td colspan="1" rowspan="1"><p> The date and time (in UTC) when the session will be terminated, regardless of server activity during the session. </p></td></tr></tbody></table>
+| Column           | Description                                                                                                              |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Name             | The user name.                                                                                                           |
+| Session type     | The type of user session.                                                                                                |
+| Session ID       | The alphanumeric identifier Domo issues for the session.                                                                 |
+| IP address       | The user's IP address at session creation.                                                                               |
+| Created          | The date and time when the session was created in Coordinated Universal Time (UTC). #                                    |
+| Last access      | The date and time (in UTC) of the last server activity for the session.                                                  |
+| Idle Timeout     | T he date and time (in UTC) when the session will be terminated if no further server activity occurs during the session. |
+| Absolute Timeout | The date and time (in UTC) when the session will be terminated, regardless of server activity during the session.        |
 
 ### Terminate an Active Session
 
@@ -76,7 +84,7 @@ For example, if someone has a browser window open on a Domo dashboard when their
      
    <Frame><img alt="blue bar.jpg" src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000hxmP.jpg" style={{width: 751, height: 135}}/></Frame>
 2. In the blue ribbon, select
-   <InlineImage src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000hxZV.jpg" /> **Terminate** to display the confirmation dialog.
+   <img src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000hxZV.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Terminate** to display the confirmation dialog.
 3. Verify the sessions you are terminating and select **Terminate** to immediately end the user session(s). This action is not reversible. You can also select **Cancel** to close the dialog without terminating any sessions.
      
    <Frame><img alt="terminate session.jpg" src="/images/kb/ka0Vq0000000oMb-00N5w00000Ri7BU-0EMVq000000jFVx.jpg" style={{width: 350, height: 365}}/></Frame>

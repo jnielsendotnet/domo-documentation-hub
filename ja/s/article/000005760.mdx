@@ -24,13 +24,23 @@ Jira On Prem Writebackアカウントに接続してDataSetを作成するには
 
 このペインには、Jira On Prem Writebackアカウントに接続する認証情報の入力フィールドが含まれています。以下の表で、各フィールドに必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Jira Domain URL </td><td colspan="1" rowspan="1"> JiraドメインURLを入力します。例： <a href="https://onjira.domo.com" target="_blank" title="https://onjira.domo.com"> https://onjira.domo.com </a></td></tr><tr><td colspan="1" rowspan="1"> Client ID </td><td colspan="1" rowspan="1"> アプリケーションのクライアントIDを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> Client Secret </td><td colspan="1" rowspan="1"> アプリケーションのクライアントシークレットを入力します。 </td></tr></tbody></table>
+| フィールド           | 説明                                                                      |
+| --------------- | ----------------------------------------------------------------------- |
+| Jira Domain URL | JiraドメインURLを入力します。例： [https://onjira.domo.com](https://onjira.domo.com) |
+| Client ID       | アプリケーションのクライアントIDを入力します。                                                |
+| Client Secret   | アプリケーションのクライアントシークレットを入力します。                                            |
 
 有効なJira On Prem Writeback認証情報を一度入力しておくと、いつでも同じアカウントを使用して新しいJira On Prem Writeback DataSetを作成できます。コネクターのアカウントはData Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクター/アダプターアカウントを管理する](/ja/s/article/360042926054 "コネクター/アダプターアカウントを管理する") 」を参照してください。
 
 ## ［詳細］ペイン
 
-<table border="1" data-aura-rendered-by="33:195;a"><tbody><tr><td colspan="1" rowspan="1"><b> メニュー </b></td><td colspan="1" rowspan="1"><b> 説明 </b></td></tr><tr><td colspan="1" rowspan="1"> DataSet ID </td><td colspan="1" rowspan="1"><p> オンプレミスJira環境に書き込むデータを含むDomo DataSetのIDを入力します。書き戻すDataSetのみ選択できます。 </p><p> このIDはDataSet URL内にあります。例： <a href="https://customer.domo.com/datasources/" rel="noopener" target="_blank"> https://customer.domo.com/datasources/ </a><b> aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/ </b> details/settings. </p></td></tr><tr><td colspan="1" rowspan="1"> Select Project </td><td colspan="1" rowspan="1"> プロジェクトを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Select Issue type </td><td colspan="1" rowspan="1"> 課題のタイプを選択します。 </td></tr><tr><td colspan="1" rowspan="1"> Required Fields </td><td colspan="1" rowspan="1"><p><b> ［Required Fields］ </b> セクションには、選択した課題のタイプとプロジェクトに必要なフィールドが一覧表示されます。各必須フィールドを、そのフィールドに書き戻すデータを含むDataSet内の列にマップします。 </p></td></tr><tr><td colspan="1" rowspan="1"> Optional Fields </td><td colspan="1" rowspan="1"><p><b> ［Optional Fields］ </b> セクションでは、DataSetの列を、選択したプロジェクトの課題のタイプのオプションフィールドにマップできます。これらのフィールドをマップする必要があるのは、Jiraインスタンスで必須ではないフィールドにデータを書き戻す場合のみです。 </p></td></tr></tbody></table>
+| **メニュー**          | **説明**                                                                                                                                                                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DataSet ID        | オンプレミスJira環境に書き込むデータを含むDomo DataSetのIDを入力します。書き戻すDataSetのみ選択できます。<br/>このIDはDataSet URL内にあります。例： [https://customer.domo.com/datasources/](https://customer.domo.com/datasources/)**aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee/** details/settings. |
+| Select Project    | プロジェクトを選択します。                                                                                                                                                                                                                               |
+| Select Issue type | 課題のタイプを選択します。                                                                                                                                                                                                                               |
+| Required Fields   | **［Required Fields］** セクションには、選択した課題のタイプとプロジェクトに必要なフィールドが一覧表示されます。各必須フィールドを、そのフィールドに書き戻すデータを含むDataSet内の列にマップします。                                                                                                                            |
+| Optional Fields   | **［Optional Fields］** セクションでは、DataSetの列を、選択したプロジェクトの課題のタイプのオプションフィールドにマップできます。これらのフィールドをマップする必要があるのは、Jiraインスタンスで必須ではないフィールドにデータを書き戻す場合のみです。                                                                                                 |
 
 ## その他のペイン
 

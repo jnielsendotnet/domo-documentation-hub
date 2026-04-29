@@ -2,7 +2,6 @@
 title: "Activity Log"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -29,13 +28,19 @@ The Activity log page displays.
 The Activity log is updated in near real-time and includes activities logged within the rolling one-year period. You can explore the log with filters on the date range and the person who took the action. In addition, filters on type, event, and object can be applied to find specific activities. When you first load the Activity log, the data is filtered to a rolling 24-hour window.
 
 <Note>
-  **Refresh the log:** Selecting <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" /> **Refresh** reloads the log, displaying events logged since the page was last loaded.
+  **Refresh the log:** Selecting <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Refresh** reloads the log, displaying events logged since the page was last loaded.
 
 </Note>
 
 This table describes the available filters:
 
-<table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table" data-aura-rendered-by="33:208;a"><thead><tr><th class="mt-column-width-10" colspan="1" rowspan="1"><p> Filter </p></th><th class="mt-column-width-90" colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td class="mt-column-width-10" colspan="1" rowspan="1"><p> Time </p></td><td class="mt-column-width-90" colspan="1" rowspan="1"><p> Filter for any date or range of dates. </p><p><b> Note: </b> The Activity log contains events within the rolling one-year window. When you first load the Activity log, the data is filtered to a rolling 24-hour window </p></td></tr><tr><td class="mt-column-width-10" colspan="1" rowspan="1"><p> Person </p></td><td class="mt-column-width-90" colspan="1" rowspan="1"><p> Allows filtering for `All Users` or for a single person at a time. </p></td></tr><tr><td colspan="1" rowspan="1"> Type </td><td colspan="1" rowspan="1"><p> Allows filtering for `All Types` or for a single object type (such as card, dashboard, account). </p><p> To filter for a specific Event or Object, a filter must first be applied to the Type. Available filter values in the Event and Object filters are limited by the selection of the Type filter. </p></td></tr><tr><td class="mt-column-width-10" colspan="1" rowspan="1"><p> Event </p></td><td class="mt-column-width-90" colspan="1" rowspan="1"><p> Allows you to filter instance data for `All Events` or for a single event at a time. </p><p> To filter for a specific Event, a filter must first be applied to the Type. The selection of the Type filter limits the available filter values in the Event filter. </p><p><br/><em> Example: <b> Access token </b> &gt; <b> Created </b></em>. </p><p><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d08X.jpg" style={{width: 550, height: 270}}/></p></td></tr><tr><td class="mt-column-width-10" colspan="1" rowspan="1"><p> Object </p></td><td class="mt-column-width-90" colspan="1" rowspan="1"><p> Allows you to filter instance data for `All Objects` or for a single object at a time. </p><p> To filter for a specific Object, a filter must first be applied to the Type. The selection of the Type filter limits the available filter values in the Object filter. </p><p> For example, if you select <b> PDP Policy </b> from the list, a menu of selectable PDP policies displays. Select a policy to filter the data to show only rows for that policy. </p><p><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bwoX.jpg" style={{width: 648, height: 356}}/><a id="domostats_report_available" target="_blank"></a></p></td></tr></tbody></table>
+| Filter | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Time   | Filter for any date or range of dates.<br/>**Note:** The Activity log contains events within the rolling one-year window. When you first load the Activity log, the data is filtered to a rolling 24-hour window                                                                                                                                                                                                                                                                                                                                                           |
+| Person | Allows filtering for `All Users` or for a single person at a time.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Type   | Allows filtering for `All Types` or for a single object type (such as card, dashboard, account).<br/>To filter for a specific Event or Object, a filter must first be applied to the Type. Available filter values in the Event and Object filters are limited by the selection of the Type filter.                                                                                                                                                                                                                                                                        |
+| Event  | Allows you to filter instance data for `All Events` or for a single event at a time.<br/>To filter for a specific Event, a filter must first be applied to the Type. The selection of the Type filter limits the available filter values in the Event filter.<br/><br/>*Example: **Access token** > **Created***.<br/><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d08X.jpg" style={{width: 550, height: 270}}/>                                                                                                                                 |
+| Object | Allows you to filter instance data for `All Objects` or for a single object at a time.<br/>To filter for a specific Object, a filter must first be applied to the Type. The selection of the Type filter limits the available filter values in the Object filter.<br/>For example, if you select **PDP Policy** from the list, a menu of selectable PDP policies displays. Select a policy to filter the data to show only rows for that policy.<br/><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bwoX.jpg" style={{width: 648, height: 356}}/># |
 
 ### DomoStats Report Available
 
@@ -51,7 +56,7 @@ You can export the Activity log for your instance to a CSV file by selecting **E
 <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d0bZ.jpg" style={{width: 653, height: 399}}/></Frame>
 The download process may take from a few seconds to several minutes, depending on the number of logs in your instance. When the download is successful, an **Export successful** message displays.
 
-Then, select <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EM5w000006uzIS.jpg" /> **Download** to download the CSV file to your machine.
+Then, select <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EM5w000006uzIS.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Download** to download the CSV file to your machine.
 
 <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bst0.jpg" style={{width: 445, height: 74}}/></Frame>
 <Warning>
@@ -82,7 +87,7 @@ After obtaining these items, follow the configuration steps below.
 
 1. [Access](#access_activity_log) the Activity log.
 2. Select
-   <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" /> **Activity Log Webhook Configuration**.
+   <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Activity Log Webhook Configuration**.
      
    <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d0rh.jpg" style={{width: 899, height: 488}}/></Frame>
    The webhook configuration modal displays.
@@ -90,7 +95,7 @@ After obtaining these items, follow the configuration steps below.
    <Frame><img alt="Screenshot 2024-06-10 at 10.15.22 AM.png" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HDZl.jpg" style={{width: 651, height: 472}}/></Frame>
 3. In the modal, fill in the following fields:
    * **Payload URL —** This is the destination webhook URL where the Activity log events should be sent.
-   * **Secret —** The secret allows the webhook to verify that the data being sent to the payload URL came from this instance of Domo. You can select <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HDd0.jpg" /> **Show secret/Hide secret**.
+   * **Secret —** The secret allows the webhook to verify that the data being sent to the payload URL came from this instance of Domo. You can select <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HDd0.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Show secret/Hide secret**.
        
      **Note:** Domo requires a secret key. However, if your webhook doesn't require a secret, you can enter any value in this field.
 4. (Optional) Check the box labeled **Apply optional Authorization header value?** and enter your webhook authorization header value in the **Authorization header** field. For example, "Bearer ABC123DEF356."
@@ -118,13 +123,13 @@ After obtaining these items, follow the configuration steps below.
    </Warning>
 
 <Frame><img alt="save filter.jpg" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HFIE.jpg" style={{width: 651, height: 427}}/></Frame>
-   The list of recently delivered webhooks displays at the bottom of the modal. After at least one delivery, you can select <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" /> **Refresh** to see the most recent data.
+   The list of recently delivered webhooks displays at the bottom of the modal. After at least one delivery, you can select <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Refresh** to see the most recent data.
      
    <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bnV7.jpg" style={{width: 651, height: 135}}/></Frame>
 Your webhook configuration is now complete and will start receiving events shortly. Each event is only sent once; if it cannot be delivered for any reason, it is not re-sent.
 
 ### Stop Sending Events to a Webhook
 
-To stop sending activity log events to the webhook, select <InlineImage src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" /> **Activity Log Webhook Configuration** to open the webhook configuration modal.
+To stop sending activity log events to the webhook, select <img src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Activity Log Webhook Configuration** to open the webhook configuration modal.
 
-In the modal above the payload URL, select <InlineImage src="/images/kb/ka0Vq0000007KoP-00N5w00000Ri7BU-0EMVq000000SmMf.jpg" /> **Delete**.
+In the modal above the payload URL, select <img src="/images/kb/ka0Vq0000007KoP-00N5w00000Ri7BU-0EMVq000000SmMf.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **Delete**.

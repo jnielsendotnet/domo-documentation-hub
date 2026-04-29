@@ -2,7 +2,6 @@
 title: "On-Premise SharePoint Data Provider Plugin (Beta)"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ## Intro
 
@@ -24,9 +23,9 @@ All Workbench plugins are contained within Dynamic Link Libraries (DLLs). You ca
 **Note:** Your SharePoint Plugin must be located in a subdirectory of the chosen directory.
 </Note>
 
-1. In Domo Workbench, Click <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSr.png" /> in the left-hand icon bar.
+1. In Domo Workbench, Click <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSr.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> in the left-hand icon bar.
 2. Click
-   **Plugins** in the **More** pane. (If you do not see this pane, click <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTF.png" /> to expand it.)
+   **Plugins** in the **More** pane. (If you do not see this pane, click <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTF.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to expand it.)
    
    The **Plugin Manager** opens.
 3. Under
@@ -43,7 +42,7 @@ All Workbench plugins are contained within Dynamic Link Libraries (DLLs). You ca
 #### Create a SharePoint DataSet Job in Workbench 5
 
 1. Click the
-   <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSx.png" /> icon in the left-hand icon bar.
+   <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSx.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> icon in the left-hand icon bar.
 2. Click the
    **+** button in the top right corner of the jobs listing pane.
 3. An
@@ -51,14 +50,23 @@ All Workbench plugins are contained within Dynamic Link Libraries (DLLs). You ca
 4. Enter the following details in
    **Job Details** section.
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><b> Field </b></th><th colspan="1" rowspan="1"><b> Description </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Domo Domain </td><td colspan="1" rowspan="1"><p> Select the desired account (Domo instance) in the <b> Domo Domain </b> dropdown menu. </p><p> If you have only one account set up, that account is already chosen for you and the menu is unavailable. </p></td></tr><tr><td colspan="1" rowspan="1"> Job Name </td><td colspan="1" rowspan="1"><p> Enter a name for the DataSet Job. </p><p> This is the job name that appears in Workbench, not the name of the uploaded DataSet in Domo. </p></td></tr><tr><td colspan="1" rowspan="1"> Transport Type </td><td colspan="1" rowspan="1"> Select <b> Domo SharePoint Data Provider </b>. </td></tr><tr><td colspan="1" rowspan="1"> Reader Type </td><td colspan="1" rowspan="1"> Select the file type that you want to read from SharePoint in Workbench. </td></tr></tbody></table>
+   | **Field**      | **Description**                                                                                                                                                                               |
+| -------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Domo Domain    | Select the desired account (Domo instance) in the **Domo Domain** dropdown menu.<br/>If you have only one account set up, that account is already chosen for you and the menu is unavailable. |
+| Job Name       | Enter a name for the DataSet Job.<br/>This is the job name that appears in Workbench, not the name of the uploaded DataSet in Domo.                                                           |
+| Transport Type | Select **Domo SharePoint Data Provider**.                                                                                                                                                     |
+| Reader Type    | Select the file type that you want to read from SharePoint in Workbench.                                                                                                                      |
 
    <Frame><img alt="5.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT7.png"/></Frame>
 
 5. In the
    **Domo Details** section, provide the information for your DataSet.
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><b> Field </b></th><th colspan="1" rowspan="1"><b> Description </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> DataSet Name </td><td colspan="1" rowspan="1"> Enter the name of the DataSet. This is the name of the uploaded DataSet in Domo. </td></tr><tr><td colspan="1" rowspan="1"> DataSet Type </td><td colspan="1" rowspan="1"> Select the type of DataSet from the dropdown. The DataSet type you select or enter here is reflected as the Connector type in Domo after you execute the job. </td></tr><tr><td colspan="1" rowspan="1"> DataSet Description </td><td colspan="1" rowspan="1"><p> Enter a description for the DataSet, if desired. </p><p> This is the description of the DataSet as it appears in Domo. </p></td></tr></tbody></table>
+   | **Field**           | **Description**                                                                                                                                               |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DataSet Name        | Enter the name of the DataSet. This is the name of the uploaded DataSet in Domo.                                                                              |
+| DataSet Type        | Select the type of DataSet from the dropdown. The DataSet type you select or enter here is reflected as the Connector type in Domo after you execute the job. |
+| DataSet Description | Enter a description for the DataSet, if desired.<br/>This is the description of the DataSet as it appears in Domo.                                            |
 
 6. Click
    **Create**.
@@ -82,7 +90,15 @@ Once a job is created, you need to provide the configuration details for the job
 3. A
    **Domo SharePoint Data Provider Editor** window will appear. Here, you need to provide the Credentials and Report details required to connect to your SharePoint data.
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p><b> Field </b></p></th><th colspan="1" rowspan="1"><b> Description </b></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"> Select the connection type as <b> SharePoint On-Premise </b>. </td></tr><tr><td colspan="1" rowspan="1"> SharePoint URL </td><td colspan="1" rowspan="1"> Enter URL for the SharePoint site. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your SharePoint username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your SharePoint password. </td></tr><tr><td colspan="1" rowspan="1"> Domain </td><td colspan="1" rowspan="1"><p> Enter your SharePoint Windows domain name. </p><p> Example: If your SharePoint site was located at <a href="https://sample.sharepoint.com" target="_blank" title="https://sample.sharepoint.com"> https://sample.sharepoint.com </a>, your domain name would be “sample”. </p></td></tr><tr><td colspan="1" rowspan="1"> Report </td><td colspan="1" rowspan="1"> Select the report from the dropdown. </td></tr><tr><td colspan="1" rowspan="1"> Server Relative URL </td><td colspan="1" rowspan="1"> Enter the name of the data file you want to connect with this DataSet in SharePoint. </td></tr></tbody></table>
+   | **Field**           | **Description**                                                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connection Type     | Select the connection type as **SharePoint On-Premise**.                                                                                                                                           |
+| SharePoint URL      | Enter URL for the SharePoint site.                                                                                                                                                                 |
+| Username            | Enter your SharePoint username.                                                                                                                                                                    |
+| Password            | Enter your SharePoint password.                                                                                                                                                                    |
+| Domain              | Enter your SharePoint Windows domain name.<br/>Example: If your SharePoint site was located at [https://sample.sharepoint.com](https://sample.sharepoint.com), your domain name would be “sample”. |
+| Report              | Select the report from the dropdown.                                                                                                                                                               |
+| Server Relative URL | Enter the name of the data file you want to connect with this DataSet in SharePoint.                                                                                                               |
 
 4. Click
    **Apply**.
@@ -120,10 +136,10 @@ Transforms modify your data locally before uploading it to Domo. They are faster
 2. Mention the transform properties for the selected transform and click
    **Apply**.
 3. You can add multiple transforms to your data.
-4. Click <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSu.png" /> to update the transform properties for a specific transform.
-5. Click <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSt.png" /> to remove a specific transform.
+4. Click <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSu.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to update the transform properties for a specific transform.
+5. Click <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSt.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> to remove a specific transform.
 6. Click the
-   <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT5.png" /> (up and down arrows) to interchange the positions of the transforms.
+   <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT5.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> (up and down arrows) to interchange the positions of the transforms.
 
 #### Impersonate Your Job
 
@@ -157,7 +173,7 @@ If you chose to update on a schedule, you can select the time interval and a spe
 
 In the **Advanced Scheduling** section, you can opt to run the job once a day, more than once a day, every day, specific days of the week/month, every month, or specific months.
 
-Click the <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" /> (**Save**) button to save your changes.
+Click the <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> (**Save**) button to save your changes.
 
 #### Schema Protection for Your Job
 
@@ -184,11 +200,11 @@ The Protect column indicates whether your column (data field) is protected while
 * The column header also provides the control to get a filtered view of protected, unprotected, or both type of entries with a single click.
 
    + When you click to select the regular select view
-      <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT3.png" />, the Protect column will display all protected entries.
+      <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT3.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>, the Protect column will display all protected entries.
    + When you click to select the unchecked view
-      <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTD.png" />, the Protect column will display the unprotected entries.
+      <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPTD.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>, the Protect column will display the unprotected entries.
    + When you click to select the mixed view
-      <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSl.png" />, the Protect column displays both protected and unprotected entries together.
+      <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSl.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>, the Protect column displays both protected and unprotected entries together.
 * You cannot change the name of a protected source column. Domo Workbench does not allow the edit operation on a protected source column name. However, you can change the names or properties for other columns.
    
    <Frame><img alt="17.png" src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSs.png"/></Frame>
@@ -213,6 +229,6 @@ If you choose to block all schema changes, you will not see the Protect option f
 You can set notify other users upon your job success or failure by simply selecting the respective checkbox in front of their names under the respective columns.
 
 1. Once you are done with the job specifications, click the
-   <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" /> (**Save**) button to save your changes.
+   <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPT6.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> (**Save**) button to save your changes.
 2. Click the
-   <InlineImage src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSz.png" /> (**Execute**) button to run your job.
+   <img src="/images/kb/ka05w0000012BFZ-00N5w00000Ri7BU-0EM5w000005vPSz.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> (**Execute**) button to run your job.

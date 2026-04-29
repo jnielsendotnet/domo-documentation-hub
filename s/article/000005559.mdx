@@ -2,11 +2,10 @@
 title: "Use Non-aggregated Columns in Aggregated Beast Modes"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
-This guide introduces using non-aggregated columns in aggregated Beast Modes. When applying non-aggregated columns to aggregated Beast Modes, it is best to have a basic to mid-level understanding of SQL and access to [Domo Support](https://domo-support.domo.com/minasan/s/) <InlineImage src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" />.
+This guide introduces using non-aggregated columns in aggregated Beast Modes. When applying non-aggregated columns to aggregated Beast Modes, it is best to have a basic to mid-level understanding of SQL and access to [Domo Support](https://domo-support.domo.com/minasan/s/) <img src="/images/kb/ka0Vq0000000qbJ-00N5w00000Ri7BU-0EMVq000000MdXN.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/>.
 
 ---
 
@@ -16,7 +15,26 @@ When building SQL queries that use aggregated functions and non-aggregated colum
 
 The following DataSet contains a record of individual sales made by customers. The `Customer ID` column contains unique identifiers for each customer, the `Ship Mode` column contains two possible values: "Second Class" and "Standard Class," and the `Sales` column contains the value amount sold to each customer on the order.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Order ID </p></th><th colspan="1" rowspan="1"><p> Customer ID </p></th><th colspan="1" rowspan="1"><p> Ship Mode </p></th><th colspan="1" rowspan="1"><p> Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 261.98 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 2 </p></td><td colspan="1" rowspan="1"><p> CG-12520 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 731.94 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 3 </p></td><td colspan="1" rowspan="1"><p> DV-13045 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 14.62 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 4 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p></p><p> Standard Class </p><p></p></td><td colspan="1" rowspan="1"><p> 957.5775 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5 </p></td><td colspan="1" rowspan="1"><p> SO-20335 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 22.368 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 6 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 48.86 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 7 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 7.28 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 8 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 907.152 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 9 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 18.504 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 10 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 114.9 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 11 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 1706.184 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 12 </p></td><td colspan="1" rowspan="1"><p> BH-11710 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 911.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 13 </p></td><td colspan="1" rowspan="1"><p> AA-10480 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 15.552 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 14 </p></td><td colspan="1" rowspan="1"><p> IM-15070 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 407.976 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 15 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 68.81 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 16 </p></td><td colspan="1" rowspan="1"><p> HP-14815 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 2.544 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 17 </p></td><td colspan="1" rowspan="1"><p> PK-19075 </p></td><td colspan="1" rowspan="1"><p> Standard Class </p></td><td colspan="1" rowspan="1"><p> 665.88 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 18 </p></td><td colspan="1" rowspan="1"><p> AG-10270 </p></td><td colspan="1" rowspan="1"><p> Second Class </p></td><td colspan="1" rowspan="1"><p> 55.5 </p></td></tr></tbody></table>
+| Order ID | Customer ID | Ship Mode      | Sales    |
+| -------- | ----------- | -------------- | -------- |
+| 1        | CG-12520    | Second Class   | 261.98   |
+| 2        | CG-12520    | Second Class   | 731.94   |
+| 3        | DV-13045    | Second Class   | 14.62    |
+| 4        | SO-20335    | Standard Class | 957.5775 |
+| 5        | SO-20335    | Standard Class | 22.368   |
+| 6        | BH-11710    | Standard Class | 48.86    |
+| 7        | BH-11710    | Standard Class | 7.28     |
+| 8        | BH-11710    | Standard Class | 907.152  |
+| 9        | BH-11710    | Second Class   | 18.504   |
+| 10       | BH-11710    | Second Class   | 114.9    |
+| 11       | BH-11710    | Standard Class | 1706.184 |
+| 12       | BH-11710    | Standard Class | 911.424  |
+| 13       | AA-10480    | Standard Class | 15.552   |
+| 14       | IM-15070    | Standard Class | 407.976  |
+| 15       | HP-14815    | Standard Class | 68.81    |
+| 16       | HP-14815    | Standard Class | 2.544    |
+| 17       | PK-19075    | Standard Class | 665.88   |
+| 18       | AG-10270    | Second Class   | 55.5     |
 
 Using the table, we can build a single-value chart showing only the results of a Beast Mode: `Total Sales` that sums up the `Sales` column.
 
@@ -109,7 +127,10 @@ This query retrieves the `Total Sales` for all customers. However, because this 
 
 This query produces the following two rows of data:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Total Sales </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> 1197.424 </p></td></tr><tr><td colspan="1" rowspan="1"><p> 5721.6075 </p></td></tr></tbody></table>
+| Total Sales |
+| ----------- |
+| 1197.424    |
+| 5721.6075   |
 
 The two rows include one total for each `Ship Mode` value. For a total row value, we need to have a row that is the total of both values. We must put the original query into a subquery to get this value and then total the rows.
 

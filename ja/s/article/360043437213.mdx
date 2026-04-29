@@ -2,13 +2,12 @@
 title: "Workbench 5でOLAPキューブに接続する"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 Workbench 5では、OLAP DataSetジョブを作成できます。データソースタイプにOLAPを選択してから接続の詳細を指定し、クエリを設定することができます。
 
 **Workbench 5でOLAP DataSetジョブを作成するには、**
 
-1. 左側のアイコンバーにある <InlineImage src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" /> アイコンをクリックします。
+1. 左側のアイコンバーにある <img src="/images/kb/ka05w00000123sE-00N5w00000Ri7BU-0EM5w000005vPOU.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> アイコンをクリックします。
 2. ジョブリストペインの右上にある［+］ボタンをクリックします。
 3. **［Domoドメイン］** ドロップダウンメニューで、必要なアカウント（Domoインスタンス）を選択します。
      
@@ -41,7 +40,13 @@ Workbench 5では、OLAP DataSetジョブを作成できます。データソー
         
       以下の表では、 **Connection Builder** の全パラメーターについて説明します。
 
-      <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> オプション </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> データソース </p></td><td colspan="1" rowspan="1"><p> データベースが格納されているサーバーを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> プロバイダー </p></td><td colspan="1" rowspan="1"><p> MSOLAPまたはEssbaseのどちらかのプロバイダーを選択します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> カタログ </p></td><td colspan="1" rowspan="1"><p> OLAP接続の初期カタログを指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> このOLAP接続のユーザー名を指定します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> OLAP接続のパスワードを指定します。 </p></td></tr></tbody></table>
+      | オプション  | 説明                                  |
+| ------ | ----------------------------------- |
+| データソース | データベースが格納されているサーバーを指定します。           |
+| プロバイダー | MSOLAPまたはEssbaseのどちらかのプロバイダーを選択します。 |
+| カタログ   | OLAP接続の初期カタログを指定します。                |
+| ユーザー名  | このOLAP接続のユーザー名を指定します。               |
+| パスワード  | OLAP接続のパスワードを指定します。                 |
 
 14. （オプション）この接続に32ビット実行が必要な場合は、［32ビット実行が必要］チェックボックスをオンにします。
 15. **［適用］** をクリックします。
@@ -97,25 +102,12 @@ Workbench 5では、OLAP DataSetジョブを作成できます。データソー
 
     2. 選択した列の置換変数を、**［値］** ドロップダウンで定義します。
 
-       <table border="1" cellpadding="1" cellspacing="1">
-       <tbody>
-       <tr>
-       <th colspan="1" rowspan="1"><p> 変数タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th>
-       </tr>
-       <tr>
-       <td colspan="1" rowspan="1">
-       <p><span class="mt-font-courier-new"> lastvalue </span></p>
-       </td>
-       <td colspan="1" rowspan="1">
-       <p><span class="mt-font-courier-new"> lastvalue </span> 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータ行の最終列について、関連するフィールドの変化を追跡します。構文は次のとおりです。 </p><p><code>!\{lastvalue:_name_}! </code></p><p><span class="mt-font-courier-new"> lastvalue </span> 変数の値は、アップロードの終了後にWorkbenchで更新されます。 <span class="mt-font-courier-new"> lastvalue </span> 変数は、ジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存されます。この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。例えば、新しい行が増えるに従って増えていく行の「id」を持つ列がデータに存在する場合、 </p><p><code>!\{lastvalue:id}! </code></p><p> を含むクエリを作成することができます。以下のようになります。 </p><p><code> select id, name, type, sales from tablename where id &gt;!{}! order by id </code></p><p> この例では、「id」列が <span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節に必ず含まれていないと、変数を使用して更新することが <em> できません </em> 。 </p><p> このジョブをアップロードするときにWorkbenchは、 </p><p><code>!\{lastvalue:id}! </code></p><p> 変数を現在の「id」値と置き換えます。アップロード終了後、Workbenchは最後にアップロードされた「id」の値をジョブ（ <span class="mt-font-courier-new">.xml </span> ）ファイルに保存します。 </p> 
-       <Note>
-        <div class="info-box-wrapper"><div class="info-box-icon-container"><span class="info-box-icon"></span></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b><span class="mt-font-courier-new"> SELECT </span> 、 <span class="mt-font-courier-new"> WHERE </span> 、 <span class="mt-font-courier-new"> ORDER BY </span> 節の中で <span class="mt-font-courier-new"> lastvalue </span> 変数を使って参照した列は必ず含めないと、データのアップロード後に変数を使用して更新することが <em> できません </em> 。 </div></div></div> 
-       </Note>
-
-        </td>
-        </tr>
-        <tr><td colspan="1" rowspan="1"><p><span class="mt-font-courier-new"> previewonly </span></p></td><td colspan="1" rowspan="1"><p> Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。構文は次のとおりです。 </p><p><code>!\{previewonly:Statement}! </code></p></td></tr>
-        </tbody></table>
+       | 変数タイプ         | 説明                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `lastvalue`   | `lastvalue` 変数は、関連付けられたジョブの最新のアップロードとともに送信されたデータ行の最終列について、関連するフィールドの変化を追跡します。構文は次のとおりです。<br/>`!\{lastvalue:_name_}!`<br/>`lastvalue` 変数の値は、アップロードの終了後にWorkbenchで更新されます。 `lastvalue` 変数は、ジョブ（ `.xml` ）ファイルに保存されます。この変数を使って、実行のたびに「新しい」行のみを取得するクエリを作成することができます。例えば、新しい行が増えるに従って増えていく行の「id」を持つ列がデータに存在する場合、<br/>`!\{lastvalue:id}!`<br/>を含むクエリを作成することができます。以下のようになります。<br/>`select id, name, type, sales from tablename where id >!{}! order by id`<br/>この例では、「id」列が `SELECT` 、 `WHERE` 、 `ORDER BY` 節に必ず含まれていないと、変数を使用して更新することが *できません* 。<br/>このジョブをアップロードするときにWorkbenchは、<br/>`!\{lastvalue:id}!`<br/>変数を現在の「id」値と置き換えます。アップロード終了後、Workbenchは最後にアップロードされた「id」の値をジョブ（ `.xml` ）ファイルに保存します。<br/><Note>
+ **注記：**`SELECT` 、 `WHERE` 、 `ORDER BY` 節の中で `lastvalue` 変数を使って参照した列は必ず含めないと、データのアップロード後に変数を使用して更新することが *できません* 。 
+ </Note> |
+| `previewonly` | Workbenchのプレビューを読み込む際、特定の操作が必要であることを示します。例えば、プレビューでは、データソースに存在する1,000,000件のデータではなく100行のみ返すように要求することができます。構文は次のとおりです。<br/>`!\{previewonly:Statement}!`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 
 20. **［適用］** をクリックします。
 21. **［更新方法］** メニューで、更新する方法を選択します。

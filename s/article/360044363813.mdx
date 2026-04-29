@@ -30,7 +30,9 @@ First, create the main P&L DataSet:
 
 In order for the app to function, the way that each of your base level accounts rolls up into a parent group needs to be joined to the general ledger. For example, you may have an account that rolls up in the following manner: Net Income \<- Gross Profit \<- Total Revenue \<- Retail Sales \<- Men's Apparel (Account 40390). This is the account's hierarchy. Note that the app supports up to 7 levels of hierarchy. To make joining the account hierarchy to the general ledger easier, format your data in the following manner:
 
-<table class="mt-responsive-table mt-table-big" data-aura-rendered-by="33:208;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Level 0 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 1 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 2 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 3 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 4 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 5 </td><td class="mt-noheading" colspan="1" rowspan="1"> Level 6 </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Net Income </td><td class="mt-noheading" colspan="1" rowspan="1"> Gross Profit </td><td class="mt-noheading" colspan="1" rowspan="1"> Total Revenue </td><td class="mt-noheading" colspan="1" rowspan="1"> Retail Sales </td><td class="mt-noheading" colspan="1" rowspan="1"></td><td class="mt-noheading" colspan="1" rowspan="1"></td><td class="mt-noheading" colspan="1" rowspan="1"> Men's Apparel (Account 4390) </td></tr></tbody></table>
+| Level 0    | Level 1      | Level 2       | Level 3      | Level 4 | Level 5 | Level 6                      |
+| ---------- | ------------ | ------------- | ------------ | ------- | ------- | ---------------------------- |
+| Net Income | Gross Profit | Total Revenue | Retail Sales |         |         | Men's Apparel (Account 4390) |
 
 Notice that there is an empty gap between Level 3 and Level 6. If one of your accounts doesn't have a full 7 levels, make sure that the parents are grouped towards the left and that the base level account is always placed at level 6. There can't be more than one gap in your app's data table.
 
@@ -75,13 +77,17 @@ As soon as all of these columns are present in the data, your DataSet should be 
 
 The second DataSet is much simpler than the first. This is the schema for the ordering DataSet:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Account Name </td><td class="mt-noheading" colspan="1" rowspan="1"> Parent Account Name </td><td class="mt-noheading" colspan="1" rowspan="1"> Order </td></tr></tbody></table>
+| Account Name | Parent Account Name | Order |
+| ------------ | ------------------- | ----- |
 
 Initially this DataSet can be blank, but after wiring up your data to the app, you may notice that categories might not display in the order you'd like. If you find that this is the case, you can add rows to this DataSet to enforce an order for your roll-up categories. We recommend using a Domo Webform for this DataSet so that you can easily make changes to it within Domo.
 
 For example, if my Gross Profit roll-up category has two children, namely Total Revenue and Total Expenses, and they were being displayed with Total Expenses above Total Revenue and I wanted it the other way around, I would add the following DataSet:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:208;a"><tbody><tr><td class="mt-noheading" colspan="1" rowspan="1"> Account Name </td><td class="mt-noheading" colspan="1" rowspan="1"> Parent Account Name </td><td class="mt-noheading" colspan="1" rowspan="1"> Order </td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"><p> Total Revenue </p></td><td class="mt-noheading" colspan="1" rowspan="1"> Gross Profit </td><td class="mt-noheading" colspan="1" rowspan="1"><p> 1 </p></td></tr><tr><td class="mt-noheading" colspan="1" rowspan="1"> Total Expenses </td><td class="mt-noheading" colspan="1" rowspan="1"> Gross Profit </td><td class="mt-noheading" colspan="1" rowspan="1"> 2 </td></tr></tbody></table>
+| Account Name   | Parent Account Name | Order |
+| -------------- | ------------------- | ----- |
+| Total Revenue  | Gross Profit        | 1     |
+| Total Expenses | Gross Profit        | 2     |
 
 After making these changes to the DataSet, make sure that all of the Parent Account names that are the same and also grouped together, are in numerically ascending order and save the DataSet.
 

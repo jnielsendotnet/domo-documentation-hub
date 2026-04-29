@@ -2,13 +2,12 @@
 title: "AutoML（自動機械学習）を使用してモデルを訓練して展開する"
 ---
 
-import { InlineImage } from "/snippets/InlineImage.mdx";
 
 ### はじめに
 
 Domoの自動機械学習（AutoML）ツールにより、機械学習は誰もが理解できるものになりました。 AutoMLは、Amazon SageMaker Autopilotと連携して、提供するデータにもとづいて機械学習モデルを訓練し、任意のDomo DataSetで何百もの訓練ジョブを起動して、タスクに最適なモデルを見つけます。その後、Magic ETLの［AutoML推論］タイルを使用して、Domo DataSetに [モデルを展開](#generate_predictions) できます。
 
-AutoMLの動作を確認するには、 [こちらの動画](https://www.domo.com/learn/video/automatic-insights-with-automl) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000002rC3W.jpg" /> を参照してください。
+AutoMLの動作を確認するには、 [こちらの動画](https://www.domo.com/learn/video/automatic-insights-with-automl) <img src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000002rC3W.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> を参照してください。
 
 <Warning>
   **AutoMLはAWS機能（Sagemaker Autopilot上に構築）です。** データは、プライベートDomo AWSネットワーク内のAutopilotで送信および処理されます。
@@ -82,7 +81,7 @@ DataSetを構造化した後は、DataSetの処理前に以下の項目を完了
   このプロセスについて、またこのデータは予測時に知ることができるであろうことを正確に表しているかということを考えてください。
 + **外れ値/レバレッジポイント —** 既知の外れ値を削除してください。外れ値は統計テストか既知の経験から判断できます。
 
-  例えば、既知の異常により1週間の売り上げが不自然に増加した場合、このサンプルをDataSetから削除するのが一番です。外れ値の特定と処理の詳細については、 [こちら](https://github.com/domoinc/domo-data-science-resources/blob/main/webinars/Handling_ExtremeValues_Outliers.pdf) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003AAXR.jpg" /> を参照してください。
+  例えば、既知の異常により1週間の売り上げが不自然に増加した場合、このサンプルをDataSetから削除するのが一番です。外れ値の特定と処理の詳細については、 [こちら](https://github.com/domoinc/domo-data-science-resources/blob/main/webinars/Handling_ExtremeValues_Outliers.pdf) <img src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003AAXR.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> を参照してください。
 
 ##### パートIII：特徴エンジニアリング
 
@@ -115,7 +114,7 @@ DataSetを構造化した後は、DataSetの処理前に以下の項目を完了
   [展開](#generate_predictions) し、Magic ETL DataFlowの［AutoML推論］タイルを使用して予測を生成します。
 
   <Note>
-    **注記：** AutoMLを試すためのサンプルDataSetは、 [こちら](https://domosoftware.sharepoint.com/:x:/s/CS-Edu-PublicFiles/EYsFcCdV10tLsAN_fjxjhyIBKgqxNniCy19EBcK5KauwXQ?e=j8IA96) <InlineImage src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003A84F.jpg" /> からダウンロードしてください。
+    **注記：** AutoMLを試すためのサンプルDataSetは、 [こちら](https://domosoftware.sharepoint.com/:x:/s/CS-Edu-PublicFiles/EYsFcCdV10tLsAN_fjxjhyIBKgqxNniCy19EBcK5KauwXQ?e=j8IA96) <img src="/images/kb/ja/ka0Vq000000EWo3-00N5w00000Ri7BU-0EMVq000003A84F.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> からダウンロードしてください。
 
     サンプルDataSetには、電話会社の顧客の解約状況に関するデータが含まれています。このDataSetをコンピューターにダウンロードし、新しいDataSetとしてDomoインスタンスにアップロードします。
 

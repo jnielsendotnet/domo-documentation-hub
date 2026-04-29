@@ -32,7 +32,11 @@ You can create a JSON DataSet Job in Workbench 4. When you select JSON as your D
    
    Descriptions for these transport methods are as follows:
 
-   <table class="mt-responsive-table"><thead><tr><th colspan="1" rowspan="1"><p> Transport Method </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Local File Provider </p></td><td colspan="1" rowspan="1"><p> Lets you select a file from your machine or a network. </p></td></tr><tr><td colspan="1" rowspan="1"><p> External Process File Provider </p></td><td colspan="1" rowspan="1"><p> Lets you use a third-party application to pull data into Domo using a script. </p></td></tr><tr><td colspan="1" rowspan="1"> FTP/SFTP File Provider </td><td colspan="1" rowspan="1"> Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL) </td></tr></tbody></table>
+   | Transport Method               | Description                                                                   |
+| ------------------------------ | ----------------------------------------------------------------------------- |
+| Local File Provider            | Lets you select a file from your machine or a network.                        |
+| External Process File Provider | Lets you use a third-party application to pull data into Domo using a script. |
+| FTP/SFTP File Provider         | Lets you retrieve a file via FTP, SFTP (SSH-FTP), or FTPS (FTP-SSL)           |
 
 7. Click
    **Next**.
@@ -109,7 +113,11 @@ You can create a JSON DataSet Job in Workbench 4. When you select JSON as your D
 17. In the
     **Flattening Options** menu, select how you want the data to be flattened. Options are as follows:
 
-    <table border="1" cellpadding="1" cellspacing="1"><thead><tr><th colspan="1" rowspan="1"><p> Option </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> None </p></td><td colspan="1" rowspan="1"><p> Returns the unflattened JSON string. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Deep </p></td><td colspan="1" rowspan="1"><p> Adds new rows for all nested objects. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Wide </p></td><td colspan="1" rowspan="1"><p> Adds new columns for all nested objects. Only one row is returned. </p></td></tr></tbody></table>
+    | Option | Description                                                        |
+| ------ | ------------------------------------------------------------------ |
+| None   | Returns the unflattened JSON string.                               |
+| Deep   | Adds new rows for all nested objects.                              |
+| Wide   | Adds new columns for all nested objects. Only one row is returned. |
 
 You are now ready to execute the DataSet Job, thereby creating a JSON DataSet in Domo. However, there are many other actions you can take on the DataSet job before you send it to Domo. These include the following:
 

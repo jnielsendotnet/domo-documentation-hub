@@ -2,7 +2,6 @@
 title: "Pivot Table"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### Intro
 
@@ -263,7 +262,13 @@ All similar rows in a DataSet are automatically aggregated in a Pivot Table. The
 
 You can change the aggregation type for a column to any of the following:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Aggregation Type </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Sum </p></td><td colspan="1" rowspan="1"><p> Adds the values in similar rows. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Minimum </p></td><td colspan="1" rowspan="1"><p> Displays the lowest value in similar rows. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Maximum </p></td><td colspan="1" rowspan="1"><p> Displays the highest value in similar rows. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Average </p></td><td colspan="1" rowspan="1"><p> Displays the average value of all similar rows. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Count </p></td><td colspan="1" rowspan="1"><p> Displays the number of similar rows. For dimensional columns, this is the only available aggregation type. </p></td></tr></tbody></table>
+| Aggregation Type | Description                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------- |
+| Sum              | Adds the values in similar rows.                                                                           |
+| Minimum          | Displays the lowest value in similar rows.                                                                 |
+| Maximum          | Displays the highest value in similar rows.                                                                |
+| Average          | Displays the average value of all similar rows.                                                            |
+| Count            | Displays the number of similar rows. For dimensional columns, this is the only available aggregation type. |
 
 To change the aggregation type for a column, follow these steps:
 
@@ -287,11 +292,11 @@ In a Pivot Table, you can select the arrows to the left of any header row or col
 
 </Warning>
 
-<InlineImage src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5P.png" /> indicates that these rows or columns are in the same order as the original DataSet.
+<img src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5P.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> indicates that these rows or columns are in the same order as the original DataSet.
 
-<InlineImage src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5L.png" /> indicates that these rows or columns are in alphanumeric order.
+<img src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5L.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> indicates that these rows or columns are in alphanumeric order.
 
-<InlineImage src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5F.png" /> indicates that these rows or columns are in reverse alphanumeric order.
+<img src="/images/kb/ka0Vq0000005oVd-00N5w00000Ri7BU-0EM5w000005vP5F.png" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> indicates that these rows or columns are in reverse alphanumeric order.
 
 <Warning>
   **Important:** You may not be able to change the sort pattern when multiple row fields are present. In this case, you can resolve the problem by enabling the following properties:
