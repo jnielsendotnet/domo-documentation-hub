@@ -28,7 +28,14 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Kafka SASL account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Kafka BootStrap Servers </td><td colspan="1" rowspan="1"><p><span> Enter the bootstrap servers list. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"><p><span> Enter the username associated with your Kafka SASL account. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"><p><span> Enter the password associated with your Kafka SASL account. </span></p></td></tr><tr><td colspan="1" rowspan="1"> SASL Login Module </td><td colspan="1" rowspan="1"><p><span> Select the SASL login module. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Security Protocol </td><td colspan="1" rowspan="1"><p><span> Select the security protocol. </span></p></td></tr><tr><td colspan="1" rowspan="1"> SASL Mechanism </td><td colspan="1" rowspan="1"><p><span> Select the SASL Mechanism. </span></p></td></tr></tbody></table>
+| Field                   | Description                                                 |
+| ----------------------- | ----------------------------------------------------------- |
+| Kafka BootStrap Servers | Enter the bootstrap servers list.                           |
+| Username                | Enter the username associated with your Kafka SASL account. |
+| Password                | Enter the password associated with your Kafka SASL account. |
+| SASL Login Module       | Select the SASL login module.                               |
+| Security Protocol       | Select the security protocol.                               |
+| SASL Mechanism          | Select the SASL Mechanism.                                  |
 
 Once you have entered valid Kafka SASL credentials, you can use the same account any time you go to create a new Kafka SASL DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -36,7 +43,10 @@ Once you have entered valid Kafka SASL credentials, you can use the same account
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Report </p></td><td colspan="1" rowspan="1"><p> Select the Kafka SASL report you want to run. The following reports are available: </p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Partitions </p></td><td colspan="1" rowspan="1"><p> Returns a list of partitions for a selected topic. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics </p></td><td colspan="1" rowspan="1"><p> Returns a list of available topics. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics Data </p></td><td colspan="1" rowspan="1"><p> Returns all data for the selected topic. </p></td></tr></tbody></table></td></tr><tr><td colspan="1" rowspan="1"><p> Topic Name </p></td><td colspan="1" rowspan="1"><p> Select the topic you want to retrieve data for. </p></td></tr></tbody></table>
+| Menu       | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report     | Select the Kafka SASL report you want to run. The following reports are available:<br/><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p> Partitions </p></td><td colspan="1" rowspan="1"><p> Returns a list of partitions for a selected topic. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics </p></td><td colspan="1" rowspan="1"><p> Returns a list of available topics. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Topics Data </p></td><td colspan="1" rowspan="1"><p> Returns all data for the selected topic. </p></td></tr></tbody></table> |
+| Topic Name | Select the topic you want to retrieve data for.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 ### Other Panes
 
@@ -47,7 +57,11 @@ For information about the remaining sections of the connector interface, includi
 <AccordionGroup>
 <Accordion title="Which endpoint(s) does each report call in this connector?">
 
-<table data-aura-rendered-by="33:195;a"><tbody><tr><th colspan="1" rowspan="1" width="30%"> Report Name </th><th colspan="1" rowspan="1" width="70%"> Endpoint URL(s) </th></tr><tr><td colspan="1" rowspan="1"> Partitions </td><td colspan="1" rowspan="1"> /topics/{topicName}/partitions </td></tr><tr><td colspan="1" rowspan="1"> Topics </td><td colspan="1" rowspan="1"> /topics </td></tr><tr><td colspan="1" rowspan="1"> Topics Data </td><td colspan="1" rowspan="1"> /consumers/{groupName}/instances/{instance}/records </td></tr></tbody></table>
+| Report Name | Endpoint URL(s)                                     |
+| ----------- | --------------------------------------------------- |
+| Partitions  | /topics/{topicName}/partitions                      |
+| Topics      | /topics                                             |
+| Topics Data | /consumers/{groupName}/instances/{instance}/records |
 
 </Accordion>
 

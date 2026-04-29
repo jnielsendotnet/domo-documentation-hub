@@ -24,7 +24,16 @@ The plus and minus buttons should be used if the values you want to enter into t
 
 Sublist grouping should be used if the values you want to enter into the different sublists are contained in the same columns but different rows. To get sublist grouping working for your DataSet, first choose a column to group by. This column should have the same value across each row that you want associated with that record. For example, let's say we had the following table:
 
-<table data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"> Customer Name </th><th colspan="1" rowspan="1"> Subsidiary </th><th colspan="1" rowspan="1"> item </th><th colspan="1" rowspan="1"> quantity </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Example Customer 1 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Apple </td><td colspan="1" rowspan="1"> 1 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 1 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Artichoke </td><td colspan="1" rowspan="1"> 5 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 2 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Basketball </td><td colspan="1" rowspan="1"> 3 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 2 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Bicycle </td><td colspan="1" rowspan="1"> 4 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 3 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Clarinet </td><td colspan="1" rowspan="1"> 6 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 3 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Camera </td><td colspan="1" rowspan="1"> 5 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 4 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Desk </td><td colspan="1" rowspan="1"> 2 </td></tr><tr><td colspan="1" rowspan="1"> Example Customer 4 </td><td colspan="1" rowspan="1"> HH Inc. </td><td colspan="1" rowspan="1"> Dart </td><td colspan="1" rowspan="1"> 7 </td></tr></tbody></table>
+| Customer Name      | Subsidiary | item       | quantity |
+| ------------------ | ---------- | ---------- | -------- |
+| Example Customer 1 | HH Inc.    | Apple      | 1        |
+| Example Customer 1 | HH Inc.    | Artichoke  | 5        |
+| Example Customer 2 | HH Inc.    | Basketball | 3        |
+| Example Customer 2 | HH Inc.    | Bicycle    | 4        |
+| Example Customer 3 | HH Inc.    | Clarinet   | 6        |
+| Example Customer 3 | HH Inc.    | Camera     | 5        |
+| Example Customer 4 | HH Inc.    | Desk       | 2        |
+| Example Customer 4 | HH Inc.    | Dart       | 7        |
 
 To create some Sales Orders with this DataSet, with records being divided based off of which customer bought items, you might choose the “Customer Name” column as the Group-By column, as that column divides the various rows. The connector will then create a new sublist for each row with the same customer name. The connector will pull data from the same columns as directed in the Sublist Mapping, but will just differ on the row. In this example, the connector will create four sales orders, each with two items:
 

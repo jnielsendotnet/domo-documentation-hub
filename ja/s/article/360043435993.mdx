@@ -31,7 +31,10 @@ AWSに接続してAmazon DynamoDB DataSetを作成するには、以下が必要
 
 このペインには、Amazon DynamoDBアカウントにアクセスするための認証情報を入力するフィールドがあります。下表では、各フィールドに必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> AWS Access Key </p></td><td colspan="1" rowspan="1"><p> AWSアクセスキーを入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> AWS Secret Key </p></td><td colspan="1" rowspan="1"><p> AWSシークレットキーを入力します。 </p></td></tr></tbody></table>
+| フィールド          | 説明                 |
+| -------------- | ------------------ |
+| AWS Access Key | AWSアクセスキーを入力します。   |
+| AWS Secret Key | AWSシークレットキーを入力します。 |
 
 これらの認証情報の入手方法については、前述の「必要条件」を参照してください。
 
@@ -41,37 +44,16 @@ AWSに接続してAmazon DynamoDB DataSetを作成するには、以下が必要
 
 このペインには、使用するリージョン名とテーブルを選択する、2つのドロップダウンメニューが含まれています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-<thead>
-<tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="1" rowspan="1"><p> Region Name </p></td><td colspan="1" rowspan="1"><p> Domoにインポートするテーブルを含むAmazon DynamoDBのリージョンを選択します。 </p></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1"><p> How would you like to fetch your data? </p></td><td colspan="1" rowspan="1"><p><span> 属性名でデータを取得するか、クエリを提供してデータを取得するかを選択します。 </span></p></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p><span> 実行するSQLクエリを入力します。 </span></p><p><span> 例：select * from table_name. </span></p><p><span><b> 注記： </b> 列名がある場合は、すべての列名を二重引用符で囲んでください。 </span></p></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1"><p> Table Name </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むAmazon DynamoDBのテーブルを選択します。 </p></td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1"> How would you like to provide attribute names? </td><td colspan="1" rowspan="1"> 検出によって属性名を指定するか、手動で指定するかを選択します。 </td>
-</tr>
-<tr>
-<td colspan="1" rowspan="1">
-<span> Attribute Names（最大で1498個まで選択可能） </span>
-</td>
-<td colspan="1" rowspan="1">
-<p><span> 取り込む属性名を選択します。すべての属性を取り込む場合は、リストから属性を選択しません。最大で1498個まで選択できます。 </span></p> 
-<Note>
- <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> 属性を選択しなかった場合、このコネクターは、デフォルトですべてのフィールドを取り込みます。 </div></div></div> 
-</Note>
-
- </td></tr></tbody></table>
+| メニュー                                           | 説明                                                                                                                                       |
+| ---------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Region Name                                    | Domoにインポートするテーブルを含むAmazon DynamoDBのリージョンを選択します。                                                                                          |
+| How would you like to fetch your data?         | 属性名でデータを取得するか、クエリを提供してデータを取得するかを選択します。                                                                                                   |
+| Query                                          | 実行するSQLクエリを入力します。<br/>例：select * from table_name.<br/>**注記：** 列名がある場合は、すべての列名を二重引用符で囲んでください。                                             |
+| Table Name                                     | Domoに取り込むAmazon DynamoDBのテーブルを選択します。                                                                                                     |
+| How would you like to provide attribute names? | 検出によって属性名を指定するか、手動で指定するかを選択します。                                                                                                          |
+| Attribute Names（最大で1498個まで選択可能）                | 取り込む属性名を選択します。すべての属性を取り込む場合は、リストから属性を選択しません。最大で1498個まで選択できます。<br/><Note>
+ **注記：** 属性を選択しなかった場合、このコネクターは、デフォルトですべてのフィールドを取り込みます。 
+</Note> |
 
 ### その他のペイン
 

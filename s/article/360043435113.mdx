@@ -10,36 +10,13 @@ The Workfront connector is a "Cloud App" connector, meaning it retrieves data st
 
 You connect to your Workfront account in the Data Center. This topic discusses the fields and menus that are specific to the Workfront connector user interface. General information for adding DataSets, setting update schedules, and editing DataSet information is discussed in [Adding a DataSet Using a Data Connector](/s/article/360042926274).
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p></p></th>
-      <th colspan="1" rowspan="1"><p></p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Use Cases</b></p></td>
-      <td colspan="1" rowspan="1"><p>Use this connector to pull data about the status of projects and the individual tasks that apply to those projects.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Metrics</b></p></td>
-      <td colspan="1" rowspan="1"><p>- Project status - Start and complete dates - Hours per project - User hours - Resources - Common issues</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Company Roles</b></p></td>
-      <td colspan="1" rowspan="1"><p>- Project manager - Operations</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Average Implementation Time</b></p></td>
-      <td colspan="1" rowspan="1"><p>5-10 hours for basic implementation</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Ease of Use (on a 1-to-10 scale with 1 being easiest)</b></p></td>
-      <td colspan="1" rowspan="1"><p>5</p></td>
-    </tr>
-  </tbody>
-</table>
+|                                                           |                                                                                                                     |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Primary Use Cases**                                     | Use this connector to pull data about the status of projects and the individual tasks that apply to those projects. |
+| **Primary Metrics**                                       | - Project status - Start and complete dates - Hours per project - User hours - Resources - Common issues            |
+| **Primary Company Roles**                                 | - Project manager - Operations                                                                                      |
+| **Average Implementation Time**                           | 5-10 hours for basic implementation                                                                                 |
+| **Ease of Use (on a 1-to-10 scale with 1 being easiest)** | 5                                                                                                                   |
 
 
 ## Best Practices
@@ -65,64 +42,24 @@ This section enumerates the options in the **Credentials**, ** Details**, and
 
 This pane contains fields for entering credentials to connect to your Workfront account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username to log into your Workfront account. You must provide a username and password OR an API Key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Password</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the password to log into your Workfront account. You must provide a username and password OR an API Key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>API Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your Workfront API key. You must update the API key in the connector connection when it expires. You must provide a username and password OR an API Key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>URL</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the URL for your AtTask/Workfront server (for example, <a href="https://yourcompany.attask-ondemand.com">https://yourcompany.attask-ondemand.com</a>>).</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>API Version</p></td>
-      <td colspan="1" rowspan="1"><p>Choose the API version to connect to.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field       | Description                                                                                                                                                    |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Username    | Enter the username to log into your Workfront account. You must provide a username and password OR an API Key.                                                 |
+| Password    | Enter the password to log into your Workfront account. You must provide a username and password OR an API Key.                                                 |
+| API Key     | Enter your Workfront API key. You must update the API key in the connector connection when it expires. You must provide a username and password OR an API Key. |
+| URL         | Enter the URL for your AtTask/Workfront server (for example, [https://yourcompany.attask-ondemand.com](https://yourcompany.attask-ondemand.com)>).             |
+| API Version | Choose the API version to connect to.                                                                                                                          |
 Once you have entered valid Workfront credentials, you can use the same account any time you go to create a new Workfront DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains options for selecting a Workfront object and configuring filter fields, date range, etc.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Parameter</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Workfornt report you want to run. The following reports are available:</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Fields</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom fields for your report, separated by commas</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Reference Fields</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the reference fields for your report as a comma-separated list.  Format: <span class="mt-font-courier-new">reference object:reference field</span></p></td>
-    </tr>
-  </tbody>
-</table>
+| Parameter        | Description                                                                                                      |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Report           | Select the Workfornt report you want to run. The following reports are available:                                |
+| Custom Fields    | Enter the custom fields for your report, separated by commas                                                     |
+| Reference Fields | Enter the reference fields for your report as a comma-separated list. Format: `reference object:reference field` |
 ### Other Panes
 
 For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

@@ -149,70 +149,23 @@ You can use the AWS Management Console to create a role that an IAM user can ass
 
 This pane contains fields for entering credentials to connect to an Amazon S3 bucket. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Field </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Role ARN{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the Amazon Resource Name (ARN) of the role you want to assume.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Role Session Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the identifier for the assumed role session.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        External ID{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the unique identifier used by third parties when assuming roles in their customers' accounts.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Bucket{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the Amazon S3 Bucket you want to pull files from.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Region{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the S3 Bucket Region where your file is located.{" "}
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field                         | Description                                                                                                     |
+| ----------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| {" "}
+ Role ARN{" "}          | {" "}
+ Enter the Amazon Resource Name (ARN) of the role you want to assume.{" "}                                |
+| {" "}
+ Role Session Name{" "} | {" "}
+ Enter the identifier for the assumed role session.{" "}                                                  |
+| {" "}
+ External ID{" "}       | {" "}
+ Enter the unique identifier used by third parties when assuming roles in their customers' accounts.{" "} |
+| {" "}
+ Bucket{" "}            | {" "}
+ Enter the Amazon S3 Bucket you want to pull files from.{" "}                                             |
+| {" "}
+ Region{" "}            | {" "}
+ Select the S3 Bucket Region where your file is located.{" "}                                             |
 
 Once you have entered valid Amazon S3 credentials, you can use the same account any time you go to create a new Amazon S3 AssumedRole Advanced V2 DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -220,328 +173,104 @@ Once you have entered valid Amazon S3 credentials, you can use the same account 
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Menu </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        What File Type would you like to import?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the file type that you would like to parse and import, either CSV, JSON, TSV, TXT, XML, XLS, or XLSX.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Prefix{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter a prefix to filter results by. A prefix limits the results to only those keys that begin with the specified
-        prefix.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        File Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the name of the Amazon S3 Object(file) that you would like to import.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        File Name Match Type{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Specify whether the file you want to retrieve starts with or contains the text you entered under <b>
-          <b> File Name </b>
-        </b>.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        File Compression Type{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the compression type of your file, either Gzip, zip, or none.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Subfile Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the name or a portion of the name of the subfiles that you would like to import.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Add Filename Column{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Specify if the <b>
-          <b> _BATCH_FILE_NAME_ </b>
-        </b> column should be added to the final output or not.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the Delimiting Character{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the delimiting character used in your file. If your delimiter is not listed select 'Other.'{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Specify your Delimiter{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the character used to delimit your character separated values (CSV) text.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Quote Character{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the desired quote character for parsing CSV files. Double quote is the default quote character for CSV standard.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Custom Quote Character{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the desired CSV Quote character.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Escape Character{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select the desired escape character for parsing CSV files.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Custom Escape Character{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the desired CSV escape character.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Are Headers present in CSV file?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select YES if the file contains headers, else select NO.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Date Columns and Formats{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the desired date column names and their respective formats as specified below, in the same order they exist
-        in the file. <br /> Example: columnName1:dateFormat1,columnName2:dateFormat2 <br /> columnName1:dd-MM-yyyy,columnName2:MM-dd-yyyy{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Session Duration In Hours{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the role session duration (in hours). Note that this value can range from 1 to 12 hours, and it must be less
-        than or equal to the maximum session duration set for the role.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Ensure Consistent Column Count Across Rows (checkbox){" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Terminates the execution if malformed data with inconsistent column values is detected.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enable parsing for large JSON files?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select Yes to enable parsing large JSON files.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Does your JSON text require a line reader?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select Yes if your JSON text includes multiple lines that should be read.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Should the backslash be escaped?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select Yes if your JSON text has backslash characters that need to be escaped.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter your data tag{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the tag for the data in your file.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter your sub list to flatten{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the comma-separated lists that you would like to flatten out in your data.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter fields to exclude{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Provide a comma-separated list of fields you want to exclude from the import.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter your header tag{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the tag for the header in your JSON text.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Header Start Row{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the header start row number in the file.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Data Start Row{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the data start row number in the file.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Footer Rows to Skip{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the number of rows at the end of the file to skip. For example, to skip the last two rows you would enter 2.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Sheet Name{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter the sheet name you want to retrieve from the specified spreadsheet be sure to check sheet name for accidental
-        spaces, first sheet of the workbook will be used if the field is left blank.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter XPath Expression{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Enter your XPath expression.{" "}
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Do you require Attributes in Data?{" "}
-      </td>
-      <td colspan="1" rowspan="1">
-        {" "}
-        Select 'Yes' if you require attributes values as a part of data.{" "}
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Menu                                                              | Description                                                                                                                                                                                                                                                    |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| {" "}
+ What File Type would you like to import?{" "}              | {" "}
+ Select the file type that you would like to parse and import, either CSV, JSON, TSV, TXT, XML, XLS, or XLSX.{" "}                                                                                                                                       |
+| {" "}
+ Prefix{" "}                                                | {" "}
+ Enter a prefix to filter results by. A prefix limits the results to only those keys that begin with the specified
+ prefix.{" "}                                                                                                                         |
+| {" "}
+ File Name{" "}                                             | {" "}
+ Enter the name of the Amazon S3 Object(file) that you would like to import.{" "}                                                                                                                                                                        |
+| {" "}
+ File Name Match Type{" "}                                  | {" "}
+ Specify whether the file you want to retrieve starts with or contains the text you entered under ** File Name**
+ .{" "}                                                                                                                                 |
+| {" "}
+ File Compression Type{" "}                                 | {" "}
+ Select the compression type of your file, either Gzip, zip, or none.{" "}                                                                                                                                                                               |
+| {" "}
+ Subfile Name{" "}                                          | {" "}
+ Enter the name or a portion of the name of the subfiles that you would like to import.{" "}                                                                                                                                                             |
+| {" "}
+ Add Filename Column{" "}                                   | {" "}
+ Specify if the ** _BATCH_FILE_NAME_**
+ column should be added to the final output or not.{" "}                                                                                                                                                          |
+| {" "}
+ Select the Delimiting Character{" "}                       | {" "}
+ Select the delimiting character used in your file. If your delimiter is not listed select 'Other.'{" "}                                                                                                                                                 |
+| {" "}
+ Specify your Delimiter{" "}                                | {" "}
+ Enter the character used to delimit your character separated values (CSV) text.{" "}                                                                                                                                                                    |
+| {" "}
+ Quote Character{" "}                                       | {" "}
+ Select the desired quote character for parsing CSV files. Double quote is the default quote character for CSV standard.{" "}                                                                                                                            |
+| {" "}
+ Custom Quote Character{" "}                                | {" "}
+ Enter the desired CSV Quote character.{" "}                                                                                                                                                                                                             |
+| {" "}
+ Escape Character{" "}                                      | {" "}
+ Select the desired escape character for parsing CSV files.{" "}                                                                                                                                                                                         |
+| {" "}
+ Custom Escape Character{" "}                               | {" "}
+ Enter the desired CSV escape character.{" "}                                                                                                                                                                                                            |
+| {" "}
+ Are Headers present in CSV file?{" "}                      | {" "}
+ Select YES if the file contains headers, else select NO.{" "}                                                                                                                                                                                           |
+| {" "}
+ Date Columns and Formats{" "}                              | {" "}
+ Enter the desired date column names and their respective formats as specified below, in the same order they exist
+ in the file. <br/> Example: columnName1:dateFormat1,columnName2:dateFormat2 <br/> columnName1:dd-MM-yyyy,columnName2:MM-dd-yyyy{" "} |
+| {" "}
+ Session Duration In Hours{" "}                             | {" "}
+ Enter the role session duration (in hours). Note that this value can range from 1 to 12 hours, and it must be less
+ than or equal to the maximum session duration set for the role.{" "}                                                                |
+| {" "}
+ Ensure Consistent Column Count Across Rows (checkbox){" "} | {" "}
+ Terminates the execution if malformed data with inconsistent column values is detected.{" "}                                                                                                                                                            |
+| {" "}
+ Enable parsing for large JSON files?{" "}                  | {" "}
+ Select Yes to enable parsing large JSON files.{" "}                                                                                                                                                                                                     |
+| {" "}
+ Does your JSON text require a line reader?{" "}            | {" "}
+ Select Yes if your JSON text includes multiple lines that should be read.{" "}                                                                                                                                                                          |
+| {" "}
+ Should the backslash be escaped?{" "}                      | {" "}
+ Select Yes if your JSON text has backslash characters that need to be escaped.{" "}                                                                                                                                                                     |
+| {" "}
+ Enter your data tag{" "}                                   | {" "}
+ Enter the tag for the data in your file.{" "}                                                                                                                                                                                                           |
+| {" "}
+ Enter your sub list to flatten{" "}                        | {" "}
+ Enter the comma-separated lists that you would like to flatten out in your data.{" "}                                                                                                                                                                   |
+| {" "}
+ Enter fields to exclude{" "}                               | {" "}
+ Provide a comma-separated list of fields you want to exclude from the import.{" "}                                                                                                                                                                      |
+| {" "}
+ Enter your header tag{" "}                                 | {" "}
+ Enter the tag for the header in your JSON text.{" "}                                                                                                                                                                                                    |
+| {" "}
+ Header Start Row{" "}                                      | {" "}
+ Enter the header start row number in the file.{" "}                                                                                                                                                                                                     |
+| {" "}
+ Data Start Row{" "}                                        | {" "}
+ Enter the data start row number in the file.{" "}                                                                                                                                                                                                       |
+| {" "}
+ Footer Rows to Skip{" "}                                   | {" "}
+ Enter the number of rows at the end of the file to skip. For example, to skip the last two rows you would enter 2.{" "}                                                                                                                                 |
+| {" "}
+ Sheet Name{" "}                                            | {" "}
+ Enter the sheet name you want to retrieve from the specified spreadsheet be sure to check sheet name for accidental
+ spaces, first sheet of the workbook will be used if the field is left blank.{" "}                                                  |
+| {" "}
+ Enter XPath Expression{" "}                                | {" "}
+ Enter your XPath expression.{" "}                                                                                                                                                                                                                       |
+| {" "}
+ Do you require Attributes in Data?{" "}                    | {" "}
+ Select 'Yes' if you require attributes values as a part of data.{" "}                                                                                                                                                                                   |
 
 ### Other Panes
 

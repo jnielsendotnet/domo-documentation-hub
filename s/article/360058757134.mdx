@@ -45,32 +45,12 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Snowflake Managed Unload account. The following table describes what is needed for each field:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your Snowflake account name. For more information, see <a href="#h_01ES6VKF5A1N9WPTTBV00ZQDBF">Prerequisites</a>.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username you use to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Password</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the password you use to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Role</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your role.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field        | Description                                                                                                  |
+| ------------ | ------------------------------------------------------------------------------------------------------------ |
+| Account Name | Enter your Snowflake account name. For more information, see [Prerequisites](#h_01ES6VKF5A1N9WPTTBV00ZQDBF). |
+| Username     | Enter the username you use to connect to your Snowflake host.                                                |
+| Password     | Enter the password you use to connect to your Snowflake host.                                                |
+| Role         | Enter your role.                                                                                             |
 
 Once you have entered valid Snowflake Managed Unload credentials, you can use the same account any time you go to create a new Snowflake Managed Unload DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
@@ -78,76 +58,23 @@ Once you have entered valid Snowflake Managed Unload credentials, you can use th
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Query Type. The following query types are available:</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the SQL query to retrieve your data. You can use the <b>Query Helper</b> parameter to help you write a usable SQL query. To use the <b> Query Helper</b>, do the following:   1. Select your desired warehouse, database, database schema, database object, and table columns or views in each menu. 2. Copy the SQL statement that appears in the <b> Query Helper</b> field. 3. Paste the copied SQL statement into the <b> Query</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
-      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve. The list populates with all of the warehouses you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Databases</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve. The list populates with all of the databases you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Schemas</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve. The list populates with all of the schemas you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Objects</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database object containing the data you want to retrieve. The list populates with all of the objects you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Views</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database view you want to retrieve. The list populates with all of the views you have access to based on your credentials. If you do not select a database view, the connector retrieves your entire database schema.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Tables</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database table you want to retrieve. The list populates with all of the tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Columns</p></td>
-      <td colspan="1" rowspan="1"><p>Select the table columns you want to retrieve. The list populates with all of the columns you have access to based on your credentials. If you do not select a table column, the connector retrieves your entire selected database table.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste the SQL statement in this field into the <b>Query</b> field. For more information, see <b> Query</b>, above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Support</p></td>
-      <td colspan="1" rowspan="1"><p>Choose whether or not to partition your data.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Days</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select the required date format. By default, <b>yyyy-MM-dd</b> will be used.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom date format.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Tag</p></td>
-      <td colspan="1" rowspan="1"><p>Optional parameter that can be used to tag connector SQL executions in Snowflake as a <b>Query Tag</b>.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu               | Description                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report             | Select the Query Type. The following query types are available:                                                                                                                                                                                                                                                                                                                                                                     |
+| Query              | Enter the SQL query to retrieve your data. You can use the **Query Helper** parameter to help you write a usable SQL query. To use the **Query Helper**, do the following: 1. Select your desired warehouse, database, database schema, database object, and table columns or views in each menu. 2. Copy the SQL statement that appears in the **Query Helper** field. 3. Paste the copied SQL statement into the **Query** field. |
+| Warehouses         | Select the warehouse containing the data you want to retrieve. The list populates with all of the warehouses you have access to based on your credentials.                                                                                                                                                                                                                                                                          |
+| Databases          | Select the database containing the data you want to retrieve. The list populates with all of the databases you have access to based on your credentials.                                                                                                                                                                                                                                                                            |
+| Database Schemas   | Select the database schema containing the data you want to retrieve. The list populates with all of the schemas you have access to based on your credentials.                                                                                                                                                                                                                                                                       |
+| Database Objects   | Select the database object containing the data you want to retrieve. The list populates with all of the objects you have access to based on your credentials.                                                                                                                                                                                                                                                                       |
+| Database Views     | Select the database view you want to retrieve. The list populates with all of the views you have access to based on your credentials. If you do not select a database view, the connector retrieves your entire database schema.                                                                                                                                                                                                    |
+| Database Tables    | Select the database table you want to retrieve. The list populates with all of the tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.                                                                                                                                                                                                 |
+| Table Columns      | Select the table columns you want to retrieve. The list populates with all of the columns you have access to based on your credentials. If you do not select a table column, the connector retrieves your entire selected database table.                                                                                                                                                                                           |
+| Query Helper       | When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste the SQL statement in this field into the **Query** field. For more information, see **Query**, above.                                                                                                                                                                          |
+| Partition Support  | Choose whether or not to partition your data.                                                                                                                                                                                                                                                                                                                                                                                       |
+| Past Days          | Enter the number of past days that you want to get data for. Value can be X, where X is a positive integer. For example: 30.                                                                                                                                                                                                                                                                                                        |
+| Date Format        | Select the required date format. By default, **yyyy-MM-dd** will be used.                                                                                                                                                                                                                                                                                                                                                           |
+| Custom Date Format | Enter the custom date format.                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Query Tag          | Optional parameter that can be used to tag connector SQL executions in Snowflake as a **Query Tag**.                                                                                                                                                                                                                                                                                                                                |
 
 
 ## Other Panes

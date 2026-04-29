@@ -48,104 +48,21 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Domo developer account as well as the table in your PostgreSQL database where you want your data to be copied to. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Field </span>
-        </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Description </span>
-        </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Domo Client ID </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your Domo client ID. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Domo Client Secret </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your Domo client secret. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Username </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your PostgreSQL username. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Password </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your PostgreSQL password. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Host </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your PostgreSQL database hostname. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Port </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your PostgreSQL database port number. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Certificate </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Paste the text for your CA certificate, or enter the URL where your certificate is located. By default no certificate
-          is required.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Certificate Type </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Select a certificate type. This must match what you enter in the <b> Certificate </b> field. If you are not aware
-          of a special certificate, select <b> No certificate </b>.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Database Name </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the name of your PostgreSQL database. </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field              | Description                                                                                                                                                                    |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Domo Client ID     | Enter your Domo client ID.                                                                                                                                                     |
+| Domo Client Secret | Enter your Domo client secret.                                                                                                                                                 |
+| Username           | Enter your PostgreSQL username.                                                                                                                                                |
+| Password           | Enter your PostgreSQL password.                                                                                                                                                |
+| Host               | Enter your PostgreSQL database hostname.                                                                                                                                       |
+| Port               | Enter your PostgreSQL database port number.                                                                                                                                    |
+| Certificate        | {" "}
+ Paste the text for your CA certificate, or enter the URL where your certificate is located. By default no certificate
+ is required.{" "}                                |
+| Certificate Type   | {" "}
+ Select a certificate type. This must match what you enter in the **Certificate** field. If you are not aware
+ of a special certificate, select **No certificate**.{" "} |
+| Database Name      | Enter the name of your PostgreSQL database.                                                                                                                                    |
 
 For more information about obtaining these credentials, see "Prerequisites," above.
 
@@ -155,82 +72,23 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Menu </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> DataSet ID </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Enter the DataSet ID (GUID) for the DataSet you want to copy to PostgreSQL. You can find the ID by opening the
-          details view for the DataSet in the Data Center and looking at the portion of the URL following 
-          <span class="mt-font-courier-new">
-            {" "}
-            datasources/{" "}
-          </span>
-          . For example, in the URL
-           <span class="mt-font-courier-new">
-            <span class="nowiki">
-              <a
-                href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"
-                rel="noopener"
-                target="_blank"
-              >
-                {" "}
-                https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}
-              </a>
-            </span>
-          </span>
-           , the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Table Name Source </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Choose how the SQL table should be named. </p>
-        <ul>
-          <li>
-            <p>
-              <b> DataSet ID: </b> The table name will be the number you entered for <b> DataSet ID </b>.{" "}
-            </p>
-          </li>
-          <li>
-            <p>
-              <b> DataSet Name: </b> The table name will be the same as that of the input DataSet.{" "}
-            </p>
-          </li>
-          <li>
-            <p>
-              <b> Custom Name: </b> You will give the table a custom name in the <b> Custom Table Name </b> field.{" "}
-            </p>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Operation Type </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <div>
-          <div> Select an operation type to perform: </div>
-          <div>
-            <table class="zebra-striped bordered">
+| Menu                | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DataSet ID          | {" "}
+ Enter the DataSet ID (GUID) for the DataSet you want to copy to PostgreSQL. You can find the ID by opening the
+ details view for the DataSet in the Data Center and looking at the portion of the URL following 
+ `{" "}
+ datasources/{" "}`
+ . For example, in the URL
+ `
+ [{" "}
+ https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview)`
+ 
+ , the DataSet ID is `845305d8-da3d-4107-a9d6-13ef3f86d4a4.`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Table Name Source   | Choose how the SQL table should be named.<br/>DataSet ID: The table name will be the number you entered for DataSet ID .{" "}<br/>DataSet Name: The table name will be the same as that of the input DataSet.{" "}<br/>Custom Name: You will give the table a custom name in the Custom Table Name field.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Operation Type      | Select an operation type to perform: 
+ 
+ <table class="zebra-striped bordered">
               <tbody>
                 <tr>
                   <th colspan="1" rowspan="1">
@@ -265,39 +123,16 @@ This pane contains a number of fields for specifying your data and indicating wh
                   </td>
                 </tr>
               </tbody>
-            </table>
-          </div>
-        </div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Custom Table Name </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Enter the name for the SQL table in your PostgreSQL database, where you want your DataSet data to be copied.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Table Update Method </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          When you select the 
-          <b> Operation Type </b> as 
-          <b> Update an Existing Table </b>, the 
-          <b>
-            {" "}
-            Table Update Method{" "}
-          </b> 
-          field appears. <br /> Select how you want to update the database table:{" "}
-        </p>
-        <table border="1">
+            </table>                                                                                                                                                                                           |
+| Custom Table Name   | {" "}
+ Enter the name for the SQL table in your PostgreSQL database, where you want your DataSet data to be copied.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Table Update Method | {" "}
+ When you select the 
+ **Operation Type** as 
+ **Update an Existing Table**, the 
+ **{" "}
+ Table Update Method{" "}** 
+ field appears. <br/> Select how you want to update the database table:{" "}<br/><table border="1">
           <tbody>
             <tr>
               <td colspan="1" rowspan="1">
@@ -338,11 +173,7 @@ This pane contains a number of fields for specifying your data and indicating wh
               </td>
             </tr>
           </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </table> |
 
 ## Other Panes
 

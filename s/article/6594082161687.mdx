@@ -34,7 +34,10 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to create a DataSet Copy account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Access Token </p></td><td colspan="1" rowspan="1"><p> Enter the developer token for the DataSet you are copying data from. </p></td></tr><tr><td colspan="1" rowspan="1"> Domo Instance </td><td colspan="1" rowspan="1"> Enter t <span> he Domo instance name. For example, in <a href="https://abc123.domo.com" rel="noopener" target="_blank"> https://abc123.domo.com </a>, abc123 is the instance. </span></td></tr></tbody></table>
+| Field         | Description                                                                                                                |
+| ------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Access Token  | Enter the developer token for the DataSet you are copying data from.                                                       |
+| Domo Instance | Enter t he Domo instance name. For example, in [https://abc123.domo.com](https://abc123.domo.com), abc123 is the instance. |
 
 For more information about obtaining the above credentials, see "Prerequisites," above.
 
@@ -44,7 +47,13 @@ Once you have entered valid credentials, you can use the same account any time y
 
 In this pane you enter details about the DataSet you want to copy.
 
-<table border="1" cellpadding="1" cellspacing="1" class="mt-responsive-table" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSource ID </p></td><td colspan="1" rowspan="1"><p> Enter the <span> Domo DataSource ID of the DataSet to pull data from. The DataSource ID is the GUID in the URL of the DataSet, immediately after /datasources/. </span></p></td></tr><tr><td colspan="1" rowspan="1"> Exclude Meta Columns </td><td colspan="1" rowspan="1"> Select this checkbox if you do not want Domo to add meta columns to the copied dataset (Batch ID, Batch Last Run, and Domo Instance). </td></tr><tr><td colspan="1" rowspan="1"><p> Only Updated Data </p></td><td colspan="1" rowspan="1"><p><span> Choose 'Yes' to retrieve data only if the dataset has ran after the latest run of this copy dataset. This helps prevent stale data. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Preserve Empty String </p></td><td colspan="1" rowspan="1"><p><span> Select this checkbox if you do not want the empty strings to be converted into null values. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Use Origin DataSet's Schema </p></td><td colspan="1" rowspan="1"><p><span> Choose 'Yes' to use the schema from the inputted dataset for every run. </span></p></td></tr></tbody></table>
+| Field                       | Description                                                                                                                                              |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DataSource ID               | Enter the Domo DataSource ID of the DataSet to pull data from. The DataSource ID is the GUID in the URL of the DataSet, immediately after /datasources/. |
+| Exclude Meta Columns        | Select this checkbox if you do not want Domo to add meta columns to the copied dataset (Batch ID, Batch Last Run, and Domo Instance).                    |
+| Only Updated Data           | Choose 'Yes' to retrieve data only if the dataset has ran after the latest run of this copy dataset. This helps prevent stale data.                      |
+| Preserve Empty String       | Select this checkbox if you do not want the empty strings to be converted into null values.                                                              |
+| Use Origin DataSet's Schema | Choose 'Yes' to use the schema from the inputted dataset for every run.                                                                                  |
 
 ### Other Panes
 

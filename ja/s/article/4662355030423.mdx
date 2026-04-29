@@ -12,7 +12,11 @@ title: "メモリのアップグレードをリクエストする"
 
 現在、スクリプトタイルのコンテナオプションには3つの階層があります。コンテナとは、リソースの等級であるCPUおよびメモリレベルのことです。これらは、スクリプトタイルを使用するDataFlowのインスタンスレベルでアクティブになります。
 
-<table border="1" data-aura-rendered-by="33:201;a"><thead><tr><td colspan="1" rowspan="1"><b> 製品 </b></td><td colspan="1" rowspan="1"><b> ユースケース </b></td><td colspan="1" rowspan="1"><b> コンテナ </b></td></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><b> エントリースクリプトタイル </b></p><p><em> Python/Rタイル </em></p></td><td colspan="1" rowspan="1"><p> ETLのオペレーション（データサイエンス以外） </p></td><td colspan="1" rowspan="1"> 16メモリ（Gib）、1CPU </td></tr><tr><td colspan="1" rowspan="1"><p><b> データサイエンスタイル1 </b></p><p><em> Python/R、アクションタイル </em></p></td><td colspan="1" rowspan="1"> データサイエンス操作 </td><td colspan="1" rowspan="1"> 32メモリ（Gib）、2CPU </td></tr><tr><td colspan="1" rowspan="1"><p><b> データサイエンスタイル2 </b></p><p><em> Python/R、アクションタイル </em></p></td><td colspan="1" rowspan="1"> データサイエンスのオペレーション – メモリ負荷の高いケース </td><td colspan="1" rowspan="1"> 64メモリ（Gib）、2 CPU </td></tr></tbody></table>
+| **製品**                                   | **ユースケース**                     | **コンテナ**         |
+| ---------------------------------------- | ------------------------------ | ---------------- |
+| **エントリースクリプトタイル**<br/>*Python/Rタイル*      | ETLのオペレーション（データサイエンス以外）        | 16メモリ（Gib）、1CPU  |
+| **データサイエンスタイル1**<br/>*Python/R、アクションタイル* | データサイエンス操作                     | 32メモリ（Gib）、2CPU  |
+| **データサイエンスタイル2**<br/>*Python/R、アクションタイル* | データサイエンスのオペレーション – メモリ負荷の高いケース | 64メモリ（Gib）、2 CPU |
 
 <Warning>
   **重要：** これらは、2022年2月現在での製品とコンテナの組み合わせです。

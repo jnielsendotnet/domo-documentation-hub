@@ -80,20 +80,9 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to a Google service account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Service Account Key JSON</p></td>
-      <td colspan="1" rowspan="1"><p>Copy and paste the JSON for your Google service account key. For information about creating a key, see "Prerequisites," above.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field                    | Description                                                                                                                    |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Service Account Key JSON | Copy and paste the JSON for your Google service account key. For information about creating a key, see "Prerequisites," above. |
 
 Once you have entered a valid key, you can use the same account any time you go to create a new Google Drive Service DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
@@ -101,104 +90,30 @@ Once you have entered a valid key, you can use the same account any time you go 
 
 In this pane, you can choose to import a list of files in your Google Drive account or specify a Google Drive file to import into Domo and set options for how you want the data to appear.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1"><p>Select whether you want to import a list of files ("Files") or download a specific files ("FileDownload").</p><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p>Files</p></td><td colspan="1" rowspan="1"><p>Returns list of files in drive.</p></td></tr><tr><td colspan="1" rowspan="1"><p>File Download</p></td><td colspan="1" rowspan="1"><p>Imports a file from google drive into Domo.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Fetch Data from Shared Drives</p></td><td colspan="1" rowspan="1"><p>Select <b>Yes</b> if you want the connector to fetch data from the Shared Drives.</p></td></tr></tbody></table></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How Would You Like to Choose Your File?</p></td>
-      <td colspan="1" rowspan="1"><p>Select how you want to choose the file you intend to import into Domo. Select <b>Enter File Name</b> or <b>Enter File ID</b> to enter the name or ID yourself. Select <b>Files Discovery</b> to choose your file from a list of files.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How would you like to match the Sheet Name?</p></td>
-      <td colspan="1" rowspan="1"><p>If the user selects <b>Contains</b>, the connector will retrieve the most recently uploaded file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>File ID</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the ID of the file you want to import. To see all IDs for files in your account, run the "Files" report.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>File Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of the file you want to import from Google Drive.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Files Discovery</p></td>
-      <td colspan="1" rowspan="1"><p>Select the file you want to import into Domo.</p><p><b>Note:</b> The File Discovery option is available only if the number of files in the Google Drive account is less than or equal to 100.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>MIME Type</p></td>
-      <td colspan="1" rowspan="1"><p>Select the MIME type of the file you want to import into Domo.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>What File Type Would You Like to Import?</p></td>
-      <td colspan="1" rowspan="1"><p>Select the file type that you would like to parse and import.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Select the delimiting character</p></td>
-      <td colspan="1" rowspan="1"><p>Select the delimiting character used in your file. If your delimiter is not listed select 'Other.'</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Specify your delimiter</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the character used to delimit your character separated values (CSV) text.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Quote Character</p></td>
-      <td colspan="1" rowspan="1"><p>Select the desired quote character for parsing CSV files. (Double quote is the default quote character for CSV standard).</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Quote Character</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom quote character you want to use to parse your CSV file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Escape Character</p></td>
-      <td colspan="1" rowspan="1"><p>Select the escape character to use to parse your CSV file. To choose a custom escape character, select <b>Other</b>, then enter your delimiter in the <b>Custom Escape Character</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Escape Character</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom quote character you want to use to parse your CSV file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select the date format that is used in the selected file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Header Start Row</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the header start row for your Excel file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Data Start Row</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the data start row for your Excel file.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Footer Rows to Skip</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of rows to skip at the end of your Excel file, if any.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How would you like to match the sheet name?</p></td>
-      <td colspan="1" rowspan="1"><p>Select whether you would like to match the sheet name with a sheet that contains the provided name or is exactly equivalent to the provided name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>File Password</p></td>
-      <td colspan="1" rowspan="1"><p>If your file is password protected please enter file password.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Sheet Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the sheet name you want to retrieve from the specified spreadsheet be sure to check sheet name for accidental spaces, first sheet of the workbook will be used if the field is left blank.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Blank Rows</p></td>
-      <td colspan="1" rowspan="1"><p>If you encounter blank rows, you can either skip the blank rows or stop at the first blank row.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                                        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report                                      | Select whether you want to import a list of files ("Files") or download a specific files ("FileDownload").<br/><table border="1" cellpadding="1" cellspacing="1"><tbody><tr><td colspan="1" rowspan="1"><p>Files</p></td><td colspan="1" rowspan="1"><p>Returns list of files in drive.</p></td></tr><tr><td colspan="1" rowspan="1"><p>File Download</p></td><td colspan="1" rowspan="1"><p>Imports a file from google drive into Domo.</p></td></tr><tr><td colspan="1" rowspan="1"><p>Fetch Data from Shared Drives</p></td><td colspan="1" rowspan="1"><p>Select <b>Yes</b> if you want the connector to fetch data from the Shared Drives.</p></td></tr></tbody></table> |
+| How Would You Like to Choose Your File?     | Select how you want to choose the file you intend to import into Domo. Select **Enter File Name** or **Enter File ID** to enter the name or ID yourself. Select **Files Discovery** to choose your file from a list of files.                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| How would you like to match the Sheet Name? | If the user selects **Contains**, the connector will retrieve the most recently uploaded file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| File ID                                     | Enter the ID of the file you want to import. To see all IDs for files in your account, run the "Files" report.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| File Name                                   | Enter the name of the file you want to import from Google Drive.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Files Discovery                             | Select the file you want to import into Domo.<br/>**Note:** The File Discovery option is available only if the number of files in the Google Drive account is less than or equal to 100.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| MIME Type                                   | Select the MIME type of the file you want to import into Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| What File Type Would You Like to Import?    | Select the file type that you would like to parse and import.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Select the delimiting character             | Select the delimiting character used in your file. If your delimiter is not listed select 'Other.'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Specify your delimiter                      | Enter the character used to delimit your character separated values (CSV) text.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Quote Character                             | Select the desired quote character for parsing CSV files. (Double quote is the default quote character for CSV standard).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Custom Quote Character                      | Enter the custom quote character you want to use to parse your CSV file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Escape Character                            | Select the escape character to use to parse your CSV file. To choose a custom escape character, select **Other**, then enter your delimiter in the **Custom Escape Character** field.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| Custom Escape Character                     | Enter the custom quote character you want to use to parse your CSV file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Date Format                                 | Select the date format that is used in the selected file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Header Start Row                            | Enter the header start row for your Excel file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Data Start Row                              | Enter the data start row for your Excel file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Footer Rows to Skip                         | Enter the number of rows to skip at the end of your Excel file, if any.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| How would you like to match the sheet name? | Select whether you would like to match the sheet name with a sheet that contains the provided name or is exactly equivalent to the provided name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| File Password                               | If your file is password protected please enter file password.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Sheet Name                                  | Enter the sheet name you want to retrieve from the specified spreadsheet be sure to check sheet name for accidental spaces, first sheet of the workbook will be used if the field is left blank.                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Blank Rows                                  | If you encounter blank rows, you can either skip the blank rows or stop at the first blank row.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 
 ### Other Panes
 

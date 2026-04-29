@@ -71,36 +71,11 @@ To configure the public/private key pair, follow these steps:
    - Exclude the public key header and footer in the SQL statement.
 5. Verify the user’s public key fingerprint using DESCRIBE USER:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Property</p></th>
-      <th colspan="1" rowspan="1"><p>Value</p></th>
-      <th colspan="1" rowspan="1"><p>Default</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-      <td colspan="1" rowspan="1"><p>JSMITH</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA=</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's RSA public key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_2\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's second RSA public key.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Property                | Value                                               | Default | Description                                  |
+| ----------------------- | --------------------------------------------------- | ------- | -------------------------------------------- |
+| Name                    | JSMITH                                              | null    | Name                                         |
+| RSA\_PUBLIC\_KEY\_FP    | SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA= | null    | Fingerprint of user's RSA public key.        |
+| RSA\_PUBLIC\_KEY\_2\_FP | null                                                | null    | Fingerprint of user's second RSA public key. |
    
 <Note>
 
@@ -200,56 +175,18 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to your Snowflake account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the full name of your account (provided by Snowflake.) For US West Region <b>account\_name</b> and All other regions <b> account\_name.region\_id</b></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username used to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Private Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the private key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Passphrase</p></td>
-      <td colspan="1" rowspan="1"><p>If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Role</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your role.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Access Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Secret Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS secret access key. It was provided when you created your Access Key. You can generate a new one in the AWS Console.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Bucket</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of the AWS S3 bucket that your Snowflake data will be unloaded into.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Region</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Amazon S3 Region.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Encryption Type</p></td>
-      <td colspan="1" rowspan="1"><p>Specify the encryption type for unloading data to files in storage locations.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field           | Description                                                                                                                                          |
+| --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account Name    | Enter the full name of your account (provided by Snowflake.) For US West Region **account\_name** and All other regions **account\_name.region\_id** |
+| Username        | Enter the username used to connect to your Snowflake host.                                                                                           |
+| Private Key     | Enter the private key.                                                                                                                               |
+| Passphrase      | If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.      |
+| Role            | Enter your role.                                                                                                                                     |
+| Access Key      | Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM.               |
+| Secret Key      | Enter your AWS secret access key. It was provided when you created your Access Key. You can generate a new one in the AWS Console.                   |
+| Bucket          | Enter the name of the AWS S3 bucket that your Snowflake data will be unloaded into.                                                                  |
+| Region          | Select the Amazon S3 Region.                                                                                                                         |
+| Encryption Type | Specify the encryption type for unloading data to files in storage locations.                                                                        |
 
 Once you have entered valid credentials, you can use the same account any time you to create a new Snowflake KayPair Unload V2 dataset. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
@@ -257,116 +194,33 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How would you like to import data into Domo?</p></td>
-      <td colspan="1" rowspan="1"><p>Select how you want to import your data.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Type</p></td>
-      <td colspan="1" rowspan="1"><p></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
-      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Databases</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Schemas</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Objects</p></td>
-      <td colspan="1" rowspan="1"><p>Choose the database object.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Tables</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database table you want to retrieve. The list populates with all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Views</p></td>
-      <td colspan="1" rowspan="1"><p>Select the view.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Columns</p></td>
-      <td colspan="1" rowspan="1"><p>Select the table columns you would like to include in your report. If you do not select any table column, the connector will retrieve your entire selected database table.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View  Column Names</p></td>
-      <td colspan="1" rowspan="1"><p>Select the view columns that you would like to include in your report.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the SQL query to execute.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>Generated the query based on the selected fields.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>A query is generated based on the selected fields.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Criteria</p></td>
-      <td colspan="1" rowspan="1"><p>Select whether you want to partition your data using the date keys, non-date keys, or meta query.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Select Partition Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition column name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition column name. Only date fields will be shown in this discovery.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Enter Partition Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the partition column name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Days</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past days that you want to fetch the data for. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select the required date format. By default, <b>yyyy-MM-dd</b> will be used.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom date format.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Select Partition Non Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition column name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Non Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select a non-date key column name to partition the data. All the fields excluding Date fields will be shown in this discovery.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Enter Partition Non Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the partition column name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Query to determine partition tags</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the partition query to determine the distinct partition tags. The column containing the <b>Date</b> data is your partition column. Example: Select <b> Date</b> from Table\_Name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Upsert Key Column(s)</p></td>
-      <td colspan="1" rowspan="1"><p>Please enter upsert key column name or a comma separated list of upsert key column names. <b>Required only when Update method is Merge</b>.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                                         | Description                                                                                                                                                                                                                  |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| How would you like to import data into Domo? | Select how you want to import your data.                                                                                                                                                                                     |
+| Query Type                                   |                                                                                                                                                                                                                              |
+| Warehouses                                   | Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.                                                                          |
+| Databases                                    | Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.                                                                           |
+| Schemas                                      | Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.                                                                       |
+| Database Objects                             | Choose the database object.                                                                                                                                                                                                  |
+| Tables                                       | Select the database table you want to retrieve. The list populates with all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema. |
+| Views                                        | Select the view.                                                                                                                                                                                                             |
+| Table Columns                                | Select the table columns you would like to include in your report. If you do not select any table column, the connector will retrieve your entire selected database table.                                                   |
+| View  Column Names                           | Select the view columns that you would like to include in your report.                                                                                                                                                       |
+| Query                                        | Enter the SQL query to execute.                                                                                                                                                                                              |
+| Table Query Helper                           | Generated the query based on the selected fields.                                                                                                                                                                            |
+| View Query Helper                            | A query is generated based on the selected fields.                                                                                                                                                                           |
+| Partition Criteria                           | Select whether you want to partition your data using the date keys, non-date keys, or meta query.                                                                                                                            |
+| Select Partition Date Key Column Name        | Select the partition column name.                                                                                                                                                                                            |
+| Partition Column Name                        | Select the partition column name. Only date fields will be shown in this discovery.                                                                                                                                          |
+| Enter Partition Date Key Column Name         | Enter the partition column name.                                                                                                                                                                                             |
+| Past Days                                    | Enter the number of past days that you want to fetch the data for. Value can be X, where X is a positive integer. For example: 30.                                                                                           |
+| Date Format                                  | Select the required date format. By default, **yyyy-MM-dd** will be used.                                                                                                                                                    |
+| Custom Date Format                           | Enter the custom date format.                                                                                                                                                                                                |
+| Select Partition Non Date Key Column Name    | Select the partition column name.                                                                                                                                                                                            |
+| Partition Non Date Key Column Name           | Select a non-date key column name to partition the data. All the fields excluding Date fields will be shown in this discovery.                                                                                               |
+| Enter Partition Non Date Key Column Name     | Enter the partition column name.                                                                                                                                                                                             |
+| Partition Query to determine partition tags  | Enter the partition query to determine the distinct partition tags. The column containing the **Date** data is your partition column. Example: Select **Date** from Table\_Name.                                             |
+| Upsert Key Column(s)                         | Please enter upsert key column name or a comma separated list of upsert key column names. **Required only when Update method is Merge**.                                                                                     |
 
 ### Other Panes
 

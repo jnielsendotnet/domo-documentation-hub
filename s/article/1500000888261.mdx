@@ -68,36 +68,11 @@ To configure the public/private key pair, follow these steps:
    - Exclude the public key header and footer in the SQL statement.
 5. Verify the user’s public key fingerprint using DESCRIBE USER:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Property</p></th>
-      <th colspan="1" rowspan="1"><p>Value</p></th>
-      <th colspan="1" rowspan="1"><p>Default</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-      <td colspan="1" rowspan="1"><p>JSMITH</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA=</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's RSA public key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_2\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's second RSA public key.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Property                | Value                                               | Default | Description                                  |
+| ----------------------- | --------------------------------------------------- | ------- | -------------------------------------------- |
+| Name                    | JSMITH                                              | null    | Name                                         |
+| RSA\_PUBLIC\_KEY\_FP    | SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA= | null    | Fingerprint of user's RSA public key.        |
+| RSA\_PUBLIC\_KEY\_2\_FP | null                                                | null    | Fingerprint of user's second RSA public key. |
    
 <Note>**Note:** For more information about the RSA\_PUBLIC\_KEY\_2\_FP property, see Key Rotation.
 6. Modify and execute the sample code, below. The code decrypts the private key file and passes it to the Snowflake driver to create a connection:</Note>
@@ -193,36 +168,13 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to your Snowflake account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the full name of your account (provided by Snowflake.) For US West Region <b>account\_name</b> and All other regions <b> account\_name.region\_id</b></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username used to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Private Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the private key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Passphrase</p></td>
-      <td colspan="1" rowspan="1"><p>If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Role</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name for your role.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field        | Description                                                                                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account Name | Enter the full name of your account (provided by Snowflake.) For US West Region **account\_name** and All other regions **account\_name.region\_id** |
+| Username     | Enter the username used to connect to your Snowflake host.                                                                                           |
+| Private Key  | Enter the private key.                                                                                                                               |
+| Passphrase   | If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.      |
+| Role         | Enter the name for your role.                                                                                                                        |
 
 Once you have entered valid credentials, you can use the same account any time you to create a new Snowflake KayPair Partition dataset. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
@@ -230,124 +182,35 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How would you like to import data into Domo?</p></td>
-      <td colspan="1" rowspan="1"><p>Select how you want to import your data.  The following methods are available:   - Standard Update (Replace/Append) - Use Partition - Use Upsert</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>How would you like to build your Query?</p></td>
-      <td colspan="1" rowspan="1"><p></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
-      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Databases</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Schemas</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Objects</p></td>
-      <td colspan="1" rowspan="1"><p>Choose a database object.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Tables</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database table you want to retrieve.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Column Names</p></td>
-      <td colspan="1" rowspan="1"><p>Select the table columns that you want to include in your report.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>A query is generated based on the selected fields.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Views</p></td>
-      <td colspan="1" rowspan="1"><p>Select the view.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View Column Names</p></td>
-      <td colspan="1" rowspan="1"><p>Select the view columns that you want to include in your report.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>A query is generated based on the selected fields.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Criteria</p></td>
-      <td colspan="1" rowspan="1"><p>Select whether you want to partition your data using the date keys, non-date keys, or a meta query.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition column name. Only date fields will be displayed.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Support Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition format.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Non Date Key Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select a non-date key column name to partition the data. All the fields, excluding Date fields, will be displayed.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the query to execute. The query format must be like: select \* from \"databaseName\".\"schemaName\".\"tableName\""</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Query to determine partition tags</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the partition meta query to determine the distinct partition tags(or keys). The column containing the <b>Date</b> data is your partition column. Example: SELECT DISTINCT(DATE\_COLUMN\_NAME) FROM TABLENAME</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Days</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past days for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Years</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past years for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Future Years</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of future years for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Months</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past months for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Future Months</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of future months for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Data Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select/enter the proper date format according to the date format present in the partition column. By default, <b>yyyy-MM-dd</b> will be used.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom date format.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Upsert Key Column(s)</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the upsert key column name or a comma-separated list of upsert key column names. <b>Required only when the Update method is Merge</b>.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Tag</p></td>
-      <td colspan="1" rowspan="1"><p>Optional parameter that can be used to tag connector SQL executions in Snowflake as a <b>Query Tag</b>.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                                         | Description                                                                                                                                                                                                     |
+| -------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| How would you like to import data into Domo? | Select how you want to import your data. The following methods are available: - Standard Update (Replace/Append) - Use Partition - Use Upsert                                                                   |
+| How would you like to build your Query?      |                                                                                                                                                                                                                 |
+| Warehouses                                   | Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.                                                             |
+| Databases                                    | Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.                                                              |
+| Schemas                                      | Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.                                                          |
+| Database Objects                             | Choose a database object.                                                                                                                                                                                       |
+| Tables                                       | Select the database table you want to retrieve.                                                                                                                                                                 |
+| Table Column Names                           | Select the table columns that you want to include in your report.                                                                                                                                               |
+| Table Query Helper                           | A query is generated based on the selected fields.                                                                                                                                                              |
+| Views                                        | Select the view.                                                                                                                                                                                                |
+| View Column Names                            | Select the view columns that you want to include in your report.                                                                                                                                                |
+| View Query Helper                            | A query is generated based on the selected fields.                                                                                                                                                              |
+| Partition Criteria                           | Select whether you want to partition your data using the date keys, non-date keys, or a meta query.                                                                                                             |
+| Partition Column Name                        | Select the partition column name. Only date fields will be displayed.                                                                                                                                           |
+| Partition Support Format                     | Select the partition format.                                                                                                                                                                                    |
+| Partition Non Date Key Column Name           | Select a non-date key column name to partition the data. All the fields, excluding Date fields, will be displayed.                                                                                              |
+| Query                                        | Enter the query to execute. The query format must be like: select \* from \"databaseName\".\"schemaName\".\"tableName\""                                                                                        |
+| Partition Query to determine partition tags  | Enter the partition meta query to determine the distinct partition tags(or keys). The column containing the **Date** data is your partition column. Example: SELECT DISTINCT(DATE\_COLUMN\_NAME) FROM TABLENAME |
+| Past Days                                    | Enter the number of past days for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.                                                                             |
+| Past Years                                   | Enter the number of past years for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.                                                                            |
+| Future Years                                 | Enter the number of future years for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.                                                                          |
+| Past Months                                  | Enter the number of past months for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.                                                                           |
+| Future Months                                | Enter the number of future months for which you want to fetch the data. Value can be X, where X is a positive integer. For example: 30.                                                                         |
+| Data Format                                  | Select/enter the proper date format according to the date format present in the partition column. By default, **yyyy-MM-dd** will be used.                                                                      |
+| Custom Date Format                           | Enter the custom date format.                                                                                                                                                                                   |
+| Upsert Key Column(s)                         | Enter the upsert key column name or a comma-separated list of upsert key column names. **Required only when the Update method is Merge**.                                                                       |
+| Query Tag                                    | Optional parameter that can be used to tag connector SQL executions in Snowflake as a **Query Tag**.                                                                                                            |
 
 ### Other Panes
 

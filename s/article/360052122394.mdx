@@ -28,80 +28,28 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Amazon Athena account. The following table describes what is needed for each field:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Access Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS access key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Secret Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS secret key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>S3 Staging Directory</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the S3 staging directory to which the query output will be written. For more information, see <a href="#h_01EFFRDDXA0TM5J5DRR6WR3K88">Prerequisites</a>.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Region</p></td>
-      <td colspan="1" rowspan="1"><p>Select your AWS region.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Workgroup</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the workgroup.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field                | Description                                                                                                                                         |
+| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Access Key           | Enter your AWS access key.                                                                                                                          |
+| Secret Key           | Enter your AWS secret key.                                                                                                                          |
+| S3 Staging Directory | Enter the S3 staging directory to which the query output will be written. For more information, see [Prerequisites](#h_01EFFRDDXA0TM5J5DRR6WR3K88). |
+| Region               | Select your AWS region.                                                                                                                             |
+| Workgroup            | Enter the workgroup.                                                                                                                                |
 Once you have entered valid Amazon Athena credentials, you can use the same account any time you go to create a new Amazon Athena Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a number of options for entering your query and configuring the report.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the SQL query you want to execute (Example: select \* from table\_name).</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database you want to query.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the table in the database you want to query.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Partition Column Name</p></td>
-      <td colspan="1" rowspan="1"><p>Select the partition column name.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Past Days</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of past days you want to get data for. Value can be X, where X is a positive integer. Example: 30.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Select the required date format. By default <b>yyyy-MM-dd</b> will be used.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Custom Date Format</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the custom date format you wish to apply.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                  | Description                                                                                                         |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| Query                 | Enter the SQL query you want to execute (Example: select \* from table\_name).                                      |
+| Database Name         | Select the database you want to query.                                                                              |
+| Table Name            | Select the table in the database you want to query.                                                                 |
+| Partition Column Name | Select the partition column name.                                                                                   |
+| Past Days             | Enter the number of past days you want to get data for. Value can be X, where X is a positive integer. Example: 30. |
+| Date Format           | Select the required date format. By default **yyyy-MM-dd** will be used.                                            |
+| Custom Date Format    | Enter the custom date format you wish to apply.                                                                     |
 ### Other Panes
 
 For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

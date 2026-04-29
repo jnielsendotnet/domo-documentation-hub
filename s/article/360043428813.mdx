@@ -160,10 +160,22 @@ The rule(s) you have configured are now applied to this chart (and any other cha
 
 In any given drill view for a card, all color rules that have been applied to any of the parent views (even as "card only" rules) are applied. Let's say you have a drill path for a card set up as follows:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"><p> Drill Level </p></th><th colspan="1" rowspan="1"><p> Color Rules </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Top-level card </p></td><td colspan="1" rowspan="1"><p> Has rule X &amp; Y from the DataSet, no "card only" rules </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 1 </p></td><td colspan="1" rowspan="1"><p> No rules </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 2 </p></td><td colspan="1" rowspan="1"><p> Has rule A &amp; B applied as "card only" rules </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 3 </p></td><td colspan="1" rowspan="1"><p> Has rule C &amp; D applied as "card only" rules </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 4 </p></td><td colspan="1" rowspan="1"><p> No rules </p></td></tr></tbody></table>
+| Drill Level    | Color Rules                                           |
+| -------------- | ----------------------------------------------------- |
+| Top-level card | Has rule X & Y from the DataSet, no "card only" rules |
+| Drill 1        | No rules                                              |
+| Drill 2        | Has rule A & B applied as "card only" rules           |
+| Drill 3        | Has rule C & D applied as "card only" rules           |
+| Drill 4        | No rules                                              |
 
 In this case, upon drilling, a user would see color rules applied as follows:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:209;a"><thead><tr><th colspan="1" rowspan="1"> Drill Level </th><th colspan="1" rowspan="1"> Color Rules </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Top-level card </p></td><td colspan="1" rowspan="1"><p> X then Y </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 1 </p></td><td colspan="1" rowspan="1"><p> X then Y </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 2 </p></td><td colspan="1" rowspan="1"><p> A then B </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 3 </p></td><td colspan="1" rowspan="1"><p> A, B, C, then D </p></td></tr><tr><td colspan="1" rowspan="1"><p> Drill 4 </p></td><td colspan="1" rowspan="1"><p> A, B, C, then D </p></td></tr></tbody></table>
+| Drill Level    | Color Rules     |
+| -------------- | --------------- |
+| Top-level card | X then Y        |
+| Drill 1        | X then Y        |
+| Drill 2        | A then B        |
+| Drill 3        | A, B, C, then D |
+| Drill 4        | A, B, C, then D |
 
 For more information about drilldown, see [Drilling into Data](/s/article/360042923994 "Adding Drill Path to Your Chart").

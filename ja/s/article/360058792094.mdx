@@ -10,13 +10,48 @@ title: "キャンペーンで日付や日時形式のタグを作成する方法
 
 あらかじめフォーマットされた文字列を使用して、日付や日時形式フィールドを好きなようにフォーマットすることができます。よくあるパターンの例としては、以下のようなものがあります。
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-30" colspan="1" rowspan="1"><b> パターン </b></td><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-30" colspan="1" rowspan="1"><b> 例 </b></td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> yyyy-MM-dd </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 2018-07-14 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> dd-MMM-yyyy </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 14-Jul-2018 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> dd/MM/yyyy </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 14/07/2018 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> E, MMM dd yyyy </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> Sat, Jul 14 2018 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> h:mm a </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 12:08 PM </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> EEEE, MMM dd, yyyy HH:mm:ss a </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> Saturday, Jul 14, 2018 14:31:06 PM </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> yyyy-MM-dd'T'HH:mm:ssZ </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 2018-07-14T14:31:30+0530 </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> hh 'o''clock' a, zzzz </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 12 o’clock PM, Pacific Daylight Time </td></tr><tr><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"><code> K:mm a, z </code></td><td class="mt-noheading mt-column-width-30" colspan="1" rowspan="1"> 0:08 PM, PDT </td></tr></tbody></table>
+| **パターン**                        | **例**                                |
+| ------------------------------- | ------------------------------------ |
+| `yyyy-MM-dd`                    | 2018-07-14                           |
+| `dd-MMM-yyyy`                   | 14-Jul-2018                          |
+| `dd/MM/yyyy`                    | 14/07/2018                           |
+| `E, MMM dd yyyy`                | Sat, Jul 14 2018                     |
+| `h:mm a`                        | 12:08 PM                             |
+| `EEEE, MMM dd, yyyy HH:mm:ss a` | Saturday, Jul 14, 2018 14:31:06 PM   |
+| `yyyy-MM-dd'T'HH:mm:ssZ`        | 2018-07-14T14:31:30+0530             |
+| `hh 'o''clock' a, zzzz`         | 12 o’clock PM, Pacific Daylight Time |
+| `K:mm a, z`                     | 0:08 PM, PDT                         |
 
 ## フォーマットするパターン
 
 こちらは、日付と日時のフィールドをフォーマットするために使用できる記号と意味の完全なリストです。2020年8月3日を例に説明します。
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:206;a"><tbody><tr><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-15" colspan="1" rowspan="1"><b> 記号 </b></td><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-45" colspan="1" rowspan="1"><b> 意味 </b></td><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-15" colspan="1" rowspan="1"><b> 表示 </b></td><td class="mt-align-center mt-bgcolor-dddddd mt-noheading mt-column-width-25" colspan="1" rowspan="1"><b> 例 </b></td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> yy、yyyy </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 暦数。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 年 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 20、2020 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> M、MM、MMM、MMMM </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 年の月。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値/テキスト </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 8、08、Aug、August </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> d、dd </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 月の日付。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 3、03 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> E、EEEE、EEEEE </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 曜日。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> テキスト </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Thu、Thursday、T </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> D </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 年の日。1月1日からの日数。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 216 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> G、GGGG、GGGGG </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 時代または年代。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> テキスト </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> AD、Anno Domini、A </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"></td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> h、hh </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 1から12までの12時間時計を使用した時間。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は11、11 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> H、HH </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 0から23までの24時間時計を使用した時間。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は18、18 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> K、KK </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 0から11までの12時間時計を使った時間。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は11、11 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> k、kk </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 1から24までの24時間時計を使用した時間。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は18、18 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> m、mm </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 0から59までの分。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は3、03、 <br/> または <br/> 二桁の数字の場合は13、13 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> s、ss </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 0から59までの1分間の秒数。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 一桁の数字の場合は4、04、 <br/> または <br/> 二桁の数字の場合は11、11 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> S、SS、SSS </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 0から999までの1秒の分数。 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 数値 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> 9、09、009 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"></td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> V、VVVV、VVVVV </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> タイムゾーンID </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> ゾーンID </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> America/Los_Angeles; Z; -08:30 </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> z、zzzz </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> タイムゾーンの名前 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> Zone名 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Pacific Standard Time; PST </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> O、OOOO、OOOOO </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> 地域化ゾーンオフセット </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> オフセット - O </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> GMT+8; GMT+08:00; UTC-08:00; </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> X、XX、XXX、XXXX、XXXXX </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> ゼロのゾーンオフセット「Z」 </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> オフセット - X </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> Z; -08; -0830; -08:30; -083015; -08:30:15; </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> x、xx、xxx、xxxx、xxxxx </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> ゾーンオフセット </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> オフセット - x </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> +0000; -08; -0830; -08:30; -083015; -08:30:15; </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> Z、ZZZZ、ZZZZZ </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> ゾーンオフセット </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> オフセット - Z </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> +0000; -0800; -08:00; </td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"></td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"></td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> ' </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> テキストのエスケープ </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> 区切り文字 </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"></td></tr><tr><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> '' </td><td class="mt-noheading mt-column-width-45" colspan="1" rowspan="1"> シングルクォート（2つのシングルクォート、ダブルクォートではない） </td><td class="mt-noheading mt-column-width-15" colspan="1" rowspan="1"> リテラル </td><td class="mt-noheading mt-column-width-25" colspan="1" rowspan="1"> ' </td></tr></tbody></table>
+| **記号**              | **意味**                            | **表示**    | **例**                                          |
+| ------------------- | --------------------------------- | --------- | ---------------------------------------------- |
+| yy、yyyy             | 暦数。                               | 年         | 20、2020                                        |
+| M、MM、MMM、MMMM       | 年の月。                              | 数値/テキスト   | 8、08、Aug、August                                |
+| d、dd                | 月の日付。                             | 数値        | 3、03                                           |
+| E、EEEE、EEEEE        | 曜日。                               | テキスト      | Thu、Thursday、T                                 |
+| D                   | 年の日。1月1日からの日数。                    | 数値        | 216                                            |
+| G、GGGG、GGGGG        | 時代または年代。                          | テキスト      | AD、Anno Domini、A                               |
+|                     |                                   |           |                                                |
+| h、hh                | 1から12までの12時間時計を使用した時間。            | 数値        | 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は11、11  |
+| H、HH                | 0から23までの24時間時計を使用した時間。            | 数値        | 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は18、18  |
+| K、KK                | 0から11までの12時間時計を使った時間。             | 数値        | 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は11、11  |
+| k、kk                | 1から24までの24時間時計を使用した時間。            | 数値        | 一桁の数字の場合は6、06、 <br/> または <br/> 二桁の数字の場合は18、18  |
+| m、mm                | 0から59までの分。                        | 数値        | 一桁の数字の場合は3、03、 <br/> または <br/> 二桁の数字の場合は13、13  |
+| s、ss                | 0から59までの1分間の秒数。                   | 数値        | 一桁の数字の場合は4、04、 <br/> または <br/> 二桁の数字の場合は11、11  |
+| S、SS、SSS            | 0から999までの1秒の分数。                   | 数値        | 9、09、009                                       |
+|                     |                                   |           |                                                |
+| V、VVVV、VVVVV        | タイムゾーンID                          | ゾーンID     | America/Los_Angeles; Z; -08:30                 |
+| z、zzzz              | タイムゾーンの名前                         | Zone名     | Pacific Standard Time; PST                     |
+| O、OOOO、OOOOO        | 地域化ゾーンオフセット                       | オフセット - O | GMT+8; GMT+08:00; UTC-08:00;                   |
+| X、XX、XXX、XXXX、XXXXX | ゼロのゾーンオフセット「Z」                    | オフセット - X | Z; -08; -0830; -08:30; -083015; -08:30:15;     |
+| x、xx、xxx、xxxx、xxxxx | ゾーンオフセット                          | オフセット - x | +0000; -08; -0830; -08:30; -083015; -08:30:15; |
+| Z、ZZZZ、ZZZZZ        | ゾーンオフセット                          | オフセット - Z | +0000; -0800; -08:00;                          |
+|                     |                                   |           |                                                |
+| '                   | テキストのエスケープ                        | 区切り文字     |                                                |
+| ''                  | シングルクォート（2つのシングルクォート、ダブルクォートではない） | リテラル      | '                                              |
 
 ## 地域特有のフォーマット
 
@@ -24,126 +59,373 @@ title: "キャンペーンで日付や日時形式のタグを作成する方法
 
 ### ISO 8601パターン
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_gy5_ckw_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e263" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e269" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yyyyMMddZ </p></td><td colspan="1" rowspan="1"><p> 19990322+0100 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyyMMdd </p></td><td colspan="1" rowspan="1"><p> 19990322 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd G </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 AD </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-ddXXX </p></td><td colspan="1" rowspan="1"><p> 1999-03-22+01:00 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ss.SSS'['VV']' </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07.000[Europe/Paris] </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ss.SSS </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07.000 </p></td></tr><tr><td colspan="1" rowspan="1"><p> YYYY-mm-dd'HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ss.SSS'Z' </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07.000Z </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ss.SSSXXX </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07.000+01:00 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ssXXX </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07+01:00 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-DDDXXX </p></td><td colspan="1" rowspan="1"><p> 1999-081+01:00 </p></td></tr><tr><td colspan="1" rowspan="1"><p> YYYY'W'wc </p></td><td colspan="1" rowspan="1"><p> 1999W132 </p></td></tr><tr><td colspan="1" rowspan="1"><p> YYYY-'W'w-c </p></td><td colspan="1" rowspan="1"><p> 1999-W13-2 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd'T'HH:mm:ss.SSSXXX'['VV']' </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07.000+01:00[Europe/Paris] </p></td></tr><tr><td colspan="1" rowspan="1"><p> YYYY-mm-dd'HH:mm:ssXXX'['VV']' </p></td><td colspan="1" rowspan="1"><p> 1999-03-22T05:06:07+01:00[Europe/Paris] </p></td></tr></tbody></table>
+| 日時のパターン                              | 例                                           |
+| ------------------------------------ | ------------------------------------------- |
+| yyyyMMddZ                            | 19990322+0100                               |
+| yyyyMMdd                             | 19990322                                    |
+| yyyy-MM-dd G                         | 1999-03-22 AD                               |
+| yyyy-MM-ddXXX                        | 1999-03-22+01:00                            |
+| yyyy-MM-dd'T'HH:mm:ss.SSS'['VV']'    | 1999-03-22T05:06:07.000[Europe/Paris]       |
+| yyyy-MM-dd'T'HH:mm:ss.SSS            | 1999-03-22T05:06:07.000                     |
+| YYYY-mm-dd'HH:mm:ss                  | 1999-03-22T05:06:07                         |
+| yyyy-MM-dd'T'HH:mm:ss.SSS'Z'         | 1999-03-22T05:06:07.000Z                    |
+| yyyy-MM-dd'T'HH:mm:ss.SSSXXX         | 1999-03-22T05:06:07.000+01:00               |
+| yyyy-MM-dd'T'HH:mm:ssXXX             | 1999-03-22T05:06:07+01:00                   |
+| yyyy-DDDXXX                          | 1999-081+01:00                              |
+| YYYY'W'wc                            | 1999W132                                    |
+| YYYY-'W'w-c                          | 1999-W13-2                                  |
+| yyyy-MM-dd'T'HH:mm:ss.SSSXXX'['VV']' | 1999-03-22T05:06:07.000+01:00[Europe/Paris] |
+| YYYY-mm-dd'HH:mm:ssXXX'['VV']'       | 1999-03-22T05:06:07+01:00[Europe/Paris]     |
 
 ### ロケールbe：ベラルーシ語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_ztp_ky5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e514" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e520" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yy </p></td><td colspan="1" rowspan="1"><p> 22.3.99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yy <a href="http://H.mm" rel="noopener" target="_blank"> H.mm </a></p></td><td colspan="1" rowspan="1"><p> 22.3.99 5.06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yyyy H.mm.ss </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 5.06.07 </p></td></tr></tbody></table>
+| 日時のパターン                    | 例                 |
+| -------------------------- | ----------------- |
+| d.M.yy                     | 22.3.99           |
+| d.M.yy [H.mm](http://H.mm) | 22.3.99 5.06      |
+| d.M.yyyy H.mm.ss           | 22.3.1999 5.06.07 |
 
 ### ロケールcs：チェコ語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_gs2_cgv_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e583" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e589" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yyyy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 5:06:07 </p></td></tr></tbody></table>
+| 日時のパターン          | 例                 |
+| ---------------- | ----------------- |
+| d.M.yyyy H:mm:ss | 22.3.1999 5:06:07 |
 
 ### ロケールda：デンマーク語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_ev4_qz5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e622" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e628" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd-MM-yy </p></td><td colspan="1" rowspan="1"><p> 22-03-99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MM-yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22-03-99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MM-yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22-03-1999 05:06:07 </p></td></tr></tbody></table>
+| 日時のパターン             | 例                   |
+| ------------------- | ------------------- |
+| dd-MM-yy            | 22-03-99            |
+| dd-MM-yy HH:mm      | 22-03-99 05:06      |
+| dd-MM-yyyy HH:mm:ss | 22-03-1999 05:06:07 |
 
 ### ロケールde\_DE：ドイツ語、ドイツ
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_mrd_jv5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e691" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e697" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd.MM.yy </p></td><td colspan="1" rowspan="1"><p> 22.03.99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d. MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> 22. März 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, d. MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> Montag, 22. März 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22.03.99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d. MMMM yyyy HH:mm:ss z </p></td><td colspan="1" rowspan="1"><p> 22. März 1999 05:06:07 MEZ </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.03.99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, d. MMMM yyyy HH:mm' Uhr 'z </p></td><td colspan="1" rowspan="1"><p> Montag, 22. März 1999 05:06 Uhr MEZ </p></td></tr></tbody></table>
+| 日時のパターン                          | 例                                   |
+| -------------------------------- | ----------------------------------- |
+| dd.MM.yy                         | 22.03.99                            |
+| d. MMMM yyyy                     | 22. März 1999                       |
+| EEEE, d. MMMM yyyy               | Montag, 22. März 1999               |
+| dd.MM.yyyy                       | 22.03.1999                          |
+| dd.MM.yy HH:mm                   | 22.03.99 05:06                      |
+| d. MMMM yyyy HH:mm:ss z          | 22. März 1999 05:06:07 MEZ          |
+| dd.MM.yyyy HH:mm:ss              | 22.03.1999 05:06:07                 |
+| dd.MM.yyyy HH:mm:ss              | 22.03.99 05:06:07                   |
+| dd.MM.yy HH:mm                   | 22.03.1999 05:06                    |
+| EEEE, d. MMMM yyyy HH:mm' Uhr 'z | Montag, 22. März 1999 05:06 Uhr MEZ |
 
 ### ロケールen\_CA：英語、カナダ
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_k3k_p55_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e867" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e873" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d-MMM-yyyy </p></td><td colspan="1" rowspan="1"><p> 22-Mar-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 22/03/99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, MMMM d, yyyy h:mm:ss 'o''clock' a z </p></td><td colspan="1" rowspan="1"><p> Monday, March 22, 1999 5:06:07 o'clock AM CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> d-MMM-yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 22-Mar-1999 5:06:07 AM </p></td></tr></tbody></table>
+| 日時のパターン                                   | 例                                             |
+| ----------------------------------------- | --------------------------------------------- |
+| d-MMM-yyyy                                | 22-Mar-1999                                   |
+| dd/MM/yy h:mm a                           | 22/03/99 5:06 AM                              |
+| EEEE, MMMM d, yyyy h:mm:ss 'o''clock' a z | Monday, March 22, 1999 5:06:07 o'clock AM CET |
+| d-MMM-yyyy h:mm:ss a                      | 22-Mar-1999 5:06:07 AM                        |
 
 ### ロケールen\_GB：英語、イギリス
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_ebm_y55_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e951" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e957" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> 22 March 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, d MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> Monday, 22 March 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MMM-yyyy </p></td><td colspan="1" rowspan="1"><p> 22-Mar-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd MMMM yyyy HH:mm:ss z </p></td><td colspan="1" rowspan="1"><p> 22 March 1999 05:06:07 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, d MMMM yyyy HH:mm:ss 'o''clock' z </p></td><td colspan="1" rowspan="1"><p> Monday, 22 March 1999 05:06:07 o'clock CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MMM-yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22-Mar-1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MMM-yy hh.mm.ss.nnnnnnnnn a </p></td><td colspan="1" rowspan="1"><p> 22-Mar-99 05.06.07.000000888 AM </p></td></tr></tbody></table>
+| 日時のパターン                                 | 例                                          |
+| --------------------------------------- | ------------------------------------------ |
+| dd MMMM yyyy                            | 22 March 1999                              |
+| EEEE, d MMMM yyyy                       | Monday, 22 March 1999                      |
+| dd-MMM-yyyy                             | 22-Mar-1999                                |
+| dd MMMM yyyy HH:mm:ss z                 | 22 March 1999 05:06:07 CET                 |
+| EEEE, d MMMM yyyy HH:mm:ss 'o''clock' z | Monday, 22 March 1999 05:06:07 o'clock CET |
+| dd-MMM-yyyy HH:mm:ss                    | 22-Mar-1999 05:06:07                       |
+| dd-MMM-yy hh.mm.ss.nnnnnnnnn a          | 22-Mar-99 05.06.07.000000888 AM            |
 
 ### ロケールen\_US：英語、アメリカ合衆国
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_od4_fj5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e1081" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e1087" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> M/d/yy </p></td><td colspan="1" rowspan="1"><p> 3/22/99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy </p></td><td colspan="1" rowspan="1"><p> 03/11/22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy </p></td><td colspan="1" rowspan="1"><p> 03-22-99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy </p></td><td colspan="1" rowspan="1"><p> 3-22-99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMM d, yyyy </p></td><td colspan="1" rowspan="1"><p> Mar 22, 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMMM d, yyyy </p></td><td colspan="1" rowspan="1"><p> March 22, 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, MMMM d, yyyy </p></td><td colspan="1" rowspan="1"><p> Monday, March 22, 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMM d yyyy </p></td><td colspan="1" rowspan="1"><p> Mar 22 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMMM d yyyy </p></td><td colspan="1" rowspan="1"><p> March 22 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-ddXXX </p></td><td colspan="1" rowspan="1"><p> 1999-03-22+01:00 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy/M/d </p></td><td colspan="1" rowspan="1"><p> 1999/3/22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 3/22/99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 03/22/99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 03-22-99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 3-22-99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMM d, yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> Mar 22, 1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE, MMMM d, yyyy h:mm:ss a z </p></td><td colspan="1" rowspan="1"><p> Monday, March 22, 1999 5:06:07 AM CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEE MMM dd HH:mm:ss z yyyy </p></td><td colspan="1" rowspan="1"><p> Mon Mar 22 05:06:07 CET 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEE, d MMM yyyy HH:mm:ss Z </p></td><td colspan="1" rowspan="1"><p> Mon, 22 Mar 1999 05:06:07 +0100 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d MMM yyyy HH:mm:ss Z </p></td><td colspan="1" rowspan="1"><p> 22 Mar 1999 05:06:07 +0100 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd HH:mm:ss.S </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 05:06:07.0 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 03/22/99 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03/22/99 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3/22/99 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 03-22-99 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 3-22-99 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy h:mm a </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd h:mm a </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d h:mm a </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMM.dd.yyyy </p></td><td colspan="1" rowspan="1"><p> Mar.22.1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/MMM/yyyy H:mm:ss Z </p></td><td colspan="1" rowspan="1"><p> 22/Mar/1999 5:06:07 +0100 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MMM/yy h:mm a </p></td><td colspan="1" rowspan="1"><p> 22/Mar/99 5:06 AM </p></td></tr></tbody></table>
+| 日時のパターン                        | 例                                     |
+| ------------------------------ | ------------------------------------- |
+| M/d/yy                         | 3/22/99                               |
+| MM/dd/yy                       | 03/11/22                              |
+| MM-dd-yy                       | 03-22-99                              |
+| M-d-yy                         | 3-22-99                               |
+| MMM d, yyyy                    | Mar 22, 1999                          |
+| MMMM d, yyyy                   | March 22, 1999                        |
+| EEEE, MMMM d, yyyy             | Monday, March 22, 1999                |
+| MMM d yyyy                     | Mar 22 1999                           |
+| MMMM d yyyy                    | March 22 1999                         |
+| MM-dd-yyyy                     | 03-22-1999                            |
+| M-d-yyyy                       | 3-22-1999                             |
+| yyyy-MM-ddXXX                  | 1999-03-22+01:00                      |
+| dd/MM/yyyy                     | 22/03/1999                            |
+| d/M/yyyy                       | 22/3/1999                             |
+| MM/dd/yyyy                     | 03/22/1999                            |
+| M/d/yyyy                       | 3/22/1999                             |
+| yyyy/M/d                       | 1999/3/22                             |
+| M/d/yy h:mm a                  | 3/22/99 5:06 AM                       |
+| MM/dd/yy h:mm a                | 03/22/99 5:06 AM                      |
+| MM-dd-yy h:mm a                | 03-22-99 5:06 AM                      |
+| M-d-yy h:mm a                  | 3-22-99 5:06 AM                       |
+| MMM d, yyyy h:mm:ss a          | Mar 22, 1999 5:06:07 AM               |
+| EEEE, MMMM d, yyyy h:mm:ss a z | Monday, March 22, 1999 5:06:07 AM CET |
+| EEE MMM dd HH:mm:ss z yyyy     | Mon Mar 22 05:06:07 CET 1999          |
+| EEE, d MMM yyyy HH:mm:ss Z     | Mon, 22 Mar 1999 05:06:07 +0100       |
+| d MMM yyyy HH:mm:ss Z          | 22 Mar 1999 05:06:07 +0100            |
+| MM-dd-yyyy h:mm:ss a           | 03-22-1999 5:06:07 AM                 |
+| M-d-yyyy h:mm:ss a             | 3-22-1999 5:06:07 AM                  |
+| yyyy-MM-dd h:mm:ss a           | 1999-03-22 5:06:07 AM                 |
+| yyyy-M-d h:mm:ss a             | 1999-3-22 5:06:07 AM                  |
+| yyyy-MM-dd HH:mm:ss.S          | 1999-03-22 05:06:07.0                 |
+| dd/MM/yyyy h:mm:ss a           | 22/03/1999 5:06:07 AM                 |
+| d/M/yyyy h:mm:ss a             | 22/3/1999 5:06:07 AM                  |
+| MM/dd/yyyy h:mm:ss a           | 03/22/1999 5:06:07 AM                 |
+| M/d/yyyy h:mm:ss a             | 3/22/1999 5:06:07 AM                  |
+| MM/dd/yy h:mm:ss a             | 03/22/99 5:06:07 AM                   |
+| MM/dd/yy H:mm:ss               | 03/22/99 5:06:07                      |
+| M/d/yy H:mm:ss                 | 3/22/99 5:06:07                       |
+| dd/MM/yyyy h:mm a              | 22/03/1999 5:06 AM                    |
+| d/M/yyyy h:mm a                | 22/3/1999 5:06 AM                     |
+| MM/dd/yyyy h:mm a              | 03/22/1999 5:06 AM                    |
+| M/d/yyyy h:mm a                | 3/22/1999 5:06 AM                     |
+| MM-dd-yy h:mm:ss a             | 03-22-99 5:06:07 AM                   |
+| M-d-yy h:mm:ss a               | 3-22-99 5:06:07 AM                    |
+| MM-dd-yyyy h:mm a              | 03-22-1999 5:06 AM                    |
+| M-d-yyyy h:mm a                | 3-22-1999 5:06 AM                     |
+| yyyy-MM-dd h:mm a              | 1999-03-22 5:06 AM                    |
+| yyyy-M-d h:mm a                | 1999-3-22 5:06 AM                     |
+| MMM.dd.yyyy                    | Mar.22.1999                           |
+| d/MMM/yyyy H:mm:ss Z           | 22/Mar/1999 5:06:07 +0100             |
+| dd/MMM/yy h:mm a               | 22/Mar/99 5:06 AM                     |
 
 ### ロケールes：スペイン語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_zcz_lx5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e1878" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e1884" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d/MM/yy </p></td><td colspan="1" rowspan="1"><p> 22/03/99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/MM/yy H:mm </p></td><td colspan="1" rowspan="1"><p> 22/03/99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yy H:mm </p></td><td colspan="1" rowspan="1"><p> 222.3.99 5:06 </p></td></tr></tbody></table>
+| 日時のパターン      | 例             |
+| ------------ | ------------- |
+| d/MM/yy      | 22/03/99      |
+| d/MM/yy H:mm | 22/03/99 5:06 |
+| d.M.yy H:mm  | 222.3.99 5:06 |
 
 ### ロケールet：エストニア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_knj_sx5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e1947" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e1953" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.MM.yy </p></td><td colspan="1" rowspan="1"><p> 22.03.99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.MM.yyyy </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.MM.yy H:mm </p></td><td colspan="1" rowspan="1"><p> 22.03.99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.MM.yyyy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 5:06:07 </p></td></tr></tbody></table>
+| 日時のパターン           | 例                  |
+| ----------------- | ------------------ |
+| d.MM.yy           | 22.03.99           |
+| d.MM.yyyy         | 22.03.1999         |
+| d.MM.yy H:mm      | 22.03.99 5:06      |
+| d.MM.yyyy H:mm:ss | 22.03.1999 5:06:07 |
 
 ### ロケールfi：フィンランド語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_g5w_22v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2031" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2037" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yyyy </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 5:06 </p></td></tr></tbody></table>
+| 日時のパターン       | 例              |
+| ------------- | -------------- |
+| d.M.yyyy      | 22.3.1999      |
+| d.M.yyyy H:mm | 22.3.1999 5:06 |
 
 ### ロケールfr\_CA：フランス語、カナダ
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_zj2_br5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2086" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2092" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy-MM-dd </p></td><td colspan="1" rowspan="1"><p> 99-03-22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d. MMMM yyyy HH:mm:ss z </p></td><td colspan="1" rowspan="1"><p> 22 mars 1999 05:06:07 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> MMMM d, yyyy h:mm:ss z a </p></td><td colspan="1" rowspan="1"><p> March 22, 1999 5:06:07 CET AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE d MMMM yyyy H' h 'mm z </p></td><td colspan="1" rowspan="1"><p> lundi 22 mars 1999 5 h 06 CET </p></td></tr></tbody></table>
+| 日時のパターン                     | 例                             |
+| --------------------------- | ----------------------------- |
+| yy-MM-dd                    | 99-03-22                      |
+| yyyy-MM-dd                  | 1999-03-22                    |
+| d. MMMM yyyy HH:mm:ss z     | 22 mars 1999 05:06:07 CET     |
+| MMMM d, yyyy h:mm:ss z a    | March 22, 1999 5:06:07 CET AM |
+| yyyy-MM-dd HH:mm:ss         | 1999-03-22 05:06:07           |
+| EEEE d MMMM yyyy H' h 'mm z | lundi 22 mars 1999 5 h 06 CET |
 
 ### ロケールfr\_FR：フランス語、フランス
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_gfy_zm5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2201" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2207" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd/MM/yy </p></td><td colspan="1" rowspan="1"><p> 22/03/99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d MMM yyyy </p></td><td colspan="1" rowspan="1"><p> 22 mars 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> 22 mars 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE d MMMM yyyy </p></td><td colspan="1" rowspan="1"><p> lundi 22 mars 1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22/03/99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 03/22/99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 3/22/99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 03-22-99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 3-22-99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d MMM yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22 mars 1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d. MMMM yyyy HH:mm:ss z </p></td><td colspan="1" rowspan="1"><p> 22 mars 1999 05:06:07 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE d mm yyy hh'mm z </p></td><td colspan="1" rowspan="1"><p> lundi 22 mars 1999 05 h 06 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22/03/99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03/22/99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3/22/99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03-22-99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3-22-99 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d HH:mm </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 05:06 </p></td></tr></tbody></table>
+| 日時のパターン                 | 例                              |
+| ----------------------- | ------------------------------ |
+| dd/MM/yy                | 22/03/99                       |
+| d MMM yyyy              | 22 mars 1999                   |
+| d MMMM yyyy             | 22 mars 1999                   |
+| EEEE d MMMM yyyy        | lundi 22 mars 1999             |
+| dd/MM/yy HH:mm          | 22/03/99 05:06                 |
+| MM/dd/yy HH:mm          | 03/22/99 05:06                 |
+| M/d/yy HH:mm            | 3/22/99 05:06                  |
+| MM-dd-yy HH:mm          | 03-22-99 05:06                 |
+| M-d-yy HH:mm            | 3-22-99 05:06                  |
+| d MMM yyyy HH:mm:ss     | 22 mars 1999 05:06:07          |
+| d. MMMM yyyy HH:mm:ss z | 22 mars 1999 05:06:07 CET      |
+| MM-dd-yyyy HH:mm:ss     | 03-22-1999 05:06:07            |
+| M-d-yyyy HH:mm:ss       | 3-22-1999 05:06:07             |
+| yyyy-M-d HH:mm:ss       | 1999-3-22 05:06:07             |
+| dd/MM/yyyy HH:mm:ss     | 22/03/1999 05:06:07            |
+| d/M/yyyy HH:mm:ss       | 22/3/1999 05:06:07             |
+| MM/dd/yyyy HH:mm:ss     | 03/22/1999 05:06:07            |
+| M/d/yyyy HH:mm:ss       | 3/22/1999 05:06:07             |
+| EEEE d mm yyy hh'mm z   | lundi 22 mars 1999 05 h 06 CET |
+| dd/MM/yy HH:mm:ss       | 22/03/99 05:06:07              |
+| MM/dd/yy HH:mm:ss       | 03/22/99 05:06:07              |
+| M/d/yy HH:mm:ss         | 3/22/99 05:06:07               |
+| dd/MM/yyyy HH:mm        | 22/03/1999 05:06               |
+| d/M/yyyy HH:mm          | 22/3/1999 05:06                |
+| MM/dd/yyyy HH:mm        | 03/22/1999 05:06               |
+| M/d/yyyy HH:mm          | 3/22/1999 05:06                |
+| MM-dd-yy HH:mm:ss       | 03-22-99 05:06:07              |
+| M-d-yy HH:mm:ss         | 3-22-99 05:06:07               |
+| MM-dd-yyyy HH:mm        | 03-22-1999 05:06               |
+| M-d-yyyy HH:mm          | 3-22-1999 05:06                |
+| yyyy-M-d HH:mm          | 1999-3-22 05:06                |
 
 ### ロケールga：アイルランド語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_t4g_ffv_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2695" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2701" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy/MM/dd HH:mm </p></td><td colspan="1" rowspan="1"><p> 99/03/22 05:06 </p></td></tr></tbody></table>
+| 日時のパターン        | 例              |
+| -------------- | -------------- |
+| yy/MM/dd HH:mm | 99/03/22 05:06 |
 
 ### ロケールhr：クロアチア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_flh_41v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2734" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2740" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd </p></td><td colspan="1" rowspan="1"><p> 1999.03.22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999.03.22 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd HH:mm </p></td><td colspan="1" rowspan="1"><p> 1999.03.22 05:06 </p></td></tr></tbody></table>
+| 日時のパターン             | 例                   |
+| ------------------- | ------------------- |
+| yyyy.MM.dd          | 1999.03.22          |
+| yyyy.MM.dd HH:mm:ss | 1999.03.22 05:06:07 |
+| yyyy.MM.dd HH:mm    | 1999.03.22 05:06    |
 
 ### ロケールhu：ハンガリー語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_sbq_51v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2803" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2809" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd. </p></td><td colspan="1" rowspan="1"><p> 1999.03.22. </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd. H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999.03.22. 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.MM.dd. H:mm </p></td><td colspan="1" rowspan="1"><p> 1999.03.22. 5:06 </p></td></tr></tbody></table>
+| 日時のパターン             | 例                   |
+| ------------------- | ------------------- |
+| yyyy.MM.dd.         | 1999.03.22.         |
+| yyyy.MM.dd. H:mm:ss | 1999.03.22. 5:06:07 |
+| yyyy.MM.dd. H:mm    | 1999.03.22. 5:06    |
 
 ### ロケールis：アイスランド語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_t2j_r2v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2872" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2878" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yyyy HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 05:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yyyy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 05:06 </p></td></tr></tbody></table>
+| 日時のパターン           | 例                  |
+| ----------------- | ------------------ |
+| d.M.yyyy HH:mm:ss | 22.3.1999 05:06:07 |
+| d.M.yyyy HH:mm    | 22.3.1999 05:06    |
 
 ### ロケールit\_IT：イタリア語、イタリア
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_prf_qw5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e2927" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e2933" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d-MMM-yyyy </p></td><td colspan="1" rowspan="1"><p> 22-mar-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yy <a href="http://H.mm" rel="noopener" target="_blank"> H.mm </a></p></td><td colspan="1" rowspan="1"><p> 22/03/99 5.06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy-MM-dd HH:mm </p></td><td colspan="1" rowspan="1"><p> 99-03-22 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d-MMM-yyyy H.mm.ss </p></td><td colspan="1" rowspan="1"><p> 22-mar-1999 5.06.07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d MMMM yyyy H.mm.ss z </p></td><td colspan="1" rowspan="1"><p> 22 marzo 1999 5.06.07 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> EEEE d MMMM yyyy H.mm.ss z </p></td><td colspan="1" rowspan="1"><p> lunedì 22 marzo 1999 5.06.07 CET </p></td></tr></tbody></table>
+| 日時のパターン                      | 例                                |
+| ---------------------------- | -------------------------------- |
+| d-MMM-yyyy                   | 22-mar-1999                      |
+| dd/MM/yy [H.mm](http://H.mm) | 22/03/99 5.06                    |
+| yy-MM-dd HH:mm               | 99-03-22 05:06                   |
+| d-MMM-yyyy H.mm.ss           | 22-mar-1999 5.06.07              |
+| d MMMM yyyy H.mm.ss z        | 22 marzo 1999 5.06.07 CET        |
+| EEEE d MMMM yyyy H.mm.ss z   | lunedì 22 marzo 1999 5.06.07 CET |
 
 ### ロケールiw：ヘブライ語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_mv4_wfv_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3042" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3048" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> HH:mm dd/MM/yy </p></td><td colspan="1" rowspan="1"><p> 05:06 22/03/99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> HH:mm:ss dd/MM/yyyy </p></td><td colspan="1" rowspan="1"><p> 05:06:07 22/03/1999 </p></td></tr></tbody></table>
+| 日時のパターン             | 例                   |
+| ------------------- | ------------------- |
+| HH:mm dd/MM/yy      | 05:06 22/03/99      |
+| HH:mm:ss dd/MM/yyyy | 05:06:07 22/03/1999 |
 
 ### ロケールja\_JP：日本語、日本
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_d5w_ls5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3096" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3102" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy/MM/dd </p></td><td colspan="1" rowspan="1"><p> 99/03/22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy/MM/dd </p></td><td colspan="1" rowspan="1"><p> 1999/03/22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy/MM/dd H:mm </p></td><td colspan="1" rowspan="1"><p> 99/03/22 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yy H:mm </p></td><td colspan="1" rowspan="1"><p> 03/22/99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy H:mm </p></td><td colspan="1" rowspan="1"><p> 3/22/99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy H:mm </p></td><td colspan="1" rowspan="1"><p> 03-22-99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy H:mm </p></td><td colspan="1" rowspan="1"><p> 3-22-99 5:06 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy/MM/dd H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 99/03/22 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yy h:mm:ss a </p></td><td colspan="1" rowspan="1"><p> 3/22/99 5:06:07 AM </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy/MM/dd H:mm </p></td><td colspan="1" rowspan="1"><p> 1999/03/22 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd/MM/yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 22/03/1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d/M/yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 22/3/1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM/dd/yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 03/22/1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M/d/yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 3/22/1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 03-22-99 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 3-22-99 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> MM-dd-yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 03-22-1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> M-d-yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 3-22-1999 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd H:mm </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d H:mm </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 5:06 </p></td></tr></tbody></table>
+| 日時のパターン            | 例                  |
+| ------------------ | ------------------ |
+| yy/MM/dd           | 99/03/22           |
+| yyyy/MM/dd         | 1999/03/22         |
+| yy/MM/dd H:mm      | 99/03/22 5:06      |
+| MM/dd/yy H:mm      | 03/22/99 5:06      |
+| M/d/yy H:mm        | 3/22/99 5:06       |
+| MM-dd-yy H:mm      | 03-22-99 5:06      |
+| M-d-yy H:mm        | 3-22-99 5:06 AM    |
+| MM-dd-yyyy H:mm:ss | 03-22-1999 5:06:07 |
+| M-d-yyyy H:mm:ss   | 3-22-1999 5:06:07  |
+| yyyy-MM-dd H:mm:ss | 1999-03-22 5:06:07 |
+| yy/MM/dd H:mm:ss   | 99/03/22 5:06:07   |
+| M/d/yy h:mm:ss a   | 3/22/99 5:06:07 AM |
+| yyyy/MM/dd H:mm    | 1999/03/22 5:06    |
+| dd/MM/yyyy H:mm    | 22/03/1999 5:06    |
+| d/M/yyyy H:mm      | 22/3/1999 5:06     |
+| MM/dd/yyyy H:mm    | 03/22/1999 5:06    |
+| M/d/yyyy H:mm      | 3/22/1999 5:06     |
+| MM-dd-yy H:mm:ss   | 03-22-99 5:06:07   |
+| M-d-yy H:mm:ss     | 3-22-99 5:06:07    |
+| MM-dd-yyyy H:mm    | 03-22-1999 5:06    |
+| M-d-yyyy H:mm      | 3-22-1999 5:06     |
+| yyyy-MM-dd H:mm    | 1999-03-22 5:06    |
+| yyyy-M-d H:mm      | 1999-3-22 5:06     |
 
 ### ロケールko：韓国語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_njd_qy5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3469" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3475" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy. M. d </p></td><td colspan="1" rowspan="1"><p> 99. 3. 22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy. M. d </p></td><td colspan="1" rowspan="1"><p> 1999. 3. 22 </p></td></tr></tbody></table>
+| 日時のパターン    | 例           |
+| ---------- | ----------- |
+| yy. M. d   | 99. 3. 22   |
+| yyyy. M. d | 1999. 3. 22 |
 
 ### ロケールlt：リトアニア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_wzw_5y5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3523" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3529" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy.M.d </p></td><td colspan="1" rowspan="1"><p> 99.3.22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy.M.d <a href="http://HH.mm" rel="noopener" target="_blank"> HH.mm </a></p></td><td colspan="1" rowspan="1"><p> 99.3.22 05.06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd HH.mm.ss </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 05.06.07 </p></td></tr></tbody></table>
+| 日時のパターン                      | 例                   |
+| ---------------------------- | ------------------- |
+| yy.M.d                       | 99.3.22             |
+| yy.M.d [HH.mm](http://HH.mm) | 99.3.22 05.06       |
+| yyyy-MM-dd HH.mm.ss          | 1999-03-22 05.06.07 |
 
 ### ロケールlv：ラトビア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_ash_bz5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3592" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3598" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy.d.M </p></td><td colspan="1" rowspan="1"><p> 99.22.3 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.d.M </p></td><td colspan="1" rowspan="1"><p> 1999.22.3 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy.d.M HH:mm </p></td><td colspan="1" rowspan="1"><p> 99.22.3 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy.d.M HH:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999.22.3 05:06:07 </p></td></tr></tbody></table>
+| 日時のパターン           | 例                  |
+| ----------------- | ------------------ |
+| yy.d.M            | 99.22.3            |
+| yyyy.d.M          | 1999.22.3          |
+| yy.d.M HH:mm      | 99.22.3 05:06      |
+| yyyy.d.M HH:mm:ss | 1999.22.3 05:06:07 |
 
 ### ロケールmk：マケドニア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_w5r_w2v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3677" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3683" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yy HH:mm </p></td><td colspan="1" rowspan="1"><p> 22.3.99 05:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yyyy HH:mm: </p></td><td colspan="1" rowspan="1"><p> 22.3.1999 05:06: </p></td></tr></tbody></table>
+| 日時のパターン         | 例                |
+| --------------- | ---------------- |
+| d.M.yy HH:mm    | 22.3.99 05:06    |
+| d.M.yyyy HH:mm: | 22.3.1999 05:06: |
 
 ### ロケールnl：オランダ語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_gtm_z1v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3731" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3737" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d-M-yy </p></td><td colspan="1" rowspan="1"><p> 22-3-99 </p></td></tr><tr><td colspan="1" rowspan="1"><p> d-M-yy H:mm </p></td><td colspan="1" rowspan="1"><p> 22-3-99 5:06 </p></td></tr></tbody></table>
+| 日時のパターン     | 例            |
+| ----------- | ------------ |
+| d-M-yy      | 22-3-99      |
+| d-M-yy H:mm | 22-3-99 5:06 |
 
 ### ロケールpt：ポルトガル語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_dg2_zx5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3785" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3791" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd-MM-yyyy </p></td><td colspan="1" rowspan="1"><p> 22-03-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd-MM-yyyy H:mm </p></td><td colspan="1" rowspan="1"><p> 22-03-1999 5:06 </p></td></tr></tbody></table>
+| 日時のパターン         | 例               |
+| --------------- | --------------- |
+| dd-MM-yyyy      | 22-03-1999      |
+| dd-MM-yyyy H:mm | 22-03-1999 5:06 |
 
 ### ロケールru：ロシア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_igr_g1v_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3839" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3845" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> dd.MM.yy H:mm </p></td><td colspan="1" rowspan="1"><p> 22.03.99 5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 22.03.1999 5:06:07 </p></td></tr></tbody></table>
+| 日時のパターン            | 例                  |
+| ------------------ | ------------------ |
+| dd.MM.yy H:mm      | 22.03.99 5:06      |
+| dd.MM.yyyy H:mm:ss | 22.03.1999 5:06:07 |
 
 ### ロケールsq：アルバニア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_ppw_3z5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3893" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3899" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd h:mm:ss.a </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5:06:07.PD </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy-MM-dd h.mm.a </p></td><td colspan="1" rowspan="1"><p> 99-03-22 5.06.PD </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-MM-dd h.mm.ss.a z </p></td><td colspan="1" rowspan="1"><p> 1999-03-22 5.06.07.PD CET </p></td></tr></tbody></table>
+| 日時のパターン                | 例                         |
+| ---------------------- | ------------------------- |
+| yyyy-MM-dd h:mm:ss.a   | 1999-03-22 5:06:07.PD     |
+| yy-MM-dd h.mm.a        | 99-03-22 5.06.PD          |
+| yyyy-MM-dd h.mm.ss.a z | 1999-03-22 5.06.07.PD CET |
 
 ### ロケールsr：セルビア語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_rsq_2y5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e3962" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e3968" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> d.M.yy. </p></td><td colspan="1" rowspan="1"><p> 22.3.99. </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy. </p></td><td colspan="1" rowspan="1"><p> 22.03.1999. </p></td></tr><tr><td colspan="1" rowspan="1"><p> d.M.yy. <a href="http://HH.mm" rel="noopener" target="_blank"> HH.mm </a></p></td><td colspan="1" rowspan="1"><p> 22.3.99. 05.06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy. HH.mm.ss </p></td><td colspan="1" rowspan="1"><p> 22.03.1999. 05.06.07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> dd.MM.yyyy. HH.mm.ss z </p></td><td colspan="1" rowspan="1"><p> 22.03.1999. 05.06.07 CET </p></td></tr></tbody></table>
+| 日時のパターン                       | 例                        |
+| ----------------------------- | ------------------------ |
+| d.M.yy.                       | 22.3.99.                 |
+| dd.MM.yyyy.                   | 22.03.1999.              |
+| d.M.yy. [HH.mm](http://HH.mm) | 22.3.99. 05.06           |
+| dd.MM.yyyy. HH.mm.ss          | 22.03.1999. 05.06.07     |
+| dd.MM.yyyy. HH.mm.ss z        | 22.03.1999. 05.06.07 CET |
 
 ### ロケールvi：ベトナム語
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_abs_zz5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e4063" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e4069" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> HH:mm:ss dd-MM-yyyy </p></td><td colspan="1" rowspan="1"><p> 05:06:07 22-03-1999 </p></td></tr><tr><td colspan="1" rowspan="1"><p> HH:mm dd/MM/yyyy </p></td><td colspan="1" rowspan="1"><p> 05:06 22/03/1999 </p></td></tr></tbody></table>
+| 日時のパターン             | 例                   |
+| ------------------- | ------------------- |
+| HH:mm:ss dd-MM-yyyy | 05:06:07 22-03-1999 |
+| HH:mm dd/MM/yyyy    | 05:06 22/03/1999    |
 
 ### ロケールzh\_CN：中国語（簡体字）、中国
 
-<table border="1" cellpadding="4" cellspacing="0" data-aura-rendered-by="33:206;a" id="r-date_formats_list__simpletable_khz_1w5_h1b" summary=""><colgroup><col/><col/></colgroup><thead><tr><th colspan="1" id="d16956e4117" rowspan="1"><p> 日時のパターン </p></th><th colspan="1" id="d16956e4123" rowspan="1"><p> 例 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> yy-M-d </p></td><td colspan="1" rowspan="1"><p> 99-3-22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy'年'M'月'd'日' </p></td><td colspan="1" rowspan="1"><p> 1999年3月22日 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy'年'M'月'd'日' EEEE </p></td><td colspan="1" rowspan="1"><p> 1999年3月22日 星期一 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yy-M-d ah:mm </p></td><td colspan="1" rowspan="1"><p> 99-3-22 上午5:06 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy-M-d H:mm:ss </p></td><td colspan="1" rowspan="1"><p> 1999-3-22 5:06:07 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy'年'M'月'd'日' ahh'时'mm'分'ss'秒' </p></td><td colspan="1" rowspan="1"><p> 1999年3月22日 上午05时06分07秒 </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy'年'M'月'd'日' H'時'mm'分'ss'秒' z </p></td><td colspan="1" rowspan="1"><p> 1999年3月22日 5時06分07秒 CET </p></td></tr><tr><td colspan="1" rowspan="1"><p> yyyy'年'M'月'd'日' EEEE ahh'时'mm'分'ss'秒' z </p></td><td colspan="1" rowspan="1"><p> 1999年3月22日 星期一 上午05时06分07秒 CET </p></td></tr></tbody></table>
+| 日時のパターン                                 | 例                              |
+| --------------------------------------- | ------------------------------ |
+| yy-M-d                                  | 99-3-22                        |
+| yyyy-M-d                                | 1999-3-22                      |
+| yyyy'年'M'月'd'日'                         | 1999年3月22日                     |
+| yyyy'年'M'月'd'日' EEEE                    | 1999年3月22日 星期一                 |
+| yy-M-d ah:mm                            | 99-3-22 上午5:06                 |
+| yyyy-M-d H:mm:ss                        | 1999-3-22 5:06:07              |
+| yyyy'年'M'月'd'日' ahh'时'mm'分'ss'秒'        | 1999年3月22日 上午05时06分07秒         |
+| yyyy'年'M'月'd'日' H'時'mm'分'ss'秒' z        | 1999年3月22日 5時06分07秒 CET        |
+| yyyy'年'M'月'd'日' EEEE ahh'时'mm'分'ss'秒' z | 1999年3月22日 星期一 上午05时06分07秒 CET |
 
 日本語

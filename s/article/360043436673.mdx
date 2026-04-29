@@ -24,7 +24,10 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your JSON account. The following table describes what is needed for each field:
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Field </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter a username if using SFTP or Basic Authentication, otherwise, leave blank. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter a password if using SFTP or Basic Authentication, otherwise, leave blank. </td></tr></tbody></table>
+| Field    | Description                                                                     |
+| -------- | ------------------------------------------------------------------------------- |
+| Username | Enter a username if using SFTP or Basic Authentication, otherwise, leave blank. |
+| Password | Enter a password if using SFTP or Basic Authentication, otherwise, leave blank. |
 
 Once you have entered valid JSON credentials, you can use the same account any time you go to create a new Custom JSON DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -32,11 +35,21 @@ Once you have entered valid JSON credentials, you can use the same account any t
 
 In this pane, you specify the server/SFTP site to connect to, the name of the JSON file, and other configuration settings.
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Connection Type </td><td colspan="1" rowspan="1"><p> Select the type of connection you would like to make. The options include: </p><ul><li><p> HTTP Request </p></li><li><p> File Transfer (SFTP) </p></li><li><p> Upload file containing JSON data </p></li></ul></td></tr><tr><td colspan="1" rowspan="1"> Choose the HTTP Method to use </td><td colspan="1" rowspan="1"> If HTTP Request is selected as the <b> Connection Type </b>, choose from either GET or POST as the HTTP method. </td></tr><tr><td colspan="1" rowspan="1"> Enter the URL to your JSON file </td><td colspan="1" rowspan="1"> Enter the URL of your JSON file. </td></tr><tr><td colspan="1" rowspan="1"> How will you provide the certificate </td><td colspan="1" rowspan="1"><p> If HTTP Request is selected as the <b> Connection Type </b>, choose the method in which the certificate will be provided: </p><ul><li><p> No certificate </p></li><li><p> URL Path to the Certificate </p></li><li><p> Certificate Content </p></li></ul></td></tr></tbody></table>
+| Menu                                 | Description                                                                                                                                                                                     |
+| ------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Connection Type                      | Select the type of connection you would like to make. The options include:<br/>HTTP Request<br/>File Transfer (SFTP)<br/>Upload file containing JSON data                                       |
+| Choose the HTTP Method to use        | If HTTP Request is selected as the **Connection Type**, choose from either GET or POST as the HTTP method.                                                                                      |
+| Enter the URL to your JSON file      | Enter the URL of your JSON file.                                                                                                                                                                |
+| How will you provide the certificate | If HTTP Request is selected as the **Connection Type**, choose the method in which the certificate will be provided:<br/>No certificate<br/>URL Path to the Certificate<br/>Certificate Content |
 
 #### Advanced Settings
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"> Menu </th><th colspan="1" rowspan="1"> Description </th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> HTTPS Headers </td><td colspan="1" rowspan="1"> Enter the Key and Value of the HTTPS Headers. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> Query Parameters </td><td colspan="1" rowspan="1"> Enter the Key and Value of the Query Parameters. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> Date Query Parameters </td><td colspan="1" rowspan="1"> Select No Date Filter, Single Date, or Date Range as the Date Query Parameter. This option is only available for the HTTP Request Connection Type. </td></tr><tr><td colspan="1" rowspan="1"> JSON Settings </td><td colspan="1" rowspan="1"> Specify whether your JSON text requires a line reader and if the backslash character should be escaped. </td></tr></tbody></table>
+| Menu                  | Description                                                                                                                                        |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HTTPS Headers         | Enter the Key and Value of the HTTPS Headers. This option is only available for the HTTP Request Connection Type.                                  |
+| Query Parameters      | Enter the Key and Value of the Query Parameters. This option is only available for the HTTP Request Connection Type.                               |
+| Date Query Parameters | Select No Date Filter, Single Date, or Date Range as the Date Query Parameter. This option is only available for the HTTP Request Connection Type. |
+| JSON Settings         | Specify whether your JSON text requires a line reader and if the backslash character should be escaped.                                            |
 
 ### Parsing
 
