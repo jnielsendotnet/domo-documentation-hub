@@ -85,32 +85,99 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Domo developer account as well as your S3 bucket. The following table describes what is needed for each field:
 
-| Field                          | Description                                                                                                           |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| {" "}
- Domo Client ID{" "}     | {" "}
- Enter your Domo client ID. See 
- [{" "}
- Prerequisites{" "}](#h_01EPR103F5ZFQE5KHA83EMS3X6)
- for details.{" "} |
-| {" "}
- Domo Client Secret{" "} | {" "}
- Enter your Domo client secret. See [Prerequisites](#h_01EPR103F5ZFQE5KHA83EMS3X6) for details.{" "}            |
-| {" "}
- Role Session Name{" "}  | {" "}
- Enter the identifier for the assumed role session.{" "}                                                        |
-| {" "}
- Role ARN{" "}           | {" "}
- Enter the Amazon Resource Name (ARN) of the role you want to assume.{" "}                                      |
-| {" "}
- External ID{" "}        | {" "}
- Enter the unique identifier used by third parties when assuming roles in their customers' accounts.{" "}       |
-| {" "}
- Bucket{" "}             | {" "}
- Enter the Amazon S3 Bucket you want to pull files from.{" "}                                                   |
-| {" "}
- Region{" "}             | {" "}
- Select the S3 Bucket Region where your file is located.{" "}                                                   |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Field </span>
+        </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Description </span>
+        </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Domo Client ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter your Domo client ID. See 
+        <a href="#h_01EPR103F5ZFQE5KHA83EMS3X6" target="_blank" title="Prerequisites">
+          {" "}
+          Prerequisites{" "}
+        </a>
+         for details.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Domo Client Secret{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter your Domo client secret. See <a href="#h_01EPR103F5ZFQE5KHA83EMS3X6"> Prerequisites </a> for details.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Role Session Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the identifier for the assumed role session.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Role ARN{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the Amazon Resource Name (ARN) of the role you want to assume.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        External ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the unique identifier used by third parties when assuming roles in their customers' accounts.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Bucket{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the Amazon S3 Bucket you want to pull files from.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Region{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the S3 Bucket Region where your file is located.{" "}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Once you have entered valid credentials, you can use the same account any time you go to create a new Domo-S3 connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
 
@@ -118,73 +185,225 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-| Menu                                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| {" "}
- How Would You Like to Select Your Folder Path?{" "}   | {" "}
- Specify whether you would like to search for your folder path or enter it manually.{" "}                                                                                                                                                                                                                                                                                                                                                                                                               |
-| {" "}
- Select Folder Path{" "}                               | {" "}
- Select the folder path that you would like to use.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| {" "}
- Path{" "}                                             | {" "}
- Enter the folder path where you would like the file to be saved in your Amazon S3 bucket.{" "}                                                                                                                                                                                                                                                                                                                                                                                                         |
-| {" "}
- Overwrite{" "}                                        | {" "}
- Select this check box if you want to overwrite the existing file in your Amazon S3 bucket with selected filename.{" "}                                                                                                                                                                                                                                                                                                                                                                                 |
-| {" "}
- How Would You Like to Select Your Input DataSet?{" "} | {" "}
- Specify whether you would like to search for your DataSet ID or enter it manually.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                |
-| {" "}
- DataSet ID{" "}                                       | {" "}
- Select the DataSet ID that you would like to use.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| {" "}
- Input DataSet ID{" "}                                 | Enter the DataSet ID (GUID) for the DataSet you want to copy to the S3 Bucket.<br/>{" "}
- You can find the DataSet ID by opening the details view for the DataSet in the Data Center and looking at the portion
- of the URL following datasources/. Example: In the URL 
- [{" "}
- https://mycompany.domo.com/datasourc...tails/overview](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview) 
- , the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.{" "}       |
-| {" "}
- Select Filename{" "}                                  | {" "}
- Select whether you want to reference your DataSet using the Input DataSet ID **,** Input DataSet Name 
- **{" "}
- ,{" "}** 
- or an output file name.{" "}<br/>{" "}
- If you choose ** Use Input Dataset Name**
- or ** Enter File Name**
- and your dataset name contains the macro <current_date> or <current_date-1> without spaces, then
- <current_date> will be replaced by today's date and <current_date-1> will be replaced by yesterday's
- date or -31 for 31 days ago in format yyyy-MM-dd.{" "} |
-| {" "}
- Filename{" "}                                         | Enter the output file name.<br/>{" "}
- If you wish to add current date to the file name please use the macro <current_date> or <current_date-1>.
- Example: If fileName is ** domo_<current_date>**
- , the output file generated in s3 bucket would be domo_(todays date in format yyyy-MM-dd) like domo_2019-07-16.{" "}                                                                                                                                                                                      |
-| {" "}
- Only Writeback New Data{" "}                          | {" "}
- Check this box to only pull your last execution data from the input dataset and export it to S3 Object.{" "}                                                                                                                                                                                                                                                                                                                                                                                           |
-| {" "}
- File Extension{" "}                                   | {" "}
- Select the extension that should be used as the file extension for your output file.{" "}                                                                                                                                                                                                                                                                                                                                                                                                              |
-| {" "}
- Delimiter{" "}                                        | {" "}
- Select the character that should be used as a delimiter for your output file.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| {" "}
- Choose the Escape character{" "}                      | {" "}
- Select the escape character for the input dataset.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| {" "}
- Choose the Quote character{" "}                       | {" "}
- Select the quote character for the input dataset.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| {" "}
- Compression{" "}                                      | {" "}
- Select the compression type that should be used for your output file.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| {" "}
- Encryption Method{" "}                                | {" "}
- Select the encryption type that should be used for your output file.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| {" "}
- Encryption Key{" "}                                   | {" "}
- Enter the encryption key.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p> Menu </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p> Description </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How Would You Like to Select Your Folder Path?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Specify whether you would like to search for your folder path or enter it manually.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select Folder Path{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the folder path that you would like to use.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Path{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the folder path where you would like the file to be saved in your Amazon S3 bucket.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Overwrite{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select this check box if you want to overwrite the existing file in your Amazon S3 bucket with selected filename.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How Would You Like to Select Your Input DataSet?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Specify whether you would like to search for your DataSet ID or enter it manually.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        DataSet ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the DataSet ID that you would like to use.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Input DataSet ID{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the DataSet ID (GUID) for the DataSet you want to copy to the S3 Bucket. </p>
+        <p>
+          {" "}
+          You can find the DataSet ID by opening the details view for the DataSet in the Data Center and looking at the portion
+          of the URL following datasources/. Example: In the URL 
+          <a
+            href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"
+            target="_blank"
+            title="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview">
+            {" "}
+            https://mycompany.domo.com/datasourc...tails/overview
+          </a> 
+          , the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select Filename{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          {" "}
+          Select whether you want to reference your DataSet using the Input DataSet ID <b>, </b> Input DataSet Name 
+          <b>
+            {" "}
+            ,{" "}
+          </b> 
+          or an output file name.{" "}
+        </p>
+        <p>
+          {" "}
+          If you choose <b>
+            <b> Use Input Dataset Name </b>
+          </b> or <b>
+            <b> Enter File Name </b>
+          </b> and your dataset name contains the macro &lt;current_date&gt; or &lt;current_date-1&gt; without spaces, then
+          &lt;current_date&gt; will be replaced by today's date and &lt;current_date-1&gt; will be replaced by yesterday's
+          date or -31 for 31 days ago in format yyyy-MM-dd.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Filename{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p> Enter the output file name. </p>
+        <p>
+          {" "}
+          If you wish to add current date to the file name please use the macro &lt;current_date&gt; or &lt;current_date-1&gt;.
+          Example: If fileName is <b>
+            <b> domo_&lt;current_date&gt; </b>
+          </b>, the output file generated in s3 bucket would be domo_(todays date in format yyyy-MM-dd) like domo_2019-07-16.{" "}
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Only Writeback New Data{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Check this box to only pull your last execution data from the input dataset and export it to S3 Object.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        File Extension{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the extension that should be used as the file extension for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Delimiter{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the character that should be used as a delimiter for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Choose the Escape character{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the escape character for the input dataset.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Choose the Quote character{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the quote character for the input dataset.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Compression{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the compression type that should be used for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Encryption Method{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Select the encryption type that should be used for your output file.{" "}
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Encryption Key{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Enter the encryption key.{" "}
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Other Panes
 

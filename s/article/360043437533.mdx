@@ -17,12 +17,32 @@ The connector has two components:
 - The Domo Bundle running inside your NetSuite instance
 - The connector code running in Domo
 
-|                                                           |                                                                  |
-| --------------------------------------------------------- | ---------------------------------------------------------------- |
-| **Primary Use Cases**                                     | This connector is great for extracting REST data in JSON format. |
-| **Primary Company Roles**                                 | Most appropriate for ERP/finance roles.                          |
-| **Average Implementation Time**                           | 4-8 hours                                                        |
-| **Ease of Use (on a 1-to-10 scale with 1 being easiest)** | 8                                                                |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p></p></th>
+      <th colspan="1" rowspan="1"><p></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Primary Use Cases</b></p></td>
+      <td colspan="1" rowspan="1"><p>This connector is great for extracting REST data in JSON format.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Primary Company Roles</b></p></td>
+      <td colspan="1" rowspan="1"><p>Most appropriate for ERP/finance roles.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Average Implementation Time</b></p></td>
+      <td colspan="1" rowspan="1"><p>4-8 hours</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p><b>Ease of Use (on a 1-to-10 scale with 1 being easiest)</b></p></td>
+      <td colspan="1" rowspan="1"><p>8</p></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Prerequisites
@@ -76,15 +96,44 @@ This pane contains fields for to connecting to your NetSuite account. Each conne
 
 Once you have connected to NetSuite, you can use the same account any time you go to create a new NetSuiteApp DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
-| **Field**                 | **Description**                                                                                                                |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| Environment               | Select the environment (Production or Sandbox).                                                                                |
-| Username                  | Enter your NetSuite username.                                                                                                  |
-| Password                  | Enter your NetSuite password.                                                                                                  |
-| Role ID                   | Enter your NetSuite Role ID. It's only required if no default role is specified or if you do not want to use the default role. |
-| Account ID                | Enter your NetSuite account ID.                                                                                                |
-| NetSuite Script Bundle ID | Enter the script variable from the NetSuite bundle URL.                                                                        |
-| NetSuite Deploy Bundle ID | Enter the deploy variable from the NetSuite bundle URL.                                                                        |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p><b>Field</b></p></th>
+      <th colspan="1" rowspan="1"><p><b> Description</b></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Environment</p></td>
+      <td colspan="1" rowspan="1"><p>Select the environment (Production or Sandbox).</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Username</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your NetSuite username.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Password</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your NetSuite password.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Role ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your NetSuite Role ID. It's only required if no default role is specified or if you do not want to use the default role.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Account ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your NetSuite account ID.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>NetSuite Script Bundle ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the script variable from the NetSuite bundle URL.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>NetSuite Deploy Bundle ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the deploy variable from the NetSuite bundle URL.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 
 #### Choosing Your Environment
@@ -121,17 +170,52 @@ Once you have established the connection to NetSuite, you can now create DataSet
 
 This pane contains a single **Report** menu in which you enter the ID for the NetSuite saved search you want to pull into Domo.
 
-| **Menu**                  | **Description**                                                                                                                                   |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Saved Search ID           | Enter the NetSuite Saved Search you want to run. Example: For customsearch776, you would only enter 776.                                          |
-| Date From                 | Select the report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector.   |
-| Date From Offset          | This adjusts the current date to the given number of days into the past. Example: 0 for today, 1 for yesterday.                                   |
-| Select Specific Date From | Select the report date using the date picker. This option is only available when Report Date is set to 'Specific.'                                |
-| Date To                   | Select report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector.       |
-| Date To Offset            | This adjusts the current date the given number of days into the past. Example: 0 for today, 1 for yesterday.                                      |
-| Select Specific Date To   | Select the report date using the date picker. This option is only available when Report Date is set to 'Specific.'                                |
-| Duplicate Row Handling    | Select **Remove Duplicate Rows** to remove duplicate rows in your dataset. Select **Keep Duplicate Rows** to keep duplicate rows in your dataset. |
-| Big Number Handling       | Select **Treat Big Numbers As Strings** to treat numbers with over 35 digits as strings. Select **Truncate Big Numbers** to truncate them.        |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p><b>Menu</b></p></th>
+      <th colspan="1" rowspan="1"><p><b> Description</b></p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Saved Search ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the NetSuite Saved Search you want to run.  Example: For customsearch776, you would only enter 776.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date From</p></td>
+      <td colspan="1" rowspan="1"><p>Select the report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date From Offset</p></td>
+      <td colspan="1" rowspan="1"><p>This adjusts the current date to the given number of days into the past. Example: 0 for today, 1 for yesterday.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Specific Date From</p></td>
+      <td colspan="1" rowspan="1"><p>Select the report date using the date picker. This option is only available when Report Date is set to 'Specific.'</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date To</p></td>
+      <td colspan="1" rowspan="1"><p>Select report date using relative or specific dates. Relative meaning number of days from today or a specific date using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date To Offset</p></td>
+      <td colspan="1" rowspan="1"><p>This adjusts the current date the given number of days into the past. Example: 0 for today, 1 for yesterday.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Specific Date To</p></td>
+      <td colspan="1" rowspan="1"><p>Select the report date using the date picker. This option is only available when Report Date is set to 'Specific.'</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Duplicate Row Handling</p></td>
+      <td colspan="1" rowspan="1"><p>Select <b>Remove Duplicate Rows</b> to remove duplicate rows in your dataset. Select <b> Keep Duplicate Rows</b> to keep duplicate rows in your dataset.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Big Number Handling</p></td>
+      <td colspan="1" rowspan="1"><p>Select <b>Treat Big Numbers As Strings</b> to treat numbers with over 35 digits as strings.  Select <b> Truncate Big Numbers</b> to truncate them.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## Useful Links

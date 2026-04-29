@@ -33,14 +33,7 @@ The Domo Aurora Connector uses OAuth to connect, so there is no need to enter cr
 
 The following Credential table describes what is needed for each field:
 
-| Field                     | Description                                                                                                  |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Username                  | Enter your database username.                                                                                |
-| Password                  | Enter your database password.                                                                                |
-| Host                      | Enter the hostname or IP address of your database server. Example: `[db.company.com](http://db.company.com)` |
-| Port                      | Enter the port number for your database server.                                                              |
-| Database Name             | Enter your database name.                                                                                    |
-| CA Certificate (optional) | Enter the URL where the SSL CA Certificate is located.                                                       |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your database username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your database password. </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the hostname or IP address of your database server. Example: <span class="mt-font-courier-new"><a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></span></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number for your database server. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter your database name. </td></tr><tr><td colspan="1" rowspan="1"> CA Certificate (optional) </td><td colspan="1" rowspan="1"> Enter the URL where the SSL CA Certificate is located. </td></tr></tbody></table>
 
 Once you have entered valid credentials, you can use the same account any time you go to create a new Amazon Aurora Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -50,22 +43,139 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This page contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-| Menu                                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Query                                          | Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example:<br/>`select * from Employee`<br/>You can use the **Query Helper** parameter to help you write a usable SQL query. To use the **Query Helper**, do the following:<br/>Select your database table and table columns in the appropriate menus.<br/>Copy the SQL statement that appears in the Query Helper field.<br/>Paste the copied SQL statement into the Query field.                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| Query Type                                     | Select the desired MySQL query type—either with or without a parameter.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Query Parameter 
-
-<br/>                        | Enter the query parameter value. This is the initial value for the query parameter. You can use this option to retrieve new data since the last run.<br/>For example, if you entered the following query in the **Query** field...<br/>`select * from test.lastValue where id <=!{lastvalue:id}! order by id desc`<br/>...and then entered the following for the **Query Parameter**...<br/>`!{lastvalue:id}!=3`<br/>...then the first run would return 3 rows, and all subsequent runs would return 1 row, and the results would be ordered from largest to smallest.<br/>Similarly, if you entered the following in the 
-**Query** field...<br/>`select * from test.lastValue where time >!{lastrundate:time}!`<br/>...and then entered the following for the **Query Parameter**...<br/>`!{lastrundate:time}!=01/01/1990`<br/>...then the first run would return 5 rows and all subsequent runs would return 0 rows. |
-| Partition Column Name                          | Select partition column name.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Past Days                                      | Enter the number of past days you want to get data for. Value can be a positive integer. For example 30.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Date Format                                    | Select the required date format. By default,**yyyy-MM-dd** will be used.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| TinyInt Values Treated as Bit (Boolean) Values | Select Yes if you want the tiny integer values to be treated as boolean values, else select No.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| Cast Boolean Values To...                      | Select whether the String or Integer boolean values will be cast within your dataset. <br/> String: False/True <br/> Integer: 0/1                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| Database Table (Optional)                      | Select the database table you want to import into Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| Table Columns (Optional)                       | Select the table columns you want to import into Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Query Helper (Optional)                        | Copy and paste the SQL statement in this field into the **Query** field. For more information, see **Query**, above.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a">
+<thead>
+<tr>
+<th colspan="1" rowspan="1">
+<p> Menu </p>
+</th>
+<th colspan="1" rowspan="1">
+<p> Description </p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Query </span>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p>
+<p>
+<span class="mt-font-courier-new"> select * from Employee </span>
+</p>
+<p> You can use the <b> Query Helper </b> parameter to help you write a usable SQL query. To use the <b> Query Helper </b>, do the following: </p>
+<ol>
+<li>
+<p> Select your database table and table columns in the appropriate menus. </p>
+</li>
+<li>
+<p> Copy the SQL statement that appears in the <b> Query Helper </b> field. </p>
+</li>
+<li>
+<p> Paste the copied SQL statement into the <b> Query </b> field. </p>
+</li>
+</ol>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Query Type </span>
+</td>
+<td colspan="1" rowspan="1"> Select the desired MySQL query type—either with or without a parameter. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Query Parameter </span>
+<span>
+<br/>
+</span>
+</td>
+<td colspan="1" rowspan="1">
+<p> Enter the query parameter value. This is the initial value for the query parameter. You can use this option to retrieve new data since the last run. </p>
+<p> For example, if you entered the following query in the <b> Query </b> field... </p>
+<p>
+`select * from test.lastValue where id <=!{lastvalue:id}! order by id desc`
+</p>
+<p>...and then entered the following for the <b> Query Parameter </b>... </p>
+<p>
+`!{lastvalue:id}!=3`
+</p>
+<p>...then the first run would return 3 rows, and all subsequent runs would return 1 row, and the results would be ordered from largest to smallest. </p>
+<p> Similarly, if you entered the following in the 
+<b> Query </b> field... </p>
+<p>
+`select * from test.lastValue where time >!{lastrundate:time}!`
+</p>
+<p>...and then entered the following for the <b> Query Parameter </b>... </p>
+<p>
+`!{lastrundate:time}!=01/01/1990`
+</p>
+<p>...then the first run would return 5 rows and all subsequent runs would return 0 rows. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Partition Column Name </span>
+</td>
+<td colspan="1" rowspan="1"> Select partition column name. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Past Days </span>
+</td>
+<td colspan="1" rowspan="1">
+<span> Enter the number of past days you want to get data for. Value can be a positive integer. For example 30. </span>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Date Format </span>
+</td>
+<td colspan="1" rowspan="1"> Select the required date format. By default,<b> yyyy-MM-dd </b> will be used. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> TinyInt Values Treated as Bit (Boolean) Values </span>
+</td>
+<td colspan="1" rowspan="1"> Select Yes if you want the tiny integer values to be treated as boolean values, else select No. </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Cast Boolean Values To... </span>
+</td>
+<td colspan="1" rowspan="1"> Select whether the String or Integer boolean values will be cast within your dataset. <br/> String: False/True <br/> Integer: 0/1 </td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Database Table (Optional) </span>
+</td>
+<td colspan="1" rowspan="1">
+<p> Select the database table you want to import into Domo. </p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Table Columns (Optional) </span>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span> Select the table columns you want to import into Domo. </span>
+</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<span> Query Helper (Optional) </span>
+</td>
+<td colspan="1" rowspan="1">
+<p>
+<span> Copy and paste the SQL statement in this field into the <b> Query </b> field. For more information, see <b> Query </b>, above. </span>
+</p>
+</td>
+</tr>
+</tbody>
+</table>
 
 ### Other Panes
 

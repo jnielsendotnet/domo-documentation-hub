@@ -27,37 +27,116 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Gong account. The following table describes what is needed for each field:  
 
-| Field             | Description                                                                                                                                                                                                                                       |
-| ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Access Key        | Enter the access key for your Gong API user. For more information, see [Prerequisites](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Sales/Gong_Connector#Prerequisites).        |
-| Access Key Secret | Enter the access key secret for your Gong API user. For more information, see [Prerequisites](https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Sales/Gong_Connector#Prerequisites). |
-| Domain            | Enter the Domain. For example, api.gong.io.                                                                                                                                                                                                       |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Access Key</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the access key for your Gong API user. For more information, see <a href="https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Sales/Gong_Connector#Prerequisites">Prerequisites</a>.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Access Key Secret</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the access key secret for your Gong API user. For more information, see <a href="https://domohelp.domo.com/Connect/Connecting_to_Data_with_Connectors/Configuring_Each_Connector/Connectors_for_Sales/Gong_Connector#Prerequisites">Prerequisites</a>.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domain</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the Domain. For example, api.gong.io.</p></td>
+    </tr>
+  </tbody>
+</table>
 Once you have entered valid Gong credentials, you can use the same account any time you go to create a new Gong DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-| Menu                     | Description                                                                                                                                                                                                                                                                                   |
-| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Report                   | Select the Gong report you want to run. The following reports are available:                                                                                                                                                                                                                  |
-| Date Selection           | Select the date format for your data.                                                                                                                                                                                                                                                         |
-| Single Date              | Select whether the report data is for a specific date or for a relative number of days back from today.                                                                                                                                                                                       |
-| Specific Date            | Select the specific date using the date selector.                                                                                                                                                                                                                                             |
-| Relative Date            | Enter the number of days back that you would like to get data for in the **Days Back** field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past.                                                                                                |
-| Date Range               | Select the specific or relative date range.                                                                                                                                                                                                                                                   |
-| Start Date - Specific    | Select the first date in your date range using the date selector.                                                                                                                                                                                                                             |
-| End Date - Specific      | Select the last date in your date range using the date selector.                                                                                                                                                                                                                              |
-| Start Date - Relative    | Enter the number of days back that you would like to get data from (start day). Combine with **End Date** to create a range of represented days. For example, if you entered 10 for **Start Date** and 5 for **End Date**, the report would contain data for 10 days ago up until 5 days ago. |
-| End Date - Relative      | Enter the number of days back that you would like to get data to (end day). Combine with **Start Date** to create a range of represented days. For example, if you entered 10 for **Start Date** and 5 for **End Date**, the report would contain data for 10 days ago up until 5 days ago.   |
-| Time Period              | Specify the time period that you would like to receive data for.                                                                                                                                                                                                                              |
-| Starting Day of the Week | Select the day you would like your week to start with.                                                                                                                                                                                                                                        |
-| Aggregation Period       | Select the period you would like the data to be aggregated for.                                                                                                                                                                                                                               |
-| Subreport                | Select the sub report data you are interested in.                                                                                                                                                                                                                                             |
-| Context Links            | Returns the user activity for selected aggregation and date range with respect to the context links.                                                                                                                                                                                          |
-| Points of Interest       | Returns the user activity for selected aggregation and date range with respect to the user's points of interests.                                                                                                                                                                             |
-| Topics                   | Returns the user activity for selected aggregation and date range with respect to the user's topics.                                                                                                                                                                                          |
-| Trackers                 | Returns the user activity for selected aggregation and date range with respect to the user's trackers.                                                                                                                                                                                        |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Report</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Gong report you want to run. The following reports are available:</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date Selection</p></td>
+      <td colspan="1" rowspan="1"><p>Select the date format for your data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Single Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether the report data is for a specific date or for a relative number of days back from today.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Specific Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the specific date using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Relative Date</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of days back that you would like to get data for in the <b>Days Back</b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Date Range</p></td>
+      <td colspan="1" rowspan="1"><p>Select the specific or relative date range.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date - Specific</p></td>
+      <td colspan="1" rowspan="1"><p>Select the first date in your date range using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date - Specific</p></td>
+      <td colspan="1" rowspan="1"><p>Select the last date in your date range using the date selector.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date - Relative</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of days back that you would like to get data from (start day). Combine with <b>End Date</b> to create a range of represented days.  For example, if you entered 10 for <b> Start Date</b> and 5 for <b> End Date</b>, the report would contain data for 10 days ago up until 5 days ago.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date - Relative</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the number of days back that you would like to get data to (end day). Combine with <b>Start Date</b> to create a range of represented days.  For example, if you entered 10 for <b> Start Date</b> and 5 for <b> End Date</b>, the report would contain data for 10 days ago up until 5 days ago.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Time Period</p></td>
+      <td colspan="1" rowspan="1"><p>Specify the time period that you would like to receive data for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Starting Day of the Week</p></td>
+      <td colspan="1" rowspan="1"><p>Select the day you would like your week to start with.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Aggregation Period</p></td>
+      <td colspan="1" rowspan="1"><p>Select the period you would like the data to be aggregated for.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Subreport</p></td>
+      <td colspan="1" rowspan="1"><p>Select the sub report data you are interested in.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Context Links</p></td>
+      <td colspan="1" rowspan="1"><p>Returns the user activity for selected aggregation and date range with respect to the context links.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Points of Interest</p></td>
+      <td colspan="1" rowspan="1"><p>Returns the user activity for selected aggregation and date range with respect to the user's points of interests.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Topics</p></td>
+      <td colspan="1" rowspan="1"><p>Returns the user activity for selected aggregation and date range with respect to the user's topics.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Trackers</p></td>
+      <td colspan="1" rowspan="1"><p>Returns the user activity for selected aggregation and date range with respect to the user's trackers.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Other Panes
 

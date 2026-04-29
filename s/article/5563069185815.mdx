@@ -39,30 +39,88 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Domo developer account as well as the Splunk account where you want your data to be copied to. The following table describes what is needed for each field:  
 
-| Field                      | Description                                                                                                  |
-| -------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| Domo Client ID             | Enter your Domo client ID.                                                                                   |
-| Domo Client Secret         | Enter your Domo client secret.                                                                               |
-| Splunk Host Name           | Enter your host name. **Note**- Do not include **https://** or **http://**. Example: "subdomain.domain.info" |
-| Port                       | Enter the port number.                                                                                       |
-| HTTP Event Collector Token | Enter the event collector token.                                                                             |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domo Client ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Domo client ID.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domo Client Secret</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Domo client secret.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Splunk Host Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your host name. <b>Note</b>- Do not include <b> https://</b> or <b> http://</b>.  Example: "subdomain.domain.info"</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Port</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the port number.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>HTTP Event Collector Token</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the event collector token.</p></td>
+    </tr>
+  </tbody>
+</table>
 Once you have entered valid credentials, you can use the same account any time you go to set up a new Splunk Writeback DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-| Menu              | Description                                                                                                |
-| ----------------- | ---------------------------------------------------------------------------------------------------------- |
-| Splunk Index Name | Enter your Splunk instance index name.                                                                     |
-| Source            | Enter the domo source name.  **Example:** customername.domo.com                                            |
-| Agg               | Enter the aggregation value.                                                                               |
-| Start Date Type   | Select the Start date selection type.                                                                      |
-| Start Date        | Select the start date from which you want to start fetching data.                                          |
-| Start Date Offset | Select the number of days back from which you want to start fetching data. For example, Enter 0 for today. |
-| End Date Type     | Select the End date selection type.                                                                        |
-| End Date          | Select the End Date.                                                                                       |
-| End Date Offset   | Select the number of days back till which you want to fetch data. For Example, enter 0 for today.          |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Splunk Index Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Splunk instance index name.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Source</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the domo source name.   <b>Example:</b> customername.domo.com</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Agg</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the aggregation value.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date Type</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Start date selection type.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the start date from which you want to start fetching data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Start Date Offset</p></td>
+      <td colspan="1" rowspan="1"><p>Select the number of days back from which you want to start fetching data. For example, Enter 0 for today.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date Type</p></td>
+      <td colspan="1" rowspan="1"><p>Select the End date selection type.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date</p></td>
+      <td colspan="1" rowspan="1"><p>Select the End Date.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>End Date Offset</p></td>
+      <td colspan="1" rowspan="1"><p>Select the number of days back till which you want to fetch data. For Example, enter 0 for today.</p></td>
+    </tr>
+  </tbody>
+</table>
 
 ### Other Panes
 

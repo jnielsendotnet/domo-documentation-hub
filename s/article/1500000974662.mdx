@@ -43,32 +43,132 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your MySQL account where you want your data to be copied to. The following table describes what is needed for each field:
 
-| Field                                  | Description                                                  |
-| -------------------------------------- | ------------------------------------------------------------ |
-| {" "}
- SSH Server Host Name{" "}       | Enter your SSH server host name.                             |
-| {" "}
- SSH Port Number{" "}            | Enter your SSH server port number.                           |
-| {" "}
- SSH Username{" "}               | Enter your SSH sever username.                               |
-| {" "}
- SSH Password{" "}               | Enter your SSH server password.                              |
-| {" "}
- SSH Private Key{" "}            | Enter the SSH private key in PEM format (either DES or RSA). |
-| {" "}
- SSH Private Key Passphrase{" "} | Enter your SSH server private key passphrase.                |
-| {" "}
- MySQL JDBC Driver{" "}          | Select the MySQL JDBC driver to use.                         |
-| {" "}
- Host{" "}                       | Enter your hostname or IP address of your database server.   |
-| {" "}
- Port{" "}                       | Enter your MySQL port number.                                |
-| {" "}
- Username{" "}                   | Enter your MySQL username.                                   |
-| {" "}
- Password{" "}                   | Enter your MySQL password.                                   |
-| {" "}
- Database{" "}                   | Enter your MySQL database name.                              |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Field </span>
+        </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p>
+          <span class="s1"> Description </span>
+        </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Server Host Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your SSH server host name. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Port Number{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your SSH server port number. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Username{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your SSH sever username. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Password{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your SSH server password. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Private Key{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter the SSH private key in PEM format (either DES or RSA). </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        SSH Private Key Passphrase{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your SSH server private key passphrase. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        MySQL JDBC Driver{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Select the MySQL JDBC driver to use. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Host{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your hostname or IP address of your database server. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Port{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your MySQL port number. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Username{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your MySQL username. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Password{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your MySQL password. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Database{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter your MySQL database name. </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-MySQL connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -76,42 +176,163 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-| Menu                                                            | Description                                                                                                                                                                                                                                                                                                                                                                   |
-| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DataSet ID                                                      | Enter your Domo dataset ID(GUID) located in the dataset URL.<br/>{" "}
- For example, in the URL 
- `
- [{" "}
- https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview)`
- 
- , the DataSet ID is `845305d8-da3d-4107-a9d6-13ef3f86d4a4.` |
-| {" "}
- How would you like to select your table?{" "}            | {" "}
- Specify whether you would like to create a new table or select an existing table to export your DataSet data to.{" "}                                                                                                                                                                                                                                                  |
-| {" "}
- Table Name{" "}                                          | Select whether you would like to use the 
- dataset ID or a custom name for the table name.                                                                                                                                                                                                                                                                                    |
-| {" "}
- Custom Table Name{" "}                                   | Enter the name for the SQL table to write the dataset data to.                                                                                                                                                                                                                                                                                                                |
-| Delete existing table and create a new table with the same name | {" "}
- Select this checkbox if you want Domo to delete the existing table and create a new one with the same name.{" "}<br/>**WARNING**: This deletes the existing table and the data cannot be recovered once deleted.{" "}                                                                                                                                                  |
-| {" "}
- Existing Table{" "}                                      | Select the table to write the dataset data to.                                                                                                                                                                                                                                                                                                                                |
-| {" "}
- Update Operation Type{" "}                               | Select whether you want to append data, overwrite new data, or upsert data while updating it.                                                                                                                                                                                                                                                                                 |
-| {" "}
- Use Column Mapping{" "}                                  | {" "}
- Select the checkbox if you wish to provide Dataset Column Name and Table Column Name mapping. If this option is
- selected, only those columns that are provided in the Text Areas will be updated/inserted.{" "}                                                                                                                                                       |
-| {" "}
- Dataset Column Names{" "}                                | Enter the comma separated list of Dataset Column Names.                                                                                                                                                                                                                                                                                                                       |
-| {" "}
- Table Column Names{" "}                                  | {" "}
- Enter the comma separated list of Table Column Names. Table Column Names should correspond to the Dataset Column
- Names in the same sequence. The Number of Dataset Column Names should be equal to Table Column Names for proper
- mapping.{" "}                                                                                                                       |
-| {" "}
- Primary Column{" "}                                      | Select the column name that should be primary key column.                                                                                                                                                                                                                                                                                                                     |
+<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1">
+        <p> Menu </p>
+      </th>
+      <th colspan="1" rowspan="1">
+        <p> Description </p>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <p> DataSet ID </p>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          <span> Enter your Domo dataset ID(GUID) located in the dataset URL. </span>
+        </p>
+        <p>
+          {" "}
+          For example, in the URL 
+          <span class="mt-font-courier-new">
+            <span class="nowiki">
+              <a
+                href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"
+                rel="noopener"
+                target="_blank"
+              >
+                {" "}
+                https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}
+              </a>
+            </span>
+          </span>
+           , the DataSet ID is <span class="mt-font-courier-new"> 845305d8-da3d-4107-a9d6-13ef3f86d4a4. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        How would you like to select your table?{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span>
+          {" "}
+          Specify whether you would like to create a new table or select an existing table to export your DataSet data to.{" "}
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Table Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          <span> Select whether you would like to use the </span>
+          <span> dataset ID or a custom name for the table name. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Custom Table Name{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter the name for the SQL table to write the dataset data to. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        <span> Delete existing table and create a new table with the same name </span>
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          <span>
+            {" "}
+            Select this checkbox if you want Domo to delete the existing table and create a new one with the same name.{" "}
+          </span>
+        </p>
+        <p>
+          <span>
+            <b> WARNING </b>: This deletes the existing table and the data cannot be recovered once deleted.{" "}
+          </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Existing Table{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Select the table to write the dataset data to. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Update Operation Type{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <p>
+          <span> Select whether you want to append data, overwrite new data, or upsert data while updating it. </span>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Use Column Mapping{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span>
+          {" "}
+          Select the checkbox if you wish to provide Dataset Column Name and Table Column Name mapping. If this option is
+          selected, only those columns that are provided in the Text Areas will be updated/inserted.{" "}
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Dataset Column Names{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Enter the comma separated list of Dataset Column Names. </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Table Column Names{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span>
+          {" "}
+          Enter the comma separated list of Table Column Names. Table Column Names should correspond to the Dataset Column
+          Names in the same sequence. The Number of Dataset Column Names should be equal to Table Column Names for proper
+          mapping.{" "}
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1">
+        {" "}
+        Primary Column{" "}
+      </td>
+      <td colspan="1" rowspan="1">
+        <span> Select the column name that should be primary key column. </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ### Other Panes
 

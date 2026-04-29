@@ -30,28 +30,80 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Domo developer account. The following table describes what is needed for each field:  
 
-| Field              | Description                                                                                                     |
-| ------------------ | --------------------------------------------------------------------------------------------------------------- |
-| Domo Client ID     | Enter your Domo client ID. For steps on obtaining your client ID and client secret, see "Prerequisites," above. |
-| Domo Client Secret | Enter your Domo client ID. For steps on obtaining your client ID and client secret, see "Prerequisites," above. |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domo Client ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Domo client ID. For steps on obtaining your client ID and client secret, see "Prerequisites," above.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domo Client Secret</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your Domo client ID. For steps on obtaining your client ID and client secret, see "Prerequisites," above.</p></td>
+    </tr>
+  </tbody>
+</table>
 Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-Smartsheet connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-| Menu                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Where would you like to write this file? | Select whether you want to send your Domo DataSet data to a Smartsheet workspace or folder.                                                                                                                                                                                                                                                                                                                                      |
-| Folder                                   | Select the Smartsheet folder where you want to copy your data.                                                                                                                                                                                                                                                                                                                                                                   |
-| Folder ID                                | Enter the Folder Id in which you want to store the data. To fetch the Folder Id for any folder, refer to the ***Retrieving a Folder ID from SmartSheet UI*** section.                                                                                                                                                                                                                                                            |
-| Workspace                                | Select the Smartsheet workspace where you want to copy your data.                                                                                                                                                                                                                                                                                                                                                                |
-| Overwrite settings                       | Select, if you want to create Smartsheet for each run or overwrite the existing Smartsheet for each run.                                                                                                                                                                                                                                                                                                                         |
-| Domo DataSet ID                          | Enter the DataSet ID (GUID) for the DataSet you want to copy to a Smartsheet folder or workspace. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4. |
-| Select Filename                          | Select how you want to choose the file where data will be copied. - **Use Input DataSet GUID**. The filename will be the number you entered for **Domo DataSet ID**. - **Use Input DataSet Name**. The filename will be the same as that of the input DataSet. - **Enter File Name**. You will give the file a custom name in the **File Name** field.                                                                           |
-| Primary Column                           | Enter the column name exactly as it appears in the Domo DataSet. The primary key must be a single column, and the DataType is not editable.                                                                                                                                                                                                                                                                                      |
-| Filename                                 | Enter the desired output filename.                                                                                                                                                                                                                                                                                                                                                                                               |
-| Choose the Escape character              | Select the escape character for the input dataset.                                                                                                                                                                                                                                                                                                                                                                               |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Where would you like to write this file?</p></td>
+      <td colspan="1" rowspan="1"><p>Select whether you want to send your Domo DataSet data to a Smartsheet workspace or folder.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Folder</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Smartsheet folder where you want to copy your data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Folder ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the Folder Id in which you want to store the data. To fetch the Folder Id for any folder, refer to the  <b><i>Retrieving a Folder ID from SmartSheet UI</i></b> section.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Workspace</p></td>
+      <td colspan="1" rowspan="1"><p>Select the Smartsheet workspace where you want to copy your data.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Overwrite settings</p></td>
+      <td colspan="1" rowspan="1"><p>Select, if you want to create Smartsheet for each run or overwrite the existing Smartsheet for each run.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Domo DataSet ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the DataSet ID (GUID) for the DataSet you want to copy to a Smartsheet folder or workspace. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Filename</p></td>
+      <td colspan="1" rowspan="1"><p>Select how you want to choose the file where data will be copied.   - <b>Use Input DataSet GUID</b>. The filename will be the number you entered for <b> Domo DataSet ID</b>. - <b> Use Input DataSet Name</b>. The filename will be the same as that of the input DataSet. - <b> Enter File Name</b>. You will give the file a custom name in the <b> File Name</b> field.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Primary Column</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the column name exactly as it appears in the Domo DataSet. The primary key must be a single column, and the DataType is not editable.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Filename</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the desired output filename.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Choose the Escape character</p></td>
+      <td colspan="1" rowspan="1"><p>Select the escape character for the input dataset.</p></td>
+    </tr>
+  </tbody>
+</table>
 ### Retrieving a Folder ID from SmartSheet UI
 
 Follow the steps below to retrieve a Folder ID from SmartSheet UI:

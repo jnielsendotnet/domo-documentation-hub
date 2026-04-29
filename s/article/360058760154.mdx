@@ -77,11 +77,36 @@ To configure the public/private key pair, follow these steps:
 
 5. Verify the user’s public key fingerprint using DESCRIBE USER:  
 
-| Property                | Value                                               | Default | Description                                  |
-| ----------------------- | --------------------------------------------------- | ------- | -------------------------------------------- |
-| Name                    | JSMITH                                              | null    | Name                                         |
-| RSA\_PUBLIC\_KEY\_FP    | SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA= | null    | Fingerprint of user's RSA public key.        |
-| RSA\_PUBLIC\_KEY\_2\_FP | null                                                | null    | Fingerprint of user's second RSA public key. |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Property</p></th>
+      <th colspan="1" rowspan="1"><p>Value</p></th>
+      <th colspan="1" rowspan="1"><p>Default</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Name</p></td>
+      <td colspan="1" rowspan="1"><p>JSMITH</p></td>
+      <td colspan="1" rowspan="1"><p>null</p></td>
+      <td colspan="1" rowspan="1"><p>Name</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_FP</p></td>
+      <td colspan="1" rowspan="1"><p>SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA=</p></td>
+      <td colspan="1" rowspan="1"><p>null</p></td>
+      <td colspan="1" rowspan="1"><p>Fingerprint of user's RSA public key.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_2\_FP</p></td>
+      <td colspan="1" rowspan="1"><p>null</p></td>
+      <td colspan="1" rowspan="1"><p>null</p></td>
+      <td colspan="1" rowspan="1"><p>Fingerprint of user's second RSA public key.</p></td>
+    </tr>
+  </tbody>
+</table>
    
 <Note>**Note:** For more information about the RSA\_PUBLIC\_KEY\_2\_FP property, see [Key Rotation](#h_01ES6Z0BJZFCZ3TSR79F91AE6J).
 6. Modify and execute the sample code, below. The code decrypts the private key file and passes it to the Snowflake driver to create a connection:</Note>
@@ -179,30 +204,88 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to your Domo developer account as well as your Snowflake account. The following table describes what is needed for each field:
 
-| Field        | Description                                                                                                                                          |
-| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account Name | Enter the full name of your account (provided by Snowflake.) For US West Region **account\_name** and All other regions **account\_name.region\_id** |
-| Username     | Enter the username used to connect to your Snowflake host.                                                                                           |
-| Private Key  | Enter the private key.                                                                                                                               |
-| Passphrase   | If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.      |
-| Role         | Enter your role.                                                                                                                                     |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Field</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Account Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the full name of your account (provided by Snowflake.) For US West Region <b>account\_name</b> and All other regions <b> account\_name.region\_id</b></p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Username</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the username used to connect to your Snowflake host.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Private Key</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the private key.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Passphrase</p></td>
+      <td colspan="1" rowspan="1"><p>If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Role</p></td>
+      <td colspan="1" rowspan="1"><p>Enter your role.</p></td>
+    </tr>
+  </tbody>
+</table>
 Once you have entered valid credentials, you can use the same account any time you to create a new Domo-Snowflake connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-| Menu                                              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Input DataSet ID                                  | Enter the DataSet ID (GUID) for the DataSet you want to copy to Snowflake. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL [https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview), the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4. |
-| Select Table Name                                 | Select how you want to name the table where data will be copied.  - **Use Input DataSet GUID**: The table name must be the number you entered for the **Input****DataSet ID**. - **Use Input Dataset Name**: The table name must be the name used for naming the Input DataSet. - **Enter Table Name**: Enter a custom table name in the **Enter** Table Name**** field.                                                                                                                                  |
-| Enter Table Name                                  | Enter the name of the Snowflake table you want your data copied to (spaces and special characters will be replaced with underscores).                                                                                                                                                                                                                                                                                                                                                                     |
-| Warehouses                                        | Select the warehouse.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| Databases                                         | Select the database.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| Database Schema                                   | Select the schema.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| Use All Caps for Column Names and Table Name      | Write back your column names and table name in ALL CAPS, so the names are case insensitive within Snowflake.                                                                                                                                                                                                                                                                                                                                                                                              |
-| How do you want to update your data in snowflake? |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| Choose the Escape character                       | Select the escape character for the input dataset.                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+<table border="1" cellpadding="1" cellspacing="1">
+  <thead>
+    <tr>
+      <th colspan="1" rowspan="1"><p>Menu</p></th>
+      <th colspan="1" rowspan="1"><p>Description</p></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Input DataSet ID</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the DataSet ID (GUID) for the DataSet you want to copy to Snowflake. You can find the ID by opening the details view for the DataSet in the Data Center and looking at the portion of the URL following datasources/. For example, in the URL <a href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview">https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview</a>, the DataSet ID is 845305d8-da3d-4107-a9d6-13ef3f86d4a4.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Select Table Name</p></td>
+      <td colspan="1" rowspan="1"><p>Select how you want to name the table where data will be copied.    - <b>Use Input DataSet GUID</b>: The table name must be the number you entered for the <b> Input</b><b>DataSet ID</b>. - <b> Use Input Dataset Name</b>: The table name must be the name used for naming the Input DataSet. - <b> Enter Table Name</b>: Enter a custom table name in the <b> Enter</b> Table Name**** field.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Enter Table Name</p></td>
+      <td colspan="1" rowspan="1"><p>Enter the name of the Snowflake table you want your data copied to (spaces and special characters will be replaced with underscores).</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
+      <td colspan="1" rowspan="1"><p>Select the warehouse.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Databases</p></td>
+      <td colspan="1" rowspan="1"><p>Select the database.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Database Schema</p></td>
+      <td colspan="1" rowspan="1"><p>Select the schema.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Use All Caps for Column Names and Table Name</p></td>
+      <td colspan="1" rowspan="1"><p>Write back your column names and table name in ALL CAPS, so the names are case insensitive within Snowflake.</p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>How do you want to update your data in snowflake?</p></td>
+      <td colspan="1" rowspan="1"><p></p></td>
+    </tr>
+    <tr>
+      <td colspan="1" rowspan="1"><p>Choose the Escape character</p></td>
+      <td colspan="1" rowspan="1"><p>Select the escape character for the input dataset.</p></td>
+    </tr>
+  </tbody>
+</table>
 ### FAQs
 
 <AccordionGroup>
