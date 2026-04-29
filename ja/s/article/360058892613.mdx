@@ -29,7 +29,14 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your HL7 dataset . The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Hostname </td><td colspan="1" rowspan="1"> Enter the hostname used to connect to SFTP server. </td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number used to connect to SFTP server. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter the username of the SFTP server. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter the password of the SFTP server. </td></tr><tr><td colspan="1" rowspan="1"> SSH Private Key </td><td colspan="1" rowspan="1"> Enter the SSH private key (DES or RSA), in PEM format. </td></tr><tr><td colspan="1" rowspan="1"> Passphrase </td><td colspan="1" rowspan="1"> Enter the SFTP server passphrase. </td></tr></tbody></table>
+| Field           | Description                                            |
+| --------------- | ------------------------------------------------------ |
+| Hostname        | Enter the hostname used to connect to SFTP server.     |
+| Port            | Enter the port number used to connect to SFTP server.  |
+| Username        | Enter the username of the SFTP server.                 |
+| Password        | Enter the password of the SFTP server.                 |
+| SSH Private Key | Enter the SSH private key (DES or RSA), in PEM format. |
+| Passphrase      | Enter the SFTP server passphrase.                      |
 
 You can use the same account any time you go to set up a new Domo- HL7
 
@@ -39,13 +46,62 @@ connection. You can manage connector accounts in the **Accounts** tab in the Dat
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Path </td><td colspan="1" rowspan="1"> Enter the SFTP file location. </td></tr><tr><td colspan="1" rowspan="1"> Select Filename </td><td colspan="1" rowspan="1"> Select whether you would like to use the input dataset guide or enter the output filename manually. </td></tr><tr><td colspan="1" rowspan="1"> Filename </td><td colspan="1" rowspan="1"> Enter the output file name. </td></tr></tbody></table>
+| Menu            | Description                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| Path            | Enter the SFTP file location.                                                                       |
+| Select Filename | Select whether you would like to use the input dataset guide or enter the output filename manually. |
+| Filename        | Enter the output file name.                                                                         |
 
 #### Form of the Input Dataset
 
 The HL7 Writeback connector maps columns to fields in an HL7 message. This version of the connector supports a hard coded mapping between columns and fields. Thus, you must use the correct column names to use this connector. Here's the current list of columns with the quoted string (the exact column name you need to use).
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:208;a"><thead><tr><th colspan="1" rowspan="1"><p> Field Name </p></th><th colspan="1" rowspan="1"><p> Column Name </p></th></tr><tr><td colspan="1" rowspan="1"> Accession Number </td><td colspan="1" rowspan="1"> "AccessionNumber" </td></tr><tr><td colspan="1" rowspan="1"> Lab Result </td><td colspan="1" rowspan="1"> "LabResult" </td></tr><tr><td colspan="1" rowspan="1"> Lab Test Date </td><td colspan="1" rowspan="1"> "LabTestDate" </td></tr><tr><td colspan="1" rowspan="1"> NTE Comment 1 </td><td colspan="1" rowspan="1"> "NTE Comment 1" </td></tr><tr><td colspan="1" rowspan="1"> NTE Comment 2 </td><td colspan="1" rowspan="1"> "NTE Comment 2" </td></tr><tr><td colspan="1" rowspan="1"> NTE Comment 3 </td><td colspan="1" rowspan="1"> "NTE Comment 3" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Given Name </td><td colspan="1" rowspan="1"> "OrderingProviderGivenName" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Last Name </td><td colspan="1" rowspan="1"> "OrderingProviderLastName" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Phone Number </td><td colspan="1" rowspan="1"> "OrderingProviderPhoneNumber" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Title </td><td colspan="1" rowspan="1"> "OrderingProviderTitle" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Facility </td><td colspan="1" rowspan="1"> "OrderingProviderFacility" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Street </td><td colspan="1" rowspan="1"> "OrderingProviderStreet" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider City </td><td colspan="1" rowspan="1"> "OrderingProviderCity" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider State </td><td colspan="1" rowspan="1"> "OrderingProviderState" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Provider Zip Code </td><td colspan="1" rowspan="1"> "OrderingProviderZip" </td></tr><tr><td colspan="1" rowspan="1"> Ordering Facility Street </td><td colspan="1" rowspan="1"> "OrderingFacilityStreet"; </td></tr><tr><td colspan="1" rowspan="1"> Ordering Facility State </td><td colspan="1" rowspan="1"> "OrderingFacilityState"; </td></tr><tr><td colspan="1" rowspan="1"> Ordering Facility City </td><td colspan="1" rowspan="1"> "OrderingFacilityCity"; </td></tr><tr><td colspan="1" rowspan="1"> Ordering Facility Zip Code </td><td colspan="1" rowspan="1"> "OrderingFacilityZip"; </td></tr><tr><td colspan="1" rowspan="1"> Patient ID </td><td colspan="1" rowspan="1"> "PatientId" </td></tr><tr><td colspan="1" rowspan="1"> Patient Date of Birth </td><td colspan="1" rowspan="1"> "PatientDOB" </td></tr><tr><td colspan="1" rowspan="1"> Patient First Name </td><td colspan="1" rowspan="1"> "PatientFirstName" </td></tr><tr><td colspan="1" rowspan="1"> Patient Last Name </td><td colspan="1" rowspan="1"> "PatientLastName" </td></tr><tr><td colspan="1" rowspan="1"> Patient Sex Code </td><td colspan="1" rowspan="1"> "PatientSexCd" </td></tr><tr><td colspan="1" rowspan="1"> Patient Phone Number </td><td colspan="1" rowspan="1"> "PatientPhone" </td></tr><tr><td colspan="1" rowspan="1"> Patient Address Street </td><td colspan="1" rowspan="1"> "PatientAddressStreet"; </td></tr><tr><td colspan="1" rowspan="1"> Patient Address City </td><td colspan="1" rowspan="1"> "PatientAddressCity" </td></tr><tr><td colspan="1" rowspan="1"> Patient Address State </td><td colspan="1" rowspan="1"> "PatientAddressState" </td></tr><tr><td colspan="1" rowspan="1"> Patient Address Zip Code </td><td colspan="1" rowspan="1"> "PatientAddressZip" </td></tr><tr><td colspan="1" rowspan="1"> Specimen Collection Date </td><td colspan="1" rowspan="1"> "SpecimenCollectionDate" </td></tr><tr><td colspan="1" rowspan="1"> Specimen Source Code </td><td colspan="1" rowspan="1"> "SpecimenSourceCd" </td></tr><tr><td colspan="1" rowspan="1"> Specimen Identifier </td><td colspan="1" rowspan="1"> "SpecifmenIdentifier" </td></tr><tr><td colspan="1" rowspan="1"> Specimen Code </td><td colspan="1" rowspan="1"> "SpecimenCode" </td></tr><tr><td colspan="1" rowspan="1"> Performing Facility </td><td colspan="1" rowspan="1"> "PerformingFacility" </td></tr><tr><td colspan="1" rowspan="1"> Performing Facility Street </td><td colspan="1" rowspan="1"> "PerformingFacilityStreet" </td></tr><tr><td colspan="1" rowspan="1"> Performing Facility City </td><td colspan="1" rowspan="1"> "PerformingFacilityCity" </td></tr><tr><td colspan="1" rowspan="1"> Performing Facility State </td><td colspan="1" rowspan="1"> "PerformingFacilityState" </td></tr><tr><td colspan="1" rowspan="1"> Performing Facility Zip Code </td><td colspan="1" rowspan="1"> "PerformingFacilityZip" </td></tr><tr><td colspan="1" rowspan="1"> Ordered Test Name </td><td colspan="1" rowspan="1"> "OrderedTestName" </td></tr><tr><td colspan="1" rowspan="1"> Ordered Test Identifier </td><td colspan="1" rowspan="1"> "OrderedTestIdentifier" </td></tr><tr><td colspan="1" rowspan="1"> Ordered Test Code </td><td colspan="1" rowspan="1"> "OrderedTestCode" </td></tr><tr><td colspan="1" rowspan="1"> Sending Facility </td><td colspan="1" rowspan="1"> "SendingFacility" </td></tr><tr><td colspan="1" rowspan="1"> Sending Facility ID </td><td colspan="1" rowspan="1"> "SendingFacilityId" </td></tr><tr><td colspan="1" rowspan="1"> Sending Facility Code </td><td colspan="1" rowspan="1"> "SendingFacilityCode" </td></tr></thead></table>
+| Field Name                     | Column Name                   |
+| ------------------------------ | ----------------------------- |
+| Accession Number               | "AccessionNumber"             |
+| Lab Result                     | "LabResult"                   |
+| Lab Test Date                  | "LabTestDate"                 |
+| NTE Comment 1                  | "NTE Comment 1"               |
+| NTE Comment 2                  | "NTE Comment 2"               |
+| NTE Comment 3                  | "NTE Comment 3"               |
+| Ordering Provider Given Name   | "OrderingProviderGivenName"   |
+| Ordering Provider Last Name    | "OrderingProviderLastName"    |
+| Ordering Provider Phone Number | "OrderingProviderPhoneNumber" |
+| Ordering Provider Title        | "OrderingProviderTitle"       |
+| Ordering Provider Facility     | "OrderingProviderFacility"    |
+| Ordering Provider Street       | "OrderingProviderStreet"      |
+| Ordering Provider City         | "OrderingProviderCity"        |
+| Ordering Provider State        | "OrderingProviderState"       |
+| Ordering Provider Zip Code     | "OrderingProviderZip"         |
+| Ordering Facility Street       | "OrderingFacilityStreet";     |
+| Ordering Facility State        | "OrderingFacilityState";      |
+| Ordering Facility City         | "OrderingFacilityCity";       |
+| Ordering Facility Zip Code     | "OrderingFacilityZip";        |
+| Patient ID                     | "PatientId"                   |
+| Patient Date of Birth          | "PatientDOB"                  |
+| Patient First Name             | "PatientFirstName"            |
+| Patient Last Name              | "PatientLastName"             |
+| Patient Sex Code               | "PatientSexCd"                |
+| Patient Phone Number           | "PatientPhone"                |
+| Patient Address Street         | "PatientAddressStreet";       |
+| Patient Address City           | "PatientAddressCity"          |
+| Patient Address State          | "PatientAddressState"         |
+| Patient Address Zip Code       | "PatientAddressZip"           |
+| Specimen Collection Date       | "SpecimenCollectionDate"      |
+| Specimen Source Code           | "SpecimenSourceCd"            |
+| Specimen Identifier            | "SpecifmenIdentifier"         |
+| Specimen Code                  | "SpecimenCode"                |
+| Performing Facility            | "PerformingFacility"          |
+| Performing Facility Street     | "PerformingFacilityStreet"    |
+| Performing Facility City       | "PerformingFacilityCity"      |
+| Performing Facility State      | "PerformingFacilityState"     |
+| Performing Facility Zip Code   | "PerformingFacilityZip"       |
+| Ordered Test Name              | "OrderedTestName"             |
+| Ordered Test Identifier        | "OrderedTestIdentifier"       |
+| Ordered Test Code              | "OrderedTestCode"             |
+| Sending Facility               | "SendingFacility"             |
+| Sending Facility ID            | "SendingFacilityId"           |
+| Sending Facility Code          | "SendingFacilityCode"         |
 
 ### Other Panes
 

@@ -31,7 +31,14 @@ Microsoft SQL serverに接続する前に、データベースサーバーの接
 
 このペインには、Microsoft SQL Serverデータベースに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> ユーザー名 </td><td colspan="1" rowspan="1"> Microsoft SQL Serverアカウントのログインに使用するユーザー名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> パスワード </td><td colspan="1" rowspan="1"> Microsoft SQL Serverアカウントのログインに使用するパスワードを入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ホスト </td><td colspan="1" rowspan="1"> データベースのホスト名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> ポート </td><td colspan="1" rowspan="1"> データベースのポート番号を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> データベース </td><td colspan="1" rowspan="1"> データベース名を入力します。 </td></tr><tr><td colspan="1" rowspan="1"> 証明書（オプション） </td><td colspan="1" rowspan="1"> SSL CA証明書があるURLを入力します。 </td></tr></tbody></table>
+| フィールド      | 説明                                              |
+| ---------- | ----------------------------------------------- |
+| ユーザー名      | Microsoft SQL Serverアカウントのログインに使用するユーザー名を入力します。 |
+| パスワード      | Microsoft SQL Serverアカウントのログインに使用するパスワードを入力します。 |
+| ホスト        | データベースのホスト名を入力します。                              |
+| ポート        | データベースのポート番号を入力します。                             |
+| データベース     | データベース名を入力します。                                  |
+| 証明書（オプション） | SSL CA証明書があるURLを入力します。                          |
 
 一度有効なMicrosoft SQL Server認証情報を入力したら、新しいMicrosoft SQL ServerパーティションDataSetを作成する際はいつでも同じアカウントを使用することができます。コネクターのアカウントはData Centerの ****［アカウント］**** タブで管理することができます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
 
@@ -39,7 +46,14 @@ Microsoft SQL serverに接続する前に、データベースサーバーの接
 
 このペインでは、SQLクエリを作成して、データベースからデータを取得します。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> クエリ </td><td colspan="1" rowspan="1"><p> 必要なデータの選択に使用するSQLクエリを入力します。 </p><p> 例：select Date from Employee </p></td></tr><tr><td colspan="1" rowspan="1"> 表の名前 </td><td colspan="1" rowspan="1"> Domoに取得するデータを含む表を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> パーティション列の名前 </td><td colspan="1" rowspan="1"> パーティション列の名前を選択します。 </td></tr><tr><td colspan="1" rowspan="1"> 過去日数 </td><td colspan="1" rowspan="1"> データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30 </td></tr><tr><td colspan="1" rowspan="1"> 日付形式 </td><td colspan="1" rowspan="1"> 必要な日付形式を選択します。デフォルトでは、 <b><b><b><b><b><b><b><b><b><b><b><b><b><b><b><b> yyyy-MM-dd </b></b></b></b></b></b></b></b></b></b></b></b></b></b></b></b> が使用されます。 </td></tr><tr><td colspan="1" rowspan="1"> カスタマイズされた日付の形式 </td><td colspan="1" rowspan="1"> カスタマイズされた日付形式を入力します。 </td></tr></tbody></table>
+| メニュー           | 説明                                                          |
+| -------------- | ----------------------------------------------------------- |
+| クエリ            | 必要なデータの選択に使用するSQLクエリを入力します。<br/>例：select Date from Employee |
+| 表の名前           | Domoに取得するデータを含む表を選択します。                                     |
+| パーティション列の名前    | パーティション列の名前を選択します。                                          |
+| 過去日数           | データを取得する過去の日数を入力します。値はプラスの整数にすることができます。例：30                 |
+| 日付形式           | 必要な日付形式を選択します。デフォルトでは、 ** yyyy-MM-dd** が使用されます。             |
+| カスタマイズされた日付の形式 | カスタマイズされた日付形式を入力します。                                        |
 
 ### その他のペイン
 

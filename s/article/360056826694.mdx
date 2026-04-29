@@ -38,7 +38,15 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your MySQL Partition account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> JDBC Driver </td><td colspan="1" rowspan="1"> Select the JDBC driver to use to connect to the database server. </td></tr><tr><td colspan="1" rowspan="1"> Host </td><td colspan="1" rowspan="1"> Enter the host name for the MySQL database. For example: <a href="http://db.company.com" rel="noopener" target="_blank"> db.company.com </a></td></tr><tr><td colspan="1" rowspan="1"> Port </td><td colspan="1" rowspan="1"> Enter the port number for the database. </td></tr><tr><td colspan="1" rowspan="1"> Database Name </td><td colspan="1" rowspan="1"> Enter the name of the MySQL database or schema. </td></tr><tr><td colspan="1" rowspan="1"> Username </td><td colspan="1" rowspan="1"> Enter your MySQL username. </td></tr><tr><td colspan="1" rowspan="1"> Password </td><td colspan="1" rowspan="1"> Enter your MySQL password. </td></tr><tr><td colspan="1" rowspan="1"> CA Certificate </td><td colspan="1" rowspan="1"> Enter the URL where the SSL CA Certificate is located (optional). </td></tr></tbody></table>
+| Field          | Description                                                                                      |
+| -------------- | ------------------------------------------------------------------------------------------------ |
+| JDBC Driver    | Select the JDBC driver to use to connect to the database server.                                 |
+| Host           | Enter the host name for the MySQL database. For example: [db.company.com](http://db.company.com) |
+| Port           | Enter the port number for the database.                                                          |
+| Database Name  | Enter the name of the MySQL database or schema.                                                  |
+| Username       | Enter your MySQL username.                                                                       |
+| Password       | Enter your MySQL password.                                                                       |
+| CA Certificate | Enter the URL where the SSL CA Certificate is located (optional).                                |
 
 Once you have entered valid credentials, you can use the same account any time you go to create a new MySQL Partition DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -46,7 +54,16 @@ Once you have entered valid credentials, you can use the same account any time y
 
 In this pane you specify the attributes and conditions to partition your data.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"> Query </td><td colspan="1" rowspan="1"> Enter the SQL query to execute. </td></tr><tr><td colspan="1" rowspan="1"> Table Name </td><td colspan="1" rowspan="1"> Select the database table. </td></tr><tr><td colspan="1" rowspan="1"> Partition Column Name </td><td colspan="1" rowspan="1"> Select partition column name. </td></tr><tr><td colspan="1" rowspan="1"> Past Days </td><td colspan="1" rowspan="1"> Enter the number of past days you want to get data for. Value can be a positive integer. For example: 30. </td></tr><tr><td colspan="1" rowspan="1"> Date Format </td><td colspan="1" rowspan="1"> Select the required date format. By default <b><b> yyyy-MM-dd </b></b> will be used. </td></tr><tr><td colspan="1" rowspan="1"> Select if you want to compress the data </td><td colspan="1" rowspan="1"> Choose the way you want the data to be uploaded. Select True, if you want the data to be compressed while uploading, else select False. </td></tr><tr><td colspan="1" rowspan="1"> Tinyint values treated as (bit) boolean values </td><td colspan="1" rowspan="1"> Select Yes if you want the tiny integer values to be treated as boolean values, else select No. </td></tr><tr><td colspan="1" rowspan="1"> Cast Boolean Values to... </td><td colspan="1" rowspan="1"> Select whether the String or Integer boolean values will be cast to within your dataset. <br/> String: False/True <br/> Integer: 0/1 </td></tr></tbody></table>
+| Menu                                           | Description                                                                                                                             |
+| ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| Query                                          | Enter the SQL query to execute.                                                                                                         |
+| Table Name                                     | Select the database table.                                                                                                              |
+| Partition Column Name                          | Select partition column name.                                                                                                           |
+| Past Days                                      | Enter the number of past days you want to get data for. Value can be a positive integer. For example: 30.                               |
+| Date Format                                    | Select the required date format. By default ** yyyy-MM-dd** will be used.                                                               |
+| Select if you want to compress the data        | Choose the way you want the data to be uploaded. Select True, if you want the data to be compressed while uploading, else select False. |
+| Tinyint values treated as (bit) boolean values | Select Yes if you want the tiny integer values to be treated as boolean values, else select No.                                         |
+| Cast Boolean Values to...                      | Select whether the String or Integer boolean values will be cast to within your dataset. <br/> String: False/True <br/> Integer: 0/1    |
 
 ### Other Panes
 

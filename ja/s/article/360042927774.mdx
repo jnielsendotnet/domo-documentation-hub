@@ -27,7 +27,11 @@ https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-repo
 
 このペインには、Navisionアカウントにアクセスする認証情報の入力フィールドがあります。下表では、各フィールドに必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> フィールド </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> 説明 </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポートサービスURL </p></td><td colspan="1" rowspan="1"><p> Domoに取り込むNavisionレポートのURLを入力します。レポートの作成方法の詳細は、 <a href="https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/" target="_blank"> https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/ </a> を参照してください。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> ユーザー名 </p></td><td colspan="1" rowspan="1"><p> Microsoft Dynamics Navisionのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> パスワード </p></td><td colspan="1" rowspan="1"><p> Microsoft Dynamics Navisionのパスワードを入力します。 </p></td></tr></tbody></table>
+| フィールド       | 説明                                                                                                                                                                                                                                                                                       |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| レポートサービスURL | Domoに取り込むNavisionレポートのURLを入力します。レポートの作成方法の詳細は、 [https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/](https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-report-builder-for-report-design/) を参照してください。 |
+| ユーザー名       | Microsoft Dynamics Navisionのユーザー名を入力します。                                                                                                                                                                                                                                                 |
+| パスワード       | Microsoft Dynamics Navisionのパスワードを入力します。                                                                                                                                                                                                                                                 |
 
 有効なNavision認証情報を一度入力しておくと、随時同じアカウントを使用して新しいNavision DataSetを作成できます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054 "コネクターのユーザーアカウントを管理する") 」を参照してください。
 
@@ -35,7 +39,10 @@ https://blogs.msdn.microsoft.com/suvidha/2014/05/21/dynamics-nav-sql-server-repo
 
 このペインには、Navisionレポートを選択するメニューと、選択したレポートのパラメーターを指定するクエリを入力できる別のメニューがあります。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> レポート </p></td><td colspan="1" rowspan="1"><p> 実行するレポートを選択します。利用可能なレポートは、 <b> ［レポートサービスURL］ </b> に入力したURLに基づいて、Navisionアカウントから選別されます。 </p><p></p></td></tr><tr><td colspan="1" rowspan="1"><p> クエリ </p></td><td colspan="1" rowspan="1"><p> 指定したレポートのパラメーターをセミコロンで区切ったリストを入力します​​​​​（形式： <span class="mt-font-courier-new"> key1=value2;key2=value2;...keyn=valuen </span> ）。 </p></td></tr></tbody></table>
+| メニュー | 説明                                                                                       |
+| ---- | ---------------------------------------------------------------------------------------- |
+| レポート | 実行するレポートを選択します。利用可能なレポートは、 **［レポートサービスURL］** に入力したURLに基づいて、Navisionアカウントから選別されます。        |
+| クエリ  | 指定したレポートのパラメーターをセミコロンで区切ったリストを入力します​​​​​（形式： `key1=value2;key2=value2;...keyn=valuen` ）。 |
 
 ### その他のペイン
 

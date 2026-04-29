@@ -36,7 +36,18 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your database and SSH server. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p><span class="s1"> Field </span></p></th><th colspan="1" rowspan="1"><p><span class="s1"> Description </span></p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> SSH Server Hostname </p></td><td colspan="1" rowspan="1"><p> Enter the SSH server hostname. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Username </p></td><td colspan="1" rowspan="1"><p> Enter the SSH username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Password </p></td><td colspan="1" rowspan="1"><p> Enter the SSH password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Port </p></td><td colspan="1" rowspan="1"><p> Enter the SSH port number. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Hostname </p></td><td colspan="1" rowspan="1"><p> Enter the host name for the Oracle database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> SSH Private Key </p></td><td colspan="1" rowspan="1"><p> Enter the SSH private key. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Name </p></td><td colspan="1" rowspan="1"><p> Enter the Oracle database name. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Username </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle username. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Password </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle password. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Port </p></td><td colspan="1" rowspan="1"><p> Enter your Oracle port number. </p></td></tr></tbody></table>
+| Field               | Description                                  |
+| ------------------- | -------------------------------------------- |
+| SSH Server Hostname | Enter the SSH server hostname.               |
+| SSH Username        | Enter the SSH username.                      |
+| SSH Password        | Enter the SSH password.                      |
+| SSH Port            | Enter the SSH port number.                   |
+| Database Hostname   | Enter the host name for the Oracle database. |
+| SSH Private Key     | Enter the SSH private key.                   |
+| Database Name       | Enter the Oracle database name.              |
+| Database Username   | Enter your Oracle username.                  |
+| Database Password   | Enter your Oracle password.                  |
+| Database Port       | Enter your Oracle port number.               |
 
 Once you have entered valid Oracle Database credentials, you can use the same account any time you go to create a new Oracle Database SSH DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -44,7 +55,12 @@ Once you have entered valid Oracle Database credentials, you can use the same ac
 
 In this pane you create an SQL query to pull data from your database. The **Query** parameter is required. The other three parameters are here to help you construct this query if you choose.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> Query </p></td><td colspan="1" rowspan="1"><p> Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: </p><p><span class="mt-font-courier-new"> select * from Employee </span></p><p> If you want help in constructing your query, </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database Table (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table containing the data you want to pull into Domo. The selected table will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Table Columns (Optional) </p></td><td colspan="1" rowspan="1"><p> Select the table columns with data you want to pull into Domo. The selected columns will be added to the automatically generated query in the <b> Query Helper </b> field. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Query Helper (Optional) </p></td><td colspan="1" rowspan="1"><p> Copy and paste this query into the <b> Query </b> field if you need help building a query. This query is automatically generated when you select a table and columns in the <b> Database Table </b> and <b> Table Columns </b> fields, respectively. </p></td></tr></tbody></table>
+| Menu                      | Description                                                                                                                                                                                                                           |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query                     | Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example:<br/>`select * from Employee`<br/>If you want help in constructing your query,                                                     |
+| Database Table (Optional) | Select the table containing the data you want to pull into Domo. The selected table will be added to the automatically generated query in the **Query Helper** field.                                                                 |
+| Table Columns (Optional)  | Select the table columns with data you want to pull into Domo. The selected columns will be added to the automatically generated query in the **Query Helper** field.                                                                 |
+| Query Helper (Optional)   | Copy and paste this query into the **Query** field if you need help building a query. This query is automatically generated when you select a table and columns in the **Database Table** and **Table Columns** fields, respectively. |
 
 ### Other Panes
 

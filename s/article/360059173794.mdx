@@ -72,36 +72,11 @@ To configure the public/private key pair, follow these steps:
    - Exclude the public key header and footer in the SQL statement.
 5. Verify the user’s public key fingerprint using DESCRIBE USER:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Property</p></th>
-      <th colspan="1" rowspan="1"><p>Value</p></th>
-      <th colspan="1" rowspan="1"><p>Default</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-      <td colspan="1" rowspan="1"><p>JSMITH</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Name</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA=</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's RSA public key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>RSA\_PUBLIC\_KEY\_2\_FP</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>null</p></td>
-      <td colspan="1" rowspan="1"><p>Fingerprint of user's second RSA public key.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Property                | Value                                               | Default | Description                                  |
+| ----------------------- | --------------------------------------------------- | ------- | -------------------------------------------- |
+| Name                    | JSMITH                                              | null    | Name                                         |
+| RSA\_PUBLIC\_KEY\_FP    | SHA256:nvnONUsfiuycCLMXIEWG4eTp4FjhVUZQUQbNpbSHXiA= | null    | Fingerprint of user's RSA public key.        |
+| RSA\_PUBLIC\_KEY\_2\_FP | null                                                | null    | Fingerprint of user's second RSA public key. |
    
 <Note>**Note:** For more information about the RSA\_PUBLIC\_KEY\_2\_FP property, see [Key Rotation](#h_01ES6Z0BJZFCZ3TSR79F91AE6J)
 6. Modify and execute the sample code, below. The code decrypts the private key file and passes it to the Snowflake driver to create a connection:</Note>
@@ -198,100 +173,33 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to your Snowflake account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account Name</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the full name of your account (provided by Snowflake.) For US West Region <b>account\_name</b> and All other regions <b> account\_name.region\_id</b></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username used to connect to your Snowflake host.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Private Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the private key.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Passphrase</p></td>
-      <td colspan="1" rowspan="1"><p>If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Role</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your role.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Access Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Secret Key</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your AWS secret access key. It was provided when you created your Access Key. You can generate a new one in the AWS Console.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Bucket</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of the AWS S3 bucket that your Snowflake data will be unloaded into.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Region</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Amazon S3 Region.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field        | Description                                                                                                                                          |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account Name | Enter the full name of your account (provided by Snowflake.) For US West Region **account\_name** and All other regions **account\_name.region\_id** |
+| Username     | Enter the username used to connect to your Snowflake host.                                                                                           |
+| Private Key  | Enter the private key.                                                                                                                               |
+| Passphrase   | If you create an encrypted private key, then OpenSSL prompts for a passphrase used to encrypt the private key file. Enter that passphrase here.      |
+| Role         | Enter your role.                                                                                                                                     |
+| Access Key   | Enter your AWS access key. It is available in the AWS Console in the Security Credentials section or under Users if you are using IAM.               |
+| Secret Key   | Enter your AWS secret access key. It was provided when you created your Access Key. You can generate a new one in the AWS Console.                   |
+| Bucket       | Enter the name of the AWS S3 bucket that your Snowflake data will be unloaded into.                                                                  |
+| Region       | Select the Amazon S3 Region.                                                                                                                         |
 Once you have entered valid credentials, you can use the same account any time you to create a new Snowflake KayPair Unload dataset. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the SQL query to use to retrieve your data. You can use the <b>Query Helper</b> parameter to help you write a usable SQL query. To use the <b> Query Helper</b>, do the following:   1. Select your desired warehouse, database, database schema, database table, and table columns in each menu. 2. Copy the SQL statement that appears in the <b> Query Helper</b> field. 3. Paste the copied SQL statement into the <b> Query</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Warehouses</p></td>
-      <td colspan="1" rowspan="1"><p>Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Databases</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Schema</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Tables</p></td>
-      <td colspan="1" rowspan="1"><p>Select the database table you want to retrieve. The list populates with all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Columns</p></td>
-      <td colspan="1" rowspan="1"><p>Select the table columns you would like to include in your report. If you do not select any table column, the connector retrieves your entire selected database table.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste this text into the QUERY field. You may edit this query if desired.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Use Snowflake Schema</p></td>
-      <td colspan="1" rowspan="1"><p>Check this box if you wish to use the schema directly from Snowflake instead of letting Domo determine the schema.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                 | Description                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query                | Enter the SQL query to use to retrieve your data. You can use the **Query Helper** parameter to help you write a usable SQL query. To use the **Query Helper**, do the following: 1. Select your desired warehouse, database, database schema, database table, and table columns in each menu. 2. Copy the SQL statement that appears in the **Query Helper** field. 3. Paste the copied SQL statement into the **Query** field. |
+| Warehouses           | Select the warehouse containing the data you want to retrieve. The list populates with all warehouses you have access to based on your credentials.                                                                                                                                                                                                                                                                              |
+| Databases            | Select the database containing the data you want to retrieve.  The list populates with all databases you have access to based on your credentials.                                                                                                                                                                                                                                                                               |
+| Database Schema      | Select the database schema containing the data you want to retrieve. The list populates with all schemas you have access to based on your credentials.                                                                                                                                                                                                                                                                           |
+| Database Tables      | Select the database table you want to retrieve. The list populates with all tables you have access to based on your credentials. If you do not select a database table, the connector retrieves your entire database schema.                                                                                                                                                                                                     |
+| Table Columns        | Select the table columns you would like to include in your report. If you do not select any table column, the connector retrieves your entire selected database table.                                                                                                                                                                                                                                                           |
+| Query Helper         | When you select warehouses, databases, schemas, tables, etc. from the above menus, a usable SQL query is built for you in this field. Copy and paste this text into the QUERY field. You may edit this query if desired.                                                                                                                                                                                                         |
+| Use Snowflake Schema | Check this box if you wish to use the schema directly from Snowflake instead of letting Domo determine the schema.                                                                                                                                                                                                                                                                                                               |
 ### Other Panes
 
 For information about the remaining sections of the Connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

@@ -27,72 +27,14 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your Domo developer account as well as your S3 bucket. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Field </span>
-        </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p>
-          <span class="s1"> Description </span>
-        </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Domo Client ID </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your Domo client ID. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Domo Client Secret </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your Domo client secret. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Access Key </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your AWS access key. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Secret Key </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter your AWS secret key. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Bucket </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the name of the bucket you want to push Domo data to. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Region </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Select the Amazon S3 region where your bucket is located. </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Field              | Description                                                 |
+| ------------------ | ----------------------------------------------------------- |
+| Domo Client ID     | Enter your Domo client ID.                                  |
+| Domo Client Secret | Enter your Domo client secret.                              |
+| Access Key         | Enter your AWS access key.                                  |
+| Secret Key         | Enter your AWS secret key.                                  |
+| Bucket             | Enter the name of the bucket you want to push Domo data to. |
+| Region             | Select the Amazon S3 region where your bucket is located.   |
 
 Once you have entered valid credentials, you can use the same account any time you go to set up a new Domo-S3 connection. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](https://domo-support.domo.com/s/article/360042926054?language=en_US "Manage Connector/Adapter Accounts").
 
@@ -100,27 +42,9 @@ Once you have entered valid credentials, you can use the same account any time y
 
 This pane contains a number of fields for specifying your data and indicating where it's going.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Menu </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> How would you like to select your folder path? </span>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Specify how would you like to select the path for your Amazon S3 folder. </p>
-        <table border="1">
+| Menu                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| How would you like to select your folder path?   | Specify how would you like to select the path for your Amazon S3 folder.<br/><table border="1">
           <tbody>
             <tr>
               <td colspan="1" rowspan="1">
@@ -155,281 +79,60 @@ This pane contains a number of fields for specifying your data and indicating wh
               </td>
             </tr>
           </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Path </span>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the path in your selected Amazon S3 bucket where you would like the data to be saved. </p>{" "}
-        <Note>
-          <div class="info-box-wrapper">
-            <div class="info-box-icon-container"></div>
-            <div class="info-box-content-container">
-              <div class="info-box-content">
-                <b> Note </b>: Ensure to add a front slash ({" "}
-                <span class="x x-first x-last"> /) at the end of your path. </span>
-                <p>
-                  <span> Example: testFolder1/testFolder2/ </span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </Note>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Select Folder Path </span>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Select the folder path that you would like to use. </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Dates </span>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Select the date. </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Overwrite? </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Select this checkbox if you want to overwrite the existing file in your Amazon S3 bucket with the selected filename.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Skip Header </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Check this box to skip header from the input dataset and export it to an S3 object. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Remove Quotes </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Check this box to remove quotes from the input dataset and export it to an S3 object. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> How would you like to select your input dataset? </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Specify whether you would like to search for your dataset ID or enter it manually. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Input DataSet ID </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Enter the DataSet ID (GUID) for the DataSet you want to copy to S3. You can find the ID by opening the details
-          view for the DataSet in the Data Center and looking at the portion of the URL following 
-          <span class="mt-font-courier-new">
-            {" "}
-            datasources/{" "}
-          </span>
-          .{" "}
-        </p>
-        <p>
-          {" "}
-          Example, in the URL 
-          <span class="mt-font-courier-new">
-            <span class="nowiki">
-              <a
-                href="https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview"
-                rel="noopener"
-                target="_blank"
-              >
-                {" "}
-                https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}
-              </a>
-            </span>
-          </span> 
-          , the DataSet ID is 
-          <span class="mt-font-courier-new">
-            <b> 845305d8-da3d-4107-a9d6-13ef3f86d4a4 </b>.{" "}
-          </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Dataset Id </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the dataset Id that you would like to use. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Select Filename </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <span> Specify how would you like to select the output filename. </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" width="198">
-        <p> Use Input DataSet ID </p>
-      </td>
-      <td colspan="1" rowspan="1" width="426">
-        <p> The connector will use your Domo dataset ID (located in the dataset URL) as the output filename. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" width="198">
-        <p> Use Input DataSet Name </p>
-      </td>
-      <td colspan="1" rowspan="1" width="426">
-        <p>
-          {" "}
-          The connector will use your Domo dataset name as the output filename. If your dataset name contains a macro &lt;current_date&gt;
-          or &lt;current_date-1&gt; without spaces, then &lt;current_date&gt; will be replaced by today's date and &lt;current_date-1&gt;
-          will be replaced by yesterday's date or -31 for 31 days ago in format yyyy-MM-dd.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" width="198">
-        <p> Enter Filename </p>
-      </td>
-      <td colspan="1" rowspan="1" width="426">
-        <p> Enter the output filename that you want to save your dataset in. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" width="198">
-        <p> Parameterized File Name </p>
-      </td>
-      <td colspan="1" rowspan="1" width="426">
-        <p>
-          {" "}
-          Select the date (specific or relative) that you would like to use in the filename where you would like to save
-          your dataset. If the filename does not already exist (in the S3 bucket), the connector will create one with the
-          specified date parameter.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Filename </p>
-      </td>
-      <td class="blob-code blob-code-inner js-file-line" colspan="1" id="LC290" rowspan="1">
-        <p>
-          <span class="pl-s"> Enter the output file name. </span>
-        </p>
-        <p>
-          <span class="pl-s">
-            {" "}
-            If you wish to add current date to the file name please use the macro &lt;current_date&gt; or &lt;current_date-1&gt;.{" "}
-          </span>
-        </p>
-        <p>
-          <span class="pl-s">
-            {" "}
-            Example: If fileName is domo_&lt;current_date&gt;, the output file generated in s3 bucket would be domo_(todays
-            date in format yyyy-MM-dd) like domo_2019-07-16.{" "}
-          </span>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Only Writeback New Data </span>
-      </td>
-      <td class="blob-num js-line-number" colspan="1" id="L291" rowspan="1">
-        <span>
-          {" "}
-          Check this box to only pull your last execution data from the input dataset and export it to S3 Object.{" "}
-        </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> File Extension </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the extension that you would like to use for your output file. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Enter File Extension </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Enter the file extension. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Delimiter </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the character that should be used as a delimiter for your output file. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Choose the Export Dataset Escape character </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the character that should be used as an escape character for your export file. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Compression </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the compression type that should be used for your output file. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Encryption Method </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Select the encryption type that you would like to use for your output file. </span>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <span> Encryption Key </span>
-      </td>
-      <td colspan="1" rowspan="1">
-        <span> Enter the encryption key. </span>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </table> |
+| Path                                             | Enter the path in your selected Amazon S3 bucket where you would like the data to be saved.<br/>{" "}
+ <Note>
+ 
+ 
+ 
+ 
+ **Note**: Ensure to add a front slash ({" "}
+ /) at the end of your path.<br/>Example: testFolder1/testFolder2/<br/></Note>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Select Folder Path                               | Select the folder path that you would like to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Dates                                            | Select the date.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Overwrite?                                       | {" "}
+ Select this checkbox if you want to overwrite the existing file in your Amazon S3 bucket with the selected filename.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Skip Header                                      | Check this box to skip header from the input dataset and export it to an S3 object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Remove Quotes                                    | Check this box to remove quotes from the input dataset and export it to an S3 object.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| How would you like to select your input dataset? | Specify whether you would like to search for your dataset ID or enter it manually.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
+| Input DataSet ID                                 | {" "}
+ Enter the DataSet ID (GUID) for the DataSet you want to copy to S3. You can find the ID by opening the details
+ view for the DataSet in the Data Center and looking at the portion of the URL following 
+ `{" "}
+ datasources/{" "}`
+ .{" "}<br/>{" "}
+ Example, in the URL 
+ `
+ [{" "}
+ https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview{" "}](https://mycompany.domo.com/datasources/845305d8-da3d-4107-a9d6-13ef3f86d4a4/details/overview)`
+ 
+ , the DataSet ID is 
+ `**845305d8-da3d-4107-a9d6-13ef3f86d4a4**.{" "}`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Dataset Id                                       | Select the dataset Id that you would like to use.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Select Filename                                  | Specify how would you like to select the output filename.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Use Input DataSet ID                             | The connector will use your Domo dataset ID (located in the dataset URL) as the output filename.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Use Input DataSet Name                           | {" "}
+ The connector will use your Domo dataset name as the output filename. If your dataset name contains a macro <current_date>
+ or <current_date-1> without spaces, then <current_date> will be replaced by today's date and <current_date-1>
+ will be replaced by yesterday's date or -31 for 31 days ago in format yyyy-MM-dd.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Enter Filename                                   | Enter the output filename that you want to save your dataset in.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Parameterized File Name                          | {" "}
+ Select the date (specific or relative) that you would like to use in the filename where you would like to save
+ your dataset. If the filename does not already exist (in the S3 bucket), the connector will create one with the
+ specified date parameter.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| Filename                                         | Enter the output file name.<br/>{" "}
+ If you wish to add current date to the file name please use the macro <current_date> or <current_date-1>.{" "}<br/>{" "}
+ Example: If fileName is domo_<current_date>, the output file generated in s3 bucket would be domo_(todays
+ date in format yyyy-MM-dd) like domo_2019-07-16.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| Only Writeback New Data                          | {" "}
+ Check this box to only pull your last execution data from the input dataset and export it to S3 Object.{" "}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| File Extension                                   | Select the extension that you would like to use for your output file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Enter File Extension                             | Enter the file extension.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Delimiter                                        | Select the character that should be used as a delimiter for your output file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Choose the Export Dataset Escape character       | Select the character that should be used as an escape character for your export file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Compression                                      | Select the compression type that should be used for your output file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Encryption Method                                | Select the encryption type that you would like to use for your output file.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| Encryption Key                                   | Enter the encryption key.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ### Other Panes
 

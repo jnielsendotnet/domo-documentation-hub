@@ -31,7 +31,15 @@ This section enumerates the options in the **Credentials** and **Details** panes
 
 This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><thead><tr><th colspan="1" rowspan="1"><p> Field </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> JDBC Driver </p></td><td colspan="1" rowspan="1"><p><span> Select the JDBC driver to use. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Server Hostname </p></td><td colspan="1" rowspan="1"><p><span> Enter the hostname or IP address of your database server. </span></p></td></tr><tr><td colspan="1" rowspan="1"><p> Port </p></td><td colspan="1" rowspan="1"><p> Enter the port number for the database. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Database </p></td><td colspan="1" rowspan="1"><p> Enter the name of the database. <code></code></p></td></tr><tr><td colspan="1" rowspan="1"><p> Username </p></td><td colspan="1" rowspan="1"><p> Enter the username you use to log into your Spark account. </p></td></tr><tr><td colspan="1" rowspan="1"><p> Password </p></td><td colspan="1" rowspan="1"><p> Enter the password you use to log into your Spark account. </p></td></tr><tr><td colspan="1" rowspan="1"> HTTP Path </td><td colspan="1" rowspan="1"><span> Enter the HTTP Path. </span></td></tr></tbody></table>
+| Field           | Description                                                |
+| --------------- | ---------------------------------------------------------- |
+| JDBC Driver     | Select the JDBC driver to use.                             |
+| Server Hostname | Enter the hostname or IP address of your database server.  |
+| Port            | Enter the port number for the database.                    |
+| Database        | Enter the name of the database. ``                         |
+| Username        | Enter the username you use to log into your Spark account. |
+| Password        | Enter the password you use to log into your Spark account. |
+| HTTP Path       | Enter the HTTP Path.                                       |
 
 Once you have entered valid Simba Spark credentials, you can use the same account any time you go to create a new Simba Spark JDBC DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054 "Managing User Accounts for Connectors").
 
@@ -39,7 +47,12 @@ Once you have entered valid Simba Spark credentials, you can use the same accoun
 
 In this pane you create a query to pull data from your database.
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:201;a"><tbody><tr><th colspan="1" rowspan="1"><p> Menu </p></th><th colspan="1" rowspan="1"><p> Description </p></th></tr><tr><td colspan="1" rowspan="1"><p><span> HiveQL Query </span></p></td><td colspan="1" rowspan="1"><p><span> Enter your HiveQL query here. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Database Tables </span></td><td colspan="1" rowspan="1"><p><span> Select the database table. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Table Columns </span></td><td colspan="1" rowspan="1"><p><span> Select the table columns. </span></p></td></tr><tr><td colspan="1" rowspan="1"><span> Fetch Size </span></td><td colspan="1" rowspan="1"><p><span> Enter the fetch size for memory performance. The default value will be used if no fetch size is specified. If an "out of memory" error occurs, retry decreasing the fetch size. </span></p></td></tr></tbody></table>
+| Menu            | Description                                                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| HiveQL Query    | Enter your HiveQL query here.                                                                                                                                                   |
+| Database Tables | Select the database table.                                                                                                                                                      |
+| Table Columns   | Select the table columns.                                                                                                                                                       |
+| Fetch Size      | Enter the fetch size for memory performance. The default value will be used if no fetch size is specified. If an "out of memory" error occurs, retry decreasing the fetch size. |
 
 ### Other Panes
 

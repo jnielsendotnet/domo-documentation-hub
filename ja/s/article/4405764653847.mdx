@@ -28,25 +28,14 @@ Neo4jグラフに接続するには、データベースに以下の条件が必
 
 このペインには、Neo4jグラフに接続する認証情報の入力フィールドが含まれています。下表では、各フィールドに必要な内容を説明しています。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-<thead>
-<tr><th colspan="1" rowspan="1"><p> フィールド </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr>
-</thead>
-<tbody>
-<tr>
-<td colspan="1" rowspan="1" width="226">
-<p> Neo4j Instance URL </p>
-</td>
-<td colspan="1" rowspan="1" width="226">
-<p> インスタンスのURLを入力します。 </p><p> 例：neo4j.database.urlまたは <a href="http://graph.site.com" rel="noopener" target="_blank"> graph.site.com </a>:7473。 </p> 
-<Note>
- <div class="info-box-wrapper"><div class="info-box-icon-container"></div><div class="info-box-content-container"><div class="info-box-content"><b> 注記： </b> 必要に応じてポート番号を含めます。Neo4jのデフォルトポートは7473です。 </div></div></div> 
-</Note>
-
- </td>
- </tr>
- <tr><td colspan="1" rowspan="1" width="226"><p> Neo4j Database Name </p></td><td colspan="1" rowspan="1" width="226"><p> データベース名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Username </p></td><td colspan="1" rowspan="1" width="226"><p> データベースのユーザー名を入力します。 </p></td></tr><tr><td colspan="1" rowspan="1" width="226"><p> Password </p></td><td colspan="1" rowspan="1" width="226"><p> データベースのパスワードを入力します。 </p></td></tr>
- </tbody></table>
+| フィールド               | 説明                                                                                                                                                               |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Neo4j Instance URL  | インスタンスのURLを入力します。<br/>例：neo4j.database.urlまたは [graph.site.com](http://graph.site.com):7473。<br/><Note>
+ **注記：** 必要に応じてポート番号を含めます。Neo4jのデフォルトポートは7473です。 
+</Note> |
+| Neo4j Database Name | データベース名を入力します。                                                                                                                                                   |
+| Username            | データベースのユーザー名を入力します。                                                                                                                                              |
+| Password            | データベースのパスワードを入力します。                                                                                                                                              |
 
 有効な認証情報を一度入力しておくと、随時同じアカウントを使用して新しいNeo4j DataSetを作成することができます。コネクターアカウントは、Data Centerの **［アカウント］** タブで管理できます。このタブの詳細については、「 [コネクターのユーザーアカウントを管理する](/ja/s/article/360042926054) 」を参照してください。
 
@@ -54,7 +43,9 @@ Neo4jグラフに接続するには、データベースに以下の条件が必
 
 ここにCypherクエリを挿入します。このクエリは、ノードではなくプロパティを返す必要があります。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a"><thead><tr><th colspan="1" rowspan="1"><p> メニュー </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p><span> Query </span></p></td><td colspan="1" rowspan="1"><p> Cypherクエリを入力します。 </p><p><b> 例 </b> ： </p><ul><li> MATCH (p:Person)-[:BUYS]-&gt;(i:Item) </li></ul><p><a href="http://p.name" rel="noopener" target="_blank"> p.name </a> をNameとして、i.typeをItemTypeとして返します。 </p><ul><li> MATCH (a:Actor)-[:PRODUCES]-&gt;(m:Movie)&lt;-[:DIRECTS]-(d:Director) </li></ul><p><a href="http://a.name" rel="noopener" target="_blank"> a.name </a> をActorName、a.DOBをDOB、m.titleをMovieTitle、 <a href="http://d.name" rel="noopener" target="_blank"> d.name </a> をDirectorNameとして返します </p></td></tr></tbody></table>
+| メニュー  | 説明                                                                                                                                                                                                                                                                                                                     |
+| ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query | Cypherクエリを入力します。<br/>**例** ：<br/>MATCH (p:Person)-[:BUYS]->(i:Item)<br/>[p.name](http://p.name) をNameとして、i.typeをItemTypeとして返します。<br/>MATCH (a:Actor)-[:PRODUCES]->(m:Movie)<-[:DIRECTS]-(d:Director)<br/>[a.name](http://a.name) をActorName、a.DOBをDOB、m.titleをMovieTitle、 [d.name](http://d.name) をDirectorNameとして返します |
 
 ### その他のペイン
 

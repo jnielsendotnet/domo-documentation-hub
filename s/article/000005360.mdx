@@ -61,84 +61,12 @@ First, you will be asked how to connect to the JSON file, and then, based on you
   <img src="/images/kb/ka0Vq00000007MT-00N5w00000Ri7BU-0EMVq0000009MpJ.jpg" style={{ width: 488, height: 216 }} />
 </Frame>
 
-<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Connection Option </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> When to use this option </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Required information </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Upload file containing JSON data </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> Your data is in a file in JSON format </li>
-          <li> Your file is not accessible via HTTP, HTTPS or via SFTP. </li>
-          <li> Your data is static and will be manually updated. </li>
-        </ul>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> Location of file to upload on local disk. </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> File Transfer (SFTP) </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> Your data is in a file in JSON format. </li>
-          <li> Your file is accessible via an SFTP site that supports Basic Authentication. </li>
-        </ul>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> The username and password for the SFTP site. </li>
-          <li> The URL to connect, which consists of the SFTP server and the file path. </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> HTTP Request </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> Your data is accessible via an API that returns data as a JSON formatted response </li>
-          <li> Your data is not static and can change </li>
-          <li> Your data is not stored in a file </li>
-        </ul>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <ul>
-          <li> The URL of the API endpoint to connect. </li>
-          <li> The authentication mechanism required by the API. </li>
-          <li> Any headers that you will need to be sent in the request. </li>
-          <li>
-            {" "}
-            Input dataset ids, if you are using the <i> Dynamic Parameters </i> or <i> Dynamic URL </i> mode{" "}
-          </li>
-        </ul>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Connection Option**            | **When to use this option**                                                                                                                                        | **Required information**                                                                                                                                                                                                                                   |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Upload file containing JSON data | Your data is in a file in JSON format<br/>Your file is not accessible via HTTP, HTTPS or via SFTP.<br/>Your data is static and will be manually updated.           | Location of file to upload on local disk.                                                                                                                                                                                                                  |
+| File Transfer (SFTP)             | Your data is in a file in JSON format.<br/>Your file is accessible via an SFTP site that supports Basic Authentication.                                            | The username and password for the SFTP site.<br/>The URL to connect, which consists of the SFTP server and the file path.                                                                                                                                  |
+| HTTP Request                     | Your data is accessible via an API that returns data as a JSON formatted response<br/>Your data is not static and can change<br/>Your data is not stored in a file | The URL of the API endpoint to connect.<br/>The authentication mechanism required by the API.<br/>Any headers that you will need to be sent in the request.<br/>{" "}
+ Input dataset ids, if you are using the Dynamic Parameters or Dynamic URL mode{" "} |
 
 #### Connecting via HTTP Request
 
@@ -174,106 +102,24 @@ The HTTP request connection type allows you to call an API endpoint once with st
 
 The below table shows when to use which request type.  The examples refer to Domo’s own API, documented at https://developer.domo.com/portal/8ba9aedad3679-ap-is.
 
-<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Request type </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> When to use this request type </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Example </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Single URL </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Use this request type when: </p>
-        <ol>
-          <li> You only want to call this endpoint once, and/or </li>
-          <li> Any path or query parameter values are static, with the exception of date parameters. </li>
-        </ol>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a href="https://domo.com/api/groups/v1" rel="noopener" target="_blank">
-            {" "}
-            https://domo.com/api/groups/v1{" "}
-          </a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Dynamic URL </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Use this request type when: </p>
-        <ol>
-          <li>
-            {" "}
-            The API endpoint requires a parameter in the path, for example, the &lt;groupId&gt; value in the example URL,
-            and{" "}
-          </li>
-          <li>
-            {" "}
-            You want to call this endpoint multiple times with different values of the path parameter in the same dataset.
-            for example, if you would like to call the endpoint once for groupId =2, once for groupId = 3, once for groupId
-            = 4.{" "}
-          </li>
-        </ol>
-        <p></p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a href="https://domo.com/api/groups/v1/&lt;groupId&gt;" rel="noopener" target="_blank">
-            {" "}
-            https://domo.com/api/groups/v1/&lt;groupId&gt;{" "}
-          </a>{" "}
-          ;{" "}
-        </p>
-        <p></p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Dynamic parameters </p>
-        <p></p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Use this request when </p>
-        <ol>
-          <li> The API endpoint requires a query parameter, and </li>
-          <li>
-            {" "}
-            You want to call this endpoint multiple times but with different query parameter values every time. For example,
-            if you want to call the endpoint once with the groupName=”Eastern Sales”, and then again with the groupName=”Northern
-            Territories”{" "}
-          </li>
-        </ol>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a href="https://domo.com/api/v1/activites?groupName=&lt;groupName&gt;" rel="noopener" target="_blank">
-            {" "}
-            https://domo.com/api/v1/activites?groupName=&lt;groupName&gt;{" "}
-          </a>{" "}
-          ;{" "}
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Request type**   | **When to use this request type**                                                                                                                                                                                                                                                                                                                                                                              | **Example**                                                                                                                      |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Single URL         | Use this request type when:<br/>You only want to call this endpoint once, and/or<br/>Any path or query parameter values are static, with the exception of date parameters.                                                                                                                                                                                                                                     | [{" "}
+ https://domo.com/api/groups/v1{" "}](https://domo.com/api/groups/v1)                                                     |
+| Dynamic URL        | Use this request type when:<br/>{" "}
+ The API endpoint requires a parameter in the path, for example, the <groupId> value in the example URL,
+ and{" "}<br/>{" "}
+ You want to call this endpoint multiple times with different values of the path parameter in the same dataset.
+ for example, if you would like to call the endpoint once for groupId =2, once for groupId = 3, once for groupId
+ = 4.{" "} | [{" "}
+ https://domo.com/api/groups/v1/<groupId>{" "}](https://domo.com/api/groups/v1/){" "}
+ ;{" "}                             |
+| Dynamic parameters | Use this request when<br/>The API endpoint requires a query parameter, and<br/>{" "}
+ You want to call this endpoint multiple times but with different query parameter values every time. For example,
+ if you want to call the endpoint once with the groupName=”Eastern Sales”, and then again with the groupName=”Northern
+ Territories”{" "}                                                               | [{" "}
+ https://domo.com/api/v1/activites?groupName=<groupName>{" "}](https://domo.com/api/v1/activites?groupName=){" "}
+ ;{" "} |
 
 #### Configuring the Dynamic URL request type
 
@@ -291,89 +137,14 @@ To configure the connector to call an endpoint multiple times with different pat
 
 The following table has sample _JSON File URL_ and _Paste at the end of the URL_ configurations:
 
-<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Endpoint definition </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> JSON file URL </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Path parameter </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Paste at the end of the URL </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a
-            href="https://developer.domo.com/portal/1f17fb4f14577-retrieve-a-group"
-            target="_blank"
-            title="https://domo.com/api/groups/v1/{group_id}"
-          >
-            {" "}
-            https://domo.com/api/groups/v1/{group_id}{" "}
-          </a>
-        </p>
-        <p></p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a href="https://domo.com/api/groups/v1/" rel="noopener" target="_blank">
-            {" "}
-            https://domo.com/api/groups/v1/{" "}
-          </a>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> group_id </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p></p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a
-            href="https://developer.domo.com/portal/4ebc56e4e9771-list-stream-executions"
-            target="_blank"
-            title="https://api.domo.com/v1/streams/{STREAM_ID}/executions"
-          >
-            {" "}
-            https://api.domo.com/v1/streams/{STREAM_ID}/executions{" "}
-          </a>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <a href="https://api.domo.com/v1/streams/" rel="noopener" target="_blank">
-            {" "}
-            https://api.domo.com/v1/streams/{" "}
-          </a>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> stream_id </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> /executions </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Endpoint definition**                                                                                                                      | **JSON file URL**                                                                | **Path parameter** | **Paste at the end of the URL** |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------ | ------------------------------- |
+| [{" "}
+ https://domo.com/api/groups/v1/{group_id}{" "}](https://developer.domo.com/portal/1f17fb4f14577-retrieve-a-group)                    | [{" "}
+ https://domo.com/api/groups/v1/{" "}](https://domo.com/api/groups/v1/)   | group_id           |                                 |
+| [{" "}
+ https://api.domo.com/v1/streams/{STREAM_ID}/executions{" "}](https://developer.domo.com/portal/4ebc56e4e9771-list-stream-executions) | [{" "}
+ https://api.domo.com/v1/streams/{" "}](https://api.domo.com/v1/streams/) | stream_id          | /executions                     |
 
 Configuring the list of values to use for the path parameters is done in the _Values location_ section.
 
@@ -452,79 +223,19 @@ The connector will return all the data available for that endpoint in the Data P
 
 The Advanced Settings section of the connector allows you to configure additional requirements by the API.  The below table provides some guidelines on the options available, but you must check your API documentation to determine if any options apply.
 
-<table border="1" cellpadding="0" cellspacing="0" data-aura-rendered-by="33:201;a">
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Option </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Purpose </b>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Does your JSON text requires a line reader? </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          {" "}
-          If the JSON returned by the API has multiple lines, select “Yes” for this option, or select “No”. You can determine
-          whether the JSON has multiple lines by{" "}
-        </p>
-        <ol>
-          <li> Looking at the API documentation. </li>
-          <li> Looking at the Data Preview in the Parsing section. </li>
-        </ol>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Should backslash characters be escaped? </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p> Select “Yes” if your data includes blackslash (“\n”) characters. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> How will you provide the certificate? </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          {" "}
-          Select one of the available options if the API you are connecting to requires a certificate to connect. Check your
-          API documentation to determine how to get the certificate if needed.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          <b> Do you need to enter a rate limit for this API? </b>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1" valign="top">
-        <p>
-          {" "}
-          Use this option if the API you are connecting limits how many calls to the API you can make over a given period
-          of time. Check your API documentation for this value. You can provide the limit as calls per second, calls per
-          minute or calls per hour.{" "}
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Option**                                          | **Purpose**                                                                                                                                                                                                                                                            |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Does your JSON text requires a line reader?**     | {" "}
+ If the JSON returned by the API has multiple lines, select “Yes” for this option, or select “No”. You can determine
+ whether the JSON has multiple lines by{" "}<br/>Looking at the API documentation.<br/>Looking at the Data Preview in the Parsing section.  |
+| **Should backslash characters be escaped?**         | Select “Yes” if your data includes blackslash (“\n”) characters.                                                                                                                                                                                                       |
+| **How will you provide the certificate?**           | {" "}
+ Select one of the available options if the API you are connecting to requires a certificate to connect. Check your
+ API documentation to determine how to get the certificate if needed.{" "}                                                                   |
+| **Do you need to enter a rate limit for this API?** | {" "}
+ Use this option if the API you are connecting limits how many calls to the API you can make over a given period
+ of time. Check your API documentation for this value. You can provide the limit as calls per second, calls per
+ minute or calls per hour.{" "} |
 
 ## Using the URL Preview Pane
 

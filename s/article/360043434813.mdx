@@ -19,70 +19,12 @@ This connector is nearly identical to the standard Dropbox for Business connecto
 
 This topic discusses the fields and menus that are specific to the Dropbox for Business Advanced connector user interface. For general information about adding DataSets, setting update schedules, and editing DataSet information, see [Adding a DataSet Using a Data Connector](/s/article/360042926274 "Adding a DataSet Using a Data Connector").
 
-<table class="mt-responsive-table" data-aura-rendered-by="33:195;a">
-  <tbody>
-    <tr>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p>
-          <b> Primary Use Cases </b>
-        </p>
-      </td>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p> Use this connector to get information about system usage and make governance decisions. </p>
-      </td>
-    </tr>
-    <tr>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p>
-          <b> Primary Metrics </b>
-        </p>
-      </td>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <ul>
-          <li>
-            <p> Storage usage </p>
-          </li>
-          <li>
-            <p> Membership </p>
-          </li>
-          <li>
-            <p> User activity </p>
-          </li>
-        </ul>
-      </td>
-    </tr>
-    <tr>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p>
-          <b> Primary Company Roles </b>
-        </p>
-      </td>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p> Dropbox system administrator </p>
-      </td>
-    </tr>
-    <tr>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p>
-          <b> Average Implementation Time </b>
-        </p>
-      </td>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p> Less than 1 hour </p>
-      </td>
-    </tr>
-    <tr>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p>
-          <b> Ease of Use (on a 1-to-10 scale with 1 being easiest) </b>
-        </p>
-      </td>
-      <td class="mt-noheading" colspan="1" rowspan="1">
-        <p> 3 </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| **Primary Use Cases**                                     | Use this connector to get information about system usage and make governance decisions. |
+| --------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **Primary Metrics**                                       | Storage usage<br/>Membership<br/>User activity                                          |
+| **Primary Company Roles**                                 | Dropbox system administrator                                                            |
+| **Average Implementation Time**                           | Less than 1 hour                                                                        |
+| **Ease of Use (on a 1-to-10 scale with 1 being easiest)** | 3                                                                                       |
 
 ## Prerequisites
 
@@ -107,25 +49,9 @@ You can manage connector accounts in the **Accounts** tab in the **Data Center**
 
 This pane includes a menu from which you select a report type, along with various configuration options.
 
-<table cellpadding="1" cellspacing="1" data-aura-rendered-by="33:195;a">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Menu </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Report </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Select a Dropbox for Business Advanced report. The following reports are available: </p>
-        <table border="1" cellpadding="1" cellspacing="1">
+| Menu          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report        | Select a Dropbox for Business Advanced report. The following reports are available:<br/><table border="1" cellpadding="1" cellspacing="1">
           <tbody>
             <tr>
               <td colspan="1" rowspan="1">
@@ -220,51 +146,12 @@ This pane includes a menu from which you select a report type, along with variou
               </td>
             </tr>
           </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Start Date </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the start date for the data you want to pull into Domo. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> End Date </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the end date for the data you want to pull into Domo. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> User </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Enter the email ID of the user you want to pull information for. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Category Flag </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Select whether you want to filter your report data using a category. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Category </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Select the category you want to filter your data by. </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        </table> |
+| Start Date    | Enter the start date for the data you want to pull into Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| End Date      | Enter the end date for the data you want to pull into Domo.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| User          | Enter the email ID of the user you want to pull information for.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| Category Flag | Select whether you want to filter your report data using a category.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Category      | Select the category you want to filter your data by.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
 ### Other Panes
 

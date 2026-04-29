@@ -48,32 +48,12 @@ This section enumerates the options in the Credentials and Details panes in the 
 
 This pane contains fields for entering credentials to connect to your Tableau  account. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Domain</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the domain. It is the sub-path of the site's full URL. When you sign into Tableau Server or Tableau Online manually, the domain is the value that appears after <b>https://</b> in the browser address bar. Example: https://<b> Server</b>/#/site/Team/projects Here, the domain is Server.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the username associated with your Tableau account.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Password</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the password associated with your Tableau account.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Site Attribute</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the site attribute. It is the sub-path of the site's full URL. When you sign into Tableau Server or Tableau Online manually, the site attribute is the value that appears after <b>/site/</b> in the browser address bar. Example: <a href="http://Server/#/site/Team/projects">http://Server/#/site/</a><b><a href="http://Server/#/site/Team/projects">Team</a></b><a href="http://Server/#/site/Team/projects">/projects</a>  Here, the site attribute is Team. To specify the default site, enter <b> DEFAULT</b> here.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field          | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Domain         | Enter the domain. It is the sub-path of the site's full URL. When you sign into Tableau Server or Tableau Online manually, the domain is the value that appears after **https://** in the browser address bar. Example: https://**Server**/#/site/Team/projects Here, the domain is Server.                                                                                                                                                                                            |
+| Username       | Enter the username associated with your Tableau account.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Password       | Enter the password associated with your Tableau account.                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Site Attribute | Enter the site attribute. It is the sub-path of the site's full URL. When you sign into Tableau Server or Tableau Online manually, the site attribute is the value that appears after **/site/** in the browser address bar. Example: [http://Server/#/site/](http://Server/#/site/Team/projects)**[Team](http://Server/#/site/Team/projects)**[/projects](http://Server/#/site/Team/projects)  Here, the site attribute is Team. To specify the default site, enter **DEFAULT** here. |
 
 Once you have entered valid Tableau credentials, you can use the same account any time you go to create a new Tableau DataSet. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector Accounts](/s/article/360042926054).
 
@@ -81,28 +61,11 @@ Once you have entered valid Tableau credentials, you can use the same account an
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1"><p></p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Workbook ID</p></td>
-      <td colspan="1" rowspan="1"><p>Select the workbook ID.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View ID</p></td>
-      <td colspan="1" rowspan="1"><p>Select the view ID.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu        | Description             |
+| ----------- | ----------------------- |
+| Report      |                         |
+| Workbook ID | Select the workbook ID. |
+| View ID     | Select the view ID.     |
 
 ### Other Panes
 
@@ -117,20 +80,9 @@ The base URL for this connector is https://{domain}
 </Accordion>
 
 <Accordion title="Which endpoint(s) does each report call in this connector?">
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Report Name</p></th>
-      <th colspan="1" rowspan="1"><p>Endpoint URL</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>View Data</p></td>
-      <td colspan="1" rowspan="1"><p>/api/3.14/sites/{siteId}/views/{viewId}/data</p></td>
-    </tr>
-  </tbody>
-</table>
+| Report Name | Endpoint URL                                 |
+| ----------- | -------------------------------------------- |
+| View Data   | /api/3.14/sites/{siteId}/views/{viewId}/data |
 </Accordion>
 
 <Accordion title="What kind of credentials do I need to power up this connector?">

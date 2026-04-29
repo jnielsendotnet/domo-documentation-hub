@@ -47,7 +47,16 @@ DataSetウォッチドッグは管理ツールキットの一部です。DataSet
 
 ## 使用可能なウォッチドッグ監視タイプ
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> 監視タイプ </p></th><th colspan="1" rowspan="1"><p> 説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> DataSetのエラー数 </p></td><td colspan="1" rowspan="1"> 選択したDataSetの最後の実行でエラーが発生したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"><p> DataFlowのエラー数 </p></td><td colspan="1" rowspan="1"> 選択したDataFlowの最後の実行でエラーが発生したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetの索引時間 </td><td colspan="1" rowspan="1"> 選択したDataSetのインデックス作成期間が、ユーザーが指定した制限時間を超えていないかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> DataSetの最終更新日 </td><td colspan="1" rowspan="1"> 選択したDataSetがユーザーが指定した期間内に実行されたかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 外れ値DataSetの実行回数 </td><td colspan="1" rowspan="1"> 選択したDataSetの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 外れ値DataFlowの実行回数 </td><td colspan="1" rowspan="1"> 選択したDataFlowの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> 行数カウントの変更 </td><td colspan="1" rowspan="1"> 最後の実行と比較して、行数カウントが一定の割合（正または負）で変化したかどうかを確認します。 </td></tr><tr><td colspan="1" rowspan="1"> カスタムクエリ </td><td colspan="1" rowspan="1"> 選択したDataSetに対して、クエリで指定された条件を満たす行があるかどうかを確認します。 </td></tr></tbody></table>
+| 監視タイプ            | 説明                                                         |
+| ---------------- | ---------------------------------------------------------- |
+| DataSetのエラー数     | 選択したDataSetの最後の実行でエラーが発生したかどうかを確認します。                      |
+| DataFlowのエラー数    | 選択したDataFlowの最後の実行でエラーが発生したかどうかを確認します。                     |
+| DataSetの索引時間     | 選択したDataSetのインデックス作成期間が、ユーザーが指定した制限時間を超えていないかどうかを確認します。    |
+| DataSetの最終更新日    | 選択したDataSetがユーザーが指定した期間内に実行されたかどうかを確認します。                  |
+| 外れ値DataSetの実行回数  | 選択したDataSetの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。  |
+| 外れ値DataFlowの実行回数 | 選択したDataFlowの実行時間が、以前の実行時間よりも一定の割合で長くなっているか短くなっているかを確認します。 |
+| 行数カウントの変更        | 最後の実行と比較して、行数カウントが一定の割合（正または負）で変化したかどうかを確認します。             |
+| カスタムクエリ          | 選択したDataSetに対して、クエリで指定された条件を満たす行があるかどうかを確認します。             |
 
 ## 通知設定
 
@@ -93,7 +102,12 @@ Webhookを削除するには、そのWebhookの <img src="/images/kb/ja/ka0Vq000
 
 オプションの設定DataSetで必要な列と列の順序は以下の通りです。
 
-<table border="1" cellpadding="1" cellspacing="1" data-aura-rendered-by="33:207;a"><thead><tr><th colspan="1" rowspan="1"><p> 列名 </p></th><th colspan="1" rowspan="1"><p> 列の説明 </p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1"><p> entity_id </p></td><td colspan="1" rowspan="1"><p> 監視対象のエンティティのID。これは通常、DataSetの概要ページなど、エンティティの詳細ページを表示する際にブラウザーのURLに表示されます。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> entity_type </p></td><td colspan="1" rowspan="1"><p> サポートされている値は、「DATAFLOW」と「DATA_SOURCE」です。 </p></td></tr><tr><td colspan="1" rowspan="1"><p> watcher_type </p></td><td colspan="1" rowspan="1"><p> 以下のタイプがサポートされています。 </p><ul><li> error_detection </li><li> row_count_variance </li><li> execution_variance </li><li> custom_query </li><li> max_indexing_time </li><li> last_data_updated（説明については、監視タイプの段落を参照してください。） </li></ul></td></tr><tr><td colspan="1" rowspan="1"><p> value </p></td><td colspan="1" rowspan="1"><p> 特定の監視タイプに使用される値。 </p><p> 例： </p><pre class="ckeditor_codeblock"> custom_query </pre><p><br/> 監視タイプは、値としてクエリを取得します。 </p><div class="mdx-embed"><Warning><p><b> 重要： </b><pre class="ckeditor_codeblock">error_detection</pre><br/> タイプには値は必要ありません。 </p></Warning></div></td></tr></tbody></table>
+| 列名           | 列の説明                                                                                                                                                                          |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| entity_id    | 監視対象のエンティティのID。これは通常、DataSetの概要ページなど、エンティティの詳細ページを表示する際にブラウザーのURLに表示されます。                                                                                                     |
+| entity_type  | サポートされている値は、「DATAFLOW」と「DATA_SOURCE」です。                                                                                                                                       |
+| watcher_type | 以下のタイプがサポートされています。<br/>error_detection<br/>row_count_variance<br/>execution_variance<br/>custom_query<br/>max_indexing_time<br/>last_data_updated（説明については、監視タイプの段落を参照してください。） |
+| value        | 特定の監視タイプに使用される値。<br/>例：<br/>custom_query<br/><br/> 監視タイプは、値としてクエリを取得します。<br/><Warning><br/>**重要：**error_detection<br/> タイプには値は必要ありません。<br/></Warning>                         |
 
 以下の画像は設定DataSetの例です。
 

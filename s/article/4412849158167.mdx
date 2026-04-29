@@ -170,184 +170,42 @@ You can either use basic data freshness checks or advanced checks for any new or
 
 # Basic Settings
 
-<table
-  border="1"
-  cellpadding="1"
-  cellspacing="1"
-  data-aura-rendered-by="33:200;a"
->
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Update Frequency </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Description </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every 15 minutes </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks every 15 minutes, all day or during the active hours
-          range.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every 30 minutes </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks every 30 minutes, all day or during the active hours
-          range.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every hour </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> Checks every hour, all day or during the active hours range. </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every day </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per day at the specified time, including weekends
-          (Saturday and Sunday).{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every weekday </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per day at the specified time, but not on weekends
-          (Saturday and Sunday).{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every week </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per week on the selected day and at the specified time.{" "}
-          <a id="advanced_settings" target="_blank"></a>
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> Every month </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          {" "}
-          Checks once per month on the selected date at the specified time{" "}
-        </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Update Frequency | Description                                                                                        |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| Every 15 minutes | {" "}
+ Checks every 15 minutes, all day or during the active hours
+ range.{" "}                    |
+| Every 30 minutes | {" "}
+ Checks every 30 minutes, all day or during the active hours
+ range.{" "}                    |
+| Every hour       | Checks every hour, all day or during the active hours range.                                       |
+| Every day        | {" "}
+ Checks once per day at the specified time, including weekends
+ (Saturday and Sunday).{" "}  |
+| Every weekday    | {" "}
+ Checks once per day at the specified time, but not on weekends
+ (Saturday and Sunday).{" "} |
+| Every week       | {" "}
+ Checks once per week on the selected day and at the specified time.{" "}
+ #                 |
+| Every month      | {" "}
+ Checks once per month on the selected date at the specified time{" "}                       |
 
 # Advanced Settings
 
 The advanced data freshness configuration includes the following:
 
-<table
-  border="1"
-  cellpadding="1"
-  cellspacing="1"
-  data-aura-rendered-by="33:200;a"
->
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1">
-        <p> Update Frequency </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Days per week </p>
-      </th>
-      <th colspan="1" rowspan="1">
-        <p> Months </p>
-      </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Once a day — </b> Checks once per day. You can set the time and
-          time zone.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Every day — </b> Checks daily.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Every month — </b> Checks every month.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> More than once a day — </b> Choose how frequently the checks
-          happen using an hour range.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific days of the week — </b> Choose on which days of the week
-          the checks happen.{" "}
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific months — </b> Choose during which months the checks
-          happen.{" "}
-        </p>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1">
-        <p> — </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p>
-          <b> Specific days of the month — </b> Choose on which days of the
-          month the checks happen.{" "}
-          <a id="compare_federated_ca" target="_blank"></a>
-        </p>
-      </td>
-      <td colspan="1" rowspan="1">
-        <p> — </p>
-      </td>
-    </tr>
-  </tbody>
-</table>
+| Update Frequency                                                                              | Days per week                                                                                  | Months                                                                    |
+| --------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| **Once a day —** Checks once per day. You can set the time and
+ time zone.{" "}               | **Every day —** Checks daily.{" "}                                                             | **Every month —** Checks every month.{" "}                                |
+| **More than once a day —** Choose how frequently the checks
+ happen using an hour range.{" "} | **Specific days of the week —** Choose on which days of the week
+ the checks happen.{" "}      | **Specific months —** Choose during which months the checks
+ happen.{" "} |
+| —                                                                                             | **Specific days of the month —** Choose on which days of the
+ month the checks happen.{" "}
+ # | —                                                                         |
 
 ### Federated Data vs. Cloud Integrations
 

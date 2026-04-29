@@ -23,36 +23,13 @@ You connect to NetSuite in the Data Center. This topic discusses the fields and
 
 <Note>**Note:** This connector does not allow you to retrieve already created Saved Searches. If you need to see the same results provided by these Save Search reports in Domo, you should create a new DataSet for each raw table involved in your end results and use Domo’s ETL tools to combine these DataSets.</Note>
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p></p></th>
-      <th colspan="1" rowspan="1"><p></p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Use Cases</b></p></td>
-      <td colspan="1" rowspan="1"><p>Use this connector to pull data from tables you access through NetSuite using custom SQL queries.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Metrics</b></p></td>
-      <td colspan="1" rowspan="1"><p>- Revenue - Cost - Projected Revenue - Customer/Lead Dates</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Primary Company Roles</b></p></td>
-      <td colspan="1" rowspan="1"><p>- Finance (P&L data) - Sales managers</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Average Implementation Time</b></p></td>
-      <td colspan="1" rowspan="1"><p>5-10 hours</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p><b>Ease of Use (on a 1-to-10 scale with 1 being easiest)</b></p></td>
-      <td colspan="1" rowspan="1"><p>6</p></td>
-    </tr>
-  </tbody>
-</table>
+|                                                           |                                                                                                   |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Primary Use Cases**                                     | Use this connector to pull data from tables you access through NetSuite using custom SQL queries. |
+| **Primary Metrics**                                       | - Revenue - Cost - Projected Revenue - Customer/Lead Dates                                        |
+| **Primary Company Roles**                                 | - Finance (P&L data) - Sales managers                                                             |
+| **Average Implementation Time**                           | 5-10 hours                                                                                        |
+| **Ease of Use (on a 1-to-10 scale with 1 being easiest)** | 6                                                                                                 |
 ## Prerequisites
 
 To connect to NetSuite SuiteAnalytics Connect and create a DataSet, you must have the following:
@@ -87,76 +64,27 @@ This section enumerates the options in the **Credentials** and ** Details** 
 
 This pane contains fields for entering credentials to connect to your database. The following table describes what is needed for each field:
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Service Host</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of your NetSuite Service Host. For more information, see "Prerequisites," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Service Port</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your NetSuite Service Port number. For more information, see "Prerequisites," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Service Data Source</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the name of your NetSuite Service Data Source. For more information, see "Prerequisites," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Username</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your NetSuite username.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Password</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your NetSuite password.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Role ID</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your NetSuite Role ID number. For more information, see "Prerequisites," above.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Account ID</p></td>
-      <td colspan="1" rowspan="1"><p>Enter your NetSuite Account ID number. For more information, see "Prerequisites," above.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field               | Description                                                                                            |
+| ------------------- | ------------------------------------------------------------------------------------------------------ |
+| Service Host        | Enter the name of your NetSuite Service Host. For more information, see "Prerequisites," above.        |
+| Service Port        | Enter your NetSuite Service Port number. For more information, see "Prerequisites," above.             |
+| Service Data Source | Enter the name of your NetSuite Service Data Source. For more information, see "Prerequisites," above. |
+| Username            | Enter your NetSuite username.                                                                          |
+| Password            | Enter your NetSuite password.                                                                          |
+| Role ID             | Enter your NetSuite Role ID number. For more information, see "Prerequisites," above.                  |
+| Account ID          | Enter your NetSuite Account ID number. For more information, see "Prerequisites," above.               |
 Once you have entered valid NetSuite SuiteAnalytics Connect credentials, you can use the same account any time you go to create a new NetSuite SuiteAnalytics Connect DataSet. You can manage connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Managing User Accounts for Connectors](/s/article/360042926054).
 
 ### Details Pane
 
 In this pane you create an SQL query to retrieve data from NetSuite database tables.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example:  select \* from Employees  You can see the available columns to use in building a query by selecting the desired table in the <b>Database Tables</b> menu. The columns for that table then appear in the <b> Table Columns</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Database Tables</p></td>
-      <td colspan="1" rowspan="1"><p>Select a database table to see the columns in that table in the <b>Table Columns</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Table Columns</p></td>
-      <td colspan="1" rowspan="1"><p>Browse to see the available columns in the table selected in the <b>Database Tables</b> menu. You can also select columns. Selected columns appear in the sample SQL query in the <b> Query Helper</b> field.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Query Helper</p></td>
-      <td colspan="1" rowspan="1"><p>Use this to help build SQL queries. When you select a column in the <b>Table Columns</b> field, a sample query referencing that column appears in this field. If you select additional columns, those columns are added to the query. You can edit the sample query as desired. Queries you build here can be copied and pasted into the <b> Query</b> field for use in retrieving data.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu            | Description                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Query           | Enter the Structured Query Language (SQL) query to use in selecting the data you want. For example: select \* from Employees You can see the available columns to use in building a query by selecting the desired table in the **Database Tables** menu. The columns for that table then appear in the **Table Columns** field.                                                  |
+| Database Tables | Select a database table to see the columns in that table in the **Table Columns** field.                                                                                                                                                                                                                                                                                          |
+| Table Columns   | Browse to see the available columns in the table selected in the **Database Tables** menu. You can also select columns. Selected columns appear in the sample SQL query in the **Query Helper** field.                                                                                                                                                                            |
+| Query Helper    | Use this to help build SQL queries. When you select a column in the **Table Columns** field, a sample query referencing that column appears in this field. If you select additional columns, those columns are added to the query. You can edit the sample query as desired. Queries you build here can be copied and pasted into the **Query** field for use in retrieving data. |
 ### Other Panes
 
 For information about the remaining sections of the connector interface, including how to configure scheduling, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).

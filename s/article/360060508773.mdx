@@ -22,76 +22,27 @@ This section enumerates the options in the **Credentials** and ** Details** pane
 
 This pane contains fields for entering credentials to connect to your Zendesk Support Connector with Upsert account. The following table describes what is needed for each field:  
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Field</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Zendesk URL</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the Zendesk URL in the format <i>mycompany.zendesk.com</i>. Do not include<i>https://</i>.  Once you enter the Zendesk URL, you will be prompted to enter the Zendesk credentials.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Field       | Description                                                                                                                                                                   |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Zendesk URL | Enter the Zendesk URL in the format *mycompany.zendesk.com*. Do not include*https://*. Once you enter the Zendesk URL, you will be prompted to enter the Zendesk credentials. |
 Once you have entered valid Zendesk Support Connector with Upsert credentials, you can use the same account any time to create a new Zendesk Support Connector with Upsert. You can manage Connector accounts in the **Accounts** tab in the Data Center. For more information about this tab, see [Manage Connector/Adapter Accounts](/s/article/360042926054).
 
 ### Details Pane
 
 This pane contains a primary **Reports** menu, along with various other menus which may or may not appear depending on the report type you select.
 
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Menu</p></th>
-      <th colspan="1" rowspan="1"><p>Description</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Report</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Zendesk Support Connector with Upsert report you want to run. The following reports are available:</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Associated Data</p></td>
-      <td colspan="1" rowspan="1"><p>Select the associated data you want loaded along with the tickets.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Include Attachments</p></td>
-      <td colspan="1" rowspan="1"><p>Specify whether you would like to include the attachments in the results.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users or organizations</p></td>
-      <td colspan="1" rowspan="1"><p>Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated items. If you modify the date after the first run, this date will be used for the next run and the existing data will be replaced.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Date Selection</p></td>
-      <td colspan="1" rowspan="1"><p>Select the Date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users, or organizations.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Single Date</p></td>
-      <td colspan="1" rowspan="1"><p>Select whether the report data is for a specific date or for a relative number of days back from today.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Specific Date</p></td>
-      <td colspan="1" rowspan="1"><p>Select the specific date using the date selector.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Relative Date</p></td>
-      <td colspan="1" rowspan="1"><p>Enter the number of days back that you would like to get data for in the <b>Days Back</b> field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Legacy Schema Selection</p></td>
-      <td colspan="1" rowspan="1"><p>Select this check box to use legacy schema for backward compatibility with the Zendesk Support Connector with Upsert Connector.</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Exclude Deleted Records</p></td>
-      <td colspan="1" rowspan="1"><p>Select this check box to exclude the deleted records from the data.</p></td>
-    </tr>
-  </tbody>
-</table>
+| Menu                                                                                                                                                             | Description                                                                                                                                                                                                                                                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Report                                                                                                                                                           | Select the Zendesk Support Connector with Upsert report you want to run. The following reports are available:                                                                                                                                                       |
+| Associated Data                                                                                                                                                  | Select the associated data you want loaded along with the tickets.                                                                                                                                                                                                  |
+| Include Attachments                                                                                                                                              | Specify whether you would like to include the attachments in the results.                                                                                                                                                                                           |
+| Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users or organizations | Select the date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated items. If you modify the date after the first run, this date will be used for the next run and the existing data will be replaced. |
+| Date Selection                                                                                                                                                   | Select the Date to start retrieving data on the first run. Subsequent runs will automatically retrieve newly created and updated tickets, users, or organizations.                                                                                                  |
+| Single Date                                                                                                                                                      | Select whether the report data is for a specific date or for a relative number of days back from today.                                                                                                                                                             |
+| Specific Date                                                                                                                                                    | Select the specific date using the date selector.                                                                                                                                                                                                                   |
+| Relative Date                                                                                                                                                    | Enter the number of days back that you would like to get data for in the **Days Back** field. Specify either today or 0, yesterday or 1, or today-7 or 7 to get data for 7 days into the past.                                                                      |
+| Legacy Schema Selection                                                                                                                                          | Select this check box to use legacy schema for backward compatibility with the Zendesk Support Connector with Upsert Connector.                                                                                                                                     |
+| Exclude Deleted Records                                                                                                                                          | Select this check box to exclude the deleted records from the data.                                                                                                                                                                                                 |
 ### Other Panes
 
 For information about the remaining sections of the Connector interface, including how to configure schedule, retry, and update options, see [Adding a DataSet Using a Data Connector](/s/article/360042926274).
@@ -105,64 +56,20 @@ The base URL for the Zendesk Support Connector with Upsert Upsert connector is [
 </Accordion>
 
 <Accordion title="Which endpoint(s) does each report call in this connector?">
-<table border="1" cellpadding="1" cellspacing="1">
-  <thead>
-    <tr>
-      <th colspan="1" rowspan="1"><p>Report Name</p></th>
-      <th colspan="1" rowspan="1"><p>Enpoint URL</p></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Brands</p></td>
-      <td colspan="1" rowspan="1"><p>/api/v2/brands.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Organizations</p></td>
-      <td colspan="1" rowspan="1"><p>/incremental/organizations.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Specify Query</p></td>
-      <td colspan="1" rowspan="1"><p>/api/v2/search/export.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Tickets</p></td>
-      <td colspan="1" rowspan="1"><p>/incremental/tickets.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Activities</p></td>
-      <td colspan="1" rowspan="1"><p>/api/v2/activities.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Audits</p></td>
-      <td colspan="1" rowspan="1"><p>/ticket\_audits.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Fields</p></td>
-      <td colspan="1" rowspan="1"><p>/ticket\_fields.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Forms - Agent Conditions</p></td>
-      <td colspan="1" rowspan="1"><p>/ticket\_forms.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Forms - End User Conditions</p></td>
-      <td colspan="1" rowspan="1"><p>/ticket\_forms.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Comments</p></td>
-      <td colspan="1" rowspan="1"><p>/tickets/{currentTicketId}/comments.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Ticket Metric Events</p></td>
-      <td colspan="1" rowspan="1"><p>/incremental/ticket\_metric\_events.json</p></td>
-    </tr>
-    <tr>
-      <td colspan="1" rowspan="1"><p>Users</p></td>
-      <td colspan="1" rowspan="1"><p>/incremental/users.json</p></td>
-    </tr>
-  </tbody>
-</table>
+| Report Name                        | Enpoint URL                              |
+| ---------------------------------- | ---------------------------------------- |
+| Brands                             | /api/v2/brands.json                      |
+| Organizations                      | /incremental/organizations.json          |
+| Specify Query                      | /api/v2/search/export.json               |
+| Tickets                            | /incremental/tickets.json                |
+| Ticket Activities                  | /api/v2/activities.json                  |
+| Ticket Audits                      | /ticket\_audits.json                     |
+| Ticket Fields                      | /ticket\_fields.json                     |
+| Ticket Forms - Agent Conditions    | /ticket\_forms.json                      |
+| Ticket Forms - End User Conditions | /ticket\_forms.json                      |
+| Ticket Comments                    | /tickets/{currentTicketId}/comments.json |
+| Ticket Metric Events               | /incremental/ticket\_metric\_events.json |
+| Users                              | /incremental/users.json                  |
 </Accordion>
 
 <Accordion title="What kind of credentials do I need to power up the this connector?">
