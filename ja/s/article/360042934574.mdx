@@ -2,7 +2,6 @@
 title: "アクティビティログ"
 ---
 
-import {InlineImage} from "/snippets/InlineImage.mdx";
 
 ### はじめに
 
@@ -40,7 +39,7 @@ Domo管理者はアクティビティログを使用して、ユーザーがDomo
 アクティビティログはほぼリアルタイムで更新され、過去1年以内にログに記録されたアクティビティが含まれています。ログを調べる際は、日付範囲やアクションを実行したユーザーでフィルターをかけることができます。さらに、タイプ、イベント、オブジェクトでフィルターをかけて、特定のアクティビティを検索できます。アクティビティログを初めて読み込んだ際、データにはフィルターがかけられており、過去24時間のデータが表示されます。
 
 <Note>
-  **ログを更新する：** <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" /> **［更新］** を選択するとログが再読み込みされ、ページが最後に読み込まれた時点より後にログに記録されたイベントが表示されます。
+  **ログを更新する：** <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000005bfFq.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［更新］** を選択するとログが再読み込みされ、ページが最後に読み込まれた時点より後にログに記録されたイベントが表示されます。
 
 </Note>
 
@@ -66,7 +65,7 @@ DomoStatsのアクティビティログレポートを使用することで、Do
 <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d0bZ.jpg" style={{width: 653, height: 399}}/></Frame>
 インスタンス内のログの数によっては、ダウンロードの処理に数秒から数分かかる場合があります。ダウンロードが正常に完了すると、 **［正常にエクスポートされました］** というメッセージが表示されます。
 
-それから <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EM5w000006uzIS.jpg" /> **［ダウンロード］** を選択して、CSVファイルをお使いのマシンにダウンロードします。
+それから <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EM5w000006uzIS.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［ダウンロード］** を選択して、CSVファイルをお使いのマシンにダウンロードします。
 
 <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bst0.jpg" style={{width: 445, height: 74}}/></Frame>
 <Warning>
@@ -99,7 +98,7 @@ DomoStatsのアクティビティログレポートを使用することで、Do
 
 1. アクティビティログに
    [アクセス](#access_activity_log) します。
-2. <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" /> **［Webhookのアクティビティログ設定］** を選択します。
+2. <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RI3V.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［Webhookのアクティビティログ設定］** を選択します。
 
    <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005d0rh.jpg" style={{width: 899, height: 488}}/></Frame>
    Webhookの設定モーダルが表示されます。
@@ -107,7 +106,7 @@ DomoStatsのアクティビティログレポートを使用することで、Do
    <Frame><img alt="Screenshot 2024-06-10 at 10.15.22 AM.png" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HDZl.jpg" style={{width: 651, height: 472}}/></Frame>
 3. モーダルの次のフィールドに入力します。
    * **ペイロードURL —** これは、アクティビティログイベントの送信先となるWebhookのURLです。
-   * **シークレット —** シークレットにより、ペイロードURLに送信されるデータが、Domoのこのインスタンスから来たものであることをWebhookが検証できます。 <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001HDd0.jpg" /> **［シークレットを表示］または［シークレットを非表示］** を選択できます。
+   * **シークレット —** シークレットにより、ペイロードURLに送信されるデータが、Domoのこのインスタンスから来たものであることをWebhookが検証できます。 <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001HDd0.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［シークレットを表示］または［シークレットを非表示］** を選択できます。
        
      **注記：** Domoはシークレットキーを要求します。ただし、Webhookがシークレットを要求しない場合は、このフィールドに任意の値を入力できます。
 4. （オプション） **［オプションの認証ヘッダー値を適用しますか？］** というラベルの付いたチェックボックスをオンにし、Webhookの認証ヘッダーの値を **［認証ヘッダー］** フィールドに入力します。「Bearer ABC123DEF356」など。
@@ -135,16 +134,16 @@ DomoStatsのアクティビティログレポートを使用することで、Do
    </Warning>
 
 <Frame><img alt="save filter.jpg" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000001HFIE.jpg" style={{width: 651, height: 427}}/></Frame>
-   最近配信されたWebhookのリストがモーダルの下部に表示されます。少なくとも1回配信された後は、 <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000005bfFq-1.jpg" /> **［更新］** を選択して最新のデータを表示できます。
+   最近配信されたWebhookのリストがモーダルの下部に表示されます。少なくとも1回配信された後は、 <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000005bfFq-1.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［更新］** を選択して最新のデータを表示できます。
      
    <Frame><img alt="" src="/images/kb/ka0Vq0000008Oht-00N5w00000Ri7BU-0EMVq000005bnV7.jpg" style={{width: 651, height: 135}}/></Frame>
 これでWebhookの設定は完了です。まもなくイベントの受信が開始されます。各イベントは1回だけ送信されます。何らかの理由で配信できない場合は、再送信されません。
 
 ### イベントのWebhookへの送信を停止する
 
-アクティビティログイベントのWebhookへの送信を停止するには、 <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RI8L.jpg" /> **［Webhookのアクティビティログ設定］** を選択して、Webhookの設定モーダルを開きます。
+アクティビティログイベントのWebhookへの送信を停止するには、 <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RI8L.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［Webhookのアクティビティログ設定］** を選択して、Webhookの設定モーダルを開きます。
 
-モーダル内の［ペイロードURL］の上にある <InlineImage src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RIBZ.jpg" /> **［削除］** を選択します。
+モーダル内の［ペイロードURL］の上にある <img src="/images/kb/ja/ka0Vq0000008YxN-00N5w00000Ri7BU-0EMVq000001RIBZ.jpg" style={{width: 20, height: 20, display: 'inline', verticalAlign: 'start', margin: '0'}}/> **［削除］** を選択します。
 
 [このページのトップへ](#intro)
 
